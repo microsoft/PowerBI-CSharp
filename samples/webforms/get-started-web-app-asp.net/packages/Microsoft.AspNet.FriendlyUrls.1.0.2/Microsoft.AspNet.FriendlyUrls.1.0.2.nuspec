@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.FriendlyUrls</id>
+    <version>1.0.2</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_ENU.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Adds a mobile master page and a view switcher user control to enable switching between mobile and desktop views using ASP.NET Friendly URLs.
+            Note: This package contains content for C# Web Application Projects (WAPs) only.</description>
+    <tags>Microsoft AspNet</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="Microsoft.AspNet.FriendlyUrls.Core" version="1.0.2" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.ScriptManager.WebForms</id>
+    <version>5.0.0</version>
+    <title>Microsoft.AspNet.ScriptManager.WebForms</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_enu.htm</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This package contains the Microsoft.ScriptManager.WebForms assembly that will automatically register the Microsoft Ajax optimization bundle for Web Forms with ScriptManager.</description>
+    <language>en-US</language>
+  </metadata>
+</package>

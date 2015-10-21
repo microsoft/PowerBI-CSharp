@@ -1,0 +1,11 @@
+﻿<configuration>
+  <system.web>
+	<pages>
+    <controls>
+      <add assembly="Microsoft.AspNet.Web.Optimization.WebForms"
+           namespace="Microsoft.AspNet.Web.Optimization.WebForms"
+           tagPrefix="webopt" />
+    </controls>
+	</pages>
+  </system.web>
+</configuration>

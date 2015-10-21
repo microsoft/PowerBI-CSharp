@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AspNet.ScriptManager.bootstrap</id>
+    <version>3.0.0</version>
+    <title>AspNet.ScriptManager.bootstrap</title>
+    <authors>Pranav Rastogi</authors>
+    <owners>Pranav Rastogi</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package contains the AspNet.ScriptManager.bootstrap assembly that will automatically  register bootstrap 3.0.0 with the ScriptManager as "bootstrap".</description>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="bootstrap" version="[3.0.0, 3.0.1)" />
+    </dependencies>
+  </metadata>
+</package>

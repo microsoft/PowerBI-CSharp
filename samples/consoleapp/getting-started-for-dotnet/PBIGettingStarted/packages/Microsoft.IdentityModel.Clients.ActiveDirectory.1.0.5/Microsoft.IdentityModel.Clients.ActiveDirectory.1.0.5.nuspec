@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.IdentityModel.Clients.ActiveDirectory</id>
+    <version>1.0.5</version>
+    <title>Active Directory Authentication Library</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://go.microsoft.com/fwlink/?LinkID=320301</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkId=258232</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>This package contains the main assembly for the Active Directory Authentication Library (ADAL). ADAL provides easy to use authentication functionality for your .NET client apps by taking advantage of Active Directory or Windows Azure Active Directory.</description>
+    <summary>This package contains the main assembly for the Active Directory Authentication Library (ADAL). ADAL provides easy to use authentication functionality for your .NET client apps by taking advantage of Active Directory or Windows Azure Active Directory.</summary>
+    <copyright>Copyright 2014</copyright>
+    <language>en-US</language>
+    <tags>Active Directory Authentication Library ADAL Directory Windows Azure AD AAD Identity</tags>
+  </metadata>
+</package>
