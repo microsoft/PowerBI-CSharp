@@ -118,7 +118,7 @@ namespace PBIGettingStarted
 
             CreateDataset(groupId);
 
-            string groupDatasetId = GetDatasets(groupId).value.First(d=>d.name == datasetName).id;
+            string groupDatasetId = GetDatasets(groupId).Result.value.First(d=>d.name == datasetName).id;
 
             Console.WriteLine();
             Console.WriteLine("Dataset created");
@@ -128,7 +128,7 @@ namespace PBIGettingStarted
             Console.WriteLine("Press Enter key to get Datasets in a Group:");
             Console.ReadLine();
 
-            var groupDatasets = GetDatasets(groupId).value;
+            var groupDatasets = GetDatasets(groupId).Result.value;
             foreach (Dataset ds in datasets)
             {
                 Console.WriteLine(String.Format("id: {0} Name: {1}", ds.id, ds.name));
@@ -139,7 +139,7 @@ namespace PBIGettingStarted
             Console.WriteLine("Press Enter key to get Tables in a Dataset in a Group:");
             Console.ReadLine();
 
-            var groupTables = GetTables(groupId, groupDatasetId).value;
+            var groupTables = GetTables(groupId, groupDatasetId).Result.value;
             foreach (Table table in groupTables)
             {
                 Console.WriteLine(String.Format("Name: {0}", table.name));
@@ -210,11 +210,28 @@ namespace PBIGettingStarted
         //Groups: The Create Dataset operation can also create a dataset in a group
         //POST https://api.PowerBI.com/v1.0/myorg/groups/{group_id}/datasets
         //Create Dataset operation: https://msdn.microsoft.com/en-US/library/mt203562(Azure.100).aspx
-        static void CreateDataset(string groupId)
+        static async Task CreateDataset(string groupId)
         {
-            throw new NotImplementedException("groupId not implemented");
-            //In a production application, use more specific exception handling.           
-            
+            try
+            {
+                var datasetsClient = new DatasetsClient(pbi);
+
+                Dataset ds = (await datasetsClient.List(groupId)).value.First(d => d.name == datasetName);
+
+                if (ds == null)
+                {
+                    //create a dataset using the schema from Product
+                    await datasetsClient.Create<Product>(groupId, datasetName, false);
+                }
+                else
+                {
+                    Console.WriteLine("Dataset exists");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         //The Get Datasets operation returns a JSON list of all Dataset objects that includes a name and id.
@@ -229,9 +246,10 @@ namespace PBIGettingStarted
         //Groups: The Get Datasets operation can also get datasets in a group
         //GET https://api.powerbi.com/v1.0/myorg/groups/{group_id}/datasets
         //Get Dataset operation: https://msdn.microsoft.com/en-US/library/mt203567.aspx
-        static Datasets GetDatasets(string groupId)
+        static async Task<Datasets> GetDatasets(string groupId)
         {
-            throw new NotImplementedException("groupId not implemented");
+            DatasetsClient client = new DatasetsClient(pbi);
+            return await client.List(groupId);
         }
 
         //The Get Tables operation returns a JSON list of Tables for the specified Dataset.
@@ -246,9 +264,10 @@ namespace PBIGettingStarted
         //Groups: The Get Tables operation returns a JSON list of Tables for the specified Dataset in a Group.
         //GET https://api.powerbi.com/v1.0/myorg/groups/{group_id}/datasets/{dataset_id}/tables
         //Get Tables operation: https://msdn.microsoft.com/en-US/library/mt203556.aspx
-        static Tables GetTables(string groupId, string datasetId)
+        static async Task<Tables> GetTables(string groupId, string datasetId)
         {
-            throw new NotImplementedException("groupId not implemented");
+            var client = new DatasetsClient(pbi);
+            return await client.ListTables(groupId, datasetId);
         }
 
         //The Add Rows operation adds Rows to a Table in a Dataset.
@@ -286,7 +305,29 @@ namespace PBIGettingStarted
         //Add Rows operation: https://msdn.microsoft.com/en-US/library/mt203561.aspx
         static void AddRows(string groupId, string datasetId, string tableName)
         {
-            throw new NotImplementedException("groupId not implemented");
+            //In a production application, use more specific exception handling. 
+            try
+            {
+                var datasetClient = new DatasetsClient(pbi);
+                //Create a list of Product
+                List<Product> products = new List<Product>
+                {
+                    new Product{ProductID = 1, Name="Adjustable Race", Category="Components", IsCompete = true, ManufacturedOn = new DateTime(2014, 7, 30)},
+                    new Product{ProductID = 2, Name="LL Crankarm", Category="Components", IsCompete = true, ManufacturedOn = new DateTime(2014, 7, 30)},
+                    new Product{ProductID = 3, Name="HL Mountain Frame - Silver", Category="Bikes", IsCompete = true, ManufacturedOn = new DateTime(2014, 7, 30)},
+                };
+                var tableRows = new TableRows<Product>();
+                tableRows.rows = products;
+
+                //POST request using the json from a list of Product
+                //NOTE: Posting rows to a model that is not created through the Power BI API is not currently supported. 
+                //      Please create a dataset by posting it through the API following the instructions on http://dev.powerbi.com.
+                datasetClient.AddRows<Product>(groupId, datasetId, tableName, tableRows);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         //The Delete Rows operation deletes Rows from a Table in a Dataset.
@@ -303,7 +344,8 @@ namespace PBIGettingStarted
         //Delete Rows operation: https://msdn.microsoft.com/en-US/library/mt238041.aspx
         static void DeleteRows(string groupId, string datasetId, string tableName)
         {
-            throw new NotImplementedException("groupId not implemented");
+            var datasetClient = new DatasetsClient(pbi);
+            datasetClient.ClearRows(groupId, datasetId, tableName);
         }
 
         //The Update Table Schema operation updates a Table schema in a Dataset.
@@ -321,7 +363,8 @@ namespace PBIGettingStarted
         //Update Table Schema operation: https://msdn.microsoft.com/en-US/library/mt203560.aspx
         static void UpdateTableSchema(string groupId, string datasetId, string tableName)
         {
-            throw new NotImplementedException("groupId not implemented");
+            var datasetsClient = new DatasetsClient(pbi);
+            datasetsClient.UpdateTableSchema<Product2>(groupId, datasetId, tableName);
         }
 
         //The Get Groups operation returns a JSON list of all the Groups that the signed in user is a member of. 
