@@ -189,7 +189,7 @@ namespace PBIGettingStarted
             {
                 var datasetsClient = new DatasetsClient(pbi);
 
-                Dataset ds = (await datasetsClient.List()).value.First(d=>d.name == datasetName);
+                Dataset ds = (await datasetsClient.List()).value.FirstOrDefault(d=>d.name == datasetName);
 
                 if (ds == null)
                 {
