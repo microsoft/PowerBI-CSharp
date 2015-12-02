@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Microsoft.AspNet.FriendlyUrls</name>
+  </assembly>
+  <members>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.FriendlyUrl"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.FriendlyUrl.Href(System.String,System.Object[])"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.FriendlyUrl.Resolve(System.String)">
+      <summary> Resolves a file handler virtual path to a friendly URL using the registered resolvers. </summary>
+      <returns>The friendly URL.</returns>
+      <param name="virtualPath">The handler virtual path.</param>
+    </member>
+    <member name="P:Microsoft.AspNet.FriendlyUrls.FriendlyUrl.Segments">
+      <summary> The URL segments left over after Friendly URLs mapped this request to a file. </summary>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings">
+      <summary>Represents the settings used when enabling Friendly URLs.</summary>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings.#ctor">
+      <summary>Creates a new instance of the FriendlyUrlSettings class with the default values.</summary>
+    </member>
+    <member name="P:Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings.AutoRedirectMode">
+      <summary>The type of redirect to perform on non-friendly URLs to friendly URLs. Defaults to Off.</summary>
+      <returns>Returns <see cref="T:Microsoft.AspNet.FriendlyUrls.RedirectMode" />.</returns>
+    </member>
+    <member name="P:Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings.ResolverCachingMode">
+      <summary>The mode of caching to use when resolving friendly Urls. Defaults to ResolverCachingMode.Static.</summary>
+      <returns>Returns <see cref="T:Microsoft.AspNet.FriendlyUrls.ResolverCachingMode" />.</returns>
+    </member>
+    <member name="P:Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings.SwitchViewRouteName">
+      <summary>The name of the route that handles user requests to switch views. Defaults to "AspNet.FriendlyUrls.SwitchView".</summary>
+      <returns>Returns <see cref="T:System.String" />.</returns>
+    </member>
+    <member name="P:Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings.SwitchViewUrl">
+      <summary>The URL that view switching request are sent to. Defaults to "__FriendlyUrls_SwitchView/{view}".</summary>
+      <returns>Returns <see cref="T:System.String" />.</returns>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions">
+      <summary>Provides extension methods for working with Friendly URLs.</summary>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions.GetFriendlyUrlFileExtension(System.Web.HttpRequest)">
+      <summary> Returns the extension of the file Friendly URLs mapped this request to. </summary>
+      <returns>The file extension, e.g. .aspx.</returns>
+      <param name="httpRequest">The HttpRequest object.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions.GetFriendlyUrlFileExtension(System.Web.HttpRequestBase)">
+      <summary> Returns the extension of the file Friendly URLs mapped this request to. </summary>
+      <returns>The file extension, e.g. .aspx.</returns>
+      <param name="httpRequest">The HttpRequestBase object.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions.GetFriendlyUrlFileVirtualPath(System.Web.HttpRequest)">
+      <summary> Returns the virtual path of the file Friendly URLs mapped this request to. </summary>
+      <returns>The file virtual path.</returns>
+      <param name="httpRequest">The HttpRequest object.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions.GetFriendlyUrlFileVirtualPath(System.Web.HttpRequestBase)">
+      <summary> Returns the virtual path of the file Friendly URLs mapped this request to. </summary>
+      <returns>The file virtual path.</returns>
+      <param name="httpRequest">The HttpRequestBase object.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions.GetFriendlyUrlSegments(System.Web.HttpRequest)">
+      <summary> Returns the URL segments left over after Friendly URLs mapped this request to a file. </summary>
+      <returns>The URL segments.</returns>
+      <param name="httpRequest">The HttpRequest object.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.HttpRequestExtensions.GetFriendlyUrlSegments(System.Web.HttpRequestBase)">
+      <summary> Returns the URL segments left over after Friendly URLs mapped this request to a file. </summary>
+      <returns>The URL segments.</returns>
+      <param name="httpRequest">The HttpRequestBase object.</param>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.PreApplicationStartCode"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.PreApplicationStartCode.Start"></member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.RedirectMode">
+      <summary>Represents the mode of redirect to use when auto-redirecting to friendly URLs.</summary>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.RedirectMode.Permanent">
+      <summary>Performs a permanent redirect (301 response code).</summary>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.RedirectMode.Temporary">
+      <summary>Performs a temporary redirect (302 response code).</summary>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.RedirectMode.Off">
+      <summary>Performs no auto-redirect (disabled).</summary>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.ResolverCachingMode">
+      <summary>Represents the mode of caching to use when resolving URLs. This setting affects how quickly extension-less URLs can be mapped back to their corresponding files (such as .aspx).</summary>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.ResolverCachingMode.Static">
+      <summary>Build a list of files at application startup. This mode of operation is appropriate for sites where files are not added or removed at runtime.</summary>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.ResolverCachingMode.Dynamic">
+      <summary>Build a list of files as requests come in, and update that list as files in the site change. This mode of operation uses more memory than a static cache, but it is appropriate for sites where files or directories are added or removed at runtime.</summary>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.ResolverCachingMode.Disabled">
+      <summary>Don't perform any caching. Always query the file system directly every time a request to a friendly URL comes in.</summary>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.RouteCollectionExtensions"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.RouteCollectionExtensions.EnableFriendlyUrls(System.Web.Routing.RouteCollection)">
+      <summary> Enables friendly URLs for Web Forms pages. </summary>
+      <param name="routes">The routes collection.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.RouteCollectionExtensions.EnableFriendlyUrls(System.Web.Routing.RouteCollection,Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings)">
+      <summary>Enables friendly URLs for Web Forms pages.</summary>
+      <param name="routes">The routes collection.</param>
+      <param name="settings">The settings to use when enabling Friendly Urls.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.RouteCollectionExtensions.EnableFriendlyUrls(System.Web.Routing.RouteCollection,Microsoft.AspNet.FriendlyUrls.FriendlyUrlSettings,Microsoft.AspNet.FriendlyUrls.Resolvers.IFriendlyUrlResolver[])">
+      <summary> Enables friendly URLs using the passed resolvers. </summary>
+      <param name="routes">The routes collection.</param>
+      <param name="settings">The settings to use when enabling Friendly Urls.</param>
+      <param name="resolvers">The friendly URL resolvers to use.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.RouteCollectionExtensions.EnableFriendlyUrls(System.Web.Routing.RouteCollection,Microsoft.AspNet.FriendlyUrls.Resolvers.IFriendlyUrlResolver[])">
+      <summary> Enables friendly URLs using the specified resolvers. </summary>
+      <param name="routes">The routes collection.</param>
+      <param name="resolvers">The friendly URL resolvers to use.</param>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.Resolvers.FriendlyUrlResolver">
+      <summary>Resolves a friendly URL to an HTTP handler.</summary>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.FriendlyUrlResolver.#ctor(System.String)">
+      <summary>Creates a FriendlyUrlResolver for the provided extension.</summary>
+      <param name="fileExtension">The physical file extension understood by this resolver. Must include the leading period, e.g. ".aspx".</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.FriendlyUrlResolver.ConvertToFriendlyUrl(System.String)">
+      <summary>Converts a URL with a file extension into a friendly extension-less URL.</summary>
+      <returns>The friendly URL (extension stripped) if this resolver can automatically map extensionless URLs to physical files with the provided extension. Otherwise, null.</returns>
+      <param name="path">The original path, including the file extension.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.FriendlyUrlResolver.GetExtensions(System.Web.HttpContextBase)">
+      <summary>Gets the file extensions to use (such as .aspx, .ashx, or .mobile.aspx) while attempting to resolve an HTTP handler from the friendly URL.</summary>
+      <returns>The list of extensions.</returns>
+      <param name="httpContext">The current HttpContext.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.FriendlyUrlResolver.PreprocessRequest(System.Web.HttpContextBase,System.Web.IHttpHandler)"></member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.Resolvers.GenericHandlerFriendlyUrlResolver">
+      <summary>Resolves friendly URLs to generic handlers (such as .ashx).</summary>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.GenericHandlerFriendlyUrlResolver.#ctor"></member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.Resolvers.IFriendlyUrlResolver"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.IFriendlyUrlResolver.ConvertToFriendlyUrl(System.String)">
+      <summary>Converts a URL with a file extension into a friendly extension-less URL.</summary>
+      <returns>The friendly URL (extension stripped) if this resolver can automatically map extensionless URLs to physical files with the provided extension. Otherwise, null.</returns>
+      <param name="path">The original path, including the file extension.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.IFriendlyUrlResolver.GetExtensions(System.Web.HttpContextBase)">
+      <summary>Returns a list of file extensions that the Friendly URLs system will try to resolve for the current request. For example, if the current request is for "~/example" and the GetExtensions method returns [ ".mobile.aspx", ".aspx", ".en-us.aspx" ], then the Friendly URLs system will attempt to match the current request to the files "~/example.mobile.aspx", "~/example.aspx", and "~/example.en-us.aspx", returning the first match.</summary>
+      <returns>A list of extensions that the system should try to resolve.</returns>
+      <param name="httpContext">The current request.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.IFriendlyUrlResolver.PreprocessRequest(System.Web.HttpContextBase,System.Web.IHttpHandler)">
+      <summary>Provides the ability to inspect or modify the IHttpHandler that was resolved for the current request before the handler's ProcessRequest method is called.</summary>
+      <param name="httpContext">Information about the current request.</param>
+      <param name="httpHandler">The handler that will be invoked.</param>
+    </member>
+    <member name="T:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver">
+      <summary>Resolves friendly URLs to Web Forms pages.</summary>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.#ctor"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.GetExtensions(System.Web.HttpContextBase)">
+      <returns>Returns <see cref="T:System.Collections.Generic.IList`1" />.</returns>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.IsMobileExtension(System.Web.HttpContextBase,System.String)">
+      <returns>Returns <see cref="T:System.Boolean" />.</returns>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.IsMobileView(System.Web.HttpContextBase)">
+      <summary>Determines if the current friendly URL was resolved to a mobile view based on the client browser and/or overrides.</summary>
+      <returns>Whether the current view is a mobile view.</returns>
+      <param name="httpContext">The page.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.PreprocessRequest(System.Web.HttpContextBase,System.Web.IHttpHandler)"></member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.TrySetMasterPageFile(System.Web.UI.Page,System.String)">
+      <summary>Attempts to set the MasterPageFile property for the given page based on whether the master page exists.</summary>
+      <returns>A boolean value indicating whether the master page was set.</returns>
+      <param name="page">The page.</param>
+      <param name="masterPageFile">The master page file virtual path.</param>
+    </member>
+    <member name="M:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.TrySetMobileMasterPage(System.Web.HttpContextBase,System.Web.UI.Page,System.String)">
+      <summary>Attempts to set the MasterPageFile property for the given page to a mobile specific master page.</summary>
+      <returns>A boolean value indicating whether the master page was set.</returns>
+      <param name="httpContext">The HTTP context.</param>
+      <param name="page">The page.</param>
+    </member>
+    <member name="F:Microsoft.AspNet.FriendlyUrls.Resolvers.WebFormsFriendlyUrlResolver.ViewSwitcherCookieName"></member>
+  </members>
+</doc>
