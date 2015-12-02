@@ -1,14 +1,3 @@
-# ASP.NET-web-app-sample
+# Integrate a tile into an app
+Integrate a Power BI tile enable application developers to integrate Power BI tiles from a user's power BI account by embedding an IFrame into an app, such as a mobile app or web app. 
 
-The Power BI web sample shows you how to
-
-- Register a Power BI ASP.NET web app in Azure AD.
-- Create a simple Power BI web app that authenticate to Azure AD.
-
-	- Configure Power BI settings authenticate with Azure AD.
-	- Create a **query string** to authenticate with Azure AD.
-	- Use **Response.Redirect**() to redirect to the **Azure AD** authentication service. 
-	- Get the authentication code sent from Azure AD, and get the authentication token from the authentication code.
-	- call a Power BI REST operation using an Azure SD access token.
-
-See complete [ASP.NET web app sample](https://msdn.microsoft.com/en-US/library/mt143610.aspx) article on MSDN.
