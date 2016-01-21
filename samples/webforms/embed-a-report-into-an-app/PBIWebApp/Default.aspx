@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PBIWebApp._Default" %>
+﻿<%@ Page Title="Home Page" Async="true" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PBIWebApp._Default" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <!-- Sign in -->
@@ -50,15 +50,16 @@
             <p><b class="step">Step 3</b>: Embed a report</p>
             <table>
                 <tr><td>Enter an embed url for a report from Step 2 (starts with https://):<br />
-                    <input type="text" id="tb_EmbedURL" style="width: 1024px;" />
+                    <asp:TextBox ID="txtEmbedUrl" runat="server" />
             <tr>
                 <td>
-                    <input type="button" id="bEmbedReportAction" value="Embed Report" />
+                    <asp:Button ID="btnEmbed" OnClick="btnEmbed_Click" Text="Embed Report" runat="server" />
                 </td>
             </tr>
                 <tr>
                     <td>
-                        <iframe ID="iFrameEmbedReport" src="" height="768px" width="1024px" frameborder="1" seamless></iframe>
+                        <powerbi:Token ID="pbiToken" runat="server" />
+                        <powerbi:Report id="pbiReport" CssClass="report" runat="server" Visible="false" />
                     </td>
                 </tr>
         </table>

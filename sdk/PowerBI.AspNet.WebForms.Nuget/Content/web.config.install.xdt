@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings xdt:Transform="InsertIfMissing">
+  </appSettings>
+  <appSettings>
+    <add key="powerbi:ClientId" value="{{ClientID}}" xdt:Transform="Insert" />
+    <add key="powerbi:ClientSecret" value="{{ClientSecret}}" xdt:Transform="Insert" />
+    <add key="powerbi:Issuer" value="{{Issuer}}" xdt:Transform="Insert" />
+    <add key="powerbi:RedirectUri" value="{{RedirectUri}}" xdt:Transform="Insert" />
+  </appSettings>
+  <system.web>
+    <pages>
+      <controls>
+        <add assembly="Microsoft.PowerBI.AspNet.WebForms" namespace="Microsoft.PowerBI.AspNet.WebForms.UI.WebControls" tagPrefix="powerbi" xdt:Transform="Insert" />
+      </controls>
+    </pages>
+  </system.web>
+</configuration>

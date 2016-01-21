@@ -1,0 +1,9 @@
+﻿@model MvcApp.Models.DashboardsViewModel
+
+<div>
+    <h2>Dashboards</h2>
+    @foreach (var dashboard in Model.Dashboards)
+    {
+        <div>@Html.ActionLink(dashboard.DisplayName, "Dashboard", new { dashboardId = dashboard.Id })</div>
+    }
+</div>

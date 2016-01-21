@@ -1,0 +1,46 @@
+﻿@model MvcApp.Models.ReportViewModel
+<div>
+    <h2>@Model.Report.Name</h2>
+    @Html.PowerBIAccessToken()
+    @Html.PowerBIReportFor(m => m.Report, new { @class = "report" })
+    <div class="message">Loading...</div>
+    <div>
+        <button onclick="toggleFullscreen()">Toggle Fullscreen</button>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(function () {
+            var start = new Date();
+
+            // Example binding to the tile click event
+            $('[powerbi-report').on('embed-init', function (e) {
+                var message = e.currentTarget.parentElement.querySelector('.message');
+                if (message) {
+                    message.innerHTML = 'Loading...';
+                }
+            });
+
+            // Example binding to the tile load event
+            $('[powerbi-report]').on('report-load', function (e) {
+                var now = new Date();
+                var elasped = now - start;
+
+                var message = e.currentTarget.parentElement.querySelector('.message');
+                if (message) {
+                    message.innerHTML = 'Loaded (' + (elasped / 1000) + ' seconds)';
+                }
+            });
+        });
+
+        function toggleFullscreen() {
+            var report = powerbi.get($('.report')[0]);
+            if (report.isFullscreen()) {
+                report.exitFullscreen();
+            } else {
+                report.fullscreen();
+            }
+        }
+    </script>
+}

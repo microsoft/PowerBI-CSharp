@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Microsoft.PowerBI.Api.Beta.PowerBIClient">
+    <Position X="0.5" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>IgAAAEAAAAAEAQAAAAAAAQAACIAEAAAAAQABAAAAAAA=</HashCode>
+      <FileName>Source\Beta\PowerBIClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Microsoft.PowerBI.Api.IDashboard">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDashboard.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.IReport">
+    <Position X="2.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAQAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IReport.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.ITile">
+    <Position X="4.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITile.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.Beta.IDashboards">
+    <Position X="0.5" Y="10.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAIGAAICAAIAAAAABAAABgAAgEAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Source\Beta\IDashboards.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.Beta.IReports">
+    <Position X="0.5" Y="7.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Source\Beta\IReports.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.Beta.IGateways">
+    <Position X="4.5" Y="7.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Source\Beta\IGateways.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.Beta.IGroups">
+    <Position X="0.5" Y="9" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Source\Beta\IGroups.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.PowerBI.Api.Beta.IDatasets">
+    <Position X="4.5" Y="10.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>EIAAAAAAAAAAACAAAAAIAAAAChBAQAAAAABEAAgAAAA=</HashCode>
+      <FileName>Source\Beta\IDatasets.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

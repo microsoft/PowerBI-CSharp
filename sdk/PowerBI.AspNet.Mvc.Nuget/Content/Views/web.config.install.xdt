@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.web.webPages.razor>
+    <pages>
+      <namespaces>
+        <add namespace="Microsoft.PowerBI.AspNet.Mvc.Html" xdt:Transform="Insert"/>
+      </namespaces>
+    </pages>
+  </system.web.webPages.razor>
+  <system.web>
+    <compilation>
+      <assemblies>
+        <add assembly="Microsoft.PowerBI.AspNet.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" xdt:Transform="Insert" />
+      </assemblies>
+    </compilation>
+  </system.web>
+</configuration>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>181aaa98-e219-4879-8a4c-03610c2f00a9</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NuProjPath Condition=" '$(NuProjPath)' == '' ">$(MSBuildExtensionsPath)\NuProj\</NuProjPath>
+  </PropertyGroup>
+  <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
+  <PropertyGroup Label="Configuration">
+    <Id>Microsoft.PowerBI.WebForms</Id>
+    <Version>1.0.0-preview</Version>
+    <Title>Microsoft Power BI for WebForms</Title>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Summary>ASP.NET WebForms Controls for Power BI</Summary>
+    <Description>A suite of ASP.NET webforms controls for integrating Power BI</Description>
+    <ReleaseNotes>
+    </ReleaseNotes>
+    <ProjectUrl>https://github.com/Microsoft/PowerBI-CSharp</ProjectUrl>
+    <LicenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</LicenseUrl>
+    <Copyright>Copyright (c) Microsoft Corporation</Copyright>
+    <Tags>Microsoft Power BI ASP.NET WebForms</Tags>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerBI.AspNet.WebForms\PowerBI.AspNet.WebForms.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\App_Start\Startup.PowerBI.cs.pp" />
+    <Content Include="Content\web.config.install.xdt" />
+    <Content Include="Content\web.config.uninstall.xdt" />
+  </ItemGroup>
+  <Import Project="$(NuProjPath)\NuProj.targets" />
+</Project>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PowerBI.AspNet.Mvc\PowerBI.AspNet.Mvc.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\App_Start\Startup.PowerBI.cs.pp" />
+    <Content Include="Content\Views\web.config.install.xdt" />
+    <Content Include="Content\Views\web.config.uninstall.xdt" />
+    <Content Include="Content\web.config.install.xdt" />
+    <Content Include="Content\web.config.uninstall.xdt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>860cdf64-6545-4b2f-bfc9-d25176434449</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NuProjPath Condition=" '$(NuProjPath)' == '' ">$(MSBuildExtensionsPath)\NuProj\</NuProjPath>
+  </PropertyGroup>
+  <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
+  <PropertyGroup Label="Configuration">
+    <Id>Microsoft.PowerBI.Mvc</Id>
+    <Version>1.0.0-preview</Version>
+    <Title>Microsoft Power BI for ASP.NET MVC</Title>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Summary>ASP.NET MVC Helpers for Power BI</Summary>
+    <Description>A suite of ASP.NET MVC helpers for integrating Power BI</Description>
+    <ReleaseNotes>
+    </ReleaseNotes>
+    <ProjectUrl>https://github.com/Microsoft/PowerBI-CSharp</ProjectUrl>
+    <LicenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</LicenseUrl>
+    <Copyright>Copyright (c) Microsoft Corporation</Copyright>
+    <Tags>Microsoft Power BI ASP.NET MVC</Tags>
+  </PropertyGroup>
+  <Import Project="$(NuProjPath)\NuProj.targets" />
+</Project>

@@ -182,5 +182,41 @@ namespace PBIWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelEmbedTile;
+        
+        /// <summary>
+        /// txtTileId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTileId;
+        
+        /// <summary>
+        /// embedButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button embedButton;
+        
+        /// <summary>
+        /// pbiToken control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.PowerBI.AspNet.WebForms.UI.WebControls.Token pbiToken;
+        
+        /// <summary>
+        /// pbiTile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.PowerBI.AspNet.WebForms.UI.WebControls.Tile pbiTile;
     }
 }
