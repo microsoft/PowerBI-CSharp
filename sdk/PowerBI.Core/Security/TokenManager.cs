@@ -45,15 +45,8 @@ namespace Microsoft.PowerBI.Security
         /// <param name="accessToken"></param>
         public void WriteToken(IIdentity identity, string accessToken)
         {
-            if(identity == null)
-            {
-                throw new ArgumentNullException("identity");
-            }
-
-            if (string.IsNullOrWhiteSpace(accessToken))
-            {
-                throw new ArgumentNullException("accessToken");
-            }
+            Guard.ValidateObjectNotNull(identity, "identity");
+            Guard.ValidateString(accessToken, "accesstoken");
 
             this.writeTokenAction(identity, accessToken);
         }
@@ -65,11 +58,7 @@ namespace Microsoft.PowerBI.Security
         /// <returns></returns>
         public string ReadToken(IIdentity identity)
         {
-            if (identity == null)
-            {
-                throw new ArgumentNullException("identity");
-            }
-
+            Guard.ValidateObjectNotNull(identity, "identity");
             return this.readTokenFactory(identity);
         }
 
@@ -90,12 +79,7 @@ namespace Microsoft.PowerBI.Security
         /// <param name="readTokenFactory">The strategy expression used to read tokens</param>
         public void SetTokenReader(Func<IIdentity, string> readTokenFactory)
         {
-            if (readTokenFactory == null)
-            {
-                throw new ArgumentNullException("readTokenFactory");
-
-            }
-
+            Guard.ValidateObjectNotNull(readTokenFactory, "readTokenFactory");
             this.readTokenFactory = readTokenFactory;
         }
 
@@ -105,11 +89,7 @@ namespace Microsoft.PowerBI.Security
         /// <param name="writeTokenAction">The strategy expression used to store tokens</param>
         public void SetTokenWriter(Action<IIdentity, string> writeTokenAction)
         {
-            if (writeTokenAction == null)
-            {
-                throw new ArgumentNullException("writeTokenAction");
-            }
-
+            Guard.ValidateObjectNotNull(writeTokenAction, "writeTokenAction");
             this.writeTokenAction = writeTokenAction;
         }
 

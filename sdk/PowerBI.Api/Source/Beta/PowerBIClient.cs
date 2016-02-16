@@ -241,7 +241,7 @@ namespace Microsoft.PowerBI.Api.Beta
             this.Gateways = new Gateways(this);
             this.Groups = new Groups(this);
             this.Reports = new Reports(this);
-            this.BaseUri = new Uri("http://api.powerbi.com");
+            this.BaseUri = new Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,

@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Owin.Security", "Po
 EndProject
 Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "PowerBI.Owin.Security.Nuget", "PowerBI.Owin.Security.Nuget\PowerBI.Owin.Security.Nuget.nuproj", "{17F8FB30-5905-4D71-B902-BA79505601B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Owin.Security.Tests", "PowerBI.Owin.Security.Tests\PowerBI.Owin.Security.Tests.csproj", "{2E22E9DE-2C4A-48BB-9449-CF6FD126EDCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{17F8FB30-5905-4D71-B902-BA79505601B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17F8FB30-5905-4D71-B902-BA79505601B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17F8FB30-5905-4D71-B902-BA79505601B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E22E9DE-2C4A-48BB-9449-CF6FD126EDCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E22E9DE-2C4A-48BB-9449-CF6FD126EDCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E22E9DE-2C4A-48BB-9449-CF6FD126EDCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E22E9DE-2C4A-48BB-9449-CF6FD126EDCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,5 +130,6 @@ Global
 		{BC29E0D3-6250-4B1A-8B03-C873943D9251} = {7000BB2C-E4D6-42F9-A3C5-EFEB03FB725E}
 		{1C92874A-BA64-4F80-B975-9D2C95BCE9EE} = {4B8B9C5D-C70F-4FA9-9693-361B59921EBC}
 		{17F8FB30-5905-4D71-B902-BA79505601B7} = {4B8B9C5D-C70F-4FA9-9693-361B59921EBC}
+		{2E22E9DE-2C4A-48BB-9449-CF6FD126EDCA} = {4B8B9C5D-C70F-4FA9-9693-361B59921EBC}
 	EndGlobalSection
 EndGlobal
