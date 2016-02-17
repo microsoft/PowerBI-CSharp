@@ -66,10 +66,6 @@
       <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.0-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.PowerBI.AspNet.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Mvc.1.0.0-preview\lib\net45\Microsoft.PowerBI.AspNet.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.PowerBI.Owin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.PowerBI.Owin.Security.1.0.0-preview\lib\net45\Microsoft.PowerBI.Owin.Security.dll</HintPath>
       <Private>True</Private>
