@@ -13,35 +13,31 @@ namespace Microsoft.PowerBI.Api.Beta.Models
 
     /// <summary>
     /// </summary>
-    public partial class QAndA
+    public partial class ImportInfo
     {
         /// <summary>
-        /// Initializes a new instance of the QAndA class.
+        /// Initializes a new instance of the ImportInfo class.
         /// </summary>
-        public QAndA() { }
+        public ImportInfo() { }
 
         /// <summary>
-        /// Initializes a new instance of the QAndA class.
+        /// Initializes a new instance of the ImportInfo class.
         /// </summary>
-        public QAndA(string phrase)
+        public ImportInfo(string filePath = default(string), string connectionType = default(string))
         {
-            Phrase = phrase;
+            FilePath = filePath;
+            ConnectionType = connectionType;
         }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "phrase")]
-        public string Phrase { get; set; }
+        [JsonProperty(PropertyName = "filePath")]
+        public string FilePath { get; set; }
 
         /// <summary>
-        /// Validate the object. Throws ValidationException if validation fails.
         /// </summary>
-        public virtual void Validate()
-        {
-            if (Phrase == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Phrase");
-            }
-        }
+        [JsonProperty(PropertyName = "connectionType")]
+        public string ConnectionType { get; set; }
+
     }
 }

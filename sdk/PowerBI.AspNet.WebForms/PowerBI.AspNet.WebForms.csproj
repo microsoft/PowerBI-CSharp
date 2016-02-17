@@ -64,19 +64,23 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.PowerBI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.0\lib\portable-net45+win+wpa81\Microsoft.PowerBI.dll</HintPath>
+      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.0-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.PowerBI.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.0\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
+      <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.0-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.PowerBI.AspNet.WebForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerBI.WebForms.1.0.0-preview\lib\net45\Microsoft.PowerBI.AspNet.WebForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.PowerBI.Owin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.PowerBI.Owin.Security.1.0.0-preview\lib\net45\Microsoft.PowerBI.Owin.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Rest.ClientRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.1.8.2\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.0.1\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -88,6 +92,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -106,6 +111,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Startup.PowerBI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\WebControls\Embed.cs" />
     <Compile Include="UI\WebControls\Report.cs" />

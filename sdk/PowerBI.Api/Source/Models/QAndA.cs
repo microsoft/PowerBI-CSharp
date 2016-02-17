@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Phrase { get; set; }
 
         /// <summary>
-        /// Validate the object. Throws ArgumentException or ArgumentNullException if validation fails.
+        /// Validate the object. Throws ValidationException if validation fails.
         /// </summary>
         public virtual void Validate()
         {

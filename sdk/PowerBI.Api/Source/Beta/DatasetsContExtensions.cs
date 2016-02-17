@@ -40,8 +40,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Dataset> GetDatasetByGroupAsync( this IDatasetsCont operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDatasetByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDatasetByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -64,8 +66,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Dataset> GetDatasetByDatasetkeyAsync( this IDatasetsCont operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDatasetByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDatasetByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -94,8 +98,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListGatewayDatasource> GetBoundGatewayDatasourcesByGroupAsync( this IDatasetsCont operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetBoundGatewayDatasourcesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetBoundGatewayDatasourcesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -124,8 +130,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListDatasource> GetDatasetDatasourcesByGroupAsync( this IDatasetsCont operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDatasetDatasourcesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDatasetDatasourcesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -158,8 +166,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<object> SetAllConnectionsByGroupAsync( this IDatasetsCont operations, string group, string datasetKey, IDictionary<string, object> parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.SetAllConnectionsByGroupWithHttpMessagesAsync(group, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.SetAllConnectionsByGroupWithHttpMessagesAsync(group, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -182,8 +192,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListGatewayDatasource> GetBoundGatewayDatasourcesByDatasetkeyAsync( this IDatasetsCont operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetBoundGatewayDatasourcesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetBoundGatewayDatasourcesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -206,8 +218,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListDatasource> GetDatasetDatasourcesByDatasetkeyAsync( this IDatasetsCont operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDatasetDatasourcesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDatasetDatasourcesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -234,8 +248,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<object> SetAllConnectionsByDatasetkeyAsync( this IDatasetsCont operations, string datasetKey, IDictionary<string, object> parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.SetAllConnectionsByDatasetkeyWithHttpMessagesAsync(datasetKey, parameters, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.SetAllConnectionsByDatasetkeyWithHttpMessagesAsync(datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

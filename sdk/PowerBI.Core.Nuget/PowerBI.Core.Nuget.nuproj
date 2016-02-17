@@ -17,6 +17,9 @@
     <FrameworkReference Include="System.IdentityModel.dll">
       <TargetFramework>net40</TargetFramework>
     </FrameworkReference>
+    <FrameworkReference Include="System.Configuration.dll">
+      <TargetFramework>net40</TargetFramework>
+    </FrameworkReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>491545a1-326b-446f-a162-d684707bfbd7</ProjectGuid>

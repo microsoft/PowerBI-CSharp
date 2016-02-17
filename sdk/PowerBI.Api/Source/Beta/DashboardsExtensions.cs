@@ -84,8 +84,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListDashboard> GetDashboardsByGroupAsync( this IDashboards operations, string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDashboardsByGroupWithHttpMessagesAsync(group, expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDashboardsByGroupWithHttpMessagesAsync(group, expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -152,8 +154,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListDashboard> GetDashboardsAsync( this IDashboards operations, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDashboardsWithHttpMessagesAsync(expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDashboardsWithHttpMessagesAsync(expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -182,8 +186,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Dashboard> GetDashboardByGroupAsync( this IDashboards operations, string group, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDashboardByGroupWithHttpMessagesAsync(group, dashboardKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDashboardByGroupWithHttpMessagesAsync(group, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -212,8 +218,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListTile> GetTilesByGroupAsync( this IDashboards operations, string group, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetTilesByGroupWithHttpMessagesAsync(group, dashboardKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetTilesByGroupWithHttpMessagesAsync(group, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -246,8 +254,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<object> PostTileByGroupAsync( this IDashboards operations, string group, string dashboardKey, Tile tile, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PostTileByGroupWithHttpMessagesAsync(group, dashboardKey, tile, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PostTileByGroupWithHttpMessagesAsync(group, dashboardKey, tile, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -284,8 +294,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Tile> GetTileByGroupAsync( this IDashboards operations, string group, string dashboardKey, string tileKey, string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetTileByGroupWithHttpMessagesAsync(group, dashboardKey, tileKey, filter, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetTileByGroupWithHttpMessagesAsync(group, dashboardKey, tileKey, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -322,8 +334,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Tile> PutTileByGroupAsync( this IDashboards operations, string group, string dashboardKey, string tileKey, Tile tile, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PutTileByGroupWithHttpMessagesAsync(group, dashboardKey, tileKey, tile, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PutTileByGroupWithHttpMessagesAsync(group, dashboardKey, tileKey, tile, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -360,8 +374,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Tile> PatchTileByGroupAsync( this IDashboards operations, string group, string dashboardKey, string tileKey, object patchTile, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PatchTileByGroupWithHttpMessagesAsync(group, dashboardKey, tileKey, patchTile, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PatchTileByGroupWithHttpMessagesAsync(group, dashboardKey, tileKey, patchTile, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -384,8 +400,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Dashboard> GetDashboardByDashboardkeyAsync( this IDashboards operations, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDashboardByDashboardkeyWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDashboardByDashboardkeyWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -408,8 +426,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<ODataResponseListTile> GetTilesByDashboardkeyAsync( this IDashboards operations, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetTilesByDashboardkeyWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetTilesByDashboardkeyWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -436,8 +456,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<object> PostTileByDashboardkeyAsync( this IDashboards operations, string dashboardKey, Tile tile, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PostTileByDashboardkeyWithHttpMessagesAsync(dashboardKey, tile, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PostTileByDashboardkeyWithHttpMessagesAsync(dashboardKey, tile, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -468,8 +490,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Tile> GetTileByDashboardkeyAndTilekeyAsync( this IDashboards operations, string dashboardKey, string tileKey, string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetTileByDashboardkeyAndTilekeyWithHttpMessagesAsync(dashboardKey, tileKey, filter, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetTileByDashboardkeyAndTilekeyWithHttpMessagesAsync(dashboardKey, tileKey, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -500,8 +524,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Tile> PutTileByDashboardkeyAndTilekeyAsync( this IDashboards operations, string dashboardKey, string tileKey, Tile tile, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PutTileByDashboardkeyAndTilekeyWithHttpMessagesAsync(dashboardKey, tileKey, tile, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PutTileByDashboardkeyAndTilekeyWithHttpMessagesAsync(dashboardKey, tileKey, tile, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -532,8 +558,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             public static async Task<Tile> PatchTileByDashboardkeyAndTilekeyAsync( this IDashboards operations, string dashboardKey, string tileKey, object patchTile, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PatchTileByDashboardkeyAndTilekeyWithHttpMessagesAsync(dashboardKey, tileKey, patchTile, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PatchTileByDashboardkeyAndTilekeyWithHttpMessagesAsync(dashboardKey, tileKey, patchTile, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

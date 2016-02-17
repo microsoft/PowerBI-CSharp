@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         /// <summary>
         /// Initializes a new instance of the GatewayDatasource class.
         /// </summary>
-        public GatewayDatasource(long? id = default(long?), long? gatewayId = default(long?), string datasourceType = default(string), string connectionDetails = default(string), string credentialType = default(string), BasicCredentials basicCredentials = default(BasicCredentials))
+        public GatewayDatasource(string id = default(string), string gatewayId = default(string), string datasourceType = default(string), string connectionDetails = default(string), string credentialType = default(string), BasicCredentials basicCredentials = default(BasicCredentials))
         {
             Id = id;
             GatewayId = gatewayId;
@@ -36,12 +36,12 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public long? Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
-        public long? GatewayId { get; set; }
+        public string GatewayId { get; set; }
 
         /// <summary>
         /// </summary>

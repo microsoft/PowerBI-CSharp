@@ -235,7 +235,7 @@ namespace Microsoft.PowerBI.Api
             this.Datasets = new Datasets(this);
             this.DatasetsV2 = new DatasetsV2(this);
             this.Groups = new Groups(this);
-            this.BaseUri = new Uri("https://api.powerbi.com");
+            this.BaseUri = new Uri("http://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,

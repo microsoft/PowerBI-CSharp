@@ -5,9 +5,8 @@
 
     powerbi.Tile = Tile;
     powerbi.Report = Report;
-    powerbi.get = function (element) {
-        return element.powerBIEmbed;
-    };
+    powerbi.get = get;
+    powerbi.embed = embed;
 
     //////////////////////////////////////
 
@@ -19,21 +18,31 @@
         { type: 'powerbi-report', component: Report }
     ];
 
+    function get(element) {
+        return element.powerBIEmbed || embed(element);
+    }
+
+    function embed(element) {
+        var instance;
+
+        for (var j = 0; j < componentTypes.length; j++) {
+            var componentType = componentTypes[j];
+
+            if (element.getAttribute(componentType.type) !== null) {
+                instance = new componentType.component(element);
+                element.powerBIEmbed = instance;
+                embeds.push(instance);
+                break;
+            }
+        }
+
+        return instance;
+    }
+
     function onLoad() {
         var components = document.querySelectorAll('[powerbi-embed]');
         for (var i = 0; i < components.length; i++) {
-            var element = components[i];
-
-            for (var j = 0; j < componentTypes.length; j++) {
-                var componentType = componentTypes[j];
-
-                if (element.getAttribute(componentType.type) !== null) {
-                    var instance = new componentType.component(element);
-                    element.powerBIEmbed = instance;
-                    embeds.push(instance);
-                    break;
-                }
-            }
+            embed(components[i]);
         }
     };
 
@@ -43,7 +52,7 @@
 
     Embed.prototype = {
         init: function () {
-            var embedUrl = this.element.getAttribute('powerbi-embed');
+            var embedUrl = this.getEmbedUrl();
             var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + '" scrolling="no" allowfullscreen="true"></iframe>';
             this.element.innerHTML = iframeHtml;
             this.iframe = this.element.childNodes[0];
@@ -63,6 +72,9 @@
 
             raiseCustomEvent(this.element, 'embed-init', initEventArgs);
             this.iframe.contentWindow.postMessage(JSON.stringify(initEventArgs.message), '*');
+        },
+        getEmbedUrl: function () {
+            return this.element.getAttribute('powerbi-embed');
         },
         fullscreen: function () {
             var elem = this.iframe;
@@ -104,14 +116,53 @@
         this.element = element;
         this.options = options || {};
         this.options.loadAction = 'loadTile';
+        this.getEmbedUrl = getEmbedUrl;
+
         this.init();
+
+        ///////////////////////////////
+
+        function getEmbedUrl() {
+            var embedUrl = Embed.prototype.getEmbedUrl.call(this);
+            if (!embedUrl) {
+                var dashboardId = this.element.getAttribute('powerbi-dashboard');
+                var tileId = this.element.getAttribute('powerbi-tile');
+
+                if (!(dashboardId && tileId)) {
+                    throw new Error('dashboardId & tileId are required');
+                }
+
+                embedUrl = 'https://app.powerbi.com/embed?dashboardId=' + dashboardId + '&tileId=' + tileId;
+            }
+
+            return embedUrl;
+        }
     }
 
     function Report(element, options) {
         this.element = element;
         this.options = options || {};
         this.options.loadAction = 'loadReport';
+        this.getEmbedUrl = getEmbedUrl;
+
         this.init();
+
+        ///////////////////////////////
+
+        function getEmbedUrl() {
+            var embedUrl = Embed.prototype.getEmbedUrl.call(this);
+            if (!embedUrl) {
+                var reportId = this.element.getAttribute('powerbi-report');
+
+                if (!reportId) {
+                    throw new Error('reportId is required');
+                }
+
+                embedUrl = 'https://app.powerbi.com/reportEmbed?reportId=' + reportId;
+            }
+
+            return embedUrl;
+        }
     }
 
     Tile.prototype = Embed.prototype;

@@ -1,9 +1,9 @@
 ﻿[powerbi-tile] {
-    width: 300px;
-    height: 300px;
+    min-width: 300px;
+    min-height: 300px;
 }
 
 [powerbi-report] {
-    width: 800px;
-    height: 600px;
+    min-width: 800px;
+    min-height: 600px;
 }

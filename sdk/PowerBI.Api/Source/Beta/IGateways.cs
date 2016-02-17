@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> PatchDatasourceByGroupWithHttpMessagesAsync(string group, long? gatewayId, long? datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PatchDatasourceByGroupWithHttpMessagesAsync(string group, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <param name='gatewayId'>
         /// </param>
         /// <param name='datasourceId'>
@@ -45,6 +45,6 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> PatchDatasourceByGatewayidAndDatasourceidWithHttpMessagesAsync(long? gatewayId, long? datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PatchDatasourceByGatewayidAndDatasourceidWithHttpMessagesAsync(string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

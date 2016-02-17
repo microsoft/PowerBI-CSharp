@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='datasourceDelta'>
             /// </param>
-            public static object PatchDatasourceByGroup(this IGateways operations, string group, long? gatewayId, long? datasourceId, object datasourceDelta)
+            public static object PatchDatasourceByGroup(this IGateways operations, string group, string gatewayId, string datasourceId, object datasourceDelta)
             {
                 return Task.Factory.StartNew(s => ((IGateways)s).PatchDatasourceByGroupAsync(group, gatewayId, datasourceId, datasourceDelta), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -46,10 +46,12 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PatchDatasourceByGroupAsync( this IGateways operations, string group, long? gatewayId, long? datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PatchDatasourceByGroupAsync( this IGateways operations, string group, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PatchDatasourceByGroupWithHttpMessagesAsync(group, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PatchDatasourceByGroupWithHttpMessagesAsync(group, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -61,7 +63,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='datasourceDelta'>
             /// </param>
-            public static object PatchDatasourceByGatewayidAndDatasourceid(this IGateways operations, long? gatewayId, long? datasourceId, object datasourceDelta)
+            public static object PatchDatasourceByGatewayidAndDatasourceid(this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta)
             {
                 return Task.Factory.StartNew(s => ((IGateways)s).PatchDatasourceByGatewayidAndDatasourceidAsync(gatewayId, datasourceId, datasourceDelta), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -78,10 +80,12 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PatchDatasourceByGatewayidAndDatasourceidAsync( this IGateways operations, long? gatewayId, long? datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PatchDatasourceByGatewayidAndDatasourceidAsync( this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PatchDatasourceByGatewayidAndDatasourceidWithHttpMessagesAsync(gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PatchDatasourceByGatewayidAndDatasourceidWithHttpMessagesAsync(gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

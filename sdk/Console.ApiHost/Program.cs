@@ -11,6 +11,7 @@ using Microsoft.Rest;
 using Console = System.Console;
 using Microsoft.Threading;
 using ApiHost.Models;
+using System.IO;
 
 namespace ApiHost
 {
@@ -43,8 +44,31 @@ namespace ApiHost
             var client = new PowerBIClient(credentials);
             client.BaseUri = new Uri("https://api.powerbi.com");
 
+            var imports = await client.Imports.GetImportsAsync();
+
+            Console.WriteLine();
+            Console.WriteLine("Imports");
+            Console.WriteLine("================================");
+            foreach (var import in imports.Value)
+            {
+                Console.WriteLine("{0}", import.Name);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Import PBIX? (y/N)");
+            var key = Console.ReadKey(true);
+            if(key.KeyChar == 'Y')
+            {
+                using(var pbix = File.OpenRead(@"c:\users\wabreza\Desktop\progress.pbix"))
+                {
+                    await client.Imports.PostImportWithFileAsync(pbix, "Progress");
+                }
+            }
+
+
             var dashboards = await client.Dashboards.GetDashboardsAsync();
 
+            Console.WriteLine();
             Console.WriteLine("Dashboards");
             Console.WriteLine("================================");
             foreach (var dashboard in dashboards.Value)

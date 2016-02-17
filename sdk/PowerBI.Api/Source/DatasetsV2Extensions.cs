@@ -84,8 +84,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<ODataResponseListDataset> GetDatasetsByGroupAsync( this IDatasetsV2 operations, string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDatasetsByGroupWithHttpMessagesAsync(group, expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDatasetsByGroupWithHttpMessagesAsync(group, expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -122,8 +124,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> PostDatasetByGroupAsync( this IDatasetsV2 operations, string group, Dataset dataset, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PostDatasetByGroupWithHttpMessagesAsync(group, dataset, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PostDatasetByGroupWithHttpMessagesAsync(group, dataset, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -190,8 +194,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<ODataResponseListDataset> GetDatasetsAsync( this IDatasetsV2 operations, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetDatasetsWithHttpMessagesAsync(expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetDatasetsWithHttpMessagesAsync(expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -222,8 +228,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> PostDatasetAsync( this IDatasetsV2 operations, Dataset dataset, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PostDatasetWithHttpMessagesAsync(dataset, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PostDatasetWithHttpMessagesAsync(dataset, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -260,8 +268,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> PostRowsByGroupAsync( this IDatasetsV2 operations, string group, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PostRowsByGroupWithHttpMessagesAsync(group, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PostRowsByGroupWithHttpMessagesAsync(group, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -294,8 +304,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> DeleteRowsByGroupAsync( this IDatasetsV2 operations, string group, string datasetKey, string tableName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.DeleteRowsByGroupWithHttpMessagesAsync(group, datasetKey, tableName, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.DeleteRowsByGroupWithHttpMessagesAsync(group, datasetKey, tableName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -324,8 +336,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<ODataResponseListTable> GetTablesByGroupAsync( this IDatasetsV2 operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetTablesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetTablesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -362,8 +376,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> PutTableByGroupAsync( this IDatasetsV2 operations, string group, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PutTableByGroupWithHttpMessagesAsync(group, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PutTableByGroupWithHttpMessagesAsync(group, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -392,8 +408,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> DeleteDatasetByGroupAsync( this IDatasetsV2 operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.DeleteDatasetByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.DeleteDatasetByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -424,8 +442,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> PostRowsByDatasetkeyAndTablenameAsync( this IDatasetsV2 operations, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PostRowsByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PostRowsByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -452,8 +472,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> DeleteRowsByDatasetkeyAndTablenameAsync( this IDatasetsV2 operations, string datasetKey, string tableName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.DeleteRowsByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.DeleteRowsByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -476,8 +498,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<ODataResponseListTable> GetTablesByDatasetkeyAsync( this IDatasetsV2 operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.GetTablesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.GetTablesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -508,8 +532,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> PutTableByDatasetkeyAndTablenameAsync( this IDatasetsV2 operations, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.PutTableByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.PutTableByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>
@@ -532,8 +558,10 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             public static async Task<object> DeleteDatasetByDatasetkeyAsync( this IDatasetsV2 operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.DeleteDatasetByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false);
-                return _result.Body;
+                using (var _result = await operations.DeleteDatasetByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

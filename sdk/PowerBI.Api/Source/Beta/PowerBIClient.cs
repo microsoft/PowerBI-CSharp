@@ -56,6 +56,8 @@ namespace Microsoft.PowerBI.Api.Beta
 
         public virtual IReports Reports { get; private set; }
 
+        public virtual IImports Imports { get; private set; }
+
         /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
         /// </summary>
@@ -241,7 +243,8 @@ namespace Microsoft.PowerBI.Api.Beta
             this.Gateways = new Gateways(this);
             this.Groups = new Groups(this);
             this.Reports = new Reports(this);
-            this.BaseUri = new Uri("https://api.powerbi.com");
+            this.Imports = new Imports(this);
+            this.BaseUri = new Uri("http://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
