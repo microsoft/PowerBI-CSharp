@@ -16,8 +16,9 @@ namespace $rootnamespace$
             {
                 options.ClientId = ConfigurationManager.AppSettings["powerbi:ClientId"];
                 options.ClientSecret = ConfigurationManager.AppSettings["powerbi:ClientSecret"];
-                options.Issuer = ConfigurationManager.AppSettings["powerbi:Issuer"];
                 options.SuccessRedirectUri = new System.Uri(ConfigurationManager.AppSettings["powerbi:RedirectUri"]);
+                options.Issuer = ConfigurationManager.AppSettings["powerbi:Issuer"];
+                options.ValidateIssuer = false; // Set to true in a production scenario
             });
         }
     }

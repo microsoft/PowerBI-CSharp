@@ -11,6 +11,7 @@ namespace Microsoft.PowerBI.Owin.Security
         {
             this.Resource = DefaultResource;
             this.Authority = DefaultAuthority;
+            this.ValidateIssuer = false;
         }
 
         public string ClientId { get; set; }
@@ -26,5 +27,7 @@ namespace Microsoft.PowerBI.Owin.Security
         public Uri ErrorRedirectUri { get; set; }
 
         public string Issuer { get; set; }
+
+        public bool ValidateIssuer { get; set; }
     }
 }

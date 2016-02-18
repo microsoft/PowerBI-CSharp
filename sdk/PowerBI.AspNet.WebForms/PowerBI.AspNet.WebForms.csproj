@@ -117,7 +117,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Diagram.cd" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

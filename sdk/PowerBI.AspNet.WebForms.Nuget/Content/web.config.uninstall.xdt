@@ -3,7 +3,6 @@
   <appSettings>
     <add key="powerbi:ClientId" value="{{ClientID}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
     <add key="powerbi:ClientSecret" value="{{ClientSecret}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
-    <add key="powerbi:Issuer" value="{{Issuer}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
     <add key="powerbi:RedirectUri" value="{{RedirectUri}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
   </appSettings>
   <system.web>

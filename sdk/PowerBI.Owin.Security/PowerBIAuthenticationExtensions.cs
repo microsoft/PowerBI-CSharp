@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Owin;
 using Microsoft.Owin.Security.Notifications;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Microsoft.PowerBI.Owin.Security;
@@ -7,6 +8,7 @@ using System;
 using System.IdentityModel.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Owin
 {
@@ -21,32 +23,35 @@ namespace Owin
 
             ValidateOptions(options);
 
-            app.UseOpenIdConnectAuthentication(
-                new OpenIdConnectAuthenticationOptions
+            var openIdAuthOptions = new OpenIdConnectAuthenticationOptions
+            {
+                ClientId = options.ClientId,
+                ClientSecret = options.ClientSecret,
+                Authority = options.Authority,
+                TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
                 {
-                    ClientId = options.ClientId,
-                    ClientSecret = options.ClientSecret,
-                    Authority = options.Authority,
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters
+                    ValidIssuer = options.Issuer,
+                    ValidateIssuer = options.ValidateIssuer
+                },
+                Notifications = new OpenIdConnectAuthenticationNotifications()
+                {
+                    AuthorizationCodeReceived = (context) =>
                     {
-                        ValidIssuer = options.Issuer
+                        OnAuthorizationCodeReceived(context, options);
+                        return Task.FromResult(0);
                     },
-                    Notifications = new OpenIdConnectAuthenticationNotifications()
+                    AuthenticationFailed = (context) =>
                     {
-                        AuthorizationCodeReceived = (context) =>
-                        {
-                            OnAuthorizationCodeReceived(context, options);
-                            return Task.FromResult(0);
-                        },
-                        AuthenticationFailed = (context) =>
-                        {
-                            var redirectUri = options.ErrorRedirectUri ?? new Uri("/", UriKind.Relative);
-                            context.OwinContext.Response.Redirect(redirectUri.ToString());
-                            context.HandleResponse();
-                            return Task.FromResult(0);
-                        }
+                        var redirectUri = options.ErrorRedirectUri ?? new Uri("/", UriKind.Relative);
+                        context.OwinContext.Response.Redirect(redirectUri.ToString());
+                        context.HandleResponse();
+                        return Task.FromResult(0);
                     }
-                });
+                }
+            };
+
+            app.UseOpenIdConnectAuthentication(openIdAuthOptions);
+            ConfigureTokenManager();
 
             return app;
         }
@@ -90,7 +95,7 @@ namespace Owin
                 throw new InvalidOperationException("ClientSecret is not set");
             }
 
-            if (string.IsNullOrWhiteSpace(options.Issuer))
+            if (options.ValidateIssuer && string.IsNullOrWhiteSpace(options.Issuer))
             {
                 throw new InvalidOperationException("Issuer is not set");
             }
@@ -109,6 +114,28 @@ namespace Owin
             {
                 throw new InvalidOperationException("SuccessRedirectUri is not set");
             }
+        }
+
+        private static void ConfigureTokenManager()
+        {
+            const string cookieKey = "powerbi-token";
+
+            TokenManager.Current.SetTokenReader(identity =>
+            {
+                var powerBITokenCookie = HttpContext.Current.Request.Cookies.Get(cookieKey);
+                if (powerBITokenCookie == null)
+                {
+                    return null;
+                }
+
+                return powerBITokenCookie.Value;
+            });
+
+            TokenManager.Current.SetTokenWriter((identity, accessToken) =>
+            {
+                var powerBITokenCookie = new HttpCookie(cookieKey, accessToken);
+                HttpContext.Current.Response.Cookies.Add(powerBITokenCookie);
+            });
         }
     }
 }
