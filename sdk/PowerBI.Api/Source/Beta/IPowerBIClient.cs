@@ -53,5 +53,7 @@ namespace Microsoft.PowerBI.Api.Beta
 
         IImports Imports { get; }
 
+        IWorkspaces Workspaces { get; }
+
     }
 }

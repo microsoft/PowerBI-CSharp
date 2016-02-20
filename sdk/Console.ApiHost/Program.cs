@@ -12,19 +12,155 @@ using Console = System.Console;
 using Microsoft.Threading;
 using ApiHost.Models;
 using System.IO;
+using Microsoft.PowerBI.Security;
 
 namespace ApiHost
 {
     class Program
     {
+        private const string paasSigningKey = "6vr7uH5jcuYNRWC86KF3mydCXolayDDQi6NA8r5iV6YsPYD+Qb+KySkrwV9So1TgX/RQv5Bt5/abW7qvN+0uAQ==";
+        private const string workspaceCollection = "Josh_WC";
+
         static void Main(string[] args)
         {
             AsyncPump.Run(async delegate
             {
-                await DemoAsync();
+                await Run();
             });
 
             Console.ReadKey(true);
+        }
+
+        static async Task Run()
+        {
+            try {
+                Console.WriteLine("What do you want to do?");
+                Console.WriteLine("1. Create a workspace");
+                Console.WriteLine("2. Import PBIX Desktop file");
+                Console.WriteLine("3. Update connection string info");
+                Console.WriteLine("4. Get Report Embed Url");
+                Console.WriteLine("5. SaaS Demo");
+                Console.WriteLine();
+
+                var key = Console.ReadKey(true);
+
+                switch (key.KeyChar)
+                {
+                    case '1':
+                        var workspace = await CreateWorkspace();
+                        Console.WriteLine("Workspace ID: {0}", workspace.ObjectId);
+                        await Run();
+                        break;
+                    case '2':
+                        Console.Write("Workspace ID:");
+                        var workspaceId1 = Console.ReadLine();
+                        Console.WriteLine();
+
+                        Console.Write("Dataset Name:");
+                        var datasetName = Console.ReadLine();
+                        Console.WriteLine();
+
+                        Console.WriteLine("File Path:");
+                        var filePath = Console.ReadLine();
+                        Console.WriteLine();
+
+                        await ImportPbix(Guid.Parse(workspaceId1), datasetName, filePath);
+                        await Run();
+                        break;
+                    case '3':
+                        Console.Write("Workspace ID:");
+                        var workspaceId2 = Console.ReadLine();
+                        Console.WriteLine();
+
+                        await UpdateConnection(Guid.Parse(workspaceId2));
+                        await Run();
+                        break;
+                    case '4':
+                        Console.Write("Workspace ID:");
+                        var workspaceId3 = Console.ReadLine();
+                        Console.WriteLine();
+
+                        var embedUrl = await GetReportEmbedUrl(Guid.Parse(workspaceId3));
+                        Console.WriteLine("EmbedUrl: {0}", embedUrl);
+                        await Run();
+                        break;
+                    case '5':
+                        await DemoAsync();
+                        await Run();
+                        break;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Ooops, something broke: {0}", ex.Message);
+                Console.WriteLine();
+                await Run();
+            }
+        }
+
+        static async Task<Workspace> CreateWorkspace()
+        {
+            var paasToken = PowerBIToken.CreateProvisionToken(workspaceCollection);
+            var jwt = paasToken.Generate(paasSigningKey);
+
+            var credentials = new TokenCredentials(jwt, "AppToken");
+            var client = new PowerBIClient(credentials);
+            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+
+            return await client.Workspaces.PostWorkspaceByWorkspaceCollectionNameAsync(workspaceCollection);
+        }
+
+        static async Task ImportPbix(Guid workspaceId, string datasetName, string filePath)
+        {
+            using (var fileStream = File.OpenRead(filePath))
+            {
+                var devToken = PowerBIToken.CreateDevToken(workspaceCollection, workspaceId);
+                var jwt = devToken.Generate(paasSigningKey);
+
+                var credentials = new TokenCredentials(jwt, "AppToken");
+                var client = new PowerBIClient(credentials);
+                client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+
+                await client.Imports.PostImportWithFileAsync(fileStream, datasetName);
+            }
+        }
+
+        static async Task UpdateConnection(Guid workspaceId)
+        {
+            var devToken = PowerBIToken.CreateDevToken(workspaceCollection, workspaceId);
+            var jwt = devToken.Generate(paasSigningKey);
+
+            var credentials = new TokenCredentials(jwt, "AppToken");
+            var client = new PowerBIClient(credentials);
+            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+
+            var datasets = await client.Datasets.GetDatasetsAsync();
+            var datasource = await client.DatasetsCont.GetBoundGatewayDatasourcesByDatasetkeyAsync(datasets.Value[0].Id);
+
+            var delta = new GatewayDatasource
+            {
+                CredentialType = "Basic",
+                BasicCredentials = new BasicCredentials
+                {
+                    Username = "demouser",
+                    Password = "pa$$word1"
+                }
+            };
+
+            await client.Gateways.PatchDatasourceByGatewayidAndDatasourceidAsync(datasource.Value[0].GatewayId, datasource.Value[0].Id, delta);
+        }
+
+        static async Task<string> GetReportEmbedUrl(Guid workspaceId)
+        {
+            var devToken = PowerBIToken.CreateDevToken(workspaceCollection, workspaceId);
+            var jwt = devToken.Generate(paasSigningKey);
+
+            var credentials = new TokenCredentials(jwt, "AppToken");
+            var client = new PowerBIClient(credentials);
+            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+
+            var reports = await client.Reports.GetReportsAsync();
+            return reports.Value[0].EmbedUrl;
         }
 
         static async Task DemoAsync()
@@ -40,9 +176,9 @@ namespace ApiHost
             var authContext = new AuthenticationContext(authority, tokenCache);
             var authResult = authContext.AcquireToken(resourceUri, clientId, new Uri(redirectUri), PromptBehavior.Always);
 
-            var credentials = new TokenCredentials(authResult.AccessToken, "Bearer");
+            var credentials = new TokenCredentials(authResult.AccessToken, authResult.AccessTokenType);
             var client = new PowerBIClient(credentials);
-            client.BaseUri = new Uri("https://api.powerbi.com");
+            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
 
             var imports = await client.Imports.GetImportsAsync();
 
@@ -57,9 +193,9 @@ namespace ApiHost
             Console.WriteLine();
             Console.WriteLine("Import PBIX? (y/N)");
             var key = Console.ReadKey(true);
-            if(key.KeyChar == 'Y')
+            if (key.KeyChar == 'Y')
             {
-                using(var pbix = File.OpenRead(@"c:\users\wabreza\Desktop\progress.pbix"))
+                using (var pbix = File.OpenRead(@"c:\users\wabreza\Desktop\progress.pbix"))
                 {
                     await client.Imports.PostImportWithFileAsync(pbix, "Progress");
                 }
