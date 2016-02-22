@@ -13,13 +13,31 @@ using Microsoft.Threading;
 using ApiHost.Models;
 using System.IO;
 using Microsoft.PowerBI.Security;
+using System.Threading;
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography;
+using System.Net;
+using Microsoft.Rest.Serialization;
+using System.Net.Http.Headers;
+using System.Configuration;
 
 namespace ApiHost
 {
     class Program
     {
-        private const string paasSigningKey = "6vr7uH5jcuYNRWC86KF3mydCXolayDDQi6NA8r5iV6YsPYD+Qb+KySkrwV9So1TgX/RQv5Bt5/abW7qvN+0uAQ==";
-        private const string workspaceCollection = "Josh_WC";
+        //private const string paasSigningKey = "6vr7uH5jcuYNRWC86KF3mydCXolayDDQi6NA8r5iV6YsPYD+Qb+KySkrwV9So1TgX/RQv5Bt5/abW7qvN+0uAQ==";
+        //private const string workspaceCollection = "Josh_WC";
+        private const string apiEndpoint = "https://onebox-redirect.analysis.windows-int.net";
+        private const string thumbprint = "6169A4F22AA42B4C23873561462358BED9924AE6";
+
+        static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
+        static string resourceGroup = ConfigurationManager.AppSettings["resourceGroup"];
+        static string workspaceCollectionName = ConfigurationManager.AppSettings["workspaceCollectionName"];
+        static string username = ConfigurationManager.AppSettings["username"];
+        static string password = ConfigurationManager.AppSettings["password"];
+        static WorkspaceCollectionKeys signingKeys = null;
+        static Guid workspaceId = Guid.Empty;
+        static string importId = null;
 
         static void Main(string[] args)
         {
@@ -33,13 +51,20 @@ namespace ApiHost
 
         static async Task Run()
         {
-            try {
+            Console.ResetColor();
+
+            try
+            {
+                Console.WriteLine();
                 Console.WriteLine("What do you want to do?");
-                Console.WriteLine("1. Create a workspace");
-                Console.WriteLine("2. Import PBIX Desktop file");
-                Console.WriteLine("3. Update connection string info");
-                Console.WriteLine("4. Get Report Embed Url");
-                Console.WriteLine("5. SaaS Demo");
+                Console.WriteLine("=================================");
+                Console.WriteLine("1. Create workspace collection");
+                Console.WriteLine("2. Set workspace collection");
+                Console.WriteLine("3. Create a workspace");
+                Console.WriteLine("4. Import PBIX Desktop file");
+                Console.WriteLine("5. Update connection string info");
+                Console.WriteLine("6. Get Report Embed Url");
+                Console.WriteLine("7. SaaS Demo");
                 Console.WriteLine();
 
                 var key = Console.ReadKey(true);
@@ -47,92 +72,239 @@ namespace ApiHost
                 switch (key.KeyChar)
                 {
                     case '1':
-                        var workspace = await CreateWorkspace();
-                        Console.WriteLine("Workspace ID: {0}", workspace.ObjectId);
+                        if (string.IsNullOrWhiteSpace(subscriptionId))
+                        {
+                            Console.Write("Azure Subscription ID:");
+                            subscriptionId = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        if (string.IsNullOrWhiteSpace(resourceGroup))
+                        {
+                            Console.Write("Azure Resource Group:");
+                            resourceGroup = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        Console.Write("Workspace Collection Name:");
+                        workspaceCollectionName = Console.ReadLine();
+                        Console.WriteLine();
+
+                        await CreateWorkspaceCollection(subscriptionId, resourceGroup, workspaceCollectionName);
+                        signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
                         await Run();
                         break;
                     case '2':
-                        Console.Write("Workspace ID:");
-                        var workspaceId1 = Console.ReadLine();
+                        if (string.IsNullOrWhiteSpace(subscriptionId))
+                        {
+                            Console.Write("Azure Subscription ID:");
+                            subscriptionId = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        if (string.IsNullOrWhiteSpace(resourceGroup))
+                        {
+                            Console.Write("Azure Resource Group:");
+                            resourceGroup = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        Console.Write("Workspace Collection Name:");
+                        workspaceCollectionName = Console.ReadLine();
                         Console.WriteLine();
+
+                        signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Key1: {0}", signingKeys.Key1);
+                        await Run();
+                        break;
+                    case '3':
+                        if (string.IsNullOrWhiteSpace(workspaceCollectionName))
+                        {
+                            Console.Write("Workspace Collection Name:");
+                            workspaceCollectionName = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+
+                        if (signingKeys == null)
+                        {
+                            signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
+                        }
+
+                        var workspace = await CreateWorkspace(workspaceCollectionName);
+                        workspaceId = Guid.Parse(workspace.WorkspaceId);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Workspace ID: {0}", workspaceId);
+                        await Run();
+                        break;
+                    case '4':
+                        if (string.IsNullOrWhiteSpace(workspaceCollectionName))
+                        {
+                            Console.Write("Workspace Collection Name:");
+                            workspaceCollectionName = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+
+                        if (workspaceId == Guid.Empty)
+                        {
+                            Console.Write("Workspace ID:");
+                            workspaceId = Guid.Parse(Console.ReadLine());
+                            Console.WriteLine();
+                        }
 
                         Console.Write("Dataset Name:");
                         var datasetName = Console.ReadLine();
                         Console.WriteLine();
 
-                        Console.WriteLine("File Path:");
+                        Console.Write("File Path:");
                         var filePath = Console.ReadLine();
                         Console.WriteLine();
 
-                        await ImportPbix(Guid.Parse(workspaceId1), datasetName, filePath);
-                        await Run();
-                        break;
-                    case '3':
-                        Console.Write("Workspace ID:");
-                        var workspaceId2 = Console.ReadLine();
-                        Console.WriteLine();
-
-                        await UpdateConnection(Guid.Parse(workspaceId2));
-                        await Run();
-                        break;
-                    case '4':
-                        Console.Write("Workspace ID:");
-                        var workspaceId3 = Console.ReadLine();
-                        Console.WriteLine();
-
-                        var embedUrl = await GetReportEmbedUrl(Guid.Parse(workspaceId3));
-                        Console.WriteLine("EmbedUrl: {0}", embedUrl);
+                        var import = await ImportPbix(workspaceCollectionName, workspaceId, datasetName, filePath);
+                        importId = import.Id;
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Import: {0}", import.Id);
                         await Run();
                         break;
                     case '5':
+                        if (string.IsNullOrWhiteSpace(workspaceCollectionName))
+                        {
+                            Console.Write("Workspace Collection Name:");
+                            workspaceCollectionName = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+
+                        if (workspaceId == Guid.Empty)
+                        {
+                            Console.Write("Workspace ID:");
+                            workspaceId = Guid.Parse(Console.ReadLine());
+                            Console.WriteLine();
+                        }
+
+                        await UpdateConnection(workspaceCollectionName, workspaceId);
+                        await Run();
+                        break;
+                    case '6':
+                        if (string.IsNullOrWhiteSpace(workspaceCollectionName))
+                        {
+                            Console.Write("Workspace Collection Name:");
+                            workspaceCollectionName = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+
+                        if (workspaceId == Guid.Empty)
+                        {
+                            Console.Write("Workspace ID:");
+                            workspaceId = Guid.Parse(Console.ReadLine());
+                            Console.WriteLine();
+                        }
+
+                        var embedUrl = await GetReportEmbedUrl(workspaceCollectionName, workspaceId);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("EmbedUrl: {0}", embedUrl);
+                        await Run();
+                        break;
+                    case '7':
                         await DemoAsync();
                         await Run();
                         break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ooops, something broke: {0}", ex.Message);
                 Console.WriteLine();
                 await Run();
             }
         }
 
-        static async Task<Workspace> CreateWorkspace()
+        static async Task CreateWorkspaceCollection(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
-            var paasToken = PowerBIToken.CreateProvisionToken(workspaceCollection);
-            var jwt = paasToken.Generate(paasSigningKey);
+            string url = string.Format("{0}/azure/resourceProvider/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}", apiEndpoint, subscriptionId, resourceGroup, workspaceCollectionName);
+            var handler = new WebRequestHandler();
+            var cert = GetCertificate(thumbprint);
+            handler.ClientCertificates.Add(cert);
 
-            var credentials = new TokenCredentials(jwt, "AppToken");
-            var client = new PowerBIClient(credentials);
-            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
-
-            return await client.Workspaces.PostWorkspaceByWorkspaceCollectionNameAsync(workspaceCollection);
-        }
-
-        static async Task ImportPbix(Guid workspaceId, string datasetName, string filePath)
-        {
-            using (var fileStream = File.OpenRead(filePath))
+            using (var client = new HttpClient(handler))
             {
-                var devToken = PowerBIToken.CreateDevToken(workspaceCollection, workspaceId);
-                var jwt = devToken.Generate(paasSigningKey);
+                var content = new StringContent(@"{
+                                                ""location"": ""East US"",
+                                                ""tags"": {},
+                                                ""sku"": {
+                                                    ""name"": ""S1"",
+                                                    ""tier"": ""Standard""
+                                                }
+                                            }", Encoding.UTF8);
 
-                var credentials = new TokenCredentials(jwt, "AppToken");
-                var client = new PowerBIClient(credentials);
-                client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+                content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 
-                await client.Imports.PostImportWithFileAsync(fileStream, datasetName);
+                var response = await client.PutAsync(url, content);
+                var json = await response.Content.ReadAsStringAsync();
+                return;
             }
         }
 
-        static async Task UpdateConnection(Guid workspaceId)
+        static async Task<WorkspaceCollectionKeys> ListWorkspaceCollectionKeys(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
-            var devToken = PowerBIToken.CreateDevToken(workspaceCollection, workspaceId);
-            var jwt = devToken.Generate(paasSigningKey);
+            var url = string.Format("{0}/azure/resourceProvider/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/listkeys", apiEndpoint, subscriptionId, resourceGroup, workspaceCollectionName);
 
-            var credentials = new TokenCredentials(jwt, "AppToken");
-            var client = new PowerBIClient(credentials);
-            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+            var handler = new WebRequestHandler();
+            var cert = GetCertificate(thumbprint);
+            handler.ClientCertificates.Add(cert);
+
+            using (var client = new HttpClient(handler))
+            {
+                var content = new StringContent(string.Empty);
+                var response = await client.PostAsync(url, content);
+
+                var json = await response.Content.ReadAsStringAsync();
+                return SafeJsonConvert.DeserializeObject<WorkspaceCollectionKeys>(json);
+            }
+        }
+
+        static async Task<Workspace> CreateWorkspace(string workspaceCollectionName)
+        {
+            var provisionToken = PowerBIToken.CreateProvisionToken(workspaceCollectionName);
+            var client = CreateClient(provisionToken);
+
+            return await client.Workspaces.PostWorkspaceAsync(workspaceCollectionName);
+        }
+
+        static async Task<Import> ImportPbix(string workspaceCollectionName, Guid workspaceId, string datasetName, string filePath)
+        {
+            using (var fileStream = File.OpenRead(filePath))
+            {
+                var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
+                var client = CreateClient(devToken);
+
+                var import = await client.Imports.PostImportWithFileAsync(fileStream, datasetName);
+
+                while (import.ImportState != "Succeeded" && import.ImportState != "Failed")
+                {
+                    import = client.Imports.GetImportById(import.Id);
+                    Console.WriteLine("Checking import state... {0}", import.ImportState);
+                    Thread.Sleep(1000);
+                }
+
+                return import;
+            }
+        }
+
+        static async Task UpdateConnection(string workspaceCollectionName, Guid workspaceId)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                Console.Write("Username: ");
+                username = Console.ReadLine();
+                Console.WriteLine();
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                Console.Write("Password: ");
+                password = Console.ReadLine();
+                Console.WriteLine();
+            }
+
+            var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
+            var client = CreateClient(devToken);
 
             var datasets = await client.Datasets.GetDatasetsAsync();
             var datasource = await client.DatasetsCont.GetBoundGatewayDatasourcesByDatasetkeyAsync(datasets.Value[0].Id);
@@ -142,25 +314,53 @@ namespace ApiHost
                 CredentialType = "Basic",
                 BasicCredentials = new BasicCredentials
                 {
-                    Username = "demouser",
-                    Password = "pa$$word1"
+                    Username = username,
+                    Password = password
                 }
             };
 
             await client.Gateways.PatchDatasourceByGatewayidAndDatasourceidAsync(datasource.Value[0].GatewayId, datasource.Value[0].Id, delta);
         }
 
-        static async Task<string> GetReportEmbedUrl(Guid workspaceId)
+        static async Task<string> GetReportEmbedUrl(string workspaceCollectionName, Guid workspaceId)
         {
-            var devToken = PowerBIToken.CreateDevToken(workspaceCollection, workspaceId);
-            var jwt = devToken.Generate(paasSigningKey);
-
-            var credentials = new TokenCredentials(jwt, "AppToken");
-            var client = new PowerBIClient(credentials);
-            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+            var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
+            var client = CreateClient(devToken);
 
             var reports = await client.Reports.GetReportsAsync();
             return reports.Value[0].EmbedUrl;
+        }
+
+        static IPowerBIClient CreateClient(PowerBIToken token)
+        {
+            var jwt = token.Generate(signingKeys.Key1);
+            var credentials = new TokenCredentials(jwt, "AppToken");
+            var client = new PowerBIClient(credentials);
+            client.BaseUri = new Uri(apiEndpoint);
+
+            return client;
+        }
+
+        private static X509Certificate2 GetCertificate(string thumbprint)
+        {
+            X509Certificate2 cert = null;
+
+            var certStore = new X509Store(StoreLocation.LocalMachine);
+            certStore.Open(OpenFlags.ReadOnly);
+
+            var certificates = certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, false);
+            if (certificates.Count > 0)
+            {
+                cert = certificates[0];
+            }
+            else
+            {
+                throw new CryptographicException("Cannot find the certificate with the thumbprint: {0}", thumbprint);
+            }
+
+            certStore.Close();
+
+            return cert;
         }
 
         static async Task DemoAsync()

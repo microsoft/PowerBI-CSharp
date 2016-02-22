@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<Workspace>> PostWorkspaceByWorkspaceCollectionNameWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (workspaceCollectionName == null)
             {
@@ -70,7 +70,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("workspaceCollectionName", workspaceCollectionName);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PostWorkspaceByWorkspaceCollectionName", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "PostWorkspace", tracingParameters);
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;

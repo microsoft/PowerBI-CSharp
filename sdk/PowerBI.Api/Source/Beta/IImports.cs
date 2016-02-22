@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> PostImportWithInfoWithHttpMessagesAsync(ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the Imports by group
         /// </summary>
@@ -64,7 +64,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> PostImportByGroupWithInfoWithHttpMessagesAsync(string group, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportByGroupWithHttpMessagesAsync(string group, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the import by id
         /// </summary>

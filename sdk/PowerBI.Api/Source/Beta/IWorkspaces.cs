@@ -28,6 +28,6 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Workspace>> PostWorkspaceByWorkspaceCollectionNameWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

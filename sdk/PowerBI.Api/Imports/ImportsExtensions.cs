@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.PowerBI.Api.Beta.Models;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,9 +19,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </param>
         /// <param name='nameConflict'>
         /// </param>
-        public static object PostImportWithFile(this IImports operations, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
+        public static Import PostImportWithFile(this IImports operations, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
         {
-            return Task.Factory.StartNew(s => ((IImports)s).PostImporFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            return Task.Factory.StartNew(s => ((IImports)s).PostImporFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<object> PostImportWithFileAsync(this IImports operations, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsync(this IImports operations, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.PostImporFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
             {
@@ -58,9 +59,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </param>
         /// <param name='nameConflict'>
         /// </param>
-        public static object PostImportByGroupWithFile(this IImports operations, string group, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
+        public static Import PostImportByGroupWithFile(this IImports operations, string group, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
         {
-            return Task.Factory.StartNew(s => ((IImports)s).PostImporFileByGroupWithHttpMessage(group, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            return Task.Factory.StartNew(s => ((IImports)s).PostImporFileByGroupWithHttpMessage(group, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<object> PostImporByGrouptWithFileAsync(this IImports operations, string group, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImporByGrouptWithFileAsync(this IImports operations, string group, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.PostImporFileByGroupWithHttpMessage(group, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
             {

@@ -50,6 +50,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http.WebRequest" />
@@ -64,6 +65,8 @@
     <Compile Include="AsyncPump.cs" />
     <Compile Include="Models\DatasetOperation.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WorkspaceCollection.cs" />
+    <Compile Include="Models\WorkspaceCollectionKeys.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

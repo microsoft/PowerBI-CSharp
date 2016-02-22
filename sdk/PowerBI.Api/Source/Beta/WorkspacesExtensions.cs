@@ -22,9 +22,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='workspaceCollectionName'>
             /// </param>
-            public static Workspace PostWorkspaceByWorkspaceCollectionName(this IWorkspaces operations, string workspaceCollectionName)
+            public static Workspace PostWorkspace(this IWorkspaces operations, string workspaceCollectionName)
             {
-                return Task.Factory.StartNew(s => ((IWorkspaces)s).PostWorkspaceByWorkspaceCollectionNameAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IWorkspaces)s).PostWorkspaceAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -38,9 +38,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Workspace> PostWorkspaceByWorkspaceCollectionNameAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Workspace> PostWorkspaceAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWorkspaceByWorkspaceCollectionNameWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWorkspaceWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

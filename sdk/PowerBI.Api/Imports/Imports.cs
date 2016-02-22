@@ -1,4 +1,5 @@
-﻿using Microsoft.Rest;
+﻿using Microsoft.PowerBI.Api.Beta.Models;
+using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
 using Newtonsoft.Json;
 using System;
@@ -15,7 +16,7 @@ namespace Microsoft.PowerBI.Api.Beta
 {
     public partial class Imports
     {
-        public async Task<HttpOperationResponse<object>> PostImporFileWithHttpMessage(Stream file, string datasetDisplayName, int? nameConflict = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImporFileWithHttpMessage(Stream file, string datasetDisplayName, int? nameConflict = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -117,7 +118,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<Import>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -126,7 +127,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<object>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Import>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -144,7 +145,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
             return _result;
         }
-        public async Task<HttpOperationResponse<object>> PostImporFileByGroupWithHttpMessage(string group, Stream file, string datasetDisplayName, int? nameConflict = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImporFileByGroupWithHttpMessage(string group, Stream file, string datasetDisplayName, int? nameConflict = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (group == null)
             {
@@ -253,7 +254,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<Import>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -262,7 +263,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<object>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Import>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

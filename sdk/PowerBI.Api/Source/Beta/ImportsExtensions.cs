@@ -50,9 +50,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='importInfo'>
             /// </param>
-            public static object PostImportWithInfo(this IImports operations, ImportInfo importInfo)
+            public static Import PostImport(this IImports operations, ImportInfo importInfo)
             {
-                return Task.Factory.StartNew(s => ((IImports)s).PostImportWithInfoAsync(importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IImports)s).PostImportAsync(importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -66,9 +66,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PostImportWithInfoAsync( this IImports operations, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync( this IImports operations, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportWithInfoWithHttpMessagesAsync(importInfo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportWithHttpMessagesAsync(importInfo, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -116,9 +116,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='importInfo'>
             /// </param>
-            public static object PostImportByGroupWithInfo(this IImports operations, string group, ImportInfo importInfo)
+            public static Import PostImportByGroup(this IImports operations, string group, ImportInfo importInfo)
             {
-                return Task.Factory.StartNew(s => ((IImports)s).PostImportByGroupWithInfoAsync(group, importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IImports)s).PostImportByGroupAsync(group, importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -134,9 +134,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PostImportByGroupWithInfoAsync( this IImports operations, string group, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportByGroupAsync( this IImports operations, string group, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportByGroupWithInfoWithHttpMessagesAsync(group, importInfo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportByGroupWithHttpMessagesAsync(group, importInfo, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

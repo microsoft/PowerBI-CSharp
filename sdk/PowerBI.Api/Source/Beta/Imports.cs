@@ -164,7 +164,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<object>> PostImportWithInfoWithHttpMessagesAsync(ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (importInfo == null)
             {
@@ -179,7 +179,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PostImportWithInfo", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
@@ -244,7 +244,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<Import>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -253,7 +253,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<object>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Import>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -402,7 +402,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<object>> PostImportByGroupWithInfoWithHttpMessagesAsync(string group, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportByGroupWithHttpMessagesAsync(string group, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (group == null)
             {
@@ -422,7 +422,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 tracingParameters.Add("group", group);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PostImportByGroupWithInfo", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "PostImportByGroup", tracingParameters);
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
@@ -488,7 +488,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<Import>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -497,7 +497,7 @@ namespace Microsoft.PowerBI.Api.Beta
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = SafeJsonConvert.DeserializeObject<object>(_responseContent, this.Client.DeserializationSettings);
+                    _result.Body = SafeJsonConvert.DeserializeObject<Import>(_responseContent, this.Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

@@ -23,27 +23,21 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         /// <summary>
         /// Initializes a new instance of the Workspace class.
         /// </summary>
-        public Workspace(string objectId = default(string), int? workspaceCollectionId = default(int?), long? workspaceId = default(long?))
+        public Workspace(string workspaceId = default(string), string workspaceCollectionName = default(string))
         {
-            ObjectId = objectId;
-            WorkspaceCollectionId = workspaceCollectionId;
             WorkspaceId = workspaceId;
+            WorkspaceCollectionName = workspaceCollectionName;
         }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "ObjectId")]
-        public string ObjectId { get; set; }
+        [JsonProperty(PropertyName = "workspaceId")]
+        public string WorkspaceId { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "WorkspaceCollectionId")]
-        public int? WorkspaceCollectionId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "WorkspaceId")]
-        public long? WorkspaceId { get; set; }
+        [JsonProperty(PropertyName = "workspaceCollectionName")]
+        public string WorkspaceCollectionName { get; set; }
 
     }
 }

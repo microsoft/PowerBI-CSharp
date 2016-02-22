@@ -23,10 +23,11 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         /// <summary>
         /// Initializes a new instance of the Import class.
         /// </summary>
-        public Import(string id = default(string), string name = default(string), IList<Import> reports = default(IList<Import>), IList<Dataset> datasets = default(IList<Dataset>))
+        public Import(string id = default(string), string name = default(string), string importState = default(string), IList<Import> reports = default(IList<Import>), IList<Dataset> datasets = default(IList<Dataset>))
         {
             Id = id;
             Name = name;
+            ImportState = importState;
             Reports = reports;
             Datasets = datasets;
         }
@@ -40,6 +41,11 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "importState")]
+        public string ImportState { get; set; }
 
         /// <summary>
         /// </summary>
