@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +15,6 @@ using Microsoft.PowerBI.Security;
 using System.Threading;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
-using System.Net;
 using Microsoft.Rest.Serialization;
 using System.Net.Http.Headers;
 using System.Configuration;
@@ -25,11 +23,9 @@ namespace ApiHost
 {
     class Program
     {
-        //private const string paasSigningKey = "6vr7uH5jcuYNRWC86KF3mydCXolayDDQi6NA8r5iV6YsPYD+Qb+KySkrwV9So1TgX/RQv5Bt5/abW7qvN+0uAQ==";
-        //private const string workspaceCollection = "Josh_WC";
-        private const string apiEndpoint = "https://onebox-redirect.analysis.windows-int.net";
         private const string thumbprint = "6169A4F22AA42B4C23873561462358BED9924AE6";
 
+        static string apiEndpoint = ConfigurationManager.AppSettings["apiEndpoint"];
         static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
         static string resourceGroup = ConfigurationManager.AppSettings["resourceGroup"];
         static string workspaceCollectionName = ConfigurationManager.AppSettings["workspaceCollectionName"];
