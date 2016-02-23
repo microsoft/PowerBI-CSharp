@@ -90,10 +90,9 @@ namespace PowerBI.Security.Tests
         public void CanCreateReportEmbedToken()
         {
             var workspaceId = Guid.NewGuid();
-            var modelId = Guid.NewGuid();
             var reportId = Guid.NewGuid();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, modelId, reportId);
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId);
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.signingKey);
@@ -105,7 +104,6 @@ namespace PowerBI.Security.Tests
             var versionClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Version);
             var wcnClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceCollectionName);
             var widClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceId);
-            var midCliam = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.ModelId);
             var ridCliam = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.ReportId);
 
             Assert.AreEqual("PowerBISDK", decodedToken.Issuer);
@@ -116,7 +114,6 @@ namespace PowerBI.Security.Tests
             Assert.AreEqual("1.0.0", versionClaim.Value);
             Assert.AreEqual("Contoso", wcnClaim.Value);
             Assert.AreEqual(workspaceId.ToString(), widClaim.Value);
-            Assert.AreEqual(modelId.ToString(), midCliam.Value);
             Assert.AreEqual(reportId.ToString(), ridCliam.Value);
         }
 
@@ -124,10 +121,9 @@ namespace PowerBI.Security.Tests
         public void CanCreateReportEmbedTokenWithExplicitExpiration()
         {
             var workspaceId = Guid.NewGuid();
-            var modelId = Guid.NewGuid();
             var reportId = Guid.NewGuid();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, modelId, reportId, DateTime.UtcNow.AddMinutes(1));
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, DateTime.UtcNow.AddMinutes(1));
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.signingKey);
@@ -143,10 +139,9 @@ namespace PowerBI.Security.Tests
         public void CanCreateReportEmbedTokenWithSlidingExpiration()
         {
             var workspaceId = Guid.NewGuid();
-            var modelId = Guid.NewGuid();
             var reportId = Guid.NewGuid();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, modelId, reportId, TimeSpan.FromMinutes(2));
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, TimeSpan.FromMinutes(2));
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.signingKey);
@@ -162,10 +157,9 @@ namespace PowerBI.Security.Tests
         public void CanCreateReportEmbedTokenWithoutExpiration()
         {
             var workspaceId = Guid.NewGuid();
-            var modelId = Guid.NewGuid();
             var reportId = Guid.NewGuid();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, modelId, reportId, null);
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, null);
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.signingKey);
@@ -297,10 +291,9 @@ namespace PowerBI.Security.Tests
         public void CreateReportEmbedTokenWithInvalidExpirationFails()
         {
             var workspaceId = Guid.NewGuid();
-            var modelId = Guid.NewGuid();
             var reportId = Guid.NewGuid();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, modelId, reportId, DateTime.MinValue);
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, DateTime.MinValue);
         }
 
         [TestMethod]

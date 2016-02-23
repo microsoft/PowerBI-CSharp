@@ -13,8 +13,6 @@ using ApiHost.Models;
 using System.IO;
 using Microsoft.PowerBI.Security;
 using System.Threading;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography;
 using Microsoft.Rest.Serialization;
 using System.Net.Http.Headers;
 using System.Configuration;
@@ -23,7 +21,8 @@ namespace ApiHost
 {
     class Program
     {
-        private const string thumbprint = "6169A4F22AA42B4C23873561462358BED9924AE6";
+        const string azureEndpointUri = "https://api-dogfood.resources.windows-int.net";
+        const string version = "?api-version=2016-01-29";
 
         static string apiEndpoint = ConfigurationManager.AppSettings["apiEndpoint"];
         static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
@@ -86,6 +85,9 @@ namespace ApiHost
 
                         await CreateWorkspaceCollection(subscriptionId, resourceGroup, workspaceCollectionName);
                         signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Key1: {0}", signingKeys.Key1);
+
                         await Run();
                         break;
                     case '2':
@@ -108,6 +110,7 @@ namespace ApiHost
                         signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Key1: {0}", signingKeys.Key1);
+
                         await Run();
                         break;
                     case '3':
@@ -127,6 +130,7 @@ namespace ApiHost
                         workspaceId = Guid.Parse(workspace.WorkspaceId);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Workspace ID: {0}", workspaceId);
+
                         await Run();
                         break;
                     case '4':
@@ -156,6 +160,7 @@ namespace ApiHost
                         importId = import.Id;
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Import: {0}", import.Id);
+
                         await Run();
                         break;
                     case '5':
@@ -174,6 +179,7 @@ namespace ApiHost
                         }
 
                         await UpdateConnection(workspaceCollectionName, workspaceId);
+
                         await Run();
                         break;
                     case '6':
@@ -191,9 +197,12 @@ namespace ApiHost
                             Console.WriteLine();
                         }
 
-                        var embedUrl = await GetReportEmbedUrl(workspaceCollectionName, workspaceId);
+                        var report = await GetReport(workspaceCollectionName, workspaceId);
+                        var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, workspaceId, Guid.Parse(report.Id));
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("EmbedUrl: {0}", embedUrl);
+                        Console.WriteLine("Embed Url: {0}", report.EmbedUrl);
+                        Console.WriteLine("Embed Token: {0}", embedToken.Generate(signingKeys.Key1));
+
                         await Run();
                         break;
                     case '7':
@@ -213,12 +222,9 @@ namespace ApiHost
 
         static async Task CreateWorkspaceCollection(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
-            string url = string.Format("{0}/azure/resourceProvider/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}", apiEndpoint, subscriptionId, resourceGroup, workspaceCollectionName);
-            var handler = new WebRequestHandler();
-            var cert = GetCertificate(thumbprint);
-            handler.ClientCertificates.Add(cert);
+            var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
 
-            using (var client = new HttpClient(handler))
+            using (var client = new HttpClient())
             {
                 var content = new StringContent(@"{
                                                 ""location"": ""East US"",
@@ -228,10 +234,13 @@ namespace ApiHost
                                                     ""tier"": ""Standard""
                                                 }
                                             }", Encoding.UTF8);
-
                 content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 
-                var response = await client.PutAsync(url, content);
+                var request = new HttpRequestMessage(HttpMethod.Put, url);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAccessToken());
+                request.Content = content;
+
+                var response = await client.SendAsync(request);
                 var json = await response.Content.ReadAsStringAsync();
                 return;
             }
@@ -239,16 +248,14 @@ namespace ApiHost
 
         static async Task<WorkspaceCollectionKeys> ListWorkspaceCollectionKeys(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
-            var url = string.Format("{0}/azure/resourceProvider/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/listkeys", apiEndpoint, subscriptionId, resourceGroup, workspaceCollectionName);
+            var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/listkeys{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
 
-            var handler = new WebRequestHandler();
-            var cert = GetCertificate(thumbprint);
-            handler.ClientCertificates.Add(cert);
-
-            using (var client = new HttpClient(handler))
+            using (var client = new HttpClient())
             {
-                var content = new StringContent(string.Empty);
-                var response = await client.PostAsync(url, content);
+                var request = new HttpRequestMessage(HttpMethod.Post, url);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAccessToken());
+                request.Content = new StringContent(string.Empty);
+                var response = await client.SendAsync(request);
 
                 var json = await response.Content.ReadAsStringAsync();
                 return SafeJsonConvert.DeserializeObject<WorkspaceCollectionKeys>(json);
@@ -258,9 +265,10 @@ namespace ApiHost
         static async Task<Workspace> CreateWorkspace(string workspaceCollectionName)
         {
             var provisionToken = PowerBIToken.CreateProvisionToken(workspaceCollectionName);
-            var client = CreateClient(provisionToken);
-
-            return await client.Workspaces.PostWorkspaceAsync(workspaceCollectionName);
+            using (var client = CreateClient(provisionToken))
+            {
+                return await client.Workspaces.PostWorkspaceAsync(workspaceCollectionName);
+            }
         }
 
         static async Task<Import> ImportPbix(string workspaceCollectionName, Guid workspaceId, string datasetName, string filePath)
@@ -268,18 +276,20 @@ namespace ApiHost
             using (var fileStream = File.OpenRead(filePath))
             {
                 var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-                var client = CreateClient(devToken);
-
-                var import = await client.Imports.PostImportWithFileAsync(fileStream, datasetName);
-
-                while (import.ImportState != "Succeeded" && import.ImportState != "Failed")
+                using (var client = CreateClient(devToken))
                 {
-                    import = client.Imports.GetImportById(import.Id);
-                    Console.WriteLine("Checking import state... {0}", import.ImportState);
-                    Thread.Sleep(1000);
-                }
 
-                return import;
+                    var import = await client.Imports.PostImportWithFileAsync(fileStream, datasetName);
+
+                    while (import.ImportState != "Succeeded" && import.ImportState != "Failed")
+                    {
+                        import = client.Imports.GetImportById(import.Id);
+                        Console.WriteLine("Checking import state... {0}", import.ImportState);
+                        Thread.Sleep(1000);
+                    }
+
+                    return import;
+                }
             }
         }
 
@@ -300,31 +310,33 @@ namespace ApiHost
             }
 
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-            var client = CreateClient(devToken);
-
-            var datasets = await client.Datasets.GetDatasetsAsync();
-            var datasource = await client.DatasetsCont.GetBoundGatewayDatasourcesByDatasetkeyAsync(datasets.Value[0].Id);
-
-            var delta = new GatewayDatasource
+            using (var client = CreateClient(devToken))
             {
-                CredentialType = "Basic",
-                BasicCredentials = new BasicCredentials
-                {
-                    Username = username,
-                    Password = password
-                }
-            };
+                var datasets = await client.Datasets.GetDatasetsAsync();
+                var datasource = await client.DatasetsCont.GetBoundGatewayDatasourcesByDatasetkeyAsync(datasets.Value[0].Id);
 
-            await client.Gateways.PatchDatasourceByGatewayidAndDatasourceidAsync(datasource.Value[0].GatewayId, datasource.Value[0].Id, delta);
+                var delta = new GatewayDatasource
+                {
+                    CredentialType = "Basic",
+                    BasicCredentials = new BasicCredentials
+                    {
+                        Username = username,
+                        Password = password
+                    }
+                };
+
+                await client.Gateways.PatchDatasourceByGatewayidAndDatasourceidAsync(datasource.Value[0].GatewayId, datasource.Value[0].Id, delta);
+            }
         }
 
-        static async Task<string> GetReportEmbedUrl(string workspaceCollectionName, Guid workspaceId)
+        static async Task<Report> GetReport(string workspaceCollectionName, Guid workspaceId)
         {
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-            var client = CreateClient(devToken);
-
-            var reports = await client.Reports.GetReportsAsync();
-            return reports.Value[0].EmbedUrl;
+            using (var client = CreateClient(devToken))
+            {
+                var reports = await client.Reports.GetReportsAsync();
+                return reports.Value[0];
+            }
         }
 
         static IPowerBIClient CreateClient(PowerBIToken token)
@@ -337,32 +349,27 @@ namespace ApiHost
             return client;
         }
 
-        private static X509Certificate2 GetCertificate(string thumbprint)
+        static string GetAccessToken()
         {
-            X509Certificate2 cert = null;
+            // Follow instructions here to setup your tenants provisioning app: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/#get-access-token-in-code
 
-            var certStore = new X509Store(StoreLocation.LocalMachine);
-            certStore.Open(OpenFlags.ReadOnly);
+            var authenticationContext = new AuthenticationContext("https://login.windows-ppe.net/bb5476d7-5474-48e1-bdc9-a3607ec7217e");
+            var credential = new ClientCredential(
+                clientId: "8b0d4038-c8e5-4863-b64b-462d6ee90a3a",
+                clientSecret: "5HKMqwLMkL2sWFbc/f8rugNPmp1rbvbCG+qFGl+WA5g="
+            );
+            var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential: credential);
 
-            var certificates = certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, false);
-            if (certificates.Count > 0)
+            if (result == null)
             {
-                cert = certificates[0];
-            }
-            else
-            {
-                throw new CryptographicException("Cannot find the certificate with the thumbprint: {0}", thumbprint);
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
 
-            certStore.Close();
-
-            return cert;
+            return result.AccessToken;
         }
 
         static async Task DemoAsync()
         {
-            //var accessToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjF6bmJlNmV2ZWJPamg2TTNXR1E5X1ZmWXVJdyIsImtpZCI6IjF6bmJlNmV2ZWJPamg2TTNXR1E5X1ZmWXVJdyJ9.eyJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MtaW50Lm5ldC9wb3dlcmJpL2FwaSIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MtcHBlLm5ldC9mNjg2ZDQyNi04ZDE2LTQyZGItODFiNy1hYjU3OGUxMTBjY2QvIiwiaWF0IjoxNDUzMjMyNjQ2LCJuYmYiOjE0NTMyMzI2NDYsImV4cCI6MTQ1MzIzNjU0NiwiYWNyIjoiMSIsImFtciI6WyJwd2QiLCJtZmEiXSwiYXBwaWQiOiI4NzFjMDEwZi01ZTYxLTRmYjEtODNhYy05ODYxMGE3ZTkxMTAiLCJhcHBpZGFjciI6IjIiLCJmYW1pbHlfbmFtZSI6IkJyZXphIiwiZ2l2ZW5fbmFtZSI6IldhbGxhY2UiLCJpcGFkZHIiOiIxNjcuMjIwLjEuNiIsIm5hbWUiOiJXYWxsYWNlIEJyZXphIiwib2lkIjoiMGM0NWE2Y2ItNTgzNC00MTdlLTg4MWEtODkwM2M2NDE3YWFkIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTY3NDQ2NTIiLCJwdWlkIjoiMTAwMzNGRkY4MDJFMzYyRSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6InZPbTRaZGttdTA0clRxVFBodmlQV0ZPZGpTT3NOTF9kdThaZ2w2MVRiZWsiLCJ0aWQiOiJmNjg2ZDQyNi04ZDE2LTQyZGItODFiNy1hYjU3OGUxMTBjY2QiLCJ1bmlxdWVfbmFtZSI6IndhYnJlemFAbWljcm9zb2Z0LmNvbSIsInVwbiI6IndhYnJlemFAbWljcm9zb2Z0LmNvbSIsInZlciI6IjEuMCJ9.jNVmS0pyC_t-n461xBba_R3MJxxSk6up-s41GDjgKkp9d27l4Q5oeRWar-pV3wF4kB8VxMLBNtM4z6-wIwRzKdNzUEzTDJBBVCONU2zbL9FqD1mys6jAsvbZDLc4i_x4kwZRdYzhjfVxNTvHsxLB_Z0fNF9mHJBfxFZtbcogNmUFGm81A2Aaz3sTo9h_fNkIhEk7-SeIbGuNvPdmY1YVbnalfUEX0uTByGJFj-UQ367bq2oPFwbW9SIc-wRHx_OQAeSPb0vOLfBM5hMyiwENN3fCcw_Njj93ACX0yRD1LPsG10_JFQ3XaG0UUOf6ULOozzi27x77c3skn4udNUcY9g";
-
             var resourceUri = "https://analysis.windows.net/powerbi/api";
             var authority = "https://login.windows.net/common/oauth2/authorize";
             var clientId = "f3ea3093-dec5-48ad-97e5-ab5f491a848e";
@@ -374,7 +381,7 @@ namespace ApiHost
 
             var credentials = new TokenCredentials(authResult.AccessToken, authResult.AccessTokenType);
             var client = new PowerBIClient(credentials);
-            client.BaseUri = new Uri("https://onebox-redirect.analysis.windows-int.net");
+            client.BaseUri = new Uri(apiEndpoint);
 
             var imports = await client.Imports.GetImportsAsync();
 

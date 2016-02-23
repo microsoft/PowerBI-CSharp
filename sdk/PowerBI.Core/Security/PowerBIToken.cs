@@ -14,7 +14,6 @@ namespace Microsoft.PowerBI.Security
             public const string Type = "type";
             public const string WorkspaceCollectionName = "wcn";
             public const string WorkspaceId = "wid";
-            public const string ModelId = "mid";
             public const string ReportId = "rid";
         }
 
@@ -144,13 +143,12 @@ namespace Microsoft.PowerBI.Security
         /// </summary>
         /// <param name="workspaceCollectionName">The workspace collection name</param>
         /// <param name="workspaceId">The workspace id</param>
-        /// <param name="modelId">The data model id</param>
         /// <param name="reportId">The report id</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid modelId, Guid reportId)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid reportId)
         {
             var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
-            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, modelId, reportId, expires);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires);
         }
 
         /// <summary>
@@ -158,14 +156,13 @@ namespace Microsoft.PowerBI.Security
         /// </summary>
         /// <param name="workspaceCollectionName">The workspace collection name</param>
         /// <param name="workspaceId">The workspace id</param>
-        /// <param name="modelId">The data model id</param>
         /// <param name="reportId">The report id</param>
         /// <param name="slidingExpiration">The timespan to append to the current date/time</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid modelId, Guid reportId, TimeSpan slidingExpiration)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid reportId, TimeSpan slidingExpiration)
         {
             var expires = DateTime.UtcNow.Add(slidingExpiration);
-            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, modelId, reportId, expires);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires);
         }
 
         /// <summary>
@@ -173,15 +170,13 @@ namespace Microsoft.PowerBI.Security
         /// </summary>
         /// <param name="workspaceCollectionName">The workspace collection name</param>
         /// <param name="workspaceId">The workspace id</param>
-        /// <param name="modelId">The data model id</param>
         /// <param name="reportId">The report id</param>
         /// <param name="expiration">The token expiration date/time</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid modelId, Guid reportId, DateTime? expiration)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid reportId, DateTime? expiration)
         {
             Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
             Guard.ValidateGuid(workspaceId, "workspaceId");
-            Guard.ValidateGuid(modelId, "modelId");
             Guard.ValidateGuid(reportId, "reportId");
 
             if (expiration.HasValue && expiration.Value < DateTime.UtcNow)
@@ -197,7 +192,6 @@ namespace Microsoft.PowerBI.Security
             token.Claims.Add(new Claim(ClaimTypes.Type, "embed"));
             token.Claims.Add(new Claim(ClaimTypes.WorkspaceCollectionName, workspaceCollectionName));
             token.Claims.Add(new Claim(ClaimTypes.WorkspaceId, workspaceId.ToString()));
-            token.Claims.Add(new Claim(ClaimTypes.ModelId, modelId.ToString()));
             token.Claims.Add(new Claim(ClaimTypes.ReportId, reportId.ToString()));
 
             return token;
