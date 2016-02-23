@@ -25,8 +25,6 @@ namespace ProvisionSample
         //const string azureEndpointUri = "https://api-dogfood.resources.windows-int.net";
         const string azureEndpointUri = "https://onebox-redirect.analysis.windows-int.net/azure/resourceProvider";
         const string version = "?api-version=2016-01-29";
-        const string thumbprint = "6169A4F22AA42B4C23873561462358BED9924AE6";
-        const bool useCertificate = true;
 
         static string apiEndpoint = ConfigurationManager.AppSettings["apiEndpoint"];
         static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
@@ -36,6 +34,8 @@ namespace ProvisionSample
         static string password = ConfigurationManager.AppSettings["password"];
         static string clientId = ConfigurationManager.AppSettings["clientId"];
         static string clientSecret = ConfigurationManager.AppSettings["clientSecret"];
+        static string thumbprint = ConfigurationManager.AppSettings["thumbprint"];
+        static bool useCertificate = bool.Parse(ConfigurationManager.AppSettings["useCertificate"]);
 
         static WorkspaceCollectionKeys signingKeys = null;
         static Guid workspaceId = Guid.Empty;
