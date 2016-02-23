@@ -15,13 +15,18 @@ using System.Threading;
 using Microsoft.Rest.Serialization;
 using System.Net.Http.Headers;
 using System.Configuration;
+using System.Security.Cryptography.X509Certificates;
+using System.Security.Cryptography;
 
 namespace ProvisionSample
 {
     class Program
     {
-        const string azureEndpointUri = "https://api-dogfood.resources.windows-int.net";
+        //const string azureEndpointUri = "https://api-dogfood.resources.windows-int.net";
+        const string azureEndpointUri = "https://onebox-redirect.analysis.windows-int.net/azure/resourceProvider";
         const string version = "?api-version=2016-01-29";
+        const string thumbprint = "6169A4F22AA42B4C23873561462358BED9924AE6";
+        const bool useCertificate = true;
 
         static string apiEndpoint = ConfigurationManager.AppSettings["apiEndpoint"];
         static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
@@ -226,7 +231,17 @@ namespace ProvisionSample
         {
             var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
 
-            using (var client = new HttpClient())
+            HttpClient client = new HttpClient();
+
+            if (useCertificate)
+            {
+                var handler = new WebRequestHandler();
+                var certificate = GetCertificate(thumbprint);
+                handler.ClientCertificates.Add(certificate);
+                client = new HttpClient(handler);
+            }
+
+            using (client)
             {
                 var content = new StringContent(@"{
                                                 ""location"": ""East US"",
@@ -240,7 +255,10 @@ namespace ProvisionSample
 
                 var request = new HttpRequestMessage(HttpMethod.Put, url);
                 // Set authorization header from you acquired Azure AD token
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
+                if (!useCertificate)
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
+                }
                 request.Content = content;
 
                 var response = await client.SendAsync(request);
@@ -253,11 +271,24 @@ namespace ProvisionSample
         {
             var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/listkeys{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
 
-            using (var client = new HttpClient())
+            HttpClient client = new HttpClient();
+
+            if (useCertificate)
+            {
+                var handler = new WebRequestHandler();
+                var certificate = GetCertificate(thumbprint);
+                handler.ClientCertificates.Add(certificate);
+                client = new HttpClient(handler);
+            }
+
+            using (client)
             {
                 var request = new HttpRequestMessage(HttpMethod.Post, url);
                 // Set authorization header from you acquired Azure AD token
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
+                if (!useCertificate)
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
+                }
                 request.Content = new StringContent(string.Empty);
                 var response = await client.SendAsync(request);
 
@@ -390,6 +421,28 @@ namespace ProvisionSample
             }
 
             return result.AccessToken;
+        }
+
+        static X509Certificate2 GetCertificate(string thumbprint)
+        {
+            X509Certificate2 cert = null;
+
+            var certStore = new X509Store(StoreLocation.LocalMachine);
+            certStore.Open(OpenFlags.ReadOnly);
+
+            var certificates = certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, false);
+            if (certificates.Count > 0)
+            {
+                cert = certificates[0];
+            }
+            else
+            {
+                throw new CryptographicException("Cannot find the certificate with the thumbprint: {0}", thumbprint);
+            }
+
+            certStore.Close();
+
+            return cert;
         }
     }
 }
