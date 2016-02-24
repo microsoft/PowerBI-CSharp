@@ -17,23 +17,22 @@ using System.Net.Http.Headers;
 using System.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
+using System.Net;
 
 namespace ProvisionSample
 {
     class Program
     {
-        //const string azureEndpointUri = "https://api-dogfood.resources.windows-int.net";
-        const string azureEndpointUri = "https://onebox-redirect.analysis.windows-int.net/azure/resourceProvider";
         const string version = "?api-version=2016-01-29";
 
-        static string apiEndpoint = ConfigurationManager.AppSettings["apiEndpoint"];
+        static string apiEndpointUri = ConfigurationManager.AppSettings["pbiApiEndpoint"];
+        static string azureEndpointUri = ConfigurationManager.AppSettings["azureApiEndpoint"];
         static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
         static string resourceGroup = ConfigurationManager.AppSettings["resourceGroup"];
         static string workspaceCollectionName = ConfigurationManager.AppSettings["workspaceCollectionName"];
         static string username = ConfigurationManager.AppSettings["username"];
         static string password = ConfigurationManager.AppSettings["password"];
         static string clientId = ConfigurationManager.AppSettings["clientId"];
-        static string clientSecret = ConfigurationManager.AppSettings["clientSecret"];
         static string thumbprint = ConfigurationManager.AppSettings["thumbprint"];
         static bool useCertificate = bool.Parse(ConfigurationManager.AppSettings["useCertificate"]);
 
@@ -92,7 +91,7 @@ namespace ProvisionSample
                         await CreateWorkspaceCollection(subscriptionId, resourceGroup, workspaceCollectionName);
                         signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Key1: {0}", signingKeys.Key1);
+                        Console.WriteLine("Workspace collection created successfully");
 
                         await Run();
                         break;
@@ -262,6 +261,12 @@ namespace ProvisionSample
                 request.Content = content;
 
                 var response = await client.SendAsync(request);
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    var message = await response.Content.ReadAsStringAsync();
+                    throw new Exception(message);
+                }
+
                 var json = await response.Content.ReadAsStringAsync();
                 return;
             }
@@ -291,6 +296,12 @@ namespace ProvisionSample
                 }
                 request.Content = new StringContent(string.Empty);
                 var response = await client.SendAsync(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    var message = await response.Content.ReadAsStringAsync();
+                    throw new Exception(message);
+                }
 
                 var json = await response.Content.ReadAsStringAsync();
                 return SafeJsonConvert.DeserializeObject<WorkspaceCollectionKeys>(json);
@@ -397,7 +408,7 @@ namespace ProvisionSample
             var client = new PowerBIClient(credentials);
 
             // Override the api endpoint base URL.  Default value is https://api.powerbi.com
-            client.BaseUri = new Uri(apiEndpoint);
+            client.BaseUri = new Uri(apiEndpointUri);
 
             return client;
         }
@@ -406,14 +417,13 @@ namespace ProvisionSample
         {
             // Follow instructions here to setup your tenants provisioning app: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/#get-access-token-in-code
 
-            var authenticationContext = new AuthenticationContext("https://login.windows-ppe.net/bb5476d7-5474-48e1-bdc9-a3607ec7217e");
-            var credential = new ClientCredential(
+            var tokenCache = new TokenCache();
+            var authContext = new AuthenticationContext("https://login.windows-ppe.net/common/oauth2/authorize", tokenCache);
+            var result = authContext.AcquireToken(
+                resource: "https://management.core.windows.net/",
                 clientId: clientId,
-                clientSecret: clientSecret
-            );
-
-            // Acquire access token as the application service principal configured in the link above
-            var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential: credential);
+                redirectUri: new Uri("https://login.live.com/oauth20_desktop.srf"),
+                promptBehavior: PromptBehavior.Auto);
 
             if (result == null)
             {
