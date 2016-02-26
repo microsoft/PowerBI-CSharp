@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvisionSample", "ProvisionSample\ProvisionSample.csproj", "{32CEA21A-2E37-48E3-9D16-CB134A2BEB24}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{9114A6B3-5DF3-4DE8-A5E3-89D9E547C6EF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +18,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{32CEA21A-2E37-48E3-9D16-CB134A2BEB24} = {9114A6B3-5DF3-4DE8-A5E3-89D9E547C6EF}
 	EndGlobalSection
 EndGlobal

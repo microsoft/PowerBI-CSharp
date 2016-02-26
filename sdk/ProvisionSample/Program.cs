@@ -18,6 +18,7 @@ using System.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Net;
+using System.Linq;
 
 namespace ProvisionSample
 {
@@ -71,6 +72,10 @@ namespace ProvisionSample
 
                 switch (key.KeyChar)
                 {
+                    case '0':
+                        await ProvisionWorkspaceCollections();
+                        await Run();
+                        break;
                     case '1':
                         if (string.IsNullOrWhiteSpace(subscriptionId))
                         {
@@ -223,6 +228,38 @@ namespace ProvisionSample
                 Console.WriteLine("Ooops, something broke: {0}", ex.Message);
                 Console.WriteLine();
                 await Run();
+            }
+        }
+
+        static async Task ProvisionWorkspaceCollections()
+        {
+            var subscriptionsValue = ConfigurationManager.AppSettings["subscriptions"];
+            var subscriptionIds = subscriptionsValue.Split(',');
+            var counter = 1;
+
+            var filePath = string.Concat("ProvisionWorkspaceCollections-", DateTime.UtcNow.ToFileTimeUtc(), ".log");
+            using (var writer = File.CreateText(filePath))
+            {
+                foreach (var subId in subscriptionIds)
+                {
+                    var workspaceCollectionName = string.Concat("WC-", counter);
+                    try
+                    {
+                        await CreateWorkspaceCollection(subId, "PowerBI", workspaceCollectionName);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        var message = string.Format("Successfully created workspace collection '{0}' in Subscription ID: '{1}'", workspaceCollectionName, subId);
+                        Console.WriteLine(message);
+                        writer.WriteLine(message);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        var message = string.Format("Failed creating workspace collection '{0}' in Subscription ID: '{1}', Exception: {2}", workspaceCollectionName, subId, ex.Message);
+                        Console.WriteLine(message);
+                        writer.WriteLine(message);
+                    }
+                    counter++;
+                }
             }
         }
 
