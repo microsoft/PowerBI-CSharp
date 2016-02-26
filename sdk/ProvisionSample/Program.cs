@@ -18,7 +18,6 @@ using System.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Net;
-using System.Linq;
 
 namespace ProvisionSample
 {
@@ -36,6 +35,7 @@ namespace ProvisionSample
         static string clientId = ConfigurationManager.AppSettings["clientId"];
         static string thumbprint = ConfigurationManager.AppSettings["thumbprint"];
         static bool useCertificate = bool.Parse(ConfigurationManager.AppSettings["useCertificate"]);
+        static string signingKey = ConfigurationManager.AppSettings["signingKey"];
 
         static WorkspaceCollectionKeys signingKeys = null;
         static Guid workspaceId = Guid.Empty;
@@ -43,6 +43,14 @@ namespace ProvisionSample
 
         static void Main(string[] args)
         {
+            if (!string.IsNullOrWhiteSpace(signingKey))
+            {
+                signingKeys = new WorkspaceCollectionKeys
+                {
+                    Key1 = signingKey
+                };
+            }
+
             AsyncPump.Run(async delegate
             {
                 await Run();
@@ -126,16 +134,23 @@ namespace ProvisionSample
                         await Run();
                         break;
                     case '3':
+                        if (string.IsNullOrWhiteSpace(subscriptionId))
+                        {
+                            Console.Write("Azure Subscription ID:");
+                            subscriptionId = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        if (string.IsNullOrWhiteSpace(resourceGroup))
+                        {
+                            Console.Write("Azure Resource Group:");
+                            resourceGroup = Console.ReadLine();
+                            Console.WriteLine();
+                        }
                         if (string.IsNullOrWhiteSpace(workspaceCollectionName))
                         {
                             Console.Write("Workspace Collection Name:");
                             workspaceCollectionName = Console.ReadLine();
                             Console.WriteLine();
-                        }
-
-                        if (signingKeys == null)
-                        {
-                            signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
                         }
 
                         var workspace = await CreateWorkspace(workspaceCollectionName);
@@ -349,7 +364,7 @@ namespace ProvisionSample
         {
             // Create a provision token required to create a new workspace within your collection
             var provisionToken = PowerBIToken.CreateProvisionToken(workspaceCollectionName);
-            using (var client = CreateClient(provisionToken))
+            using (var client = await CreateClient(provisionToken))
             {
                 // Create a new workspace witin the specified collection
                 return await client.Workspaces.PostWorkspaceAsync(workspaceCollectionName);
@@ -362,7 +377,7 @@ namespace ProvisionSample
             {
                 // Create a dev token for import
                 var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-                using (var client = CreateClient(devToken))
+                using (var client = await CreateClient(devToken))
                 {
 
                     // Import PBIX file from the file stream
@@ -398,7 +413,7 @@ namespace ProvisionSample
             }
 
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-            using (var client = CreateClient(devToken))
+            using (var client = await CreateClient(devToken))
             {
                 // Get the newly created dataset from the previous import process
                 var datasets = await client.Datasets.GetDatasetsAsync();
@@ -426,15 +441,32 @@ namespace ProvisionSample
         {
             // Create a dev token to access the reports within your workspace
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-            using (var client = CreateClient(devToken))
+            using (var client = await CreateClient(devToken))
             {
                 var reports = await client.Reports.GetReportsAsync();
                 return reports.Value[reports.Value.Count - 1];
             }
         }
 
-        static IPowerBIClient CreateClient(PowerBIToken token)
+        static async Task<IPowerBIClient> CreateClient(PowerBIToken token)
         {
+            if (signingKeys == null)
+            {
+                Console.Write("Signing Key: ");
+                signingKey = Console.ReadLine();
+                Console.WriteLine();
+
+                signingKeys = new WorkspaceCollectionKeys()
+                {
+                    Key1 = signingKey
+                };
+            }
+
+            if (signingKeys == null)
+            {
+                signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
+            }
+
             // Generate a JWT token used when accessing the REST APIs
             var jwt = token.Generate(signingKeys.Key1);
 
@@ -460,7 +492,7 @@ namespace ProvisionSample
                 resource: "https://management.core.windows.net/",
                 clientId: clientId,
                 redirectUri: new Uri("https://login.live.com/oauth20_desktop.srf"),
-                promptBehavior: PromptBehavior.Auto);
+                promptBehavior: PromptBehavior.Always);
 
             if (result == null)
             {
