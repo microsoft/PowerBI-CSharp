@@ -15,6 +15,38 @@ namespace Microsoft.PowerBI.Api.Beta
     public static partial class WorkspacesExtensions
     {
             /// <summary>
+            /// Returns a list of workspaces for the specified collection
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='workspaceCollectionName'>
+            /// </param>
+            public static ODataResponseListWorkspace GetByCollectionName(this IWorkspaces operations, string workspaceCollectionName)
+            {
+                return Task.Factory.StartNew(s => ((IWorkspaces)s).GetByCollectionNameAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of workspaces for the specified collection
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='workspaceCollectionName'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListWorkspace> GetByCollectionNameAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetByCollectionNameWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Creates a new workspace within a workspace collection
             /// </summary>
             /// <param name='operations'>

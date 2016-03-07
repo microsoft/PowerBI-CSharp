@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.PowerBI.Api.Beta;
 using Microsoft.PowerBI.Api.Beta.Models;
 using Microsoft.Rest;
@@ -9,7 +8,6 @@ using Console = System.Console;
 using Microsoft.Threading;
 using ApiHost.Models;
 using System.IO;
-using System.Configuration;
 
 namespace ApiHost
 {

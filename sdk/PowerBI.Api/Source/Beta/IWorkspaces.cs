@@ -18,6 +18,18 @@ namespace Microsoft.PowerBI.Api.Beta
     public partial interface IWorkspaces
     {
         /// <summary>
+        /// Returns a list of workspaces for the specified collection
+        /// </summary>
+        /// <param name='workspaceCollectionName'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ODataResponseListWorkspace>> GetByCollectionNameWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Creates a new workspace within a workspace collection
         /// </summary>
         /// <param name='workspaceCollectionName'>

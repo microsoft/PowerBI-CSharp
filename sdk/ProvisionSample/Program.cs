@@ -18,6 +18,8 @@ using System.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Net;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ProvisionSample
 {
@@ -69,11 +71,13 @@ namespace ProvisionSample
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("=================================================================");
                 Console.WriteLine("1. Provision a new workspace collection");
-                Console.WriteLine("2. Retrieve a workspace collection's API keys");
-                Console.WriteLine("3. Provision a new workspace in an existing workspace collection");
-                Console.WriteLine("4. Import PBIX Desktop file into an existing workspace");
-                Console.WriteLine("5. Update connection string info for an existing dataset");
-                Console.WriteLine("6. Get embed url and token for existing report");
+                Console.WriteLine("2. Get workspace collection metadata");
+                Console.WriteLine("3. Retrieve a workspace collection's API keys");
+                Console.WriteLine("4. Get list of workspaces within a collection");
+                Console.WriteLine("5. Provision a new workspace in an existing workspace collection");
+                Console.WriteLine("6. Import PBIX Desktop file into an existing workspace");
+                Console.WriteLine("7. Update connection string info for an existing dataset");
+                Console.WriteLine("8. Get embed url and token for existing report");
                 Console.WriteLine();
 
                 var key = Console.ReadKey(true);
@@ -125,6 +129,29 @@ namespace ProvisionSample
                         workspaceCollectionName = Console.ReadLine();
                         Console.WriteLine();
 
+                        var metadata = await GetWorkspaceCollectionMetadata(subscriptionId, resourceGroup, workspaceCollectionName);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine(metadata);
+
+                        await Run();
+                        break;
+                    case '3':
+                        if (string.IsNullOrWhiteSpace(subscriptionId))
+                        {
+                            Console.Write("Azure Subscription ID:");
+                            subscriptionId = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        if (string.IsNullOrWhiteSpace(resourceGroup))
+                        {
+                            Console.Write("Azure Resource Group:");
+                            resourceGroup = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        Console.Write("Workspace Collection Name:");
+                        workspaceCollectionName = Console.ReadLine();
+                        Console.WriteLine();
+
                         signingKeys = await ListWorkspaceCollectionKeys(subscriptionId, resourceGroup, workspaceCollectionName);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Key1: {0}", signingKeys.Key1);
@@ -133,7 +160,21 @@ namespace ProvisionSample
 
                         await Run();
                         break;
-                    case '3':
+                    case '4':
+                        Console.Write("Workspace Collection Name:");
+                        workspaceCollectionName = Console.ReadLine();
+                        Console.WriteLine();
+
+                        var workspaces = await GetWorkspaces(workspaceCollectionName);
+
+                        foreach (var instance in workspaces)
+                        {
+                            Console.WriteLine("Collection: {0}, ID: {1}", instance.WorkspaceCollectionName, instance.WorkspaceId);
+                        }
+
+                        await Run();
+                        break;
+                    case '5':
                         if (string.IsNullOrWhiteSpace(subscriptionId))
                         {
                             Console.Write("Azure Subscription ID:");
@@ -160,7 +201,7 @@ namespace ProvisionSample
 
                         await Run();
                         break;
-                    case '4':
+                    case '6':
                         if (string.IsNullOrWhiteSpace(workspaceCollectionName))
                         {
                             Console.Write("Workspace Collection Name:");
@@ -190,7 +231,7 @@ namespace ProvisionSample
 
                         await Run();
                         break;
-                    case '5':
+                    case '7':
                         if (string.IsNullOrWhiteSpace(workspaceCollectionName))
                         {
                             Console.Write("Workspace Collection Name:");
@@ -209,7 +250,7 @@ namespace ProvisionSample
 
                         await Run();
                         break;
-                    case '6':
+                    case '8':
                         if (string.IsNullOrWhiteSpace(workspaceCollectionName))
                         {
                             Console.Write("Workspace Collection Name:");
@@ -360,6 +401,40 @@ namespace ProvisionSample
             }
         }
 
+        static async Task<string> GetWorkspaceCollectionMetadata(string subscriptionId, string resourceGroup, string workspaceCollectionName)
+        {
+            var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
+            HttpClient client = new HttpClient();
+
+            if (useCertificate)
+            {
+                var handler = new WebRequestHandler();
+                var certificate = GetCertificate(thumbprint);
+                handler.ClientCertificates.Add(certificate);
+                client = new HttpClient(handler);
+            }
+
+            using (client)
+            {
+                var request = new HttpRequestMessage(HttpMethod.Get, url);
+                // Set authorization header from you acquired Azure AD token
+                if (!useCertificate)
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
+                }
+                var response = await client.SendAsync(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    var message = await response.Content.ReadAsStringAsync();
+                    throw new Exception(message);
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+                return json;
+            }
+        }
+
         static async Task<Workspace> CreateWorkspace(string workspaceCollectionName)
         {
             // Create a provision token required to create a new workspace within your collection
@@ -368,6 +443,16 @@ namespace ProvisionSample
             {
                 // Create a new workspace witin the specified collection
                 return await client.Workspaces.PostWorkspaceAsync(workspaceCollectionName);
+            }
+        }
+
+        static async Task<IEnumerable<Workspace>> GetWorkspaces(string workspaceCollectionName)
+        {
+            var provisionToken = PowerBIToken.CreateProvisionToken(workspaceCollectionName);
+            using (var client = await CreateClient(provisionToken))
+            {
+                var response = await client.Workspaces.GetByCollectionNameAsync(workspaceCollectionName);
+                return response.Value;
             }
         }
 
