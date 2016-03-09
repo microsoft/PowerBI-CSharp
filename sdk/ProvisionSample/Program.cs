@@ -577,7 +577,7 @@ namespace ProvisionSample
                 resource: "https://management.core.windows.net/",
                 clientId: clientId,
                 redirectUri: new Uri("https://login.live.com/oauth20_desktop.srf"),
-                promptBehavior: PromptBehavior.Always);
+                promptBehavior: PromptBehavior.RefreshSession);
 
             if (result == null)
             {
