@@ -356,7 +356,8 @@ namespace ProvisionSample
                 var response = await client.SendAsync(request);
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
-                    var message = await response.Content.ReadAsStringAsync();
+                    var responseText = await response.Content.ReadAsStringAsync();
+                    var message = string.Format("Status: {0}, Reason: {1}, Message: {2}", response.StatusCode, response.ReasonPhrase, responseText);
                     throw new Exception(message);
                 }
 
@@ -392,7 +393,8 @@ namespace ProvisionSample
 
                 if (response.StatusCode != HttpStatusCode.OK)
                 {
-                    var message = await response.Content.ReadAsStringAsync();
+                    var responseText = await response.Content.ReadAsStringAsync();
+                    var message = string.Format("Status: {0}, Reason: {1}, Message: {2}", response.StatusCode, response.ReasonPhrase, responseText);
                     throw new Exception(message);
                 }
 
