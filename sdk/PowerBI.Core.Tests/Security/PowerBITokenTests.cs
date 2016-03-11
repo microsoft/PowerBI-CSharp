@@ -34,7 +34,7 @@ namespace PowerBI.Security.Tests
             Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
             Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddHours(1));
             Assert.AreEqual("dev", typeClaim.Value);
-            Assert.AreEqual("1.0.0", versionClaim.Value);
+            Assert.AreEqual("0.1.0", versionClaim.Value);
             Assert.AreEqual("Contoso", wcnClaim.Value);
             Assert.AreEqual(workspaceId.ToString(), widClaim.Value);
         }
@@ -72,21 +72,6 @@ namespace PowerBI.Security.Tests
         }
 
         [TestMethod]
-        public void CanCreateDevTokenWithoutExpiration()
-        {
-            var workspaceId = Guid.NewGuid();
-            var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, null);
-
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            Assert.AreEqual(DateTime.MinValue, decodedToken.ValidTo);
-        }
-
-        [TestMethod]
         public void CanCreateReportEmbedToken()
         {
             var workspaceId = Guid.NewGuid();
@@ -111,7 +96,7 @@ namespace PowerBI.Security.Tests
             Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
             Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddHours(1));
             Assert.AreEqual("embed", typeClaim.Value);
-            Assert.AreEqual("1.0.0", versionClaim.Value);
+            Assert.AreEqual("0.1.0", versionClaim.Value);
             Assert.AreEqual("Contoso", wcnClaim.Value);
             Assert.AreEqual(workspaceId.ToString(), widClaim.Value);
             Assert.AreEqual(reportId.ToString(), ridCliam.Value);
@@ -154,23 +139,6 @@ namespace PowerBI.Security.Tests
         }
 
         [TestMethod]
-        public void CanCreateReportEmbedTokenWithoutExpiration()
-        {
-            var workspaceId = Guid.NewGuid();
-            var reportId = Guid.NewGuid();
-
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, null);
-
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            Assert.AreEqual(decodedToken.ValidTo, DateTime.MinValue);
-        }
-
-        [TestMethod]
         public void CanCreateProvisionEmbedToken()
         {
             var token = PowerBIToken.CreateProvisionToken("Contoso");
@@ -190,7 +158,7 @@ namespace PowerBI.Security.Tests
             Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
             Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddHours(1));
             Assert.AreEqual("provision", typeClaim.Value);
-            Assert.AreEqual("1.0.0", versionClaim.Value);
+            Assert.AreEqual("0.1.0", versionClaim.Value);
             Assert.AreEqual("Contoso", wcnClaim.Value);
         }
 
@@ -222,20 +190,6 @@ namespace PowerBI.Security.Tests
 
             Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow.AddMinutes(1));
             Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddMinutes(2));
-        }
-
-        [TestMethod]
-        public void CanCreateProvisionTokenWithoutExpiration()
-        {
-            var token = PowerBIToken.CreateProvisionToken("Contoso", null);
-
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            Assert.AreEqual(decodedToken.ValidTo, DateTime.MinValue);
         }
 
         [TestMethod]

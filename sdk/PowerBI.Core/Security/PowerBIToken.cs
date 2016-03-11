@@ -63,11 +63,11 @@ namespace Microsoft.PowerBI.Security
         /// <param name="workspaceCollectionName">The workspace collection name</param>
         /// <param name="expiration">The token expiration date/time</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateProvisionToken(string workspaceCollectionName, DateTime? expiration)
+        public static PowerBIToken CreateProvisionToken(string workspaceCollectionName, DateTime expiration)
         {
             Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
 
-            if (expiration.HasValue && expiration.Value < DateTime.UtcNow)
+            if (expiration < DateTime.UtcNow)
             {
                 throw new ArgumentException("Expiration must be a date/time in the future", "expiration");
             }
@@ -116,12 +116,12 @@ namespace Microsoft.PowerBI.Security
         /// <param name="workspaceId">The workspace id</param>
         /// <param name="expiration">The token expiration date/time</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateDevToken(string workspaceCollectionName, Guid workspaceId, DateTime? expiration)
+        public static PowerBIToken CreateDevToken(string workspaceCollectionName, Guid workspaceId, DateTime expiration)
         {
             Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
             Guard.ValidateGuid(workspaceId, "workspaceId");
 
-            if (expiration.HasValue && expiration.Value < DateTime.UtcNow)
+            if (expiration < DateTime.UtcNow)
             {
                 throw new ArgumentException("Expiration must be a date/time in the future", "expiration");
             }
@@ -173,13 +173,13 @@ namespace Microsoft.PowerBI.Security
         /// <param name="reportId">The report id</param>
         /// <param name="expiration">The token expiration date/time</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid reportId, DateTime? expiration)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, Guid workspaceId, Guid reportId, DateTime expiration)
         {
             Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
             Guard.ValidateGuid(workspaceId, "workspaceId");
             Guard.ValidateGuid(reportId, "reportId");
 
-            if (expiration.HasValue && expiration.Value < DateTime.UtcNow)
+            if (expiration < DateTime.UtcNow)
             {
                 throw new ArgumentException("Expiration must be a date/time in the future", "expiration");
             }
@@ -237,7 +237,7 @@ namespace Microsoft.PowerBI.Security
 
         private void InitDefaultClaims()
         {
-            this.Claims.Add(new Claim(ClaimTypes.Version, "1.0.0"));
+            this.Claims.Add(new Claim(ClaimTypes.Version, "0.1.0"));
         }
 
         private void ValidateToken()
