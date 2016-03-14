@@ -468,12 +468,12 @@ namespace ProvisionSample
                 {
 
                     // Import PBIX file from the file stream
-                    var import = await client.Imports.PostImportWithFileAsync(fileStream, datasetName);
+                    var import = await client.Imports.PostImportWithFileAsync(workspaceCollectionName, workspaceId.ToString(), fileStream, datasetName);
 
                     // Example of polling the import to check when the import has succeeded.
                     while (import.ImportState != "Succeeded" && import.ImportState != "Failed")
                     {
-                        import = await client.Imports.GetImportByIdAsync(import.Id);
+                        import = await client.Imports.GetImportByIdAsync(workspaceCollectionName, workspaceId.ToString(), import.Id);
                         Console.WriteLine("Checking import state... {0}", import.ImportState);
                         Thread.Sleep(1000);
                     }
