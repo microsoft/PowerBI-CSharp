@@ -17,8 +17,11 @@ namespace Microsoft.PowerBI.Api.Beta
     /// </summary>
     public partial interface IGateways
     {
-        /// <param name='group'>
-        /// The organizational group
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='workspaceId'>
+        /// The workspace id
         /// </param>
         /// <param name='gatewayId'>
         /// </param>
@@ -32,19 +35,6 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> PatchDatasourceByGroupWithHttpMessagesAsync(string group, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <param name='gatewayId'>
-        /// </param>
-        /// <param name='datasourceId'>
-        /// </param>
-        /// <param name='datasourceDelta'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<object>> PatchDatasourceByGatewayidAndDatasourceidWithHttpMessagesAsync(string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

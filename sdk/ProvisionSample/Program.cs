@@ -453,7 +453,7 @@ namespace ProvisionSample
             var provisionToken = PowerBIToken.CreateProvisionToken(workspaceCollectionName);
             using (var client = await CreateClient(provisionToken))
             {
-                var response = await client.Workspaces.GetByCollectionNameAsync(workspaceCollectionName);
+                var response = await client.Workspaces.GetWorkspacesByCollectionNameAsync(workspaceCollectionName);
                 return response.Value;
             }
         }
@@ -473,7 +473,7 @@ namespace ProvisionSample
                     // Example of polling the import to check when the import has succeeded.
                     while (import.ImportState != "Succeeded" && import.ImportState != "Failed")
                     {
-                        import = client.Imports.GetImportById(import.Id);
+                        import = await client.Imports.GetImportByIdAsync(import.Id);
                         Console.WriteLine("Checking import state... {0}", import.ImportState);
                         Thread.Sleep(1000);
                     }
@@ -503,10 +503,10 @@ namespace ProvisionSample
             using (var client = await CreateClient(devToken))
             {
                 // Get the newly created dataset from the previous import process
-                var datasets = await client.Datasets.GetDatasetsAsync();
+                var datasets = await client.Datasets.GetDatasetsAsync(workspaceCollectionName, workspaceId.ToString());
 
                 // Get the datasources from the dataset
-                var datasources = await client.DatasetsCont.GetBoundGatewayDatasourcesByDatasetkeyAsync(datasets.Value[datasets.Value.Count - 1].Id);
+                var datasources = await client.Datasets.GetGatewayDatasourcesAsync(workspaceCollectionName, workspaceId.ToString(), datasets.Value[datasets.Value.Count - 1].Id);
 
                 // Reset your connection credentials
                 var delta = new GatewayDatasource
@@ -520,7 +520,7 @@ namespace ProvisionSample
                 };
 
                 // Update the datasource with the specified credentials
-                await client.Gateways.PatchDatasourceByGatewayidAndDatasourceidAsync(datasources.Value[datasources.Value.Count - 1].GatewayId, datasources.Value[datasets.Value.Count - 1].Id, delta);
+                await client.Gateways.PatchDatasourceAsync(workspaceCollectionName, workspaceId.ToString(), datasources.Value[datasources.Value.Count - 1].GatewayId, datasources.Value[datasources.Value.Count - 1].Id, delta);
             }
         }
 
@@ -530,7 +530,7 @@ namespace ProvisionSample
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
             using (var client = await CreateClient(devToken))
             {
-                var reports = await client.Reports.GetReportsAsync();
+                var reports = await client.Reports.GetReportsAsync(workspaceCollectionName, workspaceId.ToString());
                 return reports.Value[reports.Value.Count - 1];
             }
         }

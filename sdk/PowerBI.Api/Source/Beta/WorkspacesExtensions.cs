@@ -22,9 +22,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='workspaceCollectionName'>
             /// </param>
-            public static ODataResponseListWorkspace GetByCollectionName(this IWorkspaces operations, string workspaceCollectionName)
+            public static ODataResponseListWorkspace GetWorkspacesByCollectionName(this IWorkspaces operations, string workspaceCollectionName)
             {
-                return Task.Factory.StartNew(s => ((IWorkspaces)s).GetByCollectionNameAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IWorkspaces)s).GetWorkspacesByCollectionNameAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -38,9 +38,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListWorkspace> GetByCollectionNameAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListWorkspace> GetWorkspacesByCollectionNameAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetByCollectionNameWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWorkspacesByCollectionNameWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

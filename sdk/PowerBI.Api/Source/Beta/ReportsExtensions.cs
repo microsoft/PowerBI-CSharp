@@ -20,33 +20,15 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
-            /// </param>
-            public static ODataResponseListReport GetReportsByGroup(this IReports operations, string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?))
+            public static ODataResponseListReport GetReports(this IReports operations, string collectionName, string workspaceId)
             {
-                return Task.Factory.StartNew(s => ((IReports)s).GetReportsByGroupAsync(group, expand, filter, select, orderby, top, skip, count), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IReports)s).GetReportsAsync(collectionName, workspaceId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -55,106 +37,18 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListReport> GetReportsByGroupAsync( this IReports operations, string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListReport> GetReportsAsync( this IReports operations, string collectionName, string workspaceId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetReportsByGroupWithHttpMessagesAsync(group, expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Returns the EntitySet reports
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
-            /// </param>
-            public static ODataResponseListReport GetReports(this IReports operations, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?))
-            {
-                return Task.Factory.StartNew(s => ((IReports)s).GetReportsAsync(expand, filter, select, orderby, top, skip, count), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Returns the EntitySet reports
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ODataResponseListReport> GetReportsAsync( this IReports operations, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetReportsWithHttpMessagesAsync(expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetReportsWithHttpMessagesAsync(collectionName, workspaceId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

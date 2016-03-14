@@ -20,33 +20,15 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
-            /// </param>
-            public static ODataResponseListDataset GetDatasetsByGroup(this IDatasets operations, string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?))
+            public static ODataResponseListDataset GetDatasets(this IDatasets operations, string collectionName, string workspaceId)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasetsByGroupAsync(group, expand, filter, select, orderby, top, skip, count), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasetsAsync(collectionName, workspaceId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -55,36 +37,18 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListDataset> GetDatasetsByGroupAsync( this IDatasets operations, string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListDataset> GetDatasetsAsync( this IDatasets operations, string collectionName, string workspaceId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetDatasetsByGroupWithHttpMessagesAsync(group, expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDatasetsWithHttpMessagesAsync(collectionName, workspaceId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -96,15 +60,18 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='dataset'>
             /// The entity to post
             /// </param>
-            public static object PostDatasetByGroup(this IDatasets operations, string group, Dataset dataset)
+            public static object PostDataset(this IDatasets operations, string collectionName, string workspaceId, Dataset dataset)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).PostDatasetByGroupAsync(group, dataset), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).PostDatasetAsync(collectionName, workspaceId, dataset), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -113,8 +80,11 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='dataset'>
             /// The entity to post
@@ -122,113 +92,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PostDatasetByGroupAsync( this IDatasets operations, string group, Dataset dataset, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PostDatasetAsync( this IDatasets operations, string collectionName, string workspaceId, Dataset dataset, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostDatasetByGroupWithHttpMessagesAsync(group, dataset, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Returns the EntitySet datasets
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
-            /// </param>
-            public static ODataResponseListDataset GetDatasets(this IDatasets operations, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?))
-            {
-                return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasetsAsync(expand, filter, select, orderby, top, skip, count), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Returns the EntitySet datasets
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='select'>
-            /// Selects which properties to include in the response.
-            /// </param>
-            /// <param name='orderby'>
-            /// Sorts the results.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='count'>
-            /// Includes a count of the matching results in the response.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ODataResponseListDataset> GetDatasetsAsync( this IDatasets operations, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetDatasetsWithHttpMessagesAsync(expand, filter, select, orderby, top, skip, count, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Post a new entity to EntitySet datasets
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='dataset'>
-            /// The entity to post
-            /// </param>
-            public static object PostDataset(this IDatasets operations, Dataset dataset)
-            {
-                return Task.Factory.StartNew(s => ((IDatasets)s).PostDatasetAsync(dataset), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Post a new entity to EntitySet datasets
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='dataset'>
-            /// The entity to post
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> PostDatasetAsync( this IDatasets operations, Dataset dataset, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PostDatasetWithHttpMessagesAsync(dataset, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostDatasetWithHttpMessagesAsync(collectionName, workspaceId, dataset, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -237,8 +103,11 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
@@ -246,16 +115,19 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='requestMessage'>
             /// </param>
-            public static object PostRowsByGroup(this IDatasets operations, string group, string datasetKey, string tableName, object requestMessage)
+            public static object PostRows(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).PostRowsByGroupAsync(group, datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).PostRowsAsync(collectionName, workspaceId, datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
@@ -266,9 +138,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PostRowsByGroupAsync( this IDatasets operations, string group, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PostRowsAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostRowsByGroupWithHttpMessagesAsync(group, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostRowsWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -277,23 +149,29 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
             /// <param name='tableName'>
             /// </param>
-            public static object DeleteRowsByGroup(this IDatasets operations, string group, string datasetKey, string tableName)
+            public static object DeleteRows(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).DeleteRowsByGroupAsync(group, datasetKey, tableName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).DeleteRowsAsync(collectionName, workspaceId, datasetKey, tableName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
@@ -302,9 +180,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> DeleteRowsByGroupAsync( this IDatasets operations, string group, string datasetKey, string tableName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> DeleteRowsAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteRowsByGroupWithHttpMessagesAsync(group, datasetKey, tableName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteRowsWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, tableName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -313,30 +191,36 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
-            public static ODataResponseListTable GetTablesByGroup(this IDatasets operations, string group, string datasetKey)
+            public static ODataResponseListTable GetTables(this IDatasets operations, string collectionName, string workspaceId, string datasetKey)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).GetTablesByGroupAsync(group, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).GetTablesAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListTable> GetTablesByGroupAsync( this IDatasets operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListTable> GetTablesAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTablesByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetTablesWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -345,8 +229,11 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
@@ -354,82 +241,19 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='requestMessage'>
             /// </param>
-            public static object PutTableByGroup(this IDatasets operations, string group, string datasetKey, string tableName, object requestMessage)
+            public static object PutTable(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).PutTableByGroupAsync(group, datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).PutTableAsync(collectionName, workspaceId, datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            /// <param name='datasetKey'>
-            /// </param>
-            /// <param name='tableName'>
-            /// </param>
-            /// <param name='requestMessage'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> PutTableByGroupAsync( this IDatasets operations, string group, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PutTableByGroupWithHttpMessagesAsync(group, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='group'>
-            /// The organizational group
-            /// </param>
-            /// <param name='datasetKey'>
-            /// </param>
-            public static object DeleteDatasetByGroup(this IDatasets operations, string group, string datasetKey)
-            {
-                return Task.Factory.StartNew(s => ((IDatasets)s).DeleteDatasetByGroupAsync(group, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='group'>
-            /// The organizational group
-            /// </param>
-            /// <param name='datasetKey'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> DeleteDatasetByGroupAsync( this IDatasets operations, string group, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeleteDatasetByGroupWithHttpMessagesAsync(group, datasetKey, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='datasetKey'>
-            /// </param>
-            /// <param name='tableName'>
-            /// </param>
-            /// <param name='requestMessage'>
-            /// </param>
-            public static object PostRowsByDatasetkeyAndTablename(this IDatasets operations, string datasetKey, string tableName, object requestMessage)
-            {
-                return Task.Factory.StartNew(s => ((IDatasets)s).PostRowsByDatasetkeyAndTablenameAsync(datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
@@ -440,9 +264,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PostRowsByDatasetkeyAndTablenameAsync( this IDatasets operations, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PutTableAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostRowsByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PutTableWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -451,28 +275,38 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
-            /// <param name='tableName'>
-            /// </param>
-            public static object DeleteRowsByDatasetkeyAndTablename(this IDatasets operations, string datasetKey, string tableName)
+            public static Dataset GetDatasetById(this IDatasets operations, string collectionName, string workspaceId, string datasetKey)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).DeleteRowsByDatasetkeyAndTablenameAsync(datasetKey, tableName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasetByIdAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='datasetKey'>
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            /// <param name='tableName'>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> DeleteRowsByDatasetkeyAndTablenameAsync( this IDatasets operations, string datasetKey, string tableName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Dataset> GetDatasetByIdAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteRowsByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDatasetByIdWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -481,24 +315,38 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='datasetKey'>
+            /// <param name='collectionName'>
+            /// The workspace collection name
             /// </param>
-            public static ODataResponseListTable GetTablesByDatasetkey(this IDatasets operations, string datasetKey)
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static object DeleteDatasetById(this IDatasets operations, string collectionName, string workspaceId, string datasetKey)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).GetTablesByDatasetkeyAsync(datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).DeleteDatasetByIdAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListTable> GetTablesByDatasetkeyAsync( this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> DeleteDatasetByIdAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTablesByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteDatasetByIdWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -507,32 +355,38 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
-            /// <param name='tableName'>
-            /// </param>
-            /// <param name='requestMessage'>
-            /// </param>
-            public static object PutTableByDatasetkeyAndTablename(this IDatasets operations, string datasetKey, string tableName, object requestMessage)
+            public static ODataResponseListGatewayDatasource GetGatewayDatasources(this IDatasets operations, string collectionName, string workspaceId, string datasetKey)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).PutTableByDatasetkeyAndTablenameAsync(datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).GetGatewayDatasourcesAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='datasetKey'>
-            /// </param>
-            /// <param name='tableName'>
-            /// </param>
-            /// <param name='requestMessage'>
+            /// The dataset id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PutTableByDatasetkeyAndTablenameAsync( this IDatasets operations, string datasetKey, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListGatewayDatasource> GetGatewayDatasourcesAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PutTableByDatasetkeyAndTablenameWithHttpMessagesAsync(datasetKey, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGatewayDatasourcesWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -541,24 +395,78 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='datasetKey'>
             /// </param>
-            public static object DeleteDatasetByDatasetkey(this IDatasets operations, string datasetKey)
+            public static ODataResponseListDatasource GetDatasources(this IDatasets operations, string collectionName, string workspaceId, string datasetKey)
             {
-                return Task.Factory.StartNew(s => ((IDatasets)s).DeleteDatasetByDatasetkeyAsync(datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasourcesAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> DeleteDatasetByDatasetkeyAsync( this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListDatasource> GetDatasourcesAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteDatasetByDatasetkeyWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDatasourcesWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// </param>
+            /// <param name='parameters'>
+            /// </param>
+            public static object SetAllConnections(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters)
+            {
+                return Task.Factory.StartNew(s => ((IDatasets)s).SetAllConnectionsAsync(collectionName, workspaceId, datasetKey, parameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// </param>
+            /// <param name='parameters'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> SetAllConnectionsAsync( this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.SetAllConnectionsWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

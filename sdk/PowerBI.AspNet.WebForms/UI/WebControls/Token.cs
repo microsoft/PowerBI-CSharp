@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
             var startUpScript = string.Format("window.powerbi = window.powerbi || {{}};{0}window.powerbi.accessToken = '{1}';", Environment.NewLine, this.AccessToken);
             if (!this.Page.ClientScript.IsStartupScriptRegistered(this.AccessToken))
             {
-                this.Page.ClientScript.RegisterStartupScript(typeof(Tile), this.AccessToken, startUpScript, true);
+                this.Page.ClientScript.RegisterStartupScript(typeof(Token), this.AccessToken, startUpScript, true);
             }
         }
 

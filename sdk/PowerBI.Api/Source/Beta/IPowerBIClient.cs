@@ -39,21 +39,15 @@ namespace Microsoft.PowerBI.Api.Beta
         ServiceClientCredentials Credentials { get; }
 
 
-        IDashboards Dashboards { get; }
-
         IDatasets Datasets { get; }
 
-        IDatasetsCont DatasetsCont { get; }
-
         IGateways Gateways { get; }
-
-        IGroups Groups { get; }
-
-        IReports Reports { get; }
 
         IImports Imports { get; }
 
         IWorkspaces Workspaces { get; }
+
+        IReports Reports { get; }
 
     }
 }

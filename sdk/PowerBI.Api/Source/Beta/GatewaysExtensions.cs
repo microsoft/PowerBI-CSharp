@@ -17,8 +17,11 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='gatewayId'>
             /// </param>
@@ -26,16 +29,19 @@ namespace Microsoft.PowerBI.Api.Beta
             /// </param>
             /// <param name='datasourceDelta'>
             /// </param>
-            public static object PatchDatasourceByGroup(this IGateways operations, string group, string gatewayId, string datasourceId, object datasourceDelta)
+            public static object PatchDatasource(this IGateways operations, string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta)
             {
-                return Task.Factory.StartNew(s => ((IGateways)s).PatchDatasourceByGroupAsync(group, gatewayId, datasourceId, datasourceDelta), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IGateways)s).PatchDatasourceAsync(collectionName, workspaceId, gatewayId, datasourceId, datasourceDelta), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='group'>
-            /// The organizational group
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
             /// </param>
             /// <param name='gatewayId'>
             /// </param>
@@ -46,43 +52,9 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PatchDatasourceByGroupAsync( this IGateways operations, string group, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PatchDatasourceAsync( this IGateways operations, string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchDatasourceByGroupWithHttpMessagesAsync(group, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gatewayId'>
-            /// </param>
-            /// <param name='datasourceId'>
-            /// </param>
-            /// <param name='datasourceDelta'>
-            /// </param>
-            public static object PatchDatasourceByGatewayidAndDatasourceid(this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta)
-            {
-                return Task.Factory.StartNew(s => ((IGateways)s).PatchDatasourceByGatewayidAndDatasourceidAsync(gatewayId, datasourceId, datasourceDelta), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gatewayId'>
-            /// </param>
-            /// <param name='datasourceId'>
-            /// </param>
-            /// <param name='datasourceDelta'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> PatchDatasourceByGatewayidAndDatasourceidAsync( this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PatchDatasourceByGatewayidAndDatasourceidWithHttpMessagesAsync(gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PatchDatasourceWithHttpMessagesAsync(collectionName, workspaceId, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

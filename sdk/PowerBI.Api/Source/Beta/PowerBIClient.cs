@@ -44,21 +44,15 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </summary>
         public ServiceClientCredentials Credentials { get; private set; }
 
-        public virtual IDashboards Dashboards { get; private set; }
-
         public virtual IDatasets Datasets { get; private set; }
 
-        public virtual IDatasetsCont DatasetsCont { get; private set; }
-
         public virtual IGateways Gateways { get; private set; }
-
-        public virtual IGroups Groups { get; private set; }
-
-        public virtual IReports Reports { get; private set; }
 
         public virtual IImports Imports { get; private set; }
 
         public virtual IWorkspaces Workspaces { get; private set; }
+
+        public virtual IReports Reports { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
@@ -239,15 +233,12 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </summary>
         private void Initialize()
         {
-            this.Dashboards = new Dashboards(this);
             this.Datasets = new Datasets(this);
-            this.DatasetsCont = new DatasetsCont(this);
             this.Gateways = new Gateways(this);
-            this.Groups = new Groups(this);
-            this.Reports = new Reports(this);
             this.Imports = new Imports(this);
             this.Workspaces = new Workspaces(this);
-            this.BaseUri = new Uri("http://api.powerbi.com");
+            this.Reports = new Reports(this);
+            this.BaseUri = new Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,

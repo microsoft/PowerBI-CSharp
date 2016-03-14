@@ -20,29 +20,11 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <summary>
         /// Returns the EntitySet reports
         /// </summary>
-        /// <param name='group'>
-        /// The organizational group
+        /// <param name='collectionName'>
+        /// The workspace collection name
         /// </param>
-        /// <param name='expand'>
-        /// Expands related entities inline.
-        /// </param>
-        /// <param name='filter'>
-        /// Filters the results, based on a Boolean condition.
-        /// </param>
-        /// <param name='select'>
-        /// Selects which properties to include in the response.
-        /// </param>
-        /// <param name='orderby'>
-        /// Sorts the results.
-        /// </param>
-        /// <param name='top'>
-        /// Returns only the first n results.
-        /// </param>
-        /// <param name='skip'>
-        /// Skips the first n results.
-        /// </param>
-        /// <param name='count'>
-        /// Includes a count of the matching results in the response.
+        /// <param name='workspaceId'>
+        /// The workspace id
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -50,37 +32,6 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ODataResponseListReport>> GetReportsByGroupWithHttpMessagesAsync(string group, string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Returns the EntitySet reports
-        /// </summary>
-        /// <param name='expand'>
-        /// Expands related entities inline.
-        /// </param>
-        /// <param name='filter'>
-        /// Filters the results, based on a Boolean condition.
-        /// </param>
-        /// <param name='select'>
-        /// Selects which properties to include in the response.
-        /// </param>
-        /// <param name='orderby'>
-        /// Sorts the results.
-        /// </param>
-        /// <param name='top'>
-        /// Returns only the first n results.
-        /// </param>
-        /// <param name='skip'>
-        /// Skips the first n results.
-        /// </param>
-        /// <param name='count'>
-        /// Includes a count of the matching results in the response.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ODataResponseListReport>> GetReportsWithHttpMessagesAsync(string expand = default(string), string filter = default(string), string select = default(string), string orderby = default(string), int? top = default(int?), int? skip = default(int?), bool? count = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListReport>> GetReportsWithHttpMessagesAsync(string collectionName, string workspaceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

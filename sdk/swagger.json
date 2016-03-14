@@ -6,772 +6,12 @@
     },
     "host": "api.powerbi.com",
     "schemes": [
-        "http",
         "https"
     ],
     "consumes": [],
     "produces": [],
     "paths": {
-        "/beta/myorg/groups/{group}/dashboards": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "summary": "Returns the EntitySet dashboards",
-                "operationId": "Dashboards_GetDashboardsByGroup",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Dashboard]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/dashboards": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "summary": "Returns the EntitySet dashboards",
-                "operationId": "Dashboards_GetDashboards",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Dashboard]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/dashboards({dashboardKey})": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_GetDashboardByGroup_2",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Dashboard"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/dashboards({dashboardKey})/tiles": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_GetTilesByGroup",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Tile]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "post": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_PostTileByGroup",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tile",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/dashboards({dashboardKey})/tiles({tileKey})": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_GetTileByGroup",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tileKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "required": false,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "put": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_PutTileByGroup",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tileKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tile",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "patch": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_PatchTileByGroup",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tileKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "patchTile",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/dashboards({dashboardKey})": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_GetDashboardByDashboardkey",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Dashboard"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/dashboards({dashboardKey})/tiles": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_GetTilesByDashboardkey",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Tile]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "post": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_PostTileByDashboardkey",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tile",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/dashboards({dashboardKey})/tiles({tileKey})": {
-            "get": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_GetTileByDashboardkeyAndTilekey",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tileKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "required": false,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "put": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_PutTileByDashboardkeyAndTilekey",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tileKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tile",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "patch": {
-                "tags": [
-                    "Dashboards"
-                ],
-                "operationId": "Dashboards_PatchTileByDashboardkeyAndTilekey",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "dashboardKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tileKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "patchTile",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Tile"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/datasets": {
-            "get": {
-                "tags": [
-                    "Datasets"
-                ],
-                "summary": "Returns the EntitySet datasets",
-                "operationId": "Datasets_GetDatasetsByGroup",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Dataset]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "post": {
-                "tags": [
-                    "Datasets"
-                ],
-                "summary": "Post a new entity to EntitySet datasets",
-                "operationId": "Datasets_PostDatasetByGroup",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "dataset",
-                        "in": "body",
-                        "description": "The entity to post",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Dataset"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/datasets": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -784,55 +24,18 @@
                 ],
                 "parameters": [
                     {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
+                        "name": "workspaceId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
                         "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -857,6 +60,20 @@
                 "produces": [],
                 "parameters": [
                     {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "name": "dataset",
                         "in": "body",
                         "description": "The entity to post",
@@ -877,20 +94,27 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')/tables('{tableName}')/rows": {
+        "/beta/collections/{collectionName}workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}/rows": {
             "post": {
                 "tags": [
                     "Datasets"
                 ],
-                "operationId": "Datasets_PostRowsByGroup",
+                "operationId": "Datasets_PostRows",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -928,15 +152,22 @@
                 "tags": [
                     "Datasets"
                 ],
-                "operationId": "Datasets_DeleteRowsByGroup",
+                "operationId": "Datasets_DeleteRows",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -963,22 +194,29 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')/tables": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables": {
             "get": {
                 "tags": [
                     "Datasets"
                 ],
-                "operationId": "Datasets_GetTablesByGroup",
+                "operationId": "Datasets_GetTables",
                 "consumes": [],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -999,20 +237,27 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')/tables('{tableName}')": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}": {
             "put": {
                 "tags": [
                     "Datasets"
                 ],
-                "operationId": "Datasets_PutTableByGroup",
+                "operationId": "Datasets_PutTable",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -1047,26 +292,34 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}": {
             "get": {
                 "tags": [
-                    "DatasetsCont"
+                    "Datasets"
                 ],
-                "operationId": "DatasetsCont_GetDatasetByGroup_2",
+                "operationId": "Datasets_GetDatasetById",
                 "consumes": [],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
                         "type": "string"
                     },
                     {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
                         "name": "datasetKey",
+                        "description": "The dataset id",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1086,19 +339,27 @@
                 "tags": [
                     "Datasets"
                 ],
-                "operationId": "Datasets_DeleteDatasetByGroup_2",
+                "operationId": "Datasets_DeleteDatasetById",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
                         "type": "string"
                     },
                     {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
                         "name": "datasetKey",
+                        "description": "The dataset id",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1115,222 +376,34 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/datasets('{datasetKey}')/tables('{tableName}')/rows": {
-            "post": {
-                "tags": [
-                    "Datasets"
-                ],
-                "operationId": "Datasets_PostRowsByDatasetkeyAndTablename",
-                "consumes": [],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tableName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "requestMessage",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "delete": {
-                "tags": [
-                    "Datasets"
-                ],
-                "operationId": "Datasets_DeleteRowsByDatasetkeyAndTablename",
-                "consumes": [],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "tableName",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/datasets('{datasetKey}')/tables": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/Default.GetBoundGatewayDatasources": {
             "get": {
                 "tags": [
                     "Datasets"
                 ],
-                "operationId": "Datasets_GetTablesByDatasetkey",
+                "operationId": "Datasets_GetGatewayDatasources",
                 "consumes": [],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "datasetKey",
+                        "name": "collectionName",
                         "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Table]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/datasets('{datasetKey}')/tables('{tableName}')": {
-            "put": {
-                "tags": [
-                    "Datasets"
-                ],
-                "operationId": "Datasets_PutTableByDatasetkeyAndTablename",
-                "consumes": [],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
+                        "description": "The workspace collection name",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "tableName",
+                        "name": "workspaceId",
                         "in": "path",
                         "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "requestMessage",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/datasets('{datasetKey}')": {
-            "get": {
-                "tags": [
-                    "DatasetsCont"
-                ],
-                "operationId": "DatasetsCont_GetDatasetByDatasetkey",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Dataset"
-                        }
-                    }
-                },
-                "deprecated": false
-            },
-            "delete": {
-                "tags": [
-                    "Datasets"
-                ],
-                "operationId": "Datasets_DeleteDatasetByDatasetkey",
-                "consumes": [],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')/Default.GetBoundGatewayDatasources": {
-            "get": {
-                "tags": [
-                    "DatasetsCont"
-                ],
-                "operationId": "DatasetsCont_GetBoundGatewayDatasourcesByGroup_2",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
                         "name": "datasetKey",
+                        "description": "The dataset id",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1347,22 +420,29 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')/datasources": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/datasources": {
             "get": {
                 "tags": [
-                    "DatasetsCont"
+                    "Datasets"
                 ],
-                "operationId": "DatasetsCont_GetDatasetDatasourcesByGroup",
+                "operationId": "Datasets_GetDatasources",
                 "consumes": [],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -1383,22 +463,29 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/groups/{group}/datasets('{datasetKey}')/Default.SetAllConnections": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/Default.SetAllConnections": {
             "post": {
                 "tags": [
-                    "DatasetsCont"
+                    "Datasets"
                 ],
-                "operationId": "DatasetsCont_SetAllConnectionsByGroup_2",
+                "operationId": "Datasets_SetAllConnections",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -1430,120 +517,29 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/datasets('{datasetKey}')/Default.GetBoundGatewayDatasources": {
-            "get": {
-                "tags": [
-                    "DatasetsCont"
-                ],
-                "operationId": "DatasetsCont_GetBoundGatewayDatasourcesByDatasetkey",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[GatewayDatasource]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/datasets('{datasetKey}')/datasources": {
-            "get": {
-                "tags": [
-                    "DatasetsCont"
-                ],
-                "operationId": "DatasetsCont_GetDatasetDatasourcesByDatasetkey",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Datasource]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/datasets('{datasetKey}')/Default.SetAllConnections": {
-            "post": {
-                "tags": [
-                    "DatasetsCont"
-                ],
-                "operationId": "DatasetsCont_SetAllConnectionsByDatasetkey",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "datasetKey",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "parameters",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "additionalProperties": {
-                                "$ref": "#/definitions/Object"
-                            }
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/gateways({gatewayId})/datasources({datasourceId})": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/gateways/{gatewayId}/datasources/{datasourceId}": {
             "patch": {
                 "tags": [
                     "Gateways"
                 ],
-                "operationId": "Gateways_PatchDatasourceByGroup",
+                "operationId": "Gateways_PatchDatasource",
                 "consumes": [
                     "application/json"
                 ],
                 "produces": [],
                 "parameters": [
                     {
-                        "name": "group",
+                        "name": "collectionName",
                         "in": "path",
-                        "description": "The organizational group",
+                        "description": "The workspace collection name",
                         "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
                     },
                     {
@@ -1572,206 +568,6 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/gateways({gatewayId})/datasources({datasourceId})": {
-            "patch": {
-                "tags": [
-                    "Gateways"
-                ],
-                "operationId": "Gateways_PatchDatasourceByGatewayidAndDatasourceid",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [],
-                "parameters": [
-                    {
-                        "name": "gatewayId",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "datasourceId",
-                        "in": "path",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "datasourceDelta",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups": {
-            "get": {
-                "tags": [
-                    "Groups"
-                ],
-                "summary": "Returns the EntitySet groups",
-                "operationId": "Groups_GetGroups",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Group]]"
-                        }
-                    }
-                },
-                "deprecated": false
-            }
-        },
-        "/beta/myorg/groups/{group}/reports": {
-            "get": {
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Returns the EntitySet reports",
-                "operationId": "Reports_GetReportsByGroup",
-                "consumes": [],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "group",
-                        "in": "path",
-                        "description": "The organizational group",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Report]]"
                         }
                     }
                 },
@@ -1779,15 +575,17 @@
             }
         },
         "/beta/myorg/imports": {
-        	"get": {
-        		"tags": ["Imports"],
-        		"summary": "Returns the Imports",
-        		"operationId": "Imports_GetImports",
-        		"consumes": [],
-        		"produces": [
-        			"application/json"
-        		],
-        		"parameters": [],
+            "get": {
+                "tags": [
+                    "Imports"
+                ],
+                "summary": "Returns the Imports",
+                "operationId": "Imports_GetImports",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1797,90 +595,29 @@
                     }
                 },
                 "deprecated": false
-        	},
-			"post": {
-    			"tags": ["Imports"],
-    			"summary": "Creates a new import",
-    			"operationId": "Imports_PostImport",
-    			"consumes": [
-    				"application/json"
-    			],
-    			"produces": [
-    				"application/json"
-    			],
-    			"parameters": [
-    				{
-    					"name": "importInfo",
-    					"in": "body",
-    					"required": true,
-    					"schema": {
-    						"$ref": "#/definitions/ImportInfo"
-    					}
-    				}
-    			],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Import"
-                        }
-                    }
-                }
-    		}
-    	},
-        "/beta/myorg/groups/{group}/imports": {
-        	"get": {
-        		"tags": ["Imports"],
-        		"summary": "Returns the Imports by group",
-        		"operationId": "Imports_GetImportsByGroup",
-        		"consumes": [],
-        		"produces": [
-        			"application/json"
-        		],
-    			"parameters": [
+            },
+            "post": {
+                "tags": [
+                    "Imports"
+                ],
+                "summary": "Creates a new import",
+                "operationId": "Imports_PostImport",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
                     {
-                        "name": "group",
-                        "in": "path",
+                        "name": "importInfo",
+                        "in": "body",
                         "required": true,
-                        "type": "string"
-                    }
-    			],
-                "responses": {
-                    "200": {
-                        "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[Import]]"
+                            "$ref": "#/definitions/ImportInfo"
                         }
                     }
-                },
-                "deprecated": false
-        	},
-			"post": {
-    			"tags": ["Imports"],
-    			"summary": "Creates a new import",
-    			"operationId": "Imports_PostImportByGroup",
-    			"consumes": [
-    				"application/json"
-    			],
-    			"produces": [
-    				"application/json"
-				],
-    			"parameters": [
-    				{
-    					"name": "group",
-    					"in": "path",
-    					"required": true,
-    					"type": "string"
-					},
-    				{
-    					"name": "importInfo",
-    					"in": "body",
-    					"required": true,
-    					"schema": {
-    						"$ref": "#/definitions/ImportInfo"
-    					}
-    				}
-    			],
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1889,25 +626,27 @@
                         }
                     }
                 }
-    		}
-    	},
-    	"/beta/myorg/imports/{importId}": {
-    		"get": {
-    			"tags": ["Imports"],
-    			"summary": "Returns the import by id",
-    			"operationId": "Imports_GetImportById",
-    			"consumes": [],
-    			"produces": [
-    				"application/json"
-    			],
-    			"parameters": [
+            }
+        },
+        "/beta/myorg/imports/{importId}": {
+            "get": {
+                "tags": [
+                    "Imports"
+                ],
+                "summary": "Returns the import by id",
+                "operationId": "Imports_GetImportById",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
                     {
                         "name": "importId",
                         "in": "path",
                         "required": true,
                         "type": "string"
                     }
-    			],
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -1916,12 +655,12 @@
                         }
                     }
                 }
-    		}
-		},
-		"beta/collections/{workspaceCollectionName}/workspaces": {
+            }
+        },
+        "/beta/collections/{workspaceCollectionName}/workspaces": {
             "get": {
                 "summary": "Returns a list of workspaces for the specified collection",
-                "operationId": "Workspaces_GetByCollectionName",
+                "operationId": "Workspaces_GetWorkspacesByCollectionName",
                 "consumes": [],
                 "produces": [
                     "application/json"
@@ -1943,35 +682,37 @@
                     }
                 }
             },
-			"post": {
-				"tags": ["Workspaces"],
-				"summary": "Creates a new workspace within a workspace collection",
-				"operationId": "Workspaces_PostWorkspace",
-    			"consumes": [
-    				"application/json"
-    			],
-    			"produces": [
-    				"application/json"
-    			],
-    			"parameters": [
-    				{
-    					"name": "workspaceCollectionName",
-    					"in": "path",
-    					"required": true,
-    					"type": "string"
-    				}
-    			],
-    			"responses": {
-    				"201": {
-    					"description": "Created",
-    					"schema": {
-    						"$ref": "#/definitions/Workspace"
-    					}
-    				}
-    			}
-			}
-		},
-        "/beta/myorg/reports": {
+            "post": {
+                "tags": [
+                    "Workspaces"
+                ],
+                "summary": "Creates a new workspace within a workspace collection",
+                "operationId": "Workspaces_PostWorkspace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "workspaceCollectionName",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/Workspace"
+                        }
+                    }
+                }
+            }
+        },
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/reports": {
             "get": {
                 "tags": [
                     "Reports"
@@ -1984,55 +725,18 @@
                 ],
                 "parameters": [
                     {
-                        "name": "$expand",
-                        "in": "query",
-                        "description": "Expands related entities inline.",
-                        "required": false,
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
                         "type": "string"
                     },
                     {
-                        "name": "$filter",
-                        "in": "query",
-                        "description": "Filters the results, based on a Boolean condition.",
-                        "required": false,
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
                         "type": "string"
-                    },
-                    {
-                        "name": "$select",
-                        "in": "query",
-                        "description": "Selects which properties to include in the response.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$orderby",
-                        "in": "query",
-                        "description": "Sorts the results.",
-                        "required": false,
-                        "type": "string"
-                    },
-                    {
-                        "name": "$top",
-                        "in": "query",
-                        "description": "Returns only the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$skip",
-                        "in": "query",
-                        "description": "Skips the first n results.",
-                        "required": false,
-                        "type": "integer",
-                        "format": "int32"
-                    },
-                    {
-                        "name": "$count",
-                        "in": "query",
-                        "description": "Includes a count of the matching results in the response.",
-                        "required": false,
-                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -2048,265 +752,40 @@
         }
     },
     "definitions": {
-        "ODataResponse[List[Dashboard]]": {
-            "type": "object",
-            "properties": {
-                "odata.context": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Dashboard"
-                    }
-                }
-            }
-        },
         "Import": {
-        	"type": "object",
-        	"properties": {
-        		"id": {
-        			"type":"string"
-        		},
-        		"name": {
-        			"type": "string"
-        		},
-        		"importState":{
-        			"type": "string"
-        		},
-        		"reports":{
-        			"type":"array",
-        			"items":{
-        				"$ref":"#/definitions/Import"
-        			}
-        		},
-        		"datasets":{
-        			"type":"array",
-        			"items":{
-        				"$ref":"#/definitions/Dataset"
-        			}
-        		}
-        	}
-    	},
-    	"ImportInfo": {
-    		"type": "object",
-    		"properties": {
-    			"filePath": {
-    				"type": "string"
-    			},
-    			"connectionType": {
-    				"type": "string"
-    			}
-    		}
-    	},
-        "Dashboard": {
             "type": "object",
             "properties": {
                 "id": {
                     "type": "string"
                 },
-                "displayName": {
+                "name": {
                     "type": "string"
                 },
-                "isReadOnly": {
-                    "type": "boolean"
+                "importState": {
+                    "type": "string"
                 },
-                "tiles": {
+                "reports": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/Tile"
+                        "$ref": "#/definitions/Import"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Dataset"
                     }
                 }
             }
         },
-        "Tile": {
+        "ImportInfo": {
             "type": "object",
             "properties": {
-                "id": {
+                "filePath": {
                     "type": "string"
                 },
-                "title": {
+                "connectionType": {
                     "type": "string"
-                },
-                "subTitle": {
-                    "type": "string"
-                },
-                "action": {
-                    "$ref": "#/definitions/TileAction"
-                },
-                "definition": {
-                    "$ref": "#/definitions/TileDefinition"
-                },
-                "embedUrl": {
-                    "type": "string"
-                },
-                "embedData": {
-                    "type": "string"
-                },
-                "filterError": {
-                    "$ref": "#/definitions/PowerBIApiODataErrorResponse"
-                },
-                "rowSpan": {
-                    "format": "int32",
-                    "type": "integer"
-                },
-                "colSpan": {
-                    "format": "int32",
-                    "type": "integer"
-                }
-            }
-        },
-        "TileAction": {
-            "type": "object",
-            "properties": {
-                "openUrl": {
-                    "$ref": "#/definitions/TileUrl"
-                },
-                "report": {
-                    "$ref": "#/definitions/TileReport"
-                },
-                "qAndA": {
-                    "$ref": "#/definitions/QAndA"
-                }
-            }
-        },
-        "TileDefinition": {
-            "type": "object",
-            "properties": {
-                "imageTile": {
-                    "$ref": "#/definitions/ImageTile"
-                },
-                "ssrsTile": {
-                    "$ref": "#/definitions/SSRSTile"
-                }
-            }
-        },
-        "PowerBIApiODataErrorResponse": {
-            "type": "object",
-            "properties": {
-                "error": {
-                    "$ref": "#/definitions/PowerBIApiODataErrorObject"
-                }
-            }
-        },
-        "TileUrl": {
-            "required": [
-                "targetUrl"
-            ],
-            "type": "object",
-            "properties": {
-                "targetUrl": {
-                    "type": "string"
-                }
-            }
-        },
-        "TileReport": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "page": {
-                    "format": "int32",
-                    "type": "integer"
-                }
-            }
-        },
-        "QAndA": {
-            "required": [
-                "phrase"
-            ],
-            "type": "object",
-            "properties": {
-                "phrase": {
-                    "type": "string"
-                }
-            }
-        },
-        "ImageTile": {
-            "required": [
-                "imageUrl"
-            ],
-            "type": "object",
-            "properties": {
-                "imageUrl": {
-                    "type": "string"
-                },
-                "origin": {
-                    "type": "string"
-                }
-            }
-        },
-        "SSRSTile": {
-            "required": [
-                "imageUrl"
-            ],
-            "type": "object",
-            "properties": {
-                "imageUrl": {
-                    "type": "string"
-                }
-            }
-        },
-        "PowerBIApiODataErrorObject": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "target": {
-                    "type": "string"
-                },
-                "details": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/PowerBIApiErrorResponseDetail"
-                    }
-                },
-                "innererror": {
-                    "$ref": "#/definitions/PowerBIApiErrorResponseInnerError"
-                }
-            }
-        },
-        "PowerBIApiErrorResponseDetail": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "string"
-                },
-                "message": {
-                    "type": "string"
-                },
-                "target": {
-                    "type": "string"
-                }
-            }
-        },
-        "PowerBIApiErrorResponseInnerError": {
-            "type": "object",
-            "properties": {
-                "trace": {
-                    "type": "string"
-                },
-                "context": {
-                    "type": "string"
-                }
-            }
-        },
-        "ODataResponse[List[Tile]]": {
-            "type": "object",
-            "properties": {
-                "odata.context": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Tile"
-                    }
                 }
             }
         },
@@ -2497,31 +976,6 @@
                 }
             }
         },
-        "ODataResponse[List[Group]]": {
-            "type": "object",
-            "properties": {
-                "odata.context": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Group"
-                    }
-                }
-            }
-        },
-        "Group": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        },
         "ODataResponse[List[Report]]": {
             "type": "object",
             "properties": {
@@ -2582,35 +1036,19 @@
             }
         },
         "Workspace": {
-        	"type": "object",
-        	"properties":{
-        		"workspaceId":{
-        			"type": "string"
-        		},
-        		"workspaceCollectionName": {
-        			"type": "string"
-        		}
-        	}
+            "type": "object",
+            "properties": {
+                "workspaceId": {
+                    "type": "string"
+                },
+                "workspaceCollectionName": {
+                    "type": "string"
+                }
+            }
         }
     },
     "parameters": {},
     "responses": {},
-    "securityDefinitions": {
-        "oauth2": {
-            "type": "oauth2",
-            "description": "OAuth2 Authorization Code",
-            "flow": "AccessCode",
-            "authorizationUrl": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/authorize",
-            "tokenUrl": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token",
-            "scopes": {
-                "Dataset.Read.All": "Read All Datasets",
-                "Dataset.ReadWrite.All": "Read and Write All Datasets",
-                "Dashboard.Read.All": "Read All Dashboards (preview)",
-                "Reports.Read.All": "Read All Reports (preview)",
-                "Group.Read.All": "Read All Groups"
-            }
-        }
-    },
     "security": [],
     "tags": []
 }

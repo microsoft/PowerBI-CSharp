@@ -83,12 +83,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Html\TileExtensionsTests.cs" />
     <Compile Include="Html\ReportExtensionsTests.cs" />
     <Compile Include="Html\TokenExtensionsTests.cs" />
     <Compile Include="Models\CustomViewModel.cs" />
     <Compile Include="Models\ReportViewModel.cs" />
-    <Compile Include="Models\TileViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestHelper.cs" />
   </ItemGroup>
