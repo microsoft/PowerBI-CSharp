@@ -7,8 +7,8 @@
     <ProjectGuid>{D418EBBA-AFD1-4987-8960-C64EA13240E7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.PowerBI</RootNamespace>
-    <AssemblyName>Microsoft.PowerBI</AssemblyName>
+    <RootNamespace>Microsoft.PowerBI.Core</RootNamespace>
+    <AssemblyName>Microsoft.PowerBI.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Microsoft.PowerBI.Core.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
