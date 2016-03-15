@@ -336,7 +336,7 @@ namespace ProvisionSample
             using (client)
             {
                 var content = new StringContent(@"{
-                                                ""location"": ""East US"",
+                                                ""location"": ""southcentralus"",
                                                 ""tags"": {},
                                                 ""sku"": {
                                                     ""name"": ""S1"",
@@ -571,22 +571,7 @@ namespace ProvisionSample
 
         static string GetAzureAccessToken()
         {
-            // Follow instructions here to setup your tenants provisioning app: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/#get-access-token-in-code
-
-            var tokenCache = new TokenCache();
-            var authContext = new AuthenticationContext("https://login.windows-ppe.net/common/oauth2/authorize", tokenCache);
-            var result = authContext.AcquireToken(
-                resource: "https://management.core.windows.net/",
-                clientId: clientId,
-                redirectUri: new Uri("https://login.live.com/oauth20_desktop.srf"),
-                promptBehavior: PromptBehavior.RefreshSession);
-
-            if (result == null)
-            {
-                throw new InvalidOperationException("Failed to obtain the JWT token");
-            }
-
-            return result.AccessToken;
+            return "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuY29yZS53aW5kb3dzLm5ldC8iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDU4MDcwNTM5LCJuYmYiOjE0NTgwNzA1MzksImV4cCI6MTQ1ODA3NDQzOSwiX2NsYWltX25hbWVzIjp7Imdyb3VwcyI6InNyYzEifSwiX2NsYWltX3NvdXJjZXMiOnsic3JjMSI6eyJlbmRwb2ludCI6Imh0dHBzOi8vZ3JhcGgud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3L3VzZXJzL2M1NDlmMWY2LTZlOWMtNGNkYi1iZTM4LWZlYjczMjNhNjcyMS9nZXRNZW1iZXJPYmplY3RzIn19LCJhY3IiOiIxIiwiYW1yIjpbInB3ZCIsIm1mYSJdLCJhcHBpZCI6ImM0NGI0MDgzLTNiYjAtNDljMS1iNDdkLTk3NGU1M2NiZGYzYyIsImFwcGlkYWNyIjoiMiIsImZhbWlseV9uYW1lIjoiQnJlemEiLCJnaXZlbl9uYW1lIjoiV2FsbGFjZSIsImluX2NvcnAiOiJ0cnVlIiwiaXBhZGRyIjoiMTA0LjQzLjI1NC4xNjQiLCJuYW1lIjoiV2FsbGFjZSBCcmV6YSIsIm9pZCI6ImM1NDlmMWY2LTZlOWMtNGNkYi1iZTM4LWZlYjczMjNhNjcyMSIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS0yMTI3NTIxMTg0LTE2MDQwMTI5MjAtMTg4NzkyNzUyNy02NzQ0NjUyIiwicHVpZCI6IjEwMDMzRkZGODAyRTM2MkUiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJOM3RjODBMYlZSck0yZ3ZuS0dGZE1LX1NHSXhuLW5YRDRFUlU5NjJyNnhBIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidW5pcXVlX25hbWUiOiJ3YWJyZXphQG1pY3Jvc29mdC5jb20iLCJ1cG4iOiJ3YWJyZXphQG1pY3Jvc29mdC5jb20iLCJ2ZXIiOiIxLjAifQ.J4lbI9QUJ0WjIWJnSPu5VTGmGSmcphQ0pcFxWeOTFmoI3DBaphPl_uawttvFiidgSZfkQkJgs2A1shE4ScEhDEASKg6LQQzkdbz1Vo-vwCBNNtKNHoWsg2ToMXPi3Z1nNAYFpeuE7BOWQ5d5eTDqsMpizyag6Ai6hitaKBfBYb9aVpbk_cunXIUN14z-gpduxBZ4MucQ5uyrxk8-dmmpcDwunAyq2k2vHV4bdrsNUpgrtAydcaZ0vRMqaKNdwk6qYI6z90XGi9Z1Czm_09F8H0VB9SeNKpaCwh7y4DeVbUDFMjyN_y6Ex3EuyjSYleavnE5V85CumXlWvbLLscXW3Q";
         }
 
         static X509Certificate2 GetCertificate(string thumbprint)

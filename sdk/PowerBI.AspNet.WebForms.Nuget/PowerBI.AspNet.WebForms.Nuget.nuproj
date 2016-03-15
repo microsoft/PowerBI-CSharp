@@ -19,7 +19,7 @@
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <PropertyGroup Label="Configuration">
     <Id>Microsoft.PowerBI.WebForms</Id>
-    <Version>1.0.5-preview</Version>
+    <Version>1.0.6-preview</Version>
     <Title>Microsoft Power BI for WebForms</Title>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>

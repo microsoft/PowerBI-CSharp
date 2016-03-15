@@ -40,12 +40,12 @@
       <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.2.22.302111727\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.PowerBI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.4-preview\lib\net45\Microsoft.PowerBI.dll</HintPath>
+    <Reference Include="Microsoft.PowerBI.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.6-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.PowerBI.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.4-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
+    <Reference Include="Microsoft.PowerBI.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.6-preview\lib\net45\Microsoft.PowerBI.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

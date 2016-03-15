@@ -25,6 +25,18 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
             set { this.ViewState["EmbedUrl"] = value; }
         }
 
+        public string CollectionName
+        {
+            get { return (string)this.ViewState["CollectionName"]; }
+            set { this.ViewState["CollectionName"] = value; }
+        }
+
+        public string WorkspaceId
+        {
+            get { return (string)this.ViewState["WorkspaceId"]; }
+            set { this.ViewState["WorkspaceId"] = value; }
+        }
+
         public string OnClientLoad
         {
             get { return (string)this.ViewState["OnClientLoad"]; }

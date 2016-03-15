@@ -59,16 +59,16 @@
       <HintPath>..\packages\Microsoft.Owin.Security.OpenIdConnect.3.0.1\lib\net45\Microsoft.Owin.Security.OpenIdConnect.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.PowerBI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.2-preview\lib\net45\Microsoft.PowerBI.dll</HintPath>
+    <Reference Include="Microsoft.PowerBI.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.6-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.PowerBI.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Api.1.0.2-preview\lib\portable-net45+win+wpa81\Microsoft.PowerBI.Api.dll</HintPath>
+    <Reference Include="Microsoft.PowerBI.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.6-preview\lib\net45\Microsoft.PowerBI.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.PowerBI.Owin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Owin.Security.1.0.2-preview\lib\net45\Microsoft.PowerBI.Owin.Security.dll</HintPath>
+      <HintPath>..\packages\Microsoft.PowerBI.Owin.Security.1.0.6-preview\lib\net45\Microsoft.PowerBI.Owin.Security.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

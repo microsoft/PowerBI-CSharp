@@ -17,11 +17,18 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
             }
         }
 
+        /// <summary>
+        /// Gets the tag name for the Report control
+        /// </summary>
         protected override string TagName
         {
             get { return "Report"; }
         }
 
+        /// <summary>
+        /// Gets the embed url for the report to render
+        /// </summary>
+        /// <returns></returns>
         protected override string GetEmbedUrl()
         {
             if (string.IsNullOrWhiteSpace(this.ReportId))
@@ -38,7 +45,7 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
             var credentials = new TokenCredentials(accessToken);
             using (var client = new PowerBIClient(new Uri(this.BaseUri), credentials))
             {
-                var report = client.Reports.GetReports().Value.FirstOrDefault(r => r.Id == this.ReportId);
+                var report = client.Reports.GetReports(this.CollectionName, this.WorkspaceId).Value.FirstOrDefault(r => r.Id == this.ReportId);
                 return report == null ? null : report.EmbedUrl;
             }
         }
