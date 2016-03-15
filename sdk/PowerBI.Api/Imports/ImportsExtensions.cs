@@ -19,9 +19,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </param>
         /// <param name='nameConflict'>
         /// </param>
-        public static Import PostImportWithFile(this IImports operations, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
+        public static Import PostImportWithFile(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
         {
-            return Task.Factory.StartNew(s => ((IImports)s).PostImporFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
+            return Task.Factory.StartNew(s => ((IImports)s).PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -39,49 +39,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsync(this IImports operations, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsync(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.PostImporFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
-            {
-                return _result.Body;
-            }
-        }
-
-        /// <summary>
-        /// Creates a new import
-        /// </summary>
-        /// <param name='operations'>
-        /// The operations group for this extension method.
-        /// </param>
-        /// <param name='datasetDisplayName'>
-        /// </param>
-        /// <param name='requestMessage'>
-        /// </param>
-        /// <param name='nameConflict'>
-        /// </param>
-        public static Import PostImportByGroupWithFile(this IImports operations, string group, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
-        {
-            return Task.Factory.StartNew(s => ((IImports)s).PostImporFileByGroupWithHttpMessage(group, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
-        }
-
-        /// <summary>
-        /// Creates a new import
-        /// </summary>
-        /// <param name='operations'>
-        /// The operations group for this extension method.
-        /// </param>
-        /// <param name='datasetDisplayName'>
-        /// </param>
-        /// <param name='requestMessage'>
-        /// </param>
-        /// <param name='nameConflict'>
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        public static async Task<Import> PostImporByGrouptWithFileAsync(this IImports operations, string group, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-        {
-            using (var _result = await operations.PostImporFileByGroupWithHttpMessage(group, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
+            using (var _result = await operations.PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
             {
                 return _result.Body;
             }

@@ -16,6 +16,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{7000BB2C-E4D6-42F9-A3C5-EFEB03FB725E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DCD4C983-2786-41C7-9A9C-36A9462673B4}"
+	ProjectSection(SolutionItems) = preProject
+		swagger.json = swagger.json
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.AspNet.Mvc", "PowerBI.AspNet.Mvc\PowerBI.AspNet.Mvc.csproj", "{F42423D2-EE6D-43F3-8CA9-89C300ACE029}"
 EndProject

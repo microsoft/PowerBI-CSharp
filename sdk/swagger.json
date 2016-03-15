@@ -8,8 +8,8 @@
     "schemes": [
         "https"
     ],
-    "consumes": [],
-    "produces": [],
+    "consumes": [ ],
+    "produces": [ ],
     "paths": {
         "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets": {
             "get": {
@@ -18,7 +18,7 @@
                 ],
                 "summary": "Returns the EntitySet datasets",
                 "operationId": "Datasets_GetDatasets",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -57,7 +57,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -100,8 +100,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_PostRows",
-                "consumes": [],
-                "produces": [],
+                "consumes": [ ],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -153,8 +153,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_DeleteRows",
-                "consumes": [],
-                "produces": [],
+                "consumes": [ ],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -200,7 +200,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetTables",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -243,8 +243,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_PutTable",
-                "consumes": [],
-                "produces": [],
+                "consumes": [ ],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -298,7 +298,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetDatasetById",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -340,8 +340,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_DeleteDatasetById",
-                "consumes": [],
-                "produces": [],
+                "consumes": [ ],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -382,7 +382,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetGatewayDatasources",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -426,7 +426,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetDatasources",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -472,7 +472,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -526,7 +526,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -574,18 +574,33 @@
                 "deprecated": false
             }
         },
-        "/beta/myorg/imports": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/imports": {
             "get": {
                 "tags": [
                     "Imports"
                 ],
                 "summary": "Returns the Imports",
                 "operationId": "Imports_GetImports",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -610,6 +625,20 @@
                 ],
                 "parameters": [
                     {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
                         "name": "importInfo",
                         "in": "body",
                         "required": true,
@@ -628,18 +657,32 @@
                 }
             }
         },
-        "/beta/myorg/imports/{importId}": {
+        "/beta/collections/{collectionName}/workspaces/{workspaceId}/imports/{importId}": {
             "get": {
                 "tags": [
                     "Imports"
                 ],
                 "summary": "Returns the import by id",
                 "operationId": "Imports_GetImportById",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
                 "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
                     {
                         "name": "importId",
                         "in": "path",
@@ -661,7 +704,7 @@
             "get": {
                 "summary": "Returns a list of workspaces for the specified collection",
                 "operationId": "Workspaces_GetWorkspacesByCollectionName",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -719,7 +762,7 @@
                 ],
                 "summary": "Returns the EntitySet reports",
                 "operationId": "Reports_GetReports",
-                "consumes": [],
+                "consumes": [ ],
                 "produces": [
                     "application/json"
                 ],
@@ -791,7 +834,7 @@
         },
         "Object": {
             "type": "object",
-            "properties": {}
+            "properties": { }
         },
         "ODataResponse[List[Dataset]]": {
             "type": "object",
@@ -1047,8 +1090,8 @@
             }
         }
     },
-    "parameters": {},
-    "responses": {},
-    "security": [],
-    "tags": []
+    "parameters": { },
+    "responses": { },
+    "security": [ ],
+    "tags": [ ]
 }

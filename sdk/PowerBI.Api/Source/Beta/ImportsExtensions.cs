@@ -20,9 +20,15 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ODataResponseListImport GetImports(this IImports operations)
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            public static ODataResponseListImport GetImports(this IImports operations, string collectionName, string workspaceId)
             {
-                return Task.Factory.StartNew(s => ((IImports)s).GetImportsAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IImports)s).GetImportsAsync(collectionName, workspaceId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -31,12 +37,18 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListImport> GetImportsAsync( this IImports operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListImport> GetImportsAsync( this IImports operations, string collectionName, string workspaceId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetImportsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetImportsWithHttpMessagesAsync(collectionName, workspaceId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -48,11 +60,17 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='importInfo'>
             /// </param>
-            public static Import PostImport(this IImports operations, ImportInfo importInfo)
+            public static Import PostImport(this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo)
             {
-                return Task.Factory.StartNew(s => ((IImports)s).PostImportAsync(importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IImports)s).PostImportAsync(collectionName, workspaceId, importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -61,14 +79,20 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='importInfo'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportAsync( this IImports operations, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync( this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportWithHttpMessagesAsync(importInfo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportWithHttpMessagesAsync(collectionName, workspaceId, importInfo, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -80,11 +104,17 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='importId'>
             /// </param>
-            public static Import GetImportById(this IImports operations, string importId)
+            public static Import GetImportById(this IImports operations, string collectionName, string workspaceId, string importId)
             {
-                return Task.Factory.StartNew(s => ((IImports)s).GetImportByIdAsync(importId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IImports)s).GetImportByIdAsync(collectionName, workspaceId, importId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -93,14 +123,20 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
             /// <param name='importId'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> GetImportByIdAsync( this IImports operations, string importId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> GetImportByIdAsync( this IImports operations, string collectionName, string workspaceId, string importId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetImportByIdWithHttpMessagesAsync(importId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetImportByIdWithHttpMessagesAsync(collectionName, workspaceId, importId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
