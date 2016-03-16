@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <appSettings>
-    <add key="powerbi:ClientId" value="{{ClientID}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
-    <add key="powerbi:ClientSecret" value="{{ClientSecret}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
-    <add key="powerbi:RedirectUri" value="{{RedirectUri}}" xdt:Locator="Match(key)" xdt:Transform="Remove" />
-  </appSettings>
+    <appSettings>
+        <add key="powerbi:SigningKey" value="{{SigningKey}}" xdt:Locator="Match(key)" xdt:Transform="Remove"/>
+        <add key="powerbi:ApiUrl" value="https://api.powerbi.com" xdt:Locator="Match(key)" xdt:Transform="Remove"/>
+        <add key="powerbi:WorkspaceCollection" value="{{WorkspaceCollectionName}}" xdt:Locator="Match(key)" xdt:Transform="Remove"/>
+        <add key="powerbi:WorkspaceId" value="{{WorkspaceID}}" xdt:Locator="Match(key)" xdt:Transform="Remove"/>
+    </appSettings>
 </configuration>

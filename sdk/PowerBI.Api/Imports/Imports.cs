@@ -12,10 +12,13 @@ using System.Threading.Tasks;
 
 namespace Microsoft.PowerBI.Api.Beta
 {
+    /// <summary>
+    /// Client wrapper for Power BI Imports REST Api
+    /// </summary>
     public partial class Imports : IServiceOperations<PowerBIClient>, IImports
     {
         /// <summary>
-        /// Creates a new import
+        /// Uploads a PBIX file to the specified workspace
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
@@ -32,7 +35,12 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
-
+        /// <param name="customHeaders">
+        /// Optional custom headers
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Optional cancellation token
+        /// </param>
         public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string collectionName, string workspaceId, Stream file, string datasetDisplayName, int? nameConflict = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (collectionName == null)

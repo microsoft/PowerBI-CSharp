@@ -320,10 +320,13 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='tableName'>
+        /// The table name
         /// </param>
         /// <param name='requestMessage'>
+        /// The request message
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -470,8 +473,10 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='tableName'>
+        /// The table name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -610,6 +615,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -742,10 +748,13 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='tableName'>
+        /// The table name
         /// </param>
         /// <param name='requestMessage'>
+        /// The request message
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1423,8 +1432,10 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='parameters'>
+        /// The body
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

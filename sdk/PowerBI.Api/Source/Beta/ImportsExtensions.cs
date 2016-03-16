@@ -67,6 +67,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='importInfo'>
+            /// The import to post
             /// </param>
             public static Import PostImport(this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo)
             {
@@ -86,6 +87,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='importInfo'>
+            /// The import to post
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -111,6 +113,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='importId'>
+            /// The import id
             /// </param>
             public static Import GetImportById(this IImports operations, string collectionName, string workspaceId, string importId)
             {
@@ -130,6 +133,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='importId'>
+            /// The import id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

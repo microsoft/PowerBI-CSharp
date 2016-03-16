@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI datasource
     /// </summary>
     public partial class Datasource
     {
@@ -30,11 +31,13 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The datasource name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// The datasource connection string
         /// </summary>
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }

@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// The import object
     /// </summary>
     public partial class Import
     {
@@ -33,26 +34,31 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The import id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
+        /// The import name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// The import upload state
         /// </summary>
         [JsonProperty(PropertyName = "importState")]
         public string ImportState { get; set; }
 
         /// <summary>
+        /// The reports associated with this import
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<Import> Reports { get; set; }
 
         /// <summary>
+        /// The datasets associated with this import
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<Dataset> Datasets { get; set; }

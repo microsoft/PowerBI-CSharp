@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// The import info
     /// </summary>
     public partial class ImportInfo
     {
@@ -30,11 +31,13 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The file path to import
         /// </summary>
         [JsonProperty(PropertyName = "filePath")]
         public string FilePath { get; set; }
 
         /// <summary>
+        /// The import connection type
         /// </summary>
         [JsonProperty(PropertyName = "connectionType")]
         public string ConnectionType { get; set; }

@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
-  <appSettings xdt:Transform="InsertIfMissing">
-  </appSettings>
-  <appSettings>
-    <add key="powerbi:ClientId" value="{{ClientID}}" xdt:Transform="Insert" />
-    <add key="powerbi:ClientSecret" value="{{ClientSecret}}" xdt:Transform="Insert" />
-    <add key="powerbi:RedirectUri" value="{{RedirectUri}}" xdt:Transform="Insert" />
-  </appSettings>
+    <appSettings xdt:Transform="InsertIfMissing">
+    </appSettings>
+    <appSettings>
+        <add key="powerbi:SigningKey" value="{{SigningKey}}" xdt:Transform="InsertIfMissing"/>
+        <add key="powerbi:ApiUrl" value="https://api.powerbi.com" xdt:Transform="InsertIfMissing"/>
+        <add key="powerbi:WorkspaceCollection" value="{{WorkspaceCollectionName}}" xdt:Transform="InsertIfMissing"/>
+        <add key="powerbi:WorkspaceId" value="{{WorkspaceID}}" xdt:Transform="InsertIfMissing"/>
+    </appSettings>
 </configuration>

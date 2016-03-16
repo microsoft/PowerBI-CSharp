@@ -56,7 +56,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.PowerBI.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.6-preview\lib\net45\Microsoft.PowerBI.Core.dll</HintPath>
+      <HintPath>..\packages\Microsoft.PowerBI.Core.1.0.7-preview\lib\net45\Microsoft.PowerBI.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">

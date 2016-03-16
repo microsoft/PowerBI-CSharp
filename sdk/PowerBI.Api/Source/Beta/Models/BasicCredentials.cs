@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// Object representing basic authentication credentials
     /// </summary>
     public partial class BasicCredentials
     {
@@ -30,11 +31,13 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// Username required to access the datasource
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
 
         /// <summary>
+        /// Password required to access the datasource
         /// </summary>
         [JsonProperty(PropertyName = "password")]
         public string Password { get; set; }

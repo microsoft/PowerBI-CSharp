@@ -5,13 +5,30 @@ using System.Web.Mvc;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
 {
+    /// <summary>
+    /// Power BI Token HTML Helper 
+    /// </summary>
     public static class TokenExtensions
     {
+        /// <summary>
+        /// Renders the specified access token to the DOM
+        /// </summary>
+        /// <param name="htmlHelper">The html helper</param>
+        /// <param name="accessToken">The access token to include</param>
+        /// <returns></returns>
         public static MvcHtmlString PowerBIAccessToken(this HtmlHelper htmlHelper, string accessToken = null)
         {
             return TokenHelper(htmlHelper, accessToken);
         }
 
+        /// <summary>
+        /// Renders the specified access token to the DOM
+        /// </summary>
+        /// <param name="htmlHelper">The html helper</param>
+        /// <param name="expression">The expression to retrieve the access token</param>
+        /// <typeparam name="TModel">The model type</typeparam>
+        /// <typeparam name="TProperty">The property type</typeparam>
+        /// <returns></returns>
         public static MvcHtmlString PowerBIAccessTokenFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
         {
             var modelMetadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
@@ -25,7 +42,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
                 accessToken = TokenManager.Current.ReadToken(htmlHelper.ViewContext.RequestContext.HttpContext.User.Identity);
             }
 
-            var script = string.Format("<script>window.powerbi = window.powerbi || {{}};{0}window.powerbi.accessToken = '{1}';</script>", Environment.NewLine, accessToken);
+            var script = $"<script>window.powerbi = window.powerbi || {{}};{Environment.NewLine}window.powerbi.accessToken = '{accessToken}';</script>";
             return new MvcHtmlString(script);
         }
     }

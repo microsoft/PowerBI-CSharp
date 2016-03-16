@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// Odata response wrapper for a Power BI Gateway datasource collection
     /// </summary>
     public partial class ODataResponseListGatewayDatasource
     {
@@ -37,6 +38,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
+        /// The gateway datasources
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<GatewayDatasource> Value { get; set; }

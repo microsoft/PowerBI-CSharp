@@ -51,10 +51,13 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='gatewayId'>
+        /// The gateway id
         /// </param>
         /// <param name='datasourceId'>
+        /// The datasource id
         /// </param>
         /// <param name='datasourceDelta'>
+        /// The datasource changes
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

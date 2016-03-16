@@ -14,7 +14,6 @@
     <ProjectReference Include="..\PowerBI.AspNet.Mvc\PowerBI.AspNet.Mvc.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\App_Start\Startup.PowerBI.cs.pp" />
     <Content Include="Content\Views\web.config.install.xdt" />
     <Content Include="Content\Views\web.config.uninstall.xdt" />
     <Content Include="Content\web.config.install.xdt" />
@@ -29,7 +28,7 @@
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <PropertyGroup Label="Configuration">
     <Id>Microsoft.PowerBI.Mvc</Id>
-    <Version>1.0.6-preview</Version>
+    <Version>1.0.7-preview</Version>
     <Title>Microsoft Power BI for ASP.NET MVC</Title>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>

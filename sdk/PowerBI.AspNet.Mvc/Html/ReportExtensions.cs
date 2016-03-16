@@ -7,6 +7,9 @@ using System.Web.Mvc;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
 {
+    /// <summary>
+    /// The Power BI Report Html Helper
+    /// </summary>
     public static class ReportExtensions
     {
         /// <summary>

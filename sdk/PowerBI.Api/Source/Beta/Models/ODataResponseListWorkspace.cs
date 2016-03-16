@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// Odata response wrapper for a Power BI Workspace list
     /// </summary>
     public partial class ODataResponseListWorkspace
     {
@@ -35,6 +36,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
+        /// The workspaces
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Workspace> Value { get; set; }

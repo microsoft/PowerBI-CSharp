@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI Report
     /// </summary>
     public partial class Report
     {
@@ -32,21 +33,25 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The report id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
+        /// The report name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// The report web url
         /// </summary>
         [JsonProperty(PropertyName = "webUrl")]
         public string WebUrl { get; set; }
 
         /// <summary>
+        /// The report embed url
         /// </summary>
         [JsonProperty(PropertyName = "embedUrl")]
         public string EmbedUrl { get; set; }

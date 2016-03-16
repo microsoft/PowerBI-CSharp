@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI Column
     /// </summary>
     public partial class Column
     {
@@ -30,11 +31,13 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The column name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// The column data type
         /// </summary>
         [JsonProperty(PropertyName = "dataType")]
         public string DataType { get; set; }

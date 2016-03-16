@@ -6,14 +6,35 @@ using System.Text;
 
 namespace Microsoft.PowerBI.Security
 {
+    /// <summary>
+    /// The Power BI app token used to authenticate with Power BI Embedded services
+    /// </summary>
     public class PowerBIToken
     {
+        /// <summary>
+        /// The Power BI supported claim types
+        /// </summary>
         public static class ClaimTypes
         {
+            /// <summary>
+            /// The version claim
+            /// </summary>
             public const string Version = "ver";
+            /// <summary>
+            /// The token type claim
+            /// </summary>
             public const string Type = "type";
+            /// <summary>
+            /// The workspace collection claim
+            /// </summary>
             public const string WorkspaceCollectionName = "wcn";
+            /// <summary>
+            /// The workspace id claim
+            /// </summary>
             public const string WorkspaceId = "wid";
+            /// <summary>
+            /// The report id claim
+            /// </summary>
             public const string ReportId = "rid";
         }
 
@@ -197,21 +218,42 @@ namespace Microsoft.PowerBI.Security
             return token;
         }
 
+        /// <summary>
+        /// The token issuer
+        /// </summary>
         public string Issuer { get; set; }
 
+        /// <summary>
+        /// The audience this token is valid for
+        /// </summary>
         public string Audience { get; set; }
 
+        /// <summary>
+        /// Gets or sets a collection of claims associated with this token
+        /// </summary>
         public ICollection<Claim> Claims { get; private set; }
 
+        /// <summary>
+        /// Gets or set the signing key used to generate an app token
+        /// </summary>
         public string SigningKey { get; set; }
 
+        /// <summary>
+        /// Gets or sets the token expiration.  Default expiration is 1 hour
+        /// </summary>
         public DateTime? Expiration { get; set; }
 
+        /// <summary>
+        /// Generates an app token with the specified claims and signs it the the configured signing key.
+        /// </summary>
+        /// <param name="signingKey"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public string Generate(string signingKey = null)
         {
             if (string.IsNullOrWhiteSpace(this.SigningKey) && signingKey == null)
             {
-                throw new ArgumentNullException("signingKey");
+                throw new ArgumentNullException(nameof(signingKey));
             }
 
             this.ValidateToken();
@@ -225,11 +267,23 @@ namespace Microsoft.PowerBI.Security
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object.
+        /// </summary>
+        /// <returns>
+        /// A string that represents the current object.
+        /// </returns>
+        /// <filterpriority>2</filterpriority>
         public override string ToString()
         {
             return Generate();
         }
 
+        /// <summary>
+        /// Returns a JWT token string that represents the current object
+        /// </summary>
+        /// <param name="signingKey"></param>
+        /// <returns></returns>
         public string ToString(string signingKey)
         {
             return Generate(signingKey);

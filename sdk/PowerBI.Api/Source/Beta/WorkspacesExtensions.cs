@@ -21,6 +21,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The operations group for this extension method.
             /// </param>
             /// <param name='workspaceCollectionName'>
+            /// The workspace collection name
             /// </param>
             public static ODataResponseListWorkspace GetWorkspacesByCollectionName(this IWorkspaces operations, string workspaceCollectionName)
             {
@@ -34,6 +35,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The operations group for this extension method.
             /// </param>
             /// <param name='workspaceCollectionName'>
+            /// The workspace collection name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -53,6 +55,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The operations group for this extension method.
             /// </param>
             /// <param name='workspaceCollectionName'>
+            /// The workspace collection name
             /// </param>
             public static Workspace PostWorkspace(this IWorkspaces operations, string workspaceCollectionName)
             {
@@ -66,6 +69,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The operations group for this extension method.
             /// </param>
             /// <param name='workspaceCollectionName'>
+            /// The workspace collection name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

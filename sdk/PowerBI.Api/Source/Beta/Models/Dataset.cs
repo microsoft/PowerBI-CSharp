@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI Dataset
     /// </summary>
     public partial class Dataset
     {
@@ -34,31 +35,37 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The dataset id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
+        /// The dataset name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// The dataset default data retention policy
         /// </summary>
         [JsonProperty(PropertyName = "defaultRetentionPolicy")]
         public string DefaultRetentionPolicy { get; set; }
 
         /// <summary>
+        /// The dataset tables
         /// </summary>
         [JsonProperty(PropertyName = "tables")]
         public IList<Table> Tables { get; set; }
 
         /// <summary>
+        /// The dataset web url
         /// </summary>
         [JsonProperty(PropertyName = "webUrl")]
         public string WebUrl { get; set; }
 
         /// <summary>
+        /// The datasources associated with this dataset
         /// </summary>
         [JsonProperty(PropertyName = "datasources")]
         public IList<Datasource> Datasources { get; set; }

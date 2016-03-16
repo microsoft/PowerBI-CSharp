@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI gateway datasource
     /// </summary>
     public partial class GatewayDatasource
     {
@@ -34,26 +35,31 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The unique id for this gateway datasource
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
+        /// The associated gateway id
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
         public string GatewayId { get; set; }
 
         /// <summary>
+        /// The datasource type
         /// </summary>
         [JsonProperty(PropertyName = "datasourceType")]
         public string DatasourceType { get; set; }
 
         /// <summary>
+        /// The datasource connection details
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public string ConnectionDetails { get; set; }
 
         /// <summary>
+        /// The datasource credential type
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public string CredentialType { get; set; }

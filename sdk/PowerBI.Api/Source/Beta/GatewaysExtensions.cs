@@ -24,10 +24,13 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='gatewayId'>
+            /// The gateway id
             /// </param>
             /// <param name='datasourceId'>
+            /// The datasource id
             /// </param>
             /// <param name='datasourceDelta'>
+            /// The datasource changes
             /// </param>
             public static object PatchDatasource(this IGateways operations, string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta)
             {
@@ -44,10 +47,13 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='gatewayId'>
+            /// The gateway id
             /// </param>
             /// <param name='datasourceId'>
+            /// The datasource id
             /// </param>
             /// <param name='datasourceDelta'>
+            /// The datasource changes
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

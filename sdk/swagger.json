@@ -8,8 +8,8 @@
     "schemes": [
         "https"
     ],
-    "consumes": [ ],
-    "produces": [ ],
+    "consumes": [],
+    "produces": [],
     "paths": {
         "/beta/collections/{collectionName}/workspaces/{workspaceId}/datasets": {
             "get": {
@@ -18,7 +18,7 @@
                 ],
                 "summary": "Returns the EntitySet datasets",
                 "operationId": "Datasets_GetDatasets",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -57,7 +57,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [ ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -100,8 +100,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_PostRows",
-                "consumes": [ ],
-                "produces": [ ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -121,17 +121,20 @@
                         "name": "datasetKey",
                         "in": "path",
                         "required": true,
+                        "description": "The dataset id",
                         "type": "string"
                     },
                     {
                         "name": "tableName",
                         "in": "path",
+                        "description": "The table name",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "requestMessage",
                         "in": "body",
+                        "description": "The request message",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/Object"
@@ -153,8 +156,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_DeleteRows",
-                "consumes": [ ],
-                "produces": [ ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -173,12 +176,14 @@
                     {
                         "name": "datasetKey",
                         "in": "path",
+                        "description": "The dataset id",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "tableName",
                         "in": "path",
+                        "description": "The table name",
                         "required": true,
                         "type": "string"
                     }
@@ -200,7 +205,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetTables",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -221,6 +226,7 @@
                     },
                     {
                         "name": "datasetKey",
+                        "description": "The dataset id",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -243,8 +249,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_PutTable",
-                "consumes": [ ],
-                "produces": [ ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -263,18 +269,21 @@
                     {
                         "name": "datasetKey",
                         "in": "path",
+                        "description": "The dataset id",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "tableName",
                         "in": "path",
+                        "description": "The table name",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "requestMessage",
                         "in": "body",
+                        "description": "The request message",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/Object"
@@ -298,7 +307,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetDatasetById",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -340,8 +349,8 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_DeleteDatasetById",
-                "consumes": [ ],
-                "produces": [ ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -382,7 +391,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetGatewayDatasources",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -426,7 +435,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetDatasources",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -472,7 +481,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [ ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -491,12 +500,14 @@
                     {
                         "name": "datasetKey",
                         "in": "path",
+                        "description": "The dataset id",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "parameters",
                         "in": "body",
+                        "description": "The body",
                         "required": true,
                         "schema": {
                             "type": "object",
@@ -526,7 +537,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [ ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -545,18 +556,21 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
+                        "description": "The gateway id",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "datasourceId",
                         "in": "path",
+                        "description": "The datasource id",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "datasourceDelta",
                         "in": "body",
+                        "description": "The datasource changes",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/Object"
@@ -581,7 +595,7 @@
                 ],
                 "summary": "Returns the Imports",
                 "operationId": "Imports_GetImports",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -641,6 +655,7 @@
                     {
                         "name": "importInfo",
                         "in": "body",
+                        "description": "The import to post",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/ImportInfo"
@@ -664,7 +679,7 @@
                 ],
                 "summary": "Returns the import by id",
                 "operationId": "Imports_GetImportById",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -687,6 +702,7 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
+                        "description": "The import id",
                         "type": "string"
                     }
                 ],
@@ -704,7 +720,7 @@
             "get": {
                 "summary": "Returns a list of workspaces for the specified collection",
                 "operationId": "Workspaces_GetWorkspacesByCollectionName",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -713,6 +729,7 @@
                         "name": "workspaceCollectionName",
                         "in": "path",
                         "required": true,
+                        "description": "The workspace collection name",
                         "type": "string"
                     }
                 ],
@@ -742,6 +759,7 @@
                         "name": "workspaceCollectionName",
                         "in": "path",
                         "required": true,
+                        "description": "The workspace collection name",
                         "type": "string"
                     }
                 ],
@@ -762,7 +780,7 @@
                 ],
                 "summary": "Returns the EntitySet reports",
                 "operationId": "Reports_GetReports",
-                "consumes": [ ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -797,24 +815,30 @@
     "definitions": {
         "Import": {
             "type": "object",
+            "description": "The import object",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The import id"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The import name"
                 },
                 "importState": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The import upload state"
                 },
                 "reports": {
                     "type": "array",
+                    "description": "The reports associated with this import",
                     "items": {
                         "$ref": "#/definitions/Import"
                     }
                 },
                 "datasets": {
                     "type": "array",
+                    "description": "The datasets associated with this import",
                     "items": {
                         "$ref": "#/definitions/Dataset"
                     }
@@ -823,27 +847,32 @@
         },
         "ImportInfo": {
             "type": "object",
+            "description": "The import info",
             "properties": {
                 "filePath": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The file path to import"
                 },
                 "connectionType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The import connection type"
                 }
             }
         },
         "Object": {
             "type": "object",
-            "properties": { }
+            "properties": {}
         },
         "ODataResponse[List[Dataset]]": {
             "type": "object",
+            "description": "A dataset odata list wrapper",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The datasets",
                     "items": {
                         "$ref": "#/definitions/Dataset"
                     }
@@ -856,27 +885,34 @@
                 "tables"
             ],
             "type": "object",
+            "description": "A Power BI Dataset",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The dataset id"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The dataset name"
                 },
                 "defaultRetentionPolicy": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The dataset default data retention policy"
                 },
                 "tables": {
                     "type": "array",
+                    "description": "The dataset tables",
                     "items": {
                         "$ref": "#/definitions/Table"
                     }
                 },
                 "webUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The dataset web url"
                 },
                 "datasources": {
                     "type": "array",
+                    "description": "The datasources associated with this dataset",
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
@@ -889,19 +925,23 @@
                 "columns"
             ],
             "type": "object",
+            "description": "A dataset table",
             "properties": {
                 "name": {
                     "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The table name"
                 },
                 "columns": {
                     "type": "array",
+                    "description": "The column schema for this table",
                     "items": {
                         "$ref": "#/definitions/Column"
                     }
                 },
                 "rows": {
                     "type": "array",
+                    "description": "The data rows within this tabe",
                     "items": {
                         "$ref": "#/definitions/Row"
                     }
@@ -910,12 +950,15 @@
         },
         "Datasource": {
             "type": "object",
+            "description": "A Power BI datasource",
             "properties": {
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datasource name"
                 },
                 "connectionString": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datasource connection string"
                 }
             }
         },
@@ -925,32 +968,39 @@
                 "dataType"
             ],
             "type": "object",
+            "description": "A Power BI Column",
             "properties": {
                 "name": {
                     "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
-                    "type": "string"
+                    "type": "string",
+                    "description": "The column name"
                 },
                 "dataType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The column data type"
                 }
             }
         },
         "Row": {
             "type": "object",
+            "description": "A Power BI data row",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique row id"
                 }
             }
         },
         "ODataResponse[List[Table]]": {
             "type": "object",
+            "description": "Odata response wrapper for a Power BI Table collection",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The Power BI tables",
                     "items": {
                         "$ref": "#/definitions/Table"
                     }
@@ -959,12 +1009,14 @@
         },
         "ODataResponse[List[GatewayDatasource]]": {
             "type": "object",
+            "description": "Odata response wrapper for a Power BI Gateway datasource collection",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The gateway datasources",
                     "items": {
                         "$ref": "#/definitions/GatewayDatasource"
                     }
@@ -973,21 +1025,27 @@
         },
         "GatewayDatasource": {
             "type": "object",
+            "description": "A Power BI gateway datasource",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The unique id for this gateway datasource"
                 },
                 "gatewayId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The associated gateway id"
                 },
                 "datasourceType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datasource type"
                 },
                 "connectionDetails": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datasource connection details"
                 },
                 "credentialType": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The datasource credential type"
                 },
                 "basicCredentials": {
                     "$ref": "#/definitions/BasicCredentials"
@@ -996,23 +1054,28 @@
         },
         "BasicCredentials": {
             "type": "object",
+            "description": "Object representing basic authentication credentials",
             "properties": {
                 "username": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Username required to access the datasource"
                 },
                 "password": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Password required to access the datasource"
                 }
             }
         },
         "ODataResponse[List[Datasource]]": {
             "type": "object",
+            "description": "Odata response wrapper for a Power BI datasource collection",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The datasource collection",
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
@@ -1021,12 +1084,14 @@
         },
         "ODataResponse[List[Report]]": {
             "type": "object",
+            "description": "Odata response wrapper for a Power BI Report collection",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The report collection",
                     "items": {
                         "$ref": "#/definitions/Report"
                     }
@@ -1035,12 +1100,14 @@
         },
         "ODataResponse[List[Import]]": {
             "type": "object",
+            "description": "Odata response wrapper for a Power BI Import collection",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The imports collection",
                     "items": {
                         "$ref": "#/definitions/Import"
                     }
@@ -1049,12 +1116,14 @@
         },
         "ODataResponse[List[Workspace]]": {
             "type": "object",
+            "description": "Odata response wrapper for a Power BI Workspace list",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
+                    "description": "The workspaces",
                     "items": {
                         "$ref": "#/definitions/Workspace"
                     }
@@ -1063,35 +1132,43 @@
         },
         "Report": {
             "type": "object",
+            "description": "A Power BI Report",
             "properties": {
                 "id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The report id"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The report name"
                 },
                 "webUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The report web url"
                 },
                 "embedUrl": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The report embed url"
                 }
             }
         },
         "Workspace": {
             "type": "object",
+            "description": "A Power BI Workspace",
             "properties": {
                 "workspaceId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The workspace id"
                 },
                 "workspaceCollectionName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The workspace collection name"
                 }
             }
         }
     },
-    "parameters": { },
-    "responses": { },
-    "security": [ ],
-    "tags": [ ]
+    "parameters": {},
+    "responses": {},
+    "security": [],
+    "tags": []
 }

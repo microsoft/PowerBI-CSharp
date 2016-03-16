@@ -6,8 +6,14 @@ using System.Web.UI;
 
 namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
 {
+    /// <summary>
+    /// The Power BI Report Web Control
+    /// </summary>
     public class Report : Embed
     {
+        /// <summary>
+        /// The report id
+        /// </summary>
         public string ReportId
         {
             get { return (string)this.ViewState["ReportId"]; }
@@ -20,10 +26,7 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
         /// <summary>
         /// Gets the tag name for the Report control
         /// </summary>
-        protected override string TagName
-        {
-            get { return "Report"; }
-        }
+        protected override string TagName => "Report";
 
         /// <summary>
         /// Gets the embed url for the report to render
@@ -46,10 +49,14 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
             using (var client = new PowerBIClient(new Uri(this.BaseUri), credentials))
             {
                 var report = client.Reports.GetReports(this.CollectionName, this.WorkspaceId).Value.FirstOrDefault(r => r.Id == this.ReportId);
-                return report == null ? null : report.EmbedUrl;
+                return report?.EmbedUrl;
             }
         }
 
+        /// <summary>
+        /// Add the attributes required for rending this component
+        /// </summary>
+        /// <param name="writer"></param>
         protected override void AddAttributesToRender(HtmlTextWriter writer)
         {
             base.AddAttributesToRender(writer);

@@ -8,16 +8,25 @@ namespace Microsoft.PowerBI.Api.Beta
     public static partial class ImportsExtensions
     {
         /// <summary>
-        /// Creates a new import
+        /// Uploads a PBIX file to the specified workspace
         /// </summary>
-        /// <param name='operations'>
-        /// The operations group for this extension method.
+        /// <param name="operations">
+        /// The import operations
+        /// </param>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='workspaceId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='fileStream'>
+        /// The PBIX file to import
         /// </param>
         /// <param name='datasetDisplayName'>
-        /// </param>
-        /// <param name='requestMessage'>
+        /// The dataset display name
         /// </param>
         /// <param name='nameConflict'>
+        /// Whether to overwrite dataset during conflicts
         /// </param>
         public static Import PostImportWithFile(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
         {
@@ -25,16 +34,26 @@ namespace Microsoft.PowerBI.Api.Beta
         }
 
         /// <summary>
-        /// Creates a new import
+        /// Uploads a PBIX file to the specified workspace
         /// </summary>
-        /// <param name='operations'>
-        /// The operations group for this extension method.
+        /// <param name="operations">
+        /// The import operations
+        /// </param>
+
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='workspaceId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='fileStream'>
+        /// The PBIX file to import
         /// </param>
         /// <param name='datasetDisplayName'>
-        /// </param>
-        /// <param name='requestMessage'>
+        /// The dataset display name
         /// </param>
         /// <param name='nameConflict'>
+        /// Whether to overwrite dataset during conflicts
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.

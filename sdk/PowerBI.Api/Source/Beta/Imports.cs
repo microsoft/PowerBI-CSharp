@@ -181,6 +181,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='importInfo'>
+        /// The import to post
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -318,6 +319,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The workspace id
         /// </param>
         /// <param name='importId'>
+        /// The import id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

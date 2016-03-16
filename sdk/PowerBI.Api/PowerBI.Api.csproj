@@ -40,7 +40,6 @@
     <Compile Include="Imports\ImportsExtensions.cs" />
     <Compile Include="IReport.cs" />
     <Compile Include="Models\Beta\Report.cs" />
-    <Compile Include="ITile.cs" />
     <Compile Include="Source\Beta\Datasets.cs" />
     <Compile Include="Source\Beta\DatasetsExtensions.cs" />
     <Compile Include="Source\Beta\Gateways.cs" />

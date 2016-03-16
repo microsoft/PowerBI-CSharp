@@ -110,10 +110,13 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='tableName'>
+            /// The table name
             /// </param>
             /// <param name='requestMessage'>
+            /// The request message
             /// </param>
             public static object PostRows(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage)
             {
@@ -130,10 +133,13 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='tableName'>
+            /// The table name
             /// </param>
             /// <param name='requestMessage'>
+            /// The request message
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -156,8 +162,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='tableName'>
+            /// The table name
             /// </param>
             public static object DeleteRows(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName)
             {
@@ -174,8 +182,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='tableName'>
+            /// The table name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -198,6 +208,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             public static ODataResponseListTable GetTables(this IDatasets operations, string collectionName, string workspaceId, string datasetKey)
             {
@@ -214,6 +225,7 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -236,10 +248,13 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='tableName'>
+            /// The table name
             /// </param>
             /// <param name='requestMessage'>
+            /// The request message
             /// </param>
             public static object PutTable(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage)
             {
@@ -256,10 +271,13 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='tableName'>
+            /// The table name
             /// </param>
             /// <param name='requestMessage'>
+            /// The request message
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -440,8 +458,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='parameters'>
+            /// The body
             /// </param>
             public static object SetAllConnections(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters)
             {
@@ -458,8 +478,10 @@ namespace Microsoft.PowerBI.Api.Beta
             /// The workspace id
             /// </param>
             /// <param name='datasetKey'>
+            /// The dataset id
             /// </param>
             /// <param name='parameters'>
+            /// The body
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

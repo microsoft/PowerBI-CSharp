@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI Workspace
     /// </summary>
     public partial class Workspace
     {
@@ -30,11 +31,13 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The workspace id
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public string WorkspaceId { get; set; }
 
         /// <summary>
+        /// The workspace collection name
         /// </summary>
         [JsonProperty(PropertyName = "workspaceCollectionName")]
         public string WorkspaceCollectionName { get; set; }

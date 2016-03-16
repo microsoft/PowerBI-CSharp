@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// Odata response wrapper for a Power BI datasource collection
     /// </summary>
     public partial class ODataResponseListDatasource
     {
@@ -37,6 +38,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
+        /// The datasource collection
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Datasource> Value { get; set; }

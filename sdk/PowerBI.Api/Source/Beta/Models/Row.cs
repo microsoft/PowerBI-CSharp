@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A Power BI data row
     /// </summary>
     public partial class Row
     {
@@ -29,6 +30,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The unique row id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

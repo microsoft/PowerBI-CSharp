@@ -12,6 +12,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
+    /// A dataset table
     /// </summary>
     public partial class Table
     {
@@ -31,16 +32,19 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         }
 
         /// <summary>
+        /// The table name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// The column schema for this table
         /// </summary>
         [JsonProperty(PropertyName = "columns")]
         public IList<Column> Columns { get; set; }
 
         /// <summary>
+        /// The data rows within this tabe
         /// </summary>
         [JsonProperty(PropertyName = "rows")]
         public IList<Row> Rows { get; set; }

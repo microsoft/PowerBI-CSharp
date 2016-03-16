@@ -48,6 +48,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// Returns a list of workspaces for the specified collection
         /// </summary>
         /// <param name='workspaceCollectionName'>
+        /// The workspace collection name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -165,6 +166,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// Creates a new workspace within a workspace collection
         /// </summary>
         /// <param name='workspaceCollectionName'>
+        /// The workspace collection name
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

@@ -12,13 +12,23 @@ using System.Web;
 
 namespace Owin
 {
+    /// <summary>
+    /// Power BI Authentication Extensions
+    /// </summary>
     public static class PowerBIAuthenticationExtensions
     {
+        /// <summary>
+        /// Configures the application to use Azure AD with Power BI
+        /// </summary>
+        /// <param name="app">The OWIN app builder</param>
+        /// <param name="options">The autheentication options</param>
+        /// <returns>The OWIN app build</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IAppBuilder UsePowerBIAuthentication(this IAppBuilder app, PowerBIAuthenticationOptions options)
         {
             if (options == null)
             {
-                throw new ArgumentNullException("options");
+                throw new ArgumentNullException(nameof(options));
             }
 
             ValidateOptions(options);
@@ -56,11 +66,19 @@ namespace Owin
             return app;
         }
 
+
+        /// <summary>
+        /// Configures the application to use Azure AD with Power BI
+        /// </summary>
+        /// <param name="app">The OWIN app builder</param>
+        /// <param name="setOptions">The action to set the authenciation options</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static IAppBuilder UsePowerBIAuthentication(this IAppBuilder app, Action<PowerBIAuthenticationOptions> setOptions)
         {
             if (setOptions == null)
             {
-                throw new ArgumentNullException("setOptions");
+                throw new ArgumentNullException(nameof(setOptions));
             }
 
             var options = new PowerBIAuthenticationOptions();
@@ -74,10 +92,10 @@ namespace Owin
             var code = context.Code;
 
             var credential = new ClientCredential(options.ClientId, options.ClientSecret);
-            var tenantID = context.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
-            var signedInUserID = context.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var tenantId = context.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+            var signedInUserId = context.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var authContext = new AuthenticationContext(string.Format("https://login.microsoftonline.com/{0}", tenantID), new TokenCache(Encoding.Default.GetBytes(signedInUserID)));
+            var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}", new TokenCache(Encoding.Default.GetBytes(signedInUserId)));
             var result = authContext.AcquireTokenByAuthorizationCode(code, options.SuccessRedirectUri, credential, options.Resource);
 
             TokenManager.Current.WriteToken(context.AuthenticationTicket.Identity, result.AccessToken);
@@ -123,12 +141,8 @@ namespace Owin
             TokenManager.Current.SetTokenReader(identity =>
             {
                 var powerBITokenCookie = HttpContext.Current.Request.Cookies.Get(cookieKey);
-                if (powerBITokenCookie == null)
-                {
-                    return null;
-                }
 
-                return powerBITokenCookie.Value;
+                return powerBITokenCookie?.Value;
             });
 
             TokenManager.Current.SetTokenWriter((identity, accessToken) =>
