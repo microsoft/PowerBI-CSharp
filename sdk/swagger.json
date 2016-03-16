@@ -99,6 +99,7 @@
                 "tags": [
                     "Datasets"
                 ],
+                "summary": "Posts new data rows into the specified table",
                 "operationId": "Datasets_PostRows",
                 "consumes": [],
                 "produces": [],
@@ -155,6 +156,7 @@
                 "tags": [
                     "Datasets"
                 ],
+                "summary": "Deletes all rows from the specified table",
                 "operationId": "Datasets_DeleteRows",
                 "consumes": [],
                 "produces": [],
@@ -205,6 +207,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetTables",
+                "summary": "Gets all tables within the specified dataset",
                 "consumes": [],
                 "produces": [
                     "application/json"
@@ -249,6 +252,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_PutTable",
+                "summary": "Updates a schema and metadata for the specified table",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
@@ -307,6 +311,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetDatasetById",
+                "summary": "Gets the dataset metadata for the specifeid dataset id",
                 "consumes": [],
                 "produces": [
                     "application/json"
@@ -349,6 +354,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_DeleteDatasetById",
+                "summary": "Deletes the dataset with the specified id",
                 "consumes": [],
                 "produces": [],
                 "parameters": [
@@ -391,6 +397,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetGatewayDatasources",
+                "summary": "Gets a list of bound gateway datasources for the specified dataset",
                 "consumes": [],
                 "produces": [
                     "application/json"
@@ -435,6 +442,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_GetDatasources",
+                "summary": "Gets a list of datasource for the specified dataset",
                 "consumes": [],
                 "produces": [
                     "application/json"
@@ -478,6 +486,7 @@
                     "Datasets"
                 ],
                 "operationId": "Datasets_SetAllConnections",
+                "summary": "Sets all connections for the specified dataset",
                 "consumes": [
                     "application/json"
                 ],
@@ -534,6 +543,7 @@
                     "Gateways"
                 ],
                 "operationId": "Gateways_PatchDatasource",
+                "summary": "Updates the credentials for the specified datasource",
                 "consumes": [
                     "application/json"
                 ],
@@ -593,7 +603,7 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Returns the Imports",
+                "summary": "Returns a list of imports for the specified workspace",
                 "operationId": "Imports_GetImports",
                 "consumes": [],
                 "produces": [
@@ -629,7 +639,7 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates a new import",
+                "summary": "Creates a new import using the specified import info",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json"
@@ -677,7 +687,7 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Returns the import by id",
+                "summary": "Gets the import metadata for the specifed import id",
                 "operationId": "Imports_GetImportById",
                 "consumes": [],
                 "produces": [
@@ -778,7 +788,7 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the EntitySet reports",
+                "summary": "Gets a list of reports available within the specified workspace",
                 "operationId": "Reports_GetReports",
                 "consumes": [],
                 "produces": [
@@ -823,7 +833,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The import name"
+                    "description": "The import name name"
                 },
                 "importState": {
                     "type": "string",
