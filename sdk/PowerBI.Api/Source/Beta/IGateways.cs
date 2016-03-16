@@ -17,6 +17,9 @@ namespace Microsoft.PowerBI.Api.Beta
     /// </summary>
     public partial interface IGateways
     {
+        /// <summary>
+        /// Updates the credentials for the specified datasource
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>

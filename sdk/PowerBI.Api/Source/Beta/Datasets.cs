@@ -313,6 +313,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Posts new data rows into the specified table
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -466,6 +469,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Deletes all rows from the specified table
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -608,6 +614,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Gets all tables within the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -741,6 +750,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Updates a schema and metadata for the specified table
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -894,6 +906,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Gets the dataset metadata for the specifeid dataset id
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -1027,6 +1042,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Deletes the dataset with the specified id
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -1160,6 +1178,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Gets a list of bound gateway datasources for the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -1293,6 +1314,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Gets a list of datasource for the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -1425,6 +1449,9 @@ namespace Microsoft.PowerBI.Api.Beta
             return _result;
         }
 
+        /// <summary>
+        /// Sets all connections for the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>

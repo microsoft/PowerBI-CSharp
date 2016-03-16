@@ -44,6 +44,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </summary>
         public PowerBIClient Client { get; private set; }
 
+        /// <summary>
+        /// Updates the credentials for the specified datasource
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>

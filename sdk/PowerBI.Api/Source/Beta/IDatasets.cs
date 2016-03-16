@@ -52,6 +52,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> PostDatasetWithHttpMessagesAsync(string collectionName, string workspaceId, Dataset dataset, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Posts new data rows into the specified table
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -74,6 +77,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> PostRowsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes all rows from the specified table
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -93,6 +99,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> DeleteRowsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets all tables within the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -109,6 +118,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ODataResponseListTable>> GetTablesWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Updates a schema and metadata for the specified table
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -131,6 +143,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> PutTableWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the dataset metadata for the specifeid dataset id
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -147,6 +162,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<Dataset>> GetDatasetByIdWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes the dataset with the specified id
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -163,6 +181,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> DeleteDatasetByIdWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets a list of bound gateway datasources for the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -179,6 +200,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetGatewayDatasourcesWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets a list of datasource for the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
@@ -194,6 +218,9 @@ namespace Microsoft.PowerBI.Api.Beta
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ODataResponseListDatasource>> GetDatasourcesWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Sets all connections for the specified dataset
+        /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>

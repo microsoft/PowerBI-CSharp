@@ -100,6 +100,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Posts new data rows into the specified table
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -123,6 +126,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).PostRowsAsync(collectionName, workspaceId, datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Posts new data rows into the specified table
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -152,6 +158,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Deletes all rows from the specified table
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -172,6 +181,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).DeleteRowsAsync(collectionName, workspaceId, datasetKey, tableName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Deletes all rows from the specified table
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -198,6 +210,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Gets all tables within the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -215,6 +230,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).GetTablesAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Gets all tables within the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -238,6 +256,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Updates a schema and metadata for the specified table
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -261,6 +282,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).PutTableAsync(collectionName, workspaceId, datasetKey, tableName, requestMessage), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Updates a schema and metadata for the specified table
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -290,6 +314,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Gets the dataset metadata for the specifeid dataset id
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -307,6 +334,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasetByIdAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Gets the dataset metadata for the specifeid dataset id
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -330,6 +360,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Deletes the dataset with the specified id
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -347,6 +380,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).DeleteDatasetByIdAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Deletes the dataset with the specified id
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -370,6 +406,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Gets a list of bound gateway datasources for the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -387,6 +426,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).GetGatewayDatasourcesAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Gets a list of bound gateway datasources for the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -410,6 +452,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Gets a list of datasource for the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -426,6 +471,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).GetDatasourcesAsync(collectionName, workspaceId, datasetKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Gets a list of datasource for the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -448,6 +496,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 }
             }
 
+            /// <summary>
+            /// Sets all connections for the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -468,6 +519,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IDatasets)s).SetAllConnectionsAsync(collectionName, workspaceId, datasetKey, parameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Sets all connections for the specified dataset
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

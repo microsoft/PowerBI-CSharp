@@ -15,7 +15,7 @@ namespace Microsoft.PowerBI.Api.Beta
     public static partial class ImportsExtensions
     {
             /// <summary>
-            /// Returns the Imports
+            /// Returns a list of imports for the specified workspace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
 
             /// <summary>
-            /// Returns the Imports
+            /// Returns a list of imports for the specified workspace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
 
             /// <summary>
-            /// Creates a new import
+            /// Creates a new import using the specified import info
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -75,7 +75,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
 
             /// <summary>
-            /// Creates a new import
+            /// Creates a new import using the specified import info
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -101,7 +101,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
 
             /// <summary>
-            /// Returns the import by id
+            /// Gets the import metadata for the specifed import id
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -121,7 +121,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
 
             /// <summary>
-            /// Returns the import by id
+            /// Gets the import metadata for the specifed import id
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Beta.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// The import name
+        /// The import name name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

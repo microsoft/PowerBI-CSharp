@@ -14,6 +14,9 @@ namespace Microsoft.PowerBI.Api.Beta
 
     public static partial class GatewaysExtensions
     {
+            /// <summary>
+            /// Updates the credentials for the specified datasource
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -37,6 +40,9 @@ namespace Microsoft.PowerBI.Api.Beta
                 return Task.Factory.StartNew(s => ((IGateways)s).PatchDatasourceAsync(collectionName, workspaceId, gatewayId, datasourceId, datasourceDelta), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
+            /// <summary>
+            /// Updates the credentials for the specified datasource
+            /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>

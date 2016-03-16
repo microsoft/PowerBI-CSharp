@@ -15,7 +15,7 @@ namespace Microsoft.PowerBI.Api.Beta
     public static partial class ReportsExtensions
     {
             /// <summary>
-            /// Returns the EntitySet reports
+            /// Gets a list of reports available within the specified workspace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
 
             /// <summary>
-            /// Returns the EntitySet reports
+            /// Gets a list of reports available within the specified workspace
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

@@ -18,7 +18,7 @@ namespace Microsoft.PowerBI.Api.Beta
     public partial interface IImports
     {
         /// <summary>
-        /// Returns the Imports
+        /// Returns a list of imports for the specified workspace
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </param>
         Task<HttpOperationResponse<ODataResponseListImport>> GetImportsWithHttpMessagesAsync(string collectionName, string workspaceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new import
+        /// Creates a new import using the specified import info
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
@@ -53,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// </param>
         Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string collectionName, string workspaceId, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the import by id
+        /// Gets the import metadata for the specifed import id
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name

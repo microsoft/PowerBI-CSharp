@@ -18,7 +18,7 @@ namespace Microsoft.PowerBI.Api.Beta
     public partial interface IReports
     {
         /// <summary>
-        /// Returns the EntitySet reports
+        /// Gets a list of reports available within the specified workspace
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name

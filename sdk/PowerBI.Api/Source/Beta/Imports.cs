@@ -45,7 +45,7 @@ namespace Microsoft.PowerBI.Api.Beta
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Returns the Imports
+        /// Returns a list of imports for the specified workspace
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
@@ -172,7 +172,7 @@ namespace Microsoft.PowerBI.Api.Beta
         }
 
         /// <summary>
-        /// Creates a new import
+        /// Creates a new import using the specified import info
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
@@ -310,7 +310,7 @@ namespace Microsoft.PowerBI.Api.Beta
         }
 
         /// <summary>
-        /// Returns the import by id
+        /// Gets the import metadata for the specifed import id
         /// </summary>
         /// <param name='collectionName'>
         /// The workspace collection name
