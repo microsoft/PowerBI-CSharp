@@ -30,7 +30,7 @@
   <Import Project="$(NuProjPath)\NuProj.props" Condition="Exists('$(NuProjPath)\NuProj.props')" />
   <PropertyGroup Label="Configuration">
     <Id>Microsoft.PowerBI.Core</Id>
-    <Version>1.0.7-preview</Version>
+    <Version>1.0.8-preview</Version>
     <Title>Microsoft Power BI Core Libraries</Title>
     <Authors>Microsoft</Authors>
     <Owners>Microsoft</Owners>
