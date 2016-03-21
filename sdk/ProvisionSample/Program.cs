@@ -2,11 +2,9 @@
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Microsoft.PowerBI.Api.Beta;
 using Microsoft.PowerBI.Api.Beta.Models;
 using Microsoft.Rest;
-using Console = System.Console;
 using Microsoft.Threading;
 using ApiHost.Models;
 using System.IO;
@@ -15,11 +13,9 @@ using System.Threading;
 using Microsoft.Rest.Serialization;
 using System.Net.Http.Headers;
 using System.Configuration;
-using System.Security.Cryptography.X509Certificates;
-using System.Security.Cryptography;
 using System.Net;
-using System.Collections;
 using System.Collections.Generic;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using ProvisionSample.Models;
 
 namespace ProvisionSample
@@ -36,13 +32,10 @@ namespace ProvisionSample
         static string username = ConfigurationManager.AppSettings["username"];
         static string password = ConfigurationManager.AppSettings["password"];
         static string clientId = ConfigurationManager.AppSettings["clientId"];
-        static string thumbprint = ConfigurationManager.AppSettings["thumbprint"];
-        static bool useCertificate = bool.Parse(ConfigurationManager.AppSettings["useCertificate"]);
         static string signingKey = ConfigurationManager.AppSettings["signingKey"];
 
         static WorkspaceCollectionKeys signingKeys = null;
         static Guid workspaceId = Guid.Empty;
-        static string importId = null;
 
         static void Main(string[] args)
         {
@@ -227,7 +220,6 @@ namespace ProvisionSample
                         Console.WriteLine();
 
                         var import = await ImportPbix(workspaceCollectionName, workspaceId, datasetName, filePath);
-                        importId = import.Id;
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Import: {0}", import.Id);
 
@@ -349,18 +341,10 @@ namespace ProvisionSample
 
             HttpClient client = new HttpClient();
 
-            if (useCertificate)
-            {
-                var handler = new WebRequestHandler();
-                var certificate = GetCertificate(thumbprint);
-                handler.ClientCertificates.Add(certificate);
-                client = new HttpClient(handler);
-            }
-
             using (client)
             {
                 var content = new StringContent(@"{
-                                                ""location"": ""eastus"",
+                                                ""location"": ""southcentralus"",
                                                 ""tags"": {},
                                                 ""sku"": {
                                                     ""name"": ""S1"",
@@ -371,10 +355,7 @@ namespace ProvisionSample
 
                 var request = new HttpRequestMessage(HttpMethod.Put, url);
                 // Set authorization header from you acquired Azure AD token
-                if (!useCertificate)
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
-                }
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
                 request.Content = content;
 
                 var response = await client.SendAsync(request);
@@ -396,22 +377,11 @@ namespace ProvisionSample
 
             HttpClient client = new HttpClient();
 
-            if (useCertificate)
-            {
-                var handler = new WebRequestHandler();
-                var certificate = GetCertificate(thumbprint);
-                handler.ClientCertificates.Add(certificate);
-                client = new HttpClient(handler);
-            }
-
             using (client)
             {
                 var request = new HttpRequestMessage(HttpMethod.Post, url);
                 // Set authorization header from you acquired Azure AD token
-                if (!useCertificate)
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
-                }
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
                 request.Content = new StringContent(string.Empty);
                 var response = await client.SendAsync(request);
 
@@ -432,22 +402,11 @@ namespace ProvisionSample
             var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
             HttpClient client = new HttpClient();
 
-            if (useCertificate)
-            {
-                var handler = new WebRequestHandler();
-                var certificate = GetCertificate(thumbprint);
-                handler.ClientCertificates.Add(certificate);
-                client = new HttpClient(handler);
-            }
-
             using (client)
             {
                 var request = new HttpRequestMessage(HttpMethod.Get, url);
                 // Set authorization header from you acquired Azure AD token
-                if (!useCertificate)
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
-                }
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
                 var response = await client.SendAsync(request);
 
                 if (response.StatusCode != HttpStatusCode.OK)
@@ -467,22 +426,11 @@ namespace ProvisionSample
 
             HttpClient client = new HttpClient();
 
-            if (useCertificate)
-            {
-                var handler = new WebRequestHandler();
-                var certificate = GetCertificate(thumbprint);
-                handler.ClientCertificates.Add(certificate);
-                client = new HttpClient(handler);
-            }
-
             using (client)
             {
                 var request = new HttpRequestMessage(HttpMethod.Post, url);
                 // Set authorization header from you acquired Azure AD token
-                if (!useCertificate)
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
-                }
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
                 request.Content = new StringContent(string.Empty);
                 var response = await client.SendAsync(request);
 
@@ -556,15 +504,30 @@ namespace ProvisionSample
             if (string.IsNullOrWhiteSpace(password))
             {
                 Console.Write("Password: ");
-                password = Console.ReadLine();
+                password = ConsoleHelper.ReadPassword();
                 Console.WriteLine();
             }
+
+            string connectionString = null;
+            Console.Write("Connection String (enter to skip): ");
+            connectionString = Console.ReadLine();
+            Console.WriteLine();
 
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
             using (var client = await CreateClient(devToken))
             {
                 // Get the newly created dataset from the previous import process
                 var datasets = await client.Datasets.GetDatasetsAsync(workspaceCollectionName, workspaceId.ToString());
+
+                // Optionally udpate the connectionstring details if preent
+                if (!string.IsNullOrWhiteSpace(connectionString))
+                {
+                    var connectionParameters = new Dictionary<string, object>
+                    {
+                        { "connectionString", connectionString }
+                    };
+                    await client.Datasets.SetAllConnectionsAsync(workspaceCollectionName, workspaceId.ToString(), datasets.Value[datasets.Value.Count - 1].Id, connectionParameters);
+                }
 
                 // Get the datasources from the dataset
                 var datasources = await client.Datasets.GetGatewayDatasourcesAsync(workspaceCollectionName, workspaceId.ToString(), datasets.Value[datasets.Value.Count - 1].Id);
@@ -632,29 +595,22 @@ namespace ProvisionSample
 
         static string GetAzureAccessToken()
         {
-            return "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjF6bmJlNmV2ZWJPamg2TTNXR1E5X1ZmWXVJdyIsImtpZCI6IjF6bmJlNmV2ZWJPamg2TTNXR1E5X1ZmWXVJdyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuY29yZS53aW5kb3dzLm5ldC8iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLXBwZS5uZXQvODNhYmU1Y2QtYmNjMy00NDFhLWJkODYtZTZhNzUzNjBjZWNjLyIsImlhdCI6MTQ1ODU3Mzk0MywibmJmIjoxNDU4NTczOTQzLCJleHAiOjE0NTg1Nzc4NDMsImFjciI6IjEiLCJhbHRzZWNpZCI6IjE6bGl2ZS5jb206MDAwM0JGRkRDM0Y4OEEyQiIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiJjNDRiNDA4My0zYmIwLTQ5YzEtYjQ3ZC05NzRlNTNjYmRmM2MiLCJhcHBpZGFjciI6IjIiLCJlbWFpbCI6ImF1eHRtMTkyQGxpdmUuY29tIiwiaWRwIjoibGl2ZS5jb20iLCJpcGFkZHIiOiI0MC4xMjIuMjAyLjgxIiwibmFtZSI6ImF1eHRtMTkyQGxpdmUuY29tIiwib2lkIjoiMmMwNzAxOGMtZjVhZC00MDY1LThiYTAtYzA3MmE1NGNkNDNkIiwicHVpZCI6IjEwMDMwMDAwOEIwNDlBQzEiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJYOGF3eW9GRnowZWpDTjM4Sm5uRVl6Vy01ODhTNE02NVlldGlGelF5SDJrIiwidGlkIjoiODNhYmU1Y2QtYmNjMy00NDFhLWJkODYtZTZhNzUzNjBjZWNjIiwidW5pcXVlX25hbWUiOiJsaXZlLmNvbSNhdXh0bTE5MkBsaXZlLmNvbSIsInZlciI6IjEuMCJ9.aZmB2woGCRMfHfPcVcC-EmzoGToQfDSdDmbI6wAucHWRE5P9LAflZcBq-LCeUlXA8xzda_6rWo5IcS8nFK8thMofffOCSiyZdrJOZsBKpYhv-XCiWR6y9I-994AyL-Em-f6-Lxf74_pjqd8peT0mmZ_cJyqsY_n20MYmRCf1gKsqzcwObh-RJwP1HG1TXgCRF9zlHl_96nasZdjUShGDG9RYGFUW_qHxh01xn0DWWTr-mCgEvu6PKRXGhDgm2XPcEwhGc6aKnj7buDc7HU5j6nxPQtsaU-fz5RuAQ2ezwy9VUCfAz17HQEz12TQ42Ehhvo2bDtCVkvHwA2egBn9hZA";
-        }
+            // Follow instructions here to setup your tenants provisioning app: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/#get-access-token-in-code
 
-        static X509Certificate2 GetCertificate(string thumbprint)
-        {
-            X509Certificate2 cert = null;
+            var tokenCache = new TokenCache();
+            var authContext = new AuthenticationContext("https://login.windows.net/common/oauth2/authorize", tokenCache);
+            var result = authContext.AcquireToken(
+                resource: "https://management.core.windows.net/",
+                clientId: clientId,
+                redirectUri: new Uri("https://login.live.com/oauth20_desktop.srf"),
+                promptBehavior: PromptBehavior.RefreshSession);
 
-            var certStore = new X509Store(StoreLocation.LocalMachine);
-            certStore.Open(OpenFlags.ReadOnly);
-
-            var certificates = certStore.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, false);
-            if (certificates.Count > 0)
+            if (result == null)
             {
-                cert = certificates[0];
-            }
-            else
-            {
-                throw new CryptographicException("Cannot find the certificate with the thumbprint: {0}", thumbprint);
+                throw new InvalidOperationException("Failed to obtain the JWT token");
             }
 
-            certStore.Close();
-
-            return cert;
+            return result.AccessToken;
         }
     }
 }
