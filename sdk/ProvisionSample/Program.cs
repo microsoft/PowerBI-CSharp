@@ -20,6 +20,7 @@ using System.Security.Cryptography;
 using System.Net;
 using System.Collections;
 using System.Collections.Generic;
+using ProvisionSample.Models;
 
 namespace ProvisionSample
 {
@@ -78,6 +79,7 @@ namespace ProvisionSample
                 Console.WriteLine("6. Import PBIX Desktop file into an existing workspace");
                 Console.WriteLine("7. Update connection string info for an existing dataset");
                 Console.WriteLine("8. Get embed url and token for existing report");
+                Console.WriteLine("9. Get billing info");
                 Console.WriteLine();
 
                 var key = Console.ReadKey(true);
@@ -273,6 +275,28 @@ namespace ProvisionSample
 
                         await Run();
                         break;
+                    case '9':
+                        if (string.IsNullOrWhiteSpace(subscriptionId))
+                        {
+                            Console.Write("Azure Subscription ID:");
+                            subscriptionId = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        if (string.IsNullOrWhiteSpace(resourceGroup))
+                        {
+                            Console.Write("Azure Resource Group:");
+                            resourceGroup = Console.ReadLine();
+                            Console.WriteLine();
+                        }
+                        Console.Write("Workspace Collection Name:");
+                        workspaceCollectionName = Console.ReadLine();
+                        Console.WriteLine();
+
+                        var billInfo = await GetBillingUsage(subscriptionId, resourceGroup, workspaceCollectionName);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Renders: {0}", billInfo.Renders);
+                        await Run();
+                        break;
                     default:
                         Console.WriteLine("Press any key to exit..");
                         break;
@@ -336,7 +360,7 @@ namespace ProvisionSample
             using (client)
             {
                 var content = new StringContent(@"{
-                                                ""location"": ""southcentralus"",
+                                                ""location"": ""eastus"",
                                                 ""tags"": {},
                                                 ""sku"": {
                                                     ""name"": ""S1"",
@@ -434,6 +458,43 @@ namespace ProvisionSample
 
                 var json = await response.Content.ReadAsStringAsync();
                 return json;
+            }
+        }
+
+        static async Task<BillingUsage> GetBillingUsage(string subscriptionId, string resourceGroup, string workspaceCollectionName)
+        {
+            var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/billingUsage{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
+
+            HttpClient client = new HttpClient();
+
+            if (useCertificate)
+            {
+                var handler = new WebRequestHandler();
+                var certificate = GetCertificate(thumbprint);
+                handler.ClientCertificates.Add(certificate);
+                client = new HttpClient(handler);
+            }
+
+            using (client)
+            {
+                var request = new HttpRequestMessage(HttpMethod.Post, url);
+                // Set authorization header from you acquired Azure AD token
+                if (!useCertificate)
+                {
+                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
+                }
+                request.Content = new StringContent(string.Empty);
+                var response = await client.SendAsync(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    var responseText = await response.Content.ReadAsStringAsync();
+                    var message = string.Format("Status: {0}, Reason: {1}, Message: {2}", response.StatusCode, response.ReasonPhrase, responseText);
+                    throw new Exception(message);
+                }
+
+                var json = await response.Content.ReadAsStringAsync();
+                return SafeJsonConvert.DeserializeObject<BillingUsage>(json);
             }
         }
 
@@ -571,22 +632,7 @@ namespace ProvisionSample
 
         static string GetAzureAccessToken()
         {
-            // Follow instructions here to setup your tenants provisioning app: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/#get-access-token-in-code
-
-            var tokenCache = new TokenCache();
-            var authContext = new AuthenticationContext("https://login.windows-ppe.net/common/oauth2/authorize", tokenCache);
-            var result = authContext.AcquireToken(
-                resource: "https://management.core.windows.net/",
-                clientId: clientId,
-                redirectUri: new Uri("https://login.live.com/oauth20_desktop.srf"),
-                promptBehavior: PromptBehavior.RefreshSession);
-
-            if (result == null)
-            {
-                throw new InvalidOperationException("Failed to obtain the JWT token");
-            }
-
-            return result.AccessToken;
+            return "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjF6bmJlNmV2ZWJPamg2TTNXR1E5X1ZmWXVJdyIsImtpZCI6IjF6bmJlNmV2ZWJPamg2TTNXR1E5X1ZmWXVJdyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuY29yZS53aW5kb3dzLm5ldC8iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLXBwZS5uZXQvODNhYmU1Y2QtYmNjMy00NDFhLWJkODYtZTZhNzUzNjBjZWNjLyIsImlhdCI6MTQ1ODU3Mzk0MywibmJmIjoxNDU4NTczOTQzLCJleHAiOjE0NTg1Nzc4NDMsImFjciI6IjEiLCJhbHRzZWNpZCI6IjE6bGl2ZS5jb206MDAwM0JGRkRDM0Y4OEEyQiIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiJjNDRiNDA4My0zYmIwLTQ5YzEtYjQ3ZC05NzRlNTNjYmRmM2MiLCJhcHBpZGFjciI6IjIiLCJlbWFpbCI6ImF1eHRtMTkyQGxpdmUuY29tIiwiaWRwIjoibGl2ZS5jb20iLCJpcGFkZHIiOiI0MC4xMjIuMjAyLjgxIiwibmFtZSI6ImF1eHRtMTkyQGxpdmUuY29tIiwib2lkIjoiMmMwNzAxOGMtZjVhZC00MDY1LThiYTAtYzA3MmE1NGNkNDNkIiwicHVpZCI6IjEwMDMwMDAwOEIwNDlBQzEiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJYOGF3eW9GRnowZWpDTjM4Sm5uRVl6Vy01ODhTNE02NVlldGlGelF5SDJrIiwidGlkIjoiODNhYmU1Y2QtYmNjMy00NDFhLWJkODYtZTZhNzUzNjBjZWNjIiwidW5pcXVlX25hbWUiOiJsaXZlLmNvbSNhdXh0bTE5MkBsaXZlLmNvbSIsInZlciI6IjEuMCJ9.aZmB2woGCRMfHfPcVcC-EmzoGToQfDSdDmbI6wAucHWRE5P9LAflZcBq-LCeUlXA8xzda_6rWo5IcS8nFK8thMofffOCSiyZdrJOZsBKpYhv-XCiWR6y9I-994AyL-Em-f6-Lxf74_pjqd8peT0mmZ_cJyqsY_n20MYmRCf1gKsqzcwObh-RJwP1HG1TXgCRF9zlHl_96nasZdjUShGDG9RYGFUW_qHxh01xn0DWWTr-mCgEvu6PKRXGhDgm2XPcEwhGc6aKnj7buDc7HU5j6nxPQtsaU-fz5RuAQ2ezwy9VUCfAz17HQEz12TQ42Ehhvo2bDtCVkvHwA2egBn9hZA";
         }
 
         static X509Certificate2 GetCertificate(string thumbprint)

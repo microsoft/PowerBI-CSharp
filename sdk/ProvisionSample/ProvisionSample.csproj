@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncPump.cs" />
+    <Compile Include="Models\BillingUsage.cs" />
     <Compile Include="Models\WorkspaceCollection.cs" />
     <Compile Include="Models\WorkspaceCollectionKeys.cs" />
     <Compile Include="Program.cs" />
