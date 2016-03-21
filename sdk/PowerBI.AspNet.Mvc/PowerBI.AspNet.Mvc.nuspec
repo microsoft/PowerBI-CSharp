@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>Microsoft Power BI for ASP.NET MVC</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Microsoft/PowerBI-CSharp</projectUrl>
+        <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>ASP.NET MVC Helpers for Power BI</summary>
+        <description>$description$</description>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <language>en-US</language>
+        <tags>Microsoft Power BI ASP.NET MVC</tags>
+        <dependencies>
+            <dependency id="Microsoft.PowerBI.Core" version="1.0.10-preview" />
+            <dependency id="Microsoft.PowerBI.Api" version="1.0.10-preview" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Content\web.config.install.xdt" target="content" />
+        <file src="Content\web.config.uninstall.xdt" target="content" />
+        <file src="Content\Views\web.config.install.xdt" target="content\Views" />
+        <file src="Content\Views\web.config.uninstall.xdt" target="content\Views" />
+    </files>
+</package>
