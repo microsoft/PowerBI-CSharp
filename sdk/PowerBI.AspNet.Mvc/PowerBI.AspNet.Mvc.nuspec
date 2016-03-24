@@ -16,8 +16,9 @@
         <language>en-US</language>
         <tags>Microsoft Power BI ASP.NET MVC</tags>
         <dependencies>
-            <dependency id="Microsoft.PowerBI.Core" version="1.0.10-preview" />
-            <dependency id="Microsoft.PowerBI.Api" version="1.0.10-preview" />
+            <dependency id="Microsoft.PowerBI.Core" version="$minversion$" />
+            <dependency id="Microsoft.PowerBI.Api" version="$minversion$" />
+            <dependency id="Microsoft.PowerBI.JavaScript" version="$minversion$" />
         </dependencies>
     </metadata>
     <files>
