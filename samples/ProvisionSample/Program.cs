@@ -24,7 +24,7 @@ namespace ProvisionSample
     {
         const string version = "?api-version=2016-01-29";
 
-        static string apiEndpointUri = ConfigurationManager.AppSettings["pbiApiEndpoint"];
+        static string apiEndpointUri = ConfigurationManager.AppSettings["powerBiApiEndpoint"];
         static string azureEndpointUri = ConfigurationManager.AppSettings["azureApiEndpoint"];
         static string subscriptionId = ConfigurationManager.AppSettings["subscriptionId"];
         static string resourceGroup = ConfigurationManager.AppSettings["resourceGroup"];
@@ -32,18 +32,18 @@ namespace ProvisionSample
         static string username = ConfigurationManager.AppSettings["username"];
         static string password = ConfigurationManager.AppSettings["password"];
         static string clientId = ConfigurationManager.AppSettings["clientId"];
-        static string signingKey = ConfigurationManager.AppSettings["signingKey"];
+        static string accessKey = ConfigurationManager.AppSettings["accessKey"];
 
         static WorkspaceCollectionKeys signingKeys = null;
         static Guid workspaceId = Guid.Empty;
 
         static void Main(string[] args)
         {
-            if (!string.IsNullOrWhiteSpace(signingKey))
+            if (!string.IsNullOrWhiteSpace(accessKey))
             {
                 signingKeys = new WorkspaceCollectionKeys
                 {
-                    Key1 = signingKey
+                    Key1 = accessKey
                 };
             }
 
@@ -564,12 +564,12 @@ namespace ProvisionSample
             if (signingKeys == null)
             {
                 Console.Write("Signing Key: ");
-                signingKey = Console.ReadLine();
+                accessKey = Console.ReadLine();
                 Console.WriteLine();
 
                 signingKeys = new WorkspaceCollectionKeys()
                 {
-                    Key1 = signingKey
+                    Key1 = accessKey
                 };
             }
 
