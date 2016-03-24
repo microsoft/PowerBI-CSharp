@@ -3,7 +3,6 @@ using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-[assembly: WebResource("Microsoft.PowerBI.AspNet.WebForms.Resources.embed.js", "application/x-javascript")]
 namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
 {
     /// <summary>

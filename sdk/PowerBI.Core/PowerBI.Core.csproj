@@ -30,10 +30,23 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="..\certificates\35MSSharedLib1024.snk">
+      <Link>35MSSharedLib1024.snk</Link>
+    </None>
     <None Include="Diagram.cd" />
     <None Include="packages.config" />
+    <None Include="PowerBI.Core.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Guard.cs" />
