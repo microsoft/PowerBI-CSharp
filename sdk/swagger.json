@@ -843,7 +843,7 @@
                     "type": "array",
                     "description": "The reports associated with this import",
                     "items": {
-                        "$ref": "#/definitions/Import"
+                        "$ref": "#/definitions/Report"
                     }
                 },
                 "datasets": {

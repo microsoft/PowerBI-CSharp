@@ -376,7 +376,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
-            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}/rows").ToString();
+            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}/rows").ToString();
             _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             _url = _url.Replace("{workspaceId}", Uri.EscapeDataString(workspaceId));
             _url = _url.Replace("{datasetKey}", Uri.EscapeDataString(datasetKey));
@@ -524,7 +524,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
-            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}/rows").ToString();
+            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}/rows").ToString();
             _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             _url = _url.Replace("{workspaceId}", Uri.EscapeDataString(workspaceId));
             _url = _url.Replace("{datasetKey}", Uri.EscapeDataString(datasetKey));

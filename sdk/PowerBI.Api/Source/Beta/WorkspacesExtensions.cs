@@ -20,12 +20,12 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='workspaceCollectionName'>
+            /// <param name='collectionName'>
             /// The workspace collection name
             /// </param>
-            public static ODataResponseListWorkspace GetWorkspacesByCollectionName(this IWorkspaces operations, string workspaceCollectionName)
+            public static ODataResponseListWorkspace GetWorkspacesByCollectionName(this IWorkspaces operations, string collectionName)
             {
-                return Task.Factory.StartNew(s => ((IWorkspaces)s).GetWorkspacesByCollectionNameAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IWorkspaces)s).GetWorkspacesByCollectionNameAsync(collectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -34,15 +34,15 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='workspaceCollectionName'>
+            /// <param name='collectionName'>
             /// The workspace collection name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListWorkspace> GetWorkspacesByCollectionNameAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListWorkspace> GetWorkspacesByCollectionNameAsync( this IWorkspaces operations, string collectionName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetWorkspacesByCollectionNameWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWorkspacesByCollectionNameWithHttpMessagesAsync(collectionName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -54,12 +54,12 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='workspaceCollectionName'>
+            /// <param name='collectionName'>
             /// The workspace collection name
             /// </param>
-            public static Workspace PostWorkspace(this IWorkspaces operations, string workspaceCollectionName)
+            public static Workspace PostWorkspace(this IWorkspaces operations, string collectionName)
             {
-                return Task.Factory.StartNew(s => ((IWorkspaces)s).PostWorkspaceAsync(workspaceCollectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IWorkspaces)s).PostWorkspaceAsync(collectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -68,15 +68,15 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='workspaceCollectionName'>
+            /// <param name='collectionName'>
             /// The workspace collection name
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Workspace> PostWorkspaceAsync( this IWorkspaces operations, string workspaceCollectionName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Workspace> PostWorkspaceAsync( this IWorkspaces operations, string collectionName, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWorkspaceWithHttpMessagesAsync(workspaceCollectionName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWorkspaceWithHttpMessagesAsync(collectionName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

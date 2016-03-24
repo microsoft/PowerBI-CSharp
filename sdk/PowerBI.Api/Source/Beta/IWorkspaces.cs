@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <summary>
         /// Returns a list of workspaces for the specified collection
         /// </summary>
-        /// <param name='workspaceCollectionName'>
+        /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
         /// <param name='customHeaders'>
@@ -29,11 +29,11 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<ODataResponseListWorkspace>> GetWorkspacesByCollectionNameWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListWorkspace>> GetWorkspacesByCollectionNameWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates a new workspace within a workspace collection
         /// </summary>
-        /// <param name='workspaceCollectionName'>
+        /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
         /// <param name='customHeaders'>
@@ -42,6 +42,6 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

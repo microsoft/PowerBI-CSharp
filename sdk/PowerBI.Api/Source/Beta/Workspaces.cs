@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <summary>
         /// Returns a list of workspaces for the specified collection
         /// </summary>
-        /// <param name='workspaceCollectionName'>
+        /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
         /// <param name='customHeaders'>
@@ -56,11 +56,11 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<ODataResponseListWorkspace>> GetWorkspacesByCollectionNameWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ODataResponseListWorkspace>> GetWorkspacesByCollectionNameWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (workspaceCollectionName == null)
+            if (collectionName == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "workspaceCollectionName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "collectionName");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -69,14 +69,14 @@ namespace Microsoft.PowerBI.Api.Beta
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("workspaceCollectionName", workspaceCollectionName);
+                tracingParameters.Add("collectionName", collectionName);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetWorkspacesByCollectionName", tracingParameters);
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
-            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{workspaceCollectionName}/workspaces").ToString();
-            _url = _url.Replace("{workspaceCollectionName}", Uri.EscapeDataString(workspaceCollectionName));
+            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces").ToString();
+            _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             // Create HTTP transport objects
             HttpRequestMessage _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -165,7 +165,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <summary>
         /// Creates a new workspace within a workspace collection
         /// </summary>
-        /// <param name='workspaceCollectionName'>
+        /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
         /// <param name='customHeaders'>
@@ -174,11 +174,11 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string workspaceCollectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (workspaceCollectionName == null)
+            if (collectionName == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "workspaceCollectionName");
+                throw new ValidationException(ValidationRules.CannotBeNull, "collectionName");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -187,14 +187,14 @@ namespace Microsoft.PowerBI.Api.Beta
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("workspaceCollectionName", workspaceCollectionName);
+                tracingParameters.Add("collectionName", collectionName);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostWorkspace", tracingParameters);
             }
             // Construct URL
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
-            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{workspaceCollectionName}/workspaces").ToString();
-            _url = _url.Replace("{workspaceCollectionName}", Uri.EscapeDataString(workspaceCollectionName));
+            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces").ToString();
+            _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             // Create HTTP transport objects
             HttpRequestMessage _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
