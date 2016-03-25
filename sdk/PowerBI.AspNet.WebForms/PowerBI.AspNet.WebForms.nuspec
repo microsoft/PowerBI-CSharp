@@ -8,7 +8,7 @@
         <owners>microsoft,powerbi</owners>
         <licenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/Microsoft/PowerBI-CSharp</projectUrl>
-        <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</iconUrl>
+        <iconUrl>http://go.microsoft.com/fwlink/?LinkId=780675</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>ASP.NET WebForms Controls for Power BI</summary>
         <description>$description$</description>

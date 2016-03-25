@@ -5,10 +5,10 @@
         <version>$version$</version>
         <title>Microsoft Power BI API</title>
         <authors>$author$</authors>
-        <owners>microsoft,powerbi</owners>
+        <owners>$author$</owners>
         <licenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/Microsoft/PowerBI-CSharp</projectUrl>
-        <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288890</iconUrl>
+        <iconUrl>http://go.microsoft.com/fwlink/?LinkId=780675</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <summary>Client library for Power BI</summary>
         <description>$description$</description>
