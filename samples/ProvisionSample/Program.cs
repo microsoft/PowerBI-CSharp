@@ -35,7 +35,7 @@ namespace ProvisionSample
         static string accessKey = ConfigurationManager.AppSettings["accessKey"];
 
         static WorkspaceCollectionKeys signingKeys = null;
-        static Guid workspaceId = Guid.Empty;
+        private static string workspaceId = null;
 
         static void Main(string[] args)
         {
@@ -58,6 +58,7 @@ namespace ProvisionSample
         static async Task Run()
         {
             Console.ResetColor();
+            var exit = false;
 
             try
             {
@@ -188,7 +189,7 @@ namespace ProvisionSample
                         }
 
                         var workspace = await CreateWorkspace(workspaceCollectionName);
-                        workspaceId = Guid.Parse(workspace.WorkspaceId);
+                        workspaceId = workspace.WorkspaceId;
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Workspace ID: {0}", workspaceId);
 
@@ -202,10 +203,10 @@ namespace ProvisionSample
                             Console.WriteLine();
                         }
 
-                        if (workspaceId == Guid.Empty)
+                        if (string.IsNullOrWhiteSpace(workspaceId))
                         {
                             Console.Write("Workspace ID:");
-                            workspaceId = Guid.Parse(Console.ReadLine());
+                            workspaceId = Console.ReadLine();
                             Console.WriteLine();
                         }
 
@@ -231,10 +232,10 @@ namespace ProvisionSample
                             Console.WriteLine();
                         }
 
-                        if (workspaceId == Guid.Empty)
+                        if (string.IsNullOrWhiteSpace(workspaceId))
                         {
                             Console.Write("Workspace ID:");
-                            workspaceId = Guid.Parse(Console.ReadLine());
+                            workspaceId = Console.ReadLine();
                             Console.WriteLine();
                         }
 
@@ -250,15 +251,15 @@ namespace ProvisionSample
                             Console.WriteLine();
                         }
 
-                        if (workspaceId == Guid.Empty)
+                        if (string.IsNullOrWhiteSpace(workspaceId))
                         {
                             Console.Write("Workspace ID:");
-                            workspaceId = Guid.Parse(Console.ReadLine());
+                            workspaceId = Console.ReadLine();
                             Console.WriteLine();
                         }
 
                         var report = await GetReport(workspaceCollectionName, workspaceId);
-                        var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, workspaceId, Guid.Parse(report.Id));
+                        var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, workspaceId, report.Id);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Embed Url: {0}", report.EmbedUrl);
                         Console.WriteLine("Embed Token: {0}", embedToken.Generate(signingKeys.Key1));
@@ -289,6 +290,7 @@ namespace ProvisionSample
                         break;
                     default:
                         Console.WriteLine("Press any key to exit..");
+                        exit = true;
                         break;
                 }
             }
@@ -297,6 +299,10 @@ namespace ProvisionSample
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ooops, something broke: {0}", ex.Message);
                 Console.WriteLine();
+            }
+
+            if (!exit)
+            {
                 await Run();
             }
         }
@@ -465,7 +471,7 @@ namespace ProvisionSample
             }
         }
 
-        static async Task<Import> ImportPbix(string workspaceCollectionName, Guid workspaceId, string datasetName, string filePath)
+        static async Task<Import> ImportPbix(string workspaceCollectionName, string workspaceId, string datasetName, string filePath)
         {
             using (var fileStream = File.OpenRead(filePath))
             {
@@ -490,7 +496,7 @@ namespace ProvisionSample
             }
         }
 
-        static async Task UpdateConnection(string workspaceCollectionName, Guid workspaceId)
+        static async Task UpdateConnection(string workspaceCollectionName, string workspaceId)
         {
             if (string.IsNullOrWhiteSpace(username))
             {
@@ -546,7 +552,7 @@ namespace ProvisionSample
             }
         }
 
-        static async Task<Report> GetReport(string workspaceCollectionName, Guid workspaceId)
+        static async Task<Report> GetReport(string workspaceCollectionName, string workspaceId)
         {
             // Create a dev token to access the reports within your workspace
             var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
