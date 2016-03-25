@@ -71,8 +71,6 @@ namespace ProvisionSample
                 Console.WriteLine("5. Provision a new workspace in an existing workspace collection");
                 Console.WriteLine("6. Import PBIX Desktop file into an existing workspace");
                 Console.WriteLine("7. Update connection string info for an existing dataset");
-                Console.WriteLine("8. Get embed url and token for existing report");
-                Console.WriteLine("9. Get billing info");
                 Console.WriteLine();
 
                 var key = Console.ReadKey(true);
