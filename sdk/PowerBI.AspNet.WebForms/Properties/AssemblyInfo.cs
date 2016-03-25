@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Microsoft.PowerBI.WebForms")]
-[assembly: AssemblyDescription("A suite of ASP.NET webforms controls for integrating Power BI")]
+[assembly: AssemblyDescription("A suite of ASP.NET Webforms controls for integrating Power BI into your app.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
 [assembly: AssemblyProduct("Microsoft Power BI for ASP.NET WebForms")]

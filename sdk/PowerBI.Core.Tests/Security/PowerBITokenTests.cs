@@ -15,7 +15,7 @@ namespace PowerBI.Security.Tests
         [TestMethod]
         public void CanCreateDevToken()
         {
-            var workspaceId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
             var token = PowerBIToken.CreateDevToken("Contoso", workspaceId);
 
             Assert.IsNotNull(token);
@@ -42,7 +42,7 @@ namespace PowerBI.Security.Tests
         [TestMethod]
         public void CanCreateDevTokenWithExplicitExpiration()
         {
-            var workspaceId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
             var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, DateTime.UtcNow.AddMinutes(1));
 
             Assert.IsNotNull(token);
@@ -58,7 +58,7 @@ namespace PowerBI.Security.Tests
         [TestMethod]
         public void CanCreateDevTokenWithSlidingExpiration()
         {
-            var workspaceId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
             var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, TimeSpan.FromMinutes(2));
 
             Assert.IsNotNull(token);
@@ -74,8 +74,8 @@ namespace PowerBI.Security.Tests
         [TestMethod]
         public void CanCreateReportEmbedToken()
         {
-            var workspaceId = Guid.NewGuid();
-            var reportId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
 
             var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId);
 
@@ -98,15 +98,15 @@ namespace PowerBI.Security.Tests
             Assert.AreEqual("embed", typeClaim.Value);
             Assert.AreEqual("0.1.0", versionClaim.Value);
             Assert.AreEqual("Contoso", wcnClaim.Value);
-            Assert.AreEqual(workspaceId.ToString(), widClaim.Value);
-            Assert.AreEqual(reportId.ToString(), ridCliam.Value);
+            Assert.AreEqual(workspaceId, widClaim.Value);
+            Assert.AreEqual(reportId, ridCliam.Value);
         }
 
         [TestMethod]
         public void CanCreateReportEmbedTokenWithExplicitExpiration()
         {
-            var workspaceId = Guid.NewGuid();
-            var reportId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
 
             var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, DateTime.UtcNow.AddMinutes(1));
 
@@ -123,8 +123,8 @@ namespace PowerBI.Security.Tests
         [TestMethod]
         public void CanCreateReportEmbedTokenWithSlidingExpiration()
         {
-            var workspaceId = Guid.NewGuid();
-            var reportId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
 
             var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, TimeSpan.FromMinutes(2));
 
@@ -228,26 +228,26 @@ namespace PowerBI.Security.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void CreateDevTokenWithInvalidExpirationFails()
         {
-            var workspaceId = Guid.NewGuid();
-            var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, DateTime.MinValue);
+            var workspaceId = Guid.NewGuid().ToString();
+            PowerBIToken.CreateDevToken("Contoso", workspaceId, DateTime.MinValue);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void CreateProvisionTokenWithInvalidExpirationFails()
         {
-            var workspaceId = Guid.NewGuid();
-            var token = PowerBIToken.CreateProvisionToken("Contoso", DateTime.MinValue);
+
+            PowerBIToken.CreateProvisionToken("Contoso", DateTime.MinValue);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void CreateReportEmbedTokenWithInvalidExpirationFails()
         {
-            var workspaceId = Guid.NewGuid();
-            var reportId = Guid.NewGuid();
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, DateTime.MinValue);
+            PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, DateTime.MinValue);
         }
 
         [TestMethod]
