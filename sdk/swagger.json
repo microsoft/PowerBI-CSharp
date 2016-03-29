@@ -663,6 +663,20 @@
                         "type": "string"
                     },
                     {
+                        "name": "datasetDisplayName",
+                        "in": "query",
+                        "required": false,
+                        "description": "The display name of the dataset",
+                        "type": "string"
+                    },
+                    {
+                        "name": "nameConflict",
+                        "in": "query",
+                        "required":  false,
+                        "description": "Determines what to do if a dataset with the same name already exists",
+                        "type":  "string"
+                    },
+                    {
                         "name": "importInfo",
                         "in": "body",
                         "description": "The import to post",

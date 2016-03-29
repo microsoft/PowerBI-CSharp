@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
-        public static Import PostImportWithFile(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?))
+        public static Import PostImportWithFile(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string))
         {
             return Task.Factory.StartNew(s => ((IImports)s).PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsync(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName, int? nameConflict = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsync(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
             {

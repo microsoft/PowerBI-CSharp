@@ -69,9 +69,15 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='importInfo'>
             /// The import to post
             /// </param>
-            public static Import PostImport(this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo)
+            /// <param name='datasetDisplayName'>
+            /// The display name of the dataset
+            /// </param>
+            /// <param name='nameConflict'>
+            /// Determines what to do if a dataset with the same name already exists
+            /// </param>
+            public static Import PostImport(this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo, string datasetDisplayName = default(string), string nameConflict = default(string))
             {
-                return Task.Factory.StartNew(s => ((IImports)s).PostImportAsync(collectionName, workspaceId, importInfo), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IImports)s).PostImportAsync(collectionName, workspaceId, importInfo, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -89,12 +95,18 @@ namespace Microsoft.PowerBI.Api.Beta
             /// <param name='importInfo'>
             /// The import to post
             /// </param>
+            /// <param name='datasetDisplayName'>
+            /// The display name of the dataset
+            /// </param>
+            /// <param name='nameConflict'>
+            /// Determines what to do if a dataset with the same name already exists
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportAsync( this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync( this IImports operations, string collectionName, string workspaceId, ImportInfo importInfo, string datasetDisplayName = default(string), string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportWithHttpMessagesAsync(collectionName, workspaceId, importInfo, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportWithHttpMessagesAsync(collectionName, workspaceId, importInfo, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

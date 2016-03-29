@@ -183,13 +183,19 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='importInfo'>
         /// The import to post
         /// </param>
+        /// <param name='datasetDisplayName'>
+        /// The display name of the dataset
+        /// </param>
+        /// <param name='nameConflict'>
+        /// Determines what to do if a dataset with the same name already exists
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string collectionName, string workspaceId, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string collectionName, string workspaceId, ImportInfo importInfo, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (collectionName == null)
             {
@@ -212,6 +218,8 @@ namespace Microsoft.PowerBI.Api.Beta
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("collectionName", collectionName);
                 tracingParameters.Add("workspaceId", workspaceId);
+                tracingParameters.Add("datasetDisplayName", datasetDisplayName);
+                tracingParameters.Add("nameConflict", nameConflict);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
@@ -221,6 +229,19 @@ namespace Microsoft.PowerBI.Api.Beta
             var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces/{workspaceId}/imports").ToString();
             _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             _url = _url.Replace("{workspaceId}", Uri.EscapeDataString(workspaceId));
+            List<string> _queryParameters = new List<string>();
+            if (datasetDisplayName != null)
+            {
+                _queryParameters.Add(string.Format("datasetDisplayName={0}", Uri.EscapeDataString(datasetDisplayName)));
+            }
+            if (nameConflict != null)
+            {
+                _queryParameters.Add(string.Format("nameConflict={0}", Uri.EscapeDataString(nameConflict)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             HttpRequestMessage _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

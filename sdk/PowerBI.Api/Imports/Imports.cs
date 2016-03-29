@@ -41,7 +41,7 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name="cancellationToken">
         /// Optional cancellation token
         /// </param>
-        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string collectionName, string workspaceId, Stream file, string datasetDisplayName, int? nameConflict = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string collectionName, string workspaceId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (collectionName == null)
             {
@@ -50,10 +50,6 @@ namespace Microsoft.PowerBI.Api.Beta
             if (workspaceId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "workspaceId");
-            }
-            if (datasetDisplayName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "datasetDisplayName");
             }
             if (file == null)
             {
@@ -80,7 +76,6 @@ namespace Microsoft.PowerBI.Api.Beta
             var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces/{workspaceId}/imports").ToString();
             _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             _url = _url.Replace("{workspaceId}", Uri.EscapeDataString(workspaceId));
-
             List<string> _queryParameters = new List<string>();
             if (datasetDisplayName != null)
             {
@@ -88,7 +83,7 @@ namespace Microsoft.PowerBI.Api.Beta
             }
             if (nameConflict != null)
             {
-                _queryParameters.Add(string.Format("nameConflict={0}", Uri.EscapeDataString(SafeJsonConvert.SerializeObject(nameConflict, this.Client.SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("nameConflict={0}", Uri.EscapeDataString(nameConflict)));
             }
             if (_queryParameters.Count > 0)
             {

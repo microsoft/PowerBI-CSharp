@@ -45,13 +45,20 @@ namespace Microsoft.PowerBI.Api.Beta
         /// <param name='importInfo'>
         /// The import to post
         /// </param>
+        /// <param name='datasetDisplayName'>
+        /// The display name of the dataset
+        /// </param>
+        /// <param name='nameConflict'>
+        /// Determines what to do if a dataset with the same name already
+        /// exists
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string collectionName, string workspaceId, ImportInfo importInfo, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string collectionName, string workspaceId, ImportInfo importInfo, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the import metadata for the specifed import id
         /// </summary>
