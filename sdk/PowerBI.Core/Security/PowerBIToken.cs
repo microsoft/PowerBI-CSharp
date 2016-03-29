@@ -90,7 +90,7 @@ namespace Microsoft.PowerBI.Security
 
             if (expiration < DateTime.UtcNow)
             {
-                throw new ArgumentException("Expiration must be a date/time in the future", "expiration");
+                throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
             }
 
             var token = new PowerBIToken
@@ -144,7 +144,7 @@ namespace Microsoft.PowerBI.Security
 
             if (expiration < DateTime.UtcNow)
             {
-                throw new ArgumentException("Expiration must be a date/time in the future", "expiration");
+                throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
             }
 
             var token = new PowerBIToken
@@ -202,7 +202,7 @@ namespace Microsoft.PowerBI.Security
 
             if (expiration < DateTime.UtcNow)
             {
-                throw new ArgumentException("Expiration must be a date/time in the future", "expiration");
+                throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
             }
 
             var token = new PowerBIToken
@@ -234,9 +234,9 @@ namespace Microsoft.PowerBI.Security
         public ICollection<Claim> Claims { get; private set; }
 
         /// <summary>
-        /// Gets or set the signing key used to generate an app token
+        /// Gets or set the access key used to sign the app token
         /// </summary>
-        public string SigningKey { get; set; }
+        public string AccessKey { get; set; }
 
         /// <summary>
         /// Gets or sets the token expiration.  Default expiration is 1 hour
@@ -246,21 +246,21 @@ namespace Microsoft.PowerBI.Security
         /// <summary>
         /// Generates an app token with the specified claims and signs it the the configured signing key.
         /// </summary>
-        /// <param name="signingKey"></param>
+        /// <param name="accessKey">The access key used to sign the app token</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public string Generate(string signingKey = null)
+        public string Generate(string accessKey = null)
         {
-            if (string.IsNullOrWhiteSpace(this.SigningKey) && signingKey == null)
+            if (string.IsNullOrWhiteSpace(this.AccessKey) && accessKey == null)
             {
-                throw new ArgumentNullException(nameof(signingKey));
+                throw new ArgumentNullException(nameof(accessKey));
             }
 
             this.ValidateToken();
 
-            signingKey = signingKey ?? this.SigningKey;
+            accessKey = accessKey ?? this.AccessKey;
 
-            var key = Encoding.UTF8.GetBytes(signingKey);
+            var key = Encoding.UTF8.GetBytes(accessKey);
             var signingCredentials = new SigningCredentials(new InMemorySymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature, SecurityAlgorithms.Sha256Digest);
             var token = new JwtSecurityToken(this.Issuer, this.Audience, this.Claims, DateTime.UtcNow, this.Expiration, signingCredentials);
 
@@ -282,11 +282,11 @@ namespace Microsoft.PowerBI.Security
         /// <summary>
         /// Returns a JWT token string that represents the current object
         /// </summary>
-        /// <param name="signingKey"></param>
+        /// <param name="accessKey">The access key used to sign the app token</param>
         /// <returns></returns>
-        public string ToString(string signingKey)
+        public string ToString(string accessKey)
         {
-            return Generate(signingKey);
+            return Generate(accessKey);
         }
 
         private void InitDefaultClaims()

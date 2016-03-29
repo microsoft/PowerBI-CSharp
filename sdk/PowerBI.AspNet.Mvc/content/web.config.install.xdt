@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
     <appSettings>
-        <add key="powerbi:SigningKey" value="" xdt:Transform="Insert"/>
+        <add key="powerbi:AccessKey" value="" xdt:Transform="Insert"/>
         <add key="powerbi:ApiUrl" value="https://api.powerbi.com" xdt:Transform="Insert"/>
         <add key="powerbi:WorkspaceCollection" value="" xdt:Transform="Insert"/>
         <add key="powerbi:WorkspaceId" value="" xdt:Transform="Insert"/>

@@ -10,7 +10,7 @@ namespace PowerBI.Security.Tests
     [TestClass]
     public class PowerBITokenTests
     {
-        private string signingKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        private string accessKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
         [TestMethod]
         public void CanCreateDevToken()
@@ -19,7 +19,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateDevToken("Contoso", workspaceId);
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -46,7 +46,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, DateTime.UtcNow.AddMinutes(1));
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -62,7 +62,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, TimeSpan.FromMinutes(2));
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -80,7 +80,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId);
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -111,7 +111,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, DateTime.UtcNow.AddMinutes(1));
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -129,7 +129,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, TimeSpan.FromMinutes(2));
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -144,7 +144,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateProvisionToken("Contoso");
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -168,7 +168,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateProvisionToken("Contoso", DateTime.UtcNow.AddMinutes(1));
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -183,7 +183,7 @@ namespace PowerBI.Security.Tests
             var token = PowerBIToken.CreateProvisionToken("Contoso", TimeSpan.FromMinutes(2));
 
             Assert.IsNotNull(token);
-            var jwt = token.Generate(this.signingKey);
+            var jwt = token.Generate(this.accessKey);
             Assert.IsFalse(string.IsNullOrEmpty(jwt));
 
             var decodedToken = new JwtSecurityToken(jwt);
@@ -200,7 +200,7 @@ namespace PowerBI.Security.Tests
                 Audience = "TestAudience",
                 Issuer = "TestIssuer",
                 Expiration = DateTime.UtcNow.AddHours(2),
-                SigningKey = this.signingKey
+                AccessKey = this.accessKey
             };
 
             token.Claims.Add(new Claim("Name", "TestUser"));
@@ -258,7 +258,7 @@ namespace PowerBI.Security.Tests
             {
                 Issuer = "issuer",
                 Audience = "audience",
-                SigningKey = this.signingKey,
+                AccessKey = this.accessKey,
                 Expiration = DateTime.MinValue
             };
 
@@ -275,7 +275,7 @@ namespace PowerBI.Security.Tests
                 Audience = null
             };
 
-            token.Generate(this.signingKey);
+            token.Generate(this.accessKey);
         }
     }
 }
