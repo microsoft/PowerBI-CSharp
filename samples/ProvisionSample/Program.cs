@@ -16,7 +16,6 @@ using System.Configuration;
 using System.Net;
 using System.Collections.Generic;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using ProvisionSample.Models;
 
 namespace ProvisionSample
 {
@@ -78,10 +77,6 @@ namespace ProvisionSample
 
                 switch (key.KeyChar)
                 {
-                    case '0':
-                        await ProvisionWorkspaceCollections();
-                        await Run();
-                        break;
                     case '1':
                         if (string.IsNullOrWhiteSpace(subscriptionId))
                         {
@@ -160,6 +155,7 @@ namespace ProvisionSample
                         Console.WriteLine();
 
                         var workspaces = await GetWorkspaces(workspaceCollectionName);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
 
                         foreach (var instance in workspaces)
                         {
@@ -169,18 +165,6 @@ namespace ProvisionSample
                         await Run();
                         break;
                     case '5':
-                        if (string.IsNullOrWhiteSpace(subscriptionId))
-                        {
-                            Console.Write("Azure Subscription ID:");
-                            subscriptionId = Console.ReadLine();
-                            Console.WriteLine();
-                        }
-                        if (string.IsNullOrWhiteSpace(resourceGroup))
-                        {
-                            Console.Write("Azure Resource Group:");
-                            resourceGroup = Console.ReadLine();
-                            Console.WriteLine();
-                        }
                         if (string.IsNullOrWhiteSpace(workspaceCollectionName))
                         {
                             Console.Write("Workspace Collection Name:");
@@ -240,52 +224,9 @@ namespace ProvisionSample
                         }
 
                         await UpdateConnection(workspaceCollectionName, workspaceId);
-
-                        await Run();
-                        break;
-                    case '8':
-                        if (string.IsNullOrWhiteSpace(workspaceCollectionName))
-                        {
-                            Console.Write("Workspace Collection Name:");
-                            workspaceCollectionName = Console.ReadLine();
-                            Console.WriteLine();
-                        }
-
-                        if (string.IsNullOrWhiteSpace(workspaceId))
-                        {
-                            Console.Write("Workspace ID:");
-                            workspaceId = Console.ReadLine();
-                            Console.WriteLine();
-                        }
-
-                        var report = await GetReport(workspaceCollectionName, workspaceId);
-                        var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, workspaceId, report.Id);
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Embed Url: {0}", report.EmbedUrl);
-                        Console.WriteLine("Embed Token: {0}", embedToken.Generate(signingKeys.Key1));
+                        Console.WriteLine("Connection information updated successfully.");
 
-                        await Run();
-                        break;
-                    case '9':
-                        if (string.IsNullOrWhiteSpace(subscriptionId))
-                        {
-                            Console.Write("Azure Subscription ID:");
-                            subscriptionId = Console.ReadLine();
-                            Console.WriteLine();
-                        }
-                        if (string.IsNullOrWhiteSpace(resourceGroup))
-                        {
-                            Console.Write("Azure Resource Group:");
-                            resourceGroup = Console.ReadLine();
-                            Console.WriteLine();
-                        }
-                        Console.Write("Workspace Collection Name:");
-                        workspaceCollectionName = Console.ReadLine();
-                        Console.WriteLine();
-
-                        var billInfo = await GetBillingUsage(subscriptionId, resourceGroup, workspaceCollectionName);
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("Renders: {0}", billInfo.Renders);
                         await Run();
                         break;
                     default:
@@ -307,38 +248,13 @@ namespace ProvisionSample
             }
         }
 
-        static async Task ProvisionWorkspaceCollections()
-        {
-            var subscriptionsValue = ConfigurationManager.AppSettings["subscriptions"];
-            var subscriptionIds = subscriptionsValue.Split(',');
-            var counter = 1;
-
-            var filePath = string.Concat("ProvisionWorkspaceCollections-", DateTime.UtcNow.ToFileTimeUtc(), ".log");
-            using (var writer = File.CreateText(filePath))
-            {
-                foreach (var subId in subscriptionIds)
-                {
-                    var workspaceCollectionName = string.Concat("WC-", counter);
-                    try
-                    {
-                        await CreateWorkspaceCollection(subId, "PowerBI", workspaceCollectionName);
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        var message = string.Format("Successfully created workspace collection '{0}' in Subscription ID: '{1}'", workspaceCollectionName, subId);
-                        Console.WriteLine(message);
-                        writer.WriteLine(message);
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        var message = string.Format("Failed creating workspace collection '{0}' in Subscription ID: '{1}', Exception: {2}", workspaceCollectionName, subId, ex.Message);
-                        Console.WriteLine(message);
-                        writer.WriteLine(message);
-                    }
-                    counter++;
-                }
-            }
-        }
-
+        /// <summary>
+        /// Creates a new Power BI Embedded workspace collection
+        /// </summary>
+        /// <param name="subscriptionId">The azure subscription id</param>
+        /// <param name="resourceGroup">The azure resource group</param>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name to create</param>
+        /// <returns></returns>
         static async Task CreateWorkspaceCollection(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
             var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
@@ -375,6 +291,13 @@ namespace ProvisionSample
             }
         }
 
+        /// <summary>
+        /// Gets the workspace collection access keys for the specified collection
+        /// </summary>
+        /// <param name="subscriptionId">The azure subscription id</param>
+        /// <param name="resourceGroup">The azure resource group</param>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name</param>
+        /// <returns></returns>
         static async Task<WorkspaceCollectionKeys> ListWorkspaceCollectionKeys(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
             var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/listkeys{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
@@ -401,6 +324,13 @@ namespace ProvisionSample
             }
         }
 
+        /// <summary>
+        /// Gets the workspace collection metadata for the specified collection
+        /// </summary>
+        /// <param name="subscriptionId">The azure subscription id</param>
+        /// <param name="resourceGroup">The azure resource group</param>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name</param>
+        /// <returns></returns>
         static async Task<string> GetWorkspaceCollectionMetadata(string subscriptionId, string resourceGroup, string workspaceCollectionName)
         {
             var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
@@ -424,32 +354,11 @@ namespace ProvisionSample
             }
         }
 
-        static async Task<BillingUsage> GetBillingUsage(string subscriptionId, string resourceGroup, string workspaceCollectionName)
-        {
-            var url = string.Format("{0}/subscriptions/{1}/resourceGroups/{2}/providers/Microsoft.PowerBI/workspaceCollections/{3}/billingUsage{4}", azureEndpointUri, subscriptionId, resourceGroup, workspaceCollectionName, version);
-
-            HttpClient client = new HttpClient();
-
-            using (client)
-            {
-                var request = new HttpRequestMessage(HttpMethod.Post, url);
-                // Set authorization header from you acquired Azure AD token
-                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", GetAzureAccessToken());
-                request.Content = new StringContent(string.Empty);
-                var response = await client.SendAsync(request);
-
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    var responseText = await response.Content.ReadAsStringAsync();
-                    var message = string.Format("Status: {0}, Reason: {1}, Message: {2}", response.StatusCode, response.ReasonPhrase, responseText);
-                    throw new Exception(message);
-                }
-
-                var json = await response.Content.ReadAsStringAsync();
-                return SafeJsonConvert.DeserializeObject<BillingUsage>(json);
-            }
-        }
-
+        /// <summary>
+        /// Creates a new Power BI Embedded workspace within the specified collection
+        /// </summary>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name</param>
+        /// <returns></returns>
         static async Task<Workspace> CreateWorkspace(string workspaceCollectionName)
         {
             // Create a provision token required to create a new workspace within your collection
@@ -461,6 +370,11 @@ namespace ProvisionSample
             }
         }
 
+        /// <summary>
+        /// Gets a list of Power BI Embedded workspaces within the specified collection
+        /// </summary>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name</param>
+        /// <returns></returns>
         static async Task<IEnumerable<Workspace>> GetWorkspaces(string workspaceCollectionName)
         {
             var provisionToken = PowerBIToken.CreateProvisionToken(workspaceCollectionName);
@@ -471,6 +385,14 @@ namespace ProvisionSample
             }
         }
 
+        /// <summary>
+        /// Imports a Power BI Desktop file (pbix) into the Power BI Embedded service
+        /// </summary>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name</param>
+        /// <param name="workspaceId">The target Power BI workspace id</param>
+        /// <param name="datasetName">The dataset name to apply to the uploaded dataset</param>
+        /// <param name="filePath">A local file path on your computer</param>
+        /// <returns></returns>
         static async Task<Import> ImportPbix(string workspaceCollectionName, string workspaceId, string datasetName, string filePath)
         {
             using (var fileStream = File.OpenRead(filePath))
@@ -481,12 +403,12 @@ namespace ProvisionSample
                 {
 
                     // Import PBIX file from the file stream
-                    var import = await client.Imports.PostImportWithFileAsync(workspaceCollectionName, workspaceId.ToString(), fileStream, datasetName);
+                    var import = await client.Imports.PostImportWithFileAsync(workspaceCollectionName, workspaceId, fileStream, datasetName);
 
                     // Example of polling the import to check when the import has succeeded.
                     while (import.ImportState != "Succeeded" && import.ImportState != "Failed")
                     {
-                        import = await client.Imports.GetImportByIdAsync(workspaceCollectionName, workspaceId.ToString(), import.Id);
+                        import = await client.Imports.GetImportByIdAsync(workspaceCollectionName, workspaceId, import.Id);
                         Console.WriteLine("Checking import state... {0}", import.ImportState);
                         Thread.Sleep(1000);
                     }
@@ -496,6 +418,12 @@ namespace ProvisionSample
             }
         }
 
+        /// <summary>
+        /// Updates the Power BI dataset connection info for datasets with direct query connections
+        /// </summary>
+        /// <param name="workspaceCollectionName">The Power BI workspace collection name</param>
+        /// <param name="workspaceId">The Power BI workspace id that contains the dataset</param>
+        /// <returns></returns>
         static async Task UpdateConnection(string workspaceCollectionName, string workspaceId)
         {
             if (string.IsNullOrWhiteSpace(username))
@@ -521,7 +449,7 @@ namespace ProvisionSample
             using (var client = await CreateClient(devToken))
             {
                 // Get the newly created dataset from the previous import process
-                var datasets = await client.Datasets.GetDatasetsAsync(workspaceCollectionName, workspaceId.ToString());
+                var datasets = await client.Datasets.GetDatasetsAsync(workspaceCollectionName, workspaceId);
 
                 // Optionally udpate the connectionstring details if preent
                 if (!string.IsNullOrWhiteSpace(connectionString))
@@ -530,11 +458,11 @@ namespace ProvisionSample
                     {
                         { "connectionString", connectionString }
                     };
-                    await client.Datasets.SetAllConnectionsAsync(workspaceCollectionName, workspaceId.ToString(), datasets.Value[datasets.Value.Count - 1].Id, connectionParameters);
+                    await client.Datasets.SetAllConnectionsAsync(workspaceCollectionName, workspaceId, datasets.Value[datasets.Value.Count - 1].Id, connectionParameters);
                 }
 
                 // Get the datasources from the dataset
-                var datasources = await client.Datasets.GetGatewayDatasourcesAsync(workspaceCollectionName, workspaceId.ToString(), datasets.Value[datasets.Value.Count - 1].Id);
+                var datasources = await client.Datasets.GetGatewayDatasourcesAsync(workspaceCollectionName, workspaceId, datasets.Value[datasets.Value.Count - 1].Id);
 
                 // Reset your connection credentials
                 var delta = new GatewayDatasource
@@ -548,21 +476,15 @@ namespace ProvisionSample
                 };
 
                 // Update the datasource with the specified credentials
-                await client.Gateways.PatchDatasourceAsync(workspaceCollectionName, workspaceId.ToString(), datasources.Value[datasources.Value.Count - 1].GatewayId, datasources.Value[datasources.Value.Count - 1].Id, delta);
+                await client.Gateways.PatchDatasourceAsync(workspaceCollectionName, workspaceId, datasources.Value[datasources.Value.Count - 1].GatewayId, datasources.Value[datasources.Value.Count - 1].Id, delta);
             }
         }
 
-        static async Task<Report> GetReport(string workspaceCollectionName, string workspaceId)
-        {
-            // Create a dev token to access the reports within your workspace
-            var devToken = PowerBIToken.CreateDevToken(workspaceCollectionName, workspaceId);
-            using (var client = await CreateClient(devToken))
-            {
-                var reports = await client.Reports.GetReportsAsync(workspaceCollectionName, workspaceId.ToString());
-                return reports.Value[reports.Value.Count - 1];
-            }
-        }
-
+        /// <summary>
+        /// Creates a new instance of the PowerBIClient with the specified token
+        /// </summary>
+        /// <param name="token">A Power BI app token</param>
+        /// <returns></returns>
         static async Task<IPowerBIClient> CreateClient(PowerBIToken token)
         {
             if (signingKeys == null)
@@ -597,6 +519,11 @@ namespace ProvisionSample
             return client;
         }
 
+        /// <summary>
+        /// Gets an Azure access token that can be used to call into the Azure ARM apis. 
+        /// Requires configuring a Azure AD navtive applicatino which is then configured to delegated access rights to your Azure subscription resources
+        /// </summary>
+        /// <returns></returns>
         static string GetAzureAccessToken()
         {
             // Follow instructions here to setup your tenants provisioning app: https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/#get-access-token-in-code
