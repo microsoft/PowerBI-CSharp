@@ -18,7 +18,7 @@
         <dependencies>
             <dependency id="Microsoft.PowerBI.Core" version="$minversion$" />
             <dependency id="Microsoft.PowerBI.Api" version="$minversion$" />
-            <dependency id="Microsoft.PowerBI.JavaScript" version="$minversion$" />
+            <dependency id="Microsoft.PowerBI.JavaScript" version="1.0" />
         </dependencies>
     </metadata>
     <files>
