@@ -16,7 +16,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the EntitySet datasets",
+                "summary": "Returns the EntitySet datasets.",
                 "operationId": "Datasets_GetDatasets",
                 "consumes": [],
                 "produces": [
