@@ -16,7 +16,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the EntitySet datasets.",
+                "summary": "Returns the Datasets in a Workspace.",
                 "operationId": "Datasets_GetDatasets",
                 "consumes": [],
                 "produces": [
@@ -26,14 +26,14 @@
                     {
                         "name": "collectionName",
                         "in": "path",
-                        "description": "The workspace collection name",
+                        "description": "The workspace collection name. You can get the workspace collection name in the Azure Portal. See https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-get-started/",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "name": "workspaceId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace id.",
                         "required": true,
                         "type": "string"
                     }
