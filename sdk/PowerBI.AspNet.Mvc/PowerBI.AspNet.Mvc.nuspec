@@ -23,7 +23,6 @@
     </metadata>
     <files>
         <file src="Content\web.config.install.xdt" target="content" />
-        <file src="Content\web.config.uninstall.xdt" target="content" />
         <file src="Content\Views\web.config.install.xdt" target="content\Views" />
         <file src="Content\Views\web.config.uninstall.xdt" target="content\Views" />
     </files>
