@@ -114,9 +114,6 @@
     <None Include="content\web.config.install.xdt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="content\web.config.uninstall.xdt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Diagram.cd" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
