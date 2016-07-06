@@ -13,71 +13,12 @@ namespace PowerBI.Security.Tests
         private string accessKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
         [TestMethod]
-        public void CanCreateDevToken()
-        {
-            var workspaceId = Guid.NewGuid().ToString();
-            var token = PowerBIToken.CreateDevToken("Contoso", workspaceId);
-
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.accessKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            var typeClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Type);
-            var versionClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Version);
-            var wcnClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceCollectionName);
-            var widClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceId);
-
-            Assert.AreEqual("PowerBISDK", decodedToken.Issuer);
-            Assert.IsTrue(decodedToken.Audiences.Contains("https://analysis.windows.net/powerbi/api"));
-            Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
-            Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddHours(1));
-            Assert.AreEqual("dev", typeClaim.Value);
-            Assert.AreEqual("0.1.0", versionClaim.Value);
-            Assert.AreEqual("Contoso", wcnClaim.Value);
-            Assert.AreEqual(workspaceId.ToString(), widClaim.Value);
-        }
-
-        [TestMethod]
-        public void CanCreateDevTokenWithExplicitExpiration()
-        {
-            var workspaceId = Guid.NewGuid().ToString();
-            var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, DateTime.UtcNow.AddMinutes(1));
-
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.accessKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
-            Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddMinutes(1));
-        }
-
-        [TestMethod]
-        public void CanCreateDevTokenWithSlidingExpiration()
-        {
-            var workspaceId = Guid.NewGuid().ToString();
-            var token = PowerBIToken.CreateDevToken("Contoso", workspaceId, TimeSpan.FromMinutes(2));
-
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.accessKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow.AddMinutes(1));
-            Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddMinutes(2));
-        }
-
-        [TestMethod]
         public void CanCreateReportEmbedToken()
         {
             var workspaceId = Guid.NewGuid().ToString();
             var reportId = Guid.NewGuid().ToString();
 
-            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId);
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, "TestUser", new []{ "TestRole" });
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.accessKey);
@@ -85,21 +26,23 @@ namespace PowerBI.Security.Tests
 
             var decodedToken = new JwtSecurityToken(jwt);
 
-            var typeClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Type);
             var versionClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Version);
             var wcnClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceCollectionName);
             var widClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceId);
             var ridCliam = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.ReportId);
+            var usernameClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Username);
+            var rolesClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Roles);
 
             Assert.AreEqual("PowerBISDK", decodedToken.Issuer);
             Assert.IsTrue(decodedToken.Audiences.Contains("https://analysis.windows.net/powerbi/api"));
             Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
             Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddHours(1));
-            Assert.AreEqual("embed", typeClaim.Value);
-            Assert.AreEqual("0.1.0", versionClaim.Value);
+            Assert.AreEqual("0.2.0", versionClaim.Value);
             Assert.AreEqual("Contoso", wcnClaim.Value);
             Assert.AreEqual(workspaceId, widClaim.Value);
             Assert.AreEqual(reportId, ridCliam.Value);
+            Assert.AreEqual("TestUser", usernameClaim.Value);
+            Assert.AreEqual("TestRole", rolesClaim.Value);
         }
 
         [TestMethod]
@@ -139,9 +82,12 @@ namespace PowerBI.Security.Tests
         }
 
         [TestMethod]
-        public void CanCreateProvisionEmbedToken()
+        public void CanCreateReportEmbedTokenWithRlsNoRoles()
         {
-            var token = PowerBIToken.CreateProvisionToken("Contoso");
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
+
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, "TestUser");
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.accessKey);
@@ -149,23 +95,20 @@ namespace PowerBI.Security.Tests
 
             var decodedToken = new JwtSecurityToken(jwt);
 
-            var typeClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Type);
-            var versionClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Version);
-            var wcnClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.WorkspaceCollectionName);
+            var usernameClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Username);
+            var rolesClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Roles);
 
-            Assert.AreEqual("PowerBISDK", decodedToken.Issuer);
-            Assert.IsTrue(decodedToken.Audiences.Contains("https://analysis.windows.net/powerbi/api"));
-            Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
-            Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddHours(1));
-            Assert.AreEqual("provision", typeClaim.Value);
-            Assert.AreEqual("0.1.0", versionClaim.Value);
-            Assert.AreEqual("Contoso", wcnClaim.Value);
+            Assert.AreEqual("TestUser", usernameClaim.Value);
+            Assert.IsNull(rolesClaim);
         }
 
         [TestMethod]
-        public void CanCreateProvisionTokenWithExplicitExpiration()
+        public void CanCreateReportEmbedTokenWithRlsWithMultipleRoles()
         {
-            var token = PowerBIToken.CreateProvisionToken("Contoso", DateTime.UtcNow.AddMinutes(1));
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
+
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, "TestUser", new []{ "TestRole1", "TestRole2" });
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.accessKey);
@@ -173,23 +116,23 @@ namespace PowerBI.Security.Tests
 
             var decodedToken = new JwtSecurityToken(jwt);
 
-            Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow);
-            Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddMinutes(1));
+            var usernameClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == PowerBIToken.ClaimTypes.Username);
+            var rolesClaims = decodedToken.Claims.Where(c => c.Type == PowerBIToken.ClaimTypes.Roles).Select(c => c.Value).ToList();
+
+            Assert.AreEqual("TestUser", usernameClaim.Value);
+            Assert.AreEqual(rolesClaims.Count, 2);
+            Assert.IsTrue(rolesClaims.Contains("TestRole1"));
+            Assert.IsTrue(rolesClaims.Contains("TestRole2"));
         }
 
         [TestMethod]
-        public void CanCreateProvisionTokenWithSlidingExpiration()
+        [ExpectedException(typeof(ArgumentException))]
+        public void CreateReportEmbedTokenWithRlsWithRolesAndMissingUsernameFails()
         {
-            var token = PowerBIToken.CreateProvisionToken("Contoso", TimeSpan.FromMinutes(2));
+            var workspaceId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid().ToString();
 
-            Assert.IsNotNull(token);
-            var jwt = token.Generate(this.accessKey);
-            Assert.IsFalse(string.IsNullOrEmpty(jwt));
-
-            var decodedToken = new JwtSecurityToken(jwt);
-
-            Assert.IsTrue(decodedToken.ValidTo >= DateTime.UtcNow.AddMinutes(1));
-            Assert.IsTrue(decodedToken.ValidTo <= DateTime.UtcNow.AddMinutes(2));
+            PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, null, new[] { "TestRole"});
         }
 
         [TestMethod]
@@ -222,22 +165,6 @@ namespace PowerBI.Security.Tests
 
             var nameClaim = decodedToken.Claims.FirstOrDefault(c => c.Type == "Name");
             Assert.AreEqual("TestUser", nameClaim.Value);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void CreateDevTokenWithInvalidExpirationFails()
-        {
-            var workspaceId = Guid.NewGuid().ToString();
-            PowerBIToken.CreateDevToken("Contoso", workspaceId, DateTime.MinValue);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void CreateProvisionTokenWithInvalidExpirationFails()
-        {
-
-            PowerBIToken.CreateProvisionToken("Contoso", DateTime.MinValue);
         }
 
         [TestMethod]

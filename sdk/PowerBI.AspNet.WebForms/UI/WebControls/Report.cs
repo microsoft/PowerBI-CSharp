@@ -1,8 +1,8 @@
-﻿using Microsoft.PowerBI.Api.Beta;
-using Microsoft.Rest;
+﻿using Microsoft.Rest;
 using System;
 using System.Linq;
 using System.Web.UI;
+using Microsoft.PowerBI.Api.V1;
 
 namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
 {

@@ -1,11 +1,11 @@
-﻿using Microsoft.PowerBI.Api.Beta.Models;
-using Microsoft.Rest;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.PowerBI.Api.V1.Models;
+using Microsoft.Rest;
 
-namespace Microsoft.PowerBI.Api.Beta
+namespace Microsoft.PowerBI.Api.V1
 {
     /// <summary>
     /// Imports operations.

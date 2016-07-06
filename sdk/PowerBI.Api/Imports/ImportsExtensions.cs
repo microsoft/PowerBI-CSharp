@@ -1,9 +1,9 @@
-﻿using Microsoft.PowerBI.Api.Beta.Models;
-using System.IO;
+﻿using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.PowerBI.Api.V1.Models;
 
-namespace Microsoft.PowerBI.Api.Beta
+namespace Microsoft.PowerBI.Api.V1
 {
     public static partial class ImportsExtensions
     {

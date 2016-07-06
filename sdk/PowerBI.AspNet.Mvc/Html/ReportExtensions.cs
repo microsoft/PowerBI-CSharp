@@ -1,9 +1,9 @@
 ﻿using Microsoft.PowerBI.Api;
-using Microsoft.PowerBI.Api.Beta.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Web.Mvc;
+using Microsoft.PowerBI.Api.V1.Models;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
 {
@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
         /// <param name="report">The Power BI report</param>
         /// <param name="htmlAttributes">Additional attributes used while rendering the report</param>
         /// <returns></returns>
-        public static MvcHtmlString PowerBIReport(this HtmlHelper htmlHelper, string name, IReport report, object htmlAttributes = null)
+        public static MvcHtmlString PowerBIReport(this HtmlHelper htmlHelper, string name, Report report, object htmlAttributes = null)
         {
             return ReportHelper(htmlHelper, null, report, name, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
@@ -59,11 +59,11 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
             var fullHtmlFieldName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(expression);
 
             var embedUrl = value as string;
-            IReport report = null;
+            Report report = null;
 
             if (string.IsNullOrWhiteSpace(embedUrl))
             {
-                report = value as IReport;
+                report = value as Report;
                 if (report != null)
                 {
                     embedUrl = report.EmbedUrl;

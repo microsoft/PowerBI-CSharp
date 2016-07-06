@@ -20,22 +20,31 @@ namespace Microsoft.PowerBI.Security
             /// The version claim
             /// </summary>
             public const string Version = "ver";
-            /// <summary>
-            /// The token type claim
-            /// </summary>
-            public const string Type = "type";
+            
             /// <summary>
             /// The workspace collection claim
             /// </summary>
             public const string WorkspaceCollectionName = "wcn";
+            
             /// <summary>
             /// The workspace id claim
             /// </summary>
             public const string WorkspaceId = "wid";
+            
             /// <summary>
             /// The report id claim
             /// </summary>
             public const string ReportId = "rid";
+            
+            /// <summary>
+            /// The RLS username claim
+            /// </summary>
+            public const string Username = "username";
+            
+            /// <summary>
+            /// The RLS roles claim
+            /// </summary>
+            public const string Roles = "roles";
         }
 
         private const int DefaultExpirationSeconds = 3600;
@@ -56,120 +65,18 @@ namespace Microsoft.PowerBI.Security
         }
 
         /// <summary>
-        /// Creates a provision token with default expiration used to manages workspaces witin a workspace collection
-        /// </summary>
-        /// <param name="workspaceCollectionName">The workspace collection name</param>
-        /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateProvisionToken(string workspaceCollectionName)
-        {
-            var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
-            return CreateProvisionToken(workspaceCollectionName, expires);
-        }
-
-        /// <summary>
-        /// Creates a provision token with a sliding expiration used to manages workspaces witin a workspace collection
-        /// </summary>
-        /// <param name="workspaceCollectionName">The workspace collection name</param>
-        /// <param name="slidingExpiration">The timespan to append to the current date/time</param>
-        /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateProvisionToken(string workspaceCollectionName, TimeSpan slidingExpiration)
-        {
-            var expires = DateTime.UtcNow.Add(slidingExpiration);
-            return CreateProvisionToken(workspaceCollectionName, expires);
-        }
-
-        /// <summary>
-        /// Creates a provision token with a sliding expiration used to manages workspaces witin a workspace collection
-        /// </summary>
-        /// <param name="workspaceCollectionName">The workspace collection name</param>
-        /// <param name="expiration">The token expiration date/time</param>
-        /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateProvisionToken(string workspaceCollectionName, DateTime expiration)
-        {
-            Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
-
-            if (expiration < DateTime.UtcNow)
-            {
-                throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
-            }
-
-            var token = new PowerBIToken
-            {
-                Expiration = expiration
-            };
-
-            token.Claims.Add(new Claim(ClaimTypes.Type, "provision"));
-            token.Claims.Add(new Claim(ClaimTypes.WorkspaceCollectionName, workspaceCollectionName));
-
-            return token;
-        }
-
-        /// <summary>
-        /// Creates a developer token with default expiration used to access Power BI platform services
-        /// </summary>
-        /// <param name="workspaceCollectionName">The workspace collection name</param>
-        /// <param name="workspaceId">The workspace id</param>
-        /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateDevToken(string workspaceCollectionName, string workspaceId)
-        {
-            var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
-            return CreateDevToken(workspaceCollectionName, workspaceId, expires);
-        }
-
-        /// <summary>
-        /// Creates a developer token with default expiration used to access Power BI platform services
-        /// </summary>
-        /// <param name="workspaceCollectionName">The workspace collection name</param>
-        /// <param name="workspaceId">The workspace id</param>
-        /// <param name="slidingExpiration">The timespan to append to the current date/time</param>
-        /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateDevToken(string workspaceCollectionName, string workspaceId, TimeSpan slidingExpiration)
-        {
-            var expires = DateTime.UtcNow.Add(slidingExpiration);
-            return CreateDevToken(workspaceCollectionName, workspaceId, expires);
-        }
-
-
-        /// <summary>
-        /// Creates a developer token with default expiration used to access Power BI platform services
-        /// </summary>
-        /// <param name="workspaceCollectionName">The workspace collection name</param>
-        /// <param name="workspaceId">The workspace id</param>
-        /// <param name="expiration">The token expiration date/time</param>
-        /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateDevToken(string workspaceCollectionName, string workspaceId, DateTime expiration)
-        {
-            Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
-            Guard.ValidateString(workspaceId, "workspaceId");
-
-            if (expiration < DateTime.UtcNow)
-            {
-                throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
-            }
-
-            var token = new PowerBIToken
-            {
-                Expiration = expiration
-            };
-
-            token.Claims.Add(new Claim(ClaimTypes.Type, "dev"));
-            token.Claims.Add(new Claim(ClaimTypes.WorkspaceCollectionName, workspaceCollectionName));
-            token.Claims.Add(new Claim(ClaimTypes.WorkspaceId, workspaceId));
-
-            return token;
-        }
-
-        /// <summary>
         /// Creates a embed token with default expiration used to embed Power BI components into your own applications
         /// </summary>
         /// <param name="workspaceCollectionName">The workspace collection name</param>
         /// <param name="workspaceId">The workspace id</param>
         /// <param name="reportId">The report id</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, string username = null, IEnumerable<string> roles = null)
         {
             var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
-            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires, username, roles);
         }
 
         /// <summary>
@@ -179,11 +86,13 @@ namespace Microsoft.PowerBI.Security
         /// <param name="workspaceId">The workspace id</param>
         /// <param name="reportId">The report id</param>
         /// <param name="slidingExpiration">The timespan to append to the current date/time</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, TimeSpan slidingExpiration)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, TimeSpan slidingExpiration, string username = null, IEnumerable<string> roles = null)
         {
             var expires = DateTime.UtcNow.Add(slidingExpiration);
-            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires, username, roles);
         }
 
         /// <summary>
@@ -193,8 +102,10 @@ namespace Microsoft.PowerBI.Security
         /// <param name="workspaceId">The workspace id</param>
         /// <param name="reportId">The report id</param>
         /// <param name="expiration">The token expiration date/time</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, DateTime expiration)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, DateTime expiration, string username = null, IEnumerable<string> roles = null)
         {
             Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
             Guard.ValidateString(workspaceId, "workspaceId");
@@ -205,15 +116,33 @@ namespace Microsoft.PowerBI.Security
                 throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
             }
 
+            if (roles != null && string.IsNullOrEmpty(username))
+            {
+                throw  new ArgumentException("Cannot have an empty or null Username claim with the non-empty Roles claim");
+            }
+
             var token = new PowerBIToken
             {
                 Expiration = expiration
             };
 
-            token.Claims.Add(new Claim(ClaimTypes.Type, "embed"));
             token.Claims.Add(new Claim(ClaimTypes.WorkspaceCollectionName, workspaceCollectionName));
             token.Claims.Add(new Claim(ClaimTypes.WorkspaceId, workspaceId));
             token.Claims.Add(new Claim(ClaimTypes.ReportId, reportId));
+
+            // RLS claims: requires username and roles are optional
+            if (!string.IsNullOrEmpty(username))
+            {
+                token.Claims.Add(new Claim(ClaimTypes.Username, username));
+
+                if (roles != null)
+                {
+                    foreach (var role in roles)
+                    {
+                        token.Claims.Add(new Claim(ClaimTypes.Roles, role));
+                    }
+                }
+            }
 
             return token;
         }
@@ -291,7 +220,7 @@ namespace Microsoft.PowerBI.Security
 
         private void InitDefaultClaims()
         {
-            this.Claims.Add(new Claim(ClaimTypes.Version, "0.1.0"));
+            this.Claims.Add(new Claim(ClaimTypes.Version, "0.2.0"));
         }
 
         private void ValidateToken()

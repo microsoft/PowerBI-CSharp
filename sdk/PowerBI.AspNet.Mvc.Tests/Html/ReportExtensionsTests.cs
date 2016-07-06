@@ -1,10 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.PowerBI.AspNet.Mvc.Html;
 using System.Web.Mvc;
-using Microsoft.PowerBI.Api.Beta.Models;
 using Microsoft.PowerBI.Api;
 using Microsoft.PowerBI.AspNet.Mvc.Tests.Models;
-using System;
+using Microsoft.PowerBI.Api.V1.Models;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Tests.Html
 {
@@ -12,7 +11,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Tests.Html
     public class ReportExtensionsTests
     {
         private HtmlHelper<ReportViewModel> htmlHelper;
-        private IReport report;
+        private Report report;
         private ReportViewModel viewModel;
 
         [TestInitialize]
