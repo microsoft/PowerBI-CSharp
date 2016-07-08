@@ -135,7 +135,7 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
         protected override void AddAttributesToRender(HtmlTextWriter writer)
         {
             base.AddAttributesToRender(writer);
-            writer.AddAttribute("powerbi-embed", this.EmbedUrl);
+            writer.AddAttribute("powerbi-embed-url", this.EmbedUrl);
         }
 
         /// <summary>

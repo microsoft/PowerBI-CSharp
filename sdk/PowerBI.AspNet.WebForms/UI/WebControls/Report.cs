@@ -60,7 +60,7 @@ namespace Microsoft.PowerBI.AspNet.WebForms.UI.WebControls
         protected override void AddAttributesToRender(HtmlTextWriter writer)
         {
             base.AddAttributesToRender(writer);
-            writer.AddAttribute("powerbi-report", this.ReportId);
+            writer.AddAttribute("powerbi-type", "report");
 
             if (!string.IsNullOrWhiteSpace(this.OnClientLoad))
             {
