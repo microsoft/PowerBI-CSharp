@@ -39,7 +39,7 @@ namespace PowerBI.Api.Tests
             using (var stream = new MemoryStream())
             {
                 await client.Imports.PostImportWithFileAsync(this.workspaceCollectionName, this.workspaceId, stream, datasetDisplayName, nameConflict);
-                var expectedRequesetUrl = $"https://api.powerbi.com/beta/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}";
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
         }
@@ -55,7 +55,7 @@ namespace PowerBI.Api.Tests
             using (var stream = new MemoryStream())
             {
                 await client.Imports.PostImportWithFileAsync(this.workspaceCollectionName, this.workspaceId, stream, datasetDisplayName);
-                var expectedRequesetUrl = $"https://api.powerbi.com/beta/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/imports?datasetDisplayName={datasetDisplayName}";
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/imports?datasetDisplayName={datasetDisplayName}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
         }
@@ -71,7 +71,7 @@ namespace PowerBI.Api.Tests
             using (var stream = new MemoryStream())
             {
                 await client.Imports.PostImportWithFileAsync(this.workspaceCollectionName, this.workspaceId, stream, nameConflict: nameConflict);
-                var expectedRequesetUrl = $"https://api.powerbi.com/beta/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/imports?nameConflict={nameConflict}";
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/imports?nameConflict={nameConflict}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
         }

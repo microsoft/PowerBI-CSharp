@@ -73,7 +73,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
-            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "beta/collections/{collectionName}/workspaces/{workspaceId}/imports").ToString();
+            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/collections/{collectionName}/workspaces/{workspaceId}/imports").ToString();
             _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
             _url = _url.Replace("{workspaceId}", Uri.EscapeDataString(workspaceId));
             List<string> _queryParameters = new List<string>();

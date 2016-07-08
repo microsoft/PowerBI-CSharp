@@ -57,7 +57,6 @@
       <Link>35MSSharedLib1024.snk</Link>
     </None>
     <None Include="app.config" />
-    <None Include="Diagram.cd" />
     <None Include="packages.config" />
     <None Include="PowerBI.Api.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
