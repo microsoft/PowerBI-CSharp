@@ -72,8 +72,8 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
 
             var tagBuilder = new TagBuilder("div");
             tagBuilder.MergeAttributes(htmlAttributes, true);
-            tagBuilder.MergeAttribute("powerbi-embed", embedUrl, true);
-            tagBuilder.MergeAttribute("powerbi-report", (report == null ? null : report.Id), true);
+            tagBuilder.MergeAttribute("powerbi-embed-url", embedUrl, true);
+            tagBuilder.MergeAttribute("powerbi-type", "report", true);
             tagBuilder.GenerateId(fullHtmlFieldName);
 
             return new MvcHtmlString(tagBuilder.ToString(TagRenderMode.Normal));
