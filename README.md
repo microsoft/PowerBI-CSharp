@@ -1,17 +1,14 @@
 # Power BI for .NET
 
 ## Install Nuget Packages
-###For ASP.NET MVC
-`Install-Package Microsoft.PowerBI.Mvc`
+### Power BI Embedded Core Libraries
+`Install-Package Microsoft.PowerBI.Core`
 
-###For ASP.NET Webforms
-`Install-Package Microsoft.PowerBI.WebForms`
+### Power BI Embedded REST Client
+`Install-Package Microsoft.PowerBI.Api`
 
-## Authenticate with Power BI via Azure AD
-
-# ASP.NET MVC
-## Install Nuget Packages
-`Install-Package Microsoft.PowerBI.Mvc -Version 1.0.0-preview`
+###Power BI Embedded for JavaScript
+`Install-Package Microsoft.PowerBI.JavaScript`
 
 ## Setup Power BI for embedding
 Add the Power BI CSS link within your apps `<head>` tag.
@@ -26,23 +23,22 @@ Add the Power BI script include before your apps closing `</body>` tag
 
 `<script src="/scripts/powerbi.js"></script>`
 
-## Setup your Access Token
-Ensure you have the following in your view
 
-`@Html.PowerBIAccessToken()`
-
-Or, if you are managing access tokens yourself, make sure to provide it here
-
-`@Html.PowerBIAccesstoken({{YourAccesstoken}})`
 
 ## Setting the size of embedded components
 The tile & report embed will automatically be embedded based on the size of the embed container.  
 To override the default size of the embeds simply add a CSS class attribute or inline styles for width & height.
 
-## Embedding a Report
+# ASP.NET MVC
+##Install Nuget Packages
+`Install-Package Microsoft.PowerBI.Mvc`
+
+## Setup your Access Token
+`@Html.PowerBIAccesstoken({{YourAccesstoken}})`
 
 Or, directly embed from a full report embed url
 
+## Embed your report
 `@Html.PowerBIReportFor(m => m.EmbedUrl)`
 
 # ASP.NET WebForms
