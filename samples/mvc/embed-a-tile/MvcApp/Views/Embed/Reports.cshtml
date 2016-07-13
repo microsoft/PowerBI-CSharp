@@ -1,9 +1,0 @@
-﻿@model MvcApp.Models.ReportsViewModel
-
-<div>
-    <h2>Reports</h2>
-    @foreach (var report in Model.Reports)
-    {
-        <div>@Html.ActionLink(report.Name, "Report", new { reportId = report.Id })</div>
-    }
-</div>
