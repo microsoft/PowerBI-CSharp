@@ -14,6 +14,9 @@ The `Microsoft.PowerBI.Core` package contains APIs to generate report embed toke
 `Install-Package Microsoft.PowerBI.Core`
 
 ### Usage: Creating a Report Embed Token
+Power BI Embedded uses embed tokens, which are HMAC signed JSON Web Tokens.  The tokens are signed with the access key from your Azure Power BI Embedded workspace collection.
+Embed tokens are used to provide read only access to a report to embed into an application.
+
 To create a report embed token you will need an Azure Power BI Workspace collection, access key, workspace Id & report Id
 
 ```
@@ -22,6 +25,24 @@ var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollection, worksp
 var jwt = embedToken.Generate(accessKey);
 
 ```
+
+### Required Claims
+- ver: 0.2.0
+- wcn: {WorkspaceCollectionName}
+- wid: {WorkspaceId}
+- rid: {ReportId}
+- aud: https://analysis.windows.net/powerbi/api
+- exp: Token expiration in Unix EPOCH time
+
+### Optional Claims
+- nbp: Token valid not before in Unix EPOCH time
+- username: The effective username to pass to Power BI Embedded for RLS (Row level security)
+- roles: The roles to pass to Power BI Embedded for RLS
+
+Read more about [row level security](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-rls/) in our Azure docs.
+
+### Token Example
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsIndjbiI6IlN1cHBvcnREZW1vIiwid2lkIjoiY2E2NzViMTktNmMzYy00MDAzLTg4MDgtMWM3ZGRjNmJkODA5IiwicmlkIjoiOTYyNDFmMGYtYWJhZS00ZWE5LWEwNjUtOTNiNDI4ZWRkYjE3IiwiaXNzIjoiUG93ZXJCSVNESyIsImF1ZCI6Imh0dHBzOi8vYW5hbHlzaXMud2luZG93cy5uZXQvcG93ZXJiaS9hcGkiLCJleHAiOjEzNjAwNDcwNTYsIm5iZiI6MTM2MDA0MzQ1Nn0.LgG2y0m24gg3vjQHhkXYYWKSVnGIUYT-ycA6JmTB6tg
 
 ## Power BI Embedded REST Client
 The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI Embedded REST services.
