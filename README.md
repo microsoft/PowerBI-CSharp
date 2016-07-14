@@ -1,48 +1,87 @@
 # Power BI for .NET
 
-## Install Nuget Packages
-### Power BI Embedded Core Libraries
+Welcome to the .NET developer community for Power BI Embedded.  Here you will find resources for the .NET SDKs for Power BI Embedded.
+If you are looking for the older samples they have been moved to the `saas-samples` branch [here](https://github.com/Microsoft/PowerBI-CSharp/tree/saas-samples).
+
+For questions or issues using the SDKs please log an issue and we will respond as quickly as possible.
+
+For more information regarding onboarding to Power BI Embedded see our [Azure documentation](https://azure.microsoft.com/en-us/services/power-bi-embedded/).
+
+## Power BI Embedded Core Libraries
+The `Microsoft.PowerBI.Core` package contains APIs to generate report embed tokens.
+
+### Install from Nuget
 `Install-Package Microsoft.PowerBI.Core`
 
-### Power BI Embedded REST Client
+### Usage: Creating a Report Embed Token
+To create a report embed token you will need an Azure Power BI Workspace collection, access key, workspace Id & report Id
+
+```
+var accessKey = "{AzureAccessKey}";
+var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollection, workspaceId, reportId);
+var jwt = embedToken.Generate(accessKey);
+
+```
+
+## Power BI Embedded REST Client
+The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI Embedded REST services.
+
+### Install from Nuget
 `Install-Package Microsoft.PowerBI.Api`
 
-###Power BI Embedded for JavaScript
+### Usage: Calling the GetReports API
+As an example, to get a list or reports within your workspace you need to instantiate a `PowerBIClient` with credentials and call into the `GetReports` API.
+```
+var credentials = new TokenCredentials("{AzureAccessKey}", "AppKey");
+var client = new PowerBIClient(credentials);
+
+var reportsResult = await client.Reports.GetReportsAsync(workspaceCollection, workspaceId);
+
+```
+
+The following APIs groups are available:
+
+- Datasets
+- Gateways
+- Imports
+- Reports
+- Workspaces
+
+## Power BI Embedded for JavaScript
+The JavaScript SDK is underlying component for all embed scenarios.  The SDK is vanilla JS but we also ship components for many popular SPA frameworks including Angular, React & Ember JS.  
+
+Visit our [JavaScript SDK](https://github.com/Microsoft/powerbi-javascript) home for more information
+
+### Install from Nuget
 `Install-Package Microsoft.PowerBI.JavaScript`
 
-## Setup Power BI for embedding
-Add the Power BI CSS link within your apps `<head>` tag.
-
-*You can optionally add the script reference to an ASP.NET script bundle*
-
-`<link href="/content/powerbi.css" rel="stylesheet"/>`
-
+### Setup Power BI for embedding
 Add the Power BI script include before your apps closing `</body>` tag
 
 *You can optionally add the CSS reference to an ASP.NET style bundle*
 
 `<script src="/scripts/powerbi.js"></script>`
 
-
-
-## Setting the size of embedded components
+### Setting the size of embedded components
 The tile & report embed will automatically be embedded based on the size of the embed container.  
 To override the default size of the embeds simply add a CSS class attribute or inline styles for width & height.
 
 # ASP.NET MVC
-##Install Nuget Packages
+The `Microsoft.PowerBI.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
+
+## Install from Nuget
 `Install-Package Microsoft.PowerBI.Mvc`
 
 ## Setup your Access Token
+Generate your report embed access token with the `Microsoft.PowerBI.Core` token APIs.
 `@Html.PowerBIAccesstoken({{YourAccesstoken}})`
-
-Or, directly embed from a full report embed url
 
 ## Embed your report
 `@Html.PowerBIReportFor(m => m.EmbedUrl)`
 
 # ASP.NET WebForms
-## Install Nuget Packages
+The `Microsoft.PowerBI.WebForms` package is a lightweight wrapper that contains ASP.NET Webform controls that generate HTML markup compatible with the core JavaScript SDK.
+## Install from Nuget
 `Install-Package Microsoft.PowerBI.WebForms`
 
 ## Setup your Access Token
