@@ -1,7 +1,6 @@
 # Power BI for .NET
 
 Welcome to the .NET developer community for Power BI Embedded.  Here you will find resources for the .NET SDKs for Power BI Embedded.
-If you are looking for the older samples they have been moved to the `saas-samples` branch [here](https://github.com/Microsoft/PowerBI-CSharp/tree/saas-samples).
 
 For questions or issues using the SDKs please log an issue and we will respond as quickly as possible.
 
