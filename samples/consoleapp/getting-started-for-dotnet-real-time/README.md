@@ -14,9 +14,9 @@ To run this sample:
 6. Add a field with name "value", type Number
 7. Click "Create"
 8. Copy the "push URL" at the top of the page
-8. Copy the sample app locally, and in Program.cs, paste url copied in step 8 as the value of "realTimePushURL"
-9. Run the sample app
-10. With the sample app running, go to the dashboard, and create a real-time tile with with the data provided by the sample app
+9. Copy the sample app locally, and in Program.cs, paste url copied in step 8 as the value of "realTimePushURL"
+10. Run the sample app
+11. With the sample app running, go to the dashboard, and create a real-time tile with with the data provided by the sample app
 
 For more information about real-time streaming, see the [documentation](https://powerbi.microsoft.com/documentation/powerbi-service-real-time-streaming/)
 
