@@ -28,7 +28,8 @@ namespace PBIRealTimeStreaming
     class Program
     {
 
-        // Paste your push URL below
+        // Paste your own push URL below
+        // e.g. https://api.powerbi.com/beta/2b958e42-b81e-441d-af13-801621ce8401/datasets/a5a15fd1-8cb6-4527-b2e6-f22f2a274d4d/rows?key=apsBX1ef%2F8a7ToL2GuTyfCQKIYASbbDBbZeGATSyRYerZKpnu%2FbE2g2yDM0%2Bs4cDW9mqu5zKoGcQ27vJuh0Huw%3D%3D
         private static string realTimePushURL = "** paste your push URL here **";
 
         static void Main(string[] args)
