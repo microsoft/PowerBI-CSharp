@@ -6,6 +6,7 @@ The Power BI getting started sample shows you how to use the Power BI REST API t
 This sample pushes current datetime and a random integer to the REST API every second
 
 To run this sample:
+
 1. Go to app.powerbi.com
 2. Go to streaming data management page by via new dashboard > Add tile > Custom Streaming Data > manage data
 3. Click "Add streaming dataset"
