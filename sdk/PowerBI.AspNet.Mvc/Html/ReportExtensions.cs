@@ -1,9 +1,9 @@
-﻿using Microsoft.PowerBI.Api;
+﻿using Microsoft.PowerBI.Api.V1.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Web.Mvc;
-using Microsoft.PowerBI.Api.V1.Models;
+using System.Web;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
 {
@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
         /// <param name="report">The Power BI report</param>
         /// <param name="htmlAttributes">Additional attributes used while rendering the report</param>
         /// <returns></returns>
-        public static MvcHtmlString PowerBIReport(this HtmlHelper htmlHelper, string name, Report report, object htmlAttributes = null)
+        public static IHtmlString PowerBIReport(this HtmlHelper htmlHelper, string name, Report report, object htmlAttributes = null)
         {
             return ReportHelper(htmlHelper, null, report, name, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
@@ -33,7 +33,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
         /// <param name="embedUrl">The report embed url</param>
         /// <param name="htmlAttributes">Additional attributes used while rendering the report</param>
         /// <returns></returns>
-        public static MvcHtmlString PowerBIReport(this HtmlHelper htmlHelper, string name, string embedUrl, object htmlAttributes = null)
+        public static IHtmlString PowerBIReport(this HtmlHelper htmlHelper, string name, string embedUrl, object htmlAttributes = null)
         {
             var report = new Report { EmbedUrl = embedUrl };
             return ReportHelper(htmlHelper, null, report, name, HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
@@ -48,13 +48,13 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
         /// <param name="expression">The report expression</param>
         /// <param name="htmlAttributes">Additional attributes used while rendering the report</param>
         /// <returns></returns>
-        public static MvcHtmlString PowerBIReportFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes = null)
+        public static IHtmlString PowerBIReportFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression, object htmlAttributes = null)
         {
             var modelMetadata = ModelMetadata.FromLambdaExpression<TModel, TProperty>(expression, htmlHelper.ViewData);
             return ReportHelper(htmlHelper, modelMetadata, modelMetadata.Model, ExpressionHelper.GetExpressionText(expression), HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
         }
 
-        private static MvcHtmlString ReportHelper(this HtmlHelper htmlHelper, ModelMetadata metadata, object value, string expression, IDictionary<string, object> htmlAttributes)
+        private static IHtmlString ReportHelper(this HtmlHelper htmlHelper, ModelMetadata metadata, object value, string expression, IDictionary<string, object> htmlAttributes)
         {
             var fullHtmlFieldName = htmlHelper.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldName(expression);
 
@@ -76,7 +76,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
             tagBuilder.MergeAttribute("powerbi-type", "report", true);
             tagBuilder.GenerateId(fullHtmlFieldName);
 
-            return new MvcHtmlString(tagBuilder.ToString(TagRenderMode.Normal));
+            return new HtmlString(tagBuilder.ToString(TagRenderMode.Normal));
         }
     }
 }

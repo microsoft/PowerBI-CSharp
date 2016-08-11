@@ -1,6 +1,7 @@
 ﻿using Microsoft.PowerBI.Security;
 using System;
 using System.Linq.Expressions;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
@@ -16,7 +17,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
         /// <param name="htmlHelper">The html helper</param>
         /// <param name="accessToken">The access token to include</param>
         /// <returns></returns>
-        public static MvcHtmlString PowerBIAccessToken(this HtmlHelper htmlHelper, string accessToken = null)
+        public static IHtmlString PowerBIAccessToken(this HtmlHelper htmlHelper, string accessToken = null)
         {
             return TokenHelper(htmlHelper, accessToken);
         }
@@ -29,13 +30,13 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
         /// <typeparam name="TModel">The model type</typeparam>
         /// <typeparam name="TProperty">The property type</typeparam>
         /// <returns></returns>
-        public static MvcHtmlString PowerBIAccessTokenFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
+        public static IHtmlString PowerBIAccessTokenFor<TModel, TProperty>(this HtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TProperty>> expression)
         {
             var modelMetadata = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);
             return TokenHelper(htmlHelper, modelMetadata.Model as string);
         }
 
-        private static MvcHtmlString TokenHelper(this HtmlHelper htmlHelper, string accessToken)
+        private static IHtmlString TokenHelper(this HtmlHelper htmlHelper, string accessToken)
         {
             if (string.IsNullOrWhiteSpace(accessToken))
             {
@@ -43,7 +44,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Html
             }
 
             var script = $"<script>window.powerbi = window.powerbi || {{}};{Environment.NewLine}window.powerbi.accessToken = '{accessToken}';</script>";
-            return new MvcHtmlString(script);
+            return new HtmlString(script);
         }
     }
 }
