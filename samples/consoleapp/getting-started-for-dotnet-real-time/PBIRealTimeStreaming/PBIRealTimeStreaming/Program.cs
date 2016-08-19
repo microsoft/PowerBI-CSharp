@@ -38,7 +38,7 @@ namespace PBIRealTimeStreaming
                 try
                 {
                     // Declare values that we're about to send
-                    Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                    String currentTime = DateTime.UtcNow.ToString();
                     Random r = new Random();
                     int currentValue = r.Next(0, 100);
 
@@ -46,7 +46,7 @@ namespace PBIRealTimeStreaming
                     // Uses the WebRequest sample code as documented here: https://msdn.microsoft.com/en-us/library/debx8sh9(v=vs.110).aspx
                     WebRequest request = WebRequest.Create(realTimePushURL);
                     request.Method = "POST";
-                    string postData = String.Format("[{{ \"ts\": {0}, \"value\":{1} }}]", unixTimestamp, currentValue);
+                    string postData = String.Format("[{{ \"ts\": \"{0}\", \"value\":{1} }}]", currentTime, currentValue);
                     Console.WriteLine(String.Format("Making POST request with data: {0}", postData));
                     
                     // Prepare request for sending
