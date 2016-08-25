@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Core.Cryptography
         /// <exception cref="ArgumentNullException"></exception>
         public static AsymmetricKey ProduceAsymmetricKey(string containerName)
         {
-            if (string.IsNullOrEmpty(containerName)) throw new ArgumentNullException(nameof(containerName));
+            Guard.ValidateString(containerName, nameof(containerName));
 
             var cspParams = new CspParameters { KeyContainerName = containerName };
 
@@ -53,13 +53,18 @@ namespace Microsoft.PowerBI.Core.Cryptography
         /// Encrypts the text from the keys in the specified container
         /// </summary>
         /// <param name="plainText">The text to encrypt</param>
-        /// <param name="containerName">The key container name</param>
+        /// <param name="key">The key information</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static string Encrypt(string plainText, string containerName)
+        public static string Encrypt(string plainText, AsymmetricKey key)
         {
-            if (string.IsNullOrEmpty(plainText)) throw new ArgumentNullException(nameof(plainText));
-            if (string.IsNullOrEmpty(containerName)) throw new ArgumentNullException(nameof(containerName));
+            Guard.ValidateString(plainText, nameof(plainText));
+            Guard.ValidateObjectNotNull(key, nameof(key));
+
+            if (string.IsNullOrWhiteSpace(key.KeyContainerName) && string.IsNullOrWhiteSpace(key.PublicKey))
+            {
+                throw new ArgumentException("KeyContainerName or PublicKey must be set");
+            }
 
             var plainTextArray = Encoding.UTF8.GetBytes(plainText);
 
@@ -87,7 +92,9 @@ namespace Microsoft.PowerBI.Core.Cryptography
 
                 Array.Copy(plainTextArray, i * SegmentLength, segment, 0, lengthToCopy);
 
-                var segmentEncryptedResult = Encrypt(containerName, segment);
+                var segmentEncryptedResult = string.IsNullOrWhiteSpace(key.KeyContainerName)
+                    ? EncryptWithPublicKey(ConvertStringToKey(key.PublicKey), segment)
+                    : EncryptWithContainer(key.KeyContainerName, segment);
 
                 for (var j = 0; j < segmentEncryptedResult.Length; j++)
                 {
@@ -104,12 +111,12 @@ namespace Microsoft.PowerBI.Core.Cryptography
         /// <param name="containerName">The key container name</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static string Decrypt(string ciphertext, string containerName)
+        public static string Decrypt(string cipherText, string containerName)
         {
-            if (string.IsNullOrEmpty(ciphertext)) throw new ArgumentNullException(nameof(ciphertext));
-            if (string.IsNullOrEmpty(containerName)) throw new ArgumentNullException(nameof(containerName));
+            Guard.ValidateString(cipherText, nameof(cipherText));
+            Guard.ValidateString(containerName, nameof(containerName));
 
-            var ciphertextArray = Convert.FromBase64String(ciphertext);
+            var ciphertextArray = Convert.FromBase64String(cipherText);
 
             var length = ciphertextArray.Length / EncryptedLength;
             var result = new List<byte>();
@@ -125,10 +132,10 @@ namespace Microsoft.PowerBI.Core.Cryptography
             return Encoding.UTF8.GetString(result.ToArray(), 0, result.Count);
         }
 
-        private static byte[] Encrypt(string containerName, byte[] data)
+        private static byte[] EncryptWithContainer(string containerName, byte[] data)
         {
-            if (string.IsNullOrEmpty(containerName)) throw new ArgumentNullException(nameof(containerName));
-            if (data == null) throw new ArgumentNullException(nameof(data));
+            Guard.ValidateString(containerName, nameof(containerName));
+            Guard.ValidateObjectNotNull(data, nameof(data));
 
             if (data.Length == 0) return data;
 
@@ -136,17 +143,37 @@ namespace Microsoft.PowerBI.Core.Cryptography
 
             using (var rsa = new RSACryptoServiceProvider(cspParams))
             {
-                var encryptedBytes = rsa.Encrypt(data, true);
-                return encryptedBytes;
+                return rsa.Encrypt(data, true);
+            }
+        }
+
+        private static byte[] EncryptWithPublicKey(RSAParameters publicKey, byte[] data)
+        {
+            if (Equals(publicKey, default(RSAParameters)))
+            {
+                throw new ArgumentNullException(nameof(publicKey));
+            }
+
+            Guard.ValidateObjectNotNull(data, nameof(data));
+
+            if (data.Length == 0) return data;
+
+            using (var rsa = new RSACryptoServiceProvider())
+            {
+                rsa.ImportParameters(publicKey);
+                return rsa.Encrypt(data, true);
             }
         }
 
         private static byte[] Decrypt(string containerName, byte[] data)
         {
-            if (string.IsNullOrEmpty(containerName)) throw new ArgumentNullException(nameof(containerName));
-            if (data == null) throw new ArgumentNullException(nameof(data));
+            Guard.ValidateString(containerName, nameof(containerName));
+            Guard.ValidateObjectNotNull(data, nameof(data));
 
-            if (data.Length == 0) return data;
+            if (data.Length == 0)
+            {
+                return data;
+            }
 
             var cspParams = new CspParameters { KeyContainerName = containerName };
 
@@ -164,6 +191,23 @@ namespace Microsoft.PowerBI.Core.Cryptography
             {
                 xml.Serialize(stream, key);
                 return Convert.ToBase64String(stream.ToArray());
+            }
+        }
+
+        private static RSAParameters ConvertStringToKey(string publicKey)
+        {
+            var xml = new XmlSerializer(typeof(RSAParameters));
+            var bytes = Convert.FromBase64String(publicKey);
+            using (var stream = new MemoryStream(bytes))
+            {
+                try
+                {
+                    return (RSAParameters)xml.Deserialize(stream);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    throw new ArgumentException("Argument is not a valid RSA public key", nameof(publicKey), ex);
+                }
             }
         }
     }

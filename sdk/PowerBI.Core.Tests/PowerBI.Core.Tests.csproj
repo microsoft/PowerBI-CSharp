@@ -69,7 +69,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Cryptography\AsymmetricKeyEncryptionHelperTests.cs" />
-    <Compile Include="Security\GatewayCredentialsTests.cs" />
+    <Compile Include="Security\DatasourceCredentialsTests.cs" />
     <Compile Include="Security\PowerBITokenTests.cs" />
     <Compile Include="Security\TokenManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
