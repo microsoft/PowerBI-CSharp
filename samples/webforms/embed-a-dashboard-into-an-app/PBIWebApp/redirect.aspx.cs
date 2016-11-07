@@ -35,7 +35,7 @@ namespace PBIWebApp
             AuthenticationResult AR = AC.AcquireTokenByAuthorizationCode(code, new Uri(redirectUri), cc);
 
             //Set Session "authResult" index string to the AuthenticationResult
-            Session["authResult"] = AR;
+            Session[_Default.authResultString] = AR;
 
             //Redirect back to Default.aspx
             Response.Redirect("/Default.aspx");

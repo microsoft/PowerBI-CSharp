@@ -26,7 +26,7 @@
             // handle server side post backs, optimize for reload scenarios
             // show embedded dashboard if all fields were filled in.
             var accessTokenElement = document.getElementById('MainContent_accessTokenTextbox');
-            if(null !== accessTokenElement){
+            if (accessTokenElement !== null) {
                 var accessToken = accessTokenElement.value;
                 if ("" !== accessToken)
                     updateEmbedDashboard();
@@ -38,25 +38,24 @@
         {
             if (event.data) {
                 try {
-                    messageData = JSON.parse(event.data);
-                    if (messageData.event === "dashboardPageLoaded")
+                    messageData = event.data.body;
+                    if (messageData.event === "TileClick")
                     {
+                        console.log(messageData);
                     }
                 }
                 catch (e) {
-                    // do something smart
+                    console.error(e);
                 }
             }
         }
-
-        var valB = false;
 
         // update embed dashboard
         function updateEmbedDashboard() {
 
             // check if the embed url was selected
             var embedUrl = document.getElementById('tb_EmbedURL').value;
-            if ("" === embedUrl)
+            if (embedUrl === "")
                 return;
 
             // to load a dashboard do the following:
@@ -80,11 +79,11 @@
 
             // construct the push message structure
             var m = { action: "loadDashboard", accessToken: accessToken};
-            message = JSON.stringify(m);
+            var message = JSON.stringify(m);
 
             // push the message.
             iframe = document.getElementById('iFrameEmbedDashboard');
-            iframe.contentWindow.postMessage(message, "*");;
+            iframe.contentWindow.postMessage(message, "*");
         }
 
     </script>

@@ -1,13 +1,9 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System.Threading.Tasks;
-using System.Net.Http;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
 
@@ -18,17 +14,18 @@ namespace PBIWebApp
  * a configuration. Authentication settings are hard-coded in the sample to make it easier to follow the flow of authentication. */
     public partial class _Default : Page
     {
+        public const string authResultString = "authResult";
         public AuthenticationResult authResult { get; set; }
-        string baseUri = "https://api.powerbi.com/beta/myorg/";
+        string baseUri = "https://api.powerbi.com/v1.0/myorg/";
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
             //Test for AuthenticationResult
-            if (Session["authResult"] != null)
+            if (Session[authResultString] != null)
             {
                 //Get the authentication result from the session
-                authResult = (AuthenticationResult)Session["authResult"];
+                authResult = (AuthenticationResult)Session[authResultString];
 
                 //Show Power BI Panel
                 signInStatus.Visible = true;
@@ -92,27 +89,25 @@ namespace PBIWebApp
                     //Deserialize JSON string
                     PBIDashboards PBIDashboards = JsonConvert.DeserializeObject<PBIDashboards>(responseContent);
                     Table1.Visible = true;
+                    Control myControl1 = FindControl("TableDiv");
                     //Get each dashboard 
                     foreach (PBIDashboard dsb in PBIDashboards.value)
                     {
                         TableRow tRow = new TableRow();
-
                         Table1.Rows.Add(tRow);
+
                         TableCell idCell = new TableCell();
                         idCell.Text = dsb.id;
                         tRow.Cells.Add(idCell);
 
-                        Table1.Rows.Add(tRow);
                         TableCell nameCell = new TableCell();
                         nameCell.Text = dsb.displayName;
                         tRow.Cells.Add(nameCell);
 
-                        Table1.Rows.Add(tRow);
                         TableCell isReadOnlyCell = new TableCell();
                         isReadOnlyCell.Text = dsb.isReadOnly.ToString();
                         tRow.Cells.Add(isReadOnlyCell);
 
-                        Table1.Rows.Add(tRow);
                         TableCell embedUrlCell = new TableCell();
                         embedUrlCell.Text = dsb.embedUrl;
                         tRow.Cells.Add(embedUrlCell);
@@ -120,32 +115,7 @@ namespace PBIWebApp
                 }
             }
         }
-
-
-    }
-    
-    //Power BI Datasets
-    public class PBIDatasets
-    {
-        public Dataset[] Datasets { get; set; }
-    }
-
-    public class PBIGroups
-    {
-        public PBIGroup[] value { get; set; }
-    }
-
-    public class Dataset
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-    }
-
-    public class PBIGroup
-    {
-        public string id { get; set; }
-        public string name {get; set;}
-    }
+    }   
 
     public class PBIDashboards
     {
@@ -158,32 +128,4 @@ namespace PBIWebApp
         public string embedUrl { get; set; }
         public bool isReadOnly { get; set; }
     }
-    public class PBIReports
-    {
-        public PBIReport[] value { get; set; }
-    }
-    public class PBIReport
-    {
-        public string id { get; set; }
-
-        // the name of this property will change to 'displayName' when the API moves from Beta to V1 namespace
-        public string name { get; set; }
-
-        public string webUrl { get; set; }
-        
-        public string embedUrl { get; set; } 
-    }
-
-
-    public class PBITiles
-    {
-        public PBITile[] value { get; set; }
-    }
-    public class PBITile
-    {
-        public string id { get; set; }
-        public string title { get; set; }
-        public string embedUrl { get; set; }
-    }
-
 }
