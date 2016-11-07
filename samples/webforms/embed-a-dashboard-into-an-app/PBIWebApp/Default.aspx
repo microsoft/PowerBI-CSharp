@@ -37,9 +37,24 @@
             <tr>
                 <td><asp:Button ID="Button2" runat="server" OnClick="getDashboardsButton_Click" Text="Get Dashboards" /></td>
             </tr>
-            <tr>  
-                <td><asp:TextBox ID="tb_dashboardsResult" runat="server" Height="200px" Width="1024px" TextMode="MultiLine" Wrap="False"></asp:TextBox></td>
-            </tr>
+            <asp:Table ID="Table1" 
+                runat="server"
+                CellPadding="5"
+                CellSpacing="5"
+                Visible="false"
+            >
+            <asp:TableHeaderRow 
+                runat="server" 
+                ForeColor="Snow"
+                BackColor="OliveDrab"
+                Font-Bold="true"               
+                >
+                <asp:TableHeaderCell>Id</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Name</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Is read only</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Embed url</asp:TableHeaderCell>
+            </asp:TableHeaderRow>
+        </asp:Table>
 
         </table>
         </asp:Panel>

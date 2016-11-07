@@ -91,12 +91,31 @@ namespace PBIWebApp
 
                     //Deserialize JSON string
                     PBIDashboards PBIDashboards = JsonConvert.DeserializeObject<PBIDashboards>(responseContent);
-
-                    tb_dashboardsResult.Text = string.Empty;
+                    Table1.Visible = true;
                     //Get each dashboard 
                     foreach (PBIDashboard dsb in PBIDashboards.value)
                     {
-                        tb_dashboardsResult.Text += String.Format("{0}\t{1}\t{2}\t{3}\n", dsb.id, dsb.displayName, dsb.isReadOnly, dsb.embedUrl);
+                        TableRow tRow = new TableRow();
+
+                        Table1.Rows.Add(tRow);
+                        TableCell idCell = new TableCell();
+                        idCell.Text = dsb.id;
+                        tRow.Cells.Add(idCell);
+
+                        Table1.Rows.Add(tRow);
+                        TableCell nameCell = new TableCell();
+                        nameCell.Text = dsb.displayName;
+                        tRow.Cells.Add(nameCell);
+
+                        Table1.Rows.Add(tRow);
+                        TableCell isReadOnlyCell = new TableCell();
+                        isReadOnlyCell.Text = dsb.isReadOnly.ToString();
+                        tRow.Cells.Add(isReadOnlyCell);
+
+                        Table1.Rows.Add(tRow);
+                        TableCell embedUrlCell = new TableCell();
+                        embedUrlCell.Text = dsb.embedUrl;
+                        tRow.Cells.Add(embedUrlCell);
                     }
                 }
             }
