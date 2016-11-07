@@ -33,7 +33,7 @@
         <asp:Panel ID="PanelDashboards" runat="server" Visible="true">
             <p><b class="step">Step 2</b>: Get dashboards from your account.</p>
             <p><asp:Button ID="Button2" runat="server" OnClick="getDashboardsButton_Click" Text="Get Dashboards" /></p>
-            <div id="TableDiv" style="max-height:400px;overflow-y:scroll"> 
+            <div id="TableDiv" style="max-height:200px;overflow-y:scroll"> 
                 <asp:Table ID="Table1" 
                     runat="server"
                     Visible="false"
