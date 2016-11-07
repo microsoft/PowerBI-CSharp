@@ -121,6 +121,7 @@ namespace PBIWebApp
     {
         public PBIDashboard[] value { get; set; }
     }
+
     public class PBIDashboard
     {
         public string id { get; set; }

@@ -46,7 +46,7 @@
                         >
                         <asp:TableHeaderCell>Id</asp:TableHeaderCell>
                         <asp:TableHeaderCell>Name</asp:TableHeaderCell>
-                        <asp:TableHeaderCell>Is readOnly</asp:TableHeaderCell>
+                        <asp:TableHeaderCell>Is ReadOnly</asp:TableHeaderCell>
                         <asp:TableHeaderCell>Embed url</asp:TableHeaderCell>
                     </asp:TableHeaderRow>
                 </asp:Table>
