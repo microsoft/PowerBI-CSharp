@@ -75,5 +75,199 @@ namespace Microsoft.PowerBI.Api.V1
                 }
             }
 
+            /// <summary>
+            /// Returns a list of gateways for the workspace collection
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            public static ODataResponseListGateway GetCollectionGateways(this IGateways operations, string collectionName)
+            {
+                return Task.Factory.StartNew(s => ((IGateways)s).GetCollectionGatewaysAsync(collectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of gateways for the workspace collection
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListGateway> GetCollectionGatewaysAsync(this IGateways operations, string collectionName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetCollectionGatewaysWithHttpMessagesAsync(collectionName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Creates a new gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='createGatewayRequest'>
+            /// The gateway request to post
+            /// </param>
+            public static ODataResponseString PostGateway(this IGateways operations, string collectionName, CreateGatewayRequest createGatewayRequest)
+            {
+                return Task.Factory.StartNew(s => ((IGateways)s).PostGatewayAsync(collectionName, createGatewayRequest), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates a new gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='createGatewayRequest'>
+            /// The gateway request to post
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseString> PostGatewayAsync(this IGateways operations, string collectionName, CreateGatewayRequest createGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PostGatewayWithHttpMessagesAsync(collectionName, createGatewayRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of gateways for the specified workspace
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            public static ODataResponseListGateway GetWorkspaceGateways(this IGateways operations, string collectionName, string workspaceId)
+            {
+                return Task.Factory.StartNew(s => ((IGateways)s).GetWorkspaceGatewaysAsync(collectionName, workspaceId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of gateways for the specified workspace
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListGateway> GetWorkspaceGatewaysAsync(this IGateways operations, string collectionName, string workspaceId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetWorkspaceGatewaysWithHttpMessagesAsync(collectionName, workspaceId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the specified gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            public static Gateway GetGatewayById(this IGateways operations, string collectionName, string gatewayId)
+            {
+                return Task.Factory.StartNew(s => ((IGateways)s).GetGatewayByIdAsync(collectionName, gatewayId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the specified gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Gateway> GetGatewayByIdAsync(this IGateways operations, string collectionName, string gatewayId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetGatewayByIdWithHttpMessagesAsync(collectionName, gatewayId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a gateway by id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            public static object DeleteGatewayById(this IGateways operations, string collectionName, string gatewayId)
+            {
+                return Task.Factory.StartNew(s => ((IGateways)s).DeleteGatewayByIdAsync(collectionName, gatewayId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a gateway by id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteGatewayByIdAsync(this IGateways operations, string collectionName, string gatewayId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteGatewayByIdWithHttpMessagesAsync(collectionName, gatewayId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }
