@@ -24,10 +24,10 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// Initializes a new instance of the GatewayPublicKey class.
         /// </summary>
-        public GatewayPublicKey(string exponent = default(string), string modulud = default(string))
+        public GatewayPublicKey(string exponent = default(string), string modulus = default(string))
         {
             Exponent = exponent;
-            Modulud = modulud;
+            Modulus = modulus;
         }
 
         /// <summary>
@@ -39,8 +39,8 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// The public key  modulus
         /// </summary>
-        [JsonProperty(PropertyName = "modulud")]
-        public string Modulud { get; set; }
+        [JsonProperty(PropertyName = "modulus")]
+        public string Modulus { get; set; }
 
     }
 }
