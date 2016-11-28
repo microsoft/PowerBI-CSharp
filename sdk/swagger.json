@@ -537,6 +537,53 @@
                 "deprecated": false
             }
         },
+        "/beta/collections/{collectionName}/datasets/{datasetKey}/Default.BindToGateway": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_BindToGateway",
+                "summary": "Bind dataset to gateway",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "in": "path",
+                        "description": "The dataset id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "bindToGatewayRequest",
+                        "in": "body",
+                        "description": "The bind to gateway request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BindToGatewayRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/gateways/{gatewayId}/datasources/{datasourceId}": {
             "patch": {
                 "tags": [
@@ -596,6 +643,172 @@
                     }
                 },
                 "deprecated": false
+            }
+        },
+        "/beta/collections/{collectionName}/gateways/{gatewayId}/datasources": {
+            "get": {
+                "tags": [
+                    "datasources"
+                ],
+                "operationId": "Gateways_GetDatasources",
+                "summary": "Get all datasources of specific gateway",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[GatewayDatasource]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "datasources"
+                ],
+                "operationId": "Gateways_CreateDatasource",
+                "summary": "Create a datasource",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceToGatewayRequest",
+                        "in": "body",
+                        "description": "The datasource requested to create",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PublishDatasourceToGatewayRequest"
+                        }
+                    },
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/GatewayDatasource"
+                        }
+                    }
+                }
+            }
+        },
+        "/beta/collections/{collectionName}/gateways/{gatewayId}/datasources/{datasourceId}": {
+            "get": {
+                "tags": [
+                    "datasources"
+                ],
+                "operationId": "Gateways_GetDatasourceById",
+                "summary": "Get a datasource by id",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GatewayDatasource"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "datasources"
+                ],
+                "operationId": "Gateways_DeleteDatasource",
+                "summary": "Delete a datasource",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                }
             }
         },
         "/beta/collections/{collectionName}/gateways": {
@@ -1343,7 +1556,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The Gatewayss",
+                    "description": "The Gateways",
                     "items": {
                         "$ref": "#/definitions/Gateway"
                     }
@@ -1473,10 +1686,67 @@
                     "description": "The workspace id to add the gateway to"
                 }
             }
+        },
+        "PublishDatasourceToGatewayRequest": {
+            "type": "object",
+            "description": "A Publish Datasource To Gateway Request",
+            "properties": {
+                "dataSourceType": {
+                    "type": "string",
+                    "description": "The datasource type"
+                },
+                "connectionDetails": {
+                    "type": "string",
+                    "description": "The connection details"
+                },
+                "credentialDetails": {
+                    "$ref": "#/definitions/CredentialDetails"
+                },
+                "dataSourceName": {
+                    "type": "string",
+                    "description": "The datasource name"
+                }
+            }
+        },
+        "CredentialDetails": {
+            "type": "object",
+            "description": "The credential details",
+            "properties": {
+                "credentials": {
+                    "type": "string",
+                    "description": "The credentials"
+                },
+                "credentialType": {
+                    "type": "string",
+                    "description": "The connection type"
+                },
+                "encryptedConnection": {
+                    "type": "string",
+                    "description": "The encrypted connection"
+                },
+                "encryptionAlgorithm": {
+                    "type": "string",
+                    "description": "The encryption algorithm"
+                },
+                "privacyLevel": {
+                    "type": "string",
+                    "description": "The privacy level"
+                }
+            }
+        },
+        "BindToGatewayRequest": {
+            "type": "object",
+            "description": "The Bind dataset to gateway request",
+            "properties": {
+                "gatewayObjectId": {
+                    "type": "string",
+                    "description": "The gateway id"
+                }
+            }
         }
     },
-  "parameters": { },
-  "responses": { },
-  "security": [ ],
-  "tags": [ ]
+    "parameters": { },
+    "responses": { },
+    "security": [ ],
+    "tags": [ ]
 }

@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// The Gatewayss
+        /// The Gateways
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Gateway> Value { get; set; }

@@ -43,6 +43,79 @@ namespace Microsoft.PowerBI.Api.V1
         /// </param>
         Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get all datasources of specific gateway
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetDatasourcesWithHttpMessagesAsync(string collectionName, string gatewayId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a datasource
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceToGatewayRequest'>
+        /// The datasource requested to create
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<GatewayDatasource>> CreateDatasourceWithHttpMessagesAsync(string collectionName, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a datasource by id
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<GatewayDatasource>> GetDatasourceByIdWithHttpMessagesAsync(string collectionName, string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a datasource
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> DeleteDatasourceWithHttpMessagesAsync(string collectionName, string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of gateways for the workspace collection
         /// </summary>
         /// <param name='collectionName'>
