@@ -254,6 +254,58 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
+            /// Update a datasource credentials
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='updateDatasourceRequest'>
+            /// The update datasource request
+            /// </param>
+            public static object UpdateDatasource(this IGateways operations, string collectionName, string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest)
+            {
+                return Task.Factory.StartNew(s => ((IGateways)s).UpdateDatasourceAsync(collectionName, gatewayId, datasourceId, updateDatasourceRequest), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Update a datasource credentials
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='updateDatasourceRequest'>
+            /// The update datasource request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateDatasourceAsync(this IGateways operations, string collectionName, string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateDatasourceWithHttpMessagesAsync(collectionName, gatewayId, datasourceId, updateDatasourceRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of gateways for the workspace collection
             /// </summary>
             /// <param name='operations'>
@@ -282,46 +334,6 @@ namespace Microsoft.PowerBI.Api.V1
             public static async Task<ODataResponseListGateway> GetCollectionGatewaysAsync(this IGateways operations, string collectionName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCollectionGatewaysWithHttpMessagesAsync(collectionName, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Creates a new gateway
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='createGatewayRequest'>
-            /// The gateway request to post
-            /// </param>
-            public static ODataResponseString PostGateway(this IGateways operations, string collectionName, CreateGatewayRequest createGatewayRequest)
-            {
-                return Task.Factory.StartNew(s => ((IGateways)s).PostGatewayAsync(collectionName, createGatewayRequest), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Creates a new gateway
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='createGatewayRequest'>
-            /// The gateway request to post
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ODataResponseString> PostGatewayAsync(this IGateways operations, string collectionName, CreateGatewayRequest createGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.PostGatewayWithHttpMessagesAsync(collectionName, createGatewayRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

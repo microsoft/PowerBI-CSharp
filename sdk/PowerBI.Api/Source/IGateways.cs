@@ -116,6 +116,28 @@ namespace Microsoft.PowerBI.Api.V1
         /// </param>
         Task<HttpOperationResponse<object>> DeleteDatasourceWithHttpMessagesAsync(string collectionName, string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Update a datasource credentials
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='updateDatasourceRequest'>
+        /// The update datasource request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> UpdateDatasourceWithHttpMessagesAsync(string collectionName, string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of gateways for the workspace collection
         /// </summary>
         /// <param name='collectionName'>
@@ -128,22 +150,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<ODataResponseListGateway>> GetCollectionGatewaysWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Creates a new gateway
-        /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='createGatewayRequest'>
-        /// The gateway request to post
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ODataResponseString>> PostGatewayWithHttpMessagesAsync(string collectionName, CreateGatewayRequest createGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of gateways for the specified workspace
         /// </summary>

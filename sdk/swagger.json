@@ -809,6 +809,55 @@
                         }
                     }
                 }
+            },
+            "patch": {
+                "tags": [
+                    "datasources"
+                ],
+                "operationId": "Gateways_UpdateDatasource",
+                "summary": "Update a datasource credentials",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateDatasourceRequest",
+                        "in": "body",
+                        "description": "The update datasource request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateDatasourceRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                }
             }
         },
         "/beta/collections/{collectionName}/gateways": {
@@ -840,45 +889,6 @@
                     }
                 },
                 "deprecated": false
-            },
-            "post": {
-                "tags": [
-                    "Gateways"
-                ],
-                "summary": "Creates a new gateway",
-                "operationId": "Gateways_PostGateway",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "collectionName",
-                        "in": "path",
-                        "description": "The workspace collection name",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "createGatewayRequest",
-                        "in": "body",
-                        "description": "The gateway request to post",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/CreateGatewayRequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Created",
-                        "schema": {
-                            "$ref": "#/definitions/ODataResponse[String]"
-                        }
-                    }
-                }
             }
         },
         "/beta/collections/{collectionName}/workspaces/{workspaceId}/gateways": {
@@ -1633,6 +1643,10 @@
                     "type": "string",
                     "description": "The gateway type"
                 },
+                "gatewayAnnotation": {
+                    "type": "string",
+                    "description": "The gateway annotation"
+                },
                 "publicKey": {
                     "$ref": "#/definitions/GatewayPublicKey",
                     "description": "The gateway name"
@@ -1741,6 +1755,15 @@
                 "gatewayObjectId": {
                     "type": "string",
                     "description": "The gateway id"
+                }
+            }
+        },
+        "UpdateDatasourceRequest": {
+            "type": "object",
+            "description": "An Update Datasource To Gateway Request",
+            "properties": {
+                "credentialDetails": {
+                    "$ref": "#/definitions/CredentialDetails"
                 }
             }
         }
