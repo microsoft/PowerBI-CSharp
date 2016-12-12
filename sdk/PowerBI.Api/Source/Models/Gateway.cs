@@ -24,11 +24,12 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// Initializes a new instance of the Gateway class.
         /// </summary>
-        public Gateway(string id = default(string), string name = default(string), string type = default(string), GatewayPublicKey publicKey = default(GatewayPublicKey))
+        public Gateway(string id = default(string), string name = default(string), string type = default(string), string gatewayAnnotation = default(string), GatewayPublicKey publicKey = default(GatewayPublicKey))
         {
             Id = id;
             Name = name;
             Type = type;
+            GatewayAnnotation = gatewayAnnotation;
             PublicKey = publicKey;
         }
 
@@ -49,6 +50,12 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
+
+        /// <summary>
+        /// The gateway annotation
+        /// </summary>
+        [JsonProperty(PropertyName = "gatewayAnnotation")]
+        public string GatewayAnnotation { get; set; }
 
         /// <summary>
         /// The gateway name

@@ -172,6 +172,9 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
+        /// <param name='workspaceRequest'>
+        /// The workspace requested to create
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -181,7 +184,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string collectionName, CreateWorkspaceRequest workspaceRequest = default(CreateWorkspaceRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (collectionName == null)
             {
@@ -195,6 +198,7 @@ namespace Microsoft.PowerBI.Api.V1
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("collectionName", collectionName);
+                tracingParameters.Add("workspaceRequest", workspaceRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostWorkspace", tracingParameters);
             }
@@ -222,6 +226,12 @@ namespace Microsoft.PowerBI.Api.V1
 
             // Serialize Request
             string _requestContent = null;
+            if(workspaceRequest != null)
+            {
+                _requestContent = SafeJsonConvert.SerializeObject(workspaceRequest, this.Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
             // Set Credentials
             if (this.Client.Credentials != null)
             {

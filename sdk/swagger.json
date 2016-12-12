@@ -1188,6 +1188,15 @@
                         "required": true,
                         "description": "The workspace collection name",
                         "type": "string"
+                    },
+                    {
+                        "name": "workspaceRequest",
+                        "in": "body",
+                        "description": "The workspace requested to create",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CreateWorkspaceRequest"
+                        }
                     }
                 ],
                 "responses": {
@@ -1676,31 +1685,6 @@
                 }
             }
         },
-        "CreateGatewayRequest": {
-            "type": "object",
-            "description": "The gateway info",
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The gateway name"
-                },
-                "publicKey": {
-                    "type": "string",
-                    "description": "The gateway public key"
-                },
-                "annotation": {
-                    "type": "string",
-                    "description": "The gateway annotation"
-                },
-                "workspaces": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/WorkspaceId"
-                    },
-                    "description": "The workspace id to add the gateway to"
-                }
-            }
-        },
         "PublishDatasourceToGatewayRequest": {
             "type": "object",
             "description": "A Publish Datasource To Gateway Request",
@@ -1766,7 +1750,17 @@
                     "$ref": "#/definitions/CredentialDetails"
                 }
             }
-        }
+        },
+        "CreateWorkspaceRequest": {
+            "type": "object",
+            "description": "A Create Workspace Request",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The workspace name"
+                }
+            }
+        },
     },
     "parameters": { },
     "responses": { },
