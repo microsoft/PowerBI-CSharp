@@ -1,9 +1,9 @@
-﻿using Microsoft.PowerBI.Security;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.IdentityModel.Tokens;
+﻿using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Security.Claims;
+using Microsoft.PowerBI.Security;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Claim = System.Security.Claims.Claim;
 
 namespace PowerBI.Security.Tests
 {

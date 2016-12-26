@@ -1,9 +1,9 @@
-﻿using Microsoft.PowerBI.Api.V1.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Web.Mvc;
 using System.Web;
+using Microsoft.PowerBI.Api.V1.Models;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
 {
