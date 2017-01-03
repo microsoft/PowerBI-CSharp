@@ -13,13 +13,13 @@ using Newtonsoft.Json;
 
 namespace PBIWebApp
 {
- /* NOTE: This sample is to illustrate how to authenticate a Power BI web app. 
- * In a production application, you should provide appropriate exception handling and refactor authentication settings into 
- * a configuration. Authentication settings are hard-coded in the sample to make it easier to follow the flow of authentication. */
+    /* NOTE: This sample is to illustrate how to authenticate a Power BI web app. 
+    * In a production application, you should provide appropriate exception handling and refactor authentication settings into 
+    * a configuration. Authentication settings are hard-coded in the sample to make it easier to follow the flow of authentication. */
     public partial class _Default : Page
     {
         public AuthenticationResult authResult { get; set; }
-        string baseUri = "https://api.powerbi.com/beta/myorg/";
+        string baseUri = Properties.Settings.Default.PowerBiDataset;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,21 +54,21 @@ namespace PBIWebApp
                 {"client_id", Properties.Settings.Default.ClientID},
 
                 //Resource uri to the Power BI resource to be authorized
-                {"resource", "https://analysis.windows.net/powerbi/api"},
+                {"resource", Properties.Settings.Default.PowerBiAPI},
 
                 //After user authenticates, Azure AD will redirect back to the web app
                 {"redirect_uri", "http://localhost:13526/Redirect"}
             };
-            
+
             //Create sign-in query string
             var queryString = HttpUtility.ParseQueryString(string.Empty);
             queryString.Add(@params);
 
             //Redirect authority
             //Authority Uri is an Azure resource that takes a client id to get an Access token
-            string authorityUri = "https://login.windows.net/common/oauth2/authorize/";
+            string authorityUri = Properties.Settings.Default.AADAuthorityUri;
             var authUri = String.Format("{0}?{1}", authorityUri, queryString);
-            Response.Redirect(authUri);       
+            Response.Redirect(authUri);
         }
 
         protected void getReportsButton_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace PBIWebApp
 
 
     }
-    
+
     //Power BI Datasets
     public class PBIDatasets
     {
@@ -125,7 +125,7 @@ namespace PBIWebApp
     public class PBIGroup
     {
         public string id { get; set; }
-        public string name {get; set;}
+        public string name { get; set; }
     }
 
     public class PBIDashboards
@@ -149,8 +149,8 @@ namespace PBIWebApp
         public string name { get; set; }
 
         public string webUrl { get; set; }
-        
-        public string embedUrl { get; set; } 
+
+        public string embedUrl { get; set; }
     }
 
 
