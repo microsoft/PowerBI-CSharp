@@ -17,7 +17,7 @@ namespace PBIWebApp
     */
     public partial class _Default : Page
     {
-        string baseUri = "https://api.powerbi.com/beta/myorg/";
+        string baseUri = Properties.Settings.Default.PowerBiDataset;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace PBIWebApp
             //Access Token. With the Acccess Token, you can call the Power BI Get Reports operation. Get Reports returns information
             //about a Report, not the actual Report visual. You get the Report visual later with some JavaScript. See postActionLoadReport()
             //in Default.aspx.
-            if (Session["AccessToken"] != null)            
+            if (Session["AccessToken"] != null)
             {
                 //You need the Access Token in an HTML element so that the JavaScript can load a Report visual into an IFrame.
                 //Without the Access Token, you can not access the Report visual.
@@ -69,7 +69,7 @@ namespace PBIWebApp
         {
             //Configure Reports request
             System.Net.WebRequest request = System.Net.WebRequest.Create(
-                String.Format("{0}/Reports", 
+                String.Format("{0}/Reports",
                 baseUri)) as System.Net.HttpWebRequest;
 
             request.Method = "GET";
@@ -109,7 +109,7 @@ namespace PBIWebApp
 
                 //Resource uri to the Power BI resource to be authorized
                 //The resource uri is hard-coded for sample purposes
-                {"resource", "https://analysis.windows.net/powerbi/api"},
+                {"resource", Properties.Settings.Default.PowerBiAPI},
 
                 //After app authenticates, Azure AD will redirect back to the web app. In this sample, Azure AD redirects back
                 //to Default page (Default.aspx).
@@ -129,7 +129,7 @@ namespace PBIWebApp
             //      redirect_uri which is the uri that Azure AD will redirect back to after it authenticates
 
             //Redirect to Azure AD to get an authorization code
-            Response.Redirect(String.Format("https://login.windows.net/common/oauth2/authorize?{0}", queryString));
+            Response.Redirect(String.Format(Properties.Settings.Default.AADAuthorityUri + "?{0}", queryString));
         }
 
         public string GetAccessToken(string authorizationCode, string clientID, string clientSecret, string redirectUri)
@@ -142,7 +142,7 @@ namespace PBIWebApp
             TokenCache TC = new TokenCache();
 
             //Values are hard-coded for sample purposes
-            string authority = "https://login.windows.net/common/oauth2/authorize";
+            string authority = Properties.Settings.Default.AADAuthorityUri;
             AuthenticationContext AC = new AuthenticationContext(authority, TC);
             ClientCredential cc = new ClientCredential(clientID, clientSecret);
 
