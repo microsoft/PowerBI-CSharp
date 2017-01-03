@@ -24,24 +24,24 @@ namespace PBIGettingStarted
     {
         //Step 1 - Replace {client id} with your client app ID. 
         //To learn how to get a client app ID, see Register a client app (https://msdn.microsoft.com/en-US/library/dn877542.aspx#clientID)
-        private static string clientID = "{Client ID from Azure AD app registration}";
+        private static string clientID = Properties.Settings.Default.ClientID;
 
         //RedirectUri you used when you registered your app.
         //For a client app, a redirect uri gives AAD more details on the specific application that it will authenticate.
         private static string redirectUri = "https://login.live.com/oauth20_desktop.srf";
-        
+
         //Resource Uri for Power BI API
-        private static string resourceUri = "https://analysis.windows.net/powerbi/api";       
-      
+        private static string resourceUri = Properties.Settings.Default.PowerBiAPI;
+
         //OAuth2 authority Uri
-        private static string authority = "https://login.windows.net/common/oauth2/authorize";
-        
+        private static string authority = Properties.Settings.Default.AADAuthorityUri;
+
         private static AuthenticationContext authContext = null;
         private static string token = String.Empty;
 
         //Uri for Power BI datasets
-        private static string datasetsUri = "https://api.powerbi.com/v1.0/myorg";
-        
+        private static string datasetsUri = Properties.Settings.Default.PowerBiDataset;
+
         //Example dataset name and group name
         private static string datasetName = "SalesMarketing";
         private static string groupName = "Q1 Product Group";

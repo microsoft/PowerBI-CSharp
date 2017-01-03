@@ -17,7 +17,7 @@ namespace PBIWebApp
     */
     public partial class _Default : Page
     {
-        string baseUri = "https://api.powerbi.com/beta/myorg/";
+        string baseUri = Properties.Settings.Default.PowerBiDataset;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace PBIWebApp
             //Access Token. With the Acccess Token, you can call the Power BI Get Tiles operation. Get Tiles returns information
             //about a tile, not the actual tile visual. You get the tile visual later with some JavaScript. See postActionLoadTile()
             //in Default.aspx.
-            if (Session["AccessToken"] != null)            
+            if (Session["AccessToken"] != null)
             {
                 //You need the Access Token in an HTML element so that the JavaScript can load a tile visual into an IFrame.
                 //Without the Access Token, you can not access the tile visual.
@@ -105,7 +105,7 @@ namespace PBIWebApp
         {
             //Configure tiles request
             System.Net.WebRequest request = System.Net.WebRequest.Create(
-                String.Format("{0}Dashboards/{1}/Tiles", 
+                String.Format("{0}Dashboards/{1}/Tiles",
                 baseUri,
                 dashboardId)) as System.Net.HttpWebRequest;
 
@@ -146,7 +146,7 @@ namespace PBIWebApp
 
                 //Resource uri to the Power BI resource to be authorized
                 //The resource uri is hard-coded for sample purposes
-                {"resource", "https://analysis.windows.net/powerbi/api"},
+                {"resource", Properties.Settings.Default.PowerBiAPI},
 
                 //After app authenticates, Azure AD will redirect back to the web app. In this sample, Azure AD redirects back
                 //to Default page (Default.aspx).
@@ -166,7 +166,7 @@ namespace PBIWebApp
             //      redirect_uri which is the uri that Azure AD will redirect back to after it authenticates
 
             //Redirect to Azure AD to get an authorization code
-            Response.Redirect(String.Format("https://login.windows.net/common/oauth2/authorize?{0}", queryString));
+            Response.Redirect(String.Format(Properties.Settings.Default.AADAuthorityUri + "?{0}", queryString));
         }
 
         public string GetAccessToken(string authorizationCode, string clientID, string clientSecret, string redirectUri)
@@ -179,7 +179,7 @@ namespace PBIWebApp
             TokenCache TC = new TokenCache();
 
             //Values are hard-coded for sample purposes
-            string authority = "https://login.windows.net/common/oauth2/authorize";
+            string authority = Properties.Settings.Default.AADAuthorityUri;
             AuthenticationContext AC = new AuthenticationContext(authority, TC);
             ClientCredential cc = new ClientCredential(clientID, clientSecret);
 
@@ -192,14 +192,14 @@ namespace PBIWebApp
 
     //Power BI Dashboards used to deserialize the Get Dashboards response.
     public class PBIDashboards
-    { 
-        public PBIDashboard[] value { get; set; } 
-    } 
+    {
+        public PBIDashboard[] value { get; set; }
+    }
     public class PBIDashboard
-    { 
-        public string id { get; set; } 
-        public string displayName { get; set; } 
-    } 
+    {
+        public string id { get; set; }
+        public string displayName { get; set; }
+    }
 
     //Power BI Tiles used to deserialize the Get Tiles response.
     public class PBITiles

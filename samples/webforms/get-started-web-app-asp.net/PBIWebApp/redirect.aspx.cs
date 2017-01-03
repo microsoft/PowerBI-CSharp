@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace PBIWebApp
 {
- /* NOTE: This sample is to illustrate how to authenticate a Power BI web app. 
- * In a production application, you should provide appropriate exception handling and refactor authentication settings into 
- * a configuration. Authentication settings are hard-coded in the sample to make it easier to follow the flow of authentication. */
+    /* NOTE: This sample is to illustrate how to authenticate a Power BI web app. 
+    * In a production application, you should provide appropriate exception handling and refactor authentication settings into 
+    * a configuration. Authentication settings are hard-coded in the sample to make it easier to follow the flow of authentication. */
 
     public partial class Redirect : System.Web.UI.Page
     {
@@ -19,11 +19,11 @@ namespace PBIWebApp
         {
             //Redirect uri must match the redirect_uri used when requesting Authorization code.
             string redirectUri = Properties.Settings.Default.RedirectUrl;
-            string authorityUri = "https://login.windows.net/common/oauth2/authorize/";
-           
+            string authorityUri = Properties.Settings.Default.AADAuthorityUri;
+
             // Get the auth code
             string code = Request.Params.GetValues(0)[0];
-            
+
             // Get auth token from auth code       
             TokenCache TC = new TokenCache();
 
