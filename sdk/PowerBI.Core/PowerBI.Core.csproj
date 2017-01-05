@@ -52,6 +52,7 @@
     <Compile Include="Guard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\PowerBIToken.cs" />
+    <Compile Include="Security\Scopes.cs" />
     <Compile Include="Security\TokenManager.cs" />
   </ItemGroup>
   <ItemGroup>
