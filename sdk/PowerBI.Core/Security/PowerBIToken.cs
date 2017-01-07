@@ -176,7 +176,7 @@ namespace Microsoft.PowerBI.Security
 
             if (string.IsNullOrWhiteSpace(reportId) && string.IsNullOrWhiteSpace(datasetId))
             {
-                throw new ArgumentException("Either ReportId or DatasetId must be a date/time in the future", nameof(reportId) + "\\ " + nameof(datasetId));
+                throw new ArgumentException("Either ReportId or DatasetId must be set", nameof(reportId) + "\\ " + nameof(datasetId));
             }
 
             if (roles != null && string.IsNullOrEmpty(username))
