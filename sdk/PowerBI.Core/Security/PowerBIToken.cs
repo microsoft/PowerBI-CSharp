@@ -32,6 +32,11 @@ namespace Microsoft.PowerBI.Security
             public const string WorkspaceId = "wid";
             
             /// <summary>
+            /// The Jwt token type claim
+            /// </summary>
+            public const string JwtType = "type";
+
+            /// <summary>
             /// The report id claim
             /// </summary>
             public const string ReportId = "rid";
@@ -50,6 +55,7 @@ namespace Microsoft.PowerBI.Security
         private const int DefaultExpirationSeconds = 3600;
         private const string DefaultIssuer = "PowerBISDK";
         private const string DefaultAudience = "https://analysis.windows.net/powerbi/api";
+        private const string DefaultJwtType = "embed";
 
         /// <summary>
         /// Represents an access token used to authenticate and authorize against Power BI Platform services
@@ -221,6 +227,7 @@ namespace Microsoft.PowerBI.Security
         private void InitDefaultClaims()
         {
             this.Claims.Add(new Claim(ClaimTypes.Version, "0.2.0"));
+            this.Claims.Add(new Claim(ClaimTypes.JwtType, DefaultJwtType));
         }
 
         private void ValidateToken()
