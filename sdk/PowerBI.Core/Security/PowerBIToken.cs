@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
+using System.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
 
 namespace Microsoft.PowerBI.Security
 {
@@ -33,6 +32,11 @@ namespace Microsoft.PowerBI.Security
             public const string WorkspaceId = "wid";
             
             /// <summary>
+            /// The Jwt token type claim
+            /// </summary>
+            public const string JwtType = "type";
+
+            /// <summary>
             /// The report id claim
             /// </summary>
             public const string ReportId = "rid";
@@ -51,6 +55,7 @@ namespace Microsoft.PowerBI.Security
         private const int DefaultExpirationSeconds = 3600;
         private const string DefaultIssuer = "PowerBISDK";
         private const string DefaultAudience = "https://analysis.windows.net/powerbi/api";
+        private const string DefaultJwtType = "embed";
 
         /// <summary>
         /// Represents an access token used to authenticate and authorize against Power BI Platform services
@@ -191,7 +196,7 @@ namespace Microsoft.PowerBI.Security
             accessKey = accessKey ?? this.AccessKey;
 
             var key = Encoding.UTF8.GetBytes(accessKey);
-            var signingCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature);
+            var signingCredentials = new SigningCredentials(new InMemorySymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature, SecurityAlgorithms.Sha256Digest);
             var token = new JwtSecurityToken(this.Issuer, this.Audience, this.Claims, DateTime.UtcNow, this.Expiration, signingCredentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
@@ -222,6 +227,7 @@ namespace Microsoft.PowerBI.Security
         private void InitDefaultClaims()
         {
             this.Claims.Add(new Claim(ClaimTypes.Version, "0.2.0"));
+            this.Claims.Add(new Claim(ClaimTypes.JwtType, DefaultJwtType));
         }
 
         private void ValidateToken()
