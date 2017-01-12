@@ -79,7 +79,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='reportKey'>
         /// The report id
         /// </param>
-        /// <param name='requestParameters'>
+        /// <param name='datasetId'>
         /// The entity to post
         /// </param>
         /// <param name='customHeaders'>
@@ -97,6 +97,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        System.Threading.Tasks.Task<Microsoft.Rest.HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, object requestParameters, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Microsoft.Rest.HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, object datasetId, System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<string>> customHeaders = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }

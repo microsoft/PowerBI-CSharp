@@ -119,12 +119,12 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='requestParameters'>
+            /// <param name='datasetId'>
             /// The entity to post
             /// </param>
-            public static object RebindReport(this IReports operations, string collectionName, string workspaceId, string reportKey, object requestParameters)
+            public static object RebindReport(this IReports operations, string collectionName, string workspaceId, string reportKey, object datasetId)
             {
-                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IReports)s).RebindReportAsync(collectionName, workspaceId, reportKey, requestParameters), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return System.Threading.Tasks.Task.Factory.StartNew(s => ((IReports)s).RebindReportAsync(collectionName, workspaceId, reportKey, datasetId), operations, System.Threading.CancellationToken.None, System.Threading.Tasks.TaskCreationOptions.None, System.Threading.Tasks.TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -142,15 +142,15 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='requestParameters'>
+            /// <param name='datasetId'>
             /// The entity to post
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async System.Threading.Tasks.Task<object> RebindReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, object requestParameters, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+            public static async System.Threading.Tasks.Task<object> RebindReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, object datasetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
             {
-                using (var _result = await operations.RebindReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.RebindReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, datasetId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
