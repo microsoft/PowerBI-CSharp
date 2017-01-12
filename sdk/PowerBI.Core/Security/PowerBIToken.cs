@@ -92,7 +92,7 @@ namespace Microsoft.PowerBI.Security
         /// <param name="roles">The RLS roles</param>
         /// <param name="scopes">The permission scopes</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId = null, string datasetId = null, string username = null, IEnumerable<string> roles = null, string scopes = null)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId = null, string username = null, IEnumerable<string> roles = null, string scopes = null)
         {
             var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
             return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId: reportId, datasetId: string.Empty, expiration: expires, username: username, roles: roles, scopes: scopes);
