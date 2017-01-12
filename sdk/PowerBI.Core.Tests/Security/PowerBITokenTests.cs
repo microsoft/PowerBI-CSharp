@@ -54,7 +54,7 @@ namespace PowerBI.Security.Tests
             var workspaceId = Guid.NewGuid().ToString();
             var datasetId = Guid.NewGuid().ToString();
 
-            var token = PowerBIToken.CreateReportEmbedTokenWithDataset("Contoso", workspaceId, datasetId: datasetId, username: "TestUser", roles: new[] { "TestRole" });
+            var token = PowerBIToken.CreateReportEmbedTokenForCreation("Contoso", workspaceId, datasetId: datasetId, username: "TestUser", roles: new[] { "TestRole" });
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.accessKey);
