@@ -551,5 +551,51 @@ namespace Microsoft.PowerBI.Api.V1
                 }
             }
 
+            /// <summary>
+            /// Bind dataset to gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='bindToGatewayRequest'>
+            /// The bind to gateway request
+            /// </param>
+            public static object BindToGateway(this IDatasets operations, string collectionName, string datasetKey, BindToGatewayRequest bindToGatewayRequest)
+            {
+                return Task.Factory.StartNew(s => ((IDatasets)s).BindToGatewayAsync(collectionName, datasetKey, bindToGatewayRequest), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Bind dataset to gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='bindToGatewayRequest'>
+            /// The bind to gateway request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> BindToGatewayAsync(this IDatasets operations, string collectionName, string datasetKey, BindToGatewayRequest bindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BindToGatewayWithHttpMessagesAsync(collectionName, datasetKey, bindToGatewayRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

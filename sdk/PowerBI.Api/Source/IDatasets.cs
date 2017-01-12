@@ -240,5 +240,24 @@ namespace Microsoft.PowerBI.Api.V1
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> SetAllConnectionsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Bind dataset to gateway
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='bindToGatewayRequest'>
+        /// The bind to gateway request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> BindToGatewayWithHttpMessagesAsync(string collectionName, string datasetKey, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
