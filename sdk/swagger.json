@@ -925,7 +925,7 @@
             "type": "string"
           },
           {
-            "name": "datasetId",
+            "name": "requestParameters",
             "description": "The entity to post",
             "in": "body",
             "required": true,
