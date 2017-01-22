@@ -24,10 +24,11 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// Initializes a new instance of the Workspace class.
         /// </summary>
-        public Workspace(string workspaceId = default(string), string workspaceCollectionName = default(string))
+        public Workspace(string workspaceId = default(string), string workspaceCollectionName = default(string), string displayName = default(string))
         {
             WorkspaceId = workspaceId;
             WorkspaceCollectionName = workspaceCollectionName;
+            DisplayName = displayName;
         }
 
         /// <summary>
@@ -41,6 +42,12 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// </summary>
         [JsonProperty(PropertyName = "workspaceCollectionName")]
         public string WorkspaceCollectionName { get; set; }
+
+        /// <summary>
+        /// The workspace display name
+        /// </summary>
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
 
     }
 }
