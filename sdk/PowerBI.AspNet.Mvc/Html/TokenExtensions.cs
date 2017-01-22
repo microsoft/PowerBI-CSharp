@@ -1,8 +1,8 @@
-﻿using Microsoft.PowerBI.Security;
-using System;
+﻿using System;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.PowerBI.Security;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Html
 {

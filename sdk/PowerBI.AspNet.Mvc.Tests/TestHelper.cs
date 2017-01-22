@@ -1,9 +1,9 @@
-﻿using Moq;
-using System.IO;
+﻿using System.IO;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Moq;
 
 namespace Microsoft.PowerBI.AspNet.Mvc.Tests
 {

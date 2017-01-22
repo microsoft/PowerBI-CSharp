@@ -1,14 +1,13 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.Owin;
-using Microsoft.Owin.Security.Notifications;
-using Microsoft.Owin.Security.OpenIdConnect;
-using Microsoft.PowerBI.Owin.Security;
-using Microsoft.PowerBI.Security;
-using System;
+﻿using System;
 using System.IdentityModel.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Owin.Security.Notifications;
+using Microsoft.Owin.Security.OpenIdConnect;
+using Microsoft.PowerBI.Owin.Security;
+using Microsoft.PowerBI.Security;
 
 namespace Owin
 {
@@ -47,8 +46,7 @@ namespace Owin
                 {
                     AuthorizationCodeReceived = (context) =>
                     {
-                        OnAuthorizationCodeReceived(context, options);
-                        return Task.FromResult(0);
+                        return OnAuthorizationCodeReceivedAsync(context, options);
                     },
                     AuthenticationFailed = (context) =>
                     {
@@ -65,7 +63,6 @@ namespace Owin
 
             return app;
         }
-
 
         /// <summary>
         /// Configures the application to use Azure AD with Power BI
@@ -87,7 +84,7 @@ namespace Owin
             return UsePowerBIAuthentication(app, options);
         }
 
-        private static void OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context, PowerBIAuthenticationOptions options)
+        private async static Task OnAuthorizationCodeReceivedAsync(AuthorizationCodeReceivedNotification context, PowerBIAuthenticationOptions options)
         {
             var code = context.Code;
 
@@ -96,7 +93,7 @@ namespace Owin
             var signedInUserId = context.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}", new TokenCache(Encoding.Default.GetBytes(signedInUserId)));
-            var result = authContext.AcquireTokenByAuthorizationCode(code, options.SuccessRedirectUri, credential, options.Resource);
+            var result = await authContext.AcquireTokenByAuthorizationCodeAsync(code, options.SuccessRedirectUri, credential, options.Resource);
 
             TokenManager.Current.WriteToken(context.AuthenticationTicket.Identity, result.AccessToken);
         }
