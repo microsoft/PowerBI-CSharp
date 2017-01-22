@@ -785,6 +785,15 @@
             "required": true,
             "description": "The workspace collection name",
             "type": "string"
+          },
+          {
+            "name": "workspaceRequest",
+            "in": "body",
+            "description": "The workspace requested to create",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/CreateWorkspaceRequest"
+            }
           }
         ],
         "responses": {
@@ -1187,6 +1196,20 @@
         "workspaceCollectionName": {
           "type": "string",
           "description": "The workspace collection name"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The workspace display name"
+        }
+      }
+    },
+    "CreateWorkspaceRequest": {
+      "type": "object",
+      "description": "A Create Workspace Request",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The workspace name"
         }
       }
     }

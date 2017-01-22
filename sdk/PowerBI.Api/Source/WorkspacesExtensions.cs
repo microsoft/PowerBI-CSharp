@@ -60,9 +60,12 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='collectionName'>
             /// The workspace collection name
             /// </param>
-            public static Workspace PostWorkspace(this IWorkspaces operations, string collectionName)
+            /// <param name='workspaceRequest'>
+            /// The workspace requested to create
+            /// </param>
+            public static Workspace PostWorkspace(this IWorkspaces operations, string collectionName, CreateWorkspaceRequest workspaceRequest = default(CreateWorkspaceRequest))
             {
-                return Task.Factory.StartNew(s => ((IWorkspaces)s).PostWorkspaceAsync(collectionName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IWorkspaces)s).PostWorkspaceAsync(collectionName, workspaceRequest), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -74,12 +77,15 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='collectionName'>
             /// The workspace collection name
             /// </param>
+            /// <param name='workspaceRequest'>
+            /// The workspace requested to create
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Workspace> PostWorkspaceAsync(this IWorkspaces operations, string collectionName, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Workspace> PostWorkspaceAsync(this IWorkspaces operations, string collectionName, CreateWorkspaceRequest workspaceRequest = default(CreateWorkspaceRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWorkspaceWithHttpMessagesAsync(collectionName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWorkspaceWithHttpMessagesAsync(collectionName, workspaceRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
