@@ -22,7 +22,7 @@ namespace Microsoft.PowerBI.AspNet.Mvc.Tests.Html
 
             this.accessToken = "DEF456";
             this.principal = new GenericPrincipal(new GenericIdentity("TestUser", "Test"), new string[0]);
-            this.viewModel = new CustomViewModel() { AccessToken = this.accessToken };
+            this.viewModel = new CustomViewModel { AccessToken = this.accessToken };
             this.htmlHelper = TestHelper.CreateHtmlHelper(new ViewDataDictionary<CustomViewModel>(this.viewModel), this.principal);
         }
 

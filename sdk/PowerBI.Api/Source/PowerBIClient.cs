@@ -4,22 +4,16 @@
 
 namespace Microsoft.PowerBI.Api.V1
 {
-    using System;
-    using System.Linq;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.Net;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using System.Text.RegularExpressions;
-    using System.Threading;
-    using System.Threading.Tasks;
     using Microsoft.Rest;
     using Microsoft.Rest.Serialization;
     using Newtonsoft.Json;
-    using Models;
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class PowerBIClient : ServiceClient<PowerBIClient>, IPowerBIClient
     {
         /// <summary>
