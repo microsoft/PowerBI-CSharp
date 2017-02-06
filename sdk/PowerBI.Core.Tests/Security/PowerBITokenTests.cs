@@ -107,7 +107,7 @@ namespace PowerBI.Security.Tests
             var workspaceId = Guid.NewGuid().ToString();
             var reportId = Guid.NewGuid().ToString();
 
-            var token = PowerBIToken.CreateReportEmbedTokenWithExpiration("Contoso", workspaceId, reportId: reportId, slidingExpiration: TimeSpan.FromMinutes(2));
+            var token = PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId: reportId, slidingExpiration: TimeSpan.FromMinutes(2));
 
             Assert.IsNotNull(token);
             var jwt = token.Generate(this.accessKey);
@@ -226,7 +226,7 @@ namespace PowerBI.Security.Tests
             var workspaceId = Guid.NewGuid().ToString();
             var reportId = Guid.NewGuid().ToString();
 
-            PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId);
+            PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, null);
         }
 
         [TestMethod]

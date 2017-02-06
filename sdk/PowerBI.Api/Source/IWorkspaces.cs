@@ -36,12 +36,15 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='collectionName'>
         /// The workspace collection name
         /// </param>
+        /// <param name='workspaceRequest'>
+        /// The workspace requested to create
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string collectionName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Workspace>> PostWorkspaceWithHttpMessagesAsync(string collectionName, CreateWorkspaceRequest workspaceRequest = default(CreateWorkspaceRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

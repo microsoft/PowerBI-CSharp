@@ -1320,7 +1320,7 @@
     },
     "RebindReportRequest": {
       "type": "object",
-      "description": "Power BI Clone Report Request",
+      "description": "Power BI Rebind Report Request",
       "properties": {
         "datasetId": {
           "type": "string",
