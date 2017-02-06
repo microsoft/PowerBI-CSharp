@@ -67,7 +67,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='reportKey'>
         /// The report id
         /// </param>
-        /// <param name='datasetId'>
+        /// <param name='requestParameters'>
         /// The entity to post
         /// </param>
         /// <param name='customHeaders'>
@@ -76,6 +76,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, object datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

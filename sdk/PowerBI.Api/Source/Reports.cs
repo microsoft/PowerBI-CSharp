@@ -341,7 +341,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='reportKey'>
         /// The report id
         /// </param>
-        /// <param name='datasetId'>
+        /// <param name='requestParameters'>
         /// The entity to post
         /// </param>
         /// <param name='customHeaders'>
@@ -353,7 +353,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, object datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (collectionName == null)
             {
@@ -367,9 +367,9 @@ namespace Microsoft.PowerBI.Api.V1
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "reportKey");
             }
-            if (datasetId == null)
+            if (requestParameters == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "requestParameters");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -381,7 +381,7 @@ namespace Microsoft.PowerBI.Api.V1
                 tracingParameters.Add("collectionName", collectionName);
                 tracingParameters.Add("workspaceId", workspaceId);
                 tracingParameters.Add("reportKey", reportKey);
-                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("requestParameters", requestParameters);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RebindReport", tracingParameters);
             }
@@ -411,9 +411,9 @@ namespace Microsoft.PowerBI.Api.V1
 
             // Serialize Request
             string _requestContent = null;
-            if(datasetId != null)
+            if(requestParameters != null)
             {
-                _requestContent = SafeJsonConvert.SerializeObject(datasetId, this.Client.SerializationSettings);
+                _requestContent = SafeJsonConvert.SerializeObject(requestParameters, this.Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

@@ -34,20 +34,20 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// The requested report name
         /// </summary>
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Optional parameter for specifying the target workspace id
         /// </summary>
-        [JsonProperty(PropertyName = "TargetWorkspaceId")]
+        [JsonProperty(PropertyName = "targetWorkspaceId")]
         public string TargetWorkspaceId { get; set; }
 
         /// <summary>
         /// Optional parameter for specifying the target associated model
         /// (dataset) id
         /// </summary>
-        [JsonProperty(PropertyName = "TargetModelId")]
+        [JsonProperty(PropertyName = "targetModelId")]
         public string TargetModelId { get; set; }
 
     }

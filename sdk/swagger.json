@@ -925,12 +925,12 @@
             "type": "string"
           },
           {
-            "name": "datasetId",
+            "name": "requestParameters",
             "description": "The entity to post",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Object"
+              "$ref": "#/definitions/RebindReportRequest"
             }
           }
         ],
@@ -1304,17 +1304,27 @@
       "type": "object",
       "description": "Power BI Clone Report Request",
       "properties": {
-        "Name": {
+        "name": {
           "type": "string",
           "description": "The requested report name"
         },
-        "TargetWorkspaceId": {
+        "targetWorkspaceId": {
           "type": "string",
           "description": "Optional parameter for specifying the target workspace id"
         },
-        "TargetModelId": {
+        "targetModelId": {
           "type": "string",
           "description": "Optional parameter for specifying the target associated model (dataset) id"
+        }
+      }
+    },
+    "RebindReportRequest": {
+      "type": "object",
+      "description": "Power BI Clone Report Request",
+      "properties": {
+        "datasetId": {
+          "type": "string",
+          "description": "The new dataset of the rebinded report"
         }
       }
     }

@@ -124,12 +124,12 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='datasetId'>
+            /// <param name='requestParameters'>
             /// The entity to post
             /// </param>
-            public static object RebindReport(this IReports operations, string collectionName, string workspaceId, string reportKey, object datasetId)
+            public static object RebindReport(this IReports operations, string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters)
             {
-                return Task.Factory.StartNew(s => ((IReports)s).RebindReportAsync(collectionName, workspaceId, reportKey, datasetId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IReports)s).RebindReportAsync(collectionName, workspaceId, reportKey, requestParameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -147,15 +147,15 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='datasetId'>
+            /// <param name='requestParameters'>
             /// The entity to post
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> RebindReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, object datasetId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> RebindReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.RebindReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, datasetId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.RebindReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
