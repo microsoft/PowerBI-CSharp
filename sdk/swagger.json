@@ -76,7 +76,7 @@
           {
             "name": "dataset",
             "in": "body",
-            "description": "The entity to post",
+            "description": "Create dataset parameters",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Dataset"
@@ -843,6 +843,116 @@
         },
         "deprecated": false
       }
+    },
+    "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Clone": {
+      "post": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Clones the specified report",
+        "operationId": "Reports_CloneReport",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "collectionName",
+            "in": "path",
+            "description": "The workspace collection name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "description": "The workspace id",
+            "type": "string"
+          },
+          {
+            "name": "reportKey",
+            "description": "The report id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestParameters",
+            "description": "Clone report parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CloneReportRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Report"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+      "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Rebind": {
+      "post": {
+        "tags": [
+          "Reports"
+        ],
+        "summary": "Rebinds the specified report to requested dataset id",
+        "operationId": "Reports_RebindReport",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "collectionName",
+            "in": "path",
+            "description": "The workspace collection name",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "workspaceId",
+            "in": "path",
+            "required": true,
+            "description": "The workspace id",
+            "type": "string"
+          },
+          {
+            "name": "reportKey",
+            "in": "path",
+            "description": "The report id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestParameters",
+            "description": "Rebind report parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RebindReportRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
     }
   },
   "definitions": {
@@ -1210,6 +1320,34 @@
         "name": {
           "type": "string",
           "description": "The workspace name"
+        }
+      }
+    },
+    "CloneReportRequest": {
+      "type": "object",
+      "description": "Power BI Clone Report Request",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The requested report name"
+        },
+        "targetWorkspaceId": {
+          "type": "string",
+          "description": "Optional parameter for specifying the target workspace id"
+        },
+        "targetModelId": {
+          "type": "string",
+          "description": "Optional parameter for specifying the target associated model (dataset) id"
+        }
+      }
+    },
+    "RebindReportRequest": {
+      "type": "object",
+      "description": "Power BI Rebind Report Request",
+      "properties": {
+        "datasetId": {
+          "type": "string",
+          "description": "The new dataset of the rebinded report"
         }
       }
     }
