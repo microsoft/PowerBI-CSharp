@@ -188,7 +188,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// The report id
         /// </param>
         /// <param name='requestParameters'>
-        /// The entity to post
+        /// Clone report parameters
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -342,7 +342,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// The report id
         /// </param>
         /// <param name='requestParameters'>
-        /// The entity to post
+        /// Rebind report parameters
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

@@ -73,7 +73,7 @@ namespace Microsoft.PowerBI.Api.V1
             /// The report id
             /// </param>
             /// <param name='requestParameters'>
-            /// The entity to post
+            /// Clone report parameters
             /// </param>
             public static Report CloneReport(this IReports operations, string collectionName, string workspaceId, string reportKey, CloneReportRequest requestParameters)
             {
@@ -96,7 +96,7 @@ namespace Microsoft.PowerBI.Api.V1
             /// The report id
             /// </param>
             /// <param name='requestParameters'>
-            /// The entity to post
+            /// Clone report parameters
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -125,7 +125,7 @@ namespace Microsoft.PowerBI.Api.V1
             /// The report id
             /// </param>
             /// <param name='requestParameters'>
-            /// The entity to post
+            /// Rebind report parameters
             /// </param>
             public static object RebindReport(this IReports operations, string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters)
             {
@@ -148,7 +148,7 @@ namespace Microsoft.PowerBI.Api.V1
             /// The report id
             /// </param>
             /// <param name='requestParameters'>
-            /// The entity to post
+            /// Rebind report parameters
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

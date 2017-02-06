@@ -76,7 +76,7 @@
           {
             "name": "dataset",
             "in": "body",
-            "description": "The entity to post",
+            "description": "Create dataset parameters",
             "required": true,
             "schema": {
               "$ref": "#/definitions/Dataset"
@@ -872,7 +872,7 @@
           },
           {
             "name": "requestParameters",
-            "description": "The entity to post",
+            "description": "Clone report parameters",
             "in": "body",
             "required": true,
             "schema": {
@@ -926,7 +926,7 @@
           },
           {
             "name": "requestParameters",
-            "description": "The entity to post",
+            "description": "Rebind report parameters",
             "in": "body",
             "required": true,
             "schema": {
