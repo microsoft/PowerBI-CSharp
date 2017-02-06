@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
     using Microsoft.Rest.Serialization;
 
     /// <summary>
-    /// Power BI Clone Report Request
+    /// Power BI Rebind Report Request
     /// </summary>
     public partial class RebindReportRequest
     {
