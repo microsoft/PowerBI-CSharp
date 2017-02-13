@@ -30,7 +30,7 @@ var jwt = embedToken.Generate(accessKey);
 - typ: "embed"
 - wcn: {WorkspaceCollectionName}
 - wid: {WorkspaceId}
-- rid: {ReportId} (or did: {DatasetId}
+- rid: {ReportId} (or did: {DatasetId})
 - aud: https://analysis.windows.net/powerbi/api
 - exp: Token expiration in Unix EPOCH time
 
