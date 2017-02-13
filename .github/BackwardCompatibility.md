@@ -1,6 +1,6 @@
 # Breaking Change Definition
 
-Breaking changes in Azure SDK for .NET are defined as follows:
+Breaking changes in Power BI SDK for .NET are defined as follows:
 
 ## Generated classes
 
