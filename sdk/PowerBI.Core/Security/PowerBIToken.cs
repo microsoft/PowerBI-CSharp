@@ -38,11 +38,6 @@ namespace Microsoft.PowerBI.Security
             public const string JwtType = "type";
 
             /// <summary>
-            /// The Jwt token type claim
-            /// </summary>
-            public const string JwtType = "type";
-
-            /// <summary>
             /// The report id claim
             /// </summary>
             public const string ReportId = "rid";
