@@ -57,5 +57,109 @@ namespace Microsoft.PowerBI.Api.V1
                 }
             }
 
+            /// <summary>
+            /// Clones the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone report parameters
+            /// </param>
+            public static Report CloneReport(this IReports operations, string collectionName, string workspaceId, string reportKey, CloneReportRequest requestParameters)
+            {
+                return Task.Factory.StartNew(s => ((IReports)s).CloneReportAsync(collectionName, workspaceId, reportKey, requestParameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Clones the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone report parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Report> CloneReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, CloneReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CloneReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Rebinds the specified report to requested dataset id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Rebind report parameters
+            /// </param>
+            public static object RebindReport(this IReports operations, string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters)
+            {
+                return Task.Factory.StartNew(s => ((IReports)s).RebindReportAsync(collectionName, workspaceId, reportKey, requestParameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Rebinds the specified report to requested dataset id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Rebind report parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> RebindReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, RebindReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.RebindReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

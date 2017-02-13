@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// The workspace id
         /// </param>
         /// <param name='dataset'>
-        /// The entity to post
+        /// Create dataset parameters
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -20,17 +21,22 @@ namespace Microsoft.PowerBI.Security
             /// The version claim
             /// </summary>
             public const string Version = "ver";
-            
+
             /// <summary>
             /// The workspace collection claim
             /// </summary>
             public const string WorkspaceCollectionName = "wcn";
-            
+
             /// <summary>
             /// The workspace id claim
             /// </summary>
             public const string WorkspaceId = "wid";
-            
+
+            /// <summary>
+            /// The Jwt token type claim
+            /// </summary>
+            public const string JwtType = "type";
+
             /// <summary>
             /// The Jwt token type claim
             /// </summary>
@@ -40,16 +46,26 @@ namespace Microsoft.PowerBI.Security
             /// The report id claim
             /// </summary>
             public const string ReportId = "rid";
-            
+
+            /// <summary>
+            /// The dataset id claim
+            /// </summary>
+            public const string DatasetId = "did";
+
             /// <summary>
             /// The RLS username claim
             /// </summary>
             public const string Username = "username";
-            
+
             /// <summary>
             /// The RLS roles claim
             /// </summary>
             public const string Roles = "roles";
+
+            /// <summary>
+            /// The permissions scopes claim
+            /// </summary>
+            public const string Scopes = "scp";
         }
 
         private const int DefaultExpirationSeconds = 3600;
@@ -78,11 +94,64 @@ namespace Microsoft.PowerBI.Security
         /// <param name="reportId">The report id</param>
         /// <param name="username">The RLS username</param>
         /// <param name="roles">The RLS roles</param>
+        /// <param name="scopes">The permission scopes</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, string username = null, IEnumerable<string> roles = null)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, string username = null, IEnumerable<string> roles = null, string scopes = null)
         {
             var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
-            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires, username, roles);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId: reportId, datasetId: null, expiration: expires, username: username, roles: roles, scopes: scopes);
+        }
+
+
+        /// <summary>
+        /// Creates a embed token with default expiration used to embed Power BI components into your own applications
+        /// </summary>
+        /// <param name="workspaceCollectionName">The workspace collection name</param>
+        /// <param name="workspaceId">The workspace id</param>
+        /// <param name="datasetId">The dataset id</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
+        /// <param name="scopes">The permission scopes</param>
+        /// <returns>The Power BI access token</returns>
+        public static PowerBIToken CreateReportEmbedTokenForCreation(string workspaceCollectionName, string workspaceId, string datasetId, string username = null, IEnumerable<string> roles = null, string scopes = null)
+        {
+            var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, null, datasetId, expires, username, roles, scopes);
+        }
+
+        /// <summary>
+        /// Creates a embed token with default expiration used to embed Power BI components into your own applications
+        /// </summary>
+        /// <param name="workspaceCollectionName">The workspace collection name</param>
+        /// <param name="workspaceId">The workspace id</param>
+        /// <param name="datasetId">The dataset id</param>
+        /// <param name="slidingExpiration">The timespan to append to the current date/time</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
+        /// <param name="scopes">The permission scopes</param>
+        /// <returns>The Power BI access token</returns>
+        public static PowerBIToken CreateReportEmbedTokenForCreation(string workspaceCollectionName, string workspaceId, string datasetId, TimeSpan slidingExpiration, string username = null, IEnumerable<string> roles = null, string scopes = null)
+        {
+            var expires = DateTime.UtcNow.Add(slidingExpiration);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, null, datasetId, expires, username, roles, scopes);
+        }
+
+        /// <summary>
+        /// Creates a embed token with default expiration used to embed Power BI components into your own applications
+        /// </summary>
+        /// <param name="workspaceCollectionName">The workspace collection name</param>
+        /// <param name="workspaceId">The workspace id</param>
+        /// <param name="reportId">The report id</param>
+        /// <param name="datasetId">The dataset id</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
+        /// <param name="scopesList">The permission scopes list</param>
+        /// <returns>The Power BI access token</returns>
+        public static PowerBIToken CreateReportEmbedTokenWithScopes(string workspaceCollectionName, string workspaceId, string reportId = null, string datasetId = null, string username = null, IEnumerable<string> roles = null, IEnumerable<string> scopesList = null)
+        {
+            var expires = DateTime.UtcNow.Add(TimeSpan.FromSeconds(DefaultExpirationSeconds));
+            var scopes = scopesList != null ? string.Join(" ", scopesList.ToArray()) : string.Empty;
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, datasetId, expires, username, roles, scopes);
         }
 
         /// <summary>
@@ -94,11 +163,12 @@ namespace Microsoft.PowerBI.Security
         /// <param name="slidingExpiration">The timespan to append to the current date/time</param>
         /// <param name="username">The RLS username</param>
         /// <param name="roles">The RLS roles</param>
+        /// <param name="scopes">The permission scopes</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, TimeSpan slidingExpiration, string username = null, IEnumerable<string> roles = null)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, TimeSpan slidingExpiration, string username = null, IEnumerable<string> roles = null, string scopes = null)
         {
             var expires = DateTime.UtcNow.Add(slidingExpiration);
-            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, expires, username, roles);
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, null, expires, username, roles, scopes);
         }
 
         /// <summary>
@@ -110,16 +180,38 @@ namespace Microsoft.PowerBI.Security
         /// <param name="expiration">The token expiration date/time</param>
         /// <param name="username">The RLS username</param>
         /// <param name="roles">The RLS roles</param>
+        /// <param name="scopes">The permission scopes</param>
         /// <returns>The Power BI access token</returns>
-        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, DateTime expiration, string username = null, IEnumerable<string> roles = null)
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, DateTime expiration, string username = null, IEnumerable<string> roles = null, string scopes = null)
+        {
+            return CreateReportEmbedToken(workspaceCollectionName, workspaceId, reportId, null, expiration, username, roles, scopes);
+        }
+
+        /// <summary>
+        /// Creates a embed token with default expiration used to embed Power BI components into your own applications
+        /// </summary>
+        /// <param name="workspaceCollectionName">The workspace collection name</param>
+        /// <param name="workspaceId">The workspace id</param>
+        /// <param name="reportId">The report id</param>
+        /// <param name="datasetId">The dataset id</param>
+        /// <param name="expiration">The token expiration date/time</param>
+        /// <param name="username">The RLS username</param>
+        /// <param name="roles">The RLS roles</param>
+        /// <param name="scopes">The permission scopes</param>
+        /// <returns>The Power BI access token</returns>
+        public static PowerBIToken CreateReportEmbedToken(string workspaceCollectionName, string workspaceId, string reportId, string datasetId, DateTime expiration, string username = null, IEnumerable<string> roles = null, string scopes = null)
         {
             Guard.ValidateString(workspaceCollectionName, "workspaceCollectionName");
             Guard.ValidateString(workspaceId, "workspaceId");
-            Guard.ValidateString(reportId, "reportId");
 
             if (expiration < DateTime.UtcNow)
             {
                 throw new ArgumentException("Expiration must be a date/time in the future", nameof(expiration));
+            }
+
+            if (string.IsNullOrWhiteSpace(reportId) && string.IsNullOrWhiteSpace(datasetId))
+            {
+                throw new ArgumentException("Either ReportId or DatasetId must be set", nameof(reportId) + "\\ " + nameof(datasetId));
             }
 
             if (roles != null && string.IsNullOrEmpty(username))
@@ -134,7 +226,18 @@ namespace Microsoft.PowerBI.Security
 
             token.Claims.Add(new Claim(ClaimTypes.WorkspaceCollectionName, workspaceCollectionName));
             token.Claims.Add(new Claim(ClaimTypes.WorkspaceId, workspaceId));
-            token.Claims.Add(new Claim(ClaimTypes.ReportId, reportId));
+
+            if (!string.IsNullOrWhiteSpace(reportId))
+            {
+                token.ReportId = reportId;
+                token.Claims.Add(new Claim(ClaimTypes.ReportId, reportId));
+            }
+
+            if (!string.IsNullOrWhiteSpace(datasetId))
+            {
+                token.DatasetId = datasetId;
+                token.Claims.Add(new Claim(ClaimTypes.DatasetId, datasetId));
+            }
 
             // RLS claims: requires username and roles are optional
             if (!string.IsNullOrEmpty(username))
@@ -150,6 +253,11 @@ namespace Microsoft.PowerBI.Security
                 }
             }
 
+            if (!string.IsNullOrWhiteSpace(scopes))
+            {
+                token.Claims.Add(new Claim(ClaimTypes.Scopes, scopes));
+            }
+
             return token;
         }
 
@@ -162,6 +270,16 @@ namespace Microsoft.PowerBI.Security
         /// The audience this token is valid for
         /// </summary>
         public string Audience { get; set; }
+
+        /// <summary>
+        /// The report id this token is valid for
+        /// </summary>
+        public string ReportId { get; set; }
+
+        /// <summary>
+        /// The dataset id this token is valid for
+        /// </summary>
+        public string DatasetId { get; set; }
 
         /// <summary>
         /// Gets or sets a collection of claims associated with this token
