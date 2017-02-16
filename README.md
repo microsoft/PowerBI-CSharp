@@ -80,7 +80,8 @@ The following decoded JSON web token
   "aud": "https://analysis.windows.net/powerbi/api",
   "exp": 1360047056,
   "nbf": 1360043456
-}```
+}
+```
 
 ## Power BI Embedded REST Client
 The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI Embedded REST services.
