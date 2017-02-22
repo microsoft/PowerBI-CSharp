@@ -30,7 +30,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public async Task ReportDelete()
         {
-            var deleteResponse = CreateSampleDeleteReportResponse();
+            var deleteResponse = new HttpResponseMessage(HttpStatusCode.OK);
 
             var reportId = Guid.NewGuid().ToString();
 
@@ -41,18 +41,19 @@ namespace PowerBI.Api.Tests
 
                 var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}";
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
+                CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
             }
         }
 
         [TestMethod]
         public async Task ReportRebind()
         {
-            var deleteResponse = CreateSampleRebindReportResponse();
+            var rebindResponse = CreateSampleRebindReportResponse();
 
             var reportId = Guid.NewGuid().ToString();
             var datasetId = Guid.NewGuid().ToString();
 
-            using (var handler = new FakeHttpClientHandler(deleteResponse))
+            using (var handler = new FakeHttpClientHandler(rebindResponse))
             using (var client = CreatePowerBIClient(handler))
             {
                 await client.Reports.RebindReportAsync(this.workspaceCollectionName, this.workspaceId, reportId, new RebindReportRequest(datasetId));
@@ -60,31 +61,43 @@ namespace PowerBI.Api.Tests
                 var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}/Rebind";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
+                CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
             }
+        }
+
+        private void CheckAuthHeader(string authHeader)
+        {
+            string expectedHeader = $"Bearer {AccessKey}";
+            Assert.AreEqual<string>(authHeader, expectedHeader);
         }
 
         [TestMethod]
         public async Task ReportClone()
         {
-            var deleteResponse = CreateSampleCloneReportResponse();
+            var cloneResponse = CreateSampleCloneReportResponse();
 
             var reportId = Guid.NewGuid().ToString();
 
             var cloneRequest = new CloneReportRequest()
             {
                 TargetModelId = Guid.NewGuid().ToString(),
-                Name = "A Name",
+                Name = "Model Name",
                 TargetWorkspaceId = Guid.NewGuid().ToString()
             };
 
-            using (var handler = new FakeHttpClientHandler(deleteResponse))
+            using (var handler = new FakeHttpClientHandler(cloneResponse))
             using (var client = CreatePowerBIClient(handler))
             {
-                await client.Reports.CloneReportAsync(this.workspaceCollectionName, this.workspaceId, reportId, cloneRequest);
+                var response = await client.Reports.CloneReportAsync(this.workspaceCollectionName, this.workspaceId, reportId, cloneRequest);
 
                 var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}/Clone";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
+                Assert.IsNotNull(response.Id);
+                Assert.IsNotNull(response.EmbedUrl);
+                Assert.IsNotNull(response.Name);
+                Assert.IsNotNull(response.WebUrl);
+                CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
             }
         }
 
@@ -92,14 +105,6 @@ namespace PowerBI.Api.Tests
         {
             var credentials = new TokenCredentials(AccessKey);
             return new PowerBIClient(credentials, handler);
-        }
-
-        private static HttpResponseMessage CreateSampleDeleteReportResponse(string name = default(string))
-        {
-            return new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(""))
-            };
         }
 
         private static HttpResponseMessage CreateSampleRebindReportResponse(string name = default(string))
@@ -112,9 +117,11 @@ namespace PowerBI.Api.Tests
 
         private static HttpResponseMessage CreateSampleCloneReportResponse(string name = default(string))
         {
+            var report = new Report(Guid.NewGuid().ToString(), "Report Name", "AN URL", "EMBEDURL");
+
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
-                Content = new StringContent(JsonConvert.SerializeObject(""))
+                Content = new StringContent(JsonConvert.SerializeObject(report))
             };
         }
     }

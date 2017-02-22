@@ -124,9 +124,9 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            public static object DeleteReport(this IReports operations, string collectionName, string workspaceId, string reportKey)
+            public static void DeleteReport(this IReports operations, string collectionName, string workspaceId, string reportKey)
             {
-                return Task.Factory.StartNew(s => ((IReports)s).DeleteReportAsync(collectionName, workspaceId, reportKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                Task.Factory.StartNew(s => ((IReports)s).DeleteReportAsync(collectionName, workspaceId, reportKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -147,12 +147,9 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> DeleteReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                await operations.DeleteReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, null, cancellationToken).ConfigureAwait(false);
             }
 
             /// <summary>

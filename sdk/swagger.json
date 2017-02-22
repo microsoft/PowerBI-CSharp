@@ -850,7 +850,7 @@
                 "deprecated": false
             }
         },
-      "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Clone": {
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Clone": {
         "post": {
           "tags": [
             "Reports"
@@ -940,10 +940,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Object"
-                        }
+                        "description": "OK"
                     }
                 },
                 "deprecated": false

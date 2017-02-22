@@ -73,7 +73,7 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> DeleteReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Rebinds the specified report to requested dataset id
         /// </summary>
