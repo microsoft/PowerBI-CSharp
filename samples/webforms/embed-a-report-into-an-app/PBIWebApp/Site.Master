@@ -102,6 +102,14 @@
                 // Report.off removes a given event handler if it exists.
                 report.off("rendered");
             });
+
+            // Report.on will add an event handler which prints to Log window.
+            report.on("error", function (event) {
+                var logView = document.getElementById('logView');
+                logView.innerHTML = logView.innerHTML + "Error<br/>";
+                logView.innerHTML = logView.innerHTML + JSON.stringify(event.detail) + "<br/>";
+                logView.innerHTML = logView.innerHTML + "----------<br/>";
+            });
         }
     </script>
 </head>
