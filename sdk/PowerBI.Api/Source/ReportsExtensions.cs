@@ -110,6 +110,52 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
+            /// Deletes the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static object DeleteReport(this IReports operations, string collectionName, string workspaceId, string reportKey)
+            {
+                return Task.Factory.StartNew(s => ((IReports)s).DeleteReportAsync(collectionName, workspaceId, reportKey), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Rebinds the specified report to requested dataset id
             /// </summary>
             /// <param name='operations'>
