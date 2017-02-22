@@ -112,8 +112,8 @@ input[type="submit"], input[type="button"] {
 
 #dashboardContainer {
     float: left;
-    width: 50%;
-    height: 400px;
+    width: 90%;
+    height: 800px;
 }
 
 .stepHr {
