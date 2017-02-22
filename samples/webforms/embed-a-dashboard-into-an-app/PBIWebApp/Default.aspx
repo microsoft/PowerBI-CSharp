@@ -63,4 +63,10 @@
             <div id="dashboardContainer"></div>
         </asp:Panel>
     </div>
+
+    <div class="logViewWrap">
+        Log View
+        <br />
+        <div ID="logView" style="width: 880px;"></div>
+    </div>
 </asp:Content>

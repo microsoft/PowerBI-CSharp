@@ -92,13 +92,13 @@ namespace PBIWebApp
 
                     if (PBIDashboards != null)
                     {
-                        var gridViewReport = PBIDashboards.value.Select(dashboard => new {
+                        var gridViewDashboards = PBIDashboards.value.Select(dashboard => new {
                             Id = dashboard.id,
                             DisplayName = dashboard.displayName,
                             EmbedUrl = dashboard.embedUrl
                         });
 
-                        this.GridView1.DataSource = gridViewReport;
+                        this.GridView1.DataSource = gridViewDashboards;
                         this.GridView1.DataBind();
                     }
                 }

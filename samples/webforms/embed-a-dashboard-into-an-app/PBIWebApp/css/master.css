@@ -46,6 +46,8 @@ input[type="submit"], input[type="button"] {
 
 .logViewWrap {
     margin-top: 20px;
+    float: none;
+    width: 100%;
 }
 
 .fieldtxt {
@@ -110,8 +112,11 @@ input[type="submit"], input[type="button"] {
     margin-bottom: 10px;
 }
 
+#embedInputs input[type=button] {
+    margin-top: 20px;
+}
+
 #dashboardContainer {
-    float: left;
     width: 90%;
     height: 800px;
 }

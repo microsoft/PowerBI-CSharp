@@ -42,7 +42,6 @@
 
             // Embed configuration used to describe the what and how to embed.
             // This object is used when calling powerbi.embed.
-            // This also includes settings and options such as filters.
             // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
             var config = {
                 type: 'dashboard',
@@ -60,13 +59,17 @@
             dashboard.on("tileClicked", function (event) {
                 var logView = document.getElementById('logView');
                 logView.innerHTML = logView.innerHTML + "Tile Clicked<br/>";
-                alert(event);
-                alert(JSON.stringify(event));
-
-                // dashboard.off removes a given event handler if it exists.
-                dashboard.off("tileClicked");
+                logView.innerHTML = logView.innerHTML + JSON.stringify(event.detail, null, "  ") + "<br/>";
+                logView.innerHTML = logView.innerHTML + "---------<br/>";
             });
 
+            // dashboard.on will add an event handler which prints to Log window.
+            dashboard.on("error", function (event) {
+                var logView = document.getElementById('logView');
+                logView.innerHTML = logView.innerHTML + "Error<br/>";
+                logView.innerHTML = logView.innerHTML + JSON.stringify(event.detail, null, "  ") + "<br/>";
+                logView.innerHTML = logView.innerHTML + "---------<br/>";
+            });
         }
     </script>
 </head>
