@@ -1,8 +1,8 @@
 ﻿
 using System;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Collections.Specialized;
 using Newtonsoft.Json;
@@ -29,6 +29,7 @@ namespace PBIWebApp
 
                 //Show Power BI Panel
                 signInStatus.Visible = true;
+                signInButton.Visible = false;
 
                 //Set user and token from authentication result
                 userLabel.Text = authResult.UserInfo.DisplayableId;
@@ -88,29 +89,17 @@ namespace PBIWebApp
 
                     //Deserialize JSON string
                     PBIDashboards PBIDashboards = JsonConvert.DeserializeObject<PBIDashboards>(responseContent);
-                    Table1.Visible = true;
-                    Control myControl1 = FindControl("TableDiv");
-                    //Get each dashboard 
-                    foreach (PBIDashboard dsb in PBIDashboards.value)
+
+                    if (PBIDashboards != null)
                     {
-                        TableRow tRow = new TableRow();
-                        Table1.Rows.Add(tRow);
+                        var gridViewReport = PBIDashboards.value.Select(dashboard => new {
+                            Id = dashboard.id,
+                            DisplayName = dashboard.displayName,
+                            EmbedUrl = dashboard.embedUrl
+                        });
 
-                        TableCell idCell = new TableCell();
-                        idCell.Text = dsb.id;
-                        tRow.Cells.Add(idCell);
-
-                        TableCell nameCell = new TableCell();
-                        nameCell.Text = dsb.displayName;
-                        tRow.Cells.Add(nameCell);
-
-                        TableCell isReadOnlyCell = new TableCell();
-                        isReadOnlyCell.Text = dsb.isReadOnly.ToString();
-                        tRow.Cells.Add(isReadOnlyCell);
-
-                        TableCell embedUrlCell = new TableCell();
-                        embedUrlCell.Text = dsb.embedUrl;
-                        tRow.Cells.Add(embedUrlCell);
+                        this.GridView1.DataSource = gridViewReport;
+                        this.GridView1.DataBind();
                     }
                 }
             }

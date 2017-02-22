@@ -28,49 +28,39 @@
             </asp:Panel>
         </asp:Panel>   
     </div>
+
+    <hr class="stepHr" />
+
     <!-- Get Dashboards -->
     <div> 
         <asp:Panel ID="PanelDashboards" runat="server" Visible="true">
-            <p><b class="step">Step 2</b>: Get dashboards from your account.</p>
-            <p><asp:Button ID="Button2" runat="server" OnClick="getDashboardsButton_Click" Text="Get Dashboards" /></p>
-            <div id="TableDiv" style="max-height:200px;overflow-y:scroll"> 
-                <asp:Table ID="Table1" 
-                    runat="server"
-                    Visible="false"
-                    Wrap="False">
-                    <asp:TableHeaderRow 
-                        runat="server" 
-                        ForeColor="Snow"
-                        BackColor="OliveDrab"
-                        Font-Bold="true"               
-                        >
-                        <asp:TableHeaderCell>Id</asp:TableHeaderCell>
-                        <asp:TableHeaderCell>Name</asp:TableHeaderCell>
-                        <asp:TableHeaderCell>Is ReadOnly</asp:TableHeaderCell>
-                        <asp:TableHeaderCell>Embed url</asp:TableHeaderCell>
-                    </asp:TableHeaderRow>
-                </asp:Table>
+            <div>
+                <div><b class="step">Step 2</b>: Get dashboards from your account.</div>
+                <asp:Button ID="Button1" runat="server" OnClick="getDashboardsButton_Click" Text="Get Dashboards" />
+            </div>
+
+            <div class="gridWrapper">
+                <asp:GridView ID="GridView1" runat="server" CssClass="grid" Width="1018px">
+                </asp:GridView>
             </div>
         </asp:Panel>
     </div>
+
+    <hr class="stepHr" />
+
     <!-- Embed Dashboard-->
     <div> 
         <asp:Panel ID="PanelEmbed" runat="server" Visible="true">
-            <p><b class="step">Step 3</b>: Embed a dashboard</p>
-            <table>
-                <tr><td>Enter an embed url for a dashboard from Step 2 (starts with https://):<br />
-                    <input type="text" id="tb_EmbedURL" style="width: 1024px;" />
-            <tr>
-                <td>
-                    <input type="button" id="bEmbedDashboardAction" value="Embed Dashboard" />
-                </td>
-            </tr>
-                <tr>
-                    <td>
-                        <iframe ID="iFrameEmbedDashboard" src="" height="768px" width="1024px" frameborder="1" seamless></iframe>
-                    </td>
-                </tr>
-        </table>
+            <div>
+                <div><b class="step">Step 3</b>: Embed a dashboard</div>
+
+                <div>Enter an embed url for a dashboard from Step 2 (starts with https://):</div>
+                <input type="text" id="tb_EmbedURL" style="width: 1024px;" />
+                <br />
+                <input type="button" id="bEmbedDashboardAction" value="Embed Dashboard" />
+            </div>
+
+            <div id="dashboardContainer"></div>
         </asp:Panel>
     </div>
 </asp:Content>
