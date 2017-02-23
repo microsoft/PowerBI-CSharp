@@ -13,6 +13,15 @@ namespace PBIWebApp {
     public partial class SiteMaster {
         
         /// <summary>
+        /// Stylesheets control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Stylesheets;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

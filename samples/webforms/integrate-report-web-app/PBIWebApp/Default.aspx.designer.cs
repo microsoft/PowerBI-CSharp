@@ -31,30 +31,12 @@ namespace PBIWebApp {
         protected global::System.Web.UI.WebControls.Button getReportButton;
         
         /// <summary>
-        /// txtReportName control.
+        /// ReportEmbedUrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReportName;
-        
-        /// <summary>
-        /// txtReportId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReportId;
-        
-        /// <summary>
-        /// txtEmbedUrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmbedUrl;
+        protected global::System.Web.UI.WebControls.TextBox ReportEmbedUrl;
     }
 }

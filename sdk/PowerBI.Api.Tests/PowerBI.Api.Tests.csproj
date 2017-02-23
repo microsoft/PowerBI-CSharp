@@ -72,7 +72,6 @@
     <Compile Include="ImportsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FakeHttpClientHandler.cs" />
-    <Compile Include="ReportTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\certificates\35MSSharedLib1024.snk">
