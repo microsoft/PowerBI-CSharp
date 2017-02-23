@@ -56,6 +56,25 @@ namespace Microsoft.PowerBI.Api.V1
         /// </param>
         Task<HttpOperationResponse<Report>> CloneReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes the specified report
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='workspaceId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportKey'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse> DeleteReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Rebinds the specified report to requested dataset id
         /// </summary>
         /// <param name='collectionName'>

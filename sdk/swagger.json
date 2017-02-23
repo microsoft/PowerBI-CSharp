@@ -851,18 +851,70 @@
             }
         },
         "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Clone": {
-            "post": {
+        "post": {
+          "tags": [
+            "Reports"
+          ],
+          "summary": "Clones the specified report",
+          "operationId": "Reports_CloneReport",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "collectionName",
+              "in": "path",
+              "description": "The workspace collection name",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "workspaceId",
+              "in": "path",
+              "required": true,
+              "description": "The workspace id",
+              "type": "string"
+            },
+            {
+              "name": "reportKey",
+              "description": "The report id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "requestParameters",
+              "description": "Clone report parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/CloneReportRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}": {
+            "delete": {
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Clones the specified report",
-                "operationId": "Reports_CloneReport",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
+                "summary": "Deletes the specified report",
+                "operationId": "Reports_DeleteReport",
+                "consumes": [ ],
+                "produces": [ ],
                 "parameters": [
                     {
                         "name": "collectionName",
@@ -884,23 +936,11 @@
                         "in": "path",
                         "required": true,
                         "type": "string"
-                    },
-                    {
-                        "name": "requestParameters",
-                        "description": "Clone report parameters",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/CloneReportRequest"
-                        }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/Report"
-                        }
+                        "description": "OK"
                     }
                 },
                 "deprecated": false
