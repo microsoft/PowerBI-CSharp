@@ -88,13 +88,7 @@ namespace PBIWebApp
                     //Sample assumes at least one Report.
                     //You could write an app that lists all Reports
                     if (Reports.value.Length > 0)
-                    {
-                        var report = Reports.value[index];
-
-                        txtEmbedUrl.Text = report.embedUrl;
-                        txtReportId.Text = report.id;
-                        txtReportName.Text = report.name;
-                    }
+                        ReportEmbedUrl.Text = Reports.value[index].embedUrl;
                 }
             }
         }

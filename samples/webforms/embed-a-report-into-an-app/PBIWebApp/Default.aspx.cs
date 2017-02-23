@@ -27,14 +27,13 @@ namespace PBIWebApp
             //Test for AuthenticationResult
             if (Session["authResult"] != null)
             {
-                // Get the authentication result from the session
+                //Get the authentication result from the session
                 authResult = (AuthenticationResult)Session["authResult"];
 
-                // Show Power BI Panel
+                //Show Power BI Panel
                 signInStatus.Visible = true;
-                signInButton.Visible = false;
 
-                // Set user and token from authentication result
+                //Set user and token from authentication result
                 userLabel.Text = authResult.UserInfo.DisplayableId;
                 accessTokenTextbox.Text = authResult.AccessToken;
             }
@@ -93,20 +92,17 @@ namespace PBIWebApp
                     //Deserialize JSON string
                     PBIReports PBIReports = JsonConvert.DeserializeObject<PBIReports>(responseContent);
 
-                    if (PBIReports != null)
+                    tb_reportsResult.Text = string.Empty;
+                    //Get each report 
+                    foreach (PBIReport rpt in PBIReports.value)
                     {
-                        var gridViewReport = PBIReports.value.Select(report => new {
-                            id = report.id,
-                            name = report.name,
-                            embedUrl = report.embedUrl
-                        });
-
-                        this.GridView1.DataSource = gridViewReport;
-                        this.GridView1.DataBind();
+                        tb_reportsResult.Text += String.Format("{0}\t{1}\t{2}\n", rpt.id, rpt.name, rpt.embedUrl);
                     }
                 }
             }
         }
+
+
     }
 
     //Power BI Datasets
@@ -141,12 +137,10 @@ namespace PBIWebApp
         public string id { get; set; }
         public string displayName { get; set; }
     }
-
     public class PBIReports
     {
         public PBIReport[] value { get; set; }
     }
-
     public class PBIReport
     {
         public string id { get; set; }
@@ -158,6 +152,7 @@ namespace PBIWebApp
 
         public string embedUrl { get; set; }
     }
+
 
     public class PBITiles
     {
