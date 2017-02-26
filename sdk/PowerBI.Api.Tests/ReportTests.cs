@@ -30,7 +30,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public async Task ReportDelete()
         {
-            var deleteResponse = new HttpResponseMessage(HttpStatusCode.OK);
+            var deleteResponse = CreateSampleCloneReportResponse();
 
             var reportId = Guid.NewGuid().ToString();
 
@@ -48,7 +48,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public async Task ReportRebind()
         {
-            var rebindResponse = CreateSampleRebindReportResponse();
+            var rebindResponse = CreateSampleOKResponse();
 
             var reportId = Guid.NewGuid().ToString();
             var datasetId = Guid.NewGuid().ToString();
@@ -107,7 +107,7 @@ namespace PowerBI.Api.Tests
             return new PowerBIClient(credentials, handler);
         }
 
-        private static HttpResponseMessage CreateSampleRebindReportResponse(string name = default(string))
+        private static HttpResponseMessage CreateSampleOKResponse(string name = default(string))
         {
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
