@@ -5,6 +5,9 @@
 <html lang="en">
 <head runat="server">
     <title>Power BI - Web application</title>
+    <link rel="stylesheet" href="css/master.css" type="text/css" />
+    <script type="text/javascript" src="scripts/powerbi.js"></script>
+
     <script type="text/javascript">
 
         window.onload = function () {
@@ -26,9 +29,9 @@
             // handle server side post backs, optimize for reload scenarios
             // show embedded report if all fields were filled in.
             var accessTokenElement = document.getElementById('MainContent_accessTokenTextbox');
-            if(null !== accessTokenElement){
+            if (accessTokenElement !== null) {
                 var accessToken = accessTokenElement.value;
-                if ("" !== accessToken)
+                if (accessToken !== "")
                     updateEmbedReport();
             }
         };
@@ -49,54 +52,70 @@
             }
         }
 
-        var valB = false;
-
         // update embed report
         function updateEmbedReport() {
 
             // check if the embed url was selected
             var embedUrl = document.getElementById('tb_EmbedURL').value;
-            if ("" === embedUrl)
+            var reportId = document.getElementById('tb_ReportId').value;
+            if (embedUrl === "" || reportId === "")
                 return;
-
-            // to load a report do the following:
-            // 1: set the url
-            // 2: add a onload handler to submit the auth token
-            iframe = document.getElementById('iFrameEmbedReport');
-            iframe.src = embedUrl;
-            iframe.onload = postActionLoadReport;
-        }
-
-        
-        // post the auth token to the iFrame. 
-        function postActionLoadReport() {
 
             // get the access token.
             accessToken = document.getElementById('MainContent_accessTokenTextbox').value;
 
-            // return if no a
-            if ("" === accessToken)
-                return;
+            // Embed configuration used to describe the what and how to embed.
+            // This object is used when calling powerbi.embed.
+            // This also includes settings and options such as filters.
+            // You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
+            var config = {
+                type: 'report',
+                accessToken: accessToken,
+                embedUrl: embedUrl,
+                id: reportId,
+                settings: {
+                    filterPaneEnabled: true,
+                    navContentPaneEnabled: true
+                }
+            };
 
-            // construct the push message structure
-            // this structure also supports setting the reportId, groupId, height, and width.
-            // when using a report in a group, you must provide the groupId on the iFrame SRC
-            var m = { action: "loadReport", accessToken: accessToken};
-            message = JSON.stringify(m);
+            // Grab the reference to the div HTML element that will host the report.
+            var reportContainer = document.getElementById('reportContainer');
 
-            // push the message.
-            iframe = document.getElementById('iFrameEmbedReport');
-            iframe.contentWindow.postMessage(message, "*");;
+            // Embed the report and display it within the div container.
+            var report = powerbi.embed(reportContainer, config);
+
+            // Report.on will add an event handler which prints to Log window.
+            report.on("loaded", function () {
+                var logView = document.getElementById('logView');
+                logView.innerHTML = logView.innerHTML + "Loaded<br/>";
+
+                // Report.off removes a given event handler if it exists.
+                report.off("loaded");
+            });
+
+            // Report.on will add an event handler which prints to Log window.
+            report.on("rendered", function () {
+                var logView = document.getElementById('logView');
+                logView.innerHTML = logView.innerHTML + "Rendered<br/>";
+
+                // Report.off removes a given event handler if it exists.
+                report.off("rendered");
+            });
+
+            // Report.on will add an event handler which prints to Log window.
+            report.on("error", function (event) {
+                var logView = document.getElementById('logView');
+                logView.innerHTML = logView.innerHTML + "Error<br/>";
+                logView.innerHTML = logView.innerHTML + JSON.stringify(event.detail) + "<br/>";
+                logView.innerHTML = logView.innerHTML + "----------<br/>";
+            });
         }
-
     </script>
 </head>
 <body>
     <form runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="Stylesheets" runat="server">
-                <link rel="stylesheet" href="/css/master.css" type="text/css" />
-            </asp:ContentPlaceHolder>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>

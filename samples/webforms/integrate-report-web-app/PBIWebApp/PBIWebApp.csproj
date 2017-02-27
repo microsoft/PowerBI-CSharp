@@ -107,10 +107,13 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Default.aspx" />
+    <Content Include="scripts\powerbi.js" />
+    <Content Include="scripts\powerbi.min.js" />
     <Content Include="Site.Master" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="scripts\powerbi.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
