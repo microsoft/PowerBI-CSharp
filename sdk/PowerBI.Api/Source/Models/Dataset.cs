@@ -24,7 +24,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// Initializes a new instance of the Dataset class.
         /// </summary>
-        public Dataset(string name, IList<Table> tables, string id = default(string), string defaultRetentionPolicy = default(string), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>))
+        public Dataset(string name, IList<Table> tables, string id = default(string), string defaultRetentionPolicy = default(string), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string))
         {
             Id = id;
             Name = name;
@@ -32,6 +32,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
             Tables = tables;
             WebUrl = webUrl;
             Datasources = datasources;
+            DefaultMode = defaultMode;
         }
 
         /// <summary>
@@ -69,6 +70,13 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// </summary>
         [JsonProperty(PropertyName = "datasources")]
         public IList<Datasource> Datasources { get; set; }
+
+        /// <summary>
+        /// The dataset mode or type. Possible values include: 'AsAzure',
+        /// 'AsOnPrem', 'Push', 'Streaming', 'PushStreaming'
+        /// </summary>
+        [JsonProperty(PropertyName = "defaultMode")]
+        public string DefaultMode { get; set; }
 
         /// <summary>
         /// Validate the object. Throws ValidationException if validation fails.
