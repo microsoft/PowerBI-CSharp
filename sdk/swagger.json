@@ -1108,6 +1108,17 @@
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
+                },
+                "defaultMode": {
+                    "type": "string",
+                    "description": "The dataset mode or type",
+                    "enum":[  
+                        "AsAzure",
+                        "AsOnPrem",
+                        "Push",
+                        "Streaming",
+                        "PushStreaming"
+                    ]
                 }
             }
         },
