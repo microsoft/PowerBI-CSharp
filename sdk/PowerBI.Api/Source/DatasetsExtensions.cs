@@ -517,7 +517,7 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='parameters'>
             /// The body
             /// </param>
-            public static object SetAllConnections(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters)
+            public static object SetAllConnections(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, string> parameters)
             {
                 return Task.Factory.StartNew(s => ((IDatasets)s).SetAllConnectionsAsync(collectionName, workspaceId, datasetKey, parameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
@@ -543,7 +543,7 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> SetAllConnectionsAsync(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> SetAllConnectionsAsync(this IDatasets operations, string collectionName, string workspaceId, string datasetKey, IDictionary<string, string> parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.SetAllConnectionsWithHttpMessagesAsync(collectionName, workspaceId, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
                 {

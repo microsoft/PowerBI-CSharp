@@ -239,6 +239,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        Task<HttpOperationResponse<object>> SetAllConnectionsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, IDictionary<string, object> parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> SetAllConnectionsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, IDictionary<string, string> parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
