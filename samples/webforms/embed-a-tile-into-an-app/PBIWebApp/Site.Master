@@ -50,7 +50,7 @@
                     if (messageData.event === "tileClicked")
                     {
                         //Get IFrame source and construct dashboard url
-                        iFrameSrc = document.getElementById(event.srcElement.iframe.id).src;
+                        iFrameSrc = document.getElementById((event.srcElement || event.target).iframe.id).src;
 
                         //Split IFrame source to get dashboard id
                         var dashboardId = iFrameSrc.split("dashboardId=")[1].split("&")[0];
