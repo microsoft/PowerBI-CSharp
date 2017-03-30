@@ -211,16 +211,6 @@ namespace PowerBI.Security.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void CreateReportEmbedTokenWithRlsWithRolesAndMissingUsernameFails()
-        {
-            var workspaceId = Guid.NewGuid().ToString();
-            var reportId = Guid.NewGuid().ToString();
-
-            PowerBIToken.CreateReportEmbedToken("Contoso", workspaceId, reportId, username: null, roles: new[] { "TestRole"});
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
         public void CreateReportEmbedTokenMissingReportAndDatasetIdsFails()
         {
             var workspaceId = Guid.NewGuid().ToString();
