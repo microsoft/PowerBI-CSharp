@@ -209,11 +209,6 @@ namespace Microsoft.PowerBI.Security
                 throw new ArgumentException("Either ReportId or DatasetId must be set", nameof(reportId) + "\\ " + nameof(datasetId));
             }
 
-            if (roles != null && string.IsNullOrEmpty(username))
-            {
-                throw  new ArgumentException("Cannot have an empty or null Username claim with the non-empty Roles claim");
-            }
-
             var token = new PowerBIToken
             {
                 Expiration = expiration
@@ -238,13 +233,13 @@ namespace Microsoft.PowerBI.Security
             if (!string.IsNullOrEmpty(username))
             {
                 token.Claims.Add(new Claim(ClaimTypes.Username, username));
+            }
 
-                if (roles != null)
+            if (roles != null)
+            {
+                foreach (var role in roles)
                 {
-                    foreach (var role in roles)
-                    {
-                        token.Claims.Add(new Claim(ClaimTypes.Roles, role));
-                    }
+                    token.Claims.Add(new Claim(ClaimTypes.Roles, role));
                 }
             }
 
