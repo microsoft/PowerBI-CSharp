@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api", "PowerBI.Api\PowerBI.Api.csproj", "{1EE969AD-7923-4855-AACA-2A1B790BB0F1}"
 EndProject
@@ -42,6 +42,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{73F16872-F2E9-4B09-BFC7-F7067F4F2DB9}"
 	ProjectSection(SolutionItems) = preProject
 		tools\ApplyVersionToAssemblies.ps1 = tools\ApplyVersionToAssemblies.ps1
+		generate.bat = generate.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api.Tests", "PowerBI.Api.Tests\PowerBI.Api.Tests.csproj", "{5B5B3510-BFB9-4C0A-8C3D-970016E20329}"

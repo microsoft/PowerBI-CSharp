@@ -5,7 +5,7 @@ using Microsoft.PowerBI.Api.V1.Models;
 
 namespace Microsoft.PowerBI.Api.V1
 {
-    public static partial class ImportsExtensions
+    public static partial class ImportsOperationsExtensions
     {
         /// <summary>
         /// Uploads a PBIX file to the specified workspace
@@ -28,9 +28,9 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
-        public static Import PostImportWithFile(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string))
+        public static Import PostImportWithFile(this IImportsOperations operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string))
         {
-            return Task.Factory.StartNew(s => ((IImports)s).PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
+            return Task.Factory.StartNew(s => ((IImportsOperations)s).PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -58,11 +58,11 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsync(this IImports operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsync(this IImportsOperations operations, string collectionName, string workspaceId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
+            using (var result = await operations.PostImportFileWithHttpMessage(collectionName, workspaceId, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
             {
-                return _result.Body;
+                return result.Body;
             }
         }
     }
