@@ -3,14 +3,11 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.PowerBI.Api.V1.Models;
-using Microsoft.Rest;
+using Microsoft.Rest.Azure;
 
 namespace Microsoft.PowerBI.Api.V1
 {
-    /// <summary>
-    /// Imports operations.
-    /// </summary>
-    public partial interface IImports
+    public partial interface IImportsOperations
     {
         /// <summary>
         /// Uploads a PBIX file to the specified workspace
@@ -33,6 +30,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name="customHeaders">Optional custom headers</param>
         /// <param name="cancellationToken">Optional cancellation token</param>
         /// <returns></returns>
-        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string collectionName, string workspaceId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<AzureOperationResponse<Import>> PostImportFileWithHttpMessage(string collectionName, string workspaceId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));        
     }
 }

@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Security
         public const string DatasetWrite = "Dataset.Write";
 
         /// <summary>
-        /// Dataset Read & Write permission
+        /// Dataset Read &amp; Write permission
         /// </summary>
         public const string DatasetReadWrite = "Dataset.ReadWrite";
 
@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Security
         public const string ReportRead = "Report.Read";
 
         /// <summary>
-        /// Report Read & Write (View & Edit) permission
+        /// Report Read &amp; Write (View &amp; Edit) permission
         /// </summary>
         public const string ReportReadWrite = "Report.ReadWrite";
 
