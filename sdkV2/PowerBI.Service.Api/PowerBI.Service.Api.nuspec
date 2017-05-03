@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>$id$</id>
+        <version>$version$</version>
+        <title>Microsoft Power BI Service API</title>
+        <authors>$author$</authors>
+        <owners>$author$</owners>
+        <licenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/Microsoft/PowerBI-CSharp</projectUrl>
+        <iconUrl>http://go.microsoft.com/fwlink/?LinkId=780675</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <summary>Client library for Power BI</summary>
+        <description>$description$</description>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <language>en-US</language>
+        <tags>Microsoft Power BI Service API REST</tags>
+    </metadata>
+</package>
