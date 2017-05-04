@@ -77,7 +77,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -229,7 +229,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports").ToString();
             List<string> _queryParameters = new List<string>();
             if (datasetDisplayName != null)
             {
@@ -388,7 +388,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/imports/{importId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports/{importId}").ToString();
             _url = _url.Replace("{importId}", System.Uri.EscapeDataString(importId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -529,7 +529,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/groups/{groupId}/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -690,7 +690,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/groups/{groupId}/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
             List<string> _queryParameters = new List<string>();
             if (datasetDisplayName != null)
@@ -858,7 +858,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/groups/{groupId}/imports/{importId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports/{importId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
             _url = _url.Replace("{importId}", System.Uri.EscapeDataString(importId));
             // Create HTTP transport objects

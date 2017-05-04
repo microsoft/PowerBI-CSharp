@@ -35,7 +35,7 @@ namespace PowerBI.Api.Tests
             {
                 await client.Reports.DeleteReportAsync(reportId);
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/reports/{reportId}";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/myorg/reports/{reportId}";
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
             }
@@ -53,7 +53,7 @@ namespace PowerBI.Api.Tests
             {
                 await client.Reports.DeleteReportInGroupAsync(this.groupId, reportId);
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/groups/{this.groupId}/reports/{reportId}";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/reports/{reportId}";
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
             }
@@ -72,7 +72,7 @@ namespace PowerBI.Api.Tests
             {
                 await client.Reports.RebindReportAsync(reportId, new RebindReportRequest(datasetId));
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/reports/{reportId}/Rebind";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/myorg/reports/{reportId}/Rebind";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
@@ -104,7 +104,7 @@ namespace PowerBI.Api.Tests
             {
                 var response = await client.Reports.CloneReportAsync(reportId, cloneRequest);
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/reports/{reportId}/Clone";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/myorg/reports/{reportId}/Clone";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 Assert.IsNotNull(response.Id);

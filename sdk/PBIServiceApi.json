@@ -15,7 +15,7 @@
 
     ],
     "paths":{
-        "/v1.0/datasets":{
+        "/v1.0/myorg/datasets":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -81,7 +81,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}/tables/{tableName}/rows":{
+        "/v1.0/myorg/datasets/{datasetKey}/tables/{tableName}/rows":{
             "post":{
                 "tags":[
                     "Datasets"
@@ -168,7 +168,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}/tables":{
+        "/v1.0/myorg/datasets/{datasetKey}/tables":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -201,7 +201,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}/tables/{tableName}":{
+        "/v1.0/myorg/datasets/{datasetKey}/tables/{tableName}":{
             "put":{
                 "tags":[
                     "Datasets"
@@ -250,7 +250,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}":{
+        "/v1.0/myorg/datasets/{datasetKey}":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -314,7 +314,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}/Default.GetBoundGatewayDatasources":{
+        "/v1.0/myorg/datasets/{datasetKey}/Default.GetBoundGatewayDatasources":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -347,7 +347,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}/datasources":{
+        "/v1.0/myorg/datasets/{datasetKey}/datasources":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -379,7 +379,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/datasets/{datasetKey}/Default.SetAllConnections":{
+        "/v1.0/myorg/datasets/{datasetKey}/Default.SetAllConnections":{
             "post":{
                 "tags":[
                     "Datasets"
@@ -434,7 +434,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/gateways/{gatewayId}/datasources/{datasourceId}":{
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}":{
             "patch":{
                 "tags":[
                     "Gateways"
@@ -483,7 +483,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/imports":{
+        "/v1.0/myorg/imports":{
             "get":{
                 "tags":[
                     "Imports"
@@ -556,7 +556,7 @@
                 }
             }
         },
-        "/v1.0/imports/{importId}":{
+        "/v1.0/myorg/imports/{importId}":{
             "get":{
                 "tags":[
                     "Imports"
@@ -588,7 +588,7 @@
                 }
             }
         },
-        "/v1.0/reports":{
+        "/v1.0/myorg/reports":{
             "get":{
                 "tags":[
                     "Reports"
@@ -615,7 +615,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/reports/{reportKey}/Clone":{
+        "/v1.0/myorg/reports/{reportKey}/Clone":{
             "post":{
                 "tags":[
                     "Reports"
@@ -657,7 +657,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/reports/{reportKey}/GenerateToken":{
+        "/v1.0/myorg/reports/{reportKey}/GenerateToken":{
             "post":{
                 "tags":[
                     "Reports"
@@ -699,7 +699,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/reports/GenerateToken":{
+        "/v1.0/myorg/reports/GenerateToken":{
             "post":{
                 "tags":[
                     "Reports"
@@ -734,7 +734,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/reports/{reportKey}":{
+        "/v1.0/myorg/reports/{reportKey}":{
             "delete":{
                 "tags":[
                     "Reports"
@@ -767,7 +767,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/reports/{reportKey}/Rebind":{
+        "/v1.0/myorg/reports/{reportKey}/Rebind":{
             "post":{
                 "tags":[
                     "Reports"
@@ -809,7 +809,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets":{
+        "/v1.0/myorg/groups/{groupId}/datasets":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -888,7 +888,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}/tables/{tableName}/rows":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/tables/{tableName}/rows":{
             "post":{
                 "tags":[
                     "Datasets"
@@ -989,7 +989,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}/tables":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/tables":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -1029,7 +1029,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}/tables/{tableName}":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/tables/{tableName}":{
             "put":{
                 "tags":[
                     "Datasets"
@@ -1085,7 +1085,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -1163,7 +1163,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}/Default.GetBoundGatewayDatasources":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.GetBoundGatewayDatasources":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -1203,7 +1203,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}/datasources":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/datasources":{
             "get":{
                 "tags":[
                     "Datasets"
@@ -1242,7 +1242,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/datasets/{datasetKey}/Default.SetAllConnections":{
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.SetAllConnections":{
             "post":{
                 "tags":[
                     "Datasets"
@@ -1304,7 +1304,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/gateways/{gatewayId}/datasources/{datasourceId}":{
+        "/v1.0/myorg/groups/{groupId}/gateways/{gatewayId}/datasources/{datasourceId}":{
             "patch":{
                 "tags":[
                     "Gateways"
@@ -1360,7 +1360,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/imports":{
+        "/v1.0/myorg/groups/{groupId}/imports":{
             "get":{
                 "tags":[
                     "Imports"
@@ -1446,7 +1446,7 @@
                 }
             }
         },
-        "/v1.0/groups/{groupId}/imports/{importId}":{
+        "/v1.0/myorg/groups/{groupId}/imports/{importId}":{
             "get":{
                 "tags":[
                     "Imports"
@@ -1485,7 +1485,7 @@
                 }
             }
         },
-        "/v1.0/groups":{
+        "/v1.0/myorg/groups":{
             "get":{
                 "summary":"Returns a list of groups",
                 "operationId":"GetGroups",
@@ -1508,7 +1508,7 @@
                 }
             }
         },
-        "/v1.0/groups/{groupId}/reports":{
+        "/v1.0/myorg/groups/{groupId}/reports":{
             "get":{
                 "tags":[
                     "Reports"
@@ -1541,7 +1541,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/reports/{reportKey}/Clone":{
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Clone":{
             "post":{
                 "tags":[
                     "Reports"
@@ -1590,7 +1590,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/reports/{reportKey}":{
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}":{
             "delete":{
                 "tags":[
                     "Reports"
@@ -1630,7 +1630,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/reports/{reportKey}/GenerateToken":{
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/GenerateToken":{
             "post":{
                 "tags":[
                     "Reports"
@@ -1679,7 +1679,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/reports/GenerateToken":{
+        "/v1.0/myorg/groups/{groupId}/reports/GenerateToken":{
             "post":{
                 "tags":[
                     "Reports"
@@ -1721,7 +1721,7 @@
                 "deprecated":false
             }
         },
-        "/v1.0/groups/{groupId}/reports/{reportKey}/Rebind":{
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Rebind":{
             "post":{
                 "tags":[
                     "Reports"

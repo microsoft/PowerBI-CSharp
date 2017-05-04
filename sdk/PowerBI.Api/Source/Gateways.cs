@@ -107,7 +107,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(gatewayId));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(datasourceId));
             // Create HTTP transport objects
@@ -279,7 +279,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/groups/{groupId}/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(gatewayId));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(datasourceId));
