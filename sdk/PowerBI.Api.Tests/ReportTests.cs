@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -17,14 +15,12 @@ namespace PowerBI.Api.Tests
     {
         private const string AccessKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-        private string workspaceCollectionName;
-        private string workspaceId;
+        private string groupId;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            this.workspaceCollectionName = "WC";
-            this.workspaceId = Guid.NewGuid().ToString();
+            this.groupId = Guid.NewGuid().ToString();
         }
 
         [TestMethod]
@@ -37,9 +33,27 @@ namespace PowerBI.Api.Tests
             using (var handler = new FakeHttpClientHandler(deleteResponse))
             using (var client = CreatePowerBIClient(handler))
             {
-                await client.Reports.DeleteReportAsync(this.workspaceCollectionName, this.workspaceId, reportId);
+                await client.Reports.DeleteReportAsync(reportId);
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/reports/{reportId}";
+                Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
+                CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task ReportDeleteInGroup()
+        {
+            var deleteResponse = CreateSampleCloneReportResponse();
+
+            var reportId = Guid.NewGuid().ToString();
+
+            using (var handler = new FakeHttpClientHandler(deleteResponse))
+            using (var client = CreatePowerBIClient(handler))
+            {
+                await client.Reports.DeleteReportInGroupAsync(this.groupId, reportId);
+
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/groups/{this.groupId}/reports/{reportId}";
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
             }
@@ -56,9 +70,9 @@ namespace PowerBI.Api.Tests
             using (var handler = new FakeHttpClientHandler(rebindResponse))
             using (var client = CreatePowerBIClient(handler))
             {
-                await client.Reports.RebindReportAsync(this.workspaceCollectionName, this.workspaceId, reportId, new RebindReportRequest(datasetId));
+                await client.Reports.RebindReportAsync(reportId, new RebindReportRequest(datasetId));
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}/Rebind";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/reports/{reportId}/Rebind";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
@@ -82,15 +96,15 @@ namespace PowerBI.Api.Tests
             {
                 TargetModelId = Guid.NewGuid().ToString(),
                 Name = "Model Name",
-                TargetWorkspaceId = Guid.NewGuid().ToString()
+                TargetGroupId = Guid.NewGuid().ToString()
             };
 
             using (var handler = new FakeHttpClientHandler(cloneResponse))
             using (var client = CreatePowerBIClient(handler))
             {
-                var response = await client.Reports.CloneReportAsync(this.workspaceCollectionName, this.workspaceId, reportId, cloneRequest);
+                var response = await client.Reports.CloneReportAsync(reportId, cloneRequest);
 
-                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}/Clone";
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/reports/{reportId}/Clone";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 Assert.IsNotNull(response.Id);

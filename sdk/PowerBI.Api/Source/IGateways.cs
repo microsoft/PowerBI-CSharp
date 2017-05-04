@@ -21,11 +21,36 @@ namespace Microsoft.PowerBI.Api.V1
         /// <summary>
         /// Updates the credentials for the specified datasource
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
+        /// <param name='gatewayId'>
+        /// The gateway id
         /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='datasourceDelta'>
+        /// The datasource changes
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Updates the credentials for the specified datasource
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='gatewayId'>
         /// The gateway id
@@ -51,6 +76,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PatchDatasourceInGroupWithHttpMessagesAsync(string groupId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

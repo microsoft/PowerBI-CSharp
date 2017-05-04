@@ -18,13 +18,39 @@ namespace Microsoft.PowerBI.Api.V1
     public partial class Imports : IServiceOperations<PowerBIClient>, IImports
     {
         /// <summary>
-        /// Uploads a PBIX file to the specified workspace
+        /// Uploads a PBIX file to the MyWorkspace
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
+        /// <param name='file'>
+        /// The PBIX file to import
         /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='datasetDisplayName'>
+        /// The dataset display name
+        /// </param>
+        /// <param name='nameConflict'>
+        /// Whether to overwrite dataset during conflicts
+        /// </param>
+        /// <param name="customHeaders">
+        /// Optional custom headers
+        /// </param>
+        /// <param name="cancellationToken">
+        /// Optional cancellation token
+        /// </param>
+        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await PostImportFileWithHttpMessage(
+							groupId: null,
+							file: file,
+							datasetDisplayName: datasetDisplayName,
+							nameConflict: nameConflict,
+							customHeaders: customHeaders,
+							cancellationToken: cancellationToken);
+        }
+		
+		/// <summary>
+        /// Uploads a PBIX file to the specified group
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group Id
         /// </param>
         /// <param name='file'>
         /// The PBIX file to import
@@ -41,16 +67,8 @@ namespace Microsoft.PowerBI.Api.V1
         /// <param name="cancellationToken">
         /// Optional cancellation token
         /// </param>
-        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string collectionName, string workspaceId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (collectionName == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "collectionName");
-            }
-            if (workspaceId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "workspaceId");
-            }
+        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {			
             if (file == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "file");
@@ -63,8 +81,7 @@ namespace Microsoft.PowerBI.Api.V1
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("collectionName", collectionName);
-                tracingParameters.Add("workspaceId", workspaceId);
+                tracingParameters.Add("groupId", groupId ?? string.Empty);
                 tracingParameters.Add("file", file);
                 tracingParameters.Add("datasetDisplayName", datasetDisplayName);
                 tracingParameters.Add("nameConflict", nameConflict);
@@ -72,10 +89,15 @@ namespace Microsoft.PowerBI.Api.V1
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
             }
 
+			var groupsPart = (!string.IsNullOrEmpty(groupId)) ? "v1.0/groups/{groupId}/imports" : "v1.0/imports";
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
-            var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/collections/{collectionName}/workspaces/{workspaceId}/imports").ToString();
-            _url = _url.Replace("{collectionName}", Uri.EscapeDataString(collectionName));
-            _url = _url.Replace("{workspaceId}", Uri.EscapeDataString(workspaceId));
+			var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), groupsPart).ToString();
+			
+			if (!string.IsNullOrEmpty(groupId))
+			{
+				_url = _url.Replace("{groupId}", Uri.EscapeDataString(groupId));
+			}
+            
             List<string> _queryParameters = new List<string>();
             if (datasetDisplayName != null)
             {

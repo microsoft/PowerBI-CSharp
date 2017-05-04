@@ -21,11 +21,24 @@ namespace Microsoft.PowerBI.Api.V1
         /// <summary>
         /// Returns the datasets
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
         /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListDataset>> GetDatasetsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Post a new entity to datasets
+        /// </summary>
+        /// <param name='dataset'>
+        /// Create dataset parameters
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -42,15 +55,249 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListDataset>> GetDatasetsWithHttpMessagesAsync(string collectionName, string workspaceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PostDatasetWithHttpMessagesAsync(Dataset dataset, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Posts new data rows into the specified table
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='tableName'>
+        /// The table name
+        /// </param>
+        /// <param name='requestMessage'>
+        /// The request message
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> PostRowsWithHttpMessagesAsync(string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes all rows from the specified table
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='tableName'>
+        /// The table name
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> DeleteRowsWithHttpMessagesAsync(string datasetKey, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets all tables within the specified dataset
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListTable>> GetTablesWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Updates a schema and metadata for the specified table
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='tableName'>
+        /// The table name
+        /// </param>
+        /// <param name='requestMessage'>
+        /// The request message
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> PutTableWithHttpMessagesAsync(string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the dataset metadata for the specifeid dataset id
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Dataset>> GetDatasetByIdWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes the dataset with the specified id
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> DeleteDatasetByIdWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets a list of bound gateway datasources for the specified dataset
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetGatewayDatasourcesWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets a list of datasource for the specified dataset
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListDatasource>> GetDatasourcesWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Sets all connections for the specified dataset
+        /// </summary>
+        /// <param name='datasetKey'>
+        /// The dataset id
+        /// </param>
+        /// <param name='parameters'>
+        /// The body
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> SetAllConnectionsWithHttpMessagesAsync(string datasetKey, object parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the datasets
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListDataset>> GetDatasetsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Post a new entity to datasets
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='dataset'>
         /// Create dataset parameters
@@ -70,15 +317,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> PostDatasetWithHttpMessagesAsync(string collectionName, string workspaceId, Dataset dataset, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PostDataset1WithHttpMessagesAsync(string groupId, Dataset dataset, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Posts new data rows into the specified table
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -104,15 +348,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> PostRowsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PostRowsInGroupWithHttpMessagesAsync(string groupId, string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes all rows from the specified table
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -135,15 +376,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> DeleteRowsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteRows1WithHttpMessagesAsync(string groupId, string datasetKey, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets all tables within the specified dataset
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -163,15 +401,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListTable>> GetTablesWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListTable>> GetTablesInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates a schema and metadata for the specified table
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -197,15 +432,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> PutTableWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> PutTableInGroupWithHttpMessagesAsync(string groupId, string datasetKey, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the dataset metadata for the specifeid dataset id
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -225,15 +457,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Dataset>> GetDatasetByIdWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Dataset>> GetDatasetByIdInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the dataset with the specified id
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -253,15 +482,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> DeleteDatasetByIdWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> DeleteDatasetById1WithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets a list of bound gateway datasources for the specified dataset
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -281,15 +507,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetGatewayDatasourcesWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetGatewayDatasourcesInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets a list of datasource for the specified dataset
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// </param>
@@ -308,15 +531,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListDatasource>> GetDatasourcesWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListDatasource>> GetDatasourcesInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Sets all connections for the specified dataset
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -339,6 +559,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> SetAllConnectionsWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetKey, object parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> SetAllConnectionsInGroupWithHttpMessagesAsync(string groupId, string datasetKey, object parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

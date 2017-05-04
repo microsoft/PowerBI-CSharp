@@ -48,11 +48,172 @@ namespace Microsoft.PowerBI.Api.V1
         /// <summary>
         /// Updates the credentials for the specified datasource
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
+        /// <param name='gatewayId'>
+        /// The gateway id
         /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='datasourceDelta'>
+        /// The datasource changes
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (gatewayId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "gatewayId");
+            }
+            if (datasourceId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasourceId");
+            }
+            if (datasourceDelta == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasourceDelta");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("gatewayId", gatewayId);
+                tracingParameters.Add("datasourceId", datasourceId);
+                tracingParameters.Add("datasourceDelta", datasourceDelta);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "PatchDatasource", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(gatewayId));
+            _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(datasourceId));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("PATCH");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(datasourceDelta != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceDelta, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<object>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<object>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Updates the credentials for the specified datasource
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='gatewayId'>
         /// The gateway id
@@ -84,15 +245,11 @@ namespace Microsoft.PowerBI.Api.V1
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> PatchDatasourceInGroupWithHttpMessagesAsync(string groupId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (collectionName == null)
+            if (groupId == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "collectionName");
-            }
-            if (workspaceId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "workspaceId");
+                throw new ValidationException(ValidationRules.CannotBeNull, "groupId");
             }
             if (gatewayId == null)
             {
@@ -113,19 +270,17 @@ namespace Microsoft.PowerBI.Api.V1
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("collectionName", collectionName);
-                tracingParameters.Add("workspaceId", workspaceId);
+                tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("gatewayId", gatewayId);
                 tracingParameters.Add("datasourceId", datasourceId);
                 tracingParameters.Add("datasourceDelta", datasourceDelta);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "PatchDatasource", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "PatchDatasourceInGroup", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/collections/{collectionName}/workspaces/{workspaceId}/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
-            _url = _url.Replace("{collectionName}", System.Uri.EscapeDataString(collectionName));
-            _url = _url.Replace("{workspaceId}", System.Uri.EscapeDataString(workspaceId));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/groups/{groupId}/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(gatewayId));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(datasourceId));
             // Create HTTP transport objects

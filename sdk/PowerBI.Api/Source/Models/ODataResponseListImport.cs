@@ -28,6 +28,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <summary>
         /// Initializes a new instance of the ODataResponseListImport class.
         /// </summary>
+        /// <param name="odatacontext">OData context</param>
         /// <param name="value">The imports collection</param>
         public ODataResponseListImport(string odatacontext = default(string), IList<Import> value = default(IList<Import>))
         {
@@ -42,6 +43,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets oData context
         /// </summary>
         [JsonProperty(PropertyName = "odata.context")]
         public string Odatacontext { get; set; }

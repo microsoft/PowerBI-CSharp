@@ -30,6 +30,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// Initializes a new instance of the ODataResponseListDatasource
         /// class.
         /// </summary>
+        /// <param name="odatacontext">OData context</param>
         /// <param name="value">The datasource collection</param>
         public ODataResponseListDatasource(string odatacontext = default(string), IList<Datasource> value = default(IList<Datasource>))
         {
@@ -44,6 +45,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets oData context
         /// </summary>
         [JsonProperty(PropertyName = "odata.context")]
         public string Odatacontext { get; set; }

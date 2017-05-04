@@ -27,14 +27,14 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// Initializes a new instance of the CloneReportRequest class.
         /// </summary>
         /// <param name="name">The requested report name</param>
-        /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace id</param>
+        /// <param name="targetGroupId">Optional parameter for specifying the
+        /// target group id</param>
         /// <param name="targetModelId">Optional parameter for specifying the
         /// target associated model (dataset) id</param>
-        public CloneReportRequest(string name = default(string), string targetWorkspaceId = default(string), string targetModelId = default(string))
+        public CloneReportRequest(string name = default(string), string targetGroupId = default(string), string targetModelId = default(string))
         {
             Name = name;
-            TargetWorkspaceId = targetWorkspaceId;
+            TargetGroupId = targetGroupId;
             TargetModelId = targetModelId;
             CustomInit();
         }
@@ -51,11 +51,10 @@ namespace Microsoft.PowerBI.Api.V1.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter for specifying the target workspace
-        /// id
+        /// Gets or sets optional parameter for specifying the target group id
         /// </summary>
-        [JsonProperty(PropertyName = "targetWorkspaceId")]
-        public string TargetWorkspaceId { get; set; }
+        [JsonProperty(PropertyName = "targetGroupId")]
+        public string TargetGroupId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target

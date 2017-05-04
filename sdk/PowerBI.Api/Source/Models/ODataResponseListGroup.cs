@@ -2,36 +2,35 @@
 // Changes may cause incorrect behavior and will be lost if the code is
 // regenerated.
 
-namespace Microsoft.PowerBI.Service.Api.V1.Models
+namespace Microsoft.PowerBI.Api.V1.Models
 {
     using Microsoft.PowerBI;
-    using Microsoft.PowerBI.Service;
-    using Microsoft.PowerBI.Service.Api;
-    using Microsoft.PowerBI.Service.Api.V1;
+    using Microsoft.PowerBI.Api;
+    using Microsoft.PowerBI.Api.V1;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Table collection
+    /// Odata response wrapper for a Power BI Group list
     /// </summary>
-    public partial class ODataResponseListTable
+    public partial class ODataResponseListGroup
     {
         /// <summary>
-        /// Initializes a new instance of the ODataResponseListTable class.
+        /// Initializes a new instance of the ODataResponseListGroup class.
         /// </summary>
-        public ODataResponseListTable()
+        public ODataResponseListGroup()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ODataResponseListTable class.
+        /// Initializes a new instance of the ODataResponseListGroup class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The Power BI tables</param>
-        public ODataResponseListTable(string odatacontext = default(string), IList<Table> value = default(IList<Table>))
+        /// <param name="value">The groups</param>
+        public ODataResponseListGroup(string odatacontext = default(string), IList<Group> value = default(IList<Group>))
         {
             Odatacontext = odatacontext;
             Value = value;
@@ -50,10 +49,10 @@ namespace Microsoft.PowerBI.Service.Api.V1.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the Power BI tables
+        /// Gets or sets the groups
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<Table> Value { get; set; }
+        public IList<Group> Value { get; set; }
 
     }
 }

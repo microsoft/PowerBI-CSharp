@@ -21,12 +21,6 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
-            /// </param>
             /// <param name='gatewayId'>
             /// The gateway id
             /// </param>
@@ -36,9 +30,9 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='datasourceDelta'>
             /// The datasource changes
             /// </param>
-            public static object PatchDatasource(this IGateways operations, string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta)
+            public static object PatchDatasource(this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta)
             {
-                return operations.PatchDatasourceAsync(collectionName, workspaceId, gatewayId, datasourceId, datasourceDelta).GetAwaiter().GetResult();
+                return operations.PatchDatasourceAsync(gatewayId, datasourceId, datasourceDelta).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -46,12 +40,6 @@ namespace Microsoft.PowerBI.Api.V1
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
             /// </param>
             /// <param name='gatewayId'>
             /// The gateway id
@@ -65,9 +53,61 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PatchDatasourceAsync(this IGateways operations, string collectionName, string workspaceId, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> PatchDatasourceAsync(this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchDatasourceWithHttpMessagesAsync(collectionName, workspaceId, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PatchDatasourceWithHttpMessagesAsync(gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates the credentials for the specified datasource
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='datasourceDelta'>
+            /// The datasource changes
+            /// </param>
+            public static object PatchDatasourceInGroup(this IGateways operations, string groupId, string gatewayId, string datasourceId, object datasourceDelta)
+            {
+                return operations.PatchDatasourceInGroupAsync(groupId, gatewayId, datasourceId, datasourceDelta).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the credentials for the specified datasource
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='datasourceDelta'>
+            /// The datasource changes
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> PatchDatasourceInGroupAsync(this IGateways operations, string groupId, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PatchDatasourceInGroupWithHttpMessagesAsync(groupId, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

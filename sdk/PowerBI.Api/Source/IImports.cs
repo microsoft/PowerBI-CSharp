@@ -19,13 +19,33 @@ namespace Microsoft.PowerBI.Api.V1
     public partial interface IImports
     {
         /// <summary>
-        /// Returns a list of imports for the specified workspace
+        /// Returns a list of imports
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
         /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListImport>> GetImportsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Creates a new import using the specified import info
+        /// </summary>
+        /// <param name='datasetDisplayName'>
+        /// The display name of the dataset
+        /// </param>
+        /// <param name='importInfo'>
+        /// The import to post
+        /// </param>
+        /// <param name='nameConflict'>
+        /// Determines what to do if a dataset with the same name already
+        /// exists
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -42,15 +62,56 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListImport>> GetImportsWithHttpMessagesAsync(string collectionName, string workspaceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the import metadata for the specifed import id
+        /// </summary>
+        /// <param name='importId'>
+        /// The import id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Import>> GetImportByIdWithHttpMessagesAsync(string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of imports for the specified group
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListImport>> GetImportsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates a new import using the specified import info
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset
@@ -77,15 +138,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string collectionName, string workspaceId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImport1WithHttpMessagesAsync(string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the import metadata for the specifed import id
         /// </summary>
-        /// <param name='collectionName'>
-        /// The workspace collection name
-        /// </param>
-        /// <param name='workspaceId'>
-        /// The workspace id
+        /// <param name='groupId'>
+        /// The group id
         /// </param>
         /// <param name='importId'>
         /// The import id
@@ -105,6 +163,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Import>> GetImportByIdWithHttpMessagesAsync(string collectionName, string workspaceId, string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> GetImportByIdInGroupWithHttpMessagesAsync(string groupId, string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

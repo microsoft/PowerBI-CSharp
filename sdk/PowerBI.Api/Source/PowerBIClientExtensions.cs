@@ -2,11 +2,10 @@
 // Changes may cause incorrect behavior and will be lost if the code is
 // regenerated.
 
-namespace Microsoft.PowerBI.Service.Api.V1
+namespace Microsoft.PowerBI.Api.V1
 {
     using Microsoft.PowerBI;
-    using Microsoft.PowerBI.Service;
-    using Microsoft.PowerBI.Service.Api;
+    using Microsoft.PowerBI.Api;
     using Models;
     using System.Threading;
     using System.Threading.Tasks;

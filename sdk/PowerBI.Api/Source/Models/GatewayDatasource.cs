@@ -32,6 +32,8 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <param name="connectionDetails">The datasource connection
         /// details</param>
         /// <param name="credentialType">The datasource credential type</param>
+        /// <param name="basicCredentials">The datasource basic
+        /// credential</param>
         public GatewayDatasource(string id = default(string), string gatewayId = default(string), string datasourceType = default(string), string connectionDetails = default(string), string credentialType = default(string), BasicCredentials basicCredentials = default(BasicCredentials))
         {
             Id = id;
@@ -79,6 +81,7 @@ namespace Microsoft.PowerBI.Api.V1.Models
         public string CredentialType { get; set; }
 
         /// <summary>
+        /// Gets or sets the datasource basic credential
         /// </summary>
         [JsonProperty(PropertyName = "basicCredentials")]
         public BasicCredentials BasicCredentials { get; set; }

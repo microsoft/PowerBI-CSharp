@@ -16,40 +16,28 @@ namespace Microsoft.PowerBI.Api.V1
     public static partial class ImportsExtensions
     {
             /// <summary>
-            /// Returns a list of imports for the specified workspace
+            /// Returns a list of imports
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
-            /// </param>
-            public static ODataResponseListImport GetImports(this IImports operations, string collectionName, string workspaceId)
+            public static ODataResponseListImport GetImports(this IImports operations)
             {
-                return operations.GetImportsAsync(collectionName, workspaceId).GetAwaiter().GetResult();
+                return operations.GetImportsAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Returns a list of imports for the specified workspace
+            /// Returns a list of imports
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListImport> GetImportsAsync(this IImports operations, string collectionName, string workspaceId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListImport> GetImportsAsync(this IImports operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetImportsWithHttpMessagesAsync(collectionName, workspaceId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetImportsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -61,12 +49,6 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
-            /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset
             /// </param>
@@ -76,9 +58,9 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists
             /// </param>
-            public static Import PostImport(this IImports operations, string collectionName, string workspaceId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
+            public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
             {
-                return operations.PostImportAsync(collectionName, workspaceId, datasetDisplayName, importInfo, nameConflict).GetAwaiter().GetResult();
+                return operations.PostImportAsync(datasetDisplayName, importInfo, nameConflict).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -86,12 +68,6 @@ namespace Microsoft.PowerBI.Api.V1
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset
@@ -105,9 +81,9 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportAsync(this IImports operations, string collectionName, string workspaceId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportWithHttpMessagesAsync(collectionName, workspaceId, datasetDisplayName, importInfo, nameConflict, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportWithHttpMessagesAsync(datasetDisplayName, importInfo, nameConflict, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -119,18 +95,12 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
-            /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
-            /// </param>
             /// <param name='importId'>
             /// The import id
             /// </param>
-            public static Import GetImportById(this IImports operations, string collectionName, string workspaceId, string importId)
+            public static Import GetImportById(this IImports operations, string importId)
             {
-                return operations.GetImportByIdAsync(collectionName, workspaceId, importId).GetAwaiter().GetResult();
+                return operations.GetImportByIdAsync(importId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -139,11 +109,131 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='collectionName'>
-            /// The workspace collection name
+            /// <param name='importId'>
+            /// The import id
             /// </param>
-            /// <param name='workspaceId'>
-            /// The workspace id
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Import> GetImportByIdAsync(this IImports operations, string importId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetImportByIdWithHttpMessagesAsync(importId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of imports for the specified group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            public static ODataResponseListImport GetImportsInGroup(this IImports operations, string groupId)
+            {
+                return operations.GetImportsInGroupAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of imports for the specified group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListImport> GetImportsInGroupAsync(this IImports operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetImportsInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Creates a new import using the specified import info
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetDisplayName'>
+            /// The display name of the dataset
+            /// </param>
+            /// <param name='importInfo'>
+            /// The import to post
+            /// </param>
+            /// <param name='nameConflict'>
+            /// Determines what to do if a dataset with the same name already exists
+            /// </param>
+            public static Import PostImport1(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
+            {
+                return operations.PostImport1Async(groupId, datasetDisplayName, importInfo, nameConflict).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates a new import using the specified import info
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetDisplayName'>
+            /// The display name of the dataset
+            /// </param>
+            /// <param name='importInfo'>
+            /// The import to post
+            /// </param>
+            /// <param name='nameConflict'>
+            /// Determines what to do if a dataset with the same name already exists
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Import> PostImport1Async(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PostImport1WithHttpMessagesAsync(groupId, datasetDisplayName, importInfo, nameConflict, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the import metadata for the specifed import id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='importId'>
+            /// The import id
+            /// </param>
+            public static Import GetImportByIdInGroup(this IImports operations, string groupId, string importId)
+            {
+                return operations.GetImportByIdInGroupAsync(groupId, importId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the import metadata for the specifed import id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
             /// </param>
             /// <param name='importId'>
             /// The import id
@@ -151,9 +241,9 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> GetImportByIdAsync(this IImports operations, string collectionName, string workspaceId, string importId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> GetImportByIdInGroupAsync(this IImports operations, string groupId, string importId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetImportByIdWithHttpMessagesAsync(collectionName, workspaceId, importId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetImportByIdInGroupWithHttpMessagesAsync(groupId, importId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
