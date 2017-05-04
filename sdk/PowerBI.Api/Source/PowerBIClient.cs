@@ -60,6 +60,11 @@ namespace Microsoft.PowerBI.Api.V1
         public virtual IReports Reports { get; private set; }
 
         /// <summary>
+        /// Gets the IDashboards.
+        /// </summary>
+        public virtual IDashboards Dashboards { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
         /// </summary>
         /// <param name='handlers'>
@@ -264,6 +269,7 @@ namespace Microsoft.PowerBI.Api.V1
             Gateways = new Gateways(this);
             Imports = new Imports(this);
             Reports = new Reports(this);
+            Dashboards = new Dashboards(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
