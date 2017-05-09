@@ -7,7 +7,6 @@ namespace Microsoft.PowerBI.Api.V1.Models
     using Microsoft.PowerBI;
     using Microsoft.PowerBI.Api;
     using Microsoft.PowerBI.Api.V1;
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -100,32 +99,5 @@ namespace Microsoft.PowerBI.Api.V1.Models
         [JsonProperty(PropertyName = "defaultMode")]
         public string DefaultMode { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Name == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
-            }
-            if (Tables == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Tables");
-            }
-            if (Tables != null)
-            {
-                foreach (var element in Tables)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }

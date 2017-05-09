@@ -7,6 +7,7 @@ namespace Microsoft.PowerBI.Api.V1
     using Microsoft.PowerBI;
     using Microsoft.PowerBI.Api;
     using Models;
+    using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -105,6 +106,51 @@ namespace Microsoft.PowerBI.Api.V1
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static Stream ExportReport(this IReports operations, string collectionName, string workspaceId, string reportKey)
+            {
+                return operations.ExportReportAsync(collectionName, workspaceId, reportKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='collectionName'>
+            /// The workspace collection name
+            /// </param>
+            /// <param name='workspaceId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Stream> ExportReportAsync(this IReports operations, string collectionName, string workspaceId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                var _result = await operations.ExportReportWithHttpMessagesAsync(collectionName, workspaceId, reportKey, null, cancellationToken).ConfigureAwait(false);
+                _result.Request.Dispose();
+                return _result.Body;
             }
 
             /// <summary>

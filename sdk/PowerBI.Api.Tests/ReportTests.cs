@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.PowerBI.Api.V1;
 using Microsoft.PowerBI.Api.V1.Models;
@@ -59,6 +60,27 @@ namespace PowerBI.Api.Tests
                 await client.Reports.RebindReportAsync(this.workspaceCollectionName, this.workspaceId, reportId, new RebindReportRequest(datasetId));
 
                 var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}/Rebind";
+
+                Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
+                CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task ReportExport()
+        {
+            var exportResponse = CreateSampleStreamResponse();
+
+            var reportId = Guid.NewGuid().ToString();
+
+            using (var handler = new FakeHttpClientHandler(exportResponse))
+            using (var client = CreatePowerBIClient(handler))
+            {
+                var content = await client.Reports.ExportReportAsync(this.workspaceCollectionName, this.workspaceId, reportId);
+
+                Assert.AreEqual(exportResponse.Content, exportResponse.Content);
+
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/collections/{this.workspaceCollectionName}/workspaces/{this.workspaceId}/reports/{reportId}/Export";
 
                 Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
                 CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
@@ -123,6 +145,19 @@ namespace PowerBI.Api.Tests
             {
                 Content = new StringContent(JsonConvert.SerializeObject(report))
             };
+        }
+
+        private static HttpResponseMessage CreateSampleStreamResponse(string name = default(string))
+        {
+            var responseStream = new MemoryStream();
+            var report = new Report(Guid.NewGuid().ToString(), "Report Name", "AN URL", "EMBEDURL");
+
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            responseStream.Position = 0;
+            response.Content = new StreamContent(responseStream);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/zip");
+
+            return response;
         }
     }
 }
