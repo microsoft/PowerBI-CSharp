@@ -10,6 +10,7 @@ namespace Microsoft.PowerBI.Api.V1
     using Models;
     using System.Collections;
     using System.Collections.Generic;
+    using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -74,6 +75,34 @@ namespace Microsoft.PowerBI.Api.V1
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Exports the specified report
+        /// </summary>
+        /// <param name='collectionName'>
+        /// The workspace collection name
+        /// </param>
+        /// <param name='workspaceId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportKey'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Stream>> ExportReportWithHttpMessagesAsync(string collectionName, string workspaceId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the specified report
         /// </summary>
