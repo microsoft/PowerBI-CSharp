@@ -7,7 +7,6 @@ namespace Microsoft.PowerBI.Api.V1.Models
     using Microsoft.PowerBI;
     using Microsoft.PowerBI.Api;
     using Microsoft.PowerBI.Api.V1;
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -53,29 +52,5 @@ namespace Microsoft.PowerBI.Api.V1.Models
         [JsonProperty(PropertyName = "dataType")]
         public string DataType { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Name == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
-            }
-            if (DataType == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "DataType");
-            }
-            if (Name != null)
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(Name, "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "Name", "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$");
-                }
-            }
-        }
     }
 }

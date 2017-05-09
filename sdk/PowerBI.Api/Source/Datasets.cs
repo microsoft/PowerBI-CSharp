@@ -242,10 +242,6 @@ namespace Microsoft.PowerBI.Api.V1
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "dataset");
             }
-            if (dataset != null)
-            {
-                dataset.Validate();
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
