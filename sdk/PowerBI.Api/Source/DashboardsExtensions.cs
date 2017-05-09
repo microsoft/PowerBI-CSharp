@@ -44,6 +44,40 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
+            /// Gets a list of dashboards in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            public static ODataResponseListDashboard GetDashboardsInGroup(this IDashboards operations, string groupId)
+            {
+                return operations.GetDashboardsInGroupAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a list of dashboards in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDashboard> GetDashboardsInGroupAsync(this IDashboards operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardsInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get the specified dashboard
             /// </summary>
             /// <param name='operations'>
@@ -112,7 +146,47 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
-            /// Get tiles in the specified dashboard
+            /// Get tiles in the specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static ODataResponseListTile GetTilesInGroup(this IDashboards operations, string groupId, string dashboardKey)
+            {
+                return operations.GetTilesInGroupAsync(groupId, dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get tiles in the specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListTile> GetTilesInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTilesInGroupWithHttpMessagesAsync(groupId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a specified tile in a specified dashboard
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -123,13 +197,13 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='tileKey'>
             /// The tile id
             /// </param>
-            public static Tile GetTiles1(this IDashboards operations, string dashboardKey, string tileKey)
+            public static Tile GetTile(this IDashboards operations, string dashboardKey, string tileKey)
             {
-                return operations.GetTiles1Async(dashboardKey, tileKey).GetAwaiter().GetResult();
+                return operations.GetTileAsync(dashboardKey, tileKey).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Get tiles in the specified dashboard
+            /// Get a specified tile in a specified dashboard
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -143,9 +217,55 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Tile> GetTiles1Async(this IDashboards operations, string dashboardKey, string tileKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Tile> GetTileAsync(this IDashboards operations, string dashboardKey, string tileKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTiles1WithHttpMessagesAsync(dashboardKey, tileKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetTileWithHttpMessagesAsync(dashboardKey, tileKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a specified tile in a specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            public static Tile GetTileInGroup(this IDashboards operations, string groupId, string dashboardKey, string tileKey)
+            {
+                return operations.GetTileInGroupAsync(groupId, dashboardKey, tileKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a specified tile in a specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Tile> GetTileInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, string tileKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTileInGroupWithHttpMessagesAsync(groupId, dashboardKey, tileKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

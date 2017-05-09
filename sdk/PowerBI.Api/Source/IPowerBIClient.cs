@@ -66,6 +66,11 @@ namespace Microsoft.PowerBI.Api.V1
         IDashboards Dashboards { get; }
 
         /// <summary>
+        /// Gets the ITiles.
+        /// </summary>
+        ITiles Tiles { get; }
+
+        /// <summary>
         /// Returns a list of groups
         /// </summary>
         /// <param name='customHeaders'>
