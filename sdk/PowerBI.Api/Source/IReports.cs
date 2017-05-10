@@ -107,6 +107,28 @@ namespace Microsoft.PowerBI.Api.V1
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenForCreateWithHttpMessagesAsync(GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get the specified report
+        /// </summary>
+        /// <param name='reportKey'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Deletes the specified report
         /// </summary>
         /// <param name='reportKey'>
@@ -176,6 +198,56 @@ namespace Microsoft.PowerBI.Api.V1
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListReport>> GetReportsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Get the specified report
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportKey'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Report>> GetReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes the specified report
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportKey'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> DeleteReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Clones the specified report
         /// </summary>
         /// <param name='groupId'>
@@ -203,31 +275,6 @@ namespace Microsoft.PowerBI.Api.V1
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Deletes the specified report
-        /// </summary>
-        /// <param name='groupId'>
-        /// The group id
-        /// </param>
-        /// <param name='reportKey'>
-        /// The report id
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<object>> DeleteReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate token to view or edit the specified report
         /// </summary>

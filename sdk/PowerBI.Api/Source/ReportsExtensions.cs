@@ -158,6 +158,40 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
+            /// Get the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static Report GetReport(this IReports operations, string reportKey)
+            {
+                return operations.GetReportAsync(reportKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Report> GetReportAsync(this IReports operations, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetReportWithHttpMessagesAsync(reportKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Deletes the specified report
             /// </summary>
             /// <param name='operations'>
@@ -266,7 +300,7 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
-            /// Clones the specified report
+            /// Get the specified report
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -277,16 +311,13 @@ namespace Microsoft.PowerBI.Api.V1
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='requestParameters'>
-            /// Clone report parameters
-            /// </param>
-            public static Report CloneReportInGroup(this IReports operations, string groupId, string reportKey, CloneReportRequest requestParameters)
+            public static Report GetReportInGroup(this IReports operations, string groupId, string reportKey)
             {
-                return operations.CloneReportInGroupAsync(groupId, reportKey, requestParameters).GetAwaiter().GetResult();
+                return operations.GetReportInGroupAsync(groupId, reportKey).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Clones the specified report
+            /// Get the specified report
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -296,16 +327,13 @@ namespace Microsoft.PowerBI.Api.V1
             /// </param>
             /// <param name='reportKey'>
             /// The report id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Clone report parameters
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Report> CloneReportInGroupAsync(this IReports operations, string groupId, string reportKey, CloneReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Report> GetReportInGroupAsync(this IReports operations, string groupId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CloneReportInGroupWithHttpMessagesAsync(groupId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetReportInGroupWithHttpMessagesAsync(groupId, reportKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -346,6 +374,52 @@ namespace Microsoft.PowerBI.Api.V1
             public static async Task<object> DeleteReportInGroupAsync(this IReports operations, string groupId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DeleteReportInGroupWithHttpMessagesAsync(groupId, reportKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Clones the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone report parameters
+            /// </param>
+            public static Report CloneReportInGroup(this IReports operations, string groupId, string reportKey, CloneReportRequest requestParameters)
+            {
+                return operations.CloneReportInGroupAsync(groupId, reportKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Clones the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone report parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Report> CloneReportInGroupAsync(this IReports operations, string groupId, string reportKey, CloneReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CloneReportInGroupWithHttpMessagesAsync(groupId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

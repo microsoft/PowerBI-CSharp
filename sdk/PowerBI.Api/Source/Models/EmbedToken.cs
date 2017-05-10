@@ -27,9 +27,13 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// Initializes a new instance of the EmbedToken class.
         /// </summary>
         /// <param name="token">Embed token.</param>
-        public EmbedToken(string token = default(string))
+        /// <param name="tokenId">Unique token Id.</param>
+        /// <param name="expiration">Expiration time of token - in UTC.</param>
+        public EmbedToken(string token = default(string), string tokenId = default(string), System.DateTime? expiration = default(System.DateTime?))
         {
             Token = token;
+            TokenId = tokenId;
+            Expiration = expiration;
             CustomInit();
         }
 
@@ -43,6 +47,18 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// </summary>
         [JsonProperty(PropertyName = "token")]
         public string Token { get; set; }
+
+        /// <summary>
+        /// Gets or sets unique token Id.
+        /// </summary>
+        [JsonProperty(PropertyName = "tokenId")]
+        public string TokenId { get; set; }
+
+        /// <summary>
+        /// Gets or sets expiration time of token - in UTC.
+        /// </summary>
+        [JsonProperty(PropertyName = "expiration")]
+        public System.DateTime? Expiration { get; set; }
 
     }
 }
