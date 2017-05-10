@@ -19,17 +19,8 @@ namespace Microsoft.PowerBI.Api.V1
     public partial interface IGateways
     {
         /// <summary>
-        /// Updates the credentials for the specified datasource
+        /// Returns a list of gateways
         /// </summary>
-        /// <param name='gatewayId'>
-        /// The gateway id
-        /// </param>
-        /// <param name='datasourceId'>
-        /// The datasource id
-        /// </param>
-        /// <param name='datasourceDelta'>
-        /// The datasource changes
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -42,24 +33,12 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<object>> PatchDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListGateway>> GetGatewaysWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the credentials for the specified datasource
+        /// Returns the specified gateway
         /// </summary>
-        /// <param name='groupId'>
-        /// The group id
-        /// </param>
         /// <param name='gatewayId'>
         /// The gateway id
-        /// </param>
-        /// <param name='datasourceId'>
-        /// The datasource id
-        /// </param>
-        /// <param name='datasourceDelta'>
-        /// The datasource changes
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -76,6 +55,131 @@ namespace Microsoft.PowerBI.Api.V1
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> PatchDatasourceInGroupWithHttpMessagesAsync(string groupId, string gatewayId, string datasourceId, object datasourceDelta, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Gateway>> GetGatewayByIdWithHttpMessagesAsync(string gatewayId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get all datasources of specific gateway
+        /// </summary>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetDatasourcesWithHttpMessagesAsync(string gatewayId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create a datasource
+        /// </summary>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceToGatewayRequest'>
+        /// The datasource requested to create
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> CreateDatasourceWithHttpMessagesAsync(string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get a datasource by id
+        /// </summary>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<GatewayDatasource>> GetDatasourceByIdWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete a datasource
+        /// </summary>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> DeleteDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update a datasource credentials
+        /// </summary>
+        /// <param name='gatewayId'>
+        /// The gateway id
+        /// </param>
+        /// <param name='datasourceId'>
+        /// The datasource id
+        /// </param>
+        /// <param name='updateDatasourceRequest'>
+        /// The update datasource request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> UpdateDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

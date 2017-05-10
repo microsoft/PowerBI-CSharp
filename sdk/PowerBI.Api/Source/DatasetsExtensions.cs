@@ -312,6 +312,74 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
+            /// Gets the dataset refresh history
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static ODataResponseListRefresh GetRefreshHistory(this IDatasets operations, string datasetKey)
+            {
+                return operations.GetRefreshHistoryAsync(datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the dataset refresh history
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListRefresh> GetRefreshHistoryAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshHistoryWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Start a dataset refresh
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static object RefreshDataset(this IDatasets operations, string datasetKey)
+            {
+                return operations.RefreshDatasetAsync(datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Start a dataset refresh
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> RefreshDatasetAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.RefreshDatasetWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Gets a list of bound gateway datasources for the specified dataset
             /// </summary>
             /// <param name='operations'>
@@ -412,6 +480,46 @@ namespace Microsoft.PowerBI.Api.V1
             public static async Task<object> SetAllConnectionsAsync(this IDatasets operations, string datasetKey, object parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.SetAllConnectionsWithHttpMessagesAsync(datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Bind dataset to gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='bindToGatewayRequest'>
+            /// The bind to gateway request
+            /// </param>
+            public static object BindToGateway(this IDatasets operations, string datasetKey, BindToGatewayRequest bindToGatewayRequest)
+            {
+                return operations.BindToGatewayAsync(datasetKey, bindToGatewayRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Bind dataset to gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='bindToGatewayRequest'>
+            /// The bind to gateway request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> BindToGatewayAsync(this IDatasets operations, string datasetKey, BindToGatewayRequest bindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BindToGatewayWithHttpMessagesAsync(datasetKey, bindToGatewayRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -762,6 +870,86 @@ namespace Microsoft.PowerBI.Api.V1
             }
 
             /// <summary>
+            /// Gets the dataset refresh history
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static ODataResponseListRefresh GetRefreshHistoryInGroup(this IDatasets operations, string groupId, string datasetKey)
+            {
+                return operations.GetRefreshHistoryInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the dataset refresh history
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListRefresh> GetRefreshHistoryInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshHistoryInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Start a dataset refresh
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static object RefreshDatasetInGroup(this IDatasets operations, string groupId, string datasetKey)
+            {
+                return operations.RefreshDatasetInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Start a dataset refresh
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> RefreshDatasetInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Gets a list of bound gateway datasources for the specified dataset
             /// </summary>
             /// <param name='operations'>
@@ -880,6 +1068,92 @@ namespace Microsoft.PowerBI.Api.V1
             public static async Task<object> SetAllConnectionsInGroupAsync(this IDatasets operations, string groupId, string datasetKey, object parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.SetAllConnectionsInGroupWithHttpMessagesAsync(groupId, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Bind dataset to gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='bindToGatewayRequest'>
+            /// The bind to gateway request
+            /// </param>
+            public static object BindToGatewayInGroup(this IDatasets operations, string groupId, string datasetKey, BindToGatewayRequest bindToGatewayRequest)
+            {
+                return operations.BindToGatewayInGroupAsync(groupId, datasetKey, bindToGatewayRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Bind dataset to gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='bindToGatewayRequest'>
+            /// The bind to gateway request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> BindToGatewayInGroupAsync(this IDatasets operations, string groupId, string datasetKey, BindToGatewayRequest bindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.BindToGatewayInGroupWithHttpMessagesAsync(groupId, datasetKey, bindToGatewayRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Take Over a dataset
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static object TakeOverInGroup(this IDatasets operations, string groupId, string datasetKey)
+            {
+                return operations.TakeOverInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Take Over a dataset
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> TakeOverInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.TakeOverInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -16,98 +16,262 @@ namespace Microsoft.PowerBI.Api.V1
     public static partial class GatewaysExtensions
     {
             /// <summary>
-            /// Updates the credentials for the specified datasource
+            /// Returns a list of gateways
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='gatewayId'>
-            /// The gateway id
-            /// </param>
-            /// <param name='datasourceId'>
-            /// The datasource id
-            /// </param>
-            /// <param name='datasourceDelta'>
-            /// The datasource changes
-            /// </param>
-            public static object PatchDatasource(this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta)
+            public static ODataResponseListGateway GetGateways(this IGateways operations)
             {
-                return operations.PatchDatasourceAsync(gatewayId, datasourceId, datasourceDelta).GetAwaiter().GetResult();
+                return operations.GetGatewaysAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Updates the credentials for the specified datasource
+            /// Returns a list of gateways
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
-            /// </param>
-            /// <param name='gatewayId'>
-            /// The gateway id
-            /// </param>
-            /// <param name='datasourceId'>
-            /// The datasource id
-            /// </param>
-            /// <param name='datasourceDelta'>
-            /// The datasource changes
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PatchDatasourceAsync(this IGateways operations, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListGateway> GetGatewaysAsync(this IGateways operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchDatasourceWithHttpMessagesAsync(gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGatewaysWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
             }
 
             /// <summary>
-            /// Updates the credentials for the specified datasource
+            /// Returns the specified gateway
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
             /// <param name='gatewayId'>
             /// The gateway id
             /// </param>
-            /// <param name='datasourceId'>
-            /// The datasource id
-            /// </param>
-            /// <param name='datasourceDelta'>
-            /// The datasource changes
-            /// </param>
-            public static object PatchDatasourceInGroup(this IGateways operations, string groupId, string gatewayId, string datasourceId, object datasourceDelta)
+            public static Gateway GetGatewayById(this IGateways operations, string gatewayId)
             {
-                return operations.PatchDatasourceInGroupAsync(groupId, gatewayId, datasourceId, datasourceDelta).GetAwaiter().GetResult();
+                return operations.GetGatewayByIdAsync(gatewayId).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Updates the credentials for the specified datasource
+            /// Returns the specified gateway
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
             /// <param name='gatewayId'>
             /// The gateway id
-            /// </param>
-            /// <param name='datasourceId'>
-            /// The datasource id
-            /// </param>
-            /// <param name='datasourceDelta'>
-            /// The datasource changes
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> PatchDatasourceInGroupAsync(this IGateways operations, string groupId, string gatewayId, string datasourceId, object datasourceDelta, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Gateway> GetGatewayByIdAsync(this IGateways operations, string gatewayId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchDatasourceInGroupWithHttpMessagesAsync(groupId, gatewayId, datasourceId, datasourceDelta, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGatewayByIdWithHttpMessagesAsync(gatewayId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get all datasources of specific gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            public static ODataResponseListGatewayDatasource GetDatasources(this IGateways operations, string gatewayId)
+            {
+                return operations.GetDatasourcesAsync(gatewayId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get all datasources of specific gateway
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListGatewayDatasource> GetDatasourcesAsync(this IGateways operations, string gatewayId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasourcesWithHttpMessagesAsync(gatewayId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Create a datasource
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceToGatewayRequest'>
+            /// The datasource requested to create
+            /// </param>
+            public static object CreateDatasource(this IGateways operations, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest)
+            {
+                return operations.CreateDatasourceAsync(gatewayId, datasourceToGatewayRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Create a datasource
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceToGatewayRequest'>
+            /// The datasource requested to create
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> CreateDatasourceAsync(this IGateways operations, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateDatasourceWithHttpMessagesAsync(gatewayId, datasourceToGatewayRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a datasource by id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            public static GatewayDatasource GetDatasourceById(this IGateways operations, string gatewayId, string datasourceId)
+            {
+                return operations.GetDatasourceByIdAsync(gatewayId, datasourceId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a datasource by id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<GatewayDatasource> GetDatasourceByIdAsync(this IGateways operations, string gatewayId, string datasourceId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasourceByIdWithHttpMessagesAsync(gatewayId, datasourceId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a datasource
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            public static object DeleteDatasource(this IGateways operations, string gatewayId, string datasourceId)
+            {
+                return operations.DeleteDatasourceAsync(gatewayId, datasourceId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a datasource
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteDatasourceAsync(this IGateways operations, string gatewayId, string datasourceId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteDatasourceWithHttpMessagesAsync(gatewayId, datasourceId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Update a datasource credentials
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='updateDatasourceRequest'>
+            /// The update datasource request
+            /// </param>
+            public static object UpdateDatasource(this IGateways operations, string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest)
+            {
+                return operations.UpdateDatasourceAsync(gatewayId, datasourceId, updateDatasourceRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Update a datasource credentials
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='updateDatasourceRequest'>
+            /// The update datasource request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateDatasourceAsync(this IGateways operations, string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateDatasourceWithHttpMessagesAsync(gatewayId, datasourceId, updateDatasourceRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
