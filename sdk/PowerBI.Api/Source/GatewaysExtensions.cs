@@ -277,5 +277,45 @@ namespace Microsoft.PowerBI.Api.V1
                 }
             }
 
+            /// <summary>
+            /// Get a datasource status by id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            public static object GetDatasourceStatusById(this IGateways operations, string gatewayId, string datasourceId)
+            {
+                return operations.GetDatasourceStatusByIdAsync(gatewayId, datasourceId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a datasource status by id
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> GetDatasourceStatusByIdAsync(this IGateways operations, string gatewayId, string datasourceId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasourceStatusByIdWithHttpMessagesAsync(gatewayId, datasourceId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }
