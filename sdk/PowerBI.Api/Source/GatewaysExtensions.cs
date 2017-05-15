@@ -317,5 +317,137 @@ namespace Microsoft.PowerBI.Api.V1
                 }
             }
 
+            /// <summary>
+            /// Get a datasource users list
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            public static ODataResponseListUserAccessRight GetDatasourceUsers(this IGateways operations, string gatewayId, string datasourceId)
+            {
+                return operations.GetDatasourceUsersAsync(gatewayId, datasourceId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a datasource users list
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListUserAccessRight> GetDatasourceUsersAsync(this IGateways operations, string gatewayId, string datasourceId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasourceUsersWithHttpMessagesAsync(gatewayId, datasourceId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get a datasource user
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='addUserToDatasourceRequest'>
+            /// The add user to datasource request
+            /// </param>
+            public static object AddDatasourceUser(this IGateways operations, string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest)
+            {
+                return operations.AddDatasourceUserAsync(gatewayId, datasourceId, addUserToDatasourceRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get a datasource user
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='addUserToDatasourceRequest'>
+            /// The add user to datasource request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> AddDatasourceUserAsync(this IGateways operations, string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddDatasourceUserWithHttpMessagesAsync(gatewayId, datasourceId, addUserToDatasourceRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Delete a datasource user
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='emailAdress'>
+            /// The user's email address
+            /// </param>
+            public static object DeleteDatasourceUser(this IGateways operations, string gatewayId, string datasourceId, string emailAdress)
+            {
+                return operations.DeleteDatasourceUserAsync(gatewayId, datasourceId, emailAdress).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete a datasource user
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='gatewayId'>
+            /// The gateway id
+            /// </param>
+            /// <param name='datasourceId'>
+            /// The datasource id
+            /// </param>
+            /// <param name='emailAdress'>
+            /// The user's email address
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteDatasourceUserAsync(this IGateways operations, string gatewayId, string datasourceId, string emailAdress, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteDatasourceUserWithHttpMessagesAsync(gatewayId, datasourceId, emailAdress, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }
