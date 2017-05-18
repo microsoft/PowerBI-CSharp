@@ -89,7 +89,7 @@ namespace Microsoft.PowerBI.Api.V1
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
             }
 
-			var groupsPart = (!string.IsNullOrEmpty(groupId)) ? "v1.0/groups/{groupId}/imports" : "v1.0/imports";
+			var groupsPart = (!string.IsNullOrEmpty(groupId)) ? "v1.0/myorg/groups/{groupId}/imports" : "v1.0/myorg/imports";
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
 			var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), groupsPart).ToString();
 			
