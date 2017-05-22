@@ -4,8 +4,8 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.PowerBI.Api.V1;
-using Microsoft.PowerBI.Api.V1.Models;
+using Microsoft.PowerBI.Api.V2;
+using Microsoft.PowerBI.Api.V2.Models;
 using Microsoft.Rest;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
@@ -53,7 +53,7 @@ namespace PowerBI.Api.Tests
             using (var client = CreatePowerBIClient(handler))
             using (var stream = new MemoryStream())
             {
-                await client.Imports.PostImportWithFileAsync(this.groupId, stream, datasetDisplayName, nameConflict);
+                await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, datasetDisplayName, nameConflict);
                 var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
@@ -85,7 +85,7 @@ namespace PowerBI.Api.Tests
             using (var client = CreatePowerBIClient(handler))
             using (var stream = new MemoryStream())
             {
-                await client.Imports.PostImportWithFileAsync(this.groupId, stream, datasetDisplayName);
+                await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, datasetDisplayName);
                 var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
@@ -117,7 +117,7 @@ namespace PowerBI.Api.Tests
             using (var client = CreatePowerBIClient(handler))
             using (var stream = new MemoryStream())
             {
-                await client.Imports.PostImportWithFileAsync(this.groupId, stream, nameConflict: nameConflict);
+                await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, nameConflict: nameConflict);
                 var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?nameConflict={nameConflict}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
