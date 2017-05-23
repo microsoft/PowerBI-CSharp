@@ -30,12 +30,14 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <param name="name">The report name</param>
         /// <param name="webUrl">The report web url</param>
         /// <param name="embedUrl">The report embed url</param>
-        public Report(string id = default(string), string name = default(string), string webUrl = default(string), string embedUrl = default(string))
+        /// <param name="datasetId">The dataset id</param>
+        public Report(string id = default(string), string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string))
         {
             Id = id;
             Name = name;
             WebUrl = webUrl;
             EmbedUrl = embedUrl;
+            DatasetId = datasetId;
             CustomInit();
         }
 
@@ -67,6 +69,12 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// </summary>
         [JsonProperty(PropertyName = "embedUrl")]
         public string EmbedUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset id
+        /// </summary>
+        [JsonProperty(PropertyName = "datasetId")]
+        public string DatasetId { get; set; }
 
     }
 }

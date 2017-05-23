@@ -34,17 +34,19 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// <param name="id">The dataset id</param>
         /// <param name="defaultRetentionPolicy">The dataset default data
         /// retention policy</param>
+        /// <param name="addRowsAPIEnabled">Is Push Dataset</param>
         /// <param name="webUrl">The dataset web url</param>
         /// <param name="datasources">The datasources associated with this
         /// dataset</param>
         /// <param name="defaultMode">The dataset mode or type. Possible values
         /// include: 'AsAzure', 'AsOnPrem', 'Push', 'Streaming',
         /// 'PushStreaming'</param>
-        public Dataset(string name, IList<Table> tables, string id = default(string), string defaultRetentionPolicy = default(string), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string))
+        public Dataset(string name, IList<Table> tables, string id = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string))
         {
             Id = id;
             Name = name;
             DefaultRetentionPolicy = defaultRetentionPolicy;
+            AddRowsAPIEnabled = addRowsAPIEnabled;
             Tables = tables;
             WebUrl = webUrl;
             Datasources = datasources;
@@ -74,6 +76,12 @@ namespace Microsoft.PowerBI.Api.V1.Models
         /// </summary>
         [JsonProperty(PropertyName = "defaultRetentionPolicy")]
         public string DefaultRetentionPolicy { get; set; }
+
+        /// <summary>
+        /// Gets or sets is Push Dataset
+        /// </summary>
+        [JsonProperty(PropertyName = "addRowsAPIEnabled")]
+        public bool? AddRowsAPIEnabled { get; set; }
 
         /// <summary>
         /// Gets or sets the dataset tables

@@ -35,13 +35,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// import</param>
         /// <param name="datasets">The datasets associated with this
         /// import</param>
-        public Import(string id = default(string), string name = default(string), string importState = default(string), IList<Report> reports = default(IList<Report>), IList<Dataset> datasets = default(IList<Dataset>))
+        /// <param name="createdDateTime">Import creation time</param>
+        /// <param name="updatedDateTime">Import last update time</param>
+        public Import(string id = default(string), string name = default(string), string importState = default(string), IList<Report> reports = default(IList<Report>), IList<Dataset> datasets = default(IList<Dataset>), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? updatedDateTime = default(System.DateTime?))
         {
             Id = id;
             Name = name;
             ImportState = importState;
             Reports = reports;
             Datasets = datasets;
+            CreatedDateTime = createdDateTime;
+            UpdatedDateTime = updatedDateTime;
             CustomInit();
         }
 
@@ -79,6 +83,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<Dataset> Datasets { get; set; }
+
+        /// <summary>
+        /// Gets or sets import creation time
+        /// </summary>
+        [JsonProperty(PropertyName = "createdDateTime")]
+        public System.DateTime? CreatedDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets import last update time
+        /// </summary>
+        [JsonProperty(PropertyName = "updatedDateTime")]
+        public System.DateTime? UpdatedDateTime { get; set; }
 
     }
 }
