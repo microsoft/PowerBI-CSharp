@@ -30,10 +30,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// include: 'View', 'Edit'</param>
         /// <param name="datasetId">The new dataset of the rebinded
         /// report</param>
-        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string))
+        /// <param name="allowSaveAs">Allow SaveAs the report with generated
+        /// token.</param>
+        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
+            AllowSaveAs = allowSaveAs;
             CustomInit();
         }
 
@@ -54,6 +57,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
+
+        /// <summary>
+        /// Gets or sets allow SaveAs the report with generated token.
+        /// </summary>
+        [JsonProperty(PropertyName = "allowSaveAs")]
+        public bool? AllowSaveAs { get; set; }
 
     }
 }
