@@ -208,7 +208,7 @@ namespace PBIGettingStarted
             //In a production application, use more specific exception handling.           
             try
             {
-                //Create a POST web request to list all datasets
+                //Create a POST web request to create a new dataset
                 HttpWebRequest request = DatasetRequest(String.Format("{0}/datasets", datasetsUri), "POST", AccessToken());
 
                 //Get a list of datasets
@@ -238,7 +238,7 @@ namespace PBIGettingStarted
             //In a production application, use more specific exception handling.           
             try
             {
-                //Create a POST web request to list all datasets
+                //Create a POST web request to create a new dataset
                 HttpWebRequest request = DatasetRequest(String.Format("{0}/groups/{1}/datasets", datasetsUri, groupId), "POST", AccessToken());
 
                 //Get a list of datasets in groupId
@@ -475,7 +475,7 @@ namespace PBIGettingStarted
             //In a production application, use more specific exception handling.           
             try
             {
-                //Create a POST web request to list all datasets
+                //Create a POST web request to update table schema
                 HttpWebRequest request = DatasetRequest(String.Format("{0}/datasets/{1}/tables/{2}", datasetsUri, datasetId, tableName), "PUT", AccessToken());
 
                 PostRequest(request, new Product2().ToTableSchema(tableName));
@@ -495,7 +495,7 @@ namespace PBIGettingStarted
             //In a production application, use more specific exception handling.           
             try
             {
-                //Create a POST web request to list all datasets
+                //Create a POST web request to update table schema
                 HttpWebRequest request = DatasetRequest(String.Format("{0}/groups/{1}/datasets/{2}/tables/{3}", datasetsUri, groupId, datasetId, tableName), "PUT", AccessToken());
 
                 PostRequest(request, new Product2().ToTableSchema(tableName));
