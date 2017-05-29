@@ -96,7 +96,7 @@ namespace PowerBI.Api.Tests
             {
                 TargetModelId = Guid.NewGuid().ToString(),
                 Name = "Model Name",
-                TargetGroupId = Guid.NewGuid().ToString()
+                TargetWorkspaceId = Guid.NewGuid().ToString()
             };
 
             using (var handler = new FakeHttpClientHandler(cloneResponse))
