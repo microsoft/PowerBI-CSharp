@@ -56,7 +56,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// The import to post
             /// </param>
             /// <param name='nameConflict'>
-            /// Determines what to do if a dataset with the same name already exists
+            /// Determines what to do if a dataset with the same name already exists.
+            /// Possible values include: 'Ignore', 'Abort', 'Overwrite'
             /// </param>
             public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
             {
@@ -76,7 +77,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// The import to post
             /// </param>
             /// <param name='nameConflict'>
-            /// Determines what to do if a dataset with the same name already exists
+            /// Determines what to do if a dataset with the same name already exists.
+            /// Possible values include: 'Ignore', 'Abort', 'Overwrite'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
