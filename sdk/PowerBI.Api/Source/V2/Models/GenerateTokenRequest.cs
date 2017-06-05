@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the GenerateTokenRequest class.
         /// </summary>
         /// <param name="accessLevel">The dataset mode or type. Possible values
-        /// include: 'View', 'Edit'</param>
+        /// include: 'View', 'Edit', 'Create'</param>
         /// <param name="datasetId">The new dataset of the rebinded
         /// report</param>
         /// <param name="allowSaveAs">Allow SaveAs the report with generated
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the dataset mode or type. Possible values include:
-        /// 'View', 'Edit'
+        /// 'View', 'Edit', 'Create'
         /// </summary>
         [JsonProperty(PropertyName = "accessLevel")]
         public string AccessLevel { get; set; }

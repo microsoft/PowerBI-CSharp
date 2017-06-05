@@ -15,5 +15,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
     {
         public const string View = "View";
         public const string Edit = "Edit";
+        public const string Create = "Create";
     }
 }
