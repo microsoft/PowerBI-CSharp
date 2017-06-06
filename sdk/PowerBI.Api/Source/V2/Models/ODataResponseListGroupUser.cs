@@ -13,25 +13,24 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user Access Right List
+    /// A GroupUser odata list wrapper
     /// </summary>
-    public partial class ODataResponseListUserAccessRight
+    public partial class ODataResponseListGroupUser
     {
         /// <summary>
-        /// Initializes a new instance of the ODataResponseListUserAccessRight
-        /// class.
+        /// Initializes a new instance of the ODataResponseListGroupUser class.
         /// </summary>
-        public ODataResponseListUserAccessRight()
+        public ODataResponseListGroupUser()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ODataResponseListUserAccessRight
-        /// class.
+        /// Initializes a new instance of the ODataResponseListGroupUser class.
         /// </summary>
-        /// <param name="value">The user Access Right List</param>
-        public ODataResponseListUserAccessRight(string odatacontext = default(string), IList<UserAccessRight1> value = default(IList<UserAccessRight1>))
+        /// <param name="odatacontext">OData context</param>
+        /// <param name="value">The datasets</param>
+        public ODataResponseListGroupUser(string odatacontext = default(string), IList<GroupUser> value = default(IList<GroupUser>))
         {
             Odatacontext = odatacontext;
             Value = value;
@@ -44,15 +43,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets oData context
         /// </summary>
         [JsonProperty(PropertyName = "odata.context")]
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user Access Right List
+        /// Gets or sets the datasets
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<UserAccessRight1> Value { get; set; }
+        public IList<GroupUser> Value { get; set; }
 
     }
 }

@@ -372,7 +372,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='addUserToDatasourceRequest'>
             /// The add user to datasource request
             /// </param>
-            public static object AddDatasourceUser(this IGateways operations, string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest)
+            public static object AddDatasourceUser(this IGateways operations, string gatewayId, string datasourceId, UserAccessRight1 addUserToDatasourceRequest)
             {
                 return operations.AddDatasourceUserAsync(gatewayId, datasourceId, addUserToDatasourceRequest).GetAwaiter().GetResult();
             }
@@ -395,7 +395,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddDatasourceUserAsync(this IGateways operations, string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddDatasourceUserAsync(this IGateways operations, string gatewayId, string datasourceId, UserAccessRight1 addUserToDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddDatasourceUserWithHttpMessagesAsync(gatewayId, datasourceId, addUserToDatasourceRequest, null, cancellationToken).ConfigureAwait(false))
                 {

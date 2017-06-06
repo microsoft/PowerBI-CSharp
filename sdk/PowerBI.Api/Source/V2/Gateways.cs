@@ -1405,7 +1405,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> AddDatasourceUserWithHttpMessagesAsync(string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> AddDatasourceUserWithHttpMessagesAsync(string gatewayId, string datasourceId, UserAccessRight1 addUserToDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (gatewayId == null)
             {

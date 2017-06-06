@@ -9,14 +9,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using Microsoft.PowerBI.Api.V2;
 
     /// <summary>
-    /// Defines values for UserAccessRight.
+    /// Defines values for MemberAdminAccessRight.
     /// </summary>
-    public static class UserAccessRight
+    public static class MemberAdminAccessRight
     {
         public const string None = "None";
-        public const string Read = "Read";
-        public const string Write = "Write";
+        public const string Member = "Member";
         public const string Admin = "Admin";
-        public const string ReadWrite = "ReadWrite";
     }
 }
