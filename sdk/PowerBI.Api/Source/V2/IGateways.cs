@@ -258,7 +258,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> AddDatasourceUserWithHttpMessagesAsync(string gatewayId, string datasourceId, UserAccessRight1 addUserToDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddDatasourceUserWithHttpMessagesAsync(string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Delete a datasource user
         /// </summary>

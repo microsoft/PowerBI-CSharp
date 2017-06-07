@@ -78,6 +78,40 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Deletes the specified group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id to delete
+            /// </param>
+            public static object DeleteGroup(this IGroups operations, string groupId)
+            {
+                return operations.DeleteGroupAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id to delete
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteGroupAsync(this IGroups operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get a group users list
             /// </summary>
             /// <param name='operations'>
@@ -123,7 +157,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='addUserToDatasourceRequest'>
             /// The add user to datasource request
             /// </param>
-            public static object AddGroupUser(this IGroups operations, string groupId, UserAccessRight1 addUserToDatasourceRequest)
+            public static object AddGroupUser(this IGroups operations, string groupId, UserAccessRight addUserToDatasourceRequest)
             {
                 return operations.AddGroupUserAsync(groupId, addUserToDatasourceRequest).GetAwaiter().GetResult();
             }
@@ -143,9 +177,49 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddGroupUserAsync(this IGroups operations, string groupId, UserAccessRight1 addUserToDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddGroupUserAsync(this IGroups operations, string groupId, UserAccessRight addUserToDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddGroupUserWithHttpMessagesAsync(groupId, addUserToDatasourceRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes the specified group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='user'>
+            /// The user email to delete
+            /// </param>
+            public static object DeleteUserInGroup(this IGroups operations, string groupId, string user)
+            {
+                return operations.DeleteUserInGroupAsync(groupId, user).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='user'>
+            /// The user email to delete
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteUserInGroupAsync(this IGroups operations, string groupId, string user, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteUserInGroupWithHttpMessagesAsync(groupId, user, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

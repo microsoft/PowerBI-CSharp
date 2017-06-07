@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// class.
         /// </summary>
         /// <param name="value">The user Access Right List</param>
-        public ODataResponseListUserAccessRight(string odatacontext = default(string), IList<UserAccessRight1> value = default(IList<UserAccessRight1>))
+        public ODataResponseListUserAccessRight(string odatacontext = default(string), IList<UserAccessRight> value = default(IList<UserAccessRight>))
         {
             Odatacontext = odatacontext;
             Value = value;
@@ -52,7 +52,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the user Access Right List
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<UserAccessRight1> Value { get; set; }
+        public IList<UserAccessRight> Value { get; set; }
 
     }
 }
