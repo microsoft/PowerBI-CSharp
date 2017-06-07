@@ -302,7 +302,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<object>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Dataset>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
