@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a group users list
         /// </summary>

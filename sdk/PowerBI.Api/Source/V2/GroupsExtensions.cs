@@ -52,7 +52,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestParameters'>
             /// Create group request parameters
             /// </param>
-            public static object CreateGroup(this IGroups operations, GroupCreationRequest requestParameters)
+            public static Group CreateGroup(this IGroups operations, GroupCreationRequest requestParameters)
             {
                 return operations.CreateGroupAsync(requestParameters).GetAwaiter().GetResult();
             }
@@ -69,7 +69,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> CreateGroupAsync(this IGroups operations, GroupCreationRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Group> CreateGroupAsync(this IGroups operations, GroupCreationRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateGroupWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
