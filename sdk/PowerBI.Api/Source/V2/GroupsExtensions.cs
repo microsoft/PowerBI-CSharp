@@ -11,9 +11,9 @@ namespace Microsoft.PowerBI.Api.V2
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for PowerBIClient.
+    /// Extension methods for Groups.
     /// </summary>
-    public static partial class PowerBIClientExtensions
+    public static partial class GroupsExtensions
     {
             /// <summary>
             /// Returns a list of groups
@@ -21,7 +21,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ODataResponseListGroup GetGroups(this IPowerBIClient operations)
+            public static ODataResponseListGroup GetGroups(this IGroups operations)
             {
                 return operations.GetGroupsAsync().GetAwaiter().GetResult();
             }
@@ -35,7 +35,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListGroup> GetGroupsAsync(this IPowerBIClient operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListGroup> GetGroupsAsync(this IGroups operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetGroupsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
