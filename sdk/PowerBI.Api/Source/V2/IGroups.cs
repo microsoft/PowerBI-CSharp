@@ -34,7 +34,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-<<<<<<< HEAD
         /// <summary>
         /// Create new group
         /// </summary>
@@ -151,7 +150,5 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteUserInGroupWithHttpMessagesAsync(string groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-=======
->>>>>>> devV2
     }
 }

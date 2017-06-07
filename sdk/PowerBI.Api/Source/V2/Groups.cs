@@ -171,7 +171,6 @@ namespace Microsoft.PowerBI.Api.V2
             return _result;
         }
 
-<<<<<<< HEAD
         /// <summary>
         /// Create new group
         /// </summary>
@@ -905,7 +904,5 @@ namespace Microsoft.PowerBI.Api.V2
             return _result;
         }
 
-=======
->>>>>>> devV2
     }
 }
