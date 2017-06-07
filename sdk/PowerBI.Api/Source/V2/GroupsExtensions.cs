@@ -120,9 +120,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='groupId'>
             /// The group id
             /// </param>
-            public static ODataResponseListGroupUser GetGroupUsers(this IGroups operations, string groupId)
+            public static void GetGroupUsers(this IGroups operations, string groupId)
             {
-                return operations.GetGroupUsersAsync(groupId).GetAwaiter().GetResult();
+                operations.GetGroupUsersAsync(groupId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -137,12 +137,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListGroupUser> GetGroupUsersAsync(this IGroups operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task GetGroupUsersAsync(this IGroups operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetGroupUsersWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                (await operations.GetGroupUsersWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
