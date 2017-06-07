@@ -457,9 +457,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='parameters'>
             /// The body
             /// </param>
-            public static object SetAllConnections(this IDatasets operations, string datasetKey, object parameters)
+            public static object SetAllDatasetConnections(this IDatasets operations, string datasetKey, ConnectionDetails parameters)
             {
-                return operations.SetAllConnectionsAsync(datasetKey, parameters).GetAwaiter().GetResult();
+                return operations.SetAllDatasetConnectionsAsync(datasetKey, parameters).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -477,9 +477,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> SetAllConnectionsAsync(this IDatasets operations, string datasetKey, object parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> SetAllDatasetConnectionsAsync(this IDatasets operations, string datasetKey, ConnectionDetails parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.SetAllConnectionsWithHttpMessagesAsync(datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.SetAllDatasetConnectionsWithHttpMessagesAsync(datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1042,9 +1042,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='parameters'>
             /// The body
             /// </param>
-            public static object SetAllConnectionsInGroup(this IDatasets operations, string groupId, string datasetKey, object parameters)
+            public static object SetAllDatasetConnectionsInGroup(this IDatasets operations, string groupId, string datasetKey, ConnectionDetails parameters)
             {
-                return operations.SetAllConnectionsInGroupAsync(groupId, datasetKey, parameters).GetAwaiter().GetResult();
+                return operations.SetAllDatasetConnectionsInGroupAsync(groupId, datasetKey, parameters).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1065,9 +1065,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> SetAllConnectionsInGroupAsync(this IDatasets operations, string groupId, string datasetKey, object parameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> SetAllDatasetConnectionsInGroupAsync(this IDatasets operations, string groupId, string datasetKey, ConnectionDetails parameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.SetAllConnectionsInGroupWithHttpMessagesAsync(groupId, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(groupId, datasetKey, parameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

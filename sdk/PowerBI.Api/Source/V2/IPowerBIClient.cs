@@ -9,10 +9,6 @@ namespace Microsoft.PowerBI.Api.V2
     using Microsoft.Rest;
     using Models;
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Threading;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// </summary>
@@ -71,15 +67,9 @@ namespace Microsoft.PowerBI.Api.V2
         ITiles Tiles { get; }
 
         /// <summary>
-        /// Returns a list of groups
+        /// Gets the IGroups.
         /// </summary>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        IGroups Groups { get; }
 
     }
 }
