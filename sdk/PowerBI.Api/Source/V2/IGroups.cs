@@ -106,8 +106,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='groupId'>
         /// The group id
         /// </param>
-        /// <param name='addUserToDatasourceRequest'>
-        /// The add user to datasource request
+        /// <param name='userDetails'>
+        /// user access right details
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -124,7 +124,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> AddGroupUserWithHttpMessagesAsync(string groupId, UserAccessRight addUserToDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> AddGroupUserWithHttpMessagesAsync(string groupId, UserAccessRight userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the specified group
         /// </summary>

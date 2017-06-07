@@ -154,12 +154,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='groupId'>
             /// The group id
             /// </param>
-            /// <param name='addUserToDatasourceRequest'>
-            /// The add user to datasource request
+            /// <param name='userDetails'>
+            /// user access right details
             /// </param>
-            public static object AddGroupUser(this IGroups operations, string groupId, UserAccessRight addUserToDatasourceRequest)
+            public static object AddGroupUser(this IGroups operations, string groupId, UserAccessRight userDetails)
             {
-                return operations.AddGroupUserAsync(groupId, addUserToDatasourceRequest).GetAwaiter().GetResult();
+                return operations.AddGroupUserAsync(groupId, userDetails).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -171,15 +171,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='groupId'>
             /// The group id
             /// </param>
-            /// <param name='addUserToDatasourceRequest'>
-            /// The add user to datasource request
+            /// <param name='userDetails'>
+            /// user access right details
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddGroupUserAsync(this IGroups operations, string groupId, UserAccessRight addUserToDatasourceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddGroupUserAsync(this IGroups operations, string groupId, UserAccessRight userDetails, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AddGroupUserWithHttpMessagesAsync(groupId, addUserToDatasourceRequest, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddGroupUserWithHttpMessagesAsync(groupId, userDetails, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -1833,7 +1833,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> SetAllConnectionsWithHttpMessagesAsync(string datasetKey, object parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> SetAllDatasetConnectionsWithHttpMessagesAsync(string datasetKey, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetKey == null)
             {
@@ -1853,7 +1853,7 @@ namespace Microsoft.PowerBI.Api.V2
                 tracingParameters.Add("datasetKey", datasetKey);
                 tracingParameters.Add("parameters", parameters);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "SetAllConnections", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "SetAllDatasetConnections", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
@@ -2394,7 +2394,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<object>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Dataset>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4018,7 +4018,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> SetAllConnectionsInGroupWithHttpMessagesAsync(string groupId, string datasetKey, object parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(string groupId, string datasetKey, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (groupId == null)
             {
@@ -4043,7 +4043,7 @@ namespace Microsoft.PowerBI.Api.V2
                 tracingParameters.Add("datasetKey", datasetKey);
                 tracingParameters.Add("parameters", parameters);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "SetAllConnectionsInGroup", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "SetAllDatasetConnectionsInGroup", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
