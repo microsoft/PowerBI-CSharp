@@ -1,0 +1,1 @@
+Samples have been moved to: https://github.com/Microsoft/PowerBI-developer-samples
