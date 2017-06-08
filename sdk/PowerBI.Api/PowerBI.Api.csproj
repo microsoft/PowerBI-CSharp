@@ -44,10 +44,14 @@
     <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Imports\IImports.cs" />
-    <Compile Include="Imports\Imports.cs" />
-    <Compile Include="Imports\ImportsExtensions.cs" />
-    <Compile Include="Source\**\*.cs" />
+    <Compile Include="Imports\V1\IImports.cs" />
+    <Compile Include="Imports\V1\Imports.cs" />
+    <Compile Include="Imports\V1\ImportsExtensions.cs" />
+    <Compile Include="Imports\V2\IImports.cs" />
+    <Compile Include="Imports\V2\Imports.cs" />
+    <Compile Include="Imports\V2\ImportsExtensions.cs" />
+    <Compile Include="Source\V1\**\*.cs" />
+    <Compile Include="Source\V2\**\*.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,7 +76,9 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Source\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
