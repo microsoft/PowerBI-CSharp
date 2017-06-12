@@ -483,7 +483,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> CreateDatasourceWithHttpMessagesAsync(string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<GatewayDatasource>> CreateDatasourceWithHttpMessagesAsync(string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (gatewayId == null)
             {
@@ -580,7 +580,7 @@ namespace Microsoft.PowerBI.Api.V2
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<object>();
+            var _result = new HttpOperationResponse<GatewayDatasource>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -589,7 +589,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<object>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<GatewayDatasource>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

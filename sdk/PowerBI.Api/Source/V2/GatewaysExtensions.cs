@@ -123,7 +123,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='datasourceToGatewayRequest'>
             /// The datasource requested to create
             /// </param>
-            public static object CreateDatasource(this IGateways operations, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest)
+            public static GatewayDatasource CreateDatasource(this IGateways operations, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest)
             {
                 return operations.CreateDatasourceAsync(gatewayId, datasourceToGatewayRequest).GetAwaiter().GetResult();
             }
@@ -143,7 +143,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> CreateDatasourceAsync(this IGateways operations, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GatewayDatasource> CreateDatasourceAsync(this IGateways operations, string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateDatasourceWithHttpMessagesAsync(gatewayId, datasourceToGatewayRequest, null, cancellationToken).ConfigureAwait(false))
                 {
