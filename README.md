@@ -6,83 +6,6 @@ For questions or issues using the SDKs please log an issue and we will respond a
 
 For more information regarding onboarding to Power BI Embedded see our [Azure documentation](https://azure.microsoft.com/en-us/services/power-bi-embedded/).
 
-## Power BI Embedded Core Libraries
-The `Microsoft.PowerBI.Core` package contains APIs to generate report embed tokens.
-
-### Install from Nuget
-`Install-Package Microsoft.PowerBI.Core`
-
-### Usage: Creating a Report Embed Token
-Power BI Embedded uses embed tokens, which are HMAC signed JSON Web Tokens.  The tokens are signed with the access key from your Azure Power BI Embedded workspace collection.
-Embed tokens are used to provide read only access to a report to embed into an application.
-
-To create a report embed token you will need an Azure Power BI Workspace collection, access key, workspace Id & report Id
-
-```
-var accessKey = "{AzureAccessKey}";
-var embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollection, workspaceId, reportId);
-var jwt = embedToken.Generate(accessKey);
-
-```
-
-### Required Claims
-- ver: 0.2.0
-- typ: "embed"
-- wcn: {WorkspaceCollectionName}
-- wid: {WorkspaceId}
-- rid: {ReportId} (or did: {DatasetId})
-- aud: https://analysis.windows.net/powerbi/api
-- exp: Token expiration in Unix EPOCH time
-
-### Optional Claims
-- nbp: Token valid not before in Unix EPOCH time
-- username: The effective username to pass to Power BI Embedded for RLS (Row level security)
-- roles: The roles to pass to Power BI Embedded for RLS
-- scp: The permission scopes allowed with the designated Report or Dataset
-
-Read more about [row level security](https://azure.microsoft.com/en-us/documentation/articles/power-bi-embedded-rls/) in our Azure docs.
-
-### Token Example
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsIndjbiI6IlN1cHBvcnREZW1vIiwid2lkIjoiY2E2NzViMTktNmMzYy00MDAzLTg4MDgtMWM3ZGRjNmJkODA5IiwicmlkIjoiOTYyNDFmMGYtYWJhZS00ZWE5LWEwNjUtOTNiNDI4ZWRkYjE3IiwiaXNzIjoiUG93ZXJCSVNESyIsImF1ZCI6Imh0dHBzOi8vYW5hbHlzaXMud2luZG93cy5uZXQvcG93ZXJiaS9hcGkiLCJleHAiOjEzNjAwNDcwNTYsIm5iZiI6MTM2MDA0MzQ1Nn0.LgG2y0m24gg3vjQHhkXYYWKSVnGIUYT-ycA6JmTB6tg
-
-## Adding Permission Scopes to Embed Tokens
-When using Embed tokens, one might want to restrict usage of the resources he gives access to. For this reason, you can generate a token with scoped permissions.
-
-```
-var accessKey = "{AzureAccessKey}";
-var scopes = {Scopes as string or array of strings};
-var embedToken = PowerBIToken.CreateReportEmbedTokenWithScopes(workspaceCollection, workspaceId, reportId, scopes: scopes);
-var jwt = embedToken.Generate(accessKey);
-
-```
-### Token Example - With Scopes
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsIndjbiI6IlN1cHBvcnREZW1vIiwid2lkIjoiY2E2NzViMTktNmMzYy00MDAzLTg4MDgtMWM3ZGRjNmJkODA5IiwicmlkIjoiOTYyNDFmMGYtYWJhZS00ZWE5LWEwNjUtOTNiNDI4ZWRkYjE3Iiwic2NwIjoiUmVwb3J0LlJlYWQiLCJpc3MiOiJQb3dlckJJU0RLIiwiYXVkIjoiaHR0cHM6Ly9hbmFseXNpcy53aW5kb3dzLm5ldC9wb3dlcmJpL2FwaSIsImV4cCI6MTM2MDA0NzA1NiwibmJmIjoxMzYwMDQzNDU2fQ.M1jkWXnkfwJeGQqh1x0vIAYB4EBKbHSZFoDB6n_LZyA
-
-#### Decoded
-The following decoded JSON web token
-**Header**
-```javascript
-{
-  "typ": "JWT",
-  "alg": "HS256"
-}
-```
-
-**Payload**
-```javascript
-{
-  "ver": "0.2.0",
-  "wcn": "SupportDemo",
-  "wid": "ca675b19-6c3c-4003-8808-1c7ddc6bd809",
-  "rid": "96241f0f-abae-4ea9-a065-93b428eddb17",
-  "scp": "Report.Read",
-  "iss": "PowerBISDK",
-  "aud": "https://analysis.windows.net/powerbi/api",
-  "exp": 1360047056,
-  "nbf": 1360043456
-}
-```
-
 ## Power BI Embedded REST Client
 The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI Embedded REST services.
 
@@ -90,22 +13,47 @@ The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI
 `Install-Package Microsoft.PowerBI.Api`
 
 ### Usage: Calling the GetReports API
-As an example, to get a list or reports within your workspace you need to instantiate a `PowerBIClient` with credentials and call into the `GetReports` API.
+As an example, to get a list or reports within your workspace (e.g. "My Workspace") you need to instantiate a `PowerBIClient` with credentials and call into the `GetReports` API.
 ```
-var credentials = new TokenCredentials("{AzureAccessKey}", "AppKey");
-var client = new PowerBIClient(credentials);
+var credential = new UserPasswordCredential(Username, Password);
 
-var reportsResult = await client.Reports.GetReportsAsync(workspaceCollection, workspaceId);
+// Authenticate using created credentials
+var authenticationContext = new AuthenticationContext(AuthorityUrl);
+var authenticationResult = authenticationContext.AcquireTokenAsync(ResourceUrl, ClientId, credential).Result;
+
+var tokenCredentials = new TokenCredentials(authenticationResult.AccessToken, "Bearer");
+
+// Create a Power BI Client object (it will be used to call Power BI APIs)
+using (var client = new PowerBIClient(new Uri(ApiUrl), tokenCredentials))
+{
+
+    // Get a list of reports
+    var reports = client.Reports.GetReports();
+
+    // Do anything you want with the list of reports.
+}
 
 ```
 
-The following APIs groups are available:
+There are multiple variations for each method. For example, to get a list of reports you can use one of the methods below:
 
+1) client.Reports.GetReports() - Synchronic method to get a list of reports in "My Workspace".
+
+2) client.Reports.GetReportsInGroup(groupId) - Synchronic method to get a list of reports in specific group (e.g. App workspace).
+
+3) client.Reports.GetReportsAsync() - async method to get a list of reports in "My Workspace".
+
+4) client.Reports.GetReportsInGroupAsync(groupId) - async method to get a list of reports in specific group (e.g. App workspace).
+
+
+The following API groups are available:
+
+- Dashboards
 - Datasets
 - Gateways
+- Groups
 - Imports
 - Reports
-- Workspaces
 
 ## Power BI Embedded for JavaScript
 The JavaScript SDK is underlying component for all embed scenarios.  The SDK is vanilla JS but we also ship components for many popular SPA frameworks including Angular, React & Ember JS.  
@@ -126,33 +74,101 @@ Add the Power BI script include before your apps closing `</body>` tag
 The tile & report embed will automatically be embedded based on the size of the embed container.  
 To override the default size of the embeds simply add a CSS class attribute or inline styles for width & height.
 
-# ASP.NET MVC
-The `Microsoft.PowerBI.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
+# Embedding a Report
+To embed a report, you need to write:
+1) Backend code to generate Embed Tokens. This uses Microsoft.PowerBI.Api nuget.
+2) Frontend code (javascript) to embed a report. This uses Microsoft.PowerBI.Javascript nuget.
 
-## Install from Nuget
-`Install-Package Microsoft.PowerBI.Mvc`
+A full sample is available in this [Github](https://github.com/Microsoft/PowerBI-developer-samples)
 
-## Setup your Access Token
-Generate your report embed access token with the `Microsoft.PowerBI.Core` token APIs.
-`@Html.PowerBIAccesstoken({{YourAccesstoken}})`
+## Backend code sample To generate embed token
 
-## Embed your report
-`@Html.PowerBIReportFor(m => m.EmbedUrl)`
+```
+var credential = new UserPasswordCredential(Username, Password);
 
-# ASP.NET WebForms
-The `Microsoft.PowerBI.WebForms` package is a lightweight wrapper that contains ASP.NET Webform controls that generate HTML markup compatible with the core JavaScript SDK.
-## Install from Nuget
-`Install-Package Microsoft.PowerBI.WebForms`
+// Authenticate using created credentials
+var authenticationContext = new AuthenticationContext(AuthorityUrl);
+var authenticationResult = authenticationContext.AcquireTokenAsync(ResourceUrl, ClientId, credential).Result;
 
-## Setup your Access Token
-Ensure you have the following in your view
+var tokenCredentials = new TokenCredentials(authenticationResult.AccessToken, "Bearer");
 
-`<powerbi:Token ID="pbiAccessToken" runat="server" />`
+// Create a Power BI Client object (it will be used to call Power BI APIs)
+using (var client = new PowerBIClient(new Uri(ApiUrl), tokenCredentials))
+{
 
-If you are managing access tokens yourself, make sure to provide it here
+    // Get a list of reports
+    var reports = client.Reports.GetReportsInGroup(GroupId);
 
-`<powerbi:Token ID="pbiAccessToken" AccessToken="{{YourAccessToken}}" runat="server" />`
+    // Get the first report in the group
+    var report = reports.Value.FirstOrDefault();
 
-## Embedding a Report
+    // Generate an embed token
+    var generateTokenRequestParameters = new GenerateTokenRequest(accessLevel: "view");
+    var tokenResponse = client.Reports.GenerateTokenInGroup(GroupId, report.Id, generateTokenRequestParameters);
 
-`<powerbi:Report id="pbiReport" EmbedUrl="{{EmbedUrl}}" runat="server" />`
+    embedToken = tokenResponse.Token;
+    embedUrl = report.EmbedUrl;
+    reportId = report.Id;
+}
+```
+
+## Frontend code sample To embed a report using embed token
+```
+var txtAccessToken = "access token value";
+var txtEmbedUrl = "embed url value";
+var txtEmbedReportId = "report Id";
+ 
+// Get models. models contains enums that can be used.
+var models = window['powerbi-client'].models;
+ 
+// We give All permissions to demonstrate switching between View and Edit mode and saving report.
+var permissions = models.Permissions.All;
+ 
+// Embed configuration used to describe the what and how to embed.
+// This object is used when calling powerbi.embed.
+// This also includes settings and options such as filters.
+// You can find more information at https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embed-Configuration-Details.
+var config= {
+    type: 'report',
+    tokenType: models.TokenType.Embed,
+    accessToken: txtAccessToken,
+    embedUrl: txtEmbedUrl,
+    id: txtEmbedReportId,
+    permissions: permissions,
+    settings: {
+        filterPaneEnabled: true,
+        navContentPaneEnabled: true
+    }
+};
+ 
+// Get a reference to the embedded report HTML element
+var embedContainer = $('#embedContainer')[0];
+ 
+// Embed the report and display it within the div container.
+var report = powerbi.embed(embedContainer, config);
+ 
+// Report.off removes a given event handler if it exists.
+report.off("loaded");
+ 
+// Report.on will add an event handler which prints to Log window.
+report.on("loaded", function() {
+    Log.logText("Loaded");
+});
+ 
+report.on("error", function(event) {
+    Log.log(event.detail);
+     
+    report.off("error");
+});
+ 
+report.off("saved");
+report.on("saved", function(event) {
+    Log.log(event.detail);
+    if(event.detail.saveAs) {
+        Log.logText('In order to interact with the new report, create a new token and load the new report');
+     }
+ });
+```
+
+## Live demo
+A live demo of Power BI Embedded with a lot of javascript code sample is available [here](https://microsoft.github.io/PowerBI-JavaScript/demo/v2-demo/index.html).
