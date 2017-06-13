@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using Microsoft.Rest;
 using Microsoft.Rest.Serialization;
@@ -17,8 +17,9 @@ namespace Microsoft.PowerBI.Api.V2
         public PowerBIError GetError(Exception exception)
         {
             var http = exception as HttpOperationException;
-            var cloudError = SafeJsonConvert.DeserializeObject<PowerBIError>(http?.Response?.Content, DeserializationSettings);
-            return cloudError;
+            if(http?.Response?.Content != null)
+                return SafeJsonConvert.DeserializeObject<PowerBIError>(http?.Response?.Content, DeserializationSettings);
+            return null;
         }
     }
 }
