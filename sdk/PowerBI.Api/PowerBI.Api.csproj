@@ -52,6 +52,13 @@
     <Compile Include="Imports\V2\ImportsExtensions.cs" />
     <Compile Include="Source\V1\**\*.cs" />
     <Compile Include="Source\V2\**\*.cs" />
+    <Compile Include="V2\ErrorHttpClientHandler.cs" />
+    <Compile Include="V2\IPowerBIClient.cs" />
+    <Compile Include="V2\Model\PowerBIError.cs" />
+    <Compile Include="V2\Model\PowerBIErrorBody.cs" />
+    <Compile Include="V2\Model\PowerBIExceptionDetails.cs" />
+    <Compile Include="V2\PowerBIClient.cs" />
+    <Compile Include="V2\PowerBIErrorJsonConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,9 +83,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
