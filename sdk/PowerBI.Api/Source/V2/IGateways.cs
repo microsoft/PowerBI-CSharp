@@ -102,7 +102,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> CreateDatasourceWithHttpMessagesAsync(string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<GatewayDatasource>> CreateDatasourceWithHttpMessagesAsync(string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a datasource by id
         /// </summary>
