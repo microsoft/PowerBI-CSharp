@@ -87,6 +87,7 @@
     <Compile Include="Source\V2\Models\Group.cs" />
     <Compile Include="Source\V2\Models\GroupCreationRequest.cs" />
     <Compile Include="Source\V2\Models\GroupUser.cs" />
+    <Compile Include="Source\V2\Models\GroupUserAccessRight.cs" />
     <Compile Include="Source\V2\Models\Import.cs" />
     <Compile Include="Source\V2\Models\ImportConflictHandlerMode.cs" />
     <Compile Include="Source\V2\Models\ImportInfo.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Source\V2\Models\ODataResponseListGatewayDatasource.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListGroup.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListGroupUser.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListGroupUserAccessRight.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListImport.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListRefresh.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListReport.cs" />
@@ -108,6 +110,7 @@
     <Compile Include="Source\V2\Models\RebindReportRequest.cs" />
     <Compile Include="Source\V2\Models\Refresh.cs" />
     <Compile Include="Source\V2\Models\Report.cs" />
+    <Compile Include="Source\V2\Models\RlsContext.cs" />
     <Compile Include="Source\V2\Models\Row.cs" />
     <Compile Include="Source\V2\Models\Table.cs" />
     <Compile Include="Source\V2\Models\Tile.cs" />
