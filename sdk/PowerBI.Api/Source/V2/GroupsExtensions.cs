@@ -157,7 +157,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='userDetails'>
             /// user access right details
             /// </param>
-            public static object AddGroupUser(this IGroups operations, string groupId, UserAccessRight userDetails)
+            public static object AddGroupUser(this IGroups operations, string groupId, GroupUserAccessRight userDetails)
             {
                 return operations.AddGroupUserAsync(groupId, userDetails).GetAwaiter().GetResult();
             }
@@ -177,7 +177,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> AddGroupUserAsync(this IGroups operations, string groupId, UserAccessRight userDetails, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> AddGroupUserAsync(this IGroups operations, string groupId, GroupUserAccessRight userDetails, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddGroupUserWithHttpMessagesAsync(groupId, userDetails, null, cancellationToken).ConfigureAwait(false))
                 {
