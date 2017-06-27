@@ -13,24 +13,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Import collection
+    /// Odata response wrapper for a Power BI user Access Right for group List
     /// </summary>
-    public partial class ODataResponseListImport
+    public partial class ODataResponseListGroupUserAccessRight
     {
         /// <summary>
-        /// Initializes a new instance of the ODataResponseListImport class.
+        /// Initializes a new instance of the
+        /// ODataResponseListGroupUserAccessRight class.
         /// </summary>
-        public ODataResponseListImport()
+        public ODataResponseListGroupUserAccessRight()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ODataResponseListImport class.
+        /// Initializes a new instance of the
+        /// ODataResponseListGroupUserAccessRight class.
         /// </summary>
-        /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The imports collection</param>
-        public ODataResponseListImport(string odatacontext = default(string), IList<Import> value = default(IList<Import>))
+        /// <param name="value">The user Access Right for group List</param>
+        public ODataResponseListGroupUserAccessRight(string odatacontext = default(string), IList<GroupUserAccessRight> value = default(IList<GroupUserAccessRight>))
         {
             Odatacontext = odatacontext;
             Value = value;
@@ -43,16 +44,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets oData context
         /// </summary>
         [JsonProperty(PropertyName = "odata.context")]
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the imports collection
+        /// Gets or sets the user Access Right for group List
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<Import> Value { get; set; }
+        public IList<GroupUserAccessRight> Value { get; set; }
 
     }
 }

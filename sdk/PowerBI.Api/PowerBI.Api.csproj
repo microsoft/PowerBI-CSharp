@@ -51,7 +51,77 @@
     <Compile Include="Imports\V2\Imports.cs" />
     <Compile Include="Imports\V2\ImportsExtensions.cs" />
     <Compile Include="Source\V1\**\*.cs" />
-    <Compile Include="Source\V2\**\*.cs" />
+    <Compile Include="Source\V2\Dashboards.cs" />
+    <Compile Include="Source\V2\DashboardsExtensions.cs" />
+    <Compile Include="Source\V2\Datasets.cs" />
+    <Compile Include="Source\V2\DatasetsExtensions.cs" />
+    <Compile Include="Source\V2\Gateways.cs" />
+    <Compile Include="Source\V2\GatewaysExtensions.cs" />
+    <Compile Include="Source\V2\Groups.cs" />
+    <Compile Include="Source\V2\GroupsExtensions.cs" />
+    <Compile Include="Source\V2\IDashboards.cs" />
+    <Compile Include="Source\V2\IDatasets.cs" />
+    <Compile Include="Source\V2\IGateways.cs" />
+    <Compile Include="Source\V2\IGroups.cs" />
+    <Compile Include="Source\V2\IImports.cs" />
+    <Compile Include="Source\V2\Imports.cs" />
+    <Compile Include="Source\V2\ImportsExtensions.cs" />
+    <Compile Include="Source\V2\IPowerBIClient.cs" />
+    <Compile Include="Source\V2\IReports.cs" />
+    <Compile Include="Source\V2\ITiles.cs" />
+    <Compile Include="Source\V2\Models\BasicCredentials.cs" />
+    <Compile Include="Source\V2\Models\BindToGatewayRequest.cs" />
+    <Compile Include="Source\V2\Models\CloneReportRequest.cs" />
+    <Compile Include="Source\V2\Models\Column.cs" />
+    <Compile Include="Source\V2\Models\ConnectionDetails.cs" />
+    <Compile Include="Source\V2\Models\CredentialDetails.cs" />
+    <Compile Include="Source\V2\Models\Dashboard.cs" />
+    <Compile Include="Source\V2\Models\Dataset.cs" />
+    <Compile Include="Source\V2\Models\DatasetMode.cs" />
+    <Compile Include="Source\V2\Models\Datasource.cs" />
+    <Compile Include="Source\V2\Models\EmbedToken.cs" />
+    <Compile Include="Source\V2\Models\Gateway.cs" />
+    <Compile Include="Source\V2\Models\GatewayDatasource.cs" />
+    <Compile Include="Source\V2\Models\GatewayPublicKey.cs" />
+    <Compile Include="Source\V2\Models\GenerateTokenRequest.cs" />
+    <Compile Include="Source\V2\Models\Group.cs" />
+    <Compile Include="Source\V2\Models\GroupCreationRequest.cs" />
+    <Compile Include="Source\V2\Models\GroupUser.cs" />
+    <Compile Include="Source\V2\Models\GroupUserAccessRight.cs" />
+    <Compile Include="Source\V2\Models\Import.cs" />
+    <Compile Include="Source\V2\Models\ImportConflictHandlerMode.cs" />
+    <Compile Include="Source\V2\Models\ImportInfo.cs" />
+    <Compile Include="Source\V2\Models\MemberAdminAccessRight.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListDashboard.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListDataset.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListDatasource.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListGateway.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListGatewayDatasource.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListGroup.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListGroupUserAccessRight.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListImport.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListRefresh.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListReport.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListTable.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListTile.cs" />
+    <Compile Include="Source\V2\Models\ODataResponseListUserAccessRight.cs" />
+    <Compile Include="Source\V2\Models\PublishDatasourceToGatewayRequest.cs" />
+    <Compile Include="Source\V2\Models\RebindReportRequest.cs" />
+    <Compile Include="Source\V2\Models\Refresh.cs" />
+    <Compile Include="Source\V2\Models\Report.cs" />
+    <Compile Include="Source\V2\Models\RlsContext.cs" />
+    <Compile Include="Source\V2\Models\Row.cs" />
+    <Compile Include="Source\V2\Models\Table.cs" />
+    <Compile Include="Source\V2\Models\Tile.cs" />
+    <Compile Include="Source\V2\Models\TokenAccessLevel.cs" />
+    <Compile Include="Source\V2\Models\UpdateDatasourceRequest.cs" />
+    <Compile Include="Source\V2\Models\UserAccessRight.cs" />
+    <Compile Include="Source\V2\Models\UserAccessRightEnum.cs" />
+    <Compile Include="Source\V2\PowerBIClient.cs" />
+    <Compile Include="Source\V2\Reports.cs" />
+    <Compile Include="Source\V2\ReportsExtensions.cs" />
+    <Compile Include="Source\V2\Tiles.cs" />
+    <Compile Include="Source\V2\TilesExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,9 +146,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,25 +11,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI data row
+    /// Power BI Create a new group Request
     /// </summary>
-    public partial class Row
+    public partial class GroupCreationRequest
     {
         /// <summary>
-        /// Initializes a new instance of the Row class.
+        /// Initializes a new instance of the GroupCreationRequest class.
         /// </summary>
-        public Row()
+        public GroupCreationRequest()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Row class.
+        /// Initializes a new instance of the GroupCreationRequest class.
         /// </summary>
-        /// <param name="id">The unique row id</param>
-        public Row(string id = default(string))
+        /// <param name="name">The name of the new created group.</param>
+        public GroupCreationRequest(string name = default(string))
         {
-            Id = id;
+            Name = name;
             CustomInit();
         }
 
@@ -39,10 +39,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unique row id
+        /// Gets or sets the name of the new created group.
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
     }
 }
