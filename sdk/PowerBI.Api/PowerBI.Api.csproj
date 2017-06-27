@@ -109,7 +109,6 @@
     <Compile Include="Source\V2\Models\RebindReportRequest.cs" />
     <Compile Include="Source\V2\Models\Refresh.cs" />
     <Compile Include="Source\V2\Models\Report.cs" />
-    <Compile Include="Source\V2\Models\RlsContext.cs" />
     <Compile Include="Source\V2\Models\Row.cs" />
     <Compile Include="Source\V2\Models\Table.cs" />
     <Compile Include="Source\V2\Models\Tile.cs" />

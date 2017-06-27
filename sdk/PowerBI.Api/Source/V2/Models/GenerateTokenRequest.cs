@@ -32,14 +32,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// report</param>
         /// <param name="allowSaveAs">Allow SaveAs the report with generated
         /// token.</param>
-        /// <param name="identity">The identity that the generated token should
-        /// reflect</param>
-        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?), RlsContext identity = default(RlsContext))
+        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
             AllowSaveAs = allowSaveAs;
-            Identity = identity;
             CustomInit();
         }
 
@@ -66,12 +63,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "allowSaveAs")]
         public bool? AllowSaveAs { get; set; }
-
-        /// <summary>
-        /// Gets or sets the identity that the generated token should reflect
-        /// </summary>
-        [JsonProperty(PropertyName = "identity")]
-        public RlsContext Identity { get; set; }
 
     }
 }
