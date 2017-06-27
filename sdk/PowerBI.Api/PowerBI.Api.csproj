@@ -98,7 +98,6 @@
     <Compile Include="Source\V2\Models\ODataResponseListGateway.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListGatewayDatasource.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListGroup.cs" />
-    <Compile Include="Source\V2\Models\ODataResponseListGroupUser.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListGroupUserAccessRight.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListImport.cs" />
     <Compile Include="Source\V2\Models\ODataResponseListRefresh.cs" />
