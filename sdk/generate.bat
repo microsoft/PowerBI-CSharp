@@ -1,5 +1,11 @@
 pushd "%~dp0"
+del PowerBI.Api\Source\V2\Models
 del PowerBI.Api\Source\V2\
-AutoRest -CodeGenerator CSharp -Input https://raw.githubusercontent.com/Microsoft/powerbi-rest-api-specs/master/swaggerV2.json -Namespace Microsoft.PowerBI.Api.V2 -OutputDirectory PowerBI.Api\Source\V2\ -ClientName PowerBIClient -AddCredentials true
+
+set swagger="%1"
+IF "%~1"=="" set swagger="https://raw.githubusercontent.com/Microsoft/powerbi-rest-api-specs/master/swaggerV2.json"
+
+@echo Generating code using %swagger%
+AutoRest -CodeGenerator CSharp -Input %swagger% -Namespace Microsoft.PowerBI.Api.V2 -OutputDirectory PowerBI.Api\Source\V2\ -ClientName PowerBIClient -AddCredentials true
 popd
 pause

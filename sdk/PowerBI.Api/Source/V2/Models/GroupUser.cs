@@ -11,28 +11,27 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user Access Right entry for datasource
+    /// A Power BI user details in a group
     /// </summary>
-    public partial class UserAccessRight
+    public partial class GroupUser
     {
         /// <summary>
-        /// Initializes a new instance of the UserAccessRight class.
+        /// Initializes a new instance of the GroupUser class.
         /// </summary>
-        public UserAccessRight()
+        public GroupUser()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UserAccessRight class.
+        /// Initializes a new instance of the GroupUser class.
         /// </summary>
-        /// <param name="datasourceAccessRight">Access rights user has for
-        /// datasource. Possible values include: 'None', 'Read', 'Write',
-        /// 'Admin', 'ReadWrite'</param>
+        /// <param name="userType">Type of user in a group. Possible values
+        /// include: 'None', 'Member', 'Admin'</param>
         /// <param name="emailAddress">Email address of the user.</param>
-        public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string))
+        public GroupUser(string userType = default(string), string emailAddress = default(string))
         {
-            DatasourceAccessRight = datasourceAccessRight;
+            UserType = userType;
             EmailAddress = emailAddress;
             CustomInit();
         }
@@ -43,11 +42,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for datasource. Possible values
-        /// include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
+        /// Gets or sets type of user in a group. Possible values include:
+        /// 'None', 'Member', 'Admin'
         /// </summary>
-        [JsonProperty(PropertyName = "datasourceAccessRight")]
-        public string DatasourceAccessRight { get; set; }
+        [JsonProperty(PropertyName = "userType")]
+        public string UserType { get; set; }
 
         /// <summary>
         /// Gets or sets email address of the user.

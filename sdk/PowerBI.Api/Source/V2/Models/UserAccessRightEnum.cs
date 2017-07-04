@@ -9,12 +9,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using Microsoft.PowerBI.Api.V2;
 
     /// <summary>
-    /// Defines values for ImportConflictHandlerMode.
+    /// Defines values for UserAccessRightEnum.
     /// </summary>
-    public static class ImportConflictHandlerMode
+    public static class UserAccessRightEnum
     {
-        public const string Ignore = "Ignore";
-        public const string Abort = "Abort";
-        public const string Overwrite = "Overwrite";
+        public const string None = "None";
+        public const string Read = "Read";
+        public const string Write = "Write";
+        public const string Admin = "Admin";
+        public const string ReadWrite = "ReadWrite";
     }
 }

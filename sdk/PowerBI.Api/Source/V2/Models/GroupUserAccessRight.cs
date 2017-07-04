@@ -11,28 +11,28 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user Access Right entry for datasource
+    /// A Power BI user Access Right entry for group
     /// </summary>
-    public partial class UserAccessRight
+    public partial class GroupUserAccessRight
     {
         /// <summary>
-        /// Initializes a new instance of the UserAccessRight class.
+        /// Initializes a new instance of the GroupUserAccessRight class.
         /// </summary>
-        public UserAccessRight()
+        public GroupUserAccessRight()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UserAccessRight class.
+        /// Initializes a new instance of the GroupUserAccessRight class.
         /// </summary>
-        /// <param name="datasourceAccessRight">Access rights user has for
-        /// datasource. Possible values include: 'None', 'Read', 'Write',
-        /// 'Admin', 'ReadWrite'</param>
+        /// <param name="groupUserAccessRightProperty">Access rights user has
+        /// for group. Possible values include: 'None', 'Member',
+        /// 'Admin'</param>
         /// <param name="emailAddress">Email address of the user.</param>
-        public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string))
+        public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string))
         {
-            DatasourceAccessRight = datasourceAccessRight;
+            GroupUserAccessRightProperty = groupUserAccessRightProperty;
             EmailAddress = emailAddress;
             CustomInit();
         }
@@ -43,11 +43,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for datasource. Possible values
-        /// include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
+        /// Gets or sets access rights user has for group. Possible values
+        /// include: 'None', 'Member', 'Admin'
         /// </summary>
-        [JsonProperty(PropertyName = "datasourceAccessRight")]
-        public string DatasourceAccessRight { get; set; }
+        [JsonProperty(PropertyName = "groupUserAccessRight")]
+        public string GroupUserAccessRightProperty { get; set; }
 
         /// <summary>
         /// Gets or sets email address of the user.
