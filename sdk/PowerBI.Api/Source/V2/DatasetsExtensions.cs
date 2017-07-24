@@ -320,9 +320,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='datasetKey'>
             /// The dataset id
             /// </param>
-            public static ODataResponseListRefresh GetRefreshHistory(this IDatasets operations, string datasetKey)
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history, if not supported
+            /// the default is all available entries
+            /// </param>
+            public static ODataResponseListRefresh GetRefreshHistory(this IDatasets operations, string datasetKey, int? top = default(int?))
             {
-                return operations.GetRefreshHistoryAsync(datasetKey).GetAwaiter().GetResult();
+                return operations.GetRefreshHistoryAsync(datasetKey, top).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -334,12 +338,16 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='datasetKey'>
             /// The dataset id
             /// </param>
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history, if not supported
+            /// the default is all available entries
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListRefresh> GetRefreshHistoryAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListRefresh> GetRefreshHistoryAsync(this IDatasets operations, string datasetKey, int? top = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetRefreshHistoryWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetRefreshHistoryWithHttpMessagesAsync(datasetKey, top, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -881,9 +889,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='datasetKey'>
             /// The dataset id
             /// </param>
-            public static ODataResponseListRefresh GetRefreshHistoryInGroup(this IDatasets operations, string groupId, string datasetKey)
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history, if not supported
+            /// the default is all available entries
+            /// </param>
+            public static ODataResponseListRefresh GetRefreshHistoryInGroup(this IDatasets operations, string groupId, string datasetKey, int? top = default(int?))
             {
-                return operations.GetRefreshHistoryInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+                return operations.GetRefreshHistoryInGroupAsync(groupId, datasetKey, top).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -898,12 +910,16 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='datasetKey'>
             /// The dataset id
             /// </param>
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history, if not supported
+            /// the default is all available entries
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListRefresh> GetRefreshHistoryInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListRefresh> GetRefreshHistoryInGroupAsync(this IDatasets operations, string groupId, string datasetKey, int? top = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetRefreshHistoryInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetRefreshHistoryInGroupWithHttpMessagesAsync(groupId, datasetKey, top, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

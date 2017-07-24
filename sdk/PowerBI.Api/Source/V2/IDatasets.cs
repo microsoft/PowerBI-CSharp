@@ -209,6 +209,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history, if not
+        /// supported the default is all available entries
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -224,7 +228,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryWithHttpMessagesAsync(string datasetKey, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Start a dataset refresh
         /// </summary>
@@ -561,6 +565,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history, if not
+        /// supported the default is all available entries
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -576,7 +584,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryInGroupWithHttpMessagesAsync(string groupId, string datasetKey, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Start a dataset refresh
         /// </summary>

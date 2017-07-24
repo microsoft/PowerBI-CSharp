@@ -1246,6 +1246,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history, if not supported
+        /// the default is all available entries
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -1267,7 +1271,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryWithHttpMessagesAsync(string datasetKey, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetKey == null)
             {
@@ -1281,6 +1285,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("datasetKey", datasetKey);
+                tracingParameters.Add("top", top);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetRefreshHistory", tracingParameters);
             }
@@ -1288,6 +1293,15 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetKey}/refreshes").ToString();
             _url = _url.Replace("{datasetKey}", System.Uri.EscapeDataString(datasetKey));
+            List<string> _queryParameters = new List<string>();
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3395,6 +3409,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history, if not supported
+        /// the default is all available entries
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -3416,7 +3434,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ODataResponseListRefresh>> GetRefreshHistoryInGroupWithHttpMessagesAsync(string groupId, string datasetKey, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (groupId == null)
             {
@@ -3435,6 +3453,7 @@ namespace Microsoft.PowerBI.Api.V2
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("datasetKey", datasetKey);
+                tracingParameters.Add("top", top);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetRefreshHistoryInGroup", tracingParameters);
             }
@@ -3443,6 +3462,15 @@ namespace Microsoft.PowerBI.Api.V2
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/refreshes").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
             _url = _url.Replace("{datasetKey}", System.Uri.EscapeDataString(datasetKey));
+            List<string> _queryParameters = new List<string>();
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
