@@ -32,6 +32,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="name">The dataset name</param>
         /// <param name="tables">The dataset tables</param>
         /// <param name="id">The dataset id</param>
+        /// <param name="configuredBy">The dataset owner</param>
         /// <param name="defaultRetentionPolicy">The dataset default data
         /// retention policy</param>
         /// <param name="addRowsAPIEnabled">Is Push Dataset</param>
@@ -41,10 +42,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="defaultMode">The dataset mode or type. Possible values
         /// include: 'AsAzure', 'AsOnPrem', 'Push', 'Streaming',
         /// 'PushStreaming'</param>
-        public Dataset(string name, IList<Table> tables, string id = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string))
+        public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string))
         {
             Id = id;
             Name = name;
+            ConfiguredBy = configuredBy;
             DefaultRetentionPolicy = defaultRetentionPolicy;
             AddRowsAPIEnabled = addRowsAPIEnabled;
             Tables = tables;
@@ -70,6 +72,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset owner
+        /// </summary>
+        [JsonProperty(PropertyName = "configuredBy")]
+        public string ConfiguredBy { get; set; }
 
         /// <summary>
         /// Gets or sets the dataset default data retention policy
