@@ -37,9 +37,9 @@ using (var client = new PowerBIClient(new Uri(ApiUrl), tokenCredentials))
 
 There are multiple variations for each method. For example, to get a list of reports you can use one of the methods below:
 
-1) client.Reports.GetReports() - Synchronic method to get a list of reports in "My Workspace".
+1) client.Reports.GetReports() - Synchronous method to get a list of reports in "My Workspace".
 
-2) client.Reports.GetReportsInGroup(groupId) - Synchronic method to get a list of reports in specific group (e.g. App workspace).
+2) client.Reports.GetReportsInGroup(groupId) - Synchronous method to get a list of reports in specific group (e.g. App workspace).
 
 3) client.Reports.GetReportsAsync() - async method to get a list of reports in "My Workspace".
 
