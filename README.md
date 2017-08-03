@@ -4,7 +4,7 @@ Welcome to the .NET developer community for Power BI Embedded.  Here you will fi
 
 For questions or issues using the SDKs please log an issue and we will respond as quickly as possible.
 
-For more information regarding onboarding to Power BI Embedded see our [Azure documentation](https://azure.microsoft.com/en-us/services/power-bi-embedded/).
+For more information regarding onboarding to Power BI Embedded see our [Embedding documentation](https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-embedding/).
 
 ## Power BI Embedded REST Client
 The `Microsoft.PowerBI.Api` is a .NET REST Client to easily consume the Power BI Embedded REST services.
