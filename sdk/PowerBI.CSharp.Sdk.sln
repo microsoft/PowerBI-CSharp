@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api", "PowerBI.Api\PowerBI.Api.csproj", "{1EE969AD-7923-4855-AACA-2A1B790BB0F1}"
 EndProject
@@ -56,5 +56,8 @@ Global
 		{1EE969AD-7923-4855-AACA-2A1B790BB0F1} = {DCD4C983-2786-41C7-9A9C-36A9462673B4}
 		{DCD4C983-2786-41C7-9A9C-36A9462673B4} = {5FD8CA7D-970C-44D6-B18F-ABAE87376D9E}
 		{5B5B3510-BFB9-4C0A-8C3D-970016E20329} = {DCD4C983-2786-41C7-9A9C-36A9462673B4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4929BD7C-89A8-4A6C-888E-79DF36F2F43E}
 	EndGlobalSection
 EndGlobal

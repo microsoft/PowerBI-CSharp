@@ -422,6 +422,40 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Gets a list of bound datasources for the specified dataset
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static ODataResponseListGatewayDatasource GetBoundedDatasources(this IDatasets operations, string datasetKey)
+            {
+                return operations.GetBoundedDatasourcesAsync(datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a list of bound datasources for the specified dataset
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListGatewayDatasource> GetBoundedDatasourcesAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetBoundedDatasourcesWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Gets a list of datasource for the specified dataset
             /// </summary>
             /// <param name='operations'>
@@ -1000,6 +1034,46 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<ODataResponseListGatewayDatasource> GetGatewayDatasourcesInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetGatewayDatasourcesInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets a list of bounded datasources for the specified dataset in this group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static ODataResponseListGatewayDatasource GetBoundedDatasourcesInGroup(this IDatasets operations, string groupId, string datasetKey)
+            {
+                return operations.GetBoundedDatasourcesInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a list of bounded datasources for the specified dataset in this group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListGatewayDatasource> GetBoundedDatasourcesInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetBoundedDatasourcesInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
