@@ -32,6 +32,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="name">The dataset name</param>
         /// <param name="tables">The dataset tables</param>
         /// <param name="id">The dataset id</param>
+        /// <param name="configuredBy">The dataset owner</param>
         /// <param name="defaultRetentionPolicy">The dataset default data
         /// retention policy</param>
         /// <param name="addRowsAPIEnabled">Is Push Dataset</param>
@@ -41,16 +42,28 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="defaultMode">The dataset mode or type. Possible values
         /// include: 'AsAzure', 'AsOnPrem', 'Push', 'Streaming',
         /// 'PushStreaming'</param>
-        public Dataset(string name, IList<Table> tables, string id = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string))
+        /// <param name="isRefreshable">Can this dataset be refreshed</param>
+        /// <param name="isEffectiveIdentityRequired">Dataset requires
+        /// effective identity</param>
+        /// <param name="isEffectiveIdentityRolesRequired">Dataset requires
+        /// roles</param>
+        /// <param name="isOnPremGatewayRequired">Dataset requires onprem
+        /// gateway</param>
+        public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
         {
             Id = id;
             Name = name;
+            ConfiguredBy = configuredBy;
             DefaultRetentionPolicy = defaultRetentionPolicy;
             AddRowsAPIEnabled = addRowsAPIEnabled;
             Tables = tables;
             WebUrl = webUrl;
             Datasources = datasources;
             DefaultMode = defaultMode;
+            IsRefreshable = isRefreshable;
+            IsEffectiveIdentityRequired = isEffectiveIdentityRequired;
+            IsEffectiveIdentityRolesRequired = isEffectiveIdentityRolesRequired;
+            IsOnPremGatewayRequired = isOnPremGatewayRequired;
             CustomInit();
         }
 
@@ -70,6 +83,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset owner
+        /// </summary>
+        [JsonProperty(PropertyName = "configuredBy")]
+        public string ConfiguredBy { get; set; }
 
         /// <summary>
         /// Gets or sets the dataset default data retention policy
@@ -107,6 +126,30 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "defaultMode")]
         public string DefaultMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets can this dataset be refreshed
+        /// </summary>
+        [JsonProperty(PropertyName = "IsRefreshable")]
+        public bool? IsRefreshable { get; set; }
+
+        /// <summary>
+        /// Gets or sets dataset requires effective identity
+        /// </summary>
+        [JsonProperty(PropertyName = "IsEffectiveIdentityRequired")]
+        public bool? IsEffectiveIdentityRequired { get; set; }
+
+        /// <summary>
+        /// Gets or sets dataset requires roles
+        /// </summary>
+        [JsonProperty(PropertyName = "IsEffectiveIdentityRolesRequired")]
+        public bool? IsEffectiveIdentityRolesRequired { get; set; }
+
+        /// <summary>
+        /// Gets or sets dataset requires onprem gateway
+        /// </summary>
+        [JsonProperty(PropertyName = "IsOnPremGatewayRequired")]
+        public bool? IsOnPremGatewayRequired { get; set; }
 
         /// <summary>
         /// Validate the object.

@@ -8,6 +8,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using Microsoft.PowerBI.Api;
     using Microsoft.PowerBI.Api.V2;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -32,11 +34,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// report</param>
         /// <param name="allowSaveAs">Allow SaveAs the report with generated
         /// token.</param>
-        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?))
+        /// <param name="identities">The effective identities to use for RLS
+        /// rules</param>
+        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
             AllowSaveAs = allowSaveAs;
+            Identities = identities;
             CustomInit();
         }
 
@@ -63,6 +68,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "allowSaveAs")]
         public bool? AllowSaveAs { get; set; }
+
+        /// <summary>
+        /// Gets or sets the effective identities to use for RLS rules
+        /// </summary>
+        [JsonProperty(PropertyName = "identities")]
+        public IList<EffectiveIdentity> Identities { get; set; }
 
     }
 }
