@@ -32,7 +32,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="colSpan">number of columns a tile should span</param>
         /// <param name="embedUrl">The tile embed url</param>
         /// <param name="embedData">The tile embed data</param>
-        public Tile(string id = default(string), string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string))
+        /// <param name="reportId">The report id</param>
+        /// <param name="datasetId">The dataset id</param>
+        public Tile(string id = default(string), string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string), string reportId = default(string), string datasetId = default(string))
         {
             Id = id;
             Title = title;
@@ -40,6 +42,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
             ColSpan = colSpan;
             EmbedUrl = embedUrl;
             EmbedData = embedData;
+            ReportId = reportId;
+            DatasetId = datasetId;
             CustomInit();
         }
 
@@ -83,6 +87,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "embedData")]
         public string EmbedData { get; set; }
+
+        /// <summary>
+        /// Gets or sets the report id
+        /// </summary>
+        [JsonProperty(PropertyName = "reportId")]
+        public string ReportId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset id
+        /// </summary>
+        [JsonProperty(PropertyName = "datasetId")]
+        public string DatasetId { get; set; }
 
     }
 }
