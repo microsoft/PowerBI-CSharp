@@ -44,6 +44,40 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Add a new empty dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Add dashboard parameters
+            /// </param>
+            public static Dashboard AddDashboard(this IDashboards operations, AddDashboardRequest requestParameters)
+            {
+                return operations.AddDashboardAsync(requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add a new empty dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Add dashboard parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dashboard> AddDashboardAsync(this IDashboards operations, AddDashboardRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddDashboardWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Gets a list of dashboards in a group
             /// </summary>
             /// <param name='operations'>
@@ -72,6 +106,46 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<ODataResponseListDashboard> GetDashboardsInGroupAsync(this IDashboards operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardsInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add a new empty dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Add dashboard parameters
+            /// </param>
+            public static Dashboard AddDashboardInGroup(this IDashboards operations, string groupId, AddDashboardRequest requestParameters)
+            {
+                return operations.AddDashboardInGroupAsync(groupId, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add a new empty dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Add dashboard parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dashboard> AddDashboardInGroupAsync(this IDashboards operations, string groupId, AddDashboardRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddDashboardInGroupWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -226,6 +300,52 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Clones the specified tile
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone tile parameters
+            /// </param>
+            public static Tile CloneTile(this IDashboards operations, string dashboardKey, string tileKey, CloneTileRequest requestParameters)
+            {
+                return operations.CloneTileAsync(dashboardKey, tileKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Clones the specified tile
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone tile parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Tile> CloneTileAsync(this IDashboards operations, string dashboardKey, string tileKey, CloneTileRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CloneTileWithHttpMessagesAsync(dashboardKey, tileKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Get a specified tile in a specified dashboard in a group
             /// </summary>
             /// <param name='operations'>
@@ -266,6 +386,58 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<Tile> GetTileInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, string tileKey, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTileInGroupWithHttpMessagesAsync(groupId, dashboardKey, tileKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Clones the specified tile
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone tile parameters
+            /// </param>
+            public static Tile CloneTileInGroup(this IDashboards operations, string groupId, string dashboardKey, string tileKey, CloneTileRequest requestParameters)
+            {
+                return operations.CloneTileInGroupAsync(groupId, dashboardKey, tileKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Clones the specified tile
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone tile parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Tile> CloneTileInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, string tileKey, CloneTileRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CloneTileInGroupWithHttpMessagesAsync(groupId, dashboardKey, tileKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

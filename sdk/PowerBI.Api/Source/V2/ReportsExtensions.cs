@@ -7,6 +7,7 @@ namespace Microsoft.PowerBI.Api.V2
     using Microsoft.PowerBI;
     using Microsoft.PowerBI.Api;
     using Models;
+    using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -263,6 +264,39 @@ namespace Microsoft.PowerBI.Api.V2
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static Stream ExportReport(this IReports operations, string reportKey)
+            {
+                return operations.ExportReportAsync(reportKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Stream> ExportReportAsync(this IReports operations, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                var _result = await operations.ExportReportWithHttpMessagesAsync(reportKey, null, cancellationToken).ConfigureAwait(false);
+                _result.Request.Dispose();
+                return _result.Body;
             }
 
             /// <summary>
@@ -555,6 +589,45 @@ namespace Microsoft.PowerBI.Api.V2
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static Stream ExportReportInGroup(this IReports operations, string groupId, string reportKey)
+            {
+                return operations.ExportReportInGroupAsync(groupId, reportKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Stream> ExportReportInGroupAsync(this IReports operations, string groupId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportKey, null, cancellationToken).ConfigureAwait(false);
+                _result.Request.Dispose();
+                return _result.Body;
             }
 
     }
