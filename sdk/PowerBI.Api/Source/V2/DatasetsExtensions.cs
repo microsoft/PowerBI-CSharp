@@ -1249,5 +1249,51 @@ namespace Microsoft.PowerBI.Api.V2
                 }
             }
 
+            /// <summary>
+            /// Generate token to view the specified dataset
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            public static EmbedToken GenerateTokenInGroup(this IDatasets operations, string groupId, string datasetKey, GenerateTokenRequest requestParameters)
+            {
+                return operations.GenerateTokenInGroupAsync(groupId, datasetKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Generate token to view the specified dataset
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<EmbedToken> GenerateTokenInGroupAsync(this IDatasets operations, string groupId, string datasetKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GenerateTokenInGroupWithHttpMessagesAsync(groupId, datasetKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

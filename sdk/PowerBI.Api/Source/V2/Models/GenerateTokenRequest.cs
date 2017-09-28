@@ -30,8 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="accessLevel">The dataset mode or type. Possible values
         /// include: 'View', 'Edit', 'Create'</param>
-        /// <param name="datasetId">The new dataset of the rebinded
-        /// report</param>
+        /// <param name="datasetId">The dataset Id</param>
         /// <param name="allowSaveAs">Allow SaveAs the report with generated
         /// token.</param>
         /// <param name="identities">The effective identities to use for RLS
@@ -58,7 +57,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string AccessLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets the new dataset of the rebinded report
+        /// Gets or sets the dataset Id
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
