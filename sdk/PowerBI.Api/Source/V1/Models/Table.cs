@@ -7,7 +7,6 @@ namespace Microsoft.PowerBI.Api.V1.Models
     using Microsoft.PowerBI;
     using Microsoft.PowerBI.Api;
     using Microsoft.PowerBI.Api.V1;
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -63,39 +62,5 @@ namespace Microsoft.PowerBI.Api.V1.Models
         [JsonProperty(PropertyName = "rows")]
         public IList<Row> Rows { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (Name == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
-            }
-            if (Columns == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Columns");
-            }
-            if (Name != null)
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(Name, "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "Name", "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$");
-                }
-            }
-            if (Columns != null)
-            {
-                foreach (var element in Columns)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }
