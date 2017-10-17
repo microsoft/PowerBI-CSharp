@@ -11,26 +11,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Rebind Report Request
+    /// Power BI Add Dashboard Request
     /// </summary>
-    public partial class RebindReportRequest
+    public partial class AddDashboardRequest
     {
         /// <summary>
-        /// Initializes a new instance of the RebindReportRequest class.
+        /// Initializes a new instance of the AddDashboardRequest class.
         /// </summary>
-        public RebindReportRequest()
+        public AddDashboardRequest()
         {
           CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the RebindReportRequest class.
+        /// Initializes a new instance of the AddDashboardRequest class.
         /// </summary>
-        /// <param name="datasetId">The new dataset of the rebinded
-        /// report</param>
-        public RebindReportRequest(string datasetId = default(string))
+        /// <param name="name">The name of the new dashboard</param>
+        public AddDashboardRequest(string name = default(string))
         {
-            DatasetId = datasetId;
+            Name = name;
             CustomInit();
         }
 
@@ -40,10 +39,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the new dataset of the rebinded report
+        /// Gets or sets the name of the new dashboard
         /// </summary>
-        [JsonProperty(PropertyName = "datasetId")]
-        public string DatasetId { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
     }
 }
