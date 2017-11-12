@@ -1,0 +1,1493 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "v1.0",
+        "title": "Power BI v1.0 API"
+    },
+    "host": "api.powerbi.com",
+    "schemes": [
+        "https"
+    ],
+    "consumes": [ ],
+    "produces": [ ],
+    "paths": {
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the datasets",
+                "operationId": "Datasets_GetDatasets",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dataset]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Post a new entity to datasets",
+                "operationId": "Datasets_PostDataset",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataset",
+                        "in": "body",
+                        "description": "Create dataset parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Dataset"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}/rows": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Posts new data rows into the specified table",
+                "operationId": "Datasets_PostRows",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "in": "path",
+                        "required": true,
+                        "description": "The dataset id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "tableName",
+                        "in": "path",
+                        "description": "The table name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestMessage",
+                        "in": "body",
+                        "description": "The request message",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Deletes all rows from the specified table",
+                "operationId": "Datasets_DeleteRows",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "in": "path",
+                        "description": "The dataset id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tableName",
+                        "in": "path",
+                        "description": "The table name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_GetTables",
+                "summary": "Gets all tables within the specified dataset",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Table]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/tables/{tableName}": {
+            "put": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_PutTable",
+                "summary": "Updates a schema and metadata for the specified table",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "in": "path",
+                        "description": "The dataset id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tableName",
+                        "in": "path",
+                        "description": "The table name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestMessage",
+                        "in": "body",
+                        "description": "The request message",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_GetDatasetById",
+                "summary": "Gets the dataset metadata for the specifeid dataset id",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Dataset"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_DeleteDatasetById",
+                "summary": "Deletes the dataset with the specified id",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/Default.GetBoundGatewayDatasources": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_GetGatewayDatasources",
+                "summary": "Gets a list of bound gateway datasources for the specified dataset",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[GatewayDatasource]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/datasources": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_GetDatasources",
+                "summary": "Gets a list of datasource for the specified dataset",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Datasource]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/datasets/{datasetKey}/Default.SetAllConnections": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "operationId": "Datasets_SetAllConnections",
+                "summary": "Sets all connections for the specified dataset",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "in": "path",
+                        "description": "The dataset id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "parameters",
+                        "in": "body",
+                        "description": "The body",
+                        "required": true,
+                        "schema": {
+                            "anyOf" :
+                            [
+                                {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    }   
+                                },
+                                {
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "$ref": "#/definitions/Object"
+                                    }   
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/gateways/{gatewayId}/datasources/{datasourceId}": {
+            "patch": {
+                "tags": [
+                    "Gateways"
+                ],
+                "operationId": "Gateways_PatchDatasource",
+                "summary": "Updates the credentials for the specified datasource",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceDelta",
+                        "in": "body",
+                        "description": "The datasource changes",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/imports": {
+            "get": {
+                "tags": [
+                    "Imports"
+                ],
+                "summary": "Returns a list of imports for the specified workspace",
+                "operationId": "Imports_GetImports",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Import]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Imports"
+                ],
+                "summary": "Creates a new import using the specified import info",
+                "operationId": "Imports_PostImport",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetDisplayName",
+                        "in": "query",
+                        "required": true,
+                        "description": "The display name of the dataset",
+                        "type": "string"
+                    },
+                    {
+                        "name": "nameConflict",
+                        "in": "query",
+                        "required": false,
+                        "description": "Determines what to do if a dataset with the same name already exists",
+                        "type": "string"
+                    },
+                    {
+                        "name": "importInfo",
+                        "in": "body",
+                        "description": "The import to post",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ImportInfo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/imports/{importId}": {
+            "get": {
+                "tags": [
+                    "Imports"
+                ],
+                "summary": "Gets the import metadata for the specifed import id",
+                "operationId": "Imports_GetImportById",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "importId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The import id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces": {
+            "get": {
+                "summary": "Returns a list of workspaces for the specified collection",
+                "operationId": "Workspaces_GetWorkspacesByCollectionName",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace collection name",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Workspace]]"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Workspaces"
+                ],
+                "summary": "Creates a new workspace within a workspace collection",
+                "operationId": "Workspaces_PostWorkspace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace collection name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceRequest",
+                        "in": "body",
+                        "description": "The workspace requested to create",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/CreateWorkspaceRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/Workspace"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Gets a list of reports available within the specified workspace",
+                "operationId": "Reports_GetReports",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Clone": {
+        "post": {
+          "tags": [
+            "Reports"
+          ],
+          "summary": "Clones the specified report",
+          "operationId": "Reports_CloneReport",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "collectionName",
+              "in": "path",
+              "description": "The workspace collection name",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "workspaceId",
+              "in": "path",
+              "required": true,
+              "description": "The workspace id",
+              "type": "string"
+            },
+            {
+              "name": "reportKey",
+              "description": "The report id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "requestParameters",
+              "description": "Clone report parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/CloneReportRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Export":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Exports the specified report",
+                "operationId":"Reports_ExportReport",
+                "consumes":[ ],
+                "produces":[
+                    "application/zip"
+                ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportKey",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "schema": {
+                            "type": "file"
+                         },
+                         "description": "PBIX File"
+                     }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}": {
+            "delete": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Deletes the specified report",
+                "operationId": "Reports_DeleteReport",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportKey",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/collections/{collectionName}/workspaces/{workspaceId}/reports/{reportKey}/Rebind": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Rebinds the specified report to requested dataset id",
+                "operationId": "Reports_RebindReport",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "collectionName",
+                        "in": "path",
+                        "description": "The workspace collection name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workspaceId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportKey",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "description": "Rebind report parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RebindReportRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "Import": {
+            "type": "object",
+            "description": "The import object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The import id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The import name name"
+                },
+                "importState": {
+                    "type": "string",
+                    "description": "The import upload state"
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "The reports associated with this import",
+                    "items": {
+                        "$ref": "#/definitions/Report"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "The datasets associated with this import",
+                    "items": {
+                        "$ref": "#/definitions/Dataset"
+                    }
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Import creation time"
+                },
+                "updatedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Import last update time"
+                }
+            }
+        },
+        "ImportInfo": {
+            "type": "object",
+            "description": "The import info",
+            "properties": {
+                "filePath": {
+                    "type": "string",
+                    "description": "The file path to import"
+                },
+                "connectionType": {
+                    "type": "string",
+                    "description": "The import connection type"
+                }
+            }
+        },
+        "Object": {
+            "type": "object",
+            "properties": { }
+        },
+        "ODataResponse[List[Dataset]]": {
+            "type": "object",
+            "description": "A dataset odata list wrapper",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The datasets",
+                    "items": {
+                        "$ref": "#/definitions/Dataset"
+                    }
+                }
+            }
+        },
+        "Dataset": {
+            "required": [
+                "name",
+                "tables"
+            ],
+            "type": "object",
+            "description": "A Power BI Dataset",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The dataset id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The dataset name"
+                },
+                "defaultRetentionPolicy": {
+                    "type": "string",
+                    "description": "The dataset default data retention policy"
+                },
+                "addRowsAPIEnabled":{
+                    "type":"boolean",
+                    "description":"Is Push Dataset"
+                },
+                "tables": {
+                    "type": "array",
+                    "description": "The dataset tables",
+                    "items": {
+                        "$ref": "#/definitions/Table"
+                    }
+                },
+                "webUrl": {
+                    "type": "string",
+                    "description": "The dataset web url"
+                },
+                "datasources": {
+                    "type": "array",
+                    "description": "The datasources associated with this dataset",
+                    "items": {
+                        "$ref": "#/definitions/Datasource"
+                    }
+                },
+                "defaultMode": {
+                    "type": "string",
+                    "description": "The dataset mode or type",
+                    "enum":[  
+                        "AsAzure",
+                        "AsOnPrem",
+                        "Push",
+                        "Streaming",
+                        "PushStreaming"
+                    ]
+                }
+            }
+        },
+        "Table": {
+            "required": [
+                "name",
+                "columns"
+            ],
+            "type": "object",
+            "description": "A dataset table",
+            "properties": {
+                "name": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type": "string",
+                    "description": "The table name"
+                },
+                "columns": {
+                    "type": "array",
+                    "description": "The column schema for this table",
+                    "items": {
+                        "$ref": "#/definitions/Column"
+                    }
+                },
+                "rows": {
+                    "type": "array",
+                    "description": "The data rows within this tabe",
+                    "items": {
+                        "$ref": "#/definitions/Row"
+                    }
+                }
+            }
+        },
+        "Datasource": {
+            "type": "object",
+            "description": "A Power BI datasource",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The datasource name"
+                },
+                "connectionString": {
+                    "type": "string",
+                    "description": "The datasource connection string"
+                }
+            }
+        },
+        "Column": {
+            "required": [
+                "name",
+                "dataType"
+            ],
+            "type": "object",
+            "description": "A Power BI Column",
+            "properties": {
+                "name": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+                    "type": "string",
+                    "description": "The column name"
+                },
+                "dataType": {
+                    "type": "string",
+                    "description": "The column data type"
+                }
+            }
+        },
+        "Row": {
+            "type": "object",
+            "description": "A Power BI data row",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique row id"
+                }
+            }
+        },
+        "ODataResponse[List[Table]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Table collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The Power BI tables",
+                    "items": {
+                        "$ref": "#/definitions/Table"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[GatewayDatasource]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Gateway datasource collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The gateway datasources",
+                    "items": {
+                        "$ref": "#/definitions/GatewayDatasource"
+                    }
+                }
+            }
+        },
+        "GatewayDatasource": {
+            "type": "object",
+            "description": "A Power BI gateway datasource",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique id for this gateway datasource"
+                },
+                "gatewayId": {
+                    "type": "string",
+                    "description": "The associated gateway id"
+                },
+                "datasourceType": {
+                    "type": "string",
+                    "description": "The datasource type"
+                },
+                "connectionDetails": {
+                    "type": "string",
+                    "description": "The datasource connection details"
+                },
+                "credentialType": {
+                    "type": "string",
+                    "description": "The datasource credential type"
+                },
+                "basicCredentials": {
+                    "$ref": "#/definitions/BasicCredentials"
+                }
+            }
+        },
+        "BasicCredentials": {
+            "type": "object",
+            "description": "Object representing basic authentication credentials",
+            "properties": {
+                "username": {
+                    "type": "string",
+                    "description": "Username required to access the datasource"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password required to access the datasource"
+                }
+            }
+        },
+        "ODataResponse[List[Datasource]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI datasource collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The datasource collection",
+                    "items": {
+                        "$ref": "#/definitions/Datasource"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Report]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Report collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The report collection",
+                    "items": {
+                        "$ref": "#/definitions/Report"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Import]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Import collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The imports collection",
+                    "items": {
+                        "$ref": "#/definitions/Import"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Workspace]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Workspace list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The workspaces",
+                    "items": {
+                        "$ref": "#/definitions/Workspace"
+                    }
+                }
+            }
+        },
+        "Report": {
+            "type": "object",
+            "description": "A Power BI Report",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The report id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The report name"
+                },
+                "webUrl": {
+                    "type": "string",
+                    "description": "The report web url"
+                },
+                "embedUrl": {
+                    "type": "string",
+                    "description": "The report embed url"
+                },
+                "datasetId": {
+                    "type": "string",
+                    "description": "The dataset id"
+                }
+            }
+        },
+        "Workspace": {
+            "type": "object",
+            "description": "A Power BI Workspace",
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "description": "The workspace id"
+                },
+                "workspaceCollectionName": {
+                    "type": "string",
+                    "description": "The workspace collection name"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The workspace display name"
+                }
+            }
+        },
+        "CreateWorkspaceRequest": {
+            "type": "object",
+            "description": "A Create Workspace Request",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The workspace name"
+                }
+            }
+        },
+        "CloneReportRequest": {
+            "type": "object",
+            "description": "Power BI Clone Report Request",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The requested report name"
+                },
+                "targetWorkspaceId": {
+                    "type": "string",
+                    "description": "Optional parameter for specifying the target workspace id"
+                },
+                "targetModelId": {
+                    "type": "string",
+                    "description": "Optional parameter for specifying the target associated model (dataset) id"
+                }
+            }
+        },
+        "RebindReportRequest": {
+            "type": "object",
+            "description": "Power BI Rebind Report Request",
+            "properties": {
+                "datasetId": {
+                    "type": "string",
+                    "description": "The new dataset of the rebinded report"
+                }
+            }
+        }
+    },
+    "parameters": { },
+    "responses": { },
+    "security": [ ],
+    "tags": [ ]
+}

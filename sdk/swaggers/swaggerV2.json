@@ -1,0 +1,4472 @@
+{
+    "swagger":"2.0",
+    "info":{
+        "version":"v1.0",
+        "title":"Power BI Client"
+    },
+    "host":"api.powerbi.com",
+    "schemes":[
+        "https"
+    ],
+    "consumes":[
+
+    ],
+    "produces":[
+
+    ],
+    "paths":{
+        "/v1.0/myorg/datasets":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Returns the datasets",
+                "operationId":"Datasets_GetDatasets",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Dataset]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Post a new entity to datasets",
+                "operationId":"Datasets_PostDataset",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"dataset",
+                        "in":"body",
+                        "description":"Create dataset parameters",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/Dataset"
+                        }
+                    }
+                ],
+                "responses":{
+                    "201":{
+                        "description":"Created",
+                        "schema":{
+                            "$ref":"#/definitions/Dataset"
+                        }
+                    },
+                    "202":{
+                        "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetDatasetById",
+                "summary":"Gets the dataset metadata for the specifeid dataset id",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Dataset"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "delete":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_DeleteDatasetById",
+                "summary":"Deletes the dataset with the specified id",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/tables":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetTables",
+                "summary":"Gets all tables within the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Table]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/tables/{tableName}":{
+            "put":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_PutTable",
+                "summary":"Updates a schema and metadata for the specified table",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tableName",
+                        "in":"path",
+                        "description":"The table name",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestMessage",
+                        "in":"body",
+                        "description":"The request message",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/tables/{tableName}/rows":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Posts new data rows into the specified table",
+                "operationId":"Datasets_PostRows",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "description":"The dataset id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"tableName",
+                        "in":"path",
+                        "description":"The table name",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestMessage",
+                        "in":"body",
+                        "description":"The request message",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "delete":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Deletes all rows from the specified table",
+                "operationId":"Datasets_DeleteRows",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tableName",
+                        "in":"path",
+                        "description":"The table name",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/refreshes":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetRefreshHistory",
+                "summary":"Gets the dataset refresh history",
+                "consumes":[],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"$top",
+                        "description":"The requested number of entries in the refresh history, if not supported the default is all available entries",
+                        "in":"query",
+                        "required":false,
+                        "type":"integer"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Refresh]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_RefreshDataset",
+                "summary":"Start a dataset refresh",
+                "consumes":[
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "202":{
+                        "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/datasources":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetDatasources",
+                "summary":"Gets a list of datasource for the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Datasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/Default.UpdateDatasources":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_UpdateDatasources",
+                "summary":"Updates the dataset datasources using the specified datasource selectors",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"updateDatasourcesRequest",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/UpdateDatasourcesRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/Default.SetAllConnections":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_SetAllDatasetConnections",
+                "summary":"Sets all connections for the specified dataset",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"parameters",
+                        "in":"body",
+                        "description":"The body",
+                        "required":true,
+                        "schema":{
+                            "$ref": "#/definitions/ConnectionDetails"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/Default.BindToGateway":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_BindToGateway",
+                "summary":"Bind dataset to gateway",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name": "bindToGatewayRequest",
+                        "in": "body",
+                        "description": "The bind to gateway request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BindToGatewayRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/Default.GetBoundGatewayDatasources":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetGatewayDatasources",
+                "summary":"Gets a list of bound gateway datasources for the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[GatewayDatasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/imports":{
+            "get":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Returns a list of imports",
+                "operationId":"Imports_GetImports",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Import]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Creates a new import using the specified import info",
+                "operationId":"Imports_PostImport",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetDisplayName",
+                        "in":"query",
+                        "required":true,
+                        "description":"The display name of the dataset",
+                        "type":"string"
+                    },
+                    {
+                        "name":"nameConflict",
+                        "in":"query",
+                        "required":false,
+                        "description":"Determines what to do if a dataset with the same name already exists",
+                        "type":"string",
+                        "enum":[
+                            "Ignore",
+                            "Abort",
+                            "Overwrite"
+                        ],
+                        "x-ms-enum": {
+                            "name": "ImportConflictHandlerMode",
+                            "modelAsString": true
+                        }
+                    },
+                    {
+                        "name":"importInfo",
+                        "in":"body",
+                        "description":"The import to post",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/ImportInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/imports/{importId}":{
+            "get":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Gets the import metadata for the specifed import id",
+                "operationId":"Imports_GetImportById",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"importId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The import id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/v1.0/myorg/reports":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Gets a list of reports",
+                "operationId":"Reports_GetReports",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/reports/{reportKey}":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Get the specified report",
+                "operationId":"Reports_GetReport",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "delete":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Deletes the specified report",
+                "operationId":"Reports_DeleteReport",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/reports/{reportKey}/Clone":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Clones the specified report",
+                "operationId":"Reports_CloneReport",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Clone report parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/CloneReportRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/reports/{reportKey}/Export":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Exports the specified report",
+                "operationId":"Reports_ExportReport",
+                "consumes":[],
+                "produces":[
+                    "application/zip"
+                ],
+                "parameters":[
+                    {
+                        "name":"reportKey",
+                        "in":"path",
+                        "description":"The report id",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "schema": {
+                            "type": "file"
+                        },
+                        "description": "Exported File"
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/reports/{reportKey}/Rebind":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Rebinds the specified report to requested dataset id",
+                "operationId":"Reports_RebindReport",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"reportKey",
+                        "in":"path",
+                        "description":"The report id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Rebind report parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/RebindReportRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/dashboards":{
+            "get":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Gets a list of dashboards",
+                "operationId":"Dashboards_GetDashboards",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Dashboard]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Add a new empty dashboard",
+                "operationId":"Dashboards_AddDashboard",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters": [
+                {
+                  "name": "requestParameters",
+                  "description": "Add dashboard parameters",
+                  "in": "body",
+                  "required": true,
+                  "schema": {
+                    "$ref": "#/definitions/AddDashboardRequest"
+                  }
+                }
+              ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Dashboard"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/dashboards/{dashboardKey}":{
+            "get":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Get the specified dashboard",
+                "operationId":"Dashboards_GetDashboard",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Dashboard"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/dashboards/{dashboardKey}/tiles":{
+            "get":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Get tiles in the specified dashboard",
+                "operationId":"Dashboards_GetTiles",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Tile]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/dashboards/{dashboardKey}/tiles/{tileKey}":{
+            "get":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Get a specified tile in a specified dashboard",
+                "operationId":"Dashboards_GetTile",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tileKey",
+                        "description":"The tile id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Tile"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/dashboards/{dashboardKey}/tiles/{tileKey}/Clone": {
+            "post": {
+                "tags": [
+                    "Tiles"
+                ],
+                "summary": "Clones the specified tile",
+                "operationId": "Dashboards_CloneTile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dashboardKey",
+                        "description": "The dashboard id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "tileKey",
+                        "description": "The tile id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "description": "Clone tile parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CloneTileRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Tile"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        
+        "/v1.0/myorg/reports/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Generate token to create a new report on a given dataset",
+                "operationId":"Reports_GenerateTokenForCreate",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/reports/{reportKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Generate token to view or edit the specified report",
+                "operationId":"Reports_GenerateToken",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/dashboards/{dashboardKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Generate token to view the specified dashboard",
+                "operationId":"Dashboards_GenerateToken",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/dashboards/{dashboardKey}/tiles/{tileKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Generate token to view the specified tile",
+                "operationId":"Tiles_GenerateToken",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tileKey",
+                        "description":"The tile id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/groups/{groupId}/datasets":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Returns the datasets",
+                "operationId":"Datasets_GetDatasetsInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "description":"The group id",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Dataset]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Post a new entity to datasets",
+                "operationId":"Datasets_PostDatasetInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "description":"The group id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"dataset",
+                        "in":"body",
+                        "description":"Create dataset parameters",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/Dataset"
+                        }
+                    }
+                ],
+                "responses":{
+                    "201":{
+                        "description":"Created",
+                        "schema":{
+                            "$ref":"#/definitions/Dataset"
+                        }
+                    },
+                    "202":{
+                        "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetDatasetByIdInGroup",
+                "summary":"Gets the dataset metadata for the specifeid dataset id",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Dataset"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "delete":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_DeleteDatasetByIdInGroup",
+                "summary":"Deletes the dataset with the specified id",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/tables":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetTablesInGroup",
+                "summary":"Gets all tables within the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Table]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/tables/{tableName}":{
+            "put":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_PutTableInGroup",
+                "summary":"Updates a schema and metadata for the specified table",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tableName",
+                        "in":"path",
+                        "description":"The table name",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestMessage",
+                        "in":"body",
+                        "description":"The request message",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/tables/{tableName}/rows":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Posts new data rows into the specified table",
+                "operationId":"Datasets_PostRowsInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "description":"The dataset id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"tableName",
+                        "in":"path",
+                        "description":"The table name",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestMessage",
+                        "in":"body",
+                        "description":"The request message",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "delete":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Deletes all rows from the specified table",
+                "operationId":"Datasets_DeleteRowsInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tableName",
+                        "in":"path",
+                        "description":"The table name",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/refreshes":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetRefreshHistoryInGroup",
+                "summary":"Gets the dataset refresh history",
+                "consumes":[],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"$top",
+                        "description":"The requested number of entries in the refresh history, if not supported the default is all available entries",
+                        "in":"query",
+                        "required":false,
+                        "type":"integer"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Refresh]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_RefreshDatasetInGroup",
+                "summary":"Start a dataset refresh",
+                "consumes":[
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "202":{
+                        "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/datasources":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetDatasourcesInGroup",
+                "summary":"Gets a list of datasource for the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Datasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.UpdateDatasources":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_UpdateDatasourcesInGroup",
+                "summary":"Updates the dataset datasources using the specified datasource selectors",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"updateDatasourcesRequest",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/UpdateDatasourcesRequest"
+                        }                        
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.SetAllConnections":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_SetAllDatasetConnectionsInGroup",
+                "summary":"Sets all connections for the specified dataset",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"parameters",
+                        "in":"body",
+                        "description":"The body",
+                        "required":true,
+                        "schema":{
+                            "$ref": "#/definitions/ConnectionDetails"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.BindToGateway":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_BindToGatewayInGroup",
+                "summary":"Bind dataset to gateway",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name": "bindToGatewayRequest",
+                        "in": "body",
+                        "description": "The bind to gateway request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BindToGatewayRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.GetBoundGatewayDatasources":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetGatewayDatasourcesInGroup",
+                "summary":"Gets a list of bound gateway datasources for the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[GatewayDatasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.TakeOver":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_TakeOverInGroup",
+                "summary":"Take Over a dataset",
+                "consumes":[],
+                "produces":[],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "description":"The dataset id",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/groups/{groupId}/imports":{
+            "get":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Returns a list of imports for the specified group",
+                "operationId":"Imports_GetImportsInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Import]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Creates a new import using the specified import info",
+                "operationId":"Imports_PostImportInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetDisplayName",
+                        "in":"query",
+                        "required":true,
+                        "description":"The display name of the dataset",
+                        "type":"string"
+                    },
+                    {
+                        "name":"nameConflict",
+                        "in":"query",
+                        "required":false,
+                        "description":"Determines what to do if a dataset with the same name already exists",
+                        "type":"string"
+                    },
+                    {
+                        "name":"importInfo",
+                        "in":"body",
+                        "description":"The import to post",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/ImportInfo"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/imports/{importId}":{
+            "get":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Gets the import metadata for the specifed import id",
+                "operationId":"Imports_GetImportByIdInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"importId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The import id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/v1.0/myorg/groups/{groupId}/reports":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Gets a list of reports available within the specified group",
+                "operationId":"Reports_GetReportsInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Get the specified report",
+                "operationId":"Reports_GetReportInGroup",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "delete":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Deletes the specified report",
+                "operationId":"Reports_DeleteReportInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Clone":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Clones the specified report",
+                "operationId":"Reports_CloneReportInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Clone report parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/CloneReportRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Export":{
+            "get":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Exports the specified report",
+                "operationId":"Reports_ExportReportInGroup",
+                "consumes":[],
+                "produces":[
+                    "application/zip"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"reportKey",
+                        "in":"path",
+                        "required":true,
+                        "description":"The report id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "schema": {
+                            "type": "file"
+                        },
+                        "description": "Exported File"
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Rebind":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Rebinds the specified report to requested dataset id",
+                "operationId":"Reports_RebindReportInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"reportKey",
+                        "in":"path",
+                        "description":"The report id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Rebind report parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/RebindReportRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/groups/{groupId}/dashboards":{
+            "get":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Gets a list of dashboards in a group",
+                "operationId":"Dashboards_GetDashboardsInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Dashboard]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            },
+            "post":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Add a new empty dashboard",
+                "operationId":"Dashboards_AddDashboardInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+              "parameters": [
+                  {
+                    "name":"groupId",
+                    "in":"path",
+                    "required":true,
+                    "description":"The group id",
+                    "type":"string"
+                  },
+                  {
+                    "name": "requestParameters",
+                    "description": "Add dashboard parameters",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/AddDashboardRequest"
+                    }
+                  }
+              ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Dashboard"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardKey}":{
+            "get":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Get the specified dashboard in a group",
+                "operationId":"Dashboards_GetDashboardInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Dashboard"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardKey}/tiles":{
+            "get":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Get tiles in the specified dashboard in a group",
+                "operationId":"Dashboards_GetTilesInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Tile]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardKey}/tiles/{tileKey}":{
+            "get":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Get a specified tile in a specified dashboard in a group",
+                "operationId":"Dashboards_GetTileInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tileKey",
+                        "description":"The tile id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Tile"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardKey}/tiles/{tileKey}/Clone":{
+            "post":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Clones the specified tile",
+                "operationId":"Dashboards_CloneTileInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                      "name":"groupId",
+                      "in":"path",
+                      "required":true,
+                      "description":"The group id",
+                      "type":"string"
+                    },  
+                    {
+                      "name": "dashboardKey",
+                      "description": "The dashboard id",
+                      "in": "path",
+                      "required": true,
+                      "type": "string"
+                    },
+                    {
+                        "name":"tileKey",
+                        "description":"The tile id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Clone tile parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/CloneTileRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Tile"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/groups/{groupId}/reports/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Generate token to create a new report on a given dataset",
+                "operationId":"Reports_GenerateTokenForCreateInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Reports"
+                ],
+                "summary":"Generate token to view or edit the specified report",
+                "operationId":"Reports_GenerateTokenInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"reportKey",
+                        "description":"The report id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "summary":"Generate token to view the specified dataset",
+                "operationId":"Datasets_GenerateTokenInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Dashboards"
+                ],
+                "summary":"Generate token to view the specified dashboard",
+                "operationId":"Dashboards_GenerateTokenInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardKey}/tiles/{tileKey}/GenerateToken":{
+            "post":{
+                "tags":[
+                    "Tiles"
+                ],
+                "summary":"Generate token to view the specified tile",
+                "operationId":"Tiles_GenerateTokenInGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"dashboardKey",
+                        "description":"The dashboard id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"tileKey",
+                        "description":"The tile id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"requestParameters",
+                        "description":"Generate token parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GenerateTokenRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/gateways":{
+            "get":{
+                "tags":[
+                    "Gateways"
+                ],
+                "operationId":"Gateways_GetGateways",
+                "summary":"Returns a list of gateways",
+                "consumes":[],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Gateway]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/gateways/{gatewayId}":{
+            "get":{
+                "tags":[
+                    "Gateways"
+                ],
+                "operationId":"Gateways_GetGatewayById",
+                "summary":"Returns the specified gateway",
+                "consumes":[],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Gateway"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/gateways/{gatewayId}/datasources": {
+            "get": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_GetDatasources",
+                "summary": "Get all datasources of specific gateway",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[GatewayDatasource]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_CreateDatasource",
+                "summary": "Create a datasource",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceToGatewayRequest",
+                        "in": "body",
+                        "description": "The datasource requested to create",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PublishDatasourceToGatewayRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema":{
+                            "$ref": "#/definitions/GatewayDatasource"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}": {
+            "get": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_GetDatasourceById",
+                "summary": "Get a datasource by id",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GatewayDatasource"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_DeleteDatasource",
+                "summary": "Delete a datasource",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_UpdateDatasource",
+                "summary": "Update a datasource credentials",
+                "consumes": [ ],
+                "produces": [ ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateDatasourceRequest",
+                        "in": "body",
+                        "description": "The update datasource request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateDatasourceRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/status": {
+            "get": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_GetDatasourceStatusById",
+                "summary": "Get a datasource status by id",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users": {
+            "get": {
+                "tags": [
+                    "Datasources"
+                ],
+                "operationId": "Gateways_GetDatasourceUsers",
+                "summary": "Get a datasource users list",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref":"#/definitions/ODataResponse[List[UserAccessRight]]"
+                        }
+                    }
+                }
+            },
+            "post":{
+                "tags":[
+                    "Datasources"
+                ],
+                "operationId":"Gateways_AddDatasourceUser",
+                "summary":"Get a datasource user",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "addUserToDatasourceRequest",
+                        "in": "body",
+                        "description": "The add user to datasource request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UserAccessRight"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users/{emailAdress}": {
+            "delete":{
+                "tags":[
+                    "Datasources"
+                ],
+                "operationId":"Gateways_DeleteDatasourceUser",
+                "summary":"Delete a datasource user",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name": "gatewayId",
+                        "in": "path",
+                        "description": "The gateway id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasourceId",
+                        "in": "path",
+                        "description": "The datasource id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "emailAdress",
+                        "in": "path",
+                        "description": "The user's email address",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
+        "/v1.0/myorg/groups":{
+            "get":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"Returns a list of groups",
+                "operationId":"Groups_GetGroups",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Group]]"
+                        }
+                    }
+                }
+            },
+            "post":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"Create new group",
+                "operationId":"Groups_CreateGroup",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"requestParameters",
+                        "description":"Create group request parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GroupCreationRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Group"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}":{
+            "delete":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"Deletes the specified group",
+                "operationId":"Groups_DeleteGroup",
+                "consumes":[
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id to delete",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/users": {
+            "get": {
+                "tags": [
+                    "Groups"
+                ],
+                "operationId": "Groups_GetGroupUsers",
+                "summary": "Get a group users list",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The group id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref":"#/definitions/ODataResponse[List[GroupUserAccessRight]]"
+                        }
+                    }
+                }
+            },
+            "post":{
+                "tags":[
+                    "Groups"
+                ],
+                "operationId":"Groups_AddGroupUser",
+                "summary":"Add a group user",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The group id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "user access right details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GroupUserAccessRight"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/users/{user}":{
+            "delete":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"Deletes the specified group",
+                "operationId":"Groups_DeleteUserInGroup",
+                "consumes":[
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"user",
+                        "in":"path",
+                        "required":true,
+                        "description":"The user email to delete",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        }
+    },
+    "definitions":{
+        "Import":{
+            "type":"object",
+            "description":"The import object",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The import id"
+                },
+                "name":{
+                    "type":"string",
+                    "description":"The import name name"
+                },
+                "importState":{
+                    "type":"string",
+                    "description":"The import upload state"
+                },
+                "reports":{
+                    "type":"array",
+                    "description":"The reports associated with this import",
+                    "items":{
+                        "$ref":"#/definitions/Report"
+                    }
+                },
+                "datasets":{
+                    "type":"array",
+                    "description":"The datasets associated with this import",
+                    "items":{
+                        "$ref":"#/definitions/Dataset"
+                    }
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Import creation time"
+                },
+                "updatedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Import last update time"
+                }
+            }
+        },
+        "ImportInfo":{
+            "type":"object",
+            "description":"The import info",
+            "properties":{
+                "filePath":{
+                    "type":"string",
+                    "description":"The file path to import"
+                },
+                "connectionType":{
+                    "type":"string",
+                    "description":"The import connection type"
+                }
+            }
+        },
+        "Object":{
+            "type":"object",
+            "properties":{
+
+            }
+        },
+        "ODataResponse[List[Dataset]]":{
+            "type":"object",
+            "description":"A dataset odata list wrapper",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The datasets",
+                    "items":{
+                        "$ref":"#/definitions/Dataset"
+                    }
+                }
+            }
+        },
+        "Dataset":{
+            "required":[
+                "name",
+                "tables"
+            ],
+            "type":"object",
+            "description":"A Power BI Dataset",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The dataset id"
+            },
+            "name": {
+              "type": "string",
+              "description": "The dataset name"
+            },
+            "configuredBy": {
+              "type": "string",
+              "description": "The dataset owner"
+            },
+            "defaultRetentionPolicy": {
+              "type": "string",
+              "description": "The dataset default data retention policy"
+            },
+            "addRowsAPIEnabled": {
+              "type": "boolean",
+              "description": "Is Push Dataset"
+            },
+            "tables": {
+              "type": "array",
+              "description": "The dataset tables",
+              "items": {
+                "$ref": "#/definitions/Table"
+              }
+            },
+            "webUrl": {
+              "type": "string",
+              "description": "The dataset web url"
+            },
+            "datasources": {
+              "type": "array",
+              "description": "The datasources associated with this dataset",
+              "items": {
+                "$ref": "#/definitions/Datasource"
+              }
+            },
+            "defaultMode": {
+              "type": "string",
+              "description": "The dataset mode or type",
+              "enum": [
+                "AsAzure",
+                "AsOnPrem",
+                "Push",
+                "Streaming",
+                "PushStreaming"
+              ],
+              "x-ms-enum": {
+                "name": "DatasetMode",
+                "modelAsString": true
+              }
+            },
+            "IsRefreshable": {
+              "type": "boolean",
+              "description": "Can this dataset be refreshed"
+            },
+            "IsEffectiveIdentityRequired": {
+              "type": "boolean",
+              "description": "Dataset requires effective identity"
+            },
+            "IsEffectiveIdentityRolesRequired": {
+              "type": "boolean",
+              "description": "Dataset requires roles"
+            },
+            "IsOnPremGatewayRequired": {
+              "type": "boolean",
+              "description": "Dataset requires onprem gateway"
+            }
+          }
+        },
+        "Table":{
+            "required":[
+                "name",
+                "columns"
+            ],
+            "type":"object",
+            "description":"A dataset table",
+            "properties":{
+                "name":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type":"string",
+                    "description":"The table name"
+                },
+                "columns":{
+                    "type":"array",
+                    "description":"The column schema for this table",
+                    "items":{
+                        "$ref":"#/definitions/Column"
+                    }
+                },
+                "rows":{
+                    "type":"array",
+                    "description":"The data rows within this tabe",
+                    "items":{
+                        "$ref":"#/definitions/Row"
+                    }
+                }
+            }
+        },
+        "Datasource":{
+            "type":"object",
+            "description":"A Power BI datasource",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"The datasource name"
+                },
+                "connectionString":{
+                    "type":"string",
+                    "description":"The datasource connection string"
+                },
+                "datasourceType":{
+                    "type":"string",
+                    "description":"The datasource type"
+                },
+                "connectionDetails":{
+                    "$ref": "#/definitions/DatasourceConnectionDetails",
+                    "description":"The datasource connection details"
+                }
+            }
+        },
+        "DatasourceConnectionDetails":{
+            "type":"object",
+            "description":"A Power BI datasource connection details",
+            "properties":{
+                "server":{
+                    "type":"string",
+                    "description":"The connection server"
+                },
+                "database":{
+                    "type":"string",
+                    "description":"The connection database"
+                },
+                "url":{
+                    "type":"string",
+                    "description":"The connection url"
+                }
+            }
+        },
+        "UpdateDatasourcesRequest":{
+            "type":"object",
+            "description":"",
+            "properties":{
+                "updateDetails":{
+                    "type":"array",
+                    "description":"The connection server",
+                    "items":{
+                        "$ref":"#/definitions/UpdateDatasourceConnectionRequest"
+                    }
+                }
+            }
+        },
+        "UpdateDatasourceConnectionRequest":{
+            "type":"object",
+            "description":"",
+            "properties":{
+                "connectionDetails":{
+                    "$ref":"#/definitions/DatasourceConnectionDetails",
+                    "description":""
+                },
+                "datasourceSelector":{
+                    "$ref":"#/definitions/Datasource",
+                    "description":""
+                }
+            }
+        },
+        "Column":{
+            "required":[
+                "name",
+                "dataType"
+            ],
+            "type":"object",
+            "description":"A Power BI Column",
+            "properties":{
+                "name":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+                    "type":"string",
+                    "description":"The column name"
+                },
+                "dataType":{
+                    "type":"string",
+                    "description":"The column data type"
+                }
+            }
+        },
+        "Row":{
+            "type":"object",
+            "description":"A Power BI data row",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The unique row id"
+                }
+            }
+        },
+        "ODataResponse[List[Table]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Table collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The Power BI tables",
+                    "items":{
+                        "$ref":"#/definitions/Table"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[GatewayDatasource]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Gateway datasource collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The gateway datasources",
+                    "items":{
+                        "$ref":"#/definitions/GatewayDatasource"
+                    }
+                }
+            }
+        },
+        "GatewayDatasource":{
+            "type":"object",
+            "description":"A Power BI gateway datasource",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The unique id for this gateway datasource"
+                },
+                "gatewayId":{
+                    "type":"string",
+                    "description":"The associated gateway id"
+                },
+                "datasourceName":{
+                    "type":"string",
+                    "description":"The datasource name"
+                },
+                "datasourceType":{
+                    "type":"string",
+                    "description":"The datasource type"
+                },
+                "connectionDetails":{
+                    "type":"string",
+                    "description":"The datasource connection details"
+                },
+                "credentialType":{
+                    "type":"string",
+                    "description":"The datasource credential type"
+                },
+                "basicCredentials":{
+                    "$ref":"#/definitions/BasicCredentials",
+                    "description":"The datasource basic credential"
+                }
+            }
+        },
+        "BasicCredentials":{
+            "type":"object",
+            "description":"Object representing basic authentication credentials",
+            "properties":{
+                "username":{
+                    "type":"string",
+                    "description":"Username required to access the datasource"
+                },
+                "password":{
+                    "type":"string",
+                    "description":"Password required to access the datasource"
+                }
+            }
+        },
+        "ODataResponse[List[Datasource]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI datasource collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The datasource collection",
+                    "items":{
+                        "$ref":"#/definitions/Datasource"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Report]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Report collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The report collection",
+                    "items":{
+                        "$ref":"#/definitions/Report"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Dashboard]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Dashboard collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The dashboard collection",
+                    "items":{
+                        "$ref":"#/definitions/Dashboard"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Tile]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Tile collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The tile collection",
+                    "items":{
+                        "$ref":"#/definitions/Tile"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Import]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Import collection",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The imports collection",
+                    "items":{
+                        "$ref":"#/definitions/Import"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Group]]":{
+            "type":"object",
+            "description":"Odata response wrapper for a Power BI Group list",
+            "properties":{
+                "odata.context":{
+                    "type":"string",
+                    "description":"OData context"
+                },
+                "value":{
+                    "type":"array",
+                    "description":"The groups",
+                    "items":{
+                        "$ref":"#/definitions/Group"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Gateway]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Gateways list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The Gateways",
+                    "items": {
+                        "$ref": "#/definitions/Gateway"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Refresh]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Refresh history",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The Refresh history list",
+                    "items": {
+                        "$ref": "#/definitions/Refresh"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[UserAccessRight]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI user Access Right for datasource List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user Access Right for datasource List",
+                    "items": {
+                        "$ref": "#/definitions/UserAccessRight"
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[GroupUserAccessRight]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI user Access Right for group List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user Access Right for group List",
+                    "items": {
+                        "$ref": "#/definitions/GroupUserAccessRight"
+                    }
+                }
+            }
+        },
+        "Report":{
+            "type":"object",
+            "description":"A Power BI Report",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The report id"
+                },
+                "name":{
+                    "type":"string",
+                    "description":"The report name"
+                },
+                "webUrl":{
+                    "type":"string",
+                    "description":"The report web url"
+                },
+                "embedUrl":{
+                    "type":"string",
+                    "description":"The report embed url"
+                },
+                "datasetId": {
+                    "type": "string",
+                    "description": "The dataset id"
+                }
+            }
+        },
+        "Dashboard":{
+            "type":"object",
+            "description":"A Power BI Dashboard",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The dashboard id"
+                },
+                "displayName":{
+                    "type":"string",
+                    "description":"The dashboard display name"
+                },
+                "isReadOnly":{
+                    "type":"boolean",
+                    "description":"Is ReadOnly dashboard"
+                },
+                "embedUrl":{
+                    "type":"string",
+                    "description":"The dashboard embed url"
+                }
+            }
+        },
+        "Tile":{
+            "type":"object",
+            "description":"A Power BI Tile",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The tile id"
+                },
+                "title":{
+                    "type":"string",
+                    "description":"The dashboard display name"
+                },
+                "rowSpan":{
+                    "type":"integer",
+                    "description":"number of rows a tile should span"
+                },
+                "colSpan":{
+                    "type":"integer",
+                    "description":"number of columns a tile should span"
+                },
+                "embedUrl":{
+                    "type":"string",
+                    "description":"The tile embed url"
+                },
+                "embedData":{
+                    "type":"string",
+                    "description":"The tile embed data"
+                },
+                "reportId":{
+                    "type":"string",
+                    "description":"The report id"
+                },
+                "datasetId":{
+                    "type":"string",
+                    "description":"The dataset id"
+                }
+            }
+        },
+        "Group":{
+            "type":"object",
+            "description":"A Power BI Group",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"The group id"
+                },
+                "name":{
+                    "type":"string",
+                    "description":"The group name"
+                },
+                "isReadOnly":{
+                    "type":"boolean",
+                    "description":"Is ReadOnly group"
+                }
+            }
+        },
+        "GatewayPublicKey": {
+            "type": "object",
+            "description": "A Power BI Gateway Public Key",
+            "properties": {
+                "exponent": {
+                    "type": "string",
+                    "description": "The public key exponent"
+                },
+                "modulus": {
+                    "type": "string",
+                    "description": "The public key  modulus"
+                }
+            }
+        },
+        "Gateway": {
+            "type": "object",
+            "description": "A Power BI Gateway",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The gateway id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The gateway name"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The gateway type"
+                },
+                "gatewayAnnotation": {
+                    "type": "string",
+                    "description": "The gateway annotation"
+                },
+                "publicKey": {
+                    "$ref": "#/definitions/GatewayPublicKey",
+                    "description": "The gateway public key"
+                },
+                "gatewayStatus": {
+                    "type": "string",
+                    "description": "The gateway connectivity status"
+                }
+            }
+        },
+        "PublishDatasourceToGatewayRequest": {
+            "type": "object",
+            "description": "A Publish Datasource To Gateway Request",
+            "properties": {
+                "dataSourceType": {
+                    "type": "string",
+                    "description": "The datasource type"
+                },
+                "connectionDetails": {
+                    "type": "string",
+                    "description": "The connection details"
+                },
+                "credentialDetails": {
+                    "$ref": "#/definitions/CredentialDetails"
+                },
+                "dataSourceName": {
+                    "type": "string",
+                    "description": "The datasource name"
+                }
+            }
+        },
+        "CredentialDetails": {
+            "type": "object",
+            "description": "The credential details",
+            "properties": {
+                "credentials": {
+                    "type": "string",
+                    "description": "The credentials"
+                },
+                "credentialType": {
+                    "type": "string",
+                    "description": "The connection type"
+                },
+                "encryptedConnection": {
+                    "type": "string",
+                    "description": "The encrypted connection"
+                },
+                "encryptionAlgorithm": {
+                    "type": "string",
+                    "description": "The encryption algorithm"
+                },
+                "privacyLevel": {
+                    "type": "string",
+                    "description": "The privacy level"
+                }
+            }
+        },
+        "UpdateDatasourceRequest": {
+            "type": "object",
+            "description": "An Update Datasource To Gateway Request",
+            "properties": {
+                "credentialDetails": {
+                    "$ref": "#/definitions/CredentialDetails"
+                }
+            }
+        },
+        "BindToGatewayRequest": {
+            "type": "object",
+            "description": "The Bind dataset to gateway request",
+            "properties": {
+                "gatewayObjectId": {
+                    "type": "string",
+                    "description": "The gateway id"
+                }
+            }
+        },
+        "ConnectionDetails": {
+            "type": "object",
+            "description": "Connection String wrapper.",
+            "properties": {
+                "connectionString": {
+                    "type": "string",
+                    "description": "A dataset connection string."
+                }
+            }
+        },
+        "Refresh": {
+            "type": "object",
+            "description": "A Power BI refresh history entry",
+            "properties": {
+                "refreshType": {
+                    "type": "string",
+                    "description": ""
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": ""
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": ""
+                },
+                "serviceExceptionJson": {
+                    "type": "string",
+                    "description": ""
+                },
+                "status": {
+                    "type": "string",
+                    "description": ""
+                }
+            }
+        },
+        "UserAccessRight": {
+            "type": "object",
+            "description": "A Power BI user Access Right entry for datasource",
+            "properties": {
+                "datasourceAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for datasource",
+                    "enum":[
+                        "None",
+                        "Read",
+                        "Write",
+                        "Admin",
+                        "ReadWrite"
+                    ],
+                    "x-ms-enum": {
+                        "name": "UserAccessRightEnum",
+                        "modelAsString": true
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user."
+                }
+            }
+        },
+        "GroupUserAccessRight": {
+            "type": "object",
+            "description": "A Power BI user Access Right entry for group",
+            "properties": {
+                "groupUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for group",
+                    "enum":[
+                        "None",
+                        "Member",
+                        "Admin"
+                    ],
+                    "x-ms-enum": {
+                        "name": "GroupUserAccessRightEnum",
+                        "modelAsString": true
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user."
+                }
+            }
+        },
+        "CloneReportRequest":{
+            "type":"object",
+            "description":"Power BI Clone Report Request",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"The requested report name"
+                },
+                "targetWorkspaceId":{
+                    "type":"string",
+                    "description":"Optional parameter for specifying the target workspace id"
+                },
+                "targetModelId":{
+                    "type":"string",
+                    "description":"Optional parameter for specifying the target associated model (dataset) id"
+                }
+            }
+        },
+        "RebindReportRequest":{
+            "type":"object",
+            "description":"Power BI Rebind Report Request",
+            "properties":{
+                "datasetId":{
+                    "type":"string",
+                    "description":"The new dataset of the rebinded report"
+                }
+            }
+        },
+        "GroupCreationRequest":{
+            "type":"object",
+            "description":"Power BI Create a new group Request",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"The name of the new created group."
+                }
+            }
+        },
+        "GroupUser": {
+            "type": "object",
+            "description": "A Power BI user details in a group",
+            "properties": {
+                "userType": {
+                    "type": "string",
+                    "description": "Type of user in a group.",
+                    "enum":[
+                        "None",
+                        "Member",
+                        "Admin"
+                    ],
+                    "x-ms-enum": {
+                        "name": "MemberAdminAccessRight",
+                        "modelAsString": true
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user."
+                }
+            }
+        },
+        "EffectiveIdentity":{
+            "required":[
+                "username",
+                "datasets"
+            ],
+            "type":"object",
+            "description":"The identity that the generated token should reflect",
+            "properties":{
+                "username":{
+                    "type":"string",
+                    "description":"The effective username reflected by a token for applying RLS rules"
+                },
+                "roles":{
+                    "type":"array",
+                    "description":"An array of roles reflected by a token when applying RLS rules",
+                    "items":{
+                        "type":"string"
+                    }
+                },
+                "datasets":{
+                    "type":"array",
+                    "description":"An array of datasets for which this mapping applies to, if not provided - applies to all datasets",
+                    "items":{
+                        "type":"string"
+                    }
+                }
+          }
+        },
+        "GenerateTokenRequest":{
+            "type":"object",
+            "description":"Power BI Generate Token Request",
+            "properties":{
+                "accessLevel":{
+                    "type":"string",
+                    "description":"The dataset mode or type",
+                    "enum":[
+                        "View",
+                        "Edit",
+                        "Create"
+                    ],
+                    "x-ms-enum": {
+                        "name": "TokenAccessLevel",
+                        "modelAsString": true
+                    }
+                },
+                "datasetId":{
+                    "type":"string",
+                    "description":"The dataset Id"
+                },
+                "allowSaveAs":{
+                    "type":"boolean",
+                    "description":"Allow SaveAs the report with generated token."
+                },
+                "identities":{
+                    "type":"array",
+                    "description": "The effective identities to use for RLS rules",
+                    "items":{
+                        "$ref": "#/definitions/EffectiveIdentity"
+                    }
+                }
+            }
+        },
+        "EmbedToken":{
+            "type":"object",
+            "description":"Power BI Embed Token",
+            "properties":{
+                "token":{
+                    "type":"string",
+                    "description":"Embed token."
+                },
+                "tokenId":{
+                    "type":"string",
+                    "description":"Unique token Id."
+                },
+                "expiration":{
+                    "type": "string",
+                    "format": "date-time",
+                    "description":"Expiration time of token - in UTC."
+                }
+            }
+        },
+        "CloneTileRequest":{
+          "type":"object",
+          "description":"Power BI Clone Tile Request",
+          "properties":{
+            "targetDashboardId":{
+              "type":"string",
+              "description":"The target dashboard id"
+            },
+            "targetWorkspaceId": {
+              "type": "string",
+              "description": "Optional parameter for specifying the target workspace id"
+            },
+            "targetReportId":{
+              "type":"string",
+              "description":"Optional parameter for specifying the target report id"
+            },
+            "targetModelId": {
+              "type": "string",
+              "description": "Optional parameter for specifying the target associated model (dataset) id"
+            },
+            "positionConflictAction":{
+              "type":"string",
+              "description":"Optional parameter for specifying the action in case of position conflict"
+            }
+          }
+        },
+        "AddDashboardRequest":{
+          "type":"object",
+          "description":"Power BI Add Dashboard Request",
+          "properties":{
+            "name":{
+              "type":"string",
+              "description":"The name of the new dashboard"
+            }
+          }
+        }
+    },
+    "parameters":{
+
+    },
+    "responses":{
+
+    },
+    "security":[
+
+    ],
+    "tags":[
+
+    ]
+}
