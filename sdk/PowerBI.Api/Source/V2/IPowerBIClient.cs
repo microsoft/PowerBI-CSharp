@@ -42,11 +42,6 @@ namespace Microsoft.PowerBI.Api.V2
         IDatasets Datasets { get; }
 
         /// <summary>
-        /// Gets the IGateways.
-        /// </summary>
-        IGateways Gateways { get; }
-
-        /// <summary>
         /// Gets the IImports.
         /// </summary>
         IImports Imports { get; }
@@ -65,6 +60,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Gets the ITiles.
         /// </summary>
         ITiles Tiles { get; }
+
+        /// <summary>
+        /// Gets the IGateways.
+        /// </summary>
+        IGateways Gateways { get; }
 
         /// <summary>
         /// Gets the IGroups.

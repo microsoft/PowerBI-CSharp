@@ -45,120 +45,6 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified report
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='reportKey'>
-            /// The report id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Clone report parameters
-            /// </param>
-            public static Report CloneReport(this IReports operations, string reportKey, CloneReportRequest requestParameters)
-            {
-                return operations.CloneReportAsync(reportKey, requestParameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Clones the specified report
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='reportKey'>
-            /// The report id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Clone report parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<Report> CloneReportAsync(this IReports operations, string reportKey, CloneReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CloneReportWithHttpMessagesAsync(reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Generate token to view or edit the specified report
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='reportKey'>
-            /// The report id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            public static EmbedToken GenerateToken(this IReports operations, string reportKey, GenerateTokenRequest requestParameters)
-            {
-                return operations.GenerateTokenAsync(reportKey, requestParameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Generate token to view or edit the specified report
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='reportKey'>
-            /// The report id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<EmbedToken> GenerateTokenAsync(this IReports operations, string reportKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GenerateTokenWithHttpMessagesAsync(reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Generate token to create a new report on a given dataset
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            public static EmbedToken GenerateTokenForCreate(this IReports operations, GenerateTokenRequest requestParameters)
-            {
-                return operations.GenerateTokenForCreateAsync(requestParameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Generate token to create a new report on a given dataset
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<EmbedToken> GenerateTokenForCreateAsync(this IReports operations, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GenerateTokenForCreateWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Get the specified report
             /// </summary>
             /// <param name='operations'>
@@ -227,6 +113,79 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Clones the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone report parameters
+            /// </param>
+            public static Report CloneReport(this IReports operations, string reportKey, CloneReportRequest requestParameters)
+            {
+                return operations.CloneReportAsync(reportKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Clones the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Clone report parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Report> CloneReportAsync(this IReports operations, string reportKey, CloneReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CloneReportWithHttpMessagesAsync(reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static Stream ExportReport(this IReports operations, string reportKey)
+            {
+                return operations.ExportReportAsync(reportKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Exports the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Stream> ExportReportAsync(this IReports operations, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                var _result = await operations.ExportReportWithHttpMessagesAsync(reportKey, null, cancellationToken).ConfigureAwait(false);
+                _result.Request.Dispose();
+                return _result.Body;
+            }
+
+            /// <summary>
             /// Rebinds the specified report to requested dataset id
             /// </summary>
             /// <param name='operations'>
@@ -267,36 +226,77 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Generate token to create a new report on a given dataset
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='reportKey'>
-            /// The report id
+            /// <param name='requestParameters'>
+            /// Generate token parameters
             /// </param>
-            public static Stream ExportReport(this IReports operations, string reportKey)
+            public static EmbedToken GenerateTokenForCreate(this IReports operations, GenerateTokenRequest requestParameters)
             {
-                return operations.ExportReportAsync(reportKey).GetAwaiter().GetResult();
+                return operations.GenerateTokenForCreateAsync(requestParameters).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Generate token to create a new report on a given dataset
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='reportKey'>
-            /// The report id
+            /// <param name='requestParameters'>
+            /// Generate token parameters
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Stream> ExportReportAsync(this IReports operations, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<EmbedToken> GenerateTokenForCreateAsync(this IReports operations, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.ExportReportWithHttpMessagesAsync(reportKey, null, cancellationToken).ConfigureAwait(false);
-                _result.Request.Dispose();
-                return _result.Body;
+                using (var _result = await operations.GenerateTokenForCreateWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Generate token to view or edit the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            public static EmbedToken GenerateToken(this IReports operations, string reportKey, GenerateTokenRequest requestParameters)
+            {
+                return operations.GenerateTokenAsync(reportKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Generate token to view or edit the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<EmbedToken> GenerateTokenAsync(this IReports operations, string reportKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GenerateTokenWithHttpMessagesAsync(reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -460,7 +460,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view or edit the specified report
+            /// Exports the specified report
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -471,16 +471,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            public static EmbedToken GenerateTokenInGroup(this IReports operations, string groupId, string reportKey, GenerateTokenRequest requestParameters)
+            public static Stream ExportReportInGroup(this IReports operations, string groupId, string reportKey)
             {
-                return operations.GenerateTokenInGroupAsync(groupId, reportKey, requestParameters).GetAwaiter().GetResult();
+                return operations.ExportReportInGroupAsync(groupId, reportKey).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Generate token to view or edit the specified report
+            /// Exports the specified report
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -491,58 +488,14 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='reportKey'>
             /// The report id
             /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<EmbedToken> GenerateTokenInGroupAsync(this IReports operations, string groupId, string reportKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Stream> ExportReportInGroupAsync(this IReports operations, string groupId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GenerateTokenInGroupWithHttpMessagesAsync(groupId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Generate token to create a new report on a given dataset
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            public static EmbedToken GenerateTokenForCreateInGroup(this IReports operations, string groupId, GenerateTokenRequest requestParameters)
-            {
-                return operations.GenerateTokenForCreateInGroupAsync(groupId, requestParameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Generate token to create a new report on a given dataset
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<EmbedToken> GenerateTokenForCreateInGroupAsync(this IReports operations, string groupId, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GenerateTokenForCreateInGroupWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
+                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportKey, null, cancellationToken).ConfigureAwait(false);
+                _result.Request.Dispose();
+                return _result.Body;
             }
 
             /// <summary>
@@ -592,7 +545,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Generate token to create a new report on a given dataset
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -600,16 +553,16 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='groupId'>
             /// The group id
             /// </param>
-            /// <param name='reportKey'>
-            /// The report id
+            /// <param name='requestParameters'>
+            /// Generate token parameters
             /// </param>
-            public static Stream ExportReportInGroup(this IReports operations, string groupId, string reportKey)
+            public static EmbedToken GenerateTokenForCreateInGroup(this IReports operations, string groupId, GenerateTokenRequest requestParameters)
             {
-                return operations.ExportReportInGroupAsync(groupId, reportKey).GetAwaiter().GetResult();
+                return operations.GenerateTokenForCreateInGroupAsync(groupId, requestParameters).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Generate token to create a new report on a given dataset
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -617,17 +570,64 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='groupId'>
             /// The group id
             /// </param>
-            /// <param name='reportKey'>
-            /// The report id
+            /// <param name='requestParameters'>
+            /// Generate token parameters
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Stream> ExportReportInGroupAsync(this IReports operations, string groupId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<EmbedToken> GenerateTokenForCreateInGroupAsync(this IReports operations, string groupId, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.ExportReportInGroupWithHttpMessagesAsync(groupId, reportKey, null, cancellationToken).ConfigureAwait(false);
-                _result.Request.Dispose();
-                return _result.Body;
+                using (var _result = await operations.GenerateTokenForCreateInGroupWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Generate token to view or edit the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            public static EmbedToken GenerateTokenInGroup(this IReports operations, string groupId, string reportKey, GenerateTokenRequest requestParameters)
+            {
+                return operations.GenerateTokenInGroupAsync(groupId, reportKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Generate token to view or edit the specified report
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<EmbedToken> GenerateTokenInGroupAsync(this IReports operations, string groupId, string reportKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GenerateTokenInGroupWithHttpMessagesAsync(groupId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

@@ -57,53 +57,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> AddDashboardWithHttpMessagesAsync(AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets a list of dashboards in a group
-        /// </summary>
-        /// <param name='groupId'>
-        /// The group id
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Add a new empty dashboard
-        /// </summary>
-        /// <param name='groupId'>
-        /// The group id
-        /// </param>
-        /// <param name='requestParameters'>
-        /// Add dashboard parameters
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<Dashboard>> AddDashboardInGroupWithHttpMessagesAsync(string groupId, AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
         /// Get the specified dashboard
         /// </summary>
         /// <param name='dashboardKey'>
@@ -147,31 +100,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Get tiles in the specified dashboard in a group
-        /// </summary>
-        /// <param name='groupId'>
-        /// The group id
-        /// </param>
-        /// <param name='dashboardKey'>
-        /// The dashboard id
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<ODataResponseListTile>> GetTilesInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a specified tile in a specified dashboard
         /// </summary>
@@ -225,6 +153,128 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Tile>> CloneTileWithHttpMessagesAsync(string dashboardKey, string tileKey, CloneTileRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generate token to view the specified dashboard
+        /// </summary>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='requestParameters'>
+        /// Generate token parameters
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<EmbedToken>> GenerateTokenWithHttpMessagesAsync(string dashboardKey, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets a list of dashboards in a group
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Add a new empty dashboard
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='requestParameters'>
+        /// Add dashboard parameters
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Dashboard>> AddDashboardInGroupWithHttpMessagesAsync(string groupId, AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get the specified dashboard in a group
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Dashboard>> GetDashboardInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get tiles in the specified dashboard in a group
+        /// </summary>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListTile>> GetTilesInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get a specified tile in a specified dashboard in a group
         /// </summary>
@@ -284,31 +334,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Tile>> CloneTileInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, string tileKey, CloneTileRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Generate token to view the specified dashboard
-        /// </summary>
-        /// <param name='dashboardKey'>
-        /// The dashboard id
-        /// </param>
-        /// <param name='requestParameters'>
-        /// Generate token parameters
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<EmbedToken>> GenerateTokenWithHttpMessagesAsync(string dashboardKey, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generate token to view the specified dashboard
         /// </summary>

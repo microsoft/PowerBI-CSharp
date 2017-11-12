@@ -29,10 +29,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="name">The datasource name</param>
         /// <param name="connectionString">The datasource connection
         /// string</param>
-        public Datasource(string name = default(string), string connectionString = default(string))
+        /// <param name="datasourceType">The datasource type</param>
+        /// <param name="connectionDetails">The datasource connection
+        /// details</param>
+        public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails))
         {
             Name = name;
             ConnectionString = connectionString;
+            DatasourceType = datasourceType;
+            ConnectionDetails = connectionDetails;
             CustomInit();
         }
 
@@ -52,6 +57,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }
+
+        /// <summary>
+        /// Gets or sets the datasource type
+        /// </summary>
+        [JsonProperty(PropertyName = "datasourceType")]
+        public string DatasourceType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the datasource connection details
+        /// </summary>
+        [JsonProperty(PropertyName = "connectionDetails")]
+        public DatasourceConnectionDetails ConnectionDetails { get; set; }
 
     }
 }

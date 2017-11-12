@@ -78,80 +78,6 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of dashboards in a group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            public static ODataResponseListDashboard GetDashboardsInGroup(this IDashboards operations, string groupId)
-            {
-                return operations.GetDashboardsInGroupAsync(groupId).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Gets a list of dashboards in a group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ODataResponseListDashboard> GetDashboardsInGroupAsync(this IDashboards operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetDashboardsInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Add a new empty dashboard
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Add dashboard parameters
-            /// </param>
-            public static Dashboard AddDashboardInGroup(this IDashboards operations, string groupId, AddDashboardRequest requestParameters)
-            {
-                return operations.AddDashboardInGroupAsync(groupId, requestParameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Add a new empty dashboard
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Add dashboard parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<Dashboard> AddDashboardInGroupAsync(this IDashboards operations, string groupId, AddDashboardRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddDashboardInGroupWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Get the specified dashboard
             /// </summary>
             /// <param name='operations'>
@@ -214,46 +140,6 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<ODataResponseListTile> GetTilesAsync(this IDashboards operations, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTilesWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Get tiles in the specified dashboard in a group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='dashboardKey'>
-            /// The dashboard id
-            /// </param>
-            public static ODataResponseListTile GetTilesInGroup(this IDashboards operations, string groupId, string dashboardKey)
-            {
-                return operations.GetTilesInGroupAsync(groupId, dashboardKey).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Get tiles in the specified dashboard in a group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='dashboardKey'>
-            /// The dashboard id
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ODataResponseListTile> GetTilesInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetTilesInGroupWithHttpMessagesAsync(groupId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -340,6 +226,200 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<Tile> CloneTileAsync(this IDashboards operations, string dashboardKey, string tileKey, CloneTileRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CloneTileWithHttpMessagesAsync(dashboardKey, tileKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Generate token to view the specified dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            public static EmbedToken GenerateToken(this IDashboards operations, string dashboardKey, GenerateTokenRequest requestParameters)
+            {
+                return operations.GenerateTokenAsync(dashboardKey, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Generate token to view the specified dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Generate token parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<EmbedToken> GenerateTokenAsync(this IDashboards operations, string dashboardKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GenerateTokenWithHttpMessagesAsync(dashboardKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets a list of dashboards in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            public static ODataResponseListDashboard GetDashboardsInGroup(this IDashboards operations, string groupId)
+            {
+                return operations.GetDashboardsInGroupAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets a list of dashboards in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDashboard> GetDashboardsInGroupAsync(this IDashboards operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardsInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Add a new empty dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Add dashboard parameters
+            /// </param>
+            public static Dashboard AddDashboardInGroup(this IDashboards operations, string groupId, AddDashboardRequest requestParameters)
+            {
+                return operations.AddDashboardInGroupAsync(groupId, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Add a new empty dashboard
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Add dashboard parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dashboard> AddDashboardInGroupAsync(this IDashboards operations, string groupId, AddDashboardRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddDashboardInGroupWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get the specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static Dashboard GetDashboardInGroup(this IDashboards operations, string groupId, string dashboardKey)
+            {
+                return operations.GetDashboardInGroupAsync(groupId, dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get the specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dashboard> GetDashboardInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardInGroupWithHttpMessagesAsync(groupId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Get tiles in the specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static ODataResponseListTile GetTilesInGroup(this IDashboards operations, string groupId, string dashboardKey)
+            {
+                return operations.GetTilesInGroupAsync(groupId, dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Get tiles in the specified dashboard in a group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListTile> GetTilesInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTilesInGroupWithHttpMessagesAsync(groupId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -438,46 +518,6 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<Tile> CloneTileInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, string tileKey, CloneTileRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CloneTileInGroupWithHttpMessagesAsync(groupId, dashboardKey, tileKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Generate token to view the specified dashboard
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='dashboardKey'>
-            /// The dashboard id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            public static EmbedToken GenerateToken(this IDashboards operations, string dashboardKey, GenerateTokenRequest requestParameters)
-            {
-                return operations.GenerateTokenAsync(dashboardKey, requestParameters).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// Generate token to view the specified dashboard
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='dashboardKey'>
-            /// The dashboard id
-            /// </param>
-            /// <param name='requestParameters'>
-            /// Generate token parameters
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<EmbedToken> GenerateTokenAsync(this IDashboards operations, string dashboardKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GenerateTokenWithHttpMessagesAsync(dashboardKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

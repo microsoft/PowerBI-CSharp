@@ -43,11 +43,6 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual IDatasets Datasets { get; private set; }
 
         /// <summary>
-        /// Gets the IGateways.
-        /// </summary>
-        public virtual IGateways Gateways { get; private set; }
-
-        /// <summary>
         /// Gets the IImports.
         /// </summary>
         public virtual IImports Imports { get; private set; }
@@ -66,6 +61,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Gets the ITiles.
         /// </summary>
         public virtual ITiles Tiles { get; private set; }
+
+        /// <summary>
+        /// Gets the IGateways.
+        /// </summary>
+        public virtual IGateways Gateways { get; private set; }
 
         /// <summary>
         /// Gets the IGroups.
@@ -274,11 +274,11 @@ namespace Microsoft.PowerBI.Api.V2
         private void Initialize()
         {
             Datasets = new Datasets(this);
-            Gateways = new Gateways(this);
             Imports = new Imports(this);
             Reports = new Reports(this);
             Dashboards = new Dashboards(this);
             Tiles = new Tiles(this);
+            Gateways = new Gateways(this);
             Groups = new Groups(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
