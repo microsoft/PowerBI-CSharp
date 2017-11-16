@@ -26,7 +26,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public async Task ReportDelete()
         {
-            var deleteResponse = CreateSampleCloneReportResponse();
+            var deleteResponse = CreateSampleReportResponse();
 
             var reportId = Guid.NewGuid().ToString();
 
@@ -44,7 +44,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public async Task ReportDeleteInGroup()
         {
-            var deleteResponse = CreateSampleCloneReportResponse();
+            var deleteResponse = CreateSampleReportResponse();
 
             var reportId = Guid.NewGuid().ToString();
 
@@ -88,7 +88,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public async Task ReportClone()
         {
-            var cloneResponse = CreateSampleCloneReportResponse();
+            var cloneResponse = CreateSampleReportResponse();
 
             var reportId = Guid.NewGuid().ToString();
 
@@ -115,6 +115,35 @@ namespace PowerBI.Api.Tests
             }
         }
 
+        [TestMethod]
+        public async Task UpdateReportContent()
+        {
+            var updateReportContentResponse = CreateSampleReportResponse();
+
+            var reportId = Guid.NewGuid().ToString();
+
+            var reportUpdateContentRequest = new UpdateReportContentRequest()
+            {
+                SourceType = "ExistingReport",
+                SourceReport = new SourceReport(Guid.NewGuid().ToString(), Guid.NewGuid().ToString())
+            };
+
+            using (var handler = new FakeHttpClientHandler(updateReportContentResponse))
+            using (var client = CreatePowerBIClient(handler))
+            {
+                var response = await client.Reports.UpdateReportContentAsync(reportId, reportUpdateContentRequest);
+
+                var expectedRequestUrl = $"https://api.powerbi.com/v1.0/myorg/reports/{reportId}/UpdateReportContent";
+
+                Assert.AreEqual(expectedRequestUrl, handler.Request.RequestUri.ToString());
+                Assert.IsNotNull(response.Id);
+                Assert.IsNotNull(response.EmbedUrl);
+                Assert.IsNotNull(response.Name);
+                Assert.IsNotNull(response.WebUrl);
+                CheckAuthHeader(handler.Request.Headers.Authorization.ToString());
+            }
+        }
+
         private IPowerBIClient CreatePowerBIClient(HttpClientHandler handler)
         {
             var credentials = new TokenCredentials(AccessKey);
@@ -129,7 +158,7 @@ namespace PowerBI.Api.Tests
             };
         }
 
-        private static HttpResponseMessage CreateSampleCloneReportResponse(string name = default(string))
+        private static HttpResponseMessage CreateSampleReportResponse(string name = default(string))
         {
             var report = new Report(Guid.NewGuid().ToString(), "Report Name", "AN URL", "EMBEDURL");
 

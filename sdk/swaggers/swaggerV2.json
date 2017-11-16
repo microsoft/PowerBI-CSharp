@@ -847,6 +847,48 @@
                 "deprecated":false
             }
         },
+        "/v1.0/myorg/reports/{reportKey}/UpdateReportContent": {
+        "post": {
+          "tags": [
+            "Reports"
+          ],
+          "summary": "Update the report content from a specified source",
+          "operationId": "Reports_UpdateReportContent",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "reportKey",
+              "description": "The report id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "requestParameters",
+              "description": "UpdateReportContent parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/UpdateReportContentRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Report"
+              }
+            }
+          },
+          "deprecated": false
+         }
+        },
         "/v1.0/myorg/reports/{reportKey}/Rebind":{
             "post":{
                 "tags":[
@@ -2292,6 +2334,55 @@
                 "deprecated":false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/UpdateReportContent": {
+         "post": {
+          "tags": [
+            "Reports"
+          ],
+          "summary": "Update the report content from a specified source",
+          "operationId": "Reports_UpdateReportContentInGroup",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "groupId",
+              "in": "path",
+              "required": true,
+              "description": "The group id",
+              "type": "string"
+            },
+            {
+              "name": "reportKey",
+              "description": "The report id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "requestParameters",
+              "description": "UpdateReportContent parameters",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/UpdateReportContentRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Report"
+              }
+            }
+          },
+          "deprecated": false
+          }
+        },
         "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Rebind":{
             "post":{
                 "tags":[
@@ -3444,6 +3535,39 @@
                 },
                 "deprecated":false
             }
+        },
+        
+        "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetDatasourcesAsAdmin",
+                "summary":"Gets a list of datasource for the specified dataset as Admin",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Datasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
         }
     },
     "definitions":{
@@ -4455,7 +4579,34 @@
               "description":"The name of the new dashboard"
             }
           }
+        },
+        "SourceReport": {
+         "type": "object",
+         "description": "Source from existing report",
+         "properties": {
+          "sourceReportId": {
+            "type": "string",
+            "description": "source report id"
+          },
+          "sourceWorkspaceId": {
+            "type": "string",
+            "description": "source worksapce id"
+          }
         }
+       },
+       "UpdateReportContentRequest": {
+        "type": "object",
+        "description": "Power BI Update Report Content Request",
+        "properties": {
+          "sourceType": {
+            "type": "string",
+            "description": "The source type for the content update"
+          },
+          "sourceReport": {
+            "$ref": "#/definitions/SourceReport"
+          }
+        }
+      }
     },
     "parameters":{
 
