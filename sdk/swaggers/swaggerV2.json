@@ -649,6 +649,12 @@
                         "schema":{
                             "$ref":"#/definitions/Import"
                         }
+                    },
+                    "202":{
+                        "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Import"
+                        }
                     }
                 }
             }
@@ -680,6 +686,32 @@
                         "description":"OK",
                         "schema":{
                             "$ref":"#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/imports/createTemporaryUploadLocation":{
+            "post":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Creates a temporary upload location for large files",
+                "operationId":"Imports_CreateTemporaryUploadLocation",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/TemporaryUploadLocation"
                         }
                     }
                 }
@@ -2095,6 +2127,12 @@
                         "schema":{
                             "$ref":"#/definitions/Import"
                         }
+                    },
+                    "202":{
+                        "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Import"
+                        }
                     }
                 }
             }
@@ -2133,6 +2171,38 @@
                         "description":"OK",
                         "schema":{
                             "$ref":"#/definitions/Import"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/imports/createTemporaryUploadLocation":{
+            "post":{
+                "tags":[
+                    "Imports"
+                ],
+                "summary":"Creates a temporary upload location for large files",
+                "operationId":"Imports_CreateTemporaryUploadLocationInGroup",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/TemporaryUploadLocation"
                         }
                     }
                 }
@@ -3624,6 +3694,10 @@
                 "connectionType":{
                     "type":"string",
                     "description":"The import connection type"
+                },
+                "fileUrl":{
+                    "type":"string",
+                    "description":"The SAS url of the temporary blob storage"
                 }
             }
         },
@@ -4604,6 +4678,21 @@
           },
           "sourceReport": {
             "$ref": "#/definitions/SourceReport"
+          }
+        }
+      },
+      "TemporaryUploadLocation": {
+        "type": "object",
+        "description": "Power BI Update Report Content Request",
+        "properties": {
+          "Url": {
+            "type": "string",
+            "description": "The SAS url for the temporary blob storage"
+          },
+          "ExpirationTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The expiration time of the SAS url"
           }
         }
       }
