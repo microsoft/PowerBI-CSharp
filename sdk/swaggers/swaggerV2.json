@@ -4562,6 +4562,10 @@
                     "items":{
                         "type":"string"
                     }
+                },
+                "customData":{
+                    "type":"string",
+                    "description":"The custom data string to be added to the AS connection string",
                 }
           }
         },
