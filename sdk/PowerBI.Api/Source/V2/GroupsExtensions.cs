@@ -225,5 +225,45 @@ namespace Microsoft.PowerBI.Api.V2
                 }
             }
 
+            /// <summary>
+            /// Assign a group to a capacity
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Assign to capacity parameters
+            /// </param>
+            public static object AssignToCapacity(this IGroups operations, string groupId, AssignToCapacityRequest requestParameters)
+            {
+                return operations.AssignToCapacityAsync(groupId, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Assign a group to a capacity
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Assign to capacity parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> AssignToCapacityAsync(this IGroups operations, string groupId, AssignToCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AssignToCapacityWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

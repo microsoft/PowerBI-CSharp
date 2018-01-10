@@ -71,5 +71,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         IGroups Groups { get; }
 
+        /// <summary>
+        /// Gets the ICapacities.
+        /// </summary>
+        ICapacities Capacities { get; }
+
     }
 }

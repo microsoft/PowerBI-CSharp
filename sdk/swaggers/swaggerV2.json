@@ -3606,6 +3606,47 @@
                 "deprecated":false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/AssignToCapacity": {
+            "post":{
+                "tags":[
+                    "Groups"
+                ],
+                "operationId":"Groups_AssignToCapacity",
+                "summary":"Assign a group to a capacity",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The group id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Assign to capacity parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignToCapacityRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
         
         "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
             "get":{
@@ -3638,7 +3679,35 @@
                 },
                 "deprecated":false
             }
-        }
+        },
+        
+        "/v1.0/myorg/capacities":{
+            "get":{
+                "tags":[
+                    "Capacities"
+                ],
+                "summary":"Gets a list of capacities the user has access to",
+                "operationId":"Capacities_GetCapacities",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Capacity]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
     },
     "definitions":{
         "Import":{
@@ -4277,6 +4346,14 @@
                 "isReadOnly":{
                     "type":"boolean",
                     "description":"Is ReadOnly group"
+                },
+                "isOnDedicatedCapacity":{
+                    "type":"boolean",
+                    "description":"Is group on dedicated capacity"
+                },
+                "capacityId":{
+                    "type":"string",
+                    "description":"The capacity id"
                 }
             }
         },
@@ -4671,11 +4748,11 @@
             "description": "source worksapce id"
           }
         }
-       },
-       "UpdateReportContentRequest": {
-        "type": "object",
-        "description": "Power BI Update Report Content Request",
-        "properties": {
+        },
+        "UpdateReportContentRequest": {
+         "type": "object",
+         "description": "Power BI Update Report Content Request",
+         "properties": {
           "sourceType": {
             "type": "string",
             "description": "The source type for the content update"
@@ -4684,6 +4761,90 @@
             "$ref": "#/definitions/SourceReport"
           }
         }
+        },
+        "Capacity": {
+            "type": "object",
+            "description": "A Power BI capacity",
+            "properties": {
+              "id": {
+                    "type": "string",
+                    "description": "The capacity id"
+                },
+              "displayName": {
+                    "type": "string",
+                    "description": "The capacity display name"
+                },
+              "admins":{
+                    "type":"array",
+                    "description":"An array of capacity admins",
+                    "items":{
+                        "type":"string"
+                    }
+                },
+              "sku": {
+                    "type": "string",
+                    "description": "The capacity SKU"
+                },
+              "state": {
+                    "type": "string",
+                    "description": "The capacity state",
+                    "enum":[
+                        "NotActivated",
+                        "Active",
+                        "Provisioning",
+                        "ProvisionFailed",
+                        "PreSuspended",
+                        "Suspended",
+                        "Deleting",
+                        "Deleted",
+                        "Invalid",
+                        "UpdatingSku"
+                    ],
+                    "x-ms-enum": {
+                        "name": "stateEnum",
+                        "modelAsString": true
+                    }
+                },
+                "capacityUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for capacity",
+                    "enum":[
+                        "None",
+                        "Assign",
+                        "Admin"
+                    ],
+                    "x-ms-enum": {
+                        "name": "capacityUserAccessRightEnum",
+                        "modelAsString": true
+                    }
+                }
+            }
+        },
+        "ODataResponse[List[Capacity]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Capacity List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The Capacity List",
+                    "items": {
+                        "$ref": "#/definitions/Capacity"
+                    }
+                }
+            }
+        },
+        "AssignToCapacityRequest":{
+          "type":"object",
+          "description":"Power BI Assign to Capacity Request",
+          "properties":{
+            "capacityId":{
+              "type":"string",
+              "description":"The capacity id"
+            }
+          }
       },
       "TemporaryUploadLocation": {
         "type": "object",
