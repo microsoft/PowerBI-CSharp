@@ -34,11 +34,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// applies to, if not provided - applies to all datasets</param>
         /// <param name="roles">An array of roles reflected by a token when
         /// applying RLS rules</param>
-        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>))
+        /// <param name="customData">The custom data string to be added to the
+        /// AS connection string</param>
+        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string))
         {
             Username = username;
             Roles = roles;
             Datasets = datasets;
+            CustomData = customData;
             CustomInit();
         }
 
@@ -67,6 +70,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<string> Datasets { get; set; }
+
+        /// <summary>
+        /// Gets or sets the custom data string to be added to the AS
+        /// connection string
+        /// </summary>
+        [JsonProperty(PropertyName = "customData")]
+        public string CustomData { get; set; }
 
         /// <summary>
         /// Validate the object.
