@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="id">The capacity id</param>
         /// <param name="displayName">The capacity display name</param>
         /// <param name="admins">An array of capacity admins</param>
-        /// <param name="sku">The capacity sku</param>
+        /// <param name="sku">The capacity SKU</param>
         /// <param name="state">The capacity state. Possible values include:
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
         /// 'PreSuspended', 'Suspended', 'Deleting', 'Deleted', 'Invalid',
@@ -73,7 +73,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public IList<string> Admins { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity sku
+        /// Gets or sets the capacity SKU
         /// </summary>
         [JsonProperty(PropertyName = "sku")]
         public string Sku { get; set; }

@@ -3647,6 +3647,40 @@
                 "deprecated":false
             }
         },
+        "/v1.0/myorg/AssignToCapacity": {
+            "post":{
+                "tags":[
+                    "Groups"
+                ],
+                "operationId":"Groups_AssignMyWorkspaceToCapacity",
+                "summary":"Assign My Workspace to a capacity",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Assign to capacity parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignToCapacityRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
         
         "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
             "get":{
