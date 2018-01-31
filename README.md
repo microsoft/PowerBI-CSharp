@@ -127,10 +127,10 @@ The tile & report embed will automatically be embedded based on the size of the 
 To override the default size of the embeds simply add a CSS class attribute or inline styles for width & height.
 
 # ASP.NET MVC
-The `Microsoft.PowerBI.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
+The `Microsoft.PowerBI.AspNet.Mvc` package is a lightweight wrapper that contains MVC HTML helpers that generate HTML markup compatible with the core JavaScript SDK.
 
 ## Install from Nuget
-`Install-Package Microsoft.PowerBI.Mvc`
+`Install-Package Microsoft.PowerBI.AspNet.Mvc`
 
 ## Setup your Access Token
 Generate your report embed access token with the `Microsoft.PowerBI.Core` token APIs.
@@ -140,9 +140,9 @@ Generate your report embed access token with the `Microsoft.PowerBI.Core` token 
 `@Html.PowerBIReportFor(m => m.EmbedUrl)`
 
 # ASP.NET WebForms
-The `Microsoft.PowerBI.WebForms` package is a lightweight wrapper that contains ASP.NET Webform controls that generate HTML markup compatible with the core JavaScript SDK.
+The `Microsoft.PowerBI.AspNet.WebForms` package is a lightweight wrapper that contains ASP.NET Webform controls that generate HTML markup compatible with the core JavaScript SDK.
 ## Install from Nuget
-`Install-Package Microsoft.PowerBI.WebForms`
+`Install-Package Microsoft.PowerBI.AspNet.WebForms`
 
 ## Setup your Access Token
 Ensure you have the following in your view
