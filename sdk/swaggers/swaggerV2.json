@@ -3954,6 +3954,14 @@
                 "connectionDetails":{
                     "$ref": "#/definitions/DatasourceConnectionDetails",
                     "description":"The datasource connection details"
+                },
+                "gatewayId":{
+                    "type":"string",
+                    "description":"The bound gateway id"
+                },
+                "datasourceId":{
+                    "type":"string",
+                    "description":"The bound datasource id"
                 }
             }
         },
