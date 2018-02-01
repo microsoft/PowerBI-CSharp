@@ -28,11 +28,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="id">The group id</param>
         /// <param name="name">The group name</param>
         /// <param name="isReadOnly">Is ReadOnly group</param>
-        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?))
+        /// <param name="isOnDedicatedCapacity">Is group on dedicated
+        /// capacity</param>
+        /// <param name="capacityId">The capacity id</param>
+        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string))
         {
             Id = id;
             Name = name;
             IsReadOnly = isReadOnly;
+            IsOnDedicatedCapacity = isOnDedicatedCapacity;
+            CapacityId = capacityId;
             CustomInit();
         }
 
@@ -58,6 +63,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "isReadOnly")]
         public bool? IsReadOnly { get; set; }
+
+        /// <summary>
+        /// Gets or sets is group on dedicated capacity
+        /// </summary>
+        [JsonProperty(PropertyName = "isOnDedicatedCapacity")]
+        public bool? IsOnDedicatedCapacity { get; set; }
+
+        /// <summary>
+        /// Gets or sets the capacity id
+        /// </summary>
+        [JsonProperty(PropertyName = "capacityId")]
+        public string CapacityId { get; set; }
 
     }
 }

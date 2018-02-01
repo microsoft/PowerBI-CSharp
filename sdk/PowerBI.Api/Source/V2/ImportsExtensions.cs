@@ -126,6 +126,34 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Creates a temporary upload location for large files
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static TemporaryUploadLocation CreateTemporaryUploadLocation(this IImports operations)
+            {
+                return operations.CreateTemporaryUploadLocationAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates a temporary upload location for large files
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<TemporaryUploadLocation> CreateTemporaryUploadLocationAsync(this IImports operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateTemporaryUploadLocationWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of imports for the specified group
             /// </summary>
             /// <param name='operations'>
@@ -246,6 +274,40 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<Import> GetImportByIdInGroupAsync(this IImports operations, string groupId, string importId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetImportByIdInGroupWithHttpMessagesAsync(groupId, importId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Creates a temporary upload location for large files
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            public static TemporaryUploadLocation CreateTemporaryUploadLocationInGroup(this IImports operations, string groupId)
+            {
+                return operations.CreateTemporaryUploadLocationInGroupAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates a temporary upload location for large files
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<TemporaryUploadLocation> CreateTemporaryUploadLocationInGroupAsync(this IImports operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateTemporaryUploadLocationInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
