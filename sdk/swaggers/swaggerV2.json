@@ -570,7 +570,39 @@
                 "deprecated":false
             }
         },
-        
+        "/v1.0/myorg/datasets/{datasetKey}/Default.DiscoverGateways":{
+            "get":{
+                "tags":[
+                    "Gateways"
+                ],
+                "operationId":"Datasets_DiscoverGateways",
+                "summary":"Gets a list of gateways to bind",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Gateway]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
         "/v1.0/myorg/imports":{
             "get":{
                 "tags":[
@@ -2002,6 +2034,46 @@
                         "description":"OK",
                         "schema":{
                             "$ref":"#/definitions/ODataResponse[List[GatewayDatasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.DiscoverGateways":{
+            "get":{
+                "tags":[
+                    "Gateways"
+                ],
+                "operationId":"Datasets_DiscoverGatewaysInGroup",
+                "summary":"Gets a list of gateways to bind",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+					{
+                        "name":"datasetKey",
+                        "description":"The dataset id",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Gateway]]"
                         }
                     }
                 },
