@@ -1,7 +1,7 @@
 {
     "swagger":"2.0",
     "info":{
-        "version":"v1.0",
+        "version":"v1.1",
         "title":"Power BI Client"
     },
     "host":"api.powerbi.com",
@@ -3828,6 +3828,13 @@
                 "$ref": "#/definitions/Table"
               }
             },
+            "relationships": {
+              "type": "array",
+              "description": "The dataset relationships",
+              "items": {
+                "$ref": "#/definitions/Relationship"
+              }
+            },
             "webUrl": {
               "type": "string",
               "description": "The dataset web url"
@@ -3898,6 +3905,54 @@
                     "items":{
                         "$ref":"#/definitions/Row"
                     }
+                }
+            }
+        },
+        "Relationship": {
+            "required": [
+              "name",
+              "fromTable",
+              "fromColumn",
+              "toTable",
+              "toColumn"
+            ],
+            "type":"object",
+            "description":"A relationship between tables in a dataset",
+            "properties":{
+                "name":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type":"string",
+                    "description":"The relationship name and identifier"
+                },
+                "crossFilteringBehavior":{
+                    "type":"string",
+                    "description": "The filter direction of the relationship",
+                    "enum": [
+                        "OneDirection",
+                        "BothDirections",
+                        "Automatic"
+                    ],
+                    "default": "OneDirection"
+                },
+                "fromTable":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type":"string",
+                    "description":"The name of the foreign key table"
+                },
+                "fromColumn":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+                    "type":"string",
+                    "description":"The name of the foreign key column"
+                },
+                "toTable":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type":"string",
+                    "description":"The name of the primary key table"
+                },
+                "toColumn":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+                    "type":"string",
+                    "description":"The name of the primary key column"
                 }
             }
         },
