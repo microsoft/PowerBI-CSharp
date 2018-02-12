@@ -3932,6 +3932,10 @@
                         "BothDirections",
                         "Automatic"
                     ],
+                    "x-ms-enum": {
+                      "name": "CrossFilteringBehaviorEnum",
+                      "modelAsString": false
+                    },
                     "default": "OneDirection"
                 },
                 "fromTable":{
