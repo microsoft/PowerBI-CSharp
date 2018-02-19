@@ -91,38 +91,6 @@ namespace PowerBI.Api.Tests
             }
         }
 
-        [TestMethod]
-        public async Task PostImportFileWithConflict()
-        {
-            var nameConflict = "Overwrite";
-            var importResponse = CreateSampleImportResponse();
-
-            using (var handler = new FakeHttpClientHandler(importResponse))
-            using (var client = CreatePowerBIClient(handler))
-            using (var stream = new MemoryStream())
-            {
-                await client.Imports.PostImportWithFileAsync(stream, nameConflict: nameConflict);
-                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?nameConflict={nameConflict}";
-                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
-            }
-        }
-
-        [TestMethod]
-        public async Task Groups_PostImportFileWithConflict()
-        {
-            var nameConflict = "Overwrite";
-            var importResponse = CreateSampleImportResponse();
-
-            using (var handler = new FakeHttpClientHandler(importResponse))
-            using (var client = CreatePowerBIClient(handler))
-            using (var stream = new MemoryStream())
-            {
-                await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, nameConflict: nameConflict);
-                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?nameConflict={nameConflict}";
-                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
-            }
-        }
-
         private static HttpResponseMessage CreateSampleImportResponse(string name = default(string))
         {
             var import = new Import

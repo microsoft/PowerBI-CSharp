@@ -27,10 +27,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="filePath">The file path to import</param>
         /// <param name="connectionType">The import connection type</param>
-        public ImportInfo(string filePath = default(string), string connectionType = default(string))
+        /// <param name="fileUrl">The SAS url of the temporary blob
+        /// storage</param>
+        public ImportInfo(string filePath = default(string), string connectionType = default(string), string fileUrl = default(string))
         {
             FilePath = filePath;
             ConnectionType = connectionType;
+            FileUrl = fileUrl;
             CustomInit();
         }
 
@@ -50,6 +53,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "connectionType")]
         public string ConnectionType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the SAS url of the temporary blob storage
+        /// </summary>
+        [JsonProperty(PropertyName = "fileUrl")]
+        public string FileUrl { get; set; }
 
     }
 }
