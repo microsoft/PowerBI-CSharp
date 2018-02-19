@@ -381,6 +381,78 @@
                 "deprecated":false
             }
         },
+        "/v1.0/myorg/datasets/{datasetKey}/parameters":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetParameters",
+                "summary":"Gets a list of parameters for the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[DatasetParameter]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/Default.UpdateParameters":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_UpdateParameters",
+                "summary":"Updates the dataset parameters",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"updateDatasetParametersRequest",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/UpdateDatasetParametersRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
         "/v1.0/myorg/datasets/{datasetKey}/datasources":{
             "get":{
                 "tags":[
@@ -1808,6 +1880,92 @@
                 "responses":{
                     "202":{
                         "description":"Accepted",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/parameters":{
+            "get":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_GetParametersInGroup",
+                "summary":"Gets a list of parameters for the specified dataset",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[DatasetParameter]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/Default.UpdateParameters":{
+            "post":{
+                "tags":[
+                    "Datasets"
+                ],
+                "operationId":"Datasets_UpdateParametersInGroup",
+                "summary":"Updates the dataset parameters",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"datasetKey",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"updateDatasetParametersRequest",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/UpdateDatasetParametersRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
                         "schema":{
                             "$ref":"#/definitions/Object"
                         }
@@ -4616,6 +4774,82 @@
                 "status": {
                     "type": "string",
                     "description": ""
+                }
+            }
+        },
+        "DatasetParameter": {
+            "type": "object",
+            "description": "Power BI dataset parameter",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The parameter name"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The parameter type"
+                },
+                "currentValue": {
+                    "type": "string",
+                    "description": "The parameter current value"
+                },
+                "isRequired": {
+                    "type": "boolean",
+                    "description": "Is dataset parameter required"
+                }
+            },
+            "required": [
+                "name",
+                "type",
+                "isRequired"
+            ]
+        },
+        "UpdateDatasetParameterDetails": {
+            "type": "object",
+            "description": "Power BI dataset parameter update details",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The parameter name"
+                },
+                "newValue": {
+                    "type": "string",
+                    "description": "The parameter new value"
+                }
+            },
+            "required": [
+                "name"
+            ]
+        },
+        "UpdateDatasetParametersRequest": {
+            "type": "object",
+            "description": "Power BI dataset parameter update request",
+            "properties": {
+                "updateDetails": {
+                    "type": "array",
+                    "description": "The dataset parameter list to update",
+                    "items": {
+                        "$ref": "#/definitions/UpdateDatasetParameterDetails"
+                    }
+                }
+            },
+            "required": [
+                "updateDetails"
+            ]
+        },
+        "ODataResponse[List[DatasetParameter]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI dataset parameter list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dataset parameter List",
+                    "items": {
+                        "$ref": "#/definitions/DatasetParameter"
+                    }
                 }
             }
         },
