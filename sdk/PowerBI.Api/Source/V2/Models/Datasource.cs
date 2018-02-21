@@ -31,12 +31,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="datasourceType">The datasource type</param>
         /// <param name="connectionDetails">The datasource connection
         /// details</param>
-        public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails))
+        /// <param name="gatewayId">The bound gateway id</param>
+        /// <param name="datasourceId">The bound datasource id</param>
+        public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), string gatewayId = default(string), string datasourceId = default(string))
         {
             Name = name;
             ConnectionString = connectionString;
             DatasourceType = datasourceType;
             ConnectionDetails = connectionDetails;
+            GatewayId = gatewayId;
+            DatasourceId = datasourceId;
             CustomInit();
         }
 
@@ -68,6 +72,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public DatasourceConnectionDetails ConnectionDetails { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bound gateway id
+        /// </summary>
+        [JsonProperty(PropertyName = "gatewayId")]
+        public string GatewayId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the bound datasource id
+        /// </summary>
+        [JsonProperty(PropertyName = "datasourceId")]
+        public string DatasourceId { get; set; }
 
     }
 }
