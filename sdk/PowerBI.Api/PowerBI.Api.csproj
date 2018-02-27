@@ -44,6 +44,14 @@
     <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Extensions\V2\DashboardsExtensions.cs" />
+    <Compile Include="Extensions\V2\DatasetsExtensions.cs" />
+    <Compile Include="Extensions\V2\ImportsExtensions.cs" />
+    <Compile Include="Extensions\V2\Models\GenerateTokenRequest.cs" />
+    <Compile Include="Extensions\V2\Models\UpdateDatasetParametersRequest.cs" />
+    <Compile Include="Extensions\V2\Models\UpdateDatasourcesRequest.cs" />
+    <Compile Include="Extensions\V2\ReportsExtensions.cs" />
+    <Compile Include="Extensions\V2\TilesExtensions.cs" />
     <Compile Include="Imports\V1\IImports.cs" />
     <Compile Include="Imports\V1\Imports.cs" />
     <Compile Include="Imports\V1\ImportsExtensions.cs" />

@@ -265,5 +265,39 @@ namespace Microsoft.PowerBI.Api.V2
                 }
             }
 
+            /// <summary>
+            /// Assign My Workspace to a capacity
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Assign to capacity parameters
+            /// </param>
+            public static object AssignMyWorkspaceToCapacity(this IGroups operations, AssignToCapacityRequest requestParameters)
+            {
+                return operations.AssignMyWorkspaceToCapacityAsync(requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Assign My Workspace to a capacity
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Assign to capacity parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> AssignMyWorkspaceToCapacityAsync(this IGroups operations, AssignToCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AssignMyWorkspaceToCapacityWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }
