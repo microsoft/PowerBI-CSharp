@@ -8,7 +8,7 @@
         /// </summary>
         /// <param name="updateDetails">The dataset parameter list to
         /// update</param>
-        public UpdateDatasetParametersRequest(UpdateDatasetParameterDetails updateDetails = default(UpdateDatasetParameterDetails))
+        public UpdateDatasetParametersRequest(UpdateDatasetParameterDetails updateDetails)
         {
             UpdateDetails = new [] { updateDetails };
             CustomInit();

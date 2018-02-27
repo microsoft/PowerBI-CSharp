@@ -6,7 +6,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the UpdateDatasourcesRequest class.
         /// </summary>
         /// <param name="updateDetails">The connection server</param>
-        public UpdateDatasourcesRequest(UpdateDatasourceConnectionRequest updateDetails = default(UpdateDatasourceConnectionRequest))
+        public UpdateDatasourcesRequest(UpdateDatasourceConnectionRequest updateDetails)
         {
             UpdateDetails = new[] { updateDetails };
             CustomInit();
