@@ -6,6 +6,11 @@ For questions or issues using the SDKs please log an issue and we will respond a
 
 For more information regarding onboarding to Power BI Embedded see our [Azure documentation](https://azure.microsoft.com/en-us/services/power-bi-embedded/).
 
+## Issues
+[Power BI Support Page](https://powerbi.microsoft.com/en-us/support/)
+
+[Power BI Ideas](https://ideas.powerbi.com)
+
 ## Power BI Embedded Core Libraries
 The `Microsoft.PowerBI.Core` package contains APIs to generate report embed tokens.
 
