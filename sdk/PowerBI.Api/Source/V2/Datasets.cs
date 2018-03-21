@@ -1402,6 +1402,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='refreshRequest'>
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -1423,11 +1425,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> RefreshDatasetWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> RefreshDatasetWithHttpMessagesAsync(string datasetKey, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetKey == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetKey");
+            }
+            if (refreshRequest != null)
+            {
+                refreshRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1437,6 +1443,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("datasetKey", datasetKey);
+                tracingParameters.Add("refreshRequest", refreshRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RefreshDataset", tracingParameters);
             }
@@ -1466,6 +1473,12 @@ namespace Microsoft.PowerBI.Api.V2
 
             // Serialize Request
             string _requestContent = null;
+            if(refreshRequest != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(refreshRequest, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
             // Set Credentials
             if (Client.Credentials != null)
             {
@@ -4165,6 +4178,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='refreshRequest'>
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -4186,7 +4201,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> RefreshDatasetInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> RefreshDatasetInGroupWithHttpMessagesAsync(string groupId, string datasetKey, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (groupId == null)
             {
@@ -4195,6 +4210,10 @@ namespace Microsoft.PowerBI.Api.V2
             if (datasetKey == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetKey");
+            }
+            if (refreshRequest != null)
+            {
+                refreshRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4205,6 +4224,7 @@ namespace Microsoft.PowerBI.Api.V2
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("datasetKey", datasetKey);
+                tracingParameters.Add("refreshRequest", refreshRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RefreshDatasetInGroup", tracingParameters);
             }
@@ -4235,6 +4255,12 @@ namespace Microsoft.PowerBI.Api.V2
 
             // Serialize Request
             string _requestContent = null;
+            if(refreshRequest != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(refreshRequest, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
             // Set Credentials
             if (Client.Credentials != null)
             {

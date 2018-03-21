@@ -358,6 +358,7 @@
                 "operationId":"Datasets_RefreshDataset",
                 "summary":"Start a dataset refresh",
                 "consumes":[
+                    "application/json"
                 ],
                 "produces":[
                 ],
@@ -368,6 +369,14 @@
                         "in":"path",
                         "required":true,
                         "type":"string"
+                    },
+                    {
+                       "name": "refreshRequest",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshRequest"
+                        }
                     }
                 ],
                 "responses":{
@@ -1858,6 +1867,7 @@
                 "operationId":"Datasets_RefreshDatasetInGroup",
                 "summary":"Start a dataset refresh",
                 "consumes":[
+                    "application/json"
                 ],
                 "produces":[
                 ],
@@ -1875,8 +1885,16 @@
                         "in":"path",
                         "required":true,
                         "type":"string"
+                    },
+                    {
+                       "name": "refreshRequest",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshRequest"
+                        }
                     }
-                ],
+                 ],
                 "responses":{
                     "202":{
                         "description":"Accepted",
@@ -4776,6 +4794,27 @@
                     "description": ""
                 }
             }
+        },
+        "RefreshRequest": {
+            "type": "object",
+            "description": "Power BI Refresh Request",
+            "properties": {
+                "notifyOption": {
+                    "type": "string",
+                    "description": "mail notification options",
+                    "enum": [
+                        "NoNotification",
+                        "MailOnFailure",
+                        "MailOnCompletion"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NotifyOption"
+                    }
+                }
+            },
+            "required": [
+                "notifyOption"
+            ]
         },
         "DatasetParameter": {
             "type": "object",

@@ -413,9 +413,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='datasetKey'>
             /// The dataset id
             /// </param>
-            public static object RefreshDataset(this IDatasets operations, string groupId, string datasetKey)
+            public static object RefreshDataset(this IDatasets operations, string groupId, string datasetKey, RefreshRequest refreshRequest = null)
             {
-                return operations.RefreshDatasetAsync(groupId, datasetKey).GetAwaiter().GetResult();
+                return operations.RefreshDatasetAsync(groupId, datasetKey, refreshRequest).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -433,9 +433,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<object> RefreshDatasetAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> RefreshDatasetAsync(this IDatasets operations, string groupId, string datasetKey, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetKey, refreshRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

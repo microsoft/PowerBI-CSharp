@@ -235,6 +235,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='refreshRequest'>
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -250,7 +252,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> RefreshDatasetWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> RefreshDatasetWithHttpMessagesAsync(string datasetKey, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets a list of parameters for the specified dataset
         /// </summary>
@@ -684,6 +686,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
+        /// <param name='refreshRequest'>
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -699,7 +703,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> RefreshDatasetInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<object>> RefreshDatasetInGroupWithHttpMessagesAsync(string groupId, string datasetKey, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets a list of parameters for the specified dataset
         /// </summary>
