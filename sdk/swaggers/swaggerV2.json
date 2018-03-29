@@ -3674,52 +3674,107 @@
 
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/ODataResponse[List[Group]]"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/ODataResponse[List[Group]]"
                     }
+                  }
                 }
-            },
-            "post":{
+              },
+              "post":{
                 "tags":[
-                    "Groups"
+                  "Groups"
                 ],
                 "summary":"Create new group",
                 "operationId":"Groups_CreateGroup",
                 "consumes":[
-                    "application/json"
+                  "application/json"
                 ],
                 "produces":[
-                    "application/json"
+                  "application/json"
                 ],
                 "parameters":[
-                    {
-                        "name":"requestParameters",
-                        "description":"Create group request parameters",
-                        "in":"body",
-                        "required":true,
-                        "schema":{
-                            "$ref":"#/definitions/GroupCreationRequest"
-                        }
+                 {
+                    "name":"requestParameters",
+                    "description":"Create group request parameters",
+                    "in":"body",
+                    "required":true,
+                    "schema":{
+                      "$ref":"#/definitions/GroupCreationRequest"
                     }
+                  }
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/Group"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Group"
                     }
+                  }
                 },
                 "deprecated":false
-            }
-        },
-        "/v1.0/myorg/groups/{groupId}":{
-            "delete":{
+              }
+            },
+            "/v1.0/myorg/admin/groups":{
+              "get":{
                 "tags":[
-                    "Groups"
+                  "Groups"
+                ],
+                "summary":"With an adminstrative scope, returns a list of groups for an organization",
+                "operationId":"Groups_GetGroupsAsAdmin",
+                "consumes":[
+
+                ],
+                "produces":[
+                  "application/json"
+                ],
+                "parameters":[
+                  {
+                    "name": "$expand",
+                    "in": "query",
+                    "description": "Expands related entities inline.",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "name": "$filter",
+                    "in": "query",
+                    "description": "Filters the results, based on a Boolean condition.",
+                    "required": false,
+                    "type": "string"
+                  },
+                  {
+                    "name": "$top",
+                    "in": "query",
+                    "description": "Returns only the first n results.",
+                    "required": false,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  {
+                    "name": "$skip",
+                    "in": "query",
+                    "description": "Skips the first n results.",
+                    "required": false,
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                ],
+                "responses":{
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/ODataResponse[List[Group]]"
+                    }
+                  }
+                }
+              }
+            },
+            "/v1.0/myorg/groups/{groupId}":{
+              "delete":{
+                "tags":[
+                  "Groups"
                 ],
                 "summary":"Deletes the specified group",
                 "operationId":"Groups_DeleteGroup",
@@ -3728,98 +3783,179 @@
                 "produces":[
                 ],
                 "parameters":[
-                    {
-                        "name":"groupId",
-                        "in":"path",
-                        "required":true,
-                        "description":"The group id to delete",
-                        "type":"string"
-                    }
+                 {
+                    "name":"groupId",
+                    "in":"path",
+                    "required":true,
+                    "description":"The group id to delete",
+                    "type":"string"
+                  }
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/Object"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
                     }
+                  }
                 },
                 "deprecated":false
-            }
-        },
-        "/v1.0/myorg/groups/{groupId}/users": {
-            "get": {
-                "tags": [
-                    "Groups"
+              }
+            },
+            "/v1.0/myorg/admin/groups/{groupId}":{
+              "patch":{
+                "tags":[
+                  "Groups"
+                ],
+                "summary":"With administrative scope, updates the specified group properties",
+                "operationId":"Groups_UpdateGroupAsAdmin",
+                "consumes":[
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                 {
+                    "name":"groupId",
+                    "in":"path",
+                    "required":true,
+                    "description":"The group id",
+                    "type":"string"
+                  },
+                 {
+                    "name":"groupProperties",
+                    "in":"body",
+                    "required":true,
+                    "description":"The properties to update",
+                    "schema":{
+                      "$ref":"#/definitions/Group"
+                    }
+                  }
+                ],
+                "responses":{
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
+                    }
+                  }
+                },
+                "deprecated":false
+              }
+            },
+            "/v1.0/myorg/groups/{groupId}/users":{
+              "get":{
+                "tags":[
+                  "Groups"
                 ],
                 "operationId": "Groups_GetGroupUsers",
                 "summary": "Get a group users list",
                 "consumes": [ ],
                 "produces": [
-                    "application/json"
+                  "application/json"
                 ],
                 "parameters": [
-                    {
-                        "name": "groupId",
-                        "in": "path",
-                        "description": "The group id",
-                        "required": true,
-                        "type": "string"
-                    }
+                 {
+                    "name": "groupId",
+                    "in": "path",
+                    "description": "The group id",
+                    "required": true,
+                    "type": "string"
+                  }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref":"#/definitions/ODataResponse[List[GroupUserAccessRight]]"
-                        }
+                  "200": {
+                    "description": "OK",
+                    "schema": {
+                      "$ref":"#/definitions/ODataResponse[List[GroupUserAccessRight]]"
                     }
+                  }
                 }
-            },
-            "post":{
+              },
+              "post":{
                 "tags":[
-                    "Groups"
+                  "Groups"
                 ],
                 "operationId":"Groups_AddGroupUser",
                 "summary":"Add a group user",
                 "consumes":[
-                    "application/json"
+                  "application/json"
                 ],
                 "produces":[
                 ],
                 "parameters":[
-                    {
-                        "name": "groupId",
-                        "in": "path",
-                        "description": "The group id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "userDetails",
-                        "in": "body",
-                        "description": "user access right details",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/GroupUserAccessRight"
-                        }
+                 {
+                    "name": "groupId",
+                    "in": "path",
+                    "description": "The group id",
+                    "required": true,
+                    "type": "string"
+                  },
+                 {
+                    "name": "userDetails",
+                    "in": "body",
+                    "description": "user access right details",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/GroupUserAccessRight"
                     }
+                  }
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/Object"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
                     }
+                  }
                 },
                 "deprecated":false
-            }
-        },
-        "/v1.0/myorg/groups/{groupId}/users/{user}":{
-            "delete":{
+              }
+            },
+            "/v1.0/myorg/admin/groups/{groupId}/users":{
+              "post":{
                 "tags":[
-                    "Groups"
+                  "Groups"
+                ],
+                "operationId":"Groups_AddUserAsAdmin",
+                "summary":"With an administrative scope, grant user permissions to the given group",
+                "consumes":[
+                  "application/json"
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                 {
+                    "name":"groupId",
+                    "in":"path",
+                    "description":"The group id",
+                    "required":true,
+                    "type":"string"
+                  },
+                 {
+                    "name":"userDetails",
+                    "in":"body",
+                    "description":"User access right details",
+                    "required":true,
+                    "schema":{
+                      "$ref":"#/definitions/GroupUserAccessRight"
+                    }
+                  }
+                ],
+                "responses":{
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
+                    }
+                  }
+                },
+                "deprecated":false
+              }
+            },
+            "/v1.0/myorg/groups/{groupId}/users/{user}":{
+              "delete":{
+                "tags":[
+                  "Groups"
                 ],
                 "summary":"Deletes the specified group",
                 "operationId":"Groups_DeleteUserInGroup",
@@ -3828,112 +3964,150 @@
                 "produces":[
                 ],
                 "parameters":[
-                    {
-                        "name":"groupId",
-                        "in":"path",
-                        "required":true,
-                        "description":"The group id",
-                        "type":"string"
-                    },
-                    {
-                        "name":"user",
-                        "in":"path",
-                        "required":true,
-                        "description":"The user email to delete",
-                        "type":"string"
-                    }
+                 {
+                    "name":"groupId",
+                    "in":"path",
+                    "required":true,
+                    "description":"The group id",
+                    "type":"string"
+                  },
+                 {
+                    "name":"user",
+                    "in":"path",
+                    "required":true,
+                    "description":"The user email to delete",
+                    "type":"string"
+                  }
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/Object"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
                     }
+                  }
                 },
                 "deprecated":false
-            }
-        },
-        "/v1.0/myorg/groups/{groupId}/AssignToCapacity": {
-            "post":{
+              }
+            },
+            "/v1.0/myorg/admin/groups/{groupId}/users/{user}":{
+              "delete":{
                 "tags":[
-                    "Groups"
+                  "Groups"
+                ],
+                "summary":"With an administrative scope, remove user permissions to the given group",
+                "operationId":"Groups_DeleteUserAsAdmin",
+                "consumes":[
+                ],
+                "produces":[
+                ],
+                "parameters":[
+                 {
+                    "name":"groupId",
+                    "in":"path",
+                    "required":true,
+                    "description":"The group id",
+                    "type":"string"
+                  },
+                 {
+                    "name":"user",
+                    "in":"path",
+                    "required":true,
+                    "description":"The user principal name (UPN) of the user to remove (usually the user's email)",
+                    "type":"string"
+                  }
+                ],
+                "responses":{
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
+                    }
+                  }
+                },
+                "deprecated":false
+              }
+            },
+            "/v1.0/myorg/groups/{groupId}/AssignToCapacity":{
+              "post":{
+                "tags":[
+                  "Groups"
                 ],
                 "operationId":"Groups_AssignToCapacity",
                 "summary":"Assign a group to a capacity",
                 "consumes":[
-                    "application/json"
+                  "application/json"
                 ],
                 "produces":[
                 ],
                 "parameters":[
-                    {
-                        "name": "groupId",
-                        "in": "path",
-                        "description": "The group id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "requestParameters",
-                        "in": "body",
-                        "description": "Assign to capacity parameters",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/AssignToCapacityRequest"
-                        }
+                 {
+                    "name": "groupId",
+                    "in": "path",
+                    "description": "The group id",
+                    "required": true,
+                    "type": "string"
+                  },
+                 {
+                    "name": "requestParameters",
+                    "in": "body",
+                    "description": "Assign to capacity parameters",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/AssignToCapacityRequest"
                     }
+                  }
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/Object"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
                     }
+                  }
                 },
                 "deprecated":false
-            }
-        },
-        "/v1.0/myorg/AssignToCapacity": {
-            "post":{
+              }
+            },
+            "/v1.0/myorg/AssignToCapacity": {
+              "post":{
                 "tags":[
-                    "Groups"
+                  "Groups"
                 ],
                 "operationId":"Groups_AssignMyWorkspaceToCapacity",
                 "summary":"Assign My Workspace to a capacity",
                 "consumes":[
-                    "application/json"
+                  "application/json"
                 ],
                 "produces":[
                 ],
                 "parameters":[
-                    {
-                        "name": "requestParameters",
-                        "in": "body",
-                        "description": "Assign to capacity parameters",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/AssignToCapacityRequest"
-                        }
+                 {
+                    "name": "requestParameters",
+                    "in": "body",
+                    "description": "Assign to capacity parameters",
+                    "required": true,
+                    "schema": {
+                      "$ref": "#/definitions/AssignToCapacityRequest"
                     }
+                  }
                 ],
                 "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/Object"
-                        }
+                  "200":{
+                    "description":"OK",
+                    "schema":{
+                      "$ref":"#/definitions/Object"
                     }
+                  }
                 },
                 "deprecated":false
-            }
-        },
-        
-        "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
-            "get":{
+              }
+            },
+
+            "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
+              "get":{
                 "tags":[
-                    "Datasets"
+                  "Datasets"
                 ],
                 "operationId":"Datasets_GetDatasourcesAsAdmin",
                 "summary":"Gets a list of datasource for the specified dataset as Admin",
@@ -4670,6 +4844,25 @@
                 "capacityId":{
                     "type":"string",
                     "description":"The capacity id"
+                },
+                "description":{
+                  "type":"string",
+                  "description":"The group description"
+                },
+                "type":{
+                  "type":"string",
+                  "description":"The type of group"
+                },
+                "state":{
+                  "type":"string",
+                  "description":"The group state"
+                },
+                "users":{
+                  "type": "array",
+                    "description": "The users associated to group with their access rights",
+                    "items": {
+                        "$ref": "#/definitions/GroupUserAccessRight"
+                    }
                 }
             }
         },
@@ -5055,7 +5248,7 @@
                 },
                 "customData":{
                     "type":"string",
-                    "description":"The custom data string to be added to the AS connection string",
+                    "description":"The custom data string to be added to the AS connection string"
                 }
           }
         },

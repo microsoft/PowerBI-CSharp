@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -31,13 +33,22 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="isOnDedicatedCapacity">Is group on dedicated
         /// capacity</param>
         /// <param name="capacityId">The capacity id</param>
-        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string))
+        /// <param name="description">The group description</param>
+        /// <param name="type">The type of group</param>
+        /// <param name="state">The group state</param>
+        /// <param name="users">The users associated to group with their access
+        /// rights</param>
+        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>))
         {
             Id = id;
             Name = name;
             IsReadOnly = isReadOnly;
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
+            Description = description;
+            Type = type;
+            State = state;
+            Users = users;
             CustomInit();
         }
 
@@ -75,6 +86,30 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
         public string CapacityId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the group description
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of group
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the group state
+        /// </summary>
+        [JsonProperty(PropertyName = "state")]
+        public string State { get; set; }
+
+        /// <summary>
+        /// Gets or sets the users associated to group with their access rights
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<GroupUserAccessRight> Users { get; set; }
 
     }
 }
