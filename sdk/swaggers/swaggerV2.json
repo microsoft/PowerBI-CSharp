@@ -4174,11 +4174,18 @@
                         "$ref":"#/definitions/Column"
                     }
                 },
-                "rows":{
+              "rows": {
+                "type": "array",
+                "description": "The data rows within this table",
+                "items": {
+                  "$ref": "#/definitions/Row"
+                }
+              },
+              "measures":{
                     "type":"array",
-                    "description":"The data rows within this tabe",
+                    "description":"The measures within this table",
                     "items":{
-                        "$ref":"#/definitions/Row"
+                        "$ref":"#/definitions/Measure"
                     }
                 }
             }
@@ -4277,13 +4284,32 @@
                 }
             }
         },
-        "Row":{
+        "Row": {
+          "type": "object",
+          "description": "A Power BI data row",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The unique row id"
+            }
+          }
+        },
+        "Measure":{
+            "required":[
+                "name",
+                "expression"
+            ],
             "type":"object",
-            "description":"A Power BI data row",
+            "description":"A Power BI Measure",
             "properties":{
-                "id":{
+                "name":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
                     "type":"string",
-                    "description":"The unique row id"
+                    "description":"The measure name"
+                },
+                "expression":{
+                    "type":"string",
+                    "description":"A valid DAX expression"
                 }
             }
         },
