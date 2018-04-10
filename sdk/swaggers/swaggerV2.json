@@ -4954,6 +4954,10 @@
                 "privacyLevel": {
                     "type": "string",
                     "description": "The privacy level"
+                },
+                "useCallerAADIdentity": {
+                    "type": "boolean",
+                    "description": "Should the caller's AAD identity be used for OAuth2 credentials configuration"
                 }
             }
         },
