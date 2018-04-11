@@ -3671,7 +3671,29 @@
                     "application/json"
                 ],
                 "parameters":[
-
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a Boolean condition.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
                 ],
                 "responses":{
                   "200":{
@@ -3716,61 +3738,6 @@
                 "deprecated":false
               }
             },
-            "/v1.0/myorg/admin/groups":{
-              "get":{
-                "tags":[
-                  "Groups"
-                ],
-                "summary":"With an adminstrative scope, returns a list of groups for an organization",
-                "operationId":"Groups_GetGroupsAsAdmin",
-                "consumes":[
-
-                ],
-                "produces":[
-                  "application/json"
-                ],
-                "parameters":[
-                  {
-                    "name": "$expand",
-                    "in": "query",
-                    "description": "Expands related entities inline.",
-                    "required": false,
-                    "type": "string"
-                  },
-                  {
-                    "name": "$filter",
-                    "in": "query",
-                    "description": "Filters the results, based on a Boolean condition.",
-                    "required": false,
-                    "type": "string"
-                  },
-                  {
-                    "name": "$top",
-                    "in": "query",
-                    "description": "Returns only the first n results.",
-                    "required": false,
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  {
-                    "name": "$skip",
-                    "in": "query",
-                    "description": "Skips the first n results.",
-                    "required": false,
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                ],
-                "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/ODataResponse[List[Group]]"
-                    }
-                  }
-                }
-              }
-            },
             "/v1.0/myorg/groups/{groupId}":{
               "delete":{
                 "tags":[
@@ -3789,46 +3756,6 @@
                     "required":true,
                     "description":"The group id to delete",
                     "type":"string"
-                  }
-                ],
-                "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
-                    }
-                  }
-                },
-                "deprecated":false
-              }
-            },
-            "/v1.0/myorg/admin/groups/{groupId}":{
-              "patch":{
-                "tags":[
-                  "Groups"
-                ],
-                "summary":"With administrative scope, updates the specified group properties",
-                "operationId":"Groups_UpdateGroupAsAdmin",
-                "consumes":[
-                ],
-                "produces":[
-                ],
-                "parameters":[
-                 {
-                    "name":"groupId",
-                    "in":"path",
-                    "required":true,
-                    "description":"The group id",
-                    "type":"string"
-                  },
-                 {
-                    "name":"groupProperties",
-                    "in":"body",
-                    "required":true,
-                    "description":"The properties to update",
-                    "schema":{
-                      "$ref":"#/definitions/Group"
-                    }
                   }
                 ],
                 "responses":{
@@ -3911,47 +3838,6 @@
                 "deprecated":false
               }
             },
-            "/v1.0/myorg/admin/groups/{groupId}/users":{
-              "post":{
-                "tags":[
-                  "Groups"
-                ],
-                "operationId":"Groups_AddUserAsAdmin",
-                "summary":"With an administrative scope, grant user permissions to the given group",
-                "consumes":[
-                  "application/json"
-                ],
-                "produces":[
-                ],
-                "parameters":[
-                 {
-                    "name":"groupId",
-                    "in":"path",
-                    "description":"The group id",
-                    "required":true,
-                    "type":"string"
-                  },
-                 {
-                    "name":"userDetails",
-                    "in":"body",
-                    "description":"User access right details",
-                    "required":true,
-                    "schema":{
-                      "$ref":"#/definitions/GroupUserAccessRight"
-                    }
-                  }
-                ],
-                "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
-                    }
-                  }
-                },
-                "deprecated":false
-              }
-            },
             "/v1.0/myorg/groups/{groupId}/users/{user}":{
               "delete":{
                 "tags":[
@@ -3976,44 +3862,6 @@
                     "in":"path",
                     "required":true,
                     "description":"The user email to delete",
-                    "type":"string"
-                  }
-                ],
-                "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
-                    }
-                  }
-                },
-                "deprecated":false
-              }
-            },
-            "/v1.0/myorg/admin/groups/{groupId}/users/{user}":{
-              "delete":{
-                "tags":[
-                  "Groups"
-                ],
-                "summary":"With an administrative scope, remove user permissions to the given group",
-                "operationId":"Groups_DeleteUserAsAdmin",
-                "consumes":[
-                ],
-                "produces":[
-                ],
-                "parameters":[
-                 {
-                    "name":"groupId",
-                    "in":"path",
-                    "required":true,
-                    "description":"The group id",
-                    "type":"string"
-                  },
-                 {
-                    "name":"user",
-                    "in":"path",
-                    "required":true,
-                    "description":"The user principal name (UPN) of the user to remove (usually the user's email)",
                     "type":"string"
                   }
                 ],
@@ -4104,10 +3952,10 @@
               }
             },
 
-            "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
-              "get":{
+        "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
+            "get":{
                 "tags":[
-                  "Datasets"
+                    "Datasets"
                 ],
                 "operationId":"Datasets_GetDatasourcesAsAdmin",
                 "summary":"Gets a list of datasource for the specified dataset as Admin",
@@ -4130,6 +3978,228 @@
                         "description":"OK",
                         "schema":{
                             "$ref":"#/definitions/ODataResponse[List[Datasource]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+
+        "/v1.0/myorg/admin/groups":{
+            "get":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"With an adminstrative scope, returns a list of groups for an organization",
+                "operationId":"Groups_GetGroupsAsAdmin",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"$expand",
+                        "in":"query",
+                        "description":"Expands related entities inline.",
+                        "required":false,
+                        "type":"string"
+                    },
+                    {
+                        "name":"$filter",
+                        "in":"query",
+                        "description":"Filters the results, based on a Boolean condition.",
+                        "required":false,
+                        "type":"string"
+                    },
+                    {
+                        "name":"$top",
+                        "in":"query",
+                        "description":"Returns only the first n results.",
+                        "required":false,
+                        "type":"integer",
+                        "format":"int32"
+                    },
+                    {
+                        "name":"$skip",
+                        "in":"query",
+                        "description":"Skips the first n results.",
+                        "required":false,
+                        "type":"integer",
+                        "format":"int32"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Group]]"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}":{
+            "patch":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"With administrative scope, updates the specified group properties",
+                "operationId":"Groups_UpdateGroupAsAdmin",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"groupProperties",
+                        "in":"body",
+                        "required":true,
+                        "description":"The properties to update",
+                        "schema":{
+                            "$ref":"#/definitions/Group"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/users":{
+            "post":{
+                "tags":[
+                    "Groups"
+                ],
+                "operationId":"Groups_AddUserAsAdmin",
+                "summary":"With an administrative scope, grant user permissions to the given group",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "description":"The group id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"userDetails",
+                        "in":"body",
+                        "description":"User access right details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GroupUserAccessRight"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/users/{user}":{
+            "delete":{
+                "tags":[
+                    "Groups"
+                ],
+                "summary":"With an administrative scope, remove user permissions to the given group",
+                "operationId":"Groups_DeleteUserAsAdmin",
+                "consumes":[
+
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"user",
+                        "in":"path",
+                        "required":true,
+                        "description":"The user principal name (UPN) of the user to remove (usually the user's email)",
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/restore":{
+            "post":{
+                "tags":[
+                    "Groups"
+                ],
+                "operationId":"Groups_RestoreDeletedGroupAsAdmin",
+                "summary":"With an administrative scope, restore a deleted group",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+
+                ],
+                "parameters":[
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "description":"The group id",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"groupRestoreRequest",
+                        "in":"body",
+                        "description":"Group restore request details",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GroupRestoreRequest"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
                         }
                     }
                 },
@@ -4163,7 +4233,7 @@
                 },
                 "deprecated":false
             }
-        },
+        }
     },
     "definitions":{
         "Import":{
@@ -5150,7 +5220,8 @@
                     "enum":[
                         "None",
                         "Member",
-                        "Admin"
+                        "Admin",
+                        "Contributor"
                     ],
                     "x-ms-enum": {
                         "name": "GroupUserAccessRightEnum",
@@ -5201,28 +5272,22 @@
                 }
             }
         },
-        "GroupUser": {
-            "type": "object",
-            "description": "A Power BI user details in a group",
-            "properties": {
-                "userType": {
-                    "type": "string",
-                    "description": "Type of user in a group.",
-                    "enum":[
-                        "None",
-                        "Member",
-                        "Admin"
-                    ],
-                    "x-ms-enum": {
-                        "name": "MemberAdminAccessRight",
-                        "modelAsString": true
-                    }
+        "GroupRestoreRequest":{
+            "type":"object",
+            "description":"Power BI request to restore a deleted group",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"The new name to give to the deleted group."
                 },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user."
+                "emailAddress":{
+                    "type":"string",
+                    "description":"The email address of the owner to give to the deleted group."
                 }
-            }
+            },
+            "required": [
+                "emailAddress"
+            ]
         },
         "EffectiveIdentity":{
             "required":[

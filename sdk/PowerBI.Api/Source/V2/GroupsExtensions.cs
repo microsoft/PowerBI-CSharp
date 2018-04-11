@@ -21,9 +21,18 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static ODataResponseListGroup GetGroups(this IGroups operations)
+            /// <param name='filter'>
+            /// Filters the results, based on a Boolean condition.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results.
+            /// </param>
+            public static ODataResponseListGroup GetGroups(this IGroups operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
-                return operations.GetGroupsAsync().GetAwaiter().GetResult();
+                return operations.GetGroupsAsync(filter, top, skip).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -32,12 +41,21 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a Boolean condition.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListGroup> GetGroupsAsync(this IGroups operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListGroup> GetGroupsAsync(this IGroups operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetGroupsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGroupsWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -78,58 +96,6 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// With an adminstrative scope, returns a list of groups for an organization
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            public static ODataResponseListGroup GetGroupsAsAdmin(this IGroups operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
-            {
-                return operations.GetGroupsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// With an adminstrative scope, returns a list of groups for an organization
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='expand'>
-            /// Expands related entities inline.
-            /// </param>
-            /// <param name='filter'>
-            /// Filters the results, based on a Boolean condition.
-            /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results.
-            /// </param>
-            /// <param name='skip'>
-            /// Skips the first n results.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<ODataResponseListGroup> GetGroupsAsAdminAsync(this IGroups operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetGroupsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Deletes the specified group
             /// </summary>
             /// <param name='operations'>
@@ -158,46 +124,6 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<object> DeleteGroupAsync(this IGroups operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DeleteGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// With administrative scope, updates the specified group properties
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='groupProperties'>
-            /// The properties to update
-            /// </param>
-            public static object UpdateGroupAsAdmin(this IGroups operations, string groupId, Group groupProperties)
-            {
-                return operations.UpdateGroupAsAdminAsync(groupId, groupProperties).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// With administrative scope, updates the specified group properties
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='groupProperties'>
-            /// The properties to update
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> UpdateGroupAsAdminAsync(this IGroups operations, string groupId, Group groupProperties, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.UpdateGroupAsAdminWithHttpMessagesAsync(groupId, groupProperties, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -278,46 +204,6 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// With an administrative scope, grant user permissions to the given group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='userDetails'>
-            /// User access right details
-            /// </param>
-            public static object AddUserAsAdmin(this IGroups operations, string groupId, GroupUserAccessRight userDetails)
-            {
-                return operations.AddUserAsAdminAsync(groupId, userDetails).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// With an administrative scope, grant user permissions to the given group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='userDetails'>
-            /// User access right details
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> AddUserAsAdminAsync(this IGroups operations, string groupId, GroupUserAccessRight userDetails, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.AddUserAsAdminWithHttpMessagesAsync(groupId, userDetails, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Deletes the specified group
             /// </summary>
             /// <param name='operations'>
@@ -352,48 +238,6 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<object> DeleteUserInGroupAsync(this IGroups operations, string groupId, string user, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.DeleteUserInGroupWithHttpMessagesAsync(groupId, user, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// With an administrative scope, remove user permissions to the given group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='user'>
-            /// The user principal name (UPN) of the user to remove (usually the user's
-            /// email)
-            /// </param>
-            public static object DeleteUserAsAdmin(this IGroups operations, string groupId, string user)
-            {
-                return operations.DeleteUserAsAdminAsync(groupId, user).GetAwaiter().GetResult();
-            }
-
-            /// <summary>
-            /// With an administrative scope, remove user permissions to the given group
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='groupId'>
-            /// The group id
-            /// </param>
-            /// <param name='user'>
-            /// The user principal name (UPN) of the user to remove (usually the user's
-            /// email)
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> DeleteUserAsAdminAsync(this IGroups operations, string groupId, string user, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.DeleteUserAsAdminWithHttpMessagesAsync(groupId, user, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -468,6 +312,220 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<object> AssignMyWorkspaceToCapacityAsync(this IGroups operations, AssignToCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AssignMyWorkspaceToCapacityWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// With an adminstrative scope, returns a list of groups for an organization
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a Boolean condition.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results.
+            /// </param>
+            public static ODataResponseListGroup GetGroupsAsAdmin(this IGroups operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetGroupsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// With an adminstrative scope, returns a list of groups for an organization
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a Boolean condition.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListGroup> GetGroupsAsAdminAsync(this IGroups operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetGroupsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// With administrative scope, updates the specified group properties
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='groupProperties'>
+            /// The properties to update
+            /// </param>
+            public static object UpdateGroupAsAdmin(this IGroups operations, string groupId, Group groupProperties)
+            {
+                return operations.UpdateGroupAsAdminAsync(groupId, groupProperties).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// With administrative scope, updates the specified group properties
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='groupProperties'>
+            /// The properties to update
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateGroupAsAdminAsync(this IGroups operations, string groupId, Group groupProperties, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateGroupAsAdminWithHttpMessagesAsync(groupId, groupProperties, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// With an administrative scope, grant user permissions to the given group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='userDetails'>
+            /// User access right details
+            /// </param>
+            public static object AddUserAsAdmin(this IGroups operations, string groupId, GroupUserAccessRight userDetails)
+            {
+                return operations.AddUserAsAdminAsync(groupId, userDetails).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// With an administrative scope, grant user permissions to the given group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='userDetails'>
+            /// User access right details
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> AddUserAsAdminAsync(this IGroups operations, string groupId, GroupUserAccessRight userDetails, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AddUserAsAdminWithHttpMessagesAsync(groupId, userDetails, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// With an administrative scope, remove user permissions to the given group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='user'>
+            /// The user principal name (UPN) of the user to remove (usually the user's
+            /// email)
+            /// </param>
+            public static object DeleteUserAsAdmin(this IGroups operations, string groupId, string user)
+            {
+                return operations.DeleteUserAsAdminAsync(groupId, user).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// With an administrative scope, remove user permissions to the given group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='user'>
+            /// The user principal name (UPN) of the user to remove (usually the user's
+            /// email)
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> DeleteUserAsAdminAsync(this IGroups operations, string groupId, string user, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.DeleteUserAsAdminWithHttpMessagesAsync(groupId, user, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// With an administrative scope, restore a deleted group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='groupRestoreRequest'>
+            /// Group restore request details
+            /// </param>
+            public static object RestoreDeletedGroupAsAdmin(this IGroups operations, string groupId, GroupRestoreRequest groupRestoreRequest)
+            {
+                return operations.RestoreDeletedGroupAsAdminAsync(groupId, groupRestoreRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// With an administrative scope, restore a deleted group
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The group id
+            /// </param>
+            /// <param name='groupRestoreRequest'>
+            /// Group restore request details
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> RestoreDeletedGroupAsAdminAsync(this IGroups operations, string groupId, GroupRestoreRequest groupRestoreRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.RestoreDeletedGroupAsAdminWithHttpMessagesAsync(groupId, groupRestoreRequest, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

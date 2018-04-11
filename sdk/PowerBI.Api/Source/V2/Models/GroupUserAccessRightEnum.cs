@@ -15,5 +15,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public const string None = "None";
         public const string Member = "Member";
         public const string Admin = "Admin";
+        public const string Contributor = "Contributor";
     }
 }

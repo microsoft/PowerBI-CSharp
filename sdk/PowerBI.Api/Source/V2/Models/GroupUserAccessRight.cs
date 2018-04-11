@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the GroupUserAccessRight class.
         /// </summary>
         /// <param name="groupUserAccessRightProperty">Access rights user has
-        /// for group. Possible values include: 'None', 'Member',
-        /// 'Admin'</param>
+        /// for group. Possible values include: 'None', 'Member', 'Admin',
+        /// 'Contributor'</param>
         /// <param name="emailAddress">Email address of the user.</param>
         public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string))
         {
@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets access rights user has for group. Possible values
-        /// include: 'None', 'Member', 'Admin'
+        /// include: 'None', 'Member', 'Admin', 'Contributor'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
         public string GroupUserAccessRightProperty { get; set; }
