@@ -3949,9 +3949,66 @@
                   }
                 },
                 "deprecated":false
-              }
-            },
+            }
+        },
+        
+        "/v1.0/myorg/availableFeatures":{
+            "get":{
+                "tags":[
+                    "Features"
+                ],
+                "summary":"Gets a list of available features for user",
+                "operationId":"availableFeatures_GetAvailableFeatures",
+                "consumes":[
 
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[AvailableFeature]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        "/v1.0/myorg/availableFeatures(featureName='{featureName}')":{
+            "get":{
+                "tags":[
+                    "Features"
+                ],
+                "summary":"Gets a list of available feature for user by name",
+                "operationId":"availableFeatures_GetAvailableFeatureByName",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"featureName",
+                        "in":"path",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema": {
+                            "$ref": "#/definitions/AvailableFeature"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
+        
         "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
             "get":{
                 "tags":[
@@ -5509,6 +5566,71 @@
                         "$ref": "#/definitions/Capacity"
                     }
                 }
+            }
+        },
+        "ODataResponse[List[AvailableFeature]]": {
+            "type": "object",
+            "description": "Odata response wrapper for a Power BI Available Features List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "features": {
+                    "type": "array",
+                    "description": "The Available Features List",
+                    "items": {
+                        "$ref": "#/definitions/AvailableFeature"
+                    }
+                }
+            }
+        },
+        "AvailableFeature":{
+            "type":"object",
+            "description":"Power BI Available Feature",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"Feature name"
+                },
+                "state":{
+                    "type":"string",
+                    "enum":[
+                        "Enabled",
+                        "Disabled"
+                    ],
+                    "x-ms-enum": {
+                        "name": "FeatureState",
+                        "modelAsString": false
+                    },
+                    "description":"Feature state"
+                },
+                "extendedState":{
+                    "type": "string",
+                    "enum":[
+                        "Enabled",
+                        "DisabledByAdmin",
+                        "UserNotLicensed"
+                    ],
+                    "x-ms-enum": {
+                        "name": "FeatureExtendedState",
+                        "modelAsString": false
+                    },
+                    "description":"Feature extended state"
+                },
+                "additionalInfo":{
+                    "description":"Additional Feature Info",
+                    "$ref":"#/definitions/AdditionalFeatureInfo"
+                }
+            }
+        },
+        "AdditionalFeatureInfo":{
+            "type":"object",
+            "description":"Additional Feature Info",
+            "properties":{
+              "Usage": {
+                "type": "integer",
+                "description": "The token usage (in %) from the limitation on shared capacity"
+              }
             }
         },
         "AssignToCapacityRequest":{
