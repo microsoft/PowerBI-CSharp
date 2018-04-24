@@ -993,46 +993,46 @@
             }
         },
         "/v1.0/myorg/reports/{reportKey}/UpdateReportContent": {
-        "post": {
-          "tags": [
-            "Reports"
-          ],
-          "summary": "Update the report content from a specified source",
-          "operationId": "Reports_UpdateReportContent",
-          "consumes": [
-            "application/json"
-          ],
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "reportKey",
-              "description": "The report id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "requestParameters",
-              "description": "UpdateReportContent parameters",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/UpdateReportContentRequest"
-              }
+            "post": {
+                "tags": [
+                "Reports"
+                ],
+                "summary": "Update the report content from a specified source",
+                "operationId": "Reports_UpdateReportContent",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                {
+                    "name": "reportKey",
+                    "description": "The report id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "requestParameters",
+                    "description": "UpdateReportContent parameters",
+                    "in": "body",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/UpdateReportContentRequest"
+                    }
+                }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated": false
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Report"
-              }
-            }
-          },
-          "deprecated": false
-         }
         },
         "/v1.0/myorg/reports/{reportKey}/Rebind":{
             "post":{
@@ -2237,7 +2237,7 @@
                         "description":"The group id",
                         "type":"string"
                     },
-					{
+                    {
                         "name":"datasetKey",
                         "description":"The dataset id",
                         "in":"path",
@@ -2653,53 +2653,53 @@
             }
         },
         "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/UpdateReportContent": {
-         "post": {
-          "tags": [
-            "Reports"
-          ],
-          "summary": "Update the report content from a specified source",
-          "operationId": "Reports_UpdateReportContentInGroup",
-          "consumes": [
-            "application/json"
-          ],
-          "produces": [
-            "application/json"
-          ],
-          "parameters": [
-            {
-              "name": "groupId",
-              "in": "path",
-              "required": true,
-              "description": "The group id",
-              "type": "string"
-            },
-            {
-              "name": "reportKey",
-              "description": "The report id",
-              "in": "path",
-              "required": true,
-              "type": "string"
-            },
-            {
-              "name": "requestParameters",
-              "description": "UpdateReportContent parameters",
-              "in": "body",
-              "required": true,
-              "schema": {
-                "$ref": "#/definitions/UpdateReportContentRequest"
-              }
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Update the report content from a specified source",
+                "operationId": "Reports_UpdateReportContentInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The group id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "reportKey",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "description": "UpdateReportContent parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateReportContentRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "deprecated": false
             }
-          ],
-          "responses": {
-            "200": {
-              "description": "OK",
-              "schema": {
-                "$ref": "#/definitions/Report"
-              }
-            }
-          },
-          "deprecated": false
-          }
         },
         "/v1.0/myorg/groups/{groupId}/reports/{reportKey}/Rebind":{
             "post":{
@@ -2795,24 +2795,24 @@
                 "produces":[
                     "application/json"
                 ],
-              "parameters": [
-                  {
-                    "name":"groupId",
-                    "in":"path",
-                    "required":true,
-                    "description":"The group id",
-                    "type":"string"
-                  },
-                  {
-                    "name": "requestParameters",
-                    "description": "Add dashboard parameters",
-                    "in": "body",
-                    "required": true,
-                    "schema": {
-                      "$ref": "#/definitions/AddDashboardRequest"
+                "parameters": [
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "description": "Add dashboard parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AddDashboardRequest"
+                        }
                     }
-                  }
-              ],
+                ],
                 "responses":{
                     "200":{
                         "description":"OK",
@@ -3703,45 +3703,45 @@
                     }
                   }
                 }
-              },
-              "post":{
+            },
+            "post":{
                 "tags":[
-                  "Groups"
+                    "Groups"
                 ],
                 "summary":"Create new group",
                 "operationId":"Groups_CreateGroup",
                 "consumes":[
-                  "application/json"
+                    "application/json"
                 ],
                 "produces":[
-                  "application/json"
+                    "application/json"
                 ],
                 "parameters":[
-                 {
-                    "name":"requestParameters",
-                    "description":"Create group request parameters",
-                    "in":"body",
-                    "required":true,
-                    "schema":{
-                      "$ref":"#/definitions/GroupCreationRequest"
+                    {
+                        "name":"requestParameters",
+                        "description":"Create group request parameters",
+                        "in":"body",
+                        "required":true,
+                        "schema":{
+                            "$ref":"#/definitions/GroupCreationRequest"
+                        }
                     }
-                  }
                 ],
                 "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Group"
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Group"
+                        }
                     }
-                  }
                 },
                 "deprecated":false
-              }
-            },
-            "/v1.0/myorg/groups/{groupId}":{
-              "delete":{
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}":{
+            "delete":{
                 "tags":[
-                  "Groups"
+                    "Groups"
                 ],
                 "summary":"Deletes the specified group",
                 "operationId":"Groups_DeleteGroup",
@@ -3750,98 +3750,98 @@
                 "produces":[
                 ],
                 "parameters":[
-                 {
-                    "name":"groupId",
-                    "in":"path",
-                    "required":true,
-                    "description":"The group id to delete",
-                    "type":"string"
-                  }
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id to delete",
+                        "type":"string"
+                    }
                 ],
                 "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
                     }
-                  }
                 },
                 "deprecated":false
-              }
-            },
-            "/v1.0/myorg/groups/{groupId}/users":{
-              "get":{
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/users":{
+            "get":{
                 "tags":[
-                  "Groups"
+                    "Groups"
                 ],
                 "operationId": "Groups_GetGroupUsers",
                 "summary": "Get a group users list",
                 "consumes": [ ],
                 "produces": [
-                  "application/json"
+                    "application/json"
                 ],
                 "parameters": [
-                 {
-                    "name": "groupId",
-                    "in": "path",
-                    "description": "The group id",
-                    "required": true,
-                    "type": "string"
-                  }
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The group id",
+                        "required": true,
+                        "type": "string"
+                    }
                 ],
                 "responses": {
-                  "200": {
-                    "description": "OK",
-                    "schema": {
-                      "$ref":"#/definitions/ODataResponse[List[GroupUserAccessRight]]"
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref":"#/definitions/ODataResponse[List[GroupUserAccessRight]]"
+                        }
                     }
-                  }
                 }
-              },
-              "post":{
+            },
+            "post":{
                 "tags":[
-                  "Groups"
+                    "Groups"
                 ],
                 "operationId":"Groups_AddGroupUser",
                 "summary":"Add a group user",
                 "consumes":[
-                  "application/json"
+                    "application/json"
                 ],
                 "produces":[
                 ],
                 "parameters":[
-                 {
-                    "name": "groupId",
-                    "in": "path",
-                    "description": "The group id",
-                    "required": true,
-                    "type": "string"
-                  },
-                 {
-                    "name": "userDetails",
-                    "in": "body",
-                    "description": "user access right details",
-                    "required": true,
-                    "schema": {
-                      "$ref": "#/definitions/GroupUserAccessRight"
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The group id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "user access right details",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GroupUserAccessRight"
+                        }
                     }
-                  }
                 ],
                 "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
                     }
-                  }
                 },
                 "deprecated":false
-              }
-            },
-            "/v1.0/myorg/groups/{groupId}/users/{user}":{
-              "delete":{
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/users/{user}":{
+            "delete":{
                 "tags":[
-                  "Groups"
+                    "Groups"
                 ],
                 "summary":"Deletes the specified group",
                 "operationId":"Groups_DeleteUserInGroup",
@@ -3850,103 +3850,103 @@
                 "produces":[
                 ],
                 "parameters":[
-                 {
-                    "name":"groupId",
-                    "in":"path",
-                    "required":true,
-                    "description":"The group id",
-                    "type":"string"
-                  },
-                 {
-                    "name":"user",
-                    "in":"path",
-                    "required":true,
-                    "description":"The user email to delete",
-                    "type":"string"
-                  }
+                    {
+                        "name":"groupId",
+                        "in":"path",
+                        "required":true,
+                        "description":"The group id",
+                        "type":"string"
+                    },
+                    {
+                        "name":"user",
+                        "in":"path",
+                        "required":true,
+                        "description":"The user email to delete",
+                        "type":"string"
+                    }
                 ],
                 "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
                     }
-                  }
                 },
                 "deprecated":false
-              }
-            },
-            "/v1.0/myorg/groups/{groupId}/AssignToCapacity":{
-              "post":{
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/AssignToCapacity":{
+            "post":{
                 "tags":[
                   "Groups"
                 ],
                 "operationId":"Groups_AssignToCapacity",
                 "summary":"Assign a group to a capacity",
                 "consumes":[
-                  "application/json"
+                    "application/json"
                 ],
                 "produces":[
                 ],
                 "parameters":[
-                 {
-                    "name": "groupId",
-                    "in": "path",
-                    "description": "The group id",
-                    "required": true,
-                    "type": "string"
-                  },
-                 {
-                    "name": "requestParameters",
-                    "in": "body",
-                    "description": "Assign to capacity parameters",
-                    "required": true,
-                    "schema": {
-                      "$ref": "#/definitions/AssignToCapacityRequest"
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The group id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Assign to capacity parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignToCapacityRequest"
+                        }
                     }
-                  }
                 ],
                 "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
                     }
-                  }
                 },
                 "deprecated":false
-              }
-            },
-            "/v1.0/myorg/AssignToCapacity": {
-              "post":{
+            }
+        },
+        "/v1.0/myorg/AssignToCapacity": {
+            "post":{
                 "tags":[
-                  "Groups"
+                    "Groups"
                 ],
                 "operationId":"Groups_AssignMyWorkspaceToCapacity",
                 "summary":"Assign My Workspace to a capacity",
                 "consumes":[
-                  "application/json"
+                    "application/json"
                 ],
                 "produces":[
                 ],
                 "parameters":[
-                 {
-                    "name": "requestParameters",
-                    "in": "body",
-                    "description": "Assign to capacity parameters",
-                    "required": true,
-                    "schema": {
-                      "$ref": "#/definitions/AssignToCapacityRequest"
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Assign to capacity parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignToCapacityRequest"
+                        }
                     }
-                  }
                 ],
                 "responses":{
-                  "200":{
-                    "description":"OK",
-                    "schema":{
-                      "$ref":"#/definitions/Object"
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/Object"
+                        }
                     }
-                  }
                 },
                 "deprecated":false
             }
@@ -4008,6 +4008,33 @@
                 "deprecated":false
             }
         },
+        "/v1.0/myorg/capacities":{
+            "get":{
+                "tags":[
+                    "Capacities"
+                ],
+                "summary":"Gets a list of capacities the user has access to",
+                "operationId":"Capacities_GetCapacities",
+                "consumes":[
+
+                ],
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/ODataResponse[List[Capacity]]"
+                        }
+                    }
+                },
+                "deprecated":false
+            }
+        },
         
         "/v1.0/myorg/admin/datasets/{datasetKey}/datasources":{
             "get":{
@@ -4041,7 +4068,7 @@
                 "deprecated":false
             }
         },
-
+        
         "/v1.0/myorg/admin/groups":{
             "get":{
                 "tags":[
@@ -4262,34 +4289,6 @@
                 },
                 "deprecated":false
             }
-        },
-        
-        "/v1.0/myorg/capacities":{
-            "get":{
-                "tags":[
-                    "Capacities"
-                ],
-                "summary":"Gets a list of capacities the user has access to",
-                "operationId":"Capacities_GetCapacities",
-                "consumes":[
-
-                ],
-                "produces":[
-                    "application/json"
-                ],
-                "parameters":[
-
-                ],
-                "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/ODataResponse[List[Capacity]]"
-                        }
-                    }
-                },
-                "deprecated":false
-            }
         }
     },
     "definitions":{
@@ -4383,173 +4382,173 @@
             ],
             "type":"object",
             "description":"A Power BI Dataset",
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "The dataset id"
-            },
-            "name": {
-              "type": "string",
-              "description": "The dataset name"
-            },
-            "configuredBy": {
-              "type": "string",
-              "description": "The dataset owner"
-            },
-            "defaultRetentionPolicy": {
-              "type": "string",
-              "description": "The dataset default data retention policy"
-            },
-            "addRowsAPIEnabled": {
-              "type": "boolean",
-              "description": "Is Push Dataset"
-            },
-            "tables": {
-              "type": "array",
-              "description": "The dataset tables",
-              "items": {
-                "$ref": "#/definitions/Table"
-              }
-            },
-            "webUrl": {
-              "type": "string",
-              "description": "The dataset web url"
-            },
-            "relationships": {
-              "type": "array",
-              "description": "The dataset relationships",
-              "items": {
-                "$ref": "#/definitions/Relationship"
-              }
-            },
-            "datasources": {
-              "type": "array",
-              "description": "The datasources associated with this dataset",
-              "items": {
-                "$ref": "#/definitions/Datasource"
-              }
-            },
-            "defaultMode": {
-              "type": "string",
-              "description": "The dataset mode or type",
-              "enum": [
-                "AsAzure",
-                "AsOnPrem",
-                "Push",
-                "Streaming",
-                "PushStreaming"
-              ],
-              "x-ms-enum": {
-                "name": "DatasetMode",
-                "modelAsString": true
-              }
-            },
-            "IsRefreshable": {
-              "type": "boolean",
-              "description": "Can this dataset be refreshed"
-            },
-            "IsEffectiveIdentityRequired": {
-              "type": "boolean",
-              "description": "Dataset requires effective identity"
-            },
-            "IsEffectiveIdentityRolesRequired": {
-              "type": "boolean",
-              "description": "Dataset requires roles"
-            },
-            "IsOnPremGatewayRequired": {
-              "type": "boolean",
-              "description": "Dataset requires onprem gateway"
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The dataset id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The dataset name"
+                },
+                "configuredBy": {
+                    "type": "string",
+                    "description": "The dataset owner"
+                },
+                "defaultRetentionPolicy": {
+                    "type": "string",
+                    "description": "The dataset default data retention policy"
+                },
+                "addRowsAPIEnabled": {
+                    "type": "boolean",
+                    "description": "Is Push Dataset"
+                },
+                "tables": {
+                    "type": "array",
+                    "description": "The dataset tables",
+                    "items": {
+                        "$ref": "#/definitions/Table"
+                    }
+                },
+                "webUrl": {
+                    "type": "string",
+                    "description": "The dataset web url"
+                },
+                "relationships": {
+                    "type": "array",
+                    "description": "The dataset relationships",
+                    "items": {
+                        "$ref": "#/definitions/Relationship"
+                    }
+                },
+                "datasources": {
+                    "type": "array",
+                    "description": "The datasources associated with this dataset",
+                    "items": {
+                        "$ref": "#/definitions/Datasource"
+                    }
+                },
+                "defaultMode": {
+                    "type": "string",
+                    "description": "The dataset mode or type",
+                    "enum": [
+                        "AsAzure",
+                        "AsOnPrem",
+                        "Push",
+                        "Streaming",
+                        "PushStreaming"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetMode",
+                        "modelAsString": true
+                    }
+                },
+                "IsRefreshable": {
+                    "type": "boolean",
+                    "description": "Can this dataset be refreshed"
+                },
+                "IsEffectiveIdentityRequired": {
+                    "type": "boolean",
+                    "description": "Dataset requires effective identity"
+                },
+                "IsEffectiveIdentityRolesRequired": {
+                    "type": "boolean",
+                    "description": "Dataset requires roles"
+                },
+                "IsOnPremGatewayRequired": {
+                    "type": "boolean",
+                    "description": "Dataset requires onprem gateway"
+                }
             }
-          }
         },
-      "Table":{
+        "Table":{
             "required":[
-          "name",
-          "columns"
-        ],
-        "type":"object",
-        "description":"A dataset table",
-        "properties":{
-          "name":{
-            "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
-            "type":"string",
-            "description":"The table name"
-          },
-          "columns":{
-            "type":"array",
-            "description":"The column schema for this table",
-            "items":{
-              "$ref":"#/definitions/Column"
+                "name",
+                "columns"
+            ],
+            "type":"object",
+            "description":"A dataset table",
+            "properties":{
+                "name":{
+                    "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type":"string",
+                    "description":"The table name"
+                },
+                "columns":{
+                    "type":"array",
+                    "description":"The column schema for this table",
+                    "items":{
+                        "$ref":"#/definitions/Column"
+                    }
+                },
+                "rows": {
+                    "type": "array",
+                    "description": "The data rows within this table",
+                    "items": {
+                        "$ref": "#/definitions/Row"
+                    }
+                },
+                "measures":{
+                    "type":"array",
+                    "description":"The measures within this table",
+                    "items":{
+                        "$ref":"#/definitions/Measure"
+                    }
+                }
             }
-          },
-          "rows": {
-            "type": "array",
-            "description": "The data rows within this table",
-            "items": {
-              "$ref": "#/definitions/Row"
+        },
+        "Relationship": {
+            "required": [
+                "name",
+                "fromTable",
+                "fromColumn",
+                "toTable",
+                "toColumn"
+            ],
+            "type": "object",
+            "description": "A relationship between tables in a dataset",
+            "properties": {
+                "name": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type": "string",
+                    "description": "The relationship name and identifier"
+                },
+                "crossFilteringBehavior": {
+                    "type": "string",
+                    "description": "The filter direction of the relationship",
+                    "enum": [
+                        "OneDirection",
+                        "BothDirections",
+                        "Automatic"
+                    ],
+                    "x-ms-enum": {
+                        "name": "CrossFilteringBehaviorEnum",
+                        "modelAsString": false
+                    },
+                    "default": "OneDirection"
+                },
+                "fromTable": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type": "string",
+                    "description": "The name of the foreign key table"
+                },
+                "fromColumn": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+                    "type": "string",
+                    "description": "The name of the foreign key column"
+                },
+                "toTable": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+                    "type": "string",
+                    "description": "The name of the primary key table"
+                },
+                "toColumn": {
+                    "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+                    "type": "string",
+                    "description": "The name of the primary key column"
+                }
             }
-          },
-          "measures":{
-            "type":"array",
-            "description":"The measures within this table",
-            "items":{
-              "$ref":"#/definitions/Measure"
-            }
-          }
-        }
-      },
-    "Relationship": {
-      "required": [
-        "name",
-        "fromTable",
-        "fromColumn",
-        "toTable",
-        "toColumn"
-      ],
-      "type": "object",
-      "description": "A relationship between tables in a dataset",
-      "properties": {
-        "name": {
-          "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
-          "type": "string",
-          "description": "The relationship name and identifier"
         },
-        "crossFilteringBehavior": {
-          "type": "string",
-          "description": "The filter direction of the relationship",
-          "enum": [
-            "OneDirection",
-            "BothDirections",
-            "Automatic"
-          ],
-          "x-ms-enum": {
-            "name": "CrossFilteringBehaviorEnum",
-            "modelAsString": false
-          },
-          "default": "OneDirection"
-        },
-        "fromTable": {
-          "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
-          "type": "string",
-          "description": "The name of the foreign key table"
-        },
-        "fromColumn": {
-          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
-          "type": "string",
-          "description": "The name of the foreign key column"
-        },
-        "toTable": {
-          "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
-          "type": "string",
-          "description": "The name of the primary key table"
-        },
-        "toColumn": {
-          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
-          "type": "string",
-          "description": "The name of the primary key column"
-        }
-      }
-    },
         "Datasource":{
             "type":"object",
             "description":"A Power BI datasource",
@@ -4645,14 +4644,14 @@
             }
         },
         "Row": {
-          "type": "object",
-          "description": "A Power BI data row",
-          "properties": {
-            "id": {
-              "type": "string",
-              "description": "The unique row id"
+            "type": "object",
+            "description": "A Power BI data row",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique row id"
+                }
             }
-          }
         },
         "Measure":{
             "required":[
@@ -5491,92 +5490,92 @@
             }
         },
         "CloneTileRequest":{
-          "type":"object",
-          "description":"Power BI Clone Tile Request",
-          "properties":{
-            "targetDashboardId":{
-              "type":"string",
-              "description":"The target dashboard id"
-            },
-            "targetWorkspaceId": {
-              "type": "string",
-              "description": "Optional parameter for specifying the target workspace id"
-            },
-            "targetReportId":{
-              "type":"string",
-              "description":"Optional parameter for specifying the target report id"
-            },
-            "targetModelId": {
-              "type": "string",
-              "description": "Optional parameter for specifying the target associated model (dataset) id"
-            },
-            "positionConflictAction":{
-              "type":"string",
-              "description":"Optional parameter for specifying the action in case of position conflict"
-            }
+            "type":"object",
+            "description":"Power BI Clone Tile Request",
+            "properties":{
+                "targetDashboardId":{
+                    "type":"string",
+                    "description":"The target dashboard id"
+                },
+                "targetWorkspaceId": {
+                    "type": "string",
+                    "description": "Optional parameter for specifying the target workspace id"
+                },
+                "targetReportId":{
+                    "type":"string",
+                    "description":"Optional parameter for specifying the target report id"
+                },
+                "targetModelId": {
+                    "type": "string",
+                    "description": "Optional parameter for specifying the target associated model (dataset) id"
+                },
+                "positionConflictAction":{
+                    "type":"string",
+                    "description":"Optional parameter for specifying the action in case of position conflict"
+                }
           }
         },
         "AddDashboardRequest":{
-          "type":"object",
-          "description":"Power BI Add Dashboard Request",
-          "properties":{
-            "name":{
-              "type":"string",
-              "description":"The name of the new dashboard"
+            "type":"object",
+            "description":"Power BI Add Dashboard Request",
+            "properties":{
+                "name":{
+                    "type":"string",
+                    "description":"The name of the new dashboard"
+                }
             }
-          }
         },
         "SourceReport": {
-         "type": "object",
-         "description": "Source from existing report",
-         "properties": {
-          "sourceReportId": {
-            "type": "string",
-            "description": "source report id"
-          },
-          "sourceWorkspaceId": {
-            "type": "string",
-            "description": "source worksapce id"
-          }
-        }
+            "type": "object",
+            "description": "Source from existing report",
+            "properties": {
+                "sourceReportId": {
+                    "type": "string",
+                    "description": "source report id"
+                },
+                "sourceWorkspaceId": {
+                    "type": "string",
+                    "description": "source worksapce id"
+                }
+            }
         },
         "UpdateReportContentRequest": {
-         "type": "object",
-         "description": "Power BI Update Report Content Request",
-         "properties": {
-          "sourceType": {
-            "type": "string",
-            "description": "The source type for the content update"
-          },
-          "sourceReport": {
-            "$ref": "#/definitions/SourceReport"
-          }
-        }
+            "type": "object",
+            "description": "Power BI Update Report Content Request",
+            "properties": {
+                "sourceType": {
+                    "type": "string",
+                    "description": "The source type for the content update"
+                },
+                "sourceReport": {
+                    "$ref": "#/definitions/SourceReport"
+                }
+            }
         },
         "Capacity": {
             "type": "object",
             "description": "A Power BI capacity",
             "properties": {
-              "id": {
+                "id": {
                     "type": "string",
                     "description": "The capacity id"
                 },
-              "displayName": {
+                "displayName": {
                     "type": "string",
                     "description": "The capacity display name"
                 },
-              "admins":{
+                "admins":{
                     "type":"array",
                     "description":"An array of capacity admins",
                     "items":{
                         "type":"string"
                     }
                 },
-              "sku": {
+                "sku": {
                     "type": "string",
                     "description": "The capacity SKU"
                 },
-              "state": {
+                "state": {
                     "type": "string",
                     "description": "The capacity state",
                     "enum":[
@@ -5686,37 +5685,37 @@
             "type":"object",
             "description":"Additional Feature Info",
             "properties":{
-              "Usage": {
-                "type": "integer",
-                "description": "The token usage (in %) from the limitation on shared capacity"
-              }
+                "Usage": {
+                    "type": "integer",
+                    "description": "The token usage (in %) from the limitation on shared capacity"
+                }
             }
         },
         "AssignToCapacityRequest":{
-          "type":"object",
-          "description":"Power BI Assign to Capacity Request",
-          "properties":{
-            "capacityId":{
-              "type":"string",
-              "description":"The capacity id"
+            "type":"object",
+            "description":"Power BI Assign to Capacity Request",
+            "properties":{
+                "capacityId":{
+                    "type":"string",
+                    "description":"The capacity id"
+                }
             }
-          }
-      },
-      "TemporaryUploadLocation": {
-        "type": "object",
-        "description": "Power BI Update Report Content Request",
-        "properties": {
-          "Url": {
-            "type": "string",
-            "description": "The SAS url for the temporary blob storage"
-          },
-          "ExpirationTime": {
-            "type": "string",
-            "format": "date-time",
-            "description": "The expiration time of the SAS url"
-          }
+        },
+        "TemporaryUploadLocation": {
+            "type": "object",
+            "description": "Power BI Update Report Content Request",
+            "properties": {
+                "Url": {
+                    "type": "string",
+                    "description": "The SAS url for the temporary blob storage"
+                },
+                "ExpirationTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The expiration time of the SAS url"
+                }
+            }
         }
-      }
     },
     "parameters":{
 
