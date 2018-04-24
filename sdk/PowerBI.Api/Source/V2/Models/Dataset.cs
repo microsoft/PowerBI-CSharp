@@ -36,6 +36,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// retention policy</param>
         /// <param name="addRowsAPIEnabled">Is Push Dataset</param>
         /// <param name="webUrl">The dataset web url</param>
+        /// <param name="relationships">The dataset relationships</param>
         /// <param name="datasources">The datasources associated with this
         /// dataset</param>
         /// <param name="defaultMode">The dataset mode or type. Possible values
@@ -48,7 +49,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// roles</param>
         /// <param name="isOnPremGatewayRequired">Dataset requires onprem
         /// gateway</param>
-        public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
+        public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Relationship> relationships = default(IList<Relationship>), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
         {
             Id = id;
             Name = name;
@@ -57,6 +58,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
             AddRowsAPIEnabled = addRowsAPIEnabled;
             Tables = tables;
             WebUrl = webUrl;
+            Relationships = relationships;
             Datasources = datasources;
             DefaultMode = defaultMode;
             IsRefreshable = isRefreshable;
@@ -112,6 +114,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "webUrl")]
         public string WebUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset relationships
+        /// </summary>
+        [JsonProperty(PropertyName = "relationships")]
+        public IList<Relationship> Relationships { get; set; }
 
         /// <summary>
         /// Gets or sets the datasources associated with this dataset
@@ -173,6 +181,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Relationships != null)
+            {
+                foreach (var element1 in Relationships)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

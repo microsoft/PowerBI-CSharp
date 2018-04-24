@@ -4415,6 +4415,13 @@
               "type": "string",
               "description": "The dataset web url"
             },
+            "relationships": {
+              "type": "array",
+              "description": "The dataset relationships",
+              "items": {
+                "$ref": "#/definitions/Relationship"
+              }
+            },
             "datasources": {
               "type": "array",
               "description": "The datasources associated with this dataset",
@@ -4455,42 +4462,94 @@
             }
           }
         },
-        "Table":{
+      "Table":{
             "required":[
-                "name",
-                "columns"
-            ],
-            "type":"object",
-            "description":"A dataset table",
-            "properties":{
-                "name":{
-                    "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
-                    "type":"string",
-                    "description":"The table name"
-                },
-                "columns":{
-                    "type":"array",
-                    "description":"The column schema for this table",
-                    "items":{
-                        "$ref":"#/definitions/Column"
-                    }
-                },
-              "rows": {
-                "type": "array",
-                "description": "The data rows within this table",
-                "items": {
-                  "$ref": "#/definitions/Row"
-                }
-              },
-              "measures":{
-                    "type":"array",
-                    "description":"The measures within this table",
-                    "items":{
-                        "$ref":"#/definitions/Measure"
-                    }
-                }
+          "name",
+          "columns"
+        ],
+        "type":"object",
+        "description":"A dataset table",
+        "properties":{
+          "name":{
+            "pattern":"^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+            "type":"string",
+            "description":"The table name"
+          },
+          "columns":{
+            "type":"array",
+            "description":"The column schema for this table",
+            "items":{
+              "$ref":"#/definitions/Column"
             }
+          },
+          "rows": {
+            "type": "array",
+            "description": "The data rows within this table",
+            "items": {
+              "$ref": "#/definitions/Row"
+            }
+          },
+          "measures":{
+            "type":"array",
+            "description":"The measures within this table",
+            "items":{
+              "$ref":"#/definitions/Measure"
+            }
+          }
+        }
+      },
+    "Relationship": {
+      "required": [
+        "name",
+        "fromTable",
+        "fromColumn",
+        "toTable",
+        "toColumn"
+      ],
+      "type": "object",
+      "description": "A relationship between tables in a dataset",
+      "properties": {
+        "name": {
+          "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+          "type": "string",
+          "description": "The relationship name and identifier"
         },
+        "crossFilteringBehavior": {
+          "type": "string",
+          "description": "The filter direction of the relationship",
+          "enum": [
+            "OneDirection",
+            "BothDirections",
+            "Automatic"
+          ],
+          "x-ms-enum": {
+            "name": "CrossFilteringBehaviorEnum",
+            "modelAsString": false
+          },
+          "default": "OneDirection"
+        },
+        "fromTable": {
+          "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+          "type": "string",
+          "description": "The name of the foreign key table"
+        },
+        "fromColumn": {
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+          "type": "string",
+          "description": "The name of the foreign key column"
+        },
+        "toTable": {
+          "pattern": "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$",
+          "type": "string",
+          "description": "The name of the primary key table"
+        },
+        "toColumn": {
+          "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
+          "type": "string",
+          "description": "The name of the primary key column"
+        }
+      }
+    },
         "Datasource":{
             "type":"object",
             "description":"A Power BI datasource",
