@@ -25,12 +25,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the AvailableFeature class.
         /// </summary>
-        /// <param name="name">Feature name</param>
-        /// <param name="state">Feature state. Possible values include:
+        /// <param name="name">The feature name</param>
+        /// <param name="state">The feature state. Possible values include:
         /// 'Enabled', 'Disabled'</param>
-        /// <param name="extendedState">Feature extended state. Possible values
-        /// include: 'Enabled', 'DisabledByAdmin', 'UserNotLicensed'</param>
-        /// <param name="additionalInfo">Additional Feature Info</param>
+        /// <param name="extendedState">The feature extended state. Possible
+        /// values include: 'Enabled', 'DisabledByAdmin',
+        /// 'UserNotLicensed'</param>
+        /// <param name="additionalInfo">Additional feature information</param>
         public AvailableFeature(string name = default(string), FeatureState? state = default(FeatureState?), FeatureExtendedState? extendedState = default(FeatureExtendedState?), AdditionalFeatureInfo additionalInfo = default(AdditionalFeatureInfo))
         {
             Name = name;
@@ -46,27 +47,27 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets feature name
+        /// Gets or sets the feature name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets feature state. Possible values include: 'Enabled',
+        /// Gets or sets the feature state. Possible values include: 'Enabled',
         /// 'Disabled'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
         public FeatureState? State { get; set; }
 
         /// <summary>
-        /// Gets or sets feature extended state. Possible values include:
+        /// Gets or sets the feature extended state. Possible values include:
         /// 'Enabled', 'DisabledByAdmin', 'UserNotLicensed'
         /// </summary>
         [JsonProperty(PropertyName = "extendedState")]
         public FeatureExtendedState? ExtendedState { get; set; }
 
         /// <summary>
-        /// Gets or sets additional Feature Info
+        /// Gets or sets additional feature information
         /// </summary>
         [JsonProperty(PropertyName = "additionalInfo")]
         public AdditionalFeatureInfo AdditionalInfo { get; set; }

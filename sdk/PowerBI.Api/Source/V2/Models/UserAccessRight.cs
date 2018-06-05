@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user Access Right entry for datasource
+    /// A Power BI user access right entry for datasource
     /// </summary>
     public partial class UserAccessRight
     {
@@ -25,10 +25,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the UserAccessRight class.
         /// </summary>
-        /// <param name="datasourceAccessRight">Access rights user has for
+        /// <param name="datasourceAccessRight">The user access rights for the
         /// datasource. Possible values include: 'None', 'Read', 'Write',
         /// 'Admin', 'ReadWrite'</param>
-        /// <param name="emailAddress">Email address of the user.</param>
+        /// <param name="emailAddress">Email address of the user</param>
         public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string))
         {
             DatasourceAccessRight = datasourceAccessRight;
@@ -42,14 +42,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for datasource. Possible values
-        /// include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
+        /// Gets or sets the user access rights for the datasource. Possible
+        /// values include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
         /// </summary>
         [JsonProperty(PropertyName = "datasourceAccessRight")]
         public string DatasourceAccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets email address of the user.
+        /// Gets or sets email address of the user
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }

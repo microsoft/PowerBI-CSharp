@@ -47,8 +47,13 @@ namespace Microsoft.PowerBI.Api.V2
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Gets a list of dashboards
+        /// Returns a list of dashboards from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -173,8 +178,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Add a new empty dashboard
+        /// Creates a new empty dashboard on **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
         /// </param>
@@ -319,8 +329,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get the specified dashboard
+        /// Returns the specified dashboard from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -460,8 +475,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get tiles in the specified dashboard
+        /// Returns a list of tiles within the specified dashboard from **"My
+        /// Workspace"**
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported, except for "model tiles": which
+        /// include datasets and live tiles that include an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -601,8 +624,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get a specified tile in a specified dashboard
+        /// Returns the specified tile within the specified dashboard from **"My
+        /// Workspace"**
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported, except for "model tiles": which
+        /// include datasets and live tiles that include an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -751,8 +782,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Clones the specified tile
+        /// Clones the specified tile from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;If target report id and target dataset are missing, the
+        /// following will occur:&lt;li&gt;If you are cloning a tile within the same
+        /// workspace, the report and dataset links will be cloned from the source
+        /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
+        /// workspace, report and dataset links will be rested. The tile will be
+        /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -915,7 +956,8 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Generate token to view the specified dashboard
+        /// This functionality only available in a workspace context. please use
+        /// [Dashboards GenerateTokenInGroup](./dashboards_generatetokeningroup)
         /// </summary>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1070,10 +1112,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of dashboards in a group
+        /// Returns a list of dashboards from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1211,10 +1258,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Add a new empty dashboard
+        /// Creates a new empty dashboard on the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
@@ -1366,10 +1418,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get the specified dashboard in a group
+        /// Returns the specified dashboard from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1516,10 +1573,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get tiles in the specified dashboard in a group
+        /// Returns a list of tiles within the specified dashboard from the specified
+        /// workspace
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported, except for "model tiles": which
+        /// include datasets and live tiles that include an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1666,10 +1731,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get a specified tile in a specified dashboard in a group
+        /// Returns the specified tile within the specified dashboard from the
+        /// specified workspace
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported, except for "model tiles": which
+        /// include datasets and live tiles that include an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1825,10 +1898,20 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Clones the specified tile
+        /// Clones the specified tile from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;If target report id and target dataset are missing, the
+        /// following will occur:&lt;li&gt;If you are cloning a tile within the same
+        /// workspace, the report and dataset links will be cloned from the source
+        /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
+        /// workspace, report and dataset links will be rested. The tile will be
+        /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1998,10 +2081,21 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Generate token to view the specified dashboard
+        /// Generates an embed token to view the specified dashboard from the specified
+        /// workspace&lt;br/&gt;This API is relevant only to ['App owns data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: (all of the below)
+        /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
+        /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id

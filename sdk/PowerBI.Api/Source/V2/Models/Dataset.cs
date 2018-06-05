@@ -29,19 +29,22 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the Dataset class.
         /// </summary>
         /// <param name="name">The dataset name</param>
-        /// <param name="tables">The dataset tables</param>
+        /// <param name="tables">The dataset tables, only relevant to Post
+        /// Dataset API</param>
         /// <param name="id">The dataset id</param>
         /// <param name="configuredBy">The dataset owner</param>
         /// <param name="defaultRetentionPolicy">The dataset default data
-        /// retention policy</param>
-        /// <param name="addRowsAPIEnabled">Is Push Dataset</param>
+        /// retention policy, only relevant to Post Dataset API</param>
+        /// <param name="addRowsAPIEnabled">Whether dataset allows adding new
+        /// rows</param>
         /// <param name="webUrl">The dataset web url</param>
-        /// <param name="relationships">The dataset relationships</param>
+        /// <param name="relationships">The dataset relationships, only
+        /// relevant to Post Dataset API</param>
         /// <param name="datasources">The datasources associated with this
-        /// dataset</param>
-        /// <param name="defaultMode">The dataset mode or type. Possible values
-        /// include: 'AsAzure', 'AsOnPrem', 'Push', 'Streaming',
-        /// 'PushStreaming'</param>
+        /// dataset, only relevant to Post Dataset API</param>
+        /// <param name="defaultMode">The dataset mode or type, only relevant
+        /// to Post Dataset API. Possible values include: 'AsAzure',
+        /// 'AsOnPrem', 'Push', 'Streaming', 'PushStreaming'</param>
         /// <param name="isRefreshable">Can this dataset be refreshed</param>
         /// <param name="isEffectiveIdentityRequired">Dataset requires
         /// effective identity</param>
@@ -92,19 +95,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string ConfiguredBy { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset default data retention policy
+        /// Gets or sets the dataset default data retention policy, only
+        /// relevant to Post Dataset API
         /// </summary>
         [JsonProperty(PropertyName = "defaultRetentionPolicy")]
         public string DefaultRetentionPolicy { get; set; }
 
         /// <summary>
-        /// Gets or sets is Push Dataset
+        /// Gets or sets whether dataset allows adding new rows
         /// </summary>
         [JsonProperty(PropertyName = "addRowsAPIEnabled")]
         public bool? AddRowsAPIEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset tables
+        /// Gets or sets the dataset tables, only relevant to Post Dataset API
         /// </summary>
         [JsonProperty(PropertyName = "tables")]
         public IList<Table> Tables { get; set; }
@@ -116,20 +120,23 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string WebUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset relationships
+        /// Gets or sets the dataset relationships, only relevant to Post
+        /// Dataset API
         /// </summary>
         [JsonProperty(PropertyName = "relationships")]
         public IList<Relationship> Relationships { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasources associated with this dataset
+        /// Gets or sets the datasources associated with this dataset, only
+        /// relevant to Post Dataset API
         /// </summary>
         [JsonProperty(PropertyName = "datasources")]
         public IList<Datasource> Datasources { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset mode or type. Possible values include:
-        /// 'AsAzure', 'AsOnPrem', 'Push', 'Streaming', 'PushStreaming'
+        /// Gets or sets the dataset mode or type, only relevant to Post
+        /// Dataset API. Possible values include: 'AsAzure', 'AsOnPrem',
+        /// 'Push', 'Streaming', 'PushStreaming'
         /// </summary>
         [JsonProperty(PropertyName = "defaultMode")]
         public string DefaultMode { get; set; }

@@ -47,7 +47,8 @@ namespace Microsoft.PowerBI.Api.V2
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Generate token to view the specified tile
+        /// This functionality only available in a workspace context. please use [Tiles
+        /// GenerateTokenInGroup](./tiles_generatetokeningroup)
         /// </summary>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -211,10 +212,21 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Generate token to view the specified tile
+        /// Generates an embed token to view the specified tile from the specified
+        /// workspace&lt;br/&gt;This API is relevant only to ['App owns data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: (all of the below)
+        /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
+        /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id

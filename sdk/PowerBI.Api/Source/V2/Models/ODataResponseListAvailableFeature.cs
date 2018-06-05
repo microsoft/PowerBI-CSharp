@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Available Features List
+    /// Odata response wrapper for a Power BI Available Features list
     /// </summary>
     public partial class ODataResponseListAvailableFeature
     {

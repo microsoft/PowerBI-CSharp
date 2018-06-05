@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the GroupCreationRequest class.
         /// </summary>
-        /// <param name="name">The name of the new created group.</param>
+        /// <param name="name">The name of the new created group</param>
         public GroupCreationRequest(string name = default(string))
         {
             Name = name;
@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the name of the new created group.
+        /// Gets or sets the name of the new created group
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

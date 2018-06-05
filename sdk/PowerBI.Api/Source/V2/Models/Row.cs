@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI data row
+    /// A data row in a dataset
     /// </summary>
     public partial class Row
     {

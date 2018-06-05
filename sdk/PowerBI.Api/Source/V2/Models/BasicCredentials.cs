@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Object representing basic authentication credentials
+    /// **[Deprecated]** Basic credentials for authentication
     /// </summary>
     public partial class BasicCredentials
     {

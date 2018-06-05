@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user Access Right for group List
+    /// Odata response wrapper for a Power BI user access right for group List
     /// </summary>
     public partial class ODataResponseListGroupUserAccessRight
     {
@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the
         /// ODataResponseListGroupUserAccessRight class.
         /// </summary>
-        /// <param name="value">The user Access Right for group List</param>
+        /// <param name="value">The user access right for group List</param>
         public ODataResponseListGroupUserAccessRight(string odatacontext = default(string), IList<GroupUserAccessRight> value = default(IList<GroupUserAccessRight>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user Access Right for group List
+        /// Gets or sets the user access right for group List
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<GroupUserAccessRight> Value { get; set; }

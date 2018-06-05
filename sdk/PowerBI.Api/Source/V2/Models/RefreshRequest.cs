@@ -25,9 +25,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the RefreshRequest class.
         /// </summary>
-        /// <param name="notifyOption">mail notification options. Possible
-        /// values include: 'NoNotification', 'MailOnFailure',
-        /// 'MailOnCompletion'</param>
+        /// <param name="notifyOption">Mail notification options (success
+        /// and/or failure, or none). Possible values include:
+        /// 'NoNotification', 'MailOnFailure', 'MailOnCompletion'</param>
         public RefreshRequest(NotifyOption notifyOption)
         {
             NotifyOption = notifyOption;
@@ -40,8 +40,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets mail notification options. Possible values include:
-        /// 'NoNotification', 'MailOnFailure', 'MailOnCompletion'
+        /// Gets or sets mail notification options (success and/or failure, or
+        /// none). Possible values include: 'NoNotification', 'MailOnFailure',
+        /// 'MailOnCompletion'
         /// </summary>
         [JsonProperty(PropertyName = "notifyOption")]
         public NotifyOption NotifyOption { get; set; }

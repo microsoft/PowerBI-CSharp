@@ -72,14 +72,14 @@ namespace Microsoft.PowerBI.Api.V2
         IGroups Groups { get; }
 
         /// <summary>
-        /// Gets the IAvailableFeatures.
-        /// </summary>
-        IAvailableFeatures AvailableFeatures { get; }
-
-        /// <summary>
         /// Gets the ICapacities.
         /// </summary>
         ICapacities Capacities { get; }
+
+        /// <summary>
+        /// Gets the IAvailableFeatures.
+        /// </summary>
+        IAvailableFeatures AvailableFeatures { get; }
 
     }
 }

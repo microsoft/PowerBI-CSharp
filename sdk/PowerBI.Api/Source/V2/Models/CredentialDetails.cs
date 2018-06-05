@@ -25,11 +25,21 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        /// <param name="credentials">The credentials</param>
-        /// <param name="credentialType">The connection type</param>
-        /// <param name="encryptedConnection">The encrypted connection</param>
-        /// <param name="encryptionAlgorithm">The encryption algorithm</param>
-        /// <param name="privacyLevel">The privacy level</param>
+        /// <param name="credentials">The credentials. this depends on the
+        /// 'credentialType' value, see [Update Datasource
+        /// Examples](./updatedatasource#examples).</param>
+        /// <param name="credentialType">The credential type. Possible values
+        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth', 'Key'</param>
+        /// <param name="encryptedConnection">Should Power BI allow fallback to
+        /// unencrypted if the target server doesn't support encryption.
+        /// Possible values include: 'Encrypted', 'NotEncrypted'</param>
+        /// <param name="encryptionAlgorithm">The encryption algorithm, for
+        /// cloud datasource use 'None', for On-OnPrem datasource encrypt using
+        /// gateway public key with 'RSA-OAEP' algorithm. Possible values
+        /// include: 'None', 'RSA-OAEP'</param>
+        /// <param name="privacyLevel">The privacy level, relevant when
+        /// combinig data from multiple sources. Possible values include:
+        /// 'None', 'Public', 'Organizational', 'Private'</param>
         /// <param name="useCallerAADIdentity">Should the caller's AAD identity
         /// be used for OAuth2 credentials configuration</param>
         public CredentialDetails(string credentials = default(string), string credentialType = default(string), string encryptedConnection = default(string), string encryptionAlgorithm = default(string), string privacyLevel = default(string), bool? useCallerAADIdentity = default(bool?))
@@ -49,31 +59,41 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the credentials
+        /// Gets or sets the credentials. this depends on the 'credentialType'
+        /// value, see [Update Datasource
+        /// Examples](./updatedatasource#examples).
         /// </summary>
         [JsonProperty(PropertyName = "credentials")]
         public string Credentials { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection type
+        /// Gets or sets the credential type. Possible values include: 'Basic',
+        /// 'Windows', 'Anonymous', 'OAuth', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public string CredentialType { get; set; }
 
         /// <summary>
-        /// Gets or sets the encrypted connection
+        /// Gets or sets should Power BI allow fallback to unencrypted if the
+        /// target server doesn't support encryption. Possible values include:
+        /// 'Encrypted', 'NotEncrypted'
         /// </summary>
         [JsonProperty(PropertyName = "encryptedConnection")]
         public string EncryptedConnection { get; set; }
 
         /// <summary>
-        /// Gets or sets the encryption algorithm
+        /// Gets or sets the encryption algorithm, for cloud datasource use
+        /// 'None', for On-OnPrem datasource encrypt using gateway public key
+        /// with 'RSA-OAEP' algorithm. Possible values include: 'None',
+        /// 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
         public string EncryptionAlgorithm { get; set; }
 
         /// <summary>
-        /// Gets or sets the privacy level
+        /// Gets or sets the privacy level, relevant when combinig data from
+        /// multiple sources. Possible values include: 'None', 'Public',
+        /// 'Organizational', 'Private'
         /// </summary>
         [JsonProperty(PropertyName = "privacyLevel")]
         public string PrivacyLevel { get; set; }

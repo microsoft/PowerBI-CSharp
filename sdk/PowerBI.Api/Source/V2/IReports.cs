@@ -20,8 +20,14 @@ namespace Microsoft.PowerBI.Api.V2
     public partial interface IReports
     {
         /// <summary>
-        /// Gets a list of reports
+        /// Returns a list of reports from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -36,8 +42,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListReport>> GetReportsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get the specified report
+        /// Returns the specified report from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='reportKey'>
         /// The report id
         /// </param>
@@ -58,8 +70,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the specified report
+        /// Deletes the specified report from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='reportKey'>
         /// The report id
         /// </param>
@@ -80,8 +97,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteReportWithHttpMessagesAsync(string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified report
+        /// Clones the specified report from **"My Workspace"**
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='reportKey'>
         /// The report id
         /// </param>
@@ -105,8 +127,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportWithHttpMessagesAsync(string reportKey, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Exports the specified report
+        /// Exports the specified report from **"My Workspace"** to a PBIX file
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='reportKey'>
         /// The report id
         /// </param>
@@ -127,8 +155,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Stream>> ExportReportWithHttpMessagesAsync(string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update the report content from a specified source
+        /// Updates the specified report from **"My Workspace"** to have the
+        /// same content as the specified report in the request body
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='reportKey'>
         /// The report id
         /// </param>
@@ -152,8 +186,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Report>> UpdateReportContentWithHttpMessagesAsync(string reportKey, UpdateReportContentRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Rebinds the specified report to requested dataset id
+        /// Rebinds the specified report from **"My Workspace"** workspace to
+        /// the requested dataset
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='reportKey'>
         /// The report id
         /// </param>
@@ -177,7 +217,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> RebindReportWithHttpMessagesAsync(string reportKey, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Generate token to create a new report on a given dataset
+        /// This functionality only available in a workspace context. please
+        /// use [Reports
+        /// GenerateTokenForCreateInGroup](./reports_generatetokenforcreateingroup)
         /// </summary>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -199,7 +241,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenForCreateWithHttpMessagesAsync(GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Generate token to view or edit the specified report
+        /// This functionality only available in a workspace context. please
+        /// use [Reports GenerateTokenInGroup](./reports_generatetokeningroup)
         /// </summary>
         /// <param name='reportKey'>
         /// The report id
@@ -224,10 +267,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenWithHttpMessagesAsync(string reportKey, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets a list of reports available within the specified group
+        /// Returns a list of reports from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -246,10 +295,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListReport>> GetReportsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get the specified report
+        /// Returns the specified report from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id
@@ -271,10 +326,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Report>> GetReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the specified report
+        /// Deletes the specified report from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id
@@ -296,10 +356,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified report
+        /// Clones the specified report from the specified workspace
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id
@@ -324,10 +389,17 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Exports the specified report
+        /// Exports the specified report from the specified workspace to a PBIX
+        /// file
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id
@@ -349,10 +421,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update the report content from a specified source
+        /// Updates the specified report from the specified workspace to have
+        /// the same content as the specified report in the request body
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id
@@ -377,10 +455,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Report>> UpdateReportContentInGroupWithHttpMessagesAsync(string groupId, string reportKey, UpdateReportContentRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Rebinds the specified report to requested dataset id
+        /// Rebinds the specified report from the specified workspace to the
+        /// requested dataset
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id
@@ -405,10 +489,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> RebindReportInGroupWithHttpMessagesAsync(string groupId, string reportKey, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Generate token to create a new report on a given dataset
+        /// Generates an embed token to allow report creation on the specified
+        /// workspace based on the specified dataset&lt;br/&gt;This API is
+        /// relevant only to ['App owns data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: (all of the below)
+        /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+        /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -430,10 +525,23 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenForCreateInGroupWithHttpMessagesAsync(string groupId, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Generate token to view or edit the specified report
+        /// Generates an embed token to view or edit the specified report from
+        /// the specified workspace&lt;br/&gt;This API is relevant only to
+        /// ['App owns data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: (all of the below)
+        /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
+        /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+        /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only
+        /// if allowSaveAs specified in
+        /// [GenerateTokenRequest](#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='reportKey'>
         /// The report id

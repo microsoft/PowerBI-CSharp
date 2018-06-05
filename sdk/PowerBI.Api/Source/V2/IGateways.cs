@@ -19,8 +19,14 @@ namespace Microsoft.PowerBI.Api.V2
     public partial interface IGateways
     {
         /// <summary>
-        /// Returns a list of gateways
+        /// Returns a list of gateways the user is admin on
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -37,6 +43,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <summary>
         /// Returns the specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -57,8 +69,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Gateway>> GetGatewayByIdWithHttpMessagesAsync(string gatewayId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get all datasources of specific gateway
+        /// Returns a list of datasources from the specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -79,8 +97,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListGatewayDatasource>> GetDatasourcesWithHttpMessagesAsync(string gatewayId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Create a datasource
+        /// Create a new datasource on the specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -104,8 +127,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<GatewayDatasource>> CreateDatasourceWithHttpMessagesAsync(string gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get a datasource by id
+        /// Returns the specified datasource from the specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -129,8 +158,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<GatewayDatasource>> GetDatasourceByIdWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Delete a datasource
+        /// Deletes the specified datasource from the specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -154,8 +188,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update a datasource credentials
+        /// Updates the credentials of the specified datasource from the
+        /// specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -182,8 +222,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> UpdateDatasourceWithHttpMessagesAsync(string gatewayId, string datasourceId, UpdateDatasourceRequest updateDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get a datasource status by id
+        /// Checks the connectivity status of the specified datasource from the
+        /// specified gateway
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -207,8 +253,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> GetDatasourceStatusByIdWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get a datasource users list
+        /// Returns a list of users who can make use of the specified
+        /// datasource
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All&lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -232,8 +285,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListUserAccessRight>> GetDatasourceUsersWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get a datasource user
+        /// Gives the specified user permissions to use the specified
+        /// datasource
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>
@@ -260,8 +319,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> AddDatasourceUserWithHttpMessagesAsync(string gatewayId, string datasourceId, UserAccessRight addUserToDatasourceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Delete a datasource user
+        /// Removes the specified user from the specified datasource
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
         /// </param>

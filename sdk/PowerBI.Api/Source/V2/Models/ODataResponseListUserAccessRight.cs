@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user Access Right for datasource
+    /// Odata response wrapper for a Power BI user access right for datasource
     /// List
     /// </summary>
     public partial class ODataResponseListUserAccessRight
@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the ODataResponseListUserAccessRight
         /// class.
         /// </summary>
-        /// <param name="value">The user Access Right for datasource
+        /// <param name="value">The user access right for datasource
         /// List</param>
         public ODataResponseListUserAccessRight(string odatacontext = default(string), IList<UserAccessRight> value = default(IList<UserAccessRight>))
         {
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user Access Right for datasource List
+        /// Gets or sets the user access right for datasource List
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<UserAccessRight> Value { get; set; }

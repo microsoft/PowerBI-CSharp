@@ -26,10 +26,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the GroupRestoreRequest class.
         /// </summary>
-        /// <param name="emailAddress">The email address of the owner to give
-        /// to the deleted group.</param>
-        /// <param name="name">The new name to give to the deleted
-        /// group.</param>
+        /// <param name="emailAddress">The email address of the owner for the
+        /// restored group</param>
+        /// <param name="name">The name for the restored group</param>
         public GroupRestoreRequest(string emailAddress, string name = default(string))
         {
             Name = name;
@@ -43,14 +42,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the new name to give to the deleted group.
+        /// Gets or sets the name for the restored group
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the email address of the owner to give to the deleted
-        /// group.
+        /// Gets or sets the email address of the owner for the restored group
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }

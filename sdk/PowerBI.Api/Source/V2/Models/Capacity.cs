@@ -29,13 +29,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="id">The capacity id</param>
         /// <param name="displayName">The capacity display name</param>
-        /// <param name="admins">An array of capacity admins</param>
-        /// <param name="sku">The capacity SKU</param>
+        /// <param name="admins">An array of capacity admins, **will be
+        /// returned only for the capacity admins**</param>
+        /// <param name="sku">The capacity SKU, **will be returned only for the
+        /// capacity admins**</param>
         /// <param name="state">The capacity state. Possible values include:
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
         /// 'PreSuspended', 'Suspended', 'Deleting', 'Deleted', 'Invalid',
         /// 'UpdatingSku'</param>
-        /// <param name="capacityUserAccessRight">Access rights user has for
+        /// <param name="capacityUserAccessRight">Access right user has on the
         /// capacity. Possible values include: 'None', 'Assign',
         /// 'Admin'</param>
         public Capacity(string id = default(string), string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string state = default(string), string capacityUserAccessRight = default(string))
@@ -67,13 +69,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets an array of capacity admins
+        /// Gets or sets an array of capacity admins, **will be returned only
+        /// for the capacity admins**
         /// </summary>
         [JsonProperty(PropertyName = "admins")]
         public IList<string> Admins { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity SKU
+        /// Gets or sets the capacity SKU, **will be returned only for the
+        /// capacity admins**
         /// </summary>
         [JsonProperty(PropertyName = "sku")]
         public string Sku { get; set; }
@@ -88,7 +92,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or sets access rights user has for capacity. Possible values
+        /// Gets or sets access right user has on the capacity. Possible values
         /// include: 'None', 'Assign', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]

@@ -8,13 +8,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
 {
 
     /// <summary>
-    /// Defines values for ImportConflictHandlerMode.
+    /// Defines values for PositionConflictActionEnum.
     /// </summary>
-    public static class ImportConflictHandlerMode
+    public static class PositionConflictActionEnum
     {
-        public const string Ignore = "Ignore";
+        public const string Tail = "Tail";
         public const string Abort = "Abort";
-        public const string Overwrite = "Overwrite";
-        public const string CreateOrOverwrite = "CreateOrOverwrite";
     }
 }

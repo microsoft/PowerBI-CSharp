@@ -27,17 +27,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the Group class.
         /// </summary>
-        /// <param name="id">The group id</param>
+        /// <param name="id">The workspace id</param>
         /// <param name="name">The group name</param>
-        /// <param name="isReadOnly">Is ReadOnly group</param>
-        /// <param name="isOnDedicatedCapacity">Is group on dedicated
+        /// <param name="isReadOnly">Is the group read only</param>
+        /// <param name="isOnDedicatedCapacity">Is the group on dedicated
         /// capacity</param>
         /// <param name="capacityId">The capacity id</param>
         /// <param name="description">The group description</param>
         /// <param name="type">The type of group</param>
         /// <param name="state">The group state</param>
-        /// <param name="users">The users associated to group with their access
-        /// rights</param>
+        /// <param name="users">The users that belong to the group, with their
+        /// access rights</param>
         public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>))
         {
             Id = id;
@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the group id
+        /// Gets or sets the workspace id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -70,13 +70,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets is ReadOnly group
+        /// Gets or sets is the group read only
         /// </summary>
         [JsonProperty(PropertyName = "isReadOnly")]
         public bool? IsReadOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets is group on dedicated capacity
+        /// Gets or sets is the group on dedicated capacity
         /// </summary>
         [JsonProperty(PropertyName = "isOnDedicatedCapacity")]
         public bool? IsOnDedicatedCapacity { get; set; }
@@ -106,7 +106,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or sets the users associated to group with their access rights
+        /// Gets or sets the users that belong to the group, with their access
+        /// rights
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUserAccessRight> Users { get; set; }

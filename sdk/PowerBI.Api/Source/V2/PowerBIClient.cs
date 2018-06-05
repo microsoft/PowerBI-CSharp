@@ -73,14 +73,14 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual IGroups Groups { get; private set; }
 
         /// <summary>
-        /// Gets the IAvailableFeatures.
-        /// </summary>
-        public virtual IAvailableFeatures AvailableFeatures { get; private set; }
-
-        /// <summary>
         /// Gets the ICapacities.
         /// </summary>
         public virtual ICapacities Capacities { get; private set; }
+
+        /// <summary>
+        /// Gets the IAvailableFeatures.
+        /// </summary>
+        public virtual IAvailableFeatures AvailableFeatures { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
@@ -290,8 +290,8 @@ namespace Microsoft.PowerBI.Api.V2
             Tiles = new Tiles(this);
             Gateways = new Gateways(this);
             Groups = new Groups(this);
-            AvailableFeatures = new AvailableFeatures(this);
             Capacities = new Capacities(this);
+            AvailableFeatures = new AvailableFeatures(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {

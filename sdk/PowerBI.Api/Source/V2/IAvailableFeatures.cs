@@ -19,8 +19,11 @@ namespace Microsoft.PowerBI.Api.V2
     public partial interface IAvailableFeatures
     {
         /// <summary>
-        /// Gets a list of available features for user
+        /// Returns a list of available features for the user
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: None
+        /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -35,9 +38,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListAvailableFeature>> GetAvailableFeaturesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets a list of available feature for user by name
+        /// Returns the specified available feature for user by name
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: None
+        /// </remarks>
         /// <param name='featureName'>
+        /// The feature name
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

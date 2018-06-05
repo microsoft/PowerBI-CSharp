@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Additional Feature Info
+    /// Additional feature information
     /// </summary>
     public partial class AdditionalFeatureInfo
     {
@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the AdditionalFeatureInfo class.
         /// </summary>
-        /// <param name="usage">The token usage (in %) from the limitation on
-        /// shared capacity</param>
+        /// <param name="usage">The token generation usage (in %) from the
+        /// limitation on shared capacity</param>
         public AdditionalFeatureInfo(int? usage = default(int?))
         {
             Usage = usage;
@@ -39,8 +39,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the token usage (in %) from the limitation on shared
-        /// capacity
+        /// Gets or sets the token generation usage (in %) from the limitation
+        /// on shared capacity
         /// </summary>
         [JsonProperty(PropertyName = "Usage")]
         public int? Usage { get; set; }
