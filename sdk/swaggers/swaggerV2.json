@@ -892,7 +892,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from **\"My Workspace\"**",
-                "description": "<br/>**Note**: original datasource and new datasource must have the exact same schema. <br/>**Note**: For cached models You need to refresh the dataset to get get the data from the new data sources. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Update datasources supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis Services, OData Feed, and SharePoint datasources. For other datasource types, use [Update Parameters](./updateparameters) </li><li>Changing datasource type is not supported. </li><li>Datasources that contain parameters on the connection string are not supported. </li><li>Datasources which are part of Merged or Joined tables are not supported. </li><li>Changing connection from cloud to on-premises or on-premises to cloud is not supported. </li></ul>",
+                "description": "<br/>**Note**: original datasource and new datasource must have the exact same schema. <br/>**Note**: For cached models You need to refresh the dataset to get get the data from the new data sources. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Update datasources supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis Services, OData Feed, and SharePoint datasources. For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters) </li><li>Changing datasource type is not supported. </li><li>Datasources that contain parameters on the connection string are not supported. </li><li>Datasources which are part of Merged or Joined tables are not supported. </li><li>Changing connection from cloud to on-premises or on-premises to cloud is not supported. </li></ul>",
                 "operationId": "Datasets_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -972,7 +972,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates all connections for the specified dataset from **\"My Workspace\"**",
-                "description": "<br/>**Note**:  To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources](./updatedatasources). For other datasource types use [Update Parameters](./updateparameters). <br/>**Note**: This API only supports SQL DirectQuery datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**:  To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources](/rest/api/power-bi/datasets/updatedatasources). For other datasource types use [Update Parameters](/rest/api/power-bi/datasets/updateparameters). <br/>**Note**: This API only supports SQL DirectQuery datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_SetAllDatasetConnections",
                 "consumes": [
                     "application/json"
@@ -1084,7 +1084,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of gateway datasources for the specified dataset from **\"My Workspace\"**",
-                "description": "<br/>**Note**:you should use the new [Dataset - Get Datasources](./getdatasources) API instead<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**:you should use the new [Dataset - Get Datasources](/rest/api/power-bi/datasets/getdatasources) API instead<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetGatewayDatasources",
                 "consumes": [
 
@@ -1262,7 +1262,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on **\"My Workspace\"** from PBIX, Excel or file path in OneDrive Pro",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive pro, request Headers should include **Content-Type: application/json** with [ImportInfo](#importinfo) in the request body.</li><li>To import pbix files larger than 1 GB see [Create Temporary Upload Location](./createtemporaryuploadlocation), suported only for workspaces on premium capacity.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive pro, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import pbix files larger than 1 GB see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), suported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json"
@@ -1421,7 +1421,7 @@
                     "Imports"
                 ],
                 "summary": "Creates a temporary blob storage to be used to import pbix files larger than 1 GB",
-                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the SaS url from the response. then call [Post Import](./postimport) and specify 'fileUrl' to be the SaS url in the [Request Body](./postimport#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the SaS url from the response. then call [Post Import](/rest/api/power-bi/imports/postimport) and specify 'fileUrl' to be the SaS url in the [Request Body](/rest/api/power-bi/imports/postimport#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_CreateTemporaryUploadLocation",
                 "consumes": [
 
@@ -2072,7 +2072,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "This functionality only available in a workspace context. please use [Reports GenerateTokenForCreateInGroup](./reports_generatetokenforcreateingroup)",
+                "summary": "This functionality only available in a workspace context. please use [Reports GenerateTokenForCreateInGroup](/rest/api/power-bi/embedtoken/reports_generatetokenforcreateingroup)",
                 "operationId": "Reports_GenerateTokenForCreate",
                 "consumes": [
                     "application/json"
@@ -2107,7 +2107,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "This functionality only available in a workspace context. please use [Reports GenerateTokenInGroup](./reports_generatetokeningroup)",
+                "summary": "This functionality only available in a workspace context. please use [Reports GenerateTokenInGroup](/rest/api/power-bi/embedtoken/reports_generatetokeningroup)",
                 "operationId": "Reports_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -2149,7 +2149,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "This functionality only available in a workspace context. please use [Dashboards GenerateTokenInGroup](./dashboards_generatetokeningroup)",
+                "summary": "This functionality only available in a workspace context. please use [Dashboards GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup)",
                 "operationId": "Dashboards_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -2191,7 +2191,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "This functionality only available in a workspace context. please use [Tiles GenerateTokenInGroup](./tiles_generatetokeningroup)",
+                "summary": "This functionality only available in a workspace context. please use [Tiles GenerateTokenInGroup](/rest/api/power-bi/embedtoken/tiles_generatetokeningroup)",
                 "operationId": "Tiles_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -3215,7 +3215,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from the specified workspace",
-                "description": "<br/>**Note**: original datasource and new datasource must have the exact same schema. <br/>**Note**: For cached models You need to refresh the dataset to get get the data from the new data sources. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Update datasources supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis Services, OData Feed, and SharePoint datasources. For other datasource types, use [Update Parameters In Group](./updateparametersingroup) </li><li>Changing datasource type is not supported. </li><li>Datasources that contain parameters on the connection string are not supported. </li><li>Datasources which are part of Merged or Joined tables are not supported. </li><li>Changing connection from cloud to on-premises or on-premises to cloud is not supported. </li></ul>",
+                "description": "<br/>**Note**: original datasource and new datasource must have the exact same schema. <br/>**Note**: For cached models You need to refresh the dataset to get get the data from the new data sources. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Update datasources supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis Services, OData Feed, and SharePoint datasources. For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup) </li><li>Changing datasource type is not supported. </li><li>Datasources that contain parameters on the connection string are not supported. </li><li>Datasources which are part of Merged or Joined tables are not supported. </li><li>Changing connection from cloud to on-premises or on-premises to cloud is not supported. </li></ul>",
                 "operationId": "Datasets_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -3302,7 +3302,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates all connections for the specified dataset from the specified workspace",
-                "description": "<br/>**Note**:  To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources In Group](./updateparametersingroup). For other datasource types use [Update Parameters In Group](./updateparametersingroup). <br/>**Note**: This API only supports SQL DirectQuery datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**:  To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other datasource types use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup). <br/>**Note**: This API only supports SQL DirectQuery datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_SetAllDatasetConnectionsInGroup",
                 "consumes": [
                     "application/json"
@@ -3430,7 +3430,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of gateway datasources for the specified dataset from the specified workspace",
-                "description": "<br/>**Note**:you should use the new [Dataset - Get Datasources In Group](./getdatasourcesingroup) API instead<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**:you should use the new [Dataset - Get Datasources In Group](/rest/api/power-bi/datasets/getdatasourcesingroup) API instead<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetGatewayDatasourcesInGroup",
                 "consumes": [
 
@@ -3679,7 +3679,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on the specified workspace from PBIX, Excel or file path in OneDrive Pro",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive pro, request Headers should include **Content-Type: application/json** with [ImportInfo](#importinfo) in the request body.</li><li>To import pbix files larger than 1 GB see [Create Temporary Upload Location In Group](./createtemporaryuploadlocationingroup), suported only for workspaces on premium capacity.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive pro, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import pbix files larger than 1 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), suported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json"
@@ -3854,7 +3854,7 @@
                     "Imports"
                 ],
                 "summary": "Creates a temporary blob storage to be used to import pbix files larger than 1 GB",
-                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the SaS url from the response. then call [Post Import In Group](./postimportingroup) and specify 'fileUrl' to be the SaS url in the [Request Body](./postimportingroup#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the SaS url from the response. then call [Post Import In Group](/rest/api/power-bi/imports/postimportingroup) and specify 'fileUrl' to be the SaS url in the [Request Body](/rest/api/power-bi/imports/postimportingroup#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_CreateTemporaryUploadLocationInGroup",
                 "consumes": [
 
@@ -4698,7 +4698,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](#GenerateTokenRequest)</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -4790,7 +4790,7 @@
                                 }
                             }
                         }
-                    },                    
+                    },
                     "Generate report EmbedToken using EffectiveIdentity with multiple roles": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
@@ -7680,7 +7680,7 @@
             "properties": {
                 "credentials": {
                     "type": "string",
-                    "description": "The credentials. this depends on the 'credentialType' value, see [Update Datasource Examples](./updatedatasource#examples)."
+                    "description": "The credentials. this depends on the 'credentialType' value, see [Update Datasource Examples](/rest/api/power-bi/gateways/updatedatasource#examples)."
                 },
                 "credentialType": {
                     "type": "string",
