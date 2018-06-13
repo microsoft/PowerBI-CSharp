@@ -5555,13 +5555,13 @@
                             "200": {}
                         }
                     },
-                    "OAuth credentials example": {
+                    "OAuth2 credentials example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
                             "updateDatasourceRequest": {
                                 "credentialDetails": {
-                                    "credentialType": "OAuth",
+                                    "credentialType": "OAuth2",
                                     "credentials": "{\"credentialData\":[{\"name\":\"accessToken\", \"value\":\"eyJ0....fwtQ\"}]}",
                                     "encryptedConnection": "Encrypted",
                                     "encryptionAlgorithm": "None",
@@ -7303,7 +7303,7 @@
                         "Basic",
                         "Windows",
                         "Anonymous",
-                        "OAuth",
+                        "OAuth2",
                         "Key"
                     ],
                     "x-ms-enum": {
@@ -7689,7 +7689,7 @@
                         "Basic",
                         "Windows",
                         "Anonymous",
-                        "OAuth",
+                        "OAuth2",
                         "Key"
                     ],
                     "x-ms-enum": {

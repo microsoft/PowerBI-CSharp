@@ -315,7 +315,8 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// This functionality only available in a workspace context. please use
-            /// [Dashboards GenerateTokenInGroup](./dashboards_generatetokeningroup)
+            /// [Dashboards
+            /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -333,7 +334,8 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// This functionality only available in a workspace context. please use
-            /// [Dashboards GenerateTokenInGroup](./dashboards_generatetokeningroup)
+            /// [Dashboards
+            /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup)
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

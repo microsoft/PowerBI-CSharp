@@ -20,7 +20,8 @@ namespace Microsoft.PowerBI.Api.V2
     {
         /// <summary>
         /// This functionality only available in a workspace context. please
-        /// use [Tiles GenerateTokenInGroup](./tiles_generatetokeningroup)
+        /// use [Tiles
+        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/tiles_generatetokeningroup)
         /// </summary>
         /// <param name='dashboardKey'>
         /// The dashboard id

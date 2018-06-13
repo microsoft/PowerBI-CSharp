@@ -15,7 +15,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public const string Basic = "Basic";
         public const string Windows = "Windows";
         public const string Anonymous = "Anonymous";
-        public const string OAuth = "OAuth";
+        public const string OAuth2 = "OAuth2";
         public const string Key = "Key";
     }
 }

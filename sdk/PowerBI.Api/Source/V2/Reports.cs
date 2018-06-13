@@ -1087,7 +1087,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <summary>
         /// This functionality only available in a workspace context. please use
         /// [Reports
-        /// GenerateTokenForCreateInGroup](./reports_generatetokenforcreateingroup)
+        /// GenerateTokenForCreateInGroup](/rest/api/power-bi/embedtoken/reports_generatetokenforcreateingroup)
         /// </summary>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -1234,7 +1234,8 @@ namespace Microsoft.PowerBI.Api.V2
 
         /// <summary>
         /// This functionality only available in a workspace context. please use
-        /// [Reports GenerateTokenInGroup](./reports_generatetokeningroup)
+        /// [Reports
+        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/reports_generatetokeningroup)
         /// </summary>
         /// <param name='reportKey'>
         /// The report id
@@ -2673,7 +2674,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
         /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
         /// allowSaveAs specified in
-        /// [GenerateTokenRequest](#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
+        /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>

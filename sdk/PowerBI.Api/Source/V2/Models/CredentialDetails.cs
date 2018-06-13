@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="credentials">The credentials. this depends on the
         /// 'credentialType' value, see [Update Datasource
-        /// Examples](./updatedatasource#examples).</param>
+        /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).</param>
         /// <param name="credentialType">The credential type. Possible values
-        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth', 'Key'</param>
+        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'</param>
         /// <param name="encryptedConnection">Should Power BI allow fallback to
         /// unencrypted if the target server doesn't support encryption.
         /// Possible values include: 'Encrypted', 'NotEncrypted'</param>
@@ -61,14 +61,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Gets or sets the credentials. this depends on the 'credentialType'
         /// value, see [Update Datasource
-        /// Examples](./updatedatasource#examples).
+        /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).
         /// </summary>
         [JsonProperty(PropertyName = "credentials")]
         public string Credentials { get; set; }
 
         /// <summary>
         /// Gets or sets the credential type. Possible values include: 'Basic',
-        /// 'Windows', 'Anonymous', 'OAuth', 'Key'
+        /// 'Windows', 'Anonymous', 'OAuth2', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public string CredentialType { get; set; }

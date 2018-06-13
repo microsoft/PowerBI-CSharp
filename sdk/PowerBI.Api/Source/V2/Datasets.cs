@@ -2101,7 +2101,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update datasources
         /// supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis
         /// Services, OData Feed, and SharePoint datasources. For other datasource
-        /// types, use [Update Parameters](./updateparameters)
+        /// types, use [Update
+        /// Parameters](/rest/api/power-bi/datasets/updateparameters)
         /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
         /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
         /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
@@ -2265,8 +2266,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Note**:  To update connection details for SQL, AS, OData Feed,
-        /// and SharePoint, use [Update Datasources](./updatedatasources). For other
-        /// datasource types use [Update Parameters](./updateparameters).
+        /// and SharePoint, use [Update
+        /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For other
+        /// datasource types use [Update
+        /// Parameters](/rest/api/power-bi/datasets/updateparameters).
         /// &lt;br/&gt;**Note**: This API only supports SQL DirectQuery datasets.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
@@ -2591,9 +2594,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Note**:you should use the new [Dataset - Get
-        /// Datasources](./getdatasources) API instead&lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Dataset.ReadWrite.All or Dataset.Read.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// Datasources](/rest/api/power-bi/datasets/getdatasources) API
+        /// instead&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetKey'>
@@ -5059,7 +5062,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update datasources
         /// supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis
         /// Services, OData Feed, and SharePoint datasources. For other datasource
-        /// types, use [Update Parameters In Group](./updateparametersingroup)
+        /// types, use [Update Parameters In
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup)
         /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
         /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
         /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
@@ -5233,9 +5237,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// &lt;br/&gt;**Note**:  To update connection details for SQL, AS, OData Feed,
         /// and SharePoint, use [Update Datasources In
-        /// Group](./updateparametersingroup). For other datasource types use [Update
-        /// Parameters In Group](./updateparametersingroup). &lt;br/&gt;**Note**: This
-        /// API only supports SQL DirectQuery datasets.
+        /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other
+        /// datasource types use [Update Parameters In
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup).
+        /// &lt;br/&gt;**Note**: This API only supports SQL DirectQuery datasets.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -5577,9 +5582,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Note**:you should use the new [Dataset - Get Datasources In
-        /// Group](./getdatasourcesingroup) API instead&lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Dataset.ReadWrite.All or Dataset.Read.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// Group](/rest/api/power-bi/datasets/getdatasourcesingroup) API
+        /// instead&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>

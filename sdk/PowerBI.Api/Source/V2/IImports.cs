@@ -54,11 +54,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// data](https://www.w3.org/TR/html401/interact/forms.html) in the
         /// request body &lt;/li&gt;&lt;li&gt;To import from OneDrive pro,
         /// request Headers should include **Content-Type: application/json**
-        /// with [ImportInfo](#importinfo) in the request
-        /// body.&lt;/li&gt;&lt;li&gt;To import pbix files larger than 1 GB see
-        /// [Create Temporary Upload
-        /// Location](./createtemporaryuploadlocation), suported only for
-        /// workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+        /// with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo)
+        /// in the request body.&lt;/li&gt;&lt;li&gt;To import pbix files
+        /// larger than 1 GB see [Create Temporary Upload
+        /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation),
+        /// suported only for workspaces on premium
+        /// capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset, should include file extension. not
@@ -123,9 +124,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// To import pbix files larger than 1 GB you should create a temporary
         /// upload location and upload the pbix file using the SaS url from the
-        /// response. then call [Post Import](./postimport) and specify
+        /// response. then call [Post
+        /// Import](/rest/api/power-bi/imports/postimport) and specify
         /// 'fileUrl' to be the SaS url in the [Request
-        /// Body](./postimport#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
+        /// Body](/rest/api/power-bi/imports/postimport#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
         /// import large pbix files is only available for workspaces on premium
         /// capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
@@ -187,11 +189,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// data](https://www.w3.org/TR/html401/interact/forms.html) in the
         /// request body &lt;/li&gt;&lt;li&gt;To import from OneDrive pro,
         /// request Headers should include **Content-Type: application/json**
-        /// with [ImportInfo](#importinfo) in the request
-        /// body.&lt;/li&gt;&lt;li&gt;To import pbix files larger than 1 GB see
-        /// [Create Temporary Upload Location In
-        /// Group](./createtemporaryuploadlocationingroup), suported only for
-        /// workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+        /// with
+        /// [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo)
+        /// in the request body.&lt;/li&gt;&lt;li&gt;To import pbix files
+        /// larger than 1 GB see [Create Temporary Upload Location In
+        /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
+        /// suported only for workspaces on premium
+        /// capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -262,9 +266,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// To import pbix files larger than 1 GB you should create a temporary
         /// upload location and upload the pbix file using the SaS url from the
-        /// response. then call [Post Import In Group](./postimportingroup) and
-        /// specify 'fileUrl' to be the SaS url in the [Request
-        /// Body](./postimportingroup#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
+        /// response. then call [Post Import In
+        /// Group](/rest/api/power-bi/imports/postimportingroup) and specify
+        /// 'fileUrl' to be the SaS url in the [Request
+        /// Body](/rest/api/power-bi/imports/postimportingroup#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
         /// import large pbix files is only available for workspaces on premium
         /// capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see

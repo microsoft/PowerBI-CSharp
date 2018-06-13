@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="connectionDetails">Json formatted connection
         /// details</param>
         /// <param name="credentialType">Type of the datasoruce credentials.
-        /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth',
+        /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
         /// <param name="basicCredentials">**[Deprecated]** The datasource
         /// basic credential</param>
@@ -85,7 +85,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets type of the datasoruce credentials. Possible values
-        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth', 'Key'
+        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public string CredentialType { get; set; }
