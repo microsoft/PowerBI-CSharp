@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the Import class.
         /// </summary>
         /// <param name="id">The import id</param>
-        /// <param name="name">The import name name</param>
+        /// <param name="name">The import name</param>
         /// <param name="importState">The import upload state</param>
         /// <param name="reports">The reports associated with this
         /// import</param>
@@ -60,7 +60,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the import name name
+        /// Gets or sets the import name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

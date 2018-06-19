@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// The import info
+    /// The information about the import
     /// </summary>
     public partial class ImportInfo
     {
@@ -25,13 +25,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the ImportInfo class.
         /// </summary>
-        /// <param name="filePath">The OneDrive pro file path to import, can be
-        /// absolute or relative</param>
+        /// <param name="filePath">The OneDrive for Business file path to
+        /// import, can be absolute or relative</param>
         /// <param name="connectionType">The import connection type for
-        /// OneDrive pro file. Possible values include: 'import',
+        /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
-        /// <param name="fileUrl">The SAS url of the temporary blob storage,
-        /// used to import pbix files larger than 1 GB.</param>
+        /// <param name="fileUrl">The shared access signature (SAS) URL of the
+        /// temporary blob storage, used to import pbix files larger than 1
+        /// GB.</param>
         public ImportInfo(string filePath = default(string), string connectionType = default(string), string fileUrl = default(string))
         {
             FilePath = filePath;
@@ -46,22 +47,22 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the OneDrive pro file path to import, can be absolute
-        /// or relative
+        /// Gets or sets the OneDrive for Business file path to import, can be
+        /// absolute or relative
         /// </summary>
         [JsonProperty(PropertyName = "filePath")]
         public string FilePath { get; set; }
 
         /// <summary>
-        /// Gets or sets the import connection type for OneDrive pro file.
-        /// Possible values include: 'import', 'connect'
+        /// Gets or sets the import connection type for OneDrive for Business
+        /// file. Possible values include: 'import', 'connect'
         /// </summary>
         [JsonProperty(PropertyName = "connectionType")]
         public string ConnectionType { get; set; }
 
         /// <summary>
-        /// Gets or sets the SAS url of the temporary blob storage, used to
-        /// import pbix files larger than 1 GB.
+        /// Gets or sets the shared access signature (SAS) URL of the temporary
+        /// blob storage, used to import pbix files larger than 1 GB.
         /// </summary>
         [JsonProperty(PropertyName = "fileUrl")]
         public string FileUrl { get; set; }

@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Gateways list
+    /// Odata response wrapper for a Power BI gateways list
     /// </summary>
     public partial class ODataResponseListGateway
     {

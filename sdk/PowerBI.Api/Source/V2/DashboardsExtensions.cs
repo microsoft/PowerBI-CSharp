@@ -759,5 +759,187 @@ namespace Microsoft.PowerBI.Api.V2
                 }
             }
 
+            /// <summary>
+            /// Returns a list of dashboards from the specified workspace for an
+            /// organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListDashboard GetDashboardsInGroupAsAdmin(this IDashboards operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDashboardsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards from the specified workspace for an
+            /// organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDashboard> GetDashboardsInGroupAsAdminAsync(this IDashboards operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListDashboard GetDashboardsAsAdmin(this IDashboards operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDashboardsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDashboard> GetDashboardsAsAdminAsync(this IDashboards operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of tiles within the specified dashboard for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static ODataResponseListTile GetTilesAsAdmin(this IDashboards operations, string dashboardKey)
+            {
+                return operations.GetTilesAsAdminAsync(dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of tiles within the specified dashboard for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListTile> GetTilesAsAdminAsync(this IDashboards operations, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTilesAsAdminWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

@@ -668,7 +668,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// The workspace id
         /// </param>
         /// <param name='userDetails'>
-        /// User access right details
+        /// Details of user access right
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1293,11 +1293,12 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns a list of workspaces for an organization with an administrative
-        /// scope.
+        /// Returns a list of workspaces for an organization.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// **Note:** You must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
         /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -1463,13 +1464,14 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates the specified workspace properties for an organization with an
-        /// administrative scope.
+        /// Updates the specified workspace properties for an organization.
         /// </summary>
         /// <remarks>
-        /// **Note**: This API is currently limited to updating preview workspaces.
-        /// Only name and description can be updated, and name must be unique inside an
-        /// organization.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// **Note**: This API is currently limited to updating workspaces in the new
+        /// workspace experiences preview. Only name and description can be updated,
+        /// and name must be unique inside an organization. You must have administrator
+        /// rights (such as Office 365 Global Administrator or Power BI Service
+        /// Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
         /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -1627,20 +1629,21 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Grants user permissions to the specified workspace for an organization with
-        /// an administrative scope.
+        /// Grants user permissions to the specified workspace for an organization.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Tenant.ReadWrite.All&lt;br/&gt;Application
-        /// only and delegated permissions are supported.&lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// **Note:** You must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
         /// </param>
         /// <param name='userDetails'>
-        /// User access right details
+        /// Details of user access right
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1789,13 +1792,14 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Removes user permissions to the specified workspace for an organization
-        /// with an administrative scope.
+        /// Removes user permissions to the specified workspace for an organization.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Tenant.ReadWrite.All&lt;br/&gt;Application
-        /// only and delegated permissions are supported.&lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// **Note:** You must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
@@ -1947,12 +1951,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Restores a deleted workspace for an organization with an administrative
-        /// scope.
+        /// Restores a deleted workspace for an organization.
         /// </summary>
         /// <remarks>
-        /// **Note**: This API is currently limited to restoring preview workspaces.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// **Note**: This API is currently limited to restoring workspaces in the new
+        /// workspace experiences preview. You must have administrator rights (such as
+        /// Office 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
         /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -1961,7 +1966,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// The workspace id
         /// </param>
         /// <param name='groupRestoreRequest'>
-        /// Group restore request details
+        /// Details of the group restore request
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

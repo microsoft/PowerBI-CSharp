@@ -2172,13 +2172,77 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataset for an organization
-            /// with an administrative scope.
+            /// Returns a list of datasets for an organization.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Tenant.Read.All&lt;br/&gt;Application only
-            /// and delegated permissions are supported.&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListDataset GetDatasetsAsAdmin(this IDatasets operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDatasetsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of datasets for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDataset> GetDatasetsAsAdminAsync(this IDatasets operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasetsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of datasources for the specified dataset for an
+            /// organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+            /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -2192,13 +2256,15 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataset for an organization
-            /// with an administrative scope.
+            /// Returns a list of datasources for the specified dataset for an
+            /// organization.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Tenant.Read.All&lt;br/&gt;Application only
-            /// and delegated permissions are supported.&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+            /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -2212,6 +2278,76 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<ODataResponseListDatasource> GetDatasourcesAsAdminAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDatasourcesAsAdminWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of datasets from the specified workspace for an
+            /// organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListDataset GetDatasetsInGroupAsAdmin(this IDatasets operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDatasetsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of datasets from the specified workspace for an
+            /// organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDataset> GetDatasetsInGroupAsAdminAsync(this IDatasets operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasetsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

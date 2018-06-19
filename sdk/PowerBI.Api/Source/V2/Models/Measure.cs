@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Measure
+    /// A Power BI measure
     /// </summary>
     public partial class Measure
     {

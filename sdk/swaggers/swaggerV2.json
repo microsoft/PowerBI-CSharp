@@ -1261,7 +1261,7 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates new content on **\"My Workspace\"** from PBIX, Excel or file path in OneDrive Pro",
+                "summary": "Creates new content on **\"My Workspace\"** from PBIX, Excel or file path in OneDrive for Business",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive pro, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import pbix files larger than 1 GB see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), suported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
@@ -1421,7 +1421,7 @@
                     "Imports"
                 ],
                 "summary": "Creates a temporary blob storage to be used to import pbix files larger than 1 GB",
-                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the SaS url from the response. then call [Post Import](/rest/api/power-bi/imports/postimport) and specify 'fileUrl' to be the SaS url in the [Request Body](/rest/api/power-bi/imports/postimport#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the shared access signature (SAS) URL from the response. then call [Post Import](/rest/api/power-bi/imports/postimport) and specify 'fileUrl' to be the SAS URL in the [Request Body](/rest/api/power-bi/imports/postimport#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_CreateTemporaryUploadLocation",
                 "consumes": [
 
@@ -1459,7 +1459,7 @@
                     "application/json"
                 ],
                 "parameters": [
-
+                    
                 ],
                 "responses": {
                     "200": {
@@ -3854,7 +3854,7 @@
                     "Imports"
                 ],
                 "summary": "Creates a temporary blob storage to be used to import pbix files larger than 1 GB",
-                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the SaS url from the response. then call [Post Import In Group](/rest/api/power-bi/imports/postimportingroup) and specify 'fileUrl' to be the SaS url in the [Request Body](/rest/api/power-bi/imports/postimportingroup#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "To import pbix files larger than 1 GB you should create a temporary upload location and upload the pbix file using the shared access signature (SAS) URL from the response. then call [Post Import In Group](/rest/api/power-bi/imports/postimportingroup) and specify 'fileUrl' to be the SAS URL in the [Request Body](/rest/api/power-bi/imports/postimportingroup#request-body)<br/><br/>**Note**: import large pbix files is only available for workspaces on premium capacity. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_CreateTemporaryUploadLocationInGroup",
                 "consumes": [
 
@@ -6112,7 +6112,7 @@
                     {
                         "name": "userDetails",
                         "in": "body",
-                        "description": "User access right details",
+                        "description": "Details of user access right",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/GroupUserAccessRight"
@@ -6445,13 +6445,86 @@
             }
         },
 
+        "/v1.0/myorg/admin/datasets": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of datasets for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDatasetsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dataset]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "addRowsAPIEnabled": false,
+                                            "configuredBy": "john@contoso.com",
+                                            "isRefreshable": true,
+                                            "isEffectiveIdentityRequired": false,
+                                            "isEffectiveIdentityRolesRequired": false,
+                                            "isOnPremGatewayRequired": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/admin/datasets/{datasetKey}/datasources": {
             "get": {
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of datasources for the specified dataset for an organization with an administrative scope.",
-                "description": "<br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of datasources for the specified dataset for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [
 
@@ -6510,8 +6583,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of workspaces for an organization with an administrative scope.",
-                "description": "<br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of workspaces for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [
 
@@ -6566,33 +6639,35 @@
                         },
                         "responses": {
                             "200": {
-                                "value": [
-                                    {
-                                        "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
-                                        "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
-                                        "name": "Sample Group 1",
-                                        "description": "Sample group",
-                                        "type": "Workspace",
-                                        "state": "Active",
-                                        "users": [
-                                            {
-                                                "emailAddress": "john@contoso.com",
-                                                "groupUserAccessRight": "Admin"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
-                                        "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
-                                        "name": "Sample Group 2",
-                                        "description": "Deleted sample group",
-                                        "type": "Workspace",
-                                        "state": "Deleted",
-                                        "users": []
-                                    }
-                                ]
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "name": "Sample Group 1",
+                                            "description": "Sample group",
+                                            "type": "Workspace",
+                                            "state": "Active",
+                                            "users": [
+                                                {
+                                                    "emailAddress": "john@contoso.com",
+                                                    "groupUserAccessRight": "Admin"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "name": "Sample Group 2",
+                                            "description": "Deleted sample group",
+                                            "type": "Workspace",
+                                            "state": "Deleted",
+                                            "users": []
+                                        }
+                                    ]
+                                }
                             }
                         }
                     },
@@ -6603,18 +6678,20 @@
                         },
                         "responses": {
                             "200": {
-                                "value": [
-                                    {
-                                        "id": "d5caa808-8c91-400a-911d-06af08dbcc31",
-                                        "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
-                                        "name": "Orphaned Group",
-                                        "description": "Sample orphan group",
-                                        "type": "Workspace",
-                                        "state": "Active",
-                                        "users": []
-                                    }
-                                ]
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "d5caa808-8c91-400a-911d-06af08dbcc31",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "name": "Orphaned Group",
+                                            "description": "Sample orphan group",
+                                            "type": "Workspace",
+                                            "state": "Active",
+                                            "users": []
+                                        }
+                                    ]
+                                }
                             }
                         }
                     },
@@ -6624,17 +6701,19 @@
                         },
                         "responses": {
                             "200": {
-                                "value": [
-                                    {
-                                        "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
-                                        "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
-                                        "name": "Sample Group 2",
-                                        "description": "Deleted sample group",
-                                        "type": "Workspace",
-                                        "state": "Deleted"
-                                    }
-                                ]
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "name": "Sample Group 2",
+                                            "description": "Deleted sample group",
+                                            "type": "Workspace",
+                                            "state": "Deleted"
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
@@ -6647,8 +6726,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Updates the specified workspace properties for an organization with an administrative scope.",
-                "description": "**Note**: This API is currently limited to updating preview workspaces. Only name and description can be updated, and name must be unique inside an organization.<br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the specified workspace properties for an organization.",
+                "description": "**Note**: This API is currently limited to updating workspaces in the new workspace experiences preview. Only name and description can be updated, and name must be unique inside an organization. You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [
 
@@ -6704,8 +6783,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Grants user permissions to the specified workspace for an organization with an administrative scope.",
-                "description": "<br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Grants user permissions to the specified workspace for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -6724,7 +6803,7 @@
                     {
                         "name": "userDetails",
                         "in": "body",
-                        "description": "User access right details",
+                        "description": "Details of user access right",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/GroupUserAccessRight"
@@ -6761,8 +6840,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Removes user permissions to the specified workspace for an organization with an administrative scope.",
-                "description": "<br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Removes user permissions to the specified workspace for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [
 
@@ -6813,8 +6892,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Restores a deleted workspace for an organization with an administrative scope.",
-                "description": "**Note**: This API is currently limited to restoring preview workspaces. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Restores a deleted workspace for an organization.",
+                "description": "**Note**: This API is currently limited to restoring workspaces in the new workspace experiences preview. You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_RestoreDeletedGroupAsAdmin",
                 "consumes": [
                     "application/json"
@@ -6833,7 +6912,7 @@
                     {
                         "name": "groupRestoreRequest",
                         "in": "body",
-                        "description": "Group restore request details",
+                        "description": "Details of the group restore request",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/GroupRestoreRequest"
@@ -6864,6 +6943,539 @@
                 },
                 "deprecated": false
             }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/dashboards": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of dashboards from the specified workspace for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dashboard]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
+                                            "displayName": "SalesMarketing",
+                                            "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=69ffaa6c-b36d-4d01-96f5-1ed67c64d4af&groupId=f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                            "isReadOnly": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/reports": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of reports from the specified workspace for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetReportsInGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "id": "5b218778-e7a5-4d73-8187-f10824047715",
+                                            "name": "SalesMarketing",
+                                            "webUrl": "https://app.powerbi.com/groups/f089354e-8366-4e18-aea3-4cb4a3a50b48/reports/5b218778-e7a5-4d73-8187-f10824047715",
+                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715&groupId=f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/datasets": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of datasets from the specified workspace for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dataset]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "addRowsAPIEnabled": false,
+                                            "configuredBy": "john@contoso.com",
+                                            "isRefreshable": true,
+                                            "isEffectiveIdentityRequired": false,
+                                            "isEffectiveIdentityRolesRequired": false,
+                                            "isOnPremGatewayRequired": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/admin/reports": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of reports for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetReportsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "id": "5b218778-e7a5-4d73-8187-f10824047715",
+                                            "name": "SalesMarketing",
+                                            "webUrl": "https://app.powerbi.com//reports/5b218778-e7a5-4d73-8187-f10824047715",
+                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/admin/dashboards": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of dashboards for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dashboards_GetDashboardsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dashboard]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
+                                            "displayName": "SalesMarketing",
+                                            "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
+                                            "isReadOnly": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/dashboards/{dashboardKey}/tiles": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of tiles within the specified dashboard for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dashboards_GetTilesAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dashboardKey",
+                        "description": "The dashboard id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Tile]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b",
+                                            "title": "SalesMarketingTile",
+                                            "embedUrl": "https://app.powerbi.com/embed?dashboardId=69ffaa6c-b36d-4d01-96f5-1ed67c64d4af&tileId=312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b",
+                                            "rowSpan": 0,
+                                            "colSpan": 0,
+                                            "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
+                                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/admin/imports": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of imports for an organization.",
+                "description": "**Note:** You must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Imports_GetImportsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Import]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                                            "importState": "Succeeded",
+                                            "createdDateTime": "2018-05-08T14:56:18.477Z",
+                                            "updatedDateTime": "2018-05-08T14:56:18.477Z",
+                                            "name": "SalesMarketing",
+                                            "connectionType": "import",
+                                            "source": "Upload",
+                                            "datasets": [
+                                                {
+                                                    "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                    "name": "SalesMarketing",
+                                                    "webUrl": "https://app.powerbi.com/datasets/cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                                }
+                                            ],
+                                            "reports": [
+                                                {
+                                                    "id": "5b218778-e7a5-4d73-8187-f10824047715",
+                                                    "name": "SalesMarketing",
+                                                    "webUrl": "https://app.powerbi.com/reports/5b218778-e7a5-4d73-8187-f10824047715",
+                                                    "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         }
     },
     "definitions": {
@@ -6876,7 +7488,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The import name name"
+                    "description": "The import name"
                 },
                 "importState": {
                     "type": "string",
@@ -6909,15 +7521,15 @@
             }
         },
         "ImportInfo": {
-            "description": "The import info",
+            "description": "The information about the import",
             "properties": {
                 "filePath": {
                     "type": "string",
-                    "description": "The OneDrive pro file path to import, can be absolute or relative"
+                    "description": "The OneDrive for Business file path to import, can be absolute or relative"
                 },
                 "connectionType": {
                     "type": "string",
-                    "description": "The import connection type for OneDrive pro file",
+                    "description": "The import connection type for OneDrive for Business file",
                     "enum": [
                         "import",
                         "connect"
@@ -6929,7 +7541,7 @@
                 },
                 "fileUrl": {
                     "type": "string",
-                    "description": "The SAS url of the temporary blob storage, used to import pbix files larger than 1 GB."
+                    "description": "The shared access signature (SAS) URL of the temporary blob storage, used to import pbix files larger than 1 GB."
                 }
             }
         },
@@ -6959,7 +7571,7 @@
                 "name",
                 "tables"
             ],
-            "description": "A Power BI Dataset",
+            "description": "A Power BI dataset",
             "properties": {
                 "id": {
                     "type": "string",
@@ -6975,7 +7587,7 @@
                 },
                 "defaultRetentionPolicy": {
                     "type": "string",
-                    "description": "The dataset default data retention policy, only relevant to Post Dataset API"
+                    "description": "The dataset default data retention policy, only relevant to post dataset API"
                 },
                 "addRowsAPIEnabled": {
                     "type": "boolean",
@@ -6983,7 +7595,7 @@
                 },
                 "tables": {
                     "type": "array",
-                    "description": "The dataset tables, only relevant to Post Dataset API",
+                    "description": "The dataset tables, only relevant to post dataset API",
                     "items": {
                         "$ref": "#/definitions/Table"
                     }
@@ -6994,21 +7606,21 @@
                 },
                 "relationships": {
                     "type": "array",
-                    "description": "The dataset relationships, only relevant to Post Dataset API",
+                    "description": "The dataset relationships, only relevant to post dataset API",
                     "items": {
                         "$ref": "#/definitions/Relationship"
                     }
                 },
                 "datasources": {
                     "type": "array",
-                    "description": "The datasources associated with this dataset, only relevant to Post Dataset API",
+                    "description": "The datasources associated with this dataset, only relevant to post dataset API",
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
                 },
                 "defaultMode": {
                     "type": "string",
-                    "description": "The dataset mode or type, only relevant to Post Dataset API",
+                    "description": "The dataset mode or type, only relevant to post dataset API",
                     "enum": [
                         "AsAzure",
                         "AsOnPrem",
@@ -7035,7 +7647,7 @@
                 },
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
-                    "description": "Dataset requires onprem gateway"
+                    "description": "Dataset requires on-premises data gateway"
                 }
             }
         },
@@ -7228,7 +7840,7 @@
                 "name",
                 "expression"
             ],
-            "description": "A Power BI Measure",
+            "description": "A Power BI measure",
             "properties": {
                 "name": {
                     "pattern": "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$",
@@ -7258,7 +7870,7 @@
             }
         },
         "ODataResponse[List[GatewayDatasource]]": {
-            "description": "Odata response wrapper for a Power BI Gateway datasource collection",
+            "description": "Odata response wrapper for a Power BI gateway datasource collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -7427,7 +8039,7 @@
             }
         },
         "ODataResponse[List[Gateway]]": {
-            "description": "Odata response wrapper for a Power BI Gateways list",
+            "description": "Odata response wrapper for a Power BI gateways list",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -7442,7 +8054,7 @@
             }
         },
         "ODataResponse[List[Refresh]]": {
-            "description": "Odata response wrapper for a Power BI Refresh history",
+            "description": "Odata response wrapper for a Power BI refresh history",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -7920,11 +8532,11 @@
             }
         },
         "GroupUserAccessRight": {
-            "description": "A Power BI user access right entry for group",
+            "description": "A Power BI user access right entry for workspace",
             "properties": {
                 "groupUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the group",
+                    "description": "Access rights user has for the workspace",
                     "enum": [
                         "None",
                         "Member",
@@ -7933,7 +8545,25 @@
                     ],
                     "x-ms-enum": {
                         "name": "GroupUserAccessRightEnum",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "Removes permission to content in workspace"
+                            },
+                            {
+                                "value": "Member",
+                                "description": "Grants read access to content in workspace"
+                            },
+                            {
+                                "value": "Admin",
+                                "description": "Grants administrator rights to workspace"
+                            },
+                            {
+                                "value": "Contributor",
+                                "description": "Grants read and write access to content in group"
+                            }
+                        ]
                     }
                 },
                 "emailAddress": {
@@ -8290,12 +8920,12 @@
             "properties": {
                 "Url": {
                     "type": "string",
-                    "description": "The SAS url for the temporary blob storage"
+                    "description": "The shared access signature (SAS) URL for the temporary blob storage"
                 },
                 "ExpirationTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The expiration time of the SAS url"
+                    "description": "The expiration time of the shared access signature (SAS) URL"
                 }
             }
         }

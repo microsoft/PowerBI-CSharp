@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Creates new content on **"My Workspace"** from PBIX, Excel or file path in
-            /// OneDrive Pro
+            /// OneDrive for Business
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -94,7 +94,7 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Creates new content on **"My Workspace"** from PBIX, Excel or file path in
-            /// OneDrive Pro
+            /// OneDrive for Business
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -187,9 +187,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// To import pbix files larger than 1 GB you should create a temporary upload
-            /// location and upload the pbix file using the SaS url from the response. then
-            /// call [Post Import](/rest/api/power-bi/imports/postimport) and specify
-            /// 'fileUrl' to be the SaS url in the [Request
+            /// location and upload the pbix file using the shared access signature (SAS)
+            /// URL from the response. then call [Post
+            /// Import](/rest/api/power-bi/imports/postimport) and specify 'fileUrl' to be
+            /// the SAS URL in the [Request
             /// Body](/rest/api/power-bi/imports/postimport#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
             /// import large pbix files is only available for workspaces on premium
             /// capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
@@ -210,9 +211,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// To import pbix files larger than 1 GB you should create a temporary upload
-            /// location and upload the pbix file using the SaS url from the response. then
-            /// call [Post Import](/rest/api/power-bi/imports/postimport) and specify
-            /// 'fileUrl' to be the SaS url in the [Request
+            /// location and upload the pbix file using the shared access signature (SAS)
+            /// URL from the response. then call [Post
+            /// Import](/rest/api/power-bi/imports/postimport) and specify 'fileUrl' to be
+            /// the SAS URL in the [Request
             /// Body](/rest/api/power-bi/imports/postimport#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
             /// import large pbix files is only available for workspaces on premium
             /// capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
@@ -423,9 +425,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// To import pbix files larger than 1 GB you should create a temporary upload
-            /// location and upload the pbix file using the SaS url from the response. then
-            /// call [Post Import In Group](/rest/api/power-bi/imports/postimportingroup)
-            /// and specify 'fileUrl' to be the SaS url in the [Request
+            /// location and upload the pbix file using the shared access signature (SAS)
+            /// URL from the response. then call [Post Import In
+            /// Group](/rest/api/power-bi/imports/postimportingroup) and specify 'fileUrl'
+            /// to be the SAS URL in the [Request
             /// Body](/rest/api/power-bi/imports/postimportingroup#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
             /// import large pbix files is only available for workspaces on premium
             /// capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
@@ -449,9 +452,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// To import pbix files larger than 1 GB you should create a temporary upload
-            /// location and upload the pbix file using the SaS url from the response. then
-            /// call [Post Import In Group](/rest/api/power-bi/imports/postimportingroup)
-            /// and specify 'fileUrl' to be the SaS url in the [Request
+            /// location and upload the pbix file using the shared access signature (SAS)
+            /// URL from the response. then call [Post Import In
+            /// Group](/rest/api/power-bi/imports/postimportingroup) and specify 'fileUrl'
+            /// to be the SAS URL in the [Request
             /// Body](/rest/api/power-bi/imports/postimportingroup#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
             /// import large pbix files is only available for workspaces on premium
             /// capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
@@ -470,6 +474,74 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<TemporaryUploadLocation> CreateTemporaryUploadLocationInGroupAsync(this IImports operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateTemporaryUploadLocationInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of imports for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListImport GetImportsAsAdmin(this IImports operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetImportsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of imports for an organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** You must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListImport> GetImportsAsAdminAsync(this IImports operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetImportsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
