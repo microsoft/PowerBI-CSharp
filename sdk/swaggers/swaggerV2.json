@@ -8937,19 +8937,7 @@
 
     },
     "security": [
-        { "pbi_oauth2": [ "user_impersonation" ] }
     ],
-    "securityDefinitions": {
-        "pbi_oauth2": {
-            "type": "oauth2",
-            "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize?resource=https%3a%2f%2fanalysis.windows.net%2fpowerbi%2fapi",
-            "flow": "implicit",
-            "description": "Azure Active Directory OAuth2 Flow.",
-            "scopes": {
-                "user_impersonation": "impersonate your user account"
-            }
-        }
-    },
     "tags": [
 
     ]
