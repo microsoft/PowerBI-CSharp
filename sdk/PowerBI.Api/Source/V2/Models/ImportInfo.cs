@@ -30,8 +30,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="connectionType">The import connection type for
         /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
-        /// <param name="fileUrl">The shared access signature (SAS) URL of the
-        /// temporary blob storage, used to import pbix files larger than 1
+        /// <param name="fileUrl">The shared access signature (SAS) url of the
+        /// temporary blob storage, used to import .pbix files larger than 1
         /// GB.</param>
         public ImportInfo(string filePath = default(string), string connectionType = default(string), string fileUrl = default(string))
         {
@@ -61,8 +61,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string ConnectionType { get; set; }
 
         /// <summary>
-        /// Gets or sets the shared access signature (SAS) URL of the temporary
-        /// blob storage, used to import pbix files larger than 1 GB.
+        /// Gets or sets the shared access signature (SAS) url of the temporary
+        /// blob storage, used to import .pbix files larger than 1 GB.
         /// </summary>
         [JsonProperty(PropertyName = "fileUrl")]
         public string FileUrl { get; set; }

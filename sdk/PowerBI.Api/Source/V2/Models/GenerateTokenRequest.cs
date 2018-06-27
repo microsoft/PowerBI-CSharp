@@ -28,18 +28,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the GenerateTokenRequest class.
         /// </summary>
         /// <param name="accessLevel">Required access level for EmbedToken
-        /// Generation ('Edit' only applies when generating EmbedToken for
-        /// report embedding, 'Create' only applies when generating EmbedToken
-        /// for report creation). Possible values include: 'View', 'Edit',
+        /// generation. 'Edit' only applies when generating EmbedToken for
+        /// report embedding. 'Create' only applies when generating EmbedToken
+        /// for report creation. Possible values include: 'View', 'Edit',
         /// 'Create'</param>
-        /// <param name="datasetId">Dataset id for report creation (Only
-        /// applies when generating EmbedToken for report creation)</param>
-        /// <param name="allowSaveAs">Indicating that an embedded report can be
-        /// saved as a new report (default value is 'false', only applies when
-        /// generating EmbedToken for report embedding)</param>
-        /// <param name="identities">List of identities to use for RLS rules
-        /// (Specifying identities is not supported when generating EmbedToken
-        /// for dataset embedding)</param>
+        /// <param name="datasetId">Dataset id for report creation. Only
+        /// applies when generating EmbedToken for report creation.</param>
+        /// <param name="allowSaveAs">Indicates an embedded report can be saved
+        /// as a new report. Default value is 'false'. Only applies when
+        /// generating EmbedToken for report embedding.</param>
+        /// <param name="identities">List of identities to use for RLS rules.
+        /// Specifying identities is not supported when generating EmbedToken
+        /// for dataset embedding.</param>
         public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             AccessLevel = accessLevel;
@@ -55,33 +55,33 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets required access level for EmbedToken Generation
-        /// ('Edit' only applies when generating EmbedToken for report
-        /// embedding, 'Create' only applies when generating EmbedToken for
-        /// report creation). Possible values include: 'View', 'Edit', 'Create'
+        /// Gets or sets required access level for EmbedToken generation.
+        /// 'Edit' only applies when generating EmbedToken for report
+        /// embedding. 'Create' only applies when generating EmbedToken for
+        /// report creation. Possible values include: 'View', 'Edit', 'Create'
         /// </summary>
         [JsonProperty(PropertyName = "accessLevel")]
         public string AccessLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets dataset id for report creation (Only applies when
-        /// generating EmbedToken for report creation)
+        /// Gets or sets dataset id for report creation. Only applies when
+        /// generating EmbedToken for report creation.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
 
         /// <summary>
-        /// Gets or sets indicating that an embedded report can be saved as a
-        /// new report (default value is 'false', only applies when generating
-        /// EmbedToken for report embedding)
+        /// Gets or sets indicates an embedded report can be saved as a new
+        /// report. Default value is 'false'. Only applies when generating
+        /// EmbedToken for report embedding.
         /// </summary>
         [JsonProperty(PropertyName = "allowSaveAs")]
         public bool? AllowSaveAs { get; set; }
 
         /// <summary>
-        /// Gets or sets list of identities to use for RLS rules (Specifying
+        /// Gets or sets list of identities to use for RLS rules. Specifying
         /// identities is not supported when generating EmbedToken for dataset
-        /// embedding)
+        /// embedding.
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }

@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Dashboard collection
+    /// Odata response wrapper for a Power BI dashboard collection
     /// </summary>
     public partial class ODataResponseListDashboard
     {

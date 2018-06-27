@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Publish Datasource To Gateway Request
+    /// A publish datasource to gateway request
     /// </summary>
     public partial class PublishDatasourceToGatewayRequest
     {

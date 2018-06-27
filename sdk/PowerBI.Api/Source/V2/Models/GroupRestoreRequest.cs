@@ -26,9 +26,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the GroupRestoreRequest class.
         /// </summary>
-        /// <param name="emailAddress">The email address of the owner for the
-        /// restored group</param>
-        /// <param name="name">The name for the restored group</param>
+        /// <param name="emailAddress">The email address of the owner of the
+        /// group to be restored.</param>
+        /// <param name="name">The name of the group to be restored.</param>
         public GroupRestoreRequest(string emailAddress, string name = default(string))
         {
             Name = name;
@@ -42,13 +42,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the name for the restored group
+        /// Gets or sets the name of the group to be restored.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the email address of the owner for the restored group
+        /// Gets or sets the email address of the owner of the group to be
+        /// restored.
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Clone Tile Request
+    /// Power BI clone tile request
     /// </summary>
     public partial class CloneTileRequest
     {
@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="targetDashboardId">The target dashboard id</param>
         /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace id, Empty Guid
+        /// the target workspace id. Empty Guid
         /// (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'.
-        /// &lt;br/&gt;if not provided tile will be cloned within the same
+        /// &lt;br/&gt;If not provided, tile will be cloned within the same
         /// workspace as the source tile.</param>
         /// <param name="targetReportId">Optional parameter &lt;br/&gt;When
         /// cloning a tile linked to a report, pass the target report id to
@@ -38,8 +38,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// cloning a tile linked to a dataset, pass the target model id to
         /// rebind the new tile to a different dataset.</param>
         /// <param name="positionConflictAction">Optional parameter for
-        /// specifying the action in case of position conflict. &lt;br/&gt;if
-        /// not provided 'Tail' will be used. Possible values include: 'Tail',
+        /// specifying the action in case of position conflict. &lt;br/&gt;If
+        /// not provided, 'Tail' is used. Possible values include: 'Tail',
         /// 'Abort'</param>
         public CloneTileRequest(string targetDashboardId = default(string), string targetWorkspaceId = default(string), string targetReportId = default(string), string targetModelId = default(string), string positionConflictAction = default(string))
         {
@@ -64,8 +64,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target workspace
-        /// id, Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
-        /// Workspace'. &amp;lt;br/&amp;gt;if not provided tile will be cloned
+        /// id. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
+        /// Workspace'. &amp;lt;br/&amp;gt;If not provided, tile will be cloned
         /// within the same workspace as the source tile.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
@@ -89,8 +89,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the action in case
-        /// of position conflict. &amp;lt;br/&amp;gt;if not provided 'Tail'
-        /// will be used. Possible values include: 'Tail', 'Abort'
+        /// of position conflict. &amp;lt;br/&amp;gt;If not provided, 'Tail' is
+        /// used. Possible values include: 'Tail', 'Abort'
         /// </summary>
         [JsonProperty(PropertyName = "positionConflictAction")]
         public string PositionConflictAction { get; set; }

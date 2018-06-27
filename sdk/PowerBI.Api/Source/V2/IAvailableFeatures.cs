@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListAvailableFeature>> GetAvailableFeaturesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified available feature for user by name
+        /// Returns the specified available feature for user by name.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: None

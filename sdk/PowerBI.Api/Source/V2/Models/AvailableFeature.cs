@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Available Feature
+    /// Power BI available feature
     /// </summary>
     public partial class AvailableFeature
     {

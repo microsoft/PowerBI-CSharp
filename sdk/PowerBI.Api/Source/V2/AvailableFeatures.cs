@@ -176,7 +176,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns the specified available feature for user by name
+        /// Returns the specified available feature for user by name.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: None

@@ -51,7 +51,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates new workspace
+        /// Creates new workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Group.Read.All or
@@ -80,7 +80,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the specified workspace
+        /// Deletes the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Group.Read.All or
@@ -109,7 +109,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of users that has access to the specified workspace
+        /// Returns a list of users that have access to the specified
+        /// workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Group.Read.All or
@@ -138,10 +139,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListGroupUserAccessRight>> GetGroupUsersWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gives the specified user permissions to the specified workspace
+        /// Grants the specified user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: Currently only Admin access right is supported.
+        /// **Note**: Only Admin access right is supported.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Group.Read.All or
         /// Group.ReadWrite.All or Workspace.Read.All or
         /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
@@ -171,7 +172,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> AddGroupUserWithHttpMessagesAsync(string groupId, GroupUserAccessRight userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the specified user permissions to the specified workspace
+        /// Deletes the specified user permissions from the specified
+        /// workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Group.Read.All or
@@ -203,12 +205,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteUserInGroupWithHttpMessagesAsync(string groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Assigns **"My Workspace"** to the specified capacity
+        /// Assigns **"My Workspace"** to the specified capacity.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation the user must have admin or
+        /// **Note**: To perform this operation, the user must have admin or
         /// assign permissions on the capacity. To unassign **"My Workspace"**
-        /// from a capacity Empty Guid (00000000-0000-0000-0000-000000000000)
+        /// from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000)
         /// should be provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required
         /// scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All.
         /// &lt;br/&gt;To set the permissions scope, see [Register an
@@ -234,14 +236,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> AssignMyWorkspaceToCapacityWithHttpMessagesAsync(AssignToCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Assigns the specified workspace to the specified capacity
+        /// Assigns the specified workspace to the specified capacity.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation the user must be admin on the
+        /// **Note**: To perform this operation, the user must be admin on the
         /// specified workspace and have admin or assign permissions on the
-        /// capacity. To unassign the specified workspace from a capacity Empty
-        /// Guid (00000000-0000-0000-0000-000000000000) should be provided as
-        /// capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// capacity. To unassign the specified workspace from a capacity,
+        /// Empty Guid (00000000-0000-0000-0000-000000000000) should be
+        /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To
         /// set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -269,11 +271,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> AssignToCapacityWithHttpMessagesAsync(string groupId, AssignToCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of workspaces for an organization.
+        /// Returns a list of workspaces for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
         /// or Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
         /// permissions are supported.&lt;br/&gt;To set the permissions scope,
@@ -284,7 +286,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Expands related entities inline
         /// </param>
         /// <param name='filter'>
-        /// Filters the results, based on a boolean condition
+        /// Filters the results based on a boolean condition
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results
@@ -306,13 +308,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the specified workspace properties for an organization.
+        /// Updates the specified workspace properties.
         /// </summary>
         /// <remarks>
         /// **Note**: This API is currently limited to updating workspaces in
         /// the new workspace experiences preview. Only name and description
-        /// can be updated, and name must be unique inside an organization. You
-        /// must have administrator rights (such as Office 365 Global
+        /// can be updated, and name must be unique inside an organization. The
+        /// user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
@@ -343,12 +345,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> UpdateGroupAsAdminWithHttpMessagesAsync(string groupId, Group groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Grants user permissions to the specified workspace for an
-        /// organization.
+        /// Grants user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
         /// permissions are supported.&lt;br/&gt;To set the permissions scope,
@@ -378,12 +379,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> AddUserAsAdminWithHttpMessagesAsync(string groupId, GroupUserAccessRight userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Removes user permissions to the specified workspace for an
-        /// organization.
+        /// Removes user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
         /// permissions are supported.&lt;br/&gt;To set the permissions scope,
@@ -414,16 +414,17 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<object>> DeleteUserAsAdminWithHttpMessagesAsync(string groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Restores a deleted workspace for an organization.
+        /// Restores a deleted workspace.
         /// </summary>
         /// <remarks>
         /// **Note**: This API is currently limited to restoring workspaces in
-        /// the new workspace experiences preview. You must have administrator
-        /// rights (such as Office 365 Global Administrator or Power BI Service
-        /// Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.ReadWrite.All&lt;br/&gt;Application only and
-        /// delegated permissions are supported.&lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// the new workspace experiences preview. The user must have
+        /// administrator rights (such as Office 365 Global Administrator or
+        /// Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
+        /// permissions are supported.&lt;br/&gt;To set the permissions scope,
+        /// see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>

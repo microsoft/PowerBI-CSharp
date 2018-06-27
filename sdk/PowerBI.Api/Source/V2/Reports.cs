@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.V2
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Returns a list of reports from **"My Workspace"**
+        /// Returns a list of reports from **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -178,7 +178,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns the specified report from **"My Workspace"**
+        /// Returns the specified report from **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -324,7 +324,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Deletes the specified report from **"My Workspace"**
+        /// Deletes the specified report from **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
@@ -470,7 +470,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Clones the specified report from **"My Workspace"**
+        /// Clones the specified report from **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
@@ -630,7 +630,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Exports the specified report from **"My Workspace"** to a PBIX file
+        /// Exports the specified report from **"My Workspace"** to a .pbix file.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -764,7 +764,7 @@ namespace Microsoft.PowerBI.Api.V2
 
         /// <summary>
         /// Updates the specified report from **"My Workspace"** to have the same
-        /// content as the specified report in the request body
+        /// content as the report in the request body.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
@@ -924,8 +924,8 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Rebinds the specified report from **"My Workspace"** workspace to the
-        /// requested dataset
+        /// Rebinds the specified report from **"My Workspace"** to the requested
+        /// dataset.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
@@ -1085,9 +1085,8 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// This functionality only available in a workspace context. please use
-        /// [Reports
-        /// GenerateTokenForCreateInGroup](/rest/api/power-bi/embedtoken/reports_generatetokenforcreateingroup)
+        /// This functionality is only available in a workspace context. Use [Reports
+        /// GenerateTokenForCreateInGroup](/rest/api/power-bi/embedtoken/reports_generatetokenforcreateingroup).
         /// </summary>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -1233,9 +1232,8 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// This functionality only available in a workspace context. please use
-        /// [Reports
-        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/reports_generatetokeningroup)
+        /// This functionality is only available in a workspace context. Use [Reports
+        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/reports_generatetokeningroup).
         /// </summary>
         /// <param name='reportKey'>
         /// The report id
@@ -1390,7 +1388,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns a list of reports from the specified workspace
+        /// Returns a list of reports from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -1536,7 +1534,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns the specified report from the specified workspace
+        /// Returns the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -1691,7 +1689,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Deletes the specified report from the specified workspace
+        /// Deletes the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
@@ -1846,7 +1844,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Clones the specified report from the specified workspace
+        /// Clones the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
@@ -2015,7 +2013,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Exports the specified report from the specified workspace to a PBIX file
+        /// Exports the specified report from the specified workspace to a .pbix file.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -2158,7 +2156,7 @@ namespace Microsoft.PowerBI.Api.V2
 
         /// <summary>
         /// Updates the specified report from the specified workspace to have the same
-        /// content as the specified report in the request body
+        /// content as the specified report in the request body.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
@@ -2328,7 +2326,7 @@ namespace Microsoft.PowerBI.Api.V2
 
         /// <summary>
         /// Rebinds the specified report from the specified workspace to the requested
-        /// dataset
+        /// dataset.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
@@ -2498,9 +2496,9 @@ namespace Microsoft.PowerBI.Api.V2
 
         /// <summary>
         /// Generates an embed token to allow report creation on the specified
-        /// workspace based on the specified dataset&lt;br/&gt;This API is relevant
+        /// workspace based on the specified dataset.&lt;br/&gt;This API is relevant
         /// only to ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -2664,9 +2662,9 @@ namespace Microsoft.PowerBI.Api.V2
 
         /// <summary>
         /// Generates an embed token to view or edit the specified report from the
-        /// specified workspace&lt;br/&gt;This API is relevant only to ['App owns data'
-        /// embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
+        /// specified workspace.&lt;br/&gt;This API is relevant only to ['App owns
+        /// data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -2840,11 +2838,11 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns a list of reports from the specified workspace for an organization.
+        /// Returns a list of reports from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator) to call this API.
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
         /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
@@ -3018,11 +3016,11 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns a list of reports for an organization.
+        /// Returns a list of reports for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator) to call this API.
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
         /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an

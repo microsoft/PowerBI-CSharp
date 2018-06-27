@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// The Bind dataset to gateway request
+    /// The bind dataset to gateway request
     /// </summary>
     public partial class BindToGatewayRequest
     {

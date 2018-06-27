@@ -19,7 +19,7 @@ namespace Microsoft.PowerBI.Api.V2
     public partial interface ICapacities
     {
         /// <summary>
-        /// Returns a list of capacities the user has access to
+        /// Returns a list of capacities the user has access to.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Capacity.Read.All or

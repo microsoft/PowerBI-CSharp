@@ -16,7 +16,7 @@ namespace Microsoft.PowerBI.Api.V2
     public static partial class CapacitiesExtensions
     {
             /// <summary>
-            /// Returns a list of capacities the user has access to
+            /// Returns a list of capacities the user has access to.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of capacities the user has access to
+            /// Returns a list of capacities the user has access to.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All

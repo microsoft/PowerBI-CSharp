@@ -29,29 +29,29 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the Dataset class.
         /// </summary>
         /// <param name="name">The dataset name</param>
-        /// <param name="tables">The dataset tables, only relevant to post
-        /// dataset API</param>
+        /// <param name="tables">The dataset tables. Only relevant to the
+        /// PostDataset API.</param>
         /// <param name="id">The dataset id</param>
         /// <param name="configuredBy">The dataset owner</param>
         /// <param name="defaultRetentionPolicy">The dataset default data
-        /// retention policy, only relevant to post dataset API</param>
+        /// retention policy. Only relevant to the PostDataset API.</param>
         /// <param name="addRowsAPIEnabled">Whether dataset allows adding new
         /// rows</param>
         /// <param name="webUrl">The dataset web url</param>
-        /// <param name="relationships">The dataset relationships, only
-        /// relevant to post dataset API</param>
+        /// <param name="relationships">The dataset relationships. Only
+        /// relevant to the PostDataset API.</param>
         /// <param name="datasources">The datasources associated with this
-        /// dataset, only relevant to post dataset API</param>
-        /// <param name="defaultMode">The dataset mode or type, only relevant
-        /// to post dataset API. Possible values include: 'AsAzure',
+        /// dataset. Only relevant to the PostDataset API.</param>
+        /// <param name="defaultMode">The dataset mode or type. Only relevant
+        /// to the PostDataset API. Possible values include: 'AsAzure',
         /// 'AsOnPrem', 'Push', 'Streaming', 'PushStreaming'</param>
         /// <param name="isRefreshable">Can this dataset be refreshed</param>
         /// <param name="isEffectiveIdentityRequired">Dataset requires
         /// effective identity</param>
         /// <param name="isEffectiveIdentityRolesRequired">Dataset requires
         /// roles</param>
-        /// <param name="isOnPremGatewayRequired">Dataset requires on-premises
-        /// data gateway</param>
+        /// <param name="isOnPremGatewayRequired">Dataset requires an
+        /// On-premises Data Gateway</param>
         public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Relationship> relationships = default(IList<Relationship>), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
         {
             Id = id;
@@ -95,8 +95,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string ConfiguredBy { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset default data retention policy, only
-        /// relevant to post dataset API
+        /// Gets or sets the dataset default data retention policy. Only
+        /// relevant to the PostDataset API.
         /// </summary>
         [JsonProperty(PropertyName = "defaultRetentionPolicy")]
         public string DefaultRetentionPolicy { get; set; }
@@ -108,7 +108,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public bool? AddRowsAPIEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset tables, only relevant to post dataset API
+        /// Gets or sets the dataset tables. Only relevant to the PostDataset
+        /// API.
         /// </summary>
         [JsonProperty(PropertyName = "tables")]
         public IList<Table> Tables { get; set; }
@@ -120,22 +121,22 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string WebUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset relationships, only relevant to post
-        /// dataset API
+        /// Gets or sets the dataset relationships. Only relevant to the
+        /// PostDataset API.
         /// </summary>
         [JsonProperty(PropertyName = "relationships")]
         public IList<Relationship> Relationships { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasources associated with this dataset, only
-        /// relevant to post dataset API
+        /// Gets or sets the datasources associated with this dataset. Only
+        /// relevant to the PostDataset API.
         /// </summary>
         [JsonProperty(PropertyName = "datasources")]
         public IList<Datasource> Datasources { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset mode or type, only relevant to post
-        /// dataset API. Possible values include: 'AsAzure', 'AsOnPrem',
+        /// Gets or sets the dataset mode or type. Only relevant to the
+        /// PostDataset API. Possible values include: 'AsAzure', 'AsOnPrem',
         /// 'Push', 'Streaming', 'PushStreaming'
         /// </summary>
         [JsonProperty(PropertyName = "defaultMode")]
@@ -160,7 +161,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public bool? IsEffectiveIdentityRolesRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets dataset requires on-premises data gateway
+        /// Gets or sets dataset requires an On-premises Data Gateway
         /// </summary>
         [JsonProperty(PropertyName = "IsOnPremGatewayRequired")]
         public bool? IsOnPremGatewayRequired { get; set; }

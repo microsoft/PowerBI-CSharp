@@ -29,8 +29,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="gatewayId">The associated gateway id</param>
         /// <param name="datasourceName">The name of the datasource</param>
         /// <param name="datasourceType">The type of the datasource</param>
-        /// <param name="connectionDetails">Json formatted connection
-        /// details</param>
+        /// <param name="connectionDetails">Connection details in json
+        /// format</param>
         /// <param name="credentialType">Type of the datasoruce credentials.
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
@@ -78,7 +78,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string DatasourceType { get; set; }
 
         /// <summary>
-        /// Gets or sets json formatted connection details
+        /// Gets or sets connection details in json format
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public string ConnectionDetails { get; set; }

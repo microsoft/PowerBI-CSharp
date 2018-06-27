@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Tile
+    /// A Power BI tile
     /// </summary>
     public partial class Tile
     {
@@ -31,11 +31,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="colSpan">number of columns a tile should span</param>
         /// <param name="embedUrl">The tile embed url</param>
         /// <param name="embedData">The tile embed data</param>
-        /// <param name="reportId">The report id, available only for tiles
-        /// created from a report</param>
-        /// <param name="datasetId">The dataset id, available only for tiles
-        /// created from a report or using a dataset (i.e. Q&amp;A
-        /// tiles)</param>
+        /// <param name="reportId">The report id. Available only for tiles
+        /// created from a report.</param>
+        /// <param name="datasetId">The dataset id. Available only for tiles
+        /// created from a report or using a dataset; for example, Q&amp;A
+        /// tiles.</param>
         public Tile(string id = default(string), string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string), string reportId = default(string), string datasetId = default(string))
         {
             Id = id;
@@ -91,15 +91,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string EmbedData { get; set; }
 
         /// <summary>
-        /// Gets or sets the report id, available only for tiles created from a
-        /// report
+        /// Gets or sets the report id. Available only for tiles created from a
+        /// report.
         /// </summary>
         [JsonProperty(PropertyName = "reportId")]
         public string ReportId { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset id, available only for tiles created from
-        /// a report or using a dataset (i.e. Q&amp;amp;A tiles)
+        /// Gets or sets the dataset id. Available only for tiles created from
+        /// a report or using a dataset; for example, Q&amp;amp;A tiles.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Group
+    /// A Power BI group
     /// </summary>
     public partial class Group
     {
@@ -36,8 +36,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="description">The group description</param>
         /// <param name="type">The type of group</param>
         /// <param name="state">The group state</param>
-        /// <param name="users">The users that belong to the group, with their
-        /// access rights</param>
+        /// <param name="users">The users that belong to the group, and their
+        /// access rights.</param>
         public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>))
         {
             Id = id;
@@ -106,8 +106,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or sets the users that belong to the group, with their access
-        /// rights
+        /// Gets or sets the users that belong to the group, and their access
+        /// rights.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUserAccessRight> Users { get; set; }

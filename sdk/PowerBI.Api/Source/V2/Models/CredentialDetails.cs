@@ -25,20 +25,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        /// <param name="credentials">The credentials. this depends on the
-        /// 'credentialType' value, see [Update Datasource
+        /// <param name="credentials">The credentials. Depends on the
+        /// 'credentialType' value. See [Update Datasource
         /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).</param>
         /// <param name="credentialType">The credential type. Possible values
         /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'</param>
         /// <param name="encryptedConnection">Should Power BI allow fallback to
         /// unencrypted if the target server doesn't support encryption.
         /// Possible values include: 'Encrypted', 'NotEncrypted'</param>
-        /// <param name="encryptionAlgorithm">The encryption algorithm, for
-        /// cloud datasource use 'None', for On-OnPrem datasource encrypt using
+        /// <param name="encryptionAlgorithm">The encryption algorithm. For
+        /// cloud datasource, use 'None'. For on-premises datasource, use
         /// gateway public key with 'RSA-OAEP' algorithm. Possible values
         /// include: 'None', 'RSA-OAEP'</param>
-        /// <param name="privacyLevel">The privacy level, relevant when
-        /// combinig data from multiple sources. Possible values include:
+        /// <param name="privacyLevel">The privacy level. Relevant when
+        /// combining data from multiple sources. Possible values include:
         /// 'None', 'Public', 'Organizational', 'Private'</param>
         /// <param name="useCallerAADIdentity">Should the caller's AAD identity
         /// be used for OAuth2 credentials configuration</param>
@@ -59,8 +59,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the credentials. this depends on the 'credentialType'
-        /// value, see [Update Datasource
+        /// Gets or sets the credentials. Depends on the 'credentialType'
+        /// value. See [Update Datasource
         /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).
         /// </summary>
         [JsonProperty(PropertyName = "credentials")]
@@ -82,16 +82,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string EncryptedConnection { get; set; }
 
         /// <summary>
-        /// Gets or sets the encryption algorithm, for cloud datasource use
-        /// 'None', for On-OnPrem datasource encrypt using gateway public key
-        /// with 'RSA-OAEP' algorithm. Possible values include: 'None',
-        /// 'RSA-OAEP'
+        /// Gets or sets the encryption algorithm. For cloud datasource, use
+        /// 'None'. For on-premises datasource, use gateway public key with
+        /// 'RSA-OAEP' algorithm. Possible values include: 'None', 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
         public string EncryptionAlgorithm { get; set; }
 
         /// <summary>
-        /// Gets or sets the privacy level, relevant when combinig data from
+        /// Gets or sets the privacy level. Relevant when combining data from
         /// multiple sources. Possible values include: 'None', 'Public',
         /// 'Organizational', 'Private'
         /// </summary>

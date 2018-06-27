@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Refresh Request
+    /// Power BI refresh request
     /// </summary>
     public partial class RefreshRequest
     {

@@ -19,7 +19,7 @@ namespace Microsoft.PowerBI.Api.V2
     public partial interface IDashboards
     {
         /// <summary>
-        /// Returns a list of dashboards from **"My Workspace"**
+        /// Returns a list of dashboards from **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
@@ -41,7 +41,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new empty dashboard on **"My Workspace"**
+        /// Creates a new empty dashboard on **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> AddDashboardWithHttpMessagesAsync(AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified dashboard from **"My Workspace"**
+        /// Returns the specified dashboard from **"My Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
@@ -97,11 +97,11 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from **"My
-        /// Workspace"**
+        /// Workspace"**.
         /// </summary>
         /// <remarks>
-        /// **Note**: All tile types are supported, except for "model tiles":
-        /// which include datasets and live tiles that include an entire report
+        /// **Note**: All tile types are supported except for "model tiles",
+        /// which include datasets and live tiles that contain an entire report
         /// page. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dashboard.ReadWrite.All or Dashboard.Read.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
@@ -128,11 +128,11 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified tile within the specified dashboard from
-        /// **"My Workspace"**
+        /// **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// **Note**: All tile types are supported, except for "model tiles":
-        /// which include datasets and live tiles that include an entire report
+        /// **Note**: All tile types are supported except for "model tiles",
+        /// which include datasets and live tiles that contain an entire report
         /// page. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dashboard.ReadWrite.All or Dashboard.Read.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
@@ -161,17 +161,18 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(string dashboardKey, string tileKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified tile from **"My Workspace"**
+        /// Clones the specified tile from **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If target report id and target dataset are missing, the
-        /// following will occur:&lt;li&gt;If you are cloning a tile within the
-        /// same workspace, the report and dataset links will be cloned from
-        /// the source tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile
-        /// within a different workspace, report and dataset links will be
-        /// rested. The tile will be broken.&lt;/li&gt;&lt;br/&gt;**Required
-        /// scope**: Dashboard.ReadWrite.All &lt;br/&gt;To set the permissions
-        /// scope, see [Register an
+        /// &lt;br/&gt;If target report id and target dataset are not
+        /// specified, the following can occur:&lt;li&gt;When a tile clone is
+        /// performed within the same workspace, the report and dataset links
+        /// will be cloned from the source tile.&lt;/li&gt;&lt;li&gt;When
+        /// cloning a tile within a different workspace, report and dataset
+        /// links will be rested, and the tile will be
+        /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**:
+        /// Dashboard.ReadWrite.All &lt;br/&gt;To set the permissions scope,
+        /// see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardKey'>
@@ -200,9 +201,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Tile>> CloneTileWithHttpMessagesAsync(string dashboardKey, string tileKey, CloneTileRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// This functionality only available in a workspace context. please
-        /// use [Dashboards
-        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup)
+        /// This functionality is only available in a workspace context. Use
+        /// [Dashboards
+        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup).
         /// </summary>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -227,7 +228,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenWithHttpMessagesAsync(string dashboardKey, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of dashboards from the specified workspace
+        /// Returns a list of dashboards from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
@@ -255,7 +256,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new empty dashboard on the specified workspace
+        /// Creates a new empty dashboard on the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
@@ -285,7 +286,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> AddDashboardInGroupWithHttpMessagesAsync(string groupId, AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified dashboard from the specified workspace
+        /// Returns the specified dashboard from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
@@ -317,11 +318,11 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse<Dashboard>> GetDashboardInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from the
-        /// specified workspace
+        /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: All tile types are supported, except for "model tiles":
-        /// which include datasets and live tiles that include an entire report
+        /// **Note**: All tile types are supported except for "model tiles",
+        /// which include datasets and live tiles that contain an entire report
         /// page. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dashboard.ReadWrite.All or Dashboard.Read.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
@@ -351,11 +352,11 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse<ODataResponseListTile>> GetTilesInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified tile within the specified dashboard from the
-        /// specified workspace
+        /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: All tile types are supported, except for "model tiles":
-        /// which include datasets and live tiles that include an entire report
+        /// **Note**: All tile types are supported except for "model tiles",
+        /// which include datasets and live tiles that contain an entire report
         /// page. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dashboard.ReadWrite.All or Dashboard.Read.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
@@ -387,13 +388,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Tile>> GetTileInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, string tileKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified tile from the specified workspace
+        /// Clones the specified tile from the specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;If target report id and target dataset are missing, the
-        /// following will occur:&lt;li&gt;If you are cloning a tile within the
-        /// same workspace, the report and dataset links will be cloned from
-        /// the source tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile
+        /// following can occur:&lt;li&gt;When a tile clone is performed within
+        /// the same workspace, the report and dataset links will be cloned
+        /// from the source tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile
         /// within a different workspace, report and dataset links will be
         /// rested. The tile will be broken.&lt;/li&gt;&lt;br/&gt;**Required
         /// scope**: Dashboard.ReadWrite.All &lt;br/&gt;To set the permissions
@@ -430,9 +431,9 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse<Tile>> CloneTileInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, string tileKey, CloneTileRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generates an embed token to view the specified dashboard from the
-        /// specified workspace&lt;br/&gt;This API is relevant only to ['App
+        /// specified workspace.&lt;br/&gt;This API is relevant only to ['App
         /// owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers)
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -469,12 +470,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<EmbedToken>> GenerateTokenInGroupWithHttpMessagesAsync(string groupId, string dashboardKey, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of dashboards from the specified workspace for an
-        /// organization.
+        /// Returns a list of dashboards from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
         /// or Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
         /// permissions are supported.&lt;br/&gt;To set the permissions scope,
@@ -510,11 +510,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsInGroupAsAdminWithHttpMessagesAsync(string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of dashboards for an organization.
+        /// Returns a list of dashboards for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
         /// or Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
         /// permissions are supported.&lt;br/&gt;To set the permissions scope,
@@ -544,12 +544,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of tiles within the specified dashboard for an
-        /// organization.
+        /// Returns a list of tiles within the specified dashboard.
         /// </summary>
         /// <remarks>
-        /// **Note:** You must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
         /// or Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
         /// permissions are supported.&lt;br/&gt;To set the permissions scope,

@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Available Features list
+    /// Odata response wrapper for a Power BI available features list
     /// </summary>
     public partial class ODataResponseListAvailableFeature
     {
@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the ODataResponseListAvailableFeature
         /// class.
         /// </summary>
-        /// <param name="features">The Available Features List</param>
+        /// <param name="features">The available features list</param>
         public ODataResponseListAvailableFeature(string odatacontext = default(string), IList<AvailableFeature> features = default(IList<AvailableFeature>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the Available Features List
+        /// Gets or sets the available features list
         /// </summary>
         [JsonProperty(PropertyName = "features")]
         public IList<AvailableFeature> Features { get; set; }

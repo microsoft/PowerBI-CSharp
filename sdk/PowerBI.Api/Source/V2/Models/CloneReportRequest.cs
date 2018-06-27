@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Clone Report Request
+    /// Power BI clone report request
     /// </summary>
     public partial class CloneReportRequest
     {
@@ -27,12 +27,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="name">The new report name</param>
         /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace id, Empty Guid
+        /// the target workspace id. Empty Guid
         /// (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'.
-        /// &lt;br/&gt;If not provided the new report will be cloned within the
-        /// same workspace as the source report.</param>
+        /// &lt;br/&gt;If not provided, the new report will be cloned within
+        /// the same workspace as the source report.</param>
         /// <param name="targetModelId">Optional parameter for specifying the
-        /// target associated dataset id. &lt;br/&gt;If not provided the new
+        /// target associated dataset id. &lt;br/&gt;If not provided, the new
         /// report will be associated with the same dataset as the source
         /// report.</param>
         public CloneReportRequest(string name = default(string), string targetWorkspaceId = default(string), string targetModelId = default(string))
@@ -56,8 +56,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target workspace
-        /// id, Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
-        /// Workspace'. &amp;lt;br/&amp;gt;If not provided the new report will
+        /// id. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
+        /// Workspace'. &amp;lt;br/&amp;gt;If not provided, the new report will
         /// be cloned within the same workspace as the source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
@@ -65,7 +65,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target
-        /// associated dataset id. &amp;lt;br/&amp;gt;If not provided the new
+        /// associated dataset id. &amp;lt;br/&amp;gt;If not provided, the new
         /// report will be associated with the same dataset as the source
         /// report.
         /// </summary>

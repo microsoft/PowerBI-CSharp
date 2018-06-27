@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Update Report Content Request
+    /// Power BI update report content request
     /// </summary>
     public partial class TemporaryUploadLocation
     {
@@ -25,10 +25,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the TemporaryUploadLocation class.
         /// </summary>
-        /// <param name="url">The shared access signature (SAS) URL for the
+        /// <param name="url">The shared access signature (SAS) url for the
         /// temporary blob storage</param>
         /// <param name="expirationTime">The expiration time of the shared
-        /// access signature (SAS) URL</param>
+        /// access signature (SAS) url</param>
         public TemporaryUploadLocation(string url = default(string), System.DateTime? expirationTime = default(System.DateTime?))
         {
             Url = url;
@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the shared access signature (SAS) URL for the
+        /// Gets or sets the shared access signature (SAS) url for the
         /// temporary blob storage
         /// </summary>
         [JsonProperty(PropertyName = "Url")]
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the expiration time of the shared access signature
-        /// (SAS) URL
+        /// (SAS) url
         /// </summary>
         [JsonProperty(PropertyName = "ExpirationTime")]
         public System.DateTime? ExpirationTime { get; set; }

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// An Update Datasource To Gateway Request
+    /// An update datasource to gateway request
     /// </summary>
     public partial class UpdateDatasourceRequest
     {

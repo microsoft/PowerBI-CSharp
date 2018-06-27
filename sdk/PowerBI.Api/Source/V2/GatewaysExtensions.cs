@@ -16,7 +16,7 @@ namespace Microsoft.PowerBI.Api.V2
     public static partial class GatewaysExtensions
     {
             /// <summary>
-            /// Returns a list of gateways the user is admin on
+            /// Returns a list of gateways for which the user is an admin.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of gateways the user is admin on
+            /// Returns a list of gateways for which the user is an admin.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -54,7 +54,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified gateway
+            /// Returns the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -73,7 +73,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified gateway
+            /// Returns the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -98,7 +98,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of datasources from the specified gateway
+            /// Returns a list of datasources from the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -117,7 +117,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of datasources from the specified gateway
+            /// Returns a list of datasources from the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -142,7 +142,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Create a new datasource on the specified gateway
+            /// Creates a new datasource on the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -164,7 +164,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Create a new datasource on the specified gateway
+            /// Creates a new datasource on the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -192,7 +192,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified datasource from the specified gateway
+            /// Returns the specified datasource from the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -214,7 +214,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified datasource from the specified gateway
+            /// Returns the specified datasource from the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -242,7 +242,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Deletes the specified datasource from the specified gateway
+            /// Deletes the specified datasource from the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -264,7 +264,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Deletes the specified datasource from the specified gateway
+            /// Deletes the specified datasource from the specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -293,11 +293,15 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Updates the credentials of the specified datasource from the specified
-            /// gateway
+            /// gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;To get the gateway and datasource ids for a dataset, use [Get
+            /// Datasources](/rest/api/power-bi/datasets/getdatasources) or [Get
+            /// Datasources In
+            /// Group](/rest/api/power-bi/datasets/getdatasourcesingroup)&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -319,11 +323,15 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Updates the credentials of the specified datasource from the specified
-            /// gateway
+            /// gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;To get the gateway and datasource ids for a dataset, use [Get
+            /// Datasources](/rest/api/power-bi/datasets/getdatasources) or [Get
+            /// Datasources In
+            /// Group](/rest/api/power-bi/datasets/getdatasourcesingroup)&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -351,7 +359,7 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Checks the connectivity status of the specified datasource from the
-            /// specified gateway
+            /// specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -374,7 +382,7 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Checks the connectivity status of the specified datasource from the
-            /// specified gateway
+            /// specified gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -402,7 +410,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of users who can make use of the specified datasource
+            /// Returns a list of users who have access to the specified datasource.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
@@ -424,7 +432,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of users who can make use of the specified datasource
+            /// Returns a list of users who have access to the specified datasource.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
@@ -452,7 +460,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gives the specified user permissions to use the specified datasource
+            /// Grants the specified user the permissions required to use the specified
+            /// datasource.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -477,7 +486,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gives the specified user permissions to use the specified datasource
+            /// Grants the specified user the permissions required to use the specified
+            /// datasource.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -508,7 +518,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Removes the specified user from the specified datasource
+            /// Removes the specified user from the specified datasource.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -533,7 +543,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Removes the specified user from the specified datasource
+            /// Removes the specified user from the specified datasource.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
