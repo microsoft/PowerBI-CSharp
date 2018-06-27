@@ -6232,6 +6232,7 @@
                                         "admins": [ "john@contoso.com" ],
                                         "sku": "A1",
                                         "state": "Active",
+                                        "region": "West Central US",
                                         "capacityUserAccessRight": "Admin"
                                     }
                                 ]
@@ -8826,6 +8827,10 @@
                         "name": "capacityUserAccessRightEnum",
                         "modelAsString": true
                     }
+                },
+                "region": {
+                    "type": "string",
+                    "description": "The Azure region where the capacity is provisioned"
                 }
             }
         },

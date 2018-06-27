@@ -38,7 +38,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="capacityUserAccessRight">Access right user has on the
         /// capacity. Possible values include: 'None', 'Assign',
         /// 'Admin'</param>
-        public Capacity(string id = default(string), string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string state = default(string), string capacityUserAccessRight = default(string))
+        /// <param name="region">The Azure region where the capacity is
+        /// provisioned</param>
+        public Capacity(string id = default(string), string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string state = default(string), string capacityUserAccessRight = default(string), string region = default(string))
         {
             Id = id;
             DisplayName = displayName;
@@ -46,6 +48,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
             Sku = sku;
             State = state;
             CapacityUserAccessRight = capacityUserAccessRight;
+            Region = region;
             CustomInit();
         }
 
@@ -93,6 +96,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]
         public string CapacityUserAccessRight { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Azure region where the capacity is provisioned
+        /// </summary>
+        [JsonProperty(PropertyName = "region")]
+        public string Region { get; set; }
 
     }
 }
