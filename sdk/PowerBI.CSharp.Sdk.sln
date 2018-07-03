@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api", "PowerBI.Api\PowerBI.Api.csproj", "{1EE969AD-7923-4855-AACA-2A1B790BB0F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DCD4C983-2786-41C7-9A9C-36A9462673B4}"
-	ProjectSection(SolutionItems) = preProject
-		swagger.json = swagger.json
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packages", "Packages", "{5FD8CA7D-970C-44D6-B18F-ABAE87376D9E}"
 EndProject

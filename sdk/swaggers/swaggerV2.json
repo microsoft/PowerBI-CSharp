@@ -3971,7 +3971,7 @@
                 },
                 "deprecated":false
             }
-        },
+        }
     },
     "definitions":{
         "Import":{
@@ -4990,7 +4990,7 @@
                 },
                 "customData":{
                     "type":"string",
-                    "description":"The custom data string to be added to the AS connection string",
+                    "description":"The custom data string to be added to the AS connection string"
                 }
           }
         },
