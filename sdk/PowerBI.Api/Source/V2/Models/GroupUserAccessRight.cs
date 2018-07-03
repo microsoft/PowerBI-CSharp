@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// for group. Possible values include: 'None', 'Member',
         /// 'Admin'</param>
         /// <param name="emailAddress">Email address of the user.</param>
-        public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string))
+        public GroupUserAccessRight(GroupUserAccessRightEnum? groupUserAccessRightProperty = default(GroupUserAccessRightEnum?), string emailAddress = default(string))
         {
             GroupUserAccessRightProperty = groupUserAccessRightProperty;
             EmailAddress = emailAddress;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// include: 'None', 'Member', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
-        public string GroupUserAccessRightProperty { get; set; }
+        public GroupUserAccessRightEnum? GroupUserAccessRightProperty { get; set; }
 
         /// <summary>
         /// Gets or sets email address of the user.

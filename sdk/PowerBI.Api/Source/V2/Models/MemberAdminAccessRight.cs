@@ -6,14 +6,98 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for MemberAdminAccessRight.
     /// </summary>
-    public static class MemberAdminAccessRight
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(MemberAdminAccessRightConverter))]
+    public struct MemberAdminAccessRight : System.IEquatable<MemberAdminAccessRight>
     {
-        public const string None = "None";
-        public const string Member = "Member";
-        public const string Admin = "Admin";
+        private MemberAdminAccessRight(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
+        public static readonly MemberAdminAccessRight None = "None";
+
+        public static readonly MemberAdminAccessRight Member = "Member";
+
+        public static readonly MemberAdminAccessRight Admin = "Admin";
+
+
+        /// <summary>
+        /// Underlying value of enum MemberAdminAccessRight
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for MemberAdminAccessRight
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type MemberAdminAccessRight
+        /// </summary>
+        public bool Equals(MemberAdminAccessRight e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to MemberAdminAccessRight
+        /// </summary>
+        public static implicit operator MemberAdminAccessRight(string value)
+        {
+            return new MemberAdminAccessRight(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert MemberAdminAccessRight to string
+        /// </summary>
+        public static implicit operator string(MemberAdminAccessRight e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum MemberAdminAccessRight
+        /// </summary>
+        public static bool operator == (MemberAdminAccessRight e1, MemberAdminAccessRight e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum MemberAdminAccessRight
+        /// </summary>
+        public static bool operator != (MemberAdminAccessRight e1, MemberAdminAccessRight e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for MemberAdminAccessRight
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is MemberAdminAccessRight && Equals((MemberAdminAccessRight)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode MemberAdminAccessRight
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

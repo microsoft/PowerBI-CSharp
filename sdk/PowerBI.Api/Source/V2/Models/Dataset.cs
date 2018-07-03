@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// roles</param>
         /// <param name="isOnPremGatewayRequired">Dataset requires onprem
         /// gateway</param>
-        public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), string defaultMode = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
+        public Dataset(string name, IList<Table> tables, string id = default(string), string configuredBy = default(string), string defaultRetentionPolicy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), IList<Datasource> datasources = default(IList<Datasource>), DatasetMode? defaultMode = default(DatasetMode?), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
         {
             Id = id;
             Name = name;
@@ -124,7 +124,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'AsAzure', 'AsOnPrem', 'Push', 'Streaming', 'PushStreaming'
         /// </summary>
         [JsonProperty(PropertyName = "defaultMode")]
-        public string DefaultMode { get; set; }
+        public DatasetMode? DefaultMode { get; set; }
 
         /// <summary>
         /// Gets or sets can this dataset be refreshed

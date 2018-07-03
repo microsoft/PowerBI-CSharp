@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// datasource. Possible values include: 'None', 'Read', 'Write',
         /// 'Admin', 'ReadWrite'</param>
         /// <param name="emailAddress">Email address of the user.</param>
-        public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string))
+        public UserAccessRight(UserAccessRightEnum? datasourceAccessRight = default(UserAccessRightEnum?), string emailAddress = default(string))
         {
             DatasourceAccessRight = datasourceAccessRight;
             EmailAddress = emailAddress;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
         /// </summary>
         [JsonProperty(PropertyName = "datasourceAccessRight")]
-        public string DatasourceAccessRight { get; set; }
+        public UserAccessRightEnum? DatasourceAccessRight { get; set; }
 
         /// <summary>
         /// Gets or sets email address of the user.

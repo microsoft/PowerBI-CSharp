@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="userType">Type of user in a group. Possible values
         /// include: 'None', 'Member', 'Admin'</param>
         /// <param name="emailAddress">Email address of the user.</param>
-        public GroupUser(string userType = default(string), string emailAddress = default(string))
+        public GroupUser(MemberAdminAccessRight? userType = default(MemberAdminAccessRight?), string emailAddress = default(string))
         {
             UserType = userType;
             EmailAddress = emailAddress;
@@ -45,7 +45,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'None', 'Member', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "userType")]
-        public string UserType { get; set; }
+        public MemberAdminAccessRight? UserType { get; set; }
 
         /// <summary>
         /// Gets or sets email address of the user.

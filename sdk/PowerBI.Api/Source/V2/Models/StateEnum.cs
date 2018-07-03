@@ -6,21 +6,112 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for StateEnum.
     /// </summary>
-    public static class StateEnum
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(StateEnumConverter))]
+    public struct StateEnum : System.IEquatable<StateEnum>
     {
-        public const string NotActivated = "NotActivated";
-        public const string Active = "Active";
-        public const string Provisioning = "Provisioning";
-        public const string ProvisionFailed = "ProvisionFailed";
-        public const string PreSuspended = "PreSuspended";
-        public const string Suspended = "Suspended";
-        public const string Deleting = "Deleting";
-        public const string Deleted = "Deleted";
-        public const string Invalid = "Invalid";
-        public const string UpdatingSku = "UpdatingSku";
+        private StateEnum(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
+        public static readonly StateEnum NotActivated = "NotActivated";
+
+        public static readonly StateEnum Active = "Active";
+
+        public static readonly StateEnum Provisioning = "Provisioning";
+
+        public static readonly StateEnum ProvisionFailed = "ProvisionFailed";
+
+        public static readonly StateEnum PreSuspended = "PreSuspended";
+
+        public static readonly StateEnum Suspended = "Suspended";
+
+        public static readonly StateEnum Deleting = "Deleting";
+
+        public static readonly StateEnum Deleted = "Deleted";
+
+        public static readonly StateEnum Invalid = "Invalid";
+
+        public static readonly StateEnum UpdatingSku = "UpdatingSku";
+
+
+        /// <summary>
+        /// Underlying value of enum StateEnum
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for StateEnum
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type StateEnum
+        /// </summary>
+        public bool Equals(StateEnum e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to StateEnum
+        /// </summary>
+        public static implicit operator StateEnum(string value)
+        {
+            return new StateEnum(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert StateEnum to string
+        /// </summary>
+        public static implicit operator string(StateEnum e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum StateEnum
+        /// </summary>
+        public static bool operator == (StateEnum e1, StateEnum e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum StateEnum
+        /// </summary>
+        public static bool operator != (StateEnum e1, StateEnum e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for StateEnum
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is StateEnum && Equals((StateEnum)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode StateEnum
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

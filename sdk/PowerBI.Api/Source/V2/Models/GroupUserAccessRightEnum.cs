@@ -6,14 +6,98 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for GroupUserAccessRightEnum.
     /// </summary>
-    public static class GroupUserAccessRightEnum
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(GroupUserAccessRightEnumConverter))]
+    public struct GroupUserAccessRightEnum : System.IEquatable<GroupUserAccessRightEnum>
     {
-        public const string None = "None";
-        public const string Member = "Member";
-        public const string Admin = "Admin";
+        private GroupUserAccessRightEnum(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
+        public static readonly GroupUserAccessRightEnum None = "None";
+
+        public static readonly GroupUserAccessRightEnum Member = "Member";
+
+        public static readonly GroupUserAccessRightEnum Admin = "Admin";
+
+
+        /// <summary>
+        /// Underlying value of enum GroupUserAccessRightEnum
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for GroupUserAccessRightEnum
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type GroupUserAccessRightEnum
+        /// </summary>
+        public bool Equals(GroupUserAccessRightEnum e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to GroupUserAccessRightEnum
+        /// </summary>
+        public static implicit operator GroupUserAccessRightEnum(string value)
+        {
+            return new GroupUserAccessRightEnum(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert GroupUserAccessRightEnum to string
+        /// </summary>
+        public static implicit operator string(GroupUserAccessRightEnum e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum GroupUserAccessRightEnum
+        /// </summary>
+        public static bool operator == (GroupUserAccessRightEnum e1, GroupUserAccessRightEnum e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum GroupUserAccessRightEnum
+        /// </summary>
+        public static bool operator != (GroupUserAccessRightEnum e1, GroupUserAccessRightEnum e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for GroupUserAccessRightEnum
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is GroupUserAccessRightEnum && Equals((GroupUserAccessRightEnum)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode GroupUserAccessRightEnum
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

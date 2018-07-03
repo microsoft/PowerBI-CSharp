@@ -206,7 +206,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -239,7 +239,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
             if (nameConflict != null)
             {
-                _queryParameters.Add(string.Format("nameConflict={0}", System.Uri.EscapeDataString(nameConflict)));
+                _queryParameters.Add(string.Format("nameConflict={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(nameConflict, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

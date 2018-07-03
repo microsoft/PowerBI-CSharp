@@ -59,7 +59,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Determines what to do if a dataset with the same name already exists.
             /// Possible values include: 'Ignore', 'Abort', 'Overwrite'
             /// </param>
-            public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
+            public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?))
             {
                 return operations.PostImportAsync(datasetDisplayName, importInfo, nameConflict).GetAwaiter().GetResult();
             }
@@ -83,7 +83,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportAsync(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync(this IImports operations, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PostImportWithHttpMessagesAsync(datasetDisplayName, importInfo, nameConflict, null, cancellationToken).ConfigureAwait(false))
                 {

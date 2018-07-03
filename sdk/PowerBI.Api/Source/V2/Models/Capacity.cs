@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="capacityUserAccessRight">Access rights user has for
         /// capacity. Possible values include: 'None', 'Assign',
         /// 'Admin'</param>
-        public Capacity(string id = default(string), string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string state = default(string), string capacityUserAccessRight = default(string))
+        public Capacity(string id = default(string), string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), StateEnum? state = default(StateEnum?), CapacityUserAccessRightEnum? capacityUserAccessRight = default(CapacityUserAccessRightEnum?))
         {
             Id = id;
             DisplayName = displayName;
@@ -85,14 +85,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'UpdatingSku'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
-        public string State { get; set; }
+        public StateEnum? State { get; set; }
 
         /// <summary>
         /// Gets or sets access rights user has for capacity. Possible values
         /// include: 'None', 'Assign', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]
-        public string CapacityUserAccessRight { get; set; }
+        public CapacityUserAccessRightEnum? CapacityUserAccessRight { get; set; }
 
     }
 }

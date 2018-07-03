@@ -6,16 +6,102 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for UserAccessRightEnum.
     /// </summary>
-    public static class UserAccessRightEnum
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(UserAccessRightEnumConverter))]
+    public struct UserAccessRightEnum : System.IEquatable<UserAccessRightEnum>
     {
-        public const string None = "None";
-        public const string Read = "Read";
-        public const string Write = "Write";
-        public const string Admin = "Admin";
-        public const string ReadWrite = "ReadWrite";
+        private UserAccessRightEnum(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
+        public static readonly UserAccessRightEnum None = "None";
+
+        public static readonly UserAccessRightEnum Read = "Read";
+
+        public static readonly UserAccessRightEnum Write = "Write";
+
+        public static readonly UserAccessRightEnum Admin = "Admin";
+
+        public static readonly UserAccessRightEnum ReadWrite = "ReadWrite";
+
+
+        /// <summary>
+        /// Underlying value of enum UserAccessRightEnum
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for UserAccessRightEnum
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type UserAccessRightEnum
+        /// </summary>
+        public bool Equals(UserAccessRightEnum e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to UserAccessRightEnum
+        /// </summary>
+        public static implicit operator UserAccessRightEnum(string value)
+        {
+            return new UserAccessRightEnum(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert UserAccessRightEnum to string
+        /// </summary>
+        public static implicit operator string(UserAccessRightEnum e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum UserAccessRightEnum
+        /// </summary>
+        public static bool operator == (UserAccessRightEnum e1, UserAccessRightEnum e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum UserAccessRightEnum
+        /// </summary>
+        public static bool operator != (UserAccessRightEnum e1, UserAccessRightEnum e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for UserAccessRightEnum
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is UserAccessRightEnum && Equals((UserAccessRightEnum)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode UserAccessRightEnum
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }
