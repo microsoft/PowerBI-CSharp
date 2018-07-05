@@ -352,10 +352,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: The dataset must be refreshed for new
-        /// parameters values to be applied. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
-        /// scope, see [Register an
+        /// &lt;br/&gt;**Important**: The dataset must be refreshed for new
+        /// parameters values to be applied. Wait 30 minutes for the update
+        /// parameters operation to complete before
+        /// refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All parameters
         /// must exist in the dataset. Names are case-sensitive.
@@ -427,12 +429,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: The original datasource and the new datasource
-        /// must have the exact same schema. &lt;br/&gt;**Note**: For cached
-        /// models, the dataset must be refreshed to get the data from the new
-        /// data sources. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// &lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The original
+        /// datasource and the new datasource must have the exact same
+        /// schema.&lt;/li&gt;&lt;li&gt;For cached models, the dataset must be
+        /// refreshed to get the data from the new data sources. Wait 30
+        /// minutes for the update datasources operation to complete before
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update
         /// datasources supports SQL Server, Azure SQL Server, Analysis
@@ -473,15 +477,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**:  To update connection details for SQL, AS,
-        /// OData Feed, and SharePoint, use [Update
+        /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection
+        /// details for SQL, AS, OData Feed, and SharePoint, use [Update
         /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For
         /// other datasource types, use [Update
-        /// Parameters](/rest/api/power-bi/datasets/updateparameters).
-        /// &lt;br/&gt;**Note**: This API only supports SQL DirectQuery
-        /// datasets. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// Parameters](/rest/api/power-bi/datasets/updateparameters).&lt;/li&gt;&lt;li&gt;This
+        /// API only supports SQL DirectQuery
+        /// datasets.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetKey'>
@@ -968,10 +972,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: The dataset must be refreshed for the new
-        /// parameter values to be applied. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
-        /// scope, see [Register an
+        /// &lt;br/&gt;**Important**: The dataset must be refreshed for the new
+        /// parameter values to be applied. Wait 30 minutes for the update
+        /// parameters operation to complete before
+        /// refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All parameters
         /// must exist in the dataset. Names are case-sensitive.
@@ -1047,12 +1053,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: The original datasource and the new datasource
-        /// must have the exact same schema. &lt;br/&gt;**Note**: For cached
-        /// models, the dataset must be refreshed to get the data from the new
-        /// data sources. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// &lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The original
+        /// datasource and the new datasource must have the exact same
+        /// schema.&lt;/li&gt;&lt;li&gt;For cached models, the dataset must be
+        /// refreshed to get the data from the new datasources. Wait 30 minutes
+        /// for the update datasources operation to complete before
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update
         /// datasources supports SQL Server, Azure SQL Server, Analysis
@@ -1095,15 +1103,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**:  To update connection details for SQL, AS,
-        /// OData Feed, and SharePoint, use [Update Datasources In
+        /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection
+        /// details for SQL, AS, OData Feed, and SharePoint, use [Update
+        /// Datasources In
         /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For
         /// other datasource types, use [Update Parameters In
-        /// Group](/rest/api/power-bi/datasets/updateparametersingroup).
-        /// &lt;br/&gt;**Note**: This API only supports SQL DirectQuery
-        /// datasets. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;This
+        /// API only supports SQL DirectQuery datasets.&lt;/li&gt;&lt;/ul&gt;
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
