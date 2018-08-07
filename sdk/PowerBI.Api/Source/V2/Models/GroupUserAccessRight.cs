@@ -29,10 +29,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// for the workspace. Possible values include: 'None', 'Member',
         /// 'Admin', 'Contributor'</param>
         /// <param name="emailAddress">Email address of the user</param>
-        public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string))
+        /// <param name="displayName">Display name of the principal</param>
+        /// <param name="identifier">Identifier of the principal</param>
+        /// <param name="principalType">The principal type. Possible values
+        /// include: 'User', 'Group'</param>
+        public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string principalType = default(string))
         {
             GroupUserAccessRightProperty = groupUserAccessRightProperty;
             EmailAddress = emailAddress;
+            DisplayName = displayName;
+            Identifier = identifier;
+            PrincipalType = principalType;
             CustomInit();
         }
 
@@ -53,6 +60,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets display name of the principal
+        /// </summary>
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or sets identifier of the principal
+        /// </summary>
+        [JsonProperty(PropertyName = "identifier")]
+        public string Identifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets the principal type. Possible values include: 'User',
+        /// 'Group'
+        /// </summary>
+        [JsonProperty(PropertyName = "principalType")]
+        public string PrincipalType { get; set; }
 
     }
 }

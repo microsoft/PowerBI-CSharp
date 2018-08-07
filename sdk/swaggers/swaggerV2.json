@@ -8570,6 +8570,37 @@
                 "emailAddress": {
                     "type": "string",
                     "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "principalType": {
+                    "type": "string",
+                    "description": "The principal type",
+                    "enum": [
+                        "User",
+                        "Group"
+                    ],
+                    "x-ms-enum": {
+                        "name": "PrincipalType",
+                        "modelAsString": true,
+                        "values": 
+                        [
+                            {
+                                "value": "User",
+                                "description": "User principal type"
+                            },
+                            {
+                                "value": "Group",
+                                "description": "Group principal type"
+                            }
+                        ]
+                    }
                 }
             }
         },
