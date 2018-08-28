@@ -8351,6 +8351,10 @@
                 "useCallerAADIdentity": {
                     "type": "boolean",
                     "description": "Should the caller's AAD identity be used for OAuth2 credentials configuration"
+                },
+                "useEndUserOAuth2Credentials": {
+                    "type": "boolean",
+                    "description": "Should the end-user OAuth2 credentials be used for connecting to the datasource in DirectQuery mode. Only supported for Direct Query to SQL Azure."
                 }
             }
         },
