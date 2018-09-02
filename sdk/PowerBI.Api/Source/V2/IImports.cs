@@ -71,8 +71,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
-        /// exists. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-        /// 'CreateOrOverwrite'
+        /// exists. Default value is 'Ignore'. Possible values include:
+        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -210,8 +210,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
-        /// exists. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-        /// 'CreateOrOverwrite'
+        /// exists. Default value is 'Ignore'. Possible values include:
+        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -12,7 +12,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class PositionConflictActionEnum
     {
+        /// <summary>
+        /// Tile will be added at the end of the chosen dashboard
+        /// </summary>
         public const string Tail = "Tail";
+        /// <summary>
+        /// In a case of position conflict, the request will be aborted
+        /// </summary>
         public const string Abort = "Abort";
     }
 }

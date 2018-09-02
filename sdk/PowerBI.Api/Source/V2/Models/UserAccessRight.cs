@@ -26,8 +26,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the UserAccessRight class.
         /// </summary>
         /// <param name="datasourceAccessRight">The user access rights for the
-        /// datasource. Possible values include: 'None', 'Read', 'Write',
-        /// 'Admin', 'ReadWrite'</param>
+        /// datasource. &lt;br/&gt;Only Read permission is supported. Possible
+        /// values include: 'None', 'Read', 'Write', 'Admin',
+        /// 'ReadWrite'</param>
         /// <param name="emailAddress">Email address of the user</param>
         public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string))
         {
@@ -42,7 +43,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the user access rights for the datasource. Possible
+        /// Gets or sets the user access rights for the datasource.
+        /// &amp;lt;br/&amp;gt;Only Read permission is supported. Possible
         /// values include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
         /// </summary>
         [JsonProperty(PropertyName = "datasourceAccessRight")]

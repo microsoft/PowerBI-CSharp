@@ -12,10 +12,27 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class UserAccessRightEnum
     {
+        /// <summary>
+        /// Removes permission to access the datasource. Only applies when
+        /// updating user permissions.
+        /// </summary>
         public const string None = "None";
+        /// <summary>
+        /// Indicates that datasets owned by the user has read access to this
+        /// datasource.
+        /// </summary>
         public const string Read = "Read";
+        /// <summary>
+        /// Not Supported
+        /// </summary>
         public const string Write = "Write";
+        /// <summary>
+        /// Not Supported
+        /// </summary>
         public const string Admin = "Admin";
+        /// <summary>
+        /// Not Supported
+        /// </summary>
         public const string ReadWrite = "ReadWrite";
     }
 }

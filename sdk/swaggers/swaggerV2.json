@@ -1282,7 +1282,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists",
+                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -1292,7 +1292,25 @@
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
-                            "modelAsString": true
+                            "modelAsString": true,
+                            "values": [
+                                {
+                                    "value": "Ignore",
+                                    "description": "If dataset with the same name already exists, Import operation will create a new dataset with the same name."
+                                },
+                                {
+                                    "value": "Abort",
+                                    "description": "If dataset with the same name already exists, Import operation will be aborted."
+                                },
+                                {
+                                    "value": "Overwrite",
+                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there is no conflict or if there are more than one datasets with the same name."
+                                },
+                                {
+                                    "value": "CreateOrOverwrite",
+                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                }
+                            ]
                         }
                     },
                     {
@@ -1459,7 +1477,7 @@
                     "application/json"
                 ],
                 "parameters": [
-                    
+
                 ],
                 "responses": {
                     "200": {
@@ -3706,7 +3724,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists",
+                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -3716,7 +3734,25 @@
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
-                            "modelAsString": true
+                            "modelAsString": true,
+                            "values": [
+                                {
+                                    "value": "Ignore",
+                                    "description": "If dataset with the same name already exists, Import operation will create a new dataset with the same name."
+                                },
+                                {
+                                    "value": "Abort",
+                                    "description": "If dataset with the same name already exists, Import operation will be aborted."
+                                },
+                                {
+                                    "value": "Overwrite",
+                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there is no conflict or if there are more than one datasets with the same name."
+                                },
+                                {
+                                    "value": "CreateOrOverwrite",
+                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                }
+                            ]
                         }
                     },
                     {
@@ -5717,7 +5753,7 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Grants the specified user the permissions required to use the specified datasource.",
+                "summary": "Grants or updates the permissions required to use the specified datasource for the specified user.",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_AddDatasourceUser",
                 "consumes": [
@@ -7631,7 +7667,29 @@
                     ],
                     "x-ms-enum": {
                         "name": "DatasetMode",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "AsAzure",
+                                "description": "Creates a dataset with a live connection to Azure Analysis Service"
+                            },
+                            {
+                                "value": "AsOnPrem",
+                                "description": "Creates a dataset with a live connection to On-premise Analysis Service"
+                            },
+                            {
+                                "value": "Push",
+                                "description": "Creates a dataset which allows programmatic access for pushing data into PowerBI, [learn more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)"
+                            },
+                            {
+                                "value": "Streaming",
+                                "description": "Creates a dataset which supports data streaming, [learn more](https://docs.microsoft.com/power-bi/service-real-time-streaming)"
+                            },
+                            {
+                                "value": "PushStreaming",
+                                "description": "Creates a dataset which supports data streaming and allows programmatic access for pushing data into Power BI"
+                            }
+                        ]
                     }
                 },
                 "IsRefreshable": {
@@ -7712,7 +7770,21 @@
                     ],
                     "x-ms-enum": {
                         "name": "CrossFilteringBehaviorEnum",
-                        "modelAsString": false
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "OneDirection",
+                                "description": "For filtering purposes, filter will be applied on the table where values are being aggregated"
+                            },
+                            {
+                                "value": "BothDirections",
+                                "description": "For filtering purposes, both tables are treated as if they're a single table"
+                            },
+                            {
+                                "value": "Automatic",
+                                "description": "Cross filtering behavior defined automatically"
+                            }
+                        ]
                     },
                     "default": "OneDirection"
                 },
@@ -8397,7 +8469,21 @@
                     ],
                     "x-ms-enum": {
                         "name": "RefreshTypeEnum",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Scheduled",
+                                "description": "Refresh was triggered by the dataset refresh schedule setting"
+                            },
+                            {
+                                "value": "OnDemand",
+                                "description": "Refresh was triggered interactively threw Power BI portal"
+                            },
+                            {
+                                "value": "ViaApi",
+                                "description": "Refresh was triggered by an Api call"
+                            }
+                        ]
                     }
                 },
                 "startTime": {
@@ -8432,7 +8518,21 @@
                         "MailOnCompletion"
                     ],
                     "x-ms-enum": {
-                        "name": "NotifyOption"
+                        "name": "NotifyOption",
+                        "values": [
+                            {
+                                "value": "NoNotification",
+                                "description": "No notification will be sent"
+                            },
+                            {
+                                "value": "MailOnFailure",
+                                "description": "Mail notification will be sent on refresh failure"
+                            },
+                            {
+                                "value": "MailOnCompletion",
+                                "description": "Mail notification will be sent on refresh completion, including either failure and success"
+                            }
+                        ]
                     }
                 }
             },
@@ -8517,7 +8617,7 @@
             "properties": {
                 "datasourceAccessRight": {
                     "type": "string",
-                    "description": "The user access rights for the datasource",
+                    "description": "The user access rights for the datasource. <br/>Only Read permission is supported.",
                     "enum": [
                         "None",
                         "Read",
@@ -8527,7 +8627,29 @@
                     ],
                     "x-ms-enum": {
                         "name": "UserAccessRightEnum",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "Removes permission to access the datasource. Only applies when updating user permissions."
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Indicates that datasets owned by the user has read access to this datasource."
+                            },
+                            {
+                                "value": "Write",
+                                "description": "Not Supported"
+                            },
+                            {
+                                "value": "Admin",
+                                "description": "Not Supported"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Not Supported"
+                            }
+                        ]
                     }
                 },
                 "emailAddress": {
@@ -8664,7 +8786,7 @@
                 "username",
                 "datasets"
             ],
-            "description": "The identity the generated token should reflect",
+            "description": "The identity the generated token should reflect, for more details see this [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)",
             "properties": {
                 "username": {
                     "type": "string",
@@ -8695,7 +8817,7 @@
             "properties": {
                 "accessLevel": {
                     "type": "string",
-                    "description": "Required access level for EmbedToken generation. 'Edit' only applies when generating EmbedToken for report embedding. 'Create' only applies when generating EmbedToken for report creation.",
+                    "description": "Required access level for EmbedToken generation",
                     "enum": [
                         "View",
                         "Edit",
@@ -8703,7 +8825,21 @@
                     ],
                     "x-ms-enum": {
                         "name": "TokenAccessLevel",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "View",
+                                "description": "Indicates that the generated EmbedToken should grant only Viewing permissions"
+                            },
+                            {
+                                "value": "Edit",
+                                "description": "Indicates that the generated EmbedToken should grant Viewing and Editing permissions, only applies when generating EmbedToken for report embedding"
+                            },
+                            {
+                                "value": "Create",
+                                "description": "Indicates that the generated EmbedToken should grant Creation permissions, only applies when generating EmbedToken for report creation"
+                            }
+                        ]
                     }
                 },
                 "datasetId": {
@@ -8762,14 +8898,24 @@
                 },
                 "positionConflictAction": {
                     "type": "string",
-                    "description": "Optional parameter for specifying the action in case of position conflict. <br/>If not provided, 'Tail' is used.",
+                    "description": "Optional parameter for specifying the action in case of position conflict. <br/>If not provided, 'Tail' is used. <br/>If there is no conflict, clone tile to same position as in source.",
                     "enum": [
                         "Tail",
                         "Abort"
                     ],
                     "x-ms-enum": {
                         "name": "positionConflictActionEnum",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "Tail",
+                                "description": "Tile will be added at the end of the chosen dashboard"
+                            },
+                            {
+                                "value": "Abort",
+                                "description": "In a case of position conflict, the request will be aborted"
+                            }
+                        ]
                     }
                 }
             }
@@ -8847,7 +8993,49 @@
                     ],
                     "x-ms-enum": {
                         "name": "stateEnum",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "NotActivated",
+                                "description": "Not Supported"
+                            },
+                            {
+                                "value": "Active",
+                                "description": "Capacity ready for use"
+                            },
+                            {
+                                "value": "Provisioning",
+                                "description": "Capacity in activation process"
+                            },
+                            {
+                                "value": "ProvisionFailed",
+                                "description": "Capacity failed to provisioned"
+                            },
+                            {
+                                "value": "Suspended",
+                                "description": "Capacity suspended for use"
+                            },
+                            {
+                                "value": "PreSuspended",
+                                "description": "Not Supported"
+                            },
+                            {
+                                "value": "Deleting",
+                                "description": "Capacity in process of being deleted"
+                            },
+                            {
+                                "value": "Deleted",
+                                "description": "Capacity has been deleted and is not available"
+                            },
+                            {
+                                "value": "Invalid",
+                                "description": "Capacity can not be used"
+                            },
+                            {
+                                "value": "UpdatingSku",
+                                "description": "Capacity Sku change is in progress"
+                            }
+                        ]
                     }
                 },
                 "capacityUserAccessRight": {
@@ -8860,7 +9048,21 @@
                     ],
                     "x-ms-enum": {
                         "name": "capacityUserAccessRightEnum",
-                        "modelAsString": true
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "User doesn't have access to the capacity"
+                            },
+                            {
+                                "value": "Assign",
+                                "description": "User can assign workspaces to the capacity"
+                            },
+                            {
+                                "value": "Admin",
+                                "description": "User has administrator rights on the capacity"
+                            }
+                        ]
                     }
                 },
                 "region": {

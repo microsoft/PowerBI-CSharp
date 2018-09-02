@@ -17,10 +17,21 @@ namespace Microsoft.PowerBI.Api.V2.Models
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CrossFilteringBehaviorEnum
     {
+        /// <summary>
+        /// For filtering purposes, filter will be applied on the table where
+        /// values are being aggregated
+        /// </summary>
         [EnumMember(Value = "OneDirection")]
         OneDirection,
+        /// <summary>
+        /// For filtering purposes, both tables are treated as if they're a
+        /// single table
+        /// </summary>
         [EnumMember(Value = "BothDirections")]
         BothDirections,
+        /// <summary>
+        /// Cross filtering behavior defined automatically
+        /// </summary>
         [EnumMember(Value = "Automatic")]
         Automatic
     }

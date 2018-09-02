@@ -289,8 +289,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListUserAccessRight>> GetDatasourceUsersWithHttpMessagesAsync(string gatewayId, string datasourceId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Grants the specified user the permissions required to use the
-        /// specified datasource.
+        /// Grants or updates the permissions required to use the specified
+        /// datasource for the specified user.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To

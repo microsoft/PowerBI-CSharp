@@ -84,8 +84,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists.
-            /// Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
+            /// 'Overwrite', 'CreateOrOverwrite'
             /// </param>
             public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
             {
@@ -123,8 +123,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists.
-            /// Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
+            /// 'Overwrite', 'CreateOrOverwrite'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -313,8 +313,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists.
-            /// Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
+            /// 'Overwrite', 'CreateOrOverwrite'
             /// </param>
             public static Import PostImportInGroup(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
             {
@@ -355,8 +355,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists.
-            /// Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
+            /// 'Overwrite', 'CreateOrOverwrite'
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -13,7 +13,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// The identity the generated token should reflect
+    /// The identity the generated token should reflect, for more details see
+    /// this
+    /// [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)
     /// </summary>
     public partial class EffectiveIdentity
     {
