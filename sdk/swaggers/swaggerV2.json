@@ -6488,7 +6488,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [
 
@@ -6530,7 +6530,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -6586,7 +6586,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -6621,7 +6621,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [
 
@@ -6670,7 +6670,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "get workspaces with users expanded": {
+                    "Get workspaces with users expanded (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
                             "$expand": "users"
                         },
@@ -6708,7 +6708,7 @@
                             }
                         }
                     },
-                    "get orphaned workspaces": {
+                    "Get orphaned workspaces (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
                             "$expand": "users",
                             "$filter": "(not users/any()) or (not users/any(u: u/groupUserAccessRight eq Microsoft.PowerBI.ServiceContracts.Api.GroupUserAccessRight'Admin'))"
@@ -6732,7 +6732,7 @@
                             }
                         }
                     },
-                    "get deleted workspaces": {
+                    "Get deleted workspaces (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
                             "$filter": "state eq 'Deleted'"
                         },
@@ -6764,7 +6764,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the specified workspace properties.",
-                "description": "**Note**: This API is currently limited to updating workspaces in the new workspace experiences preview. Only name and description can be updated, and name must be unique inside an organization. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: This API is currently limited to updating workspaces in the new workspace experience. Only name and description can be updated, and name must be unique inside an organization. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [
 
@@ -6799,7 +6799,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "e2284830-c8dc-416b-b19a-8cdcd2729332",
                             "groupProperties": {
@@ -6821,7 +6821,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -6856,7 +6856,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "206d27ca-94e8-4a69-855b-5c32bdd458a8",
                             "userDetails": {
@@ -6878,7 +6878,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions to the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [
 
@@ -6911,7 +6911,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f7d76f5a-7190-43c6-bf12-7a135c6c2d69",
                             "user": "john@contoso.com"
@@ -6930,7 +6930,7 @@
                     "Admin"
                 ],
                 "summary": "Restores a deleted workspace.",
-                "description": "**Note**: This API is currently limited to restoring workspaces in the new workspace experiences preview. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: This API is currently limited to restoring workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_RestoreDeletedGroupAsAdmin",
                 "consumes": [
                     "application/json"
@@ -6965,7 +6965,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "3bec11ee-48a9-490c-8e4d-1ebba90d491a",
                             "groupRestoreRequest": {
@@ -6987,7 +6987,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
                 "consumes": [
 
@@ -7036,7 +7036,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -7065,7 +7065,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
                 "consumes": [
 
@@ -7114,7 +7114,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -7144,7 +7144,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
                 "consumes": [
 
@@ -7193,7 +7193,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -7227,7 +7227,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [
 
@@ -7269,7 +7269,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -7298,7 +7298,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [
 
@@ -7340,7 +7340,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -7367,7 +7367,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetTilesAsAdmin",
                 "consumes": [
 
@@ -7393,7 +7393,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
                         },
@@ -7426,7 +7426,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of imports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_GetImportsAsAdmin",
                 "consumes": [
 
@@ -7475,7 +7475,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
