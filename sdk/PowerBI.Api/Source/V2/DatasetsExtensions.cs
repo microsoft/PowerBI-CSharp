@@ -580,9 +580,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; Cannot pass empty value to an IsRequired parameter.
             /// &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple occurrences
             /// of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types 'Any' or
-            /// 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Parameters may change the
-            /// actual connection (server and/or database), but not its OnPrem status (from
-            /// Cloud to OnPrem, or the other way).&lt;/li&gt;&lt;/ul&gt;
+            /// 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -618,9 +616,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; Cannot pass empty value to an IsRequired parameter.
             /// &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple occurrences
             /// of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types 'Any' or
-            /// 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Parameters may change the
-            /// actual connection (server and/or database), but not its OnPrem status (from
-            /// Cloud to OnPrem, or the other way).&lt;/li&gt;&lt;/ul&gt;
+            /// 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -708,9 +704,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -746,9 +740,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1614,9 +1606,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; An empty value is not permitted for the IsRequired
             /// parameter. &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple
             /// occurrences of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types
-            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Changing the
-            /// connection status from Cloud to OnPrem or OnPrem to Cloud is not
-            /// supported.&lt;/li&gt;&lt;/ul&gt;
+            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1654,9 +1644,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; An empty value is not permitted for the IsRequired
             /// parameter. &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple
             /// occurrences of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types
-            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Changing the
-            /// connection status from Cloud to OnPrem or OnPrem to Cloud is not
-            /// supported.&lt;/li&gt;&lt;/ul&gt;
+            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1751,9 +1739,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1792,9 +1778,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
