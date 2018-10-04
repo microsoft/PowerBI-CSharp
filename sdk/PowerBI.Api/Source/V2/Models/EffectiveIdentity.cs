@@ -31,10 +31,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the EffectiveIdentity class.
         /// </summary>
         /// <param name="username">The effective username reflected by a token
-        /// for applying RLS rules (username can be composed of alpha-numerical
-        /// characters or any of the following characters  '.', '-', '_', '!',
-        /// '#', '^', '~', '\', '@', username cannot contain spaces and must be
-        /// up to 256 characters)</param>
+        /// for applying RLS rules (For OnPrem model, username can be composed
+        /// of alpha-numerical characters or any of the following characters
+        /// '.', '-', '_', '!', '#', '^', '~', '\\', '@', also username cannot
+        /// contain spaces. For Cloud model, username can be composed of all
+        /// ASCII characters. username must be up to 256 characters)</param>
         /// <param name="datasets">An array of datasets for which this identity
         /// applies</param>
         /// <param name="roles">An array of roles reflected by a token when
@@ -60,10 +61,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the effective username reflected by a token for
-        /// applying RLS rules (username can be composed of alpha-numerical
-        /// characters or any of the following characters  '.', '-', '_', '!',
-        /// '#', '^', '~', '\', '@', username cannot contain spaces and must be
-        /// up to 256 characters)
+        /// applying RLS rules (For OnPrem model, username can be composed of
+        /// alpha-numerical characters or any of the following characters  '.',
+        /// '-', '_', '!', '#', '^', '~', '\\', '@', also username cannot
+        /// contain spaces. For Cloud model, username can be composed of all
+        /// ASCII characters. username must be up to 256 characters)
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
