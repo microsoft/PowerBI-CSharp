@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Update Report Content Request
+    /// Power BI update report content request
     /// </summary>
     public partial class UpdateReportContentRequest
     {

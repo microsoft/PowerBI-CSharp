@@ -8,12 +8,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
 {
 
     /// <summary>
-    /// Defines values for MemberAdminAccessRight.
+    /// Defines values for EncryptedConnectionEnum.
     /// </summary>
-    public static class MemberAdminAccessRight
+    public static class EncryptedConnectionEnum
     {
-        public const string None = "None";
-        public const string Member = "Member";
-        public const string Admin = "Admin";
+        public const string Encrypted = "Encrypted";
+        public const string NotEncrypted = "NotEncrypted";
     }
 }

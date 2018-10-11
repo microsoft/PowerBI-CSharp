@@ -15,5 +15,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public const string Ignore = "Ignore";
         public const string Abort = "Abort";
         public const string Overwrite = "Overwrite";
+        public const string CreateOrOverwrite = "CreateOrOverwrite";
     }
 }

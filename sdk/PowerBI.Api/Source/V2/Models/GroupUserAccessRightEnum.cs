@@ -12,8 +12,21 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class GroupUserAccessRightEnum
     {
+        /// <summary>
+        /// Removes permission to content in workspace
+        /// </summary>
         public const string None = "None";
+        /// <summary>
+        /// Grants read access to content in workspace
+        /// </summary>
         public const string Member = "Member";
+        /// <summary>
+        /// Grants administrator rights to workspace
+        /// </summary>
         public const string Admin = "Admin";
+        /// <summary>
+        /// Grants read and write access to content in group
+        /// </summary>
+        public const string Contributor = "Contributor";
     }
 }

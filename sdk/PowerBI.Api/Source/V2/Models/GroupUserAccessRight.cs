@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user Access Right entry for group
+    /// A Power BI user access right entry for workspace
     /// </summary>
     public partial class GroupUserAccessRight
     {
@@ -26,9 +26,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the GroupUserAccessRight class.
         /// </summary>
         /// <param name="groupUserAccessRightProperty">Access rights user has
-        /// for group. Possible values include: 'None', 'Member',
-        /// 'Admin'</param>
-        /// <param name="emailAddress">Email address of the user.</param>
+        /// for the workspace. Possible values include: 'None', 'Member',
+        /// 'Admin', 'Contributor'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string))
         {
             GroupUserAccessRightProperty = groupUserAccessRightProperty;
@@ -42,14 +42,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for group. Possible values
-        /// include: 'None', 'Member', 'Admin'
+        /// Gets or sets access rights user has for the workspace. Possible
+        /// values include: 'None', 'Member', 'Admin', 'Contributor'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
         public string GroupUserAccessRightProperty { get; set; }
 
         /// <summary>
-        /// Gets or sets email address of the user.
+        /// Gets or sets email address of the user
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }

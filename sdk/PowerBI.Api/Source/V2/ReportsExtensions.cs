@@ -17,8 +17,13 @@ namespace Microsoft.PowerBI.Api.V2
     public static partial class ReportsExtensions
     {
             /// <summary>
-            /// Gets a list of reports
+            /// Returns a list of reports from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -28,8 +33,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of reports
+            /// Returns a list of reports from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -45,8 +55,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified report
+            /// Returns the specified report from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -59,8 +74,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified report
+            /// Returns the specified report from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -79,8 +99,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Deletes the specified report
+            /// Deletes the specified report from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -93,8 +118,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Deletes the specified report
+            /// Deletes the specified report from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -113,8 +143,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified report
+            /// Clones the specified report from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -130,8 +165,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified report
+            /// Clones the specified report from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -153,8 +193,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Exports the specified report from **"My Workspace"** to a .pbix file.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -167,8 +212,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Exports the specified report from **"My Workspace"** to a .pbix file.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -186,8 +236,14 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Update the report content from a specified source
+            /// Updates the specified report from **"My Workspace"** to have the same
+            /// content as the report in the request body.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -203,8 +259,14 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Update the report content from a specified source
+            /// Updates the specified report from **"My Workspace"** to have the same
+            /// content as the report in the request body.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -226,8 +288,14 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Rebinds the specified report to requested dataset id
+            /// Rebinds the specified report from **"My Workspace"** to the requested
+            /// dataset.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -243,8 +311,14 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Rebinds the specified report to requested dataset id
+            /// Rebinds the specified report from **"My Workspace"** to the requested
+            /// dataset.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -266,7 +340,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to create a new report on a given dataset
+            /// This functionality is only available in a workspace context. Use [Reports
+            /// GenerateTokenForCreateInGroup](/rest/api/power-bi/embedtoken/reports_generatetokenforcreateingroup).
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -280,7 +355,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to create a new report on a given dataset
+            /// This functionality is only available in a workspace context. Use [Reports
+            /// GenerateTokenForCreateInGroup](/rest/api/power-bi/embedtoken/reports_generatetokenforcreateingroup).
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -300,7 +376,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view or edit the specified report
+            /// This functionality is only available in a workspace context. Use [Reports
+            /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/reports_generatetokeningroup).
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -317,7 +394,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view or edit the specified report
+            /// This functionality is only available in a workspace context. Use [Reports
+            /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/reports_generatetokeningroup).
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -340,13 +418,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of reports available within the specified group
+            /// Returns a list of reports from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             public static ODataResponseListReport GetReportsInGroup(this IReports operations, string groupId)
             {
@@ -354,13 +437,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of reports available within the specified group
+            /// Returns a list of reports from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -374,13 +462,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified report
+            /// Returns the specified report from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -391,13 +484,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified report
+            /// Returns the specified report from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -414,13 +512,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Deletes the specified report
+            /// Deletes the specified report from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -431,13 +534,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Deletes the specified report
+            /// Deletes the specified report from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -454,13 +562,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified report
+            /// Clones the specified report from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -474,13 +587,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified report
+            /// Clones the specified report from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -500,13 +618,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Exports the specified report from the specified workspace to a .pbix file.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -517,13 +640,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Exports the specified report
+            /// Exports the specified report from the specified workspace to a .pbix file.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -539,13 +667,19 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Update the report content from a specified source
+            /// Updates the specified report from the specified workspace to have the same
+            /// content as the specified report in the request body.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -559,13 +693,19 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Update the report content from a specified source
+            /// Updates the specified report from the specified workspace to have the same
+            /// content as the specified report in the request body.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -585,13 +725,19 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Rebinds the specified report to requested dataset id
+            /// Rebinds the specified report from the specified workspace to the requested
+            /// dataset.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -605,13 +751,19 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Rebinds the specified report to requested dataset id
+            /// Rebinds the specified report from the specified workspace to the requested
+            /// dataset.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -631,13 +783,24 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to create a new report on a given dataset
+            /// Generates an embed token to allow report creation on the specified
+            /// workspace based on the specified dataset.&lt;br/&gt;This API is relevant
+            /// only to ['App owns data' embed
+            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: (all of the below)
+            /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+            /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+            /// scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -648,13 +811,24 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to create a new report on a given dataset
+            /// Generates an embed token to allow report creation on the specified
+            /// workspace based on the specified dataset.&lt;br/&gt;This API is relevant
+            /// only to ['App owns data' embed
+            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: (all of the below)
+            /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+            /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+            /// scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -671,13 +845,26 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view or edit the specified report
+            /// Generates an embed token to view or edit the specified report from the
+            /// specified workspace.&lt;br/&gt;This API is relevant only to ['App owns
+            /// data' embed
+            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: (all of the below)
+            /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
+            /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+            /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
+            /// allowSaveAs specified in
+            /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -691,13 +878,26 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view or edit the specified report
+            /// Generates an embed token to view or edit the specified report from the
+            /// specified workspace.&lt;br/&gt;This API is relevant only to ['App owns
+            /// data' embed
+            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: (all of the below)
+            /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
+            /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+            /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
+            /// allowSaveAs specified in
+            /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='reportKey'>
             /// The report id
@@ -711,6 +911,136 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<EmbedToken> GenerateTokenInGroupAsync(this IReports operations, string groupId, string reportKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GenerateTokenInGroupWithHttpMessagesAsync(groupId, reportKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of reports from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListReport GetReportsInGroupAsAdmin(this IReports operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetReportsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of reports from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListReport> GetReportsInGroupAsAdminAsync(this IReports operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetReportsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of reports for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListReport GetReportsAsAdmin(this IReports operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetReportsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of reports for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListReport> GetReportsAsAdminAsync(this IReports operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetReportsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

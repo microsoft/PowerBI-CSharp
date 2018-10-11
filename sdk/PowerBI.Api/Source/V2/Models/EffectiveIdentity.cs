@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// The identity that the generated token should reflect
+    /// The identity the generated token should reflect
     /// </summary>
     public partial class EffectiveIdentity
     {
@@ -29,13 +29,19 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the EffectiveIdentity class.
         /// </summary>
         /// <param name="username">The effective username reflected by a token
-        /// for applying RLS rules</param>
-        /// <param name="datasets">An array of datasets for which this mapping
-        /// applies to, if not provided - applies to all datasets</param>
+        /// for applying RLS rules (username can be composed of alpha-numerical
+        /// characters or any of the following characters  '.', '-', '_', '!',
+        /// '#', '^', '~', '\', '@', username cannot contain spaces and must be
+        /// up to 256 characters)</param>
+        /// <param name="datasets">An array of datasets for which this identity
+        /// applies</param>
         /// <param name="roles">An array of roles reflected by a token when
-        /// applying RLS rules</param>
-        /// <param name="customData">The custom data string to be added to the
-        /// AS connection string</param>
+        /// applying RLS rules (identity can contain up to 50 roles, role can
+        /// be composed of any character besides ',' and must be up to 50
+        /// characters)</param>
+        /// <param name="customData">The value of customdata to be used for
+        /// applying RLS rules. Only supported for live connections to Azure
+        /// Analysis Services.</param>
         public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string))
         {
             Username = username;
@@ -52,28 +58,33 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the effective username reflected by a token for
-        /// applying RLS rules
+        /// applying RLS rules (username can be composed of alpha-numerical
+        /// characters or any of the following characters  '.', '-', '_', '!',
+        /// '#', '^', '~', '\', '@', username cannot contain spaces and must be
+        /// up to 256 characters)
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
 
         /// <summary>
         /// Gets or sets an array of roles reflected by a token when applying
-        /// RLS rules
+        /// RLS rules (identity can contain up to 50 roles, role can be
+        /// composed of any character besides ',' and must be up to 50
+        /// characters)
         /// </summary>
         [JsonProperty(PropertyName = "roles")]
         public IList<string> Roles { get; set; }
 
         /// <summary>
-        /// Gets or sets an array of datasets for which this mapping applies
-        /// to, if not provided - applies to all datasets
+        /// Gets or sets an array of datasets for which this identity applies
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<string> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets the custom data string to be added to the AS
-        /// connection string
+        /// Gets or sets the value of customdata to be used for applying RLS
+        /// rules. Only supported for live connections to Azure Analysis
+        /// Services.
         /// </summary>
         [JsonProperty(PropertyName = "customData")]
         public string CustomData { get; set; }

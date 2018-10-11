@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Column
+    /// A dataset column
     /// </summary>
     public partial class Column
     {

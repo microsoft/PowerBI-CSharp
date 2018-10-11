@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Gateway
+    /// A Power BI gateway
     /// </summary>
     public partial class Gateway
     {
@@ -28,7 +28,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="id">The gateway id</param>
         /// <param name="name">The gateway name</param>
         /// <param name="type">The gateway type</param>
-        /// <param name="gatewayAnnotation">The gateway annotation</param>
+        /// <param name="gatewayAnnotation">Gateway metadata in json
+        /// format</param>
         /// <param name="publicKey">The gateway public key</param>
         /// <param name="gatewayStatus">The gateway connectivity status</param>
         public Gateway(string id = default(string), string name = default(string), string type = default(string), string gatewayAnnotation = default(string), GatewayPublicKey publicKey = default(GatewayPublicKey), string gatewayStatus = default(string))
@@ -66,7 +67,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the gateway annotation
+        /// Gets or sets gateway metadata in json format
         /// </summary>
         [JsonProperty(PropertyName = "gatewayAnnotation")]
         public string GatewayAnnotation { get; set; }

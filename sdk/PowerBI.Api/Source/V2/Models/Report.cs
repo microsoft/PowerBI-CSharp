@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Report
+    /// A Power BI report
     /// </summary>
     public partial class Report
     {

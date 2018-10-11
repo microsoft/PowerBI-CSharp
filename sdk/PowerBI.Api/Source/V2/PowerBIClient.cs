@@ -78,6 +78,11 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual ICapacities Capacities { get; private set; }
 
         /// <summary>
+        /// Gets the IAvailableFeatures.
+        /// </summary>
+        public virtual IAvailableFeatures AvailableFeatures { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
         /// </summary>
         /// <param name='handlers'>
@@ -286,6 +291,7 @@ namespace Microsoft.PowerBI.Api.V2
             Gateways = new Gateways(this);
             Groups = new Groups(this);
             Capacities = new Capacities(this);
+            AvailableFeatures = new AvailableFeatures(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {

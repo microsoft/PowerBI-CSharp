@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Embed Token
+    /// Power BI embed token
     /// </summary>
     public partial class EmbedToken
     {
@@ -25,9 +25,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the EmbedToken class.
         /// </summary>
-        /// <param name="token">Embed token.</param>
-        /// <param name="tokenId">Unique token Id.</param>
-        /// <param name="expiration">Expiration time of token - in UTC.</param>
+        /// <param name="token">Embed token</param>
+        /// <param name="tokenId">Unique token Id. Can be used to correlate
+        /// operations that use this token with the generate operation through
+        /// audit logs.</param>
+        /// <param name="expiration">Expiration time of token. In UTC.</param>
         public EmbedToken(string token = default(string), string tokenId = default(string), System.DateTime? expiration = default(System.DateTime?))
         {
             Token = token;
@@ -42,19 +44,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets embed token.
+        /// Gets or sets embed token
         /// </summary>
         [JsonProperty(PropertyName = "token")]
         public string Token { get; set; }
 
         /// <summary>
-        /// Gets or sets unique token Id.
+        /// Gets or sets unique token Id. Can be used to correlate operations
+        /// that use this token with the generate operation through audit logs.
         /// </summary>
         [JsonProperty(PropertyName = "tokenId")]
         public string TokenId { get; set; }
 
         /// <summary>
-        /// Gets or sets expiration time of token - in UTC.
+        /// Gets or sets expiration time of token. In UTC.
         /// </summary>
         [JsonProperty(PropertyName = "expiration")]
         public System.DateTime? Expiration { get; set; }

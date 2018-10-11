@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI Refresh history
+    /// Odata response wrapper for a Power BI refresh history
     /// </summary>
     public partial class ODataResponseListRefresh
     {

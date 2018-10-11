@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Dashboard
+    /// A Power BI dashboard
     /// </summary>
     public partial class Dashboard
     {

@@ -25,6 +25,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the Refresh class.
         /// </summary>
+        /// <param name="refreshType">Type of refresh request. Possible values
+        /// include: 'Scheduled', 'OnDemand', 'ViaApi'</param>
+        /// <param name="startTime">DateTime of start</param>
+        /// <param name="endTime">DateTime of termination (may be empty if
+        /// refresh is progress)</param>
+        /// <param name="serviceExceptionJson">Failure exception details in
+        /// json format. Includes cluster, time, Request, and Activity IDs
+        /// (only on error).</param>
+        /// <param name="status">'Unknown' - Unknown completion state or
+        /// refresh is in progress. endTime will be empty with this status.
+        /// &lt;br/&gt;'Completed' - refresh completed successfully &lt;br/&gt;
+        /// 'Failed' - Refresh failed. serviceExceptionJson will contain the
+        /// error. &lt;br/&gt;'Disabled' - Refresh disabled by Selective
+        /// Refresh.</param>
         public Refresh(string refreshType = default(string), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string))
         {
             RefreshType = refreshType;
@@ -41,26 +55,39 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets type of refresh request. Possible values include:
+        /// 'Scheduled', 'OnDemand', 'ViaApi'
         /// </summary>
         [JsonProperty(PropertyName = "refreshType")]
         public string RefreshType { get; set; }
 
         /// <summary>
+        /// Gets or sets dateTime of start
         /// </summary>
         [JsonProperty(PropertyName = "startTime")]
         public System.DateTime? StartTime { get; set; }
 
         /// <summary>
+        /// Gets or sets dateTime of termination (may be empty if refresh is
+        /// progress)
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public System.DateTime? EndTime { get; set; }
 
         /// <summary>
+        /// Gets or sets failure exception details in json format. Includes
+        /// cluster, time, Request, and Activity IDs (only on error).
         /// </summary>
         [JsonProperty(PropertyName = "serviceExceptionJson")]
         public string ServiceExceptionJson { get; set; }
 
         /// <summary>
+        /// Gets or sets 'Unknown' - Unknown completion state or refresh is in
+        /// progress. endTime will be empty with this status.
+        /// &amp;lt;br/&amp;gt;'Completed' - refresh completed successfully
+        /// &amp;lt;br/&amp;gt; 'Failed' - Refresh failed. serviceExceptionJson
+        /// will contain the error. &amp;lt;br/&amp;gt;'Disabled' - Refresh
+        /// disabled by Selective Refresh.
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }

@@ -25,14 +25,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the Datasource class.
         /// </summary>
-        /// <param name="name">The datasource name</param>
-        /// <param name="connectionString">The datasource connection
-        /// string</param>
+        /// <param name="name">The datasource name. Available only for
+        /// DirectQuery.</param>
+        /// <param name="connectionString">The datasource connection string.
+        /// Available only for DirectQuery.</param>
         /// <param name="datasourceType">The datasource type</param>
         /// <param name="connectionDetails">The datasource connection
         /// details</param>
-        /// <param name="gatewayId">The bound gateway id</param>
-        /// <param name="datasourceId">The bound datasource id</param>
+        /// <param name="gatewayId">The bound gateway id. Empty when not bound
+        /// to a gateway.</param>
+        /// <param name="datasourceId">The bound datasource id. Empty when not
+        /// bound to a gateway.</param>
         public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), string gatewayId = default(string), string datasourceId = default(string))
         {
             Name = name;
@@ -50,13 +53,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the datasource name
+        /// Gets or sets the datasource name. Available only for DirectQuery.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource connection string
+        /// Gets or sets the datasource connection string. Available only for
+        /// DirectQuery.
         /// </summary>
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }
@@ -74,13 +78,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public DatasourceConnectionDetails ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the bound gateway id
+        /// Gets or sets the bound gateway id. Empty when not bound to a
+        /// gateway.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
         public string GatewayId { get; set; }
 
         /// <summary>
-        /// Gets or sets the bound datasource id
+        /// Gets or sets the bound datasource id. Empty when not bound to a
+        /// gateway.
         /// </summary>
         [JsonProperty(PropertyName = "datasourceId")]
         public string DatasourceId { get; set; }

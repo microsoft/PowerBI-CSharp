@@ -47,8 +47,13 @@ namespace Microsoft.PowerBI.Api.V2
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Returns the datasets
+        /// Returns a list of datasets from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -173,10 +178,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Post a new entity to datasets
+        /// Creates a new dataset on **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dataset'>
-        /// Create dataset parameters
+        /// Dataset defenition to create
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -341,8 +351,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets the dataset metadata for the specifeid dataset id
+        /// Returns the specified dataset from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -482,8 +497,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Deletes the dataset with the specified id
+        /// Deletes the specified dataset from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -623,8 +643,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets all tables within the specified dataset
+        /// Returns a list of tables tables within the specified dataset from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -764,8 +791,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates a schema and metadata for the specified table
+        /// Updates the metadata and schema for the specified table within the
+        /// specified dataset from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -773,7 +807,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// The table name
         /// </param>
         /// <param name='requestMessage'>
-        /// The request message
+        /// Table name and columns to update existing table
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -928,8 +962,17 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Posts new data rows into the specified table
+        /// Adds new data rows to the specified table within the specified dataset from
+        /// **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST API
+        /// limitations](https://msdn.microsoft.com/library/dn950053.aspx).
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -1092,8 +1135,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Deletes all rows from the specified table
+        /// Deletes all rows from the specified table within the specified dataset from
+        /// **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: this API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -1242,14 +1292,20 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets the dataset refresh history
+        /// Returns the refresh history of the specified dataset from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
         /// <param name='top'>
-        /// The requested number of entries in the refresh history, if not supported
-        /// the default is all available entries
+        /// The requested number of entries in the refresh history. If not provided,
+        /// the default is all available entries.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1397,10 +1453,17 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Start a dataset refresh
+        /// Triggers a refresh for the specified dataset from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
+        /// </param>
+        /// <param name='refreshRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1423,11 +1486,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> RefreshDatasetWithHttpMessagesAsync(string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> RefreshDatasetWithHttpMessagesAsync(string datasetKey, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetKey == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetKey");
+            }
+            if (refreshRequest != null)
+            {
+                refreshRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1437,6 +1504,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("datasetKey", datasetKey);
+                tracingParameters.Add("refreshRequest", refreshRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RefreshDataset", tracingParameters);
             }
@@ -1466,6 +1534,12 @@ namespace Microsoft.PowerBI.Api.V2
 
             // Serialize Request
             string _requestContent = null;
+            if(refreshRequest != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(refreshRequest, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
             // Set Credentials
             if (Client.Credentials != null)
             {
@@ -1538,9 +1612,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of parameters for the specified dataset
+        /// Returns a list of parameters for the specified dataset from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1678,9 +1759,32 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates the dataset parameters
+        /// Updates the parameters values for the specified dataset from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**: The dataset must be refreshed for new parameters
+        /// values to be applied. Wait 30 minutes for the update parameters operation
+        /// to complete before refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All parameters must
+        /// exist in the dataset. Names are case-sensitive.
+        /// &lt;/li&gt;&lt;li&gt;Datasets with SQL, Oracle, Teradata &amp; SapHana
+        /// Direct Query connections are not supported. &lt;/li&gt;&lt;li&gt;Datasets
+        /// with Analysis Services Live connections are not supported.
+        /// &lt;/li&gt;&lt;li&gt; Maximum of a 100 parameters in request is allowed.
+        /// &lt;/li&gt;&lt;li&gt; Values should be of expected Type.
+        /// &lt;/li&gt;&lt;li&gt; Cannot pass empty value to an IsRequired parameter.
+        /// &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple occurrences
+        /// of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types 'Any' or
+        /// 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Parameters may change the
+        /// actual connection (server and/or database), but not its OnPrem status (from
+        /// Cloud to OnPrem, or the other way).&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='updateDatasetParametersRequest'>
         /// </param>
@@ -1835,9 +1939,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of datasource for the specified dataset
+        /// Returns a list of datasources for the specified dataset from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1975,9 +2086,32 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates the dataset datasources using the specified datasource selectors
+        /// Updates the datasources of the specified dataset from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The original datasource and
+        /// the new datasource must have the exact same schema.&lt;/li&gt;&lt;li&gt;For
+        /// cached models, the dataset must be refreshed to get the data from the new
+        /// data sources. Wait 30 minutes for the update datasources operation to
+        /// complete before
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update datasources
+        /// supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis
+        /// Services, OData Feed, and SharePoint datasources. For other datasource
+        /// types, use [Update
+        /// Parameters](/rest/api/power-bi/datasets/updateparameters)
+        /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
+        /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
+        /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
+        /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
+        /// connection from cloud to on-premises or on-premises to cloud is not
+        /// supported. &lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
         /// <param name='datasetKey'>
+        /// The dataset id
         /// </param>
         /// <param name='updateDatasourcesRequest'>
         /// </param>
@@ -2128,8 +2262,20 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Sets all connections for the specified dataset
+        /// Updates all connections for the specified dataset from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection details for
+        /// SQL, AS, OData Feed, and SharePoint, use [Update
+        /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For other
+        /// datasource types, use [Update
+        /// Parameters](/rest/api/power-bi/datasets/updateparameters).&lt;/li&gt;&lt;li&gt;This
+        /// API only supports SQL DirectQuery
+        /// datasets.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -2283,8 +2429,14 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Bind dataset to gateway
+        /// Binds the specified dataset from **"My Workspace"** to the specified
+        /// gateway. This only supports the On-Premises Data Gateway.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -2438,8 +2590,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of bound gateway datasources for the specified dataset
+        /// Returns a list of gateway datasources for the specified dataset from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: Use the new [Dataset - Get
+        /// Datasources](/rest/api/power-bi/datasets/getdatasources) API
+        /// instead.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -2579,8 +2739,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of gateways to bind
+        /// Returns a list of gateways which the specified dataset from **"My
+        /// Workspace"** can be bound to.
         /// </summary>
+        /// <remarks>
+        /// This API is relevant only for datasets that have at least one on-premises
+        /// connection. &lt;br/&gt;For datasets with cloud-only connections, it will
+        /// return an empty list. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
@@ -2720,10 +2888,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Returns the datasets
+        /// Returns a list of datasets from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2861,10 +3034,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Post a new entity to datasets
+        /// Creates a new dataset in the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dataset'>
         /// Create dataset parameters
@@ -3038,10 +3216,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets the dataset metadata for the specifeid dataset id
+        /// Returns the specified dataset from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -3188,10 +3371,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Deletes the dataset with the specified id
+        /// Deletes the specified dataset from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -3338,10 +3526,17 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets all tables within the specified dataset
+        /// Returns a list of tables within the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -3488,10 +3683,17 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates a schema and metadata for the specified table
+        /// Updates the metadata and schema for the specified table, within the
+        /// specified dataset, from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -3661,10 +3863,19 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Posts new data rows into the specified table
+        /// Adds new data rows to the specified table, within the specified dataset,
+        /// from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST API
+        /// limitations](https://msdn.microsoft.com/library/dn950053.aspx).
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -3834,10 +4045,17 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Deletes all rows from the specified table
+        /// Deletes all rows from the specified table, within the specified dataset,
+        /// from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -3993,17 +4211,23 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets the dataset refresh history
+        /// Returns the refresh history of the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
         /// </param>
         /// <param name='top'>
-        /// The requested number of entries in the refresh history, if not supported
-        /// the default is all available entries
+        /// The requested number of entries in the refresh history. If not supported,
+        /// the default is all available entries.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4157,13 +4381,20 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Start a dataset refresh
+        /// Triggers a refresh for the specified dataset from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
+        /// </param>
+        /// <param name='refreshRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4186,7 +4417,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<object>> RefreshDatasetInGroupWithHttpMessagesAsync(string groupId, string datasetKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<object>> RefreshDatasetInGroupWithHttpMessagesAsync(string groupId, string datasetKey, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (groupId == null)
             {
@@ -4195,6 +4426,10 @@ namespace Microsoft.PowerBI.Api.V2
             if (datasetKey == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetKey");
+            }
+            if (refreshRequest != null)
+            {
+                refreshRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4205,6 +4440,7 @@ namespace Microsoft.PowerBI.Api.V2
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("datasetKey", datasetKey);
+                tracingParameters.Add("refreshRequest", refreshRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RefreshDatasetInGroup", tracingParameters);
             }
@@ -4235,6 +4471,12 @@ namespace Microsoft.PowerBI.Api.V2
 
             // Serialize Request
             string _requestContent = null;
+            if(refreshRequest != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(refreshRequest, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
             // Set Credentials
             if (Client.Credentials != null)
             {
@@ -4307,10 +4549,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of parameters for the specified dataset
+        /// Returns a list of parameters for the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// </param>
@@ -4456,10 +4704,32 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates the dataset parameters
+        /// Updates the parameters values for the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**: The dataset must be refreshed for the new
+        /// parameter values to be applied. Wait 30 minutes for the update parameters
+        /// operation to complete before refreshing.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All parameters must
+        /// exist in the dataset. Names are case-sensitive.
+        /// &lt;/li&gt;&lt;li&gt;Datasets with SQL, Oracle, Teradata &amp; SapHana
+        /// Direct Query connections are not supported. &lt;/li&gt;&lt;li&gt;Datasets
+        /// with Analysis Services Live connections are not supported.
+        /// &lt;/li&gt;&lt;li&gt; Maximum of 100 parameters in request is allowed.
+        /// &lt;/li&gt;&lt;li&gt; Values should be of expected type.
+        /// &lt;/li&gt;&lt;li&gt; An empty value is not permitted for the IsRequired
+        /// parameter. &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple
+        /// occurrences of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types
+        /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Changing the
+        /// connection status from Cloud to OnPrem or OnPrem to Cloud is not
+        /// supported.&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// </param>
@@ -4622,10 +4892,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of datasource for the specified dataset
+        /// Returns a list of datasources for the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// </param>
@@ -4771,10 +5047,33 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Updates the dataset datasources using the specified datasource selectors
+        /// Updates the datasources of the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The original datasource and
+        /// the new datasource must have the exact same schema.&lt;/li&gt;&lt;li&gt;For
+        /// cached models, the dataset must be refreshed to get the data from the new
+        /// datasources. Wait 30 minutes for the update datasources operation to
+        /// complete before
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update datasources
+        /// supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis
+        /// Services, OData Feed, and SharePoint datasources. For other datasource
+        /// types, use [Update Parameters In
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup).
+        /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
+        /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
+        /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
+        /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
+        /// connection from cloud to on-premises or on-premises to cloud is not
+        /// supported. &lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// </param>
@@ -4933,10 +5232,22 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Sets all connections for the specified dataset
+        /// Updates all connections for the specified dataset from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection details for
+        /// SQL, AS, OData Feed, and SharePoint, use [Update Datasources In
+        /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other
+        /// datasource types, use [Update Parameters In
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;This
+        /// API only supports SQL DirectQuery datasets.&lt;/li&gt;&lt;/ul&gt;
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5097,10 +5408,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Bind dataset to gateway
+        /// Binds the specified dataset from the specified workspace to the specified
+        /// gateway. Only supported for the On-Premises Data Gateway.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5261,10 +5578,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of bound gateway datasources for the specified dataset
+        /// Returns a list of gateway datasources for the specified dataset from the
+        /// specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Note**: Use the [Dataset - Get Datasources In
+        /// Group](/rest/api/power-bi/datasets/getdatasourcesingroup) API
+        /// instead.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5411,10 +5736,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of gateways to bind
+        /// Returns a list of gateways that the specified dataset from the specified
+        /// workspace can be bound to.
         /// </summary>
+        /// <remarks>
+        /// This API is relevant only for datasets that have at least one on-premises
+        /// connection. &lt;br/&gt;For datasets with cloud-only connections, it will
+        /// return an empty list. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5561,10 +5894,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Take Over a dataset
+        /// Transfers ownership over the specified dataset to the current authorized
+        /// user.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5711,10 +6050,19 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Generate token to view the specified dataset
+        /// Generates an embed token to [Embed
+        /// Q&amp;A](https://docs.microsoft.com/power-bi/developer/qanda) based on the
+        /// specified dataset from the specified workspace.&lt;br/&gt;This API is
+        /// relevant only to ['App owns data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5875,8 +6223,179 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of datasource for the specified dataset as Admin
+        /// Returns a list of datasets for the organization.
         /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='filter'>
+        /// Filters the results, based on a boolean condition
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ODataResponseListDataset>> GetDatasetsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetDatasetsAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/datasets").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (skip != null)
+            {
+                _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ODataResponseListDataset>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDataset>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of datasources for the specified dataset.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+        /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='datasetKey'>
         /// </param>
         /// <param name='customHeaders'>
@@ -5996,6 +6515,184 @@ namespace Microsoft.PowerBI.Api.V2
                 try
                 {
                     _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDatasource>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of datasets from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='filter'>
+        /// Filters the results, based on a boolean condition
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ODataResponseListDataset>> GetDatasetsInGroupAsAdminWithHttpMessagesAsync(string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (groupId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "groupId");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetDatasetsInGroupAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/datasets").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
+            List<string> _queryParameters = new List<string>();
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (skip != null)
+            {
+                _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ODataResponseListDataset>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDataset>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

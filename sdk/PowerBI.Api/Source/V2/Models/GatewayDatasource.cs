@@ -25,15 +25,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the GatewayDatasource class.
         /// </summary>
-        /// <param name="id">The unique id for this gateway datasource</param>
+        /// <param name="id">The unique id for this datasource</param>
         /// <param name="gatewayId">The associated gateway id</param>
-        /// <param name="datasourceName">The datasource name</param>
-        /// <param name="datasourceType">The datasource type</param>
-        /// <param name="connectionDetails">The datasource connection
-        /// details</param>
-        /// <param name="credentialType">The datasource credential type</param>
-        /// <param name="basicCredentials">The datasource basic
-        /// credential</param>
+        /// <param name="datasourceName">The name of the datasource</param>
+        /// <param name="datasourceType">The type of the datasource</param>
+        /// <param name="connectionDetails">Connection details in json
+        /// format</param>
+        /// <param name="credentialType">Type of the datasoruce credentials.
+        /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
+        /// 'Key'</param>
+        /// <param name="basicCredentials">**[Deprecated]** The datasource
+        /// basic credential</param>
         public GatewayDatasource(string id = default(string), string gatewayId = default(string), string datasourceName = default(string), string datasourceType = default(string), string connectionDetails = default(string), string credentialType = default(string), BasicCredentials basicCredentials = default(BasicCredentials))
         {
             Id = id;
@@ -52,7 +54,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unique id for this gateway datasource
+        /// Gets or sets the unique id for this datasource
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -64,31 +66,32 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string GatewayId { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource name
+        /// Gets or sets the name of the datasource
         /// </summary>
         [JsonProperty(PropertyName = "datasourceName")]
         public string DatasourceName { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource type
+        /// Gets or sets the type of the datasource
         /// </summary>
         [JsonProperty(PropertyName = "datasourceType")]
         public string DatasourceType { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource connection details
+        /// Gets or sets connection details in json format
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public string ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource credential type
+        /// Gets or sets type of the datasoruce credentials. Possible values
+        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public string CredentialType { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource basic credential
+        /// Gets or sets **[Deprecated]** The datasource basic credential
         /// </summary>
         [JsonProperty(PropertyName = "basicCredentials")]
         public BasicCredentials BasicCredentials { get; set; }

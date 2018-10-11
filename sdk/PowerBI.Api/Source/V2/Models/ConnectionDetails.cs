@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Connection String wrapper.
+    /// Connection string wrapper.
     /// </summary>
     public partial class ConnectionDetails
     {

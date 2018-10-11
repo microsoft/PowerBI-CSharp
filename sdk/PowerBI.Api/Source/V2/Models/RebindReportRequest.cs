@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Rebind Report Request
+    /// Power BI rebind report request
     /// </summary>
     public partial class RebindReportRequest
     {

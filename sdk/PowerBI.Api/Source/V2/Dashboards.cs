@@ -47,8 +47,13 @@ namespace Microsoft.PowerBI.Api.V2
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Gets a list of dashboards
+        /// Returns a list of dashboards from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -173,8 +178,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Add a new empty dashboard
+        /// Creates a new empty dashboard on **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
         /// </param>
@@ -319,8 +329,13 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get the specified dashboard
+        /// Returns the specified dashboard from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -460,8 +475,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get tiles in the specified dashboard
+        /// Returns a list of tiles within the specified dashboard from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported except for "model tiles", which
+        /// include datasets and live tiles that contain an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -601,8 +624,16 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get a specified tile in a specified dashboard
+        /// Returns the specified tile within the specified dashboard from **"My
+        /// Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported except for "model tiles", which
+        /// include datasets and live tiles that contain an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -751,8 +782,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Clones the specified tile
+        /// Clones the specified tile from **"My Workspace"**.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;If target report id and target dataset are not specified, the
+        /// following can occur:&lt;li&gt;When a tile clone is performed within the
+        /// same workspace, the report and dataset links will be cloned from the source
+        /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
+        /// report and dataset links will be rested, and the tile will be
+        /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='dashboardKey'>
         /// The dashboard id
         /// </param>
@@ -915,7 +956,9 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Generate token to view the specified dashboard
+        /// This functionality is only available in a workspace context. Use
+        /// [Dashboards
+        /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup).
         /// </summary>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1070,10 +1113,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Gets a list of dashboards in a group
+        /// Returns a list of dashboards from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1211,10 +1259,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Add a new empty dashboard
+        /// Creates a new empty dashboard on the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
@@ -1366,10 +1419,15 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get the specified dashboard in a group
+        /// Returns the specified dashboard from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1516,10 +1574,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get tiles in the specified dashboard in a group
+        /// Returns a list of tiles within the specified dashboard from the specified
+        /// workspace.
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported except for "model tiles", which
+        /// include datasets and live tiles that contain an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1666,10 +1732,18 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Get a specified tile in a specified dashboard in a group
+        /// Returns the specified tile within the specified dashboard from the
+        /// specified workspace.
         /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported except for "model tiles", which
+        /// include datasets and live tiles that contain an entire report page.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1825,10 +1899,20 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Clones the specified tile
+        /// Clones the specified tile from the specified workspace.
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;If target report id and target dataset are missing, the
+        /// following can occur:&lt;li&gt;When a tile clone is performed within the
+        /// same workspace, the report and dataset links will be cloned from the source
+        /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
+        /// workspace, report and dataset links will be rested. The tile will be
+        /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -1998,10 +2082,21 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Generate token to view the specified dashboard
+        /// Generates an embed token to view the specified dashboard from the specified
+        /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
         /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: (all of the below)
+        /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
+        /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace id
         /// </param>
         /// <param name='dashboardKey'>
         /// The dashboard id
@@ -2143,6 +2238,496 @@ namespace Microsoft.PowerBI.Api.V2
                 try
                 {
                     _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<EmbedToken>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of dashboards from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='filter'>
+        /// Filters the results, based on a boolean condition
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsInGroupAsAdminWithHttpMessagesAsync(string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (groupId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "groupId");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetDashboardsInGroupAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/dashboards").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
+            List<string> _queryParameters = new List<string>();
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (skip != null)
+            {
+                _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ODataResponseListDashboard>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDashboard>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of dashboards for the organization.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='filter'>
+        /// Filters the results, based on a boolean condition
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("filter", filter);
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetDashboardsAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dashboards").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (filter != null)
+            {
+                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
+            }
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (skip != null)
+            {
+                _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ODataResponseListDashboard>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDashboard>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of tiles within the specified dashboard.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ODataResponseListTile>> GetTilesAsAdminWithHttpMessagesAsync(string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (dashboardKey == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "dashboardKey");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("dashboardKey", dashboardKey);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetTilesAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dashboards/{dashboardKey}/tiles").ToString();
+            _url = _url.Replace("{dashboardKey}", System.Uri.EscapeDataString(dashboardKey));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ODataResponseListTile>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListTile>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

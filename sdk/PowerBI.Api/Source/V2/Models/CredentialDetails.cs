@@ -25,18 +25,31 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        /// <param name="credentials">The credentials</param>
-        /// <param name="credentialType">The connection type</param>
-        /// <param name="encryptedConnection">The encrypted connection</param>
-        /// <param name="encryptionAlgorithm">The encryption algorithm</param>
-        /// <param name="privacyLevel">The privacy level</param>
-        public CredentialDetails(string credentials = default(string), string credentialType = default(string), string encryptedConnection = default(string), string encryptionAlgorithm = default(string), string privacyLevel = default(string))
+        /// <param name="credentials">The credentials. Depends on the
+        /// 'credentialType' value. See [Update Datasource
+        /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).</param>
+        /// <param name="credentialType">The credential type. Possible values
+        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'</param>
+        /// <param name="encryptedConnection">Should Power BI allow fallback to
+        /// unencrypted if the target server doesn't support encryption.
+        /// Possible values include: 'Encrypted', 'NotEncrypted'</param>
+        /// <param name="encryptionAlgorithm">The encryption algorithm. For
+        /// cloud datasource, use 'None'. For on-premises datasource, use
+        /// gateway public key with 'RSA-OAEP' algorithm. Possible values
+        /// include: 'None', 'RSA-OAEP'</param>
+        /// <param name="privacyLevel">The privacy level. Relevant when
+        /// combining data from multiple sources. Possible values include:
+        /// 'None', 'Public', 'Organizational', 'Private'</param>
+        /// <param name="useCallerAADIdentity">Should the caller's AAD identity
+        /// be used for OAuth2 credentials configuration</param>
+        public CredentialDetails(string credentials = default(string), string credentialType = default(string), string encryptedConnection = default(string), string encryptionAlgorithm = default(string), string privacyLevel = default(string), bool? useCallerAADIdentity = default(bool?))
         {
             Credentials = credentials;
             CredentialType = credentialType;
             EncryptedConnection = encryptedConnection;
             EncryptionAlgorithm = encryptionAlgorithm;
             PrivacyLevel = privacyLevel;
+            UseCallerAADIdentity = useCallerAADIdentity;
             CustomInit();
         }
 
@@ -46,34 +59,50 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the credentials
+        /// Gets or sets the credentials. Depends on the 'credentialType'
+        /// value. See [Update Datasource
+        /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).
         /// </summary>
         [JsonProperty(PropertyName = "credentials")]
         public string Credentials { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection type
+        /// Gets or sets the credential type. Possible values include: 'Basic',
+        /// 'Windows', 'Anonymous', 'OAuth2', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public string CredentialType { get; set; }
 
         /// <summary>
-        /// Gets or sets the encrypted connection
+        /// Gets or sets should Power BI allow fallback to unencrypted if the
+        /// target server doesn't support encryption. Possible values include:
+        /// 'Encrypted', 'NotEncrypted'
         /// </summary>
         [JsonProperty(PropertyName = "encryptedConnection")]
         public string EncryptedConnection { get; set; }
 
         /// <summary>
-        /// Gets or sets the encryption algorithm
+        /// Gets or sets the encryption algorithm. For cloud datasource, use
+        /// 'None'. For on-premises datasource, use gateway public key with
+        /// 'RSA-OAEP' algorithm. Possible values include: 'None', 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
         public string EncryptionAlgorithm { get; set; }
 
         /// <summary>
-        /// Gets or sets the privacy level
+        /// Gets or sets the privacy level. Relevant when combining data from
+        /// multiple sources. Possible values include: 'None', 'Public',
+        /// 'Organizational', 'Private'
         /// </summary>
         [JsonProperty(PropertyName = "privacyLevel")]
         public string PrivacyLevel { get; set; }
+
+        /// <summary>
+        /// Gets or sets should the caller's AAD identity be used for OAuth2
+        /// credentials configuration
+        /// </summary>
+        [JsonProperty(PropertyName = "useCallerAADIdentity")]
+        public bool? UseCallerAADIdentity { get; set; }
 
     }
 }

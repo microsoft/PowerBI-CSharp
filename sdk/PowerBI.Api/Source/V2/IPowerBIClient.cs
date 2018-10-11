@@ -76,5 +76,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         ICapacities Capacities { get; }
 
+        /// <summary>
+        /// Gets the IAvailableFeatures.
+        /// </summary>
+        IAvailableFeatures AvailableFeatures { get; }
+
     }
 }

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Gateway Public Key
+    /// A Power BI gateway public key
     /// </summary>
     public partial class GatewayPublicKey
     {

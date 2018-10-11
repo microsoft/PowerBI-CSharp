@@ -16,8 +16,13 @@ namespace Microsoft.PowerBI.Api.V2
     public static partial class DashboardsExtensions
     {
             /// <summary>
-            /// Gets a list of dashboards
+            /// Returns a list of dashboards from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -27,8 +32,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of dashboards
+            /// Returns a list of dashboards from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -44,8 +54,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Add a new empty dashboard
+            /// Creates a new empty dashboard on **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -58,8 +73,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Add a new empty dashboard
+            /// Creates a new empty dashboard on **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -78,8 +98,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified dashboard
+            /// Returns the specified dashboard from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -92,8 +117,13 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified dashboard
+            /// Returns the specified dashboard from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -112,8 +142,16 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get tiles in the specified dashboard
+            /// Returns a list of tiles within the specified dashboard from **"My
+            /// Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -126,8 +164,16 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get tiles in the specified dashboard
+            /// Returns a list of tiles within the specified dashboard from **"My
+            /// Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -146,8 +192,16 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get a specified tile in a specified dashboard
+            /// Returns the specified tile within the specified dashboard from **"My
+            /// Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -163,8 +217,16 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get a specified tile in a specified dashboard
+            /// Returns the specified tile within the specified dashboard from **"My
+            /// Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -186,8 +248,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified tile
+            /// Clones the specified tile from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;If target report id and target dataset are not specified, the
+            /// following can occur:&lt;li&gt;When a tile clone is performed within the
+            /// same workspace, the report and dataset links will be cloned from the source
+            /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
+            /// report and dataset links will be rested, and the tile will be
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -206,8 +278,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified tile
+            /// Clones the specified tile from **"My Workspace"**.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;If target report id and target dataset are not specified, the
+            /// following can occur:&lt;li&gt;When a tile clone is performed within the
+            /// same workspace, the report and dataset links will be cloned from the source
+            /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
+            /// report and dataset links will be rested, and the tile will be
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
@@ -232,7 +314,9 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view the specified dashboard
+            /// This functionality is only available in a workspace context. Use
+            /// [Dashboards
+            /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup).
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -249,7 +333,9 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view the specified dashboard
+            /// This functionality is only available in a workspace context. Use
+            /// [Dashboards
+            /// GenerateTokenInGroup](/rest/api/power-bi/embedtoken/dashboards_generatetokeningroup).
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -272,13 +358,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of dashboards in a group
+            /// Returns a list of dashboards from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             public static ODataResponseListDashboard GetDashboardsInGroup(this IDashboards operations, string groupId)
             {
@@ -286,13 +377,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Gets a list of dashboards in a group
+            /// Returns a list of dashboards from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -306,13 +402,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Add a new empty dashboard
+            /// Creates a new empty dashboard on the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='requestParameters'>
             /// Add dashboard parameters
@@ -323,13 +424,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Add a new empty dashboard
+            /// Creates a new empty dashboard on the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='requestParameters'>
             /// Add dashboard parameters
@@ -346,13 +452,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified dashboard in a group
+            /// Returns the specified dashboard from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -363,13 +474,18 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get the specified dashboard in a group
+            /// Returns the specified dashboard from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -386,13 +502,21 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get tiles in the specified dashboard in a group
+            /// Returns a list of tiles within the specified dashboard from the specified
+            /// workspace.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -403,13 +527,21 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get tiles in the specified dashboard in a group
+            /// Returns a list of tiles within the specified dashboard from the specified
+            /// workspace.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -426,13 +558,21 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get a specified tile in a specified dashboard in a group
+            /// Returns the specified tile within the specified dashboard from the
+            /// specified workspace.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -446,13 +586,21 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Get a specified tile in a specified dashboard in a group
+            /// Returns the specified tile within the specified dashboard from the
+            /// specified workspace.
             /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -472,13 +620,23 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified tile
+            /// Clones the specified tile from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;If target report id and target dataset are missing, the
+            /// following can occur:&lt;li&gt;When a tile clone is performed within the
+            /// same workspace, the report and dataset links will be cloned from the source
+            /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
+            /// workspace, report and dataset links will be rested. The tile will be
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -495,13 +653,23 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Clones the specified tile
+            /// Clones the specified tile from the specified workspace.
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;If target report id and target dataset are missing, the
+            /// following can occur:&lt;li&gt;When a tile clone is performed within the
+            /// same workspace, the report and dataset links will be cloned from the source
+            /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
+            /// workspace, report and dataset links will be rested. The tile will be
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -524,13 +692,24 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view the specified dashboard
+            /// Generates an embed token to view the specified dashboard from the specified
+            /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: (all of the below)
+            /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
+            /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+            /// scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -544,13 +723,24 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Generate token to view the specified dashboard
+            /// Generates an embed token to view the specified dashboard from the specified
+            /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
             /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: (all of the below)
+            /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
+            /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
+            /// scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The group id
+            /// The workspace id
             /// </param>
             /// <param name='dashboardKey'>
             /// The dashboard id
@@ -564,6 +754,186 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<EmbedToken> GenerateTokenInGroupAsync(this IDashboards operations, string groupId, string dashboardKey, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GenerateTokenInGroupWithHttpMessagesAsync(groupId, dashboardKey, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListDashboard GetDashboardsInGroupAsAdmin(this IDashboards operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDashboardsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDashboard> GetDashboardsInGroupAsAdminAsync(this IDashboards operations, string groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static ODataResponseListDashboard GetDashboardsAsAdmin(this IDashboards operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDashboardsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of dashboards for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDashboard> GetDashboardsAsAdminAsync(this IDashboards operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of tiles within the specified dashboard.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static ODataResponseListTile GetTilesAsAdmin(this IDashboards operations, string dashboardKey)
+            {
+                return operations.GetTilesAsAdminAsync(dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of tiles within the specified dashboard.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
+            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListTile> GetTilesAsAdminAsync(this IDashboards operations, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTilesAsAdminWithHttpMessagesAsync(dashboardKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
