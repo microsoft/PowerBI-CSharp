@@ -5978,7 +5978,7 @@
                     "Groups"
                 ],
                 "summary": "Creates new workspace.",
-                "description": "<br/>**Required scope**: Group.Read.All or Group.ReadWrite.All or Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_CreateGroup",
                 "consumes": [
                     "application/json"
@@ -6035,7 +6035,7 @@
                     "Groups"
                 ],
                 "summary": "Deletes the specified workspace.",
-                "description": "<br/>**Required scope**: Group.Read.All or Group.ReadWrite.All or Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_DeleteGroup",
                 "consumes": [
                 ],
@@ -6130,7 +6130,7 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user permissions to the specified workspace.",
-                "description": "**Note**: Only Admin access right is supported. <br/><br/>**Required scope**: Group.Read.All or Group.ReadWrite.All or Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: Only Admin access right is supported. <br/><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
@@ -6186,7 +6186,7 @@
                     "Groups"
                 ],
                 "summary": "Deletes the specified user permissions from the specified workspace.",
-                "description": "<br/>**Required scope**: Group.Read.All or Group.ReadWrite.All or Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_DeleteUserInGroup",
                 "consumes": [
                 ],
