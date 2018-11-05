@@ -653,7 +653,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2>Datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.<br/>",
                 "operationId": "Datasets_GetParameters",
                 "consumes": [
 
@@ -2972,7 +2972,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2>Datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.<br/>",
                 "operationId": "Datasets_GetParametersInGroup",
                 "consumes": [
 

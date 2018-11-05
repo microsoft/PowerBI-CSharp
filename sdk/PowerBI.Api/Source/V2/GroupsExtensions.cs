@@ -77,8 +77,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates new workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -97,8 +96,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates new workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -123,8 +121,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -143,8 +140,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -216,8 +212,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// **Note**: Only Admin access right is supported.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Group.Read.All or
-            /// Group.ReadWrite.All or Workspace.Read.All or
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
             /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -241,8 +236,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// **Note**: Only Admin access right is supported.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Group.Read.All or
-            /// Group.ReadWrite.All or Workspace.Read.All or
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
             /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -271,8 +265,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified user permissions from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -294,8 +287,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified user permissions from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>

@@ -520,7 +520,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -540,7 +542,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1542,7 +1546,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1564,7 +1570,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
