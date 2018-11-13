@@ -1716,6 +1716,23 @@
                         }
                     }
                 },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "reportKey": "5b218778-e7a5-4d73-8187-f10824047715",
+                            "requestParameters": {
+                                "sourceReport":{
+                                    "sourceReportId": "8e4d5880-81d6-4804-ab97-054665050799",
+                                    "sourceWorkspaceId": "2f42a406-a075-4a15-bbf2-97ef958c94cb"
+                                },
+                                "sourceType": "ExistingReport"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
                 "deprecated": false
             }
         },
@@ -4215,6 +4232,24 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportKey": "5b218778-e7a5-4d73-8187-f10824047715",
+                            "requestParameters": {
+                                "sourceReport":{
+                                    "sourceReportId": "8e4d5880-81d6-4804-ab97-054665050799",
+                                    "sourceWorkspaceId": "2f42a406-a075-4a15-bbf2-97ef958c94cb"
+                                },
+                                "sourceType": "ExistingReport"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -8947,7 +8982,20 @@
             "properties": {
                 "sourceType": {
                     "type": "string",
-                    "description": "The source type for the content update"
+                    "description": "The source type for the content update.",
+                    "enum": [
+                        "ExistingReport"
+                    ],
+                    "x-ms-enum": {
+                        "name": "sourceTypeEnum",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "ExistingReport",
+                                "description": "Use an existing report as a source for updating the content of a target report."
+                            }
+                        ]
+                    }
                 },
                 "sourceReport": {
                     "$ref": "#/definitions/SourceReport"
