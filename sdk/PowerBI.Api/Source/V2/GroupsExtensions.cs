@@ -19,9 +19,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of workspaces the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -45,9 +45,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of workspaces the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -165,9 +165,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -185,9 +185,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
