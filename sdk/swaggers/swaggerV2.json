@@ -4887,6 +4887,32 @@
                             }
                         }
                     },
+                    "Generate report EmbedToken using EffectiveIdentity with IdentityBlob": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportKey": "5b218778-e7a5-4d73-8187-f10824047715",
+                            "requestParameters": {
+                                "accessLevel": "View",
+                                "identities": [
+                                    {
+                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ],
+                                        "identityBlob": {
+                                            "value": "eyJ0eX....AAA="
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2018-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
                     "Generate report EmbedToken for editing, using EffectiveIdentity": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
@@ -5082,6 +5108,32 @@
                                 }
                             }
                         }
+                    },
+                    "Generate dashboard EmbedToken using EffectiveIdentity with IdentityBlob": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
+                            "requestParameters": {
+                                "accessLevel": "View",
+                                "identities": [
+                                    {
+                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ],
+                                        "identityBlob": {
+                                            "value": "eyJ0eX....AAA="
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2018-07-29T17:58:19Z"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -5181,6 +5233,33 @@
                                         "customData": "john_contoso.com",
                                         "roles": [ "sales" ],
                                         "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2018-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Generate tile EmbedToken using EffectiveIdentity with IdentityBlob": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
+                            "tileKey": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b",
+                            "requestParameters": {
+                                "accessLevel": "View",
+                                "identities": [
+                                    {
+                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ],
+                                        "identityBlob": {
+                                            "value": "eyJ0eX....AAA="
+                                        }
                                     }
                                 ]
                             }
@@ -8842,6 +8921,18 @@
                 "emailAddress"
             ]
         },
+        "IdentityBlob":{
+            "required":[
+                "value"
+            ],
+            "description":"Preview feature: A blob to specify identity for EmbedToken generation. Only supported for datasets with Direct Query connection to SQL Azure",
+            "properties":{
+                "value":{
+                    "type":"string",
+                    "description":"OAuth2 access token for SQL Azure"
+                }
+            }
+        },
         "EffectiveIdentity": {
             "required": [
                 "username",
@@ -8870,6 +8961,10 @@
                 "customData": {
                     "type": "string",
                     "description": "The value of customdata to be used for applying RLS rules. Only supported for live connections to Azure Analysis Services."
+                },
+                "identityBlob": {
+                    "$ref": "#/definitions/IdentityBlob",
+                    "description": "Preview feature: The identity blob representing the identity that the generated token should reflect"
                 }
             }
         },

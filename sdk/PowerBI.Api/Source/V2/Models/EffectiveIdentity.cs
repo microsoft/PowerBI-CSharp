@@ -45,12 +45,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="customData">The value of customdata to be used for
         /// applying RLS rules. Only supported for live connections to Azure
         /// Analysis Services.</param>
-        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string))
+        /// <param name="identityBlob">Preview feature: The identity blob
+        /// representing the identity that the generated token should
+        /// reflect</param>
+        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob))
         {
             Username = username;
             Roles = roles;
             Datasets = datasets;
             CustomData = customData;
+            IdentityBlob = identityBlob;
             CustomInit();
         }
 
@@ -94,6 +98,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string CustomData { get; set; }
 
         /// <summary>
+        /// Gets or sets preview feature: The identity blob representing the
+        /// identity that the generated token should reflect
+        /// </summary>
+        [JsonProperty(PropertyName = "identityBlob")]
+        public IdentityBlob IdentityBlob { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -108,6 +119,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
             if (Datasets == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Datasets");
+            }
+            if (IdentityBlob != null)
+            {
+                IdentityBlob.Validate();
             }
         }
     }
