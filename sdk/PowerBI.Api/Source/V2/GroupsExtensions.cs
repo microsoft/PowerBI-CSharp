@@ -87,9 +87,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestParameters'>
             /// Create group request parameters
             /// </param>
-            public static Group CreateGroup(this IGroups operations, GroupCreationRequest requestParameters)
+            /// <param name='workspaceV2'>
+            /// Preview feature: Create a workspace V2. The only supported value is true.
+            /// </param>
+            public static Group CreateGroup(this IGroups operations, GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?))
             {
-                return operations.CreateGroupAsync(requestParameters).GetAwaiter().GetResult();
+                return operations.CreateGroupAsync(requestParameters, workspaceV2).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -106,12 +109,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestParameters'>
             /// Create group request parameters
             /// </param>
+            /// <param name='workspaceV2'>
+            /// Preview feature: Create a workspace V2. The only supported value is true.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Group> CreateGroupAsync(this IGroups operations, GroupCreationRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Group> CreateGroupAsync(this IGroups operations, GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateGroupWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateGroupWithHttpMessagesAsync(requestParameters, workspaceV2, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

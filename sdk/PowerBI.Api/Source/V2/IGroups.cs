@@ -60,6 +60,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='requestParameters'>
         /// Create group request parameters
         /// </param>
+        /// <param name='workspaceV2'>
+        /// Preview feature: Create a workspace V2. The only supported value is
+        /// true.
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -75,7 +79,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the specified workspace.
         /// </summary>

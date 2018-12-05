@@ -6030,6 +6030,13 @@
                         "schema": {
                             "$ref": "#/definitions/GroupCreationRequest"
                         }
+                    },
+                    {
+                        "name": "workspaceV2",
+                        "in": "query",
+                        "required": false,
+                        "description": "Preview feature: Create a workspace V2. The only supported value is true.",
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -6055,6 +6062,25 @@
                                         "isReadOnly": false,
                                         "isOnDedicatedCapacity": false,
                                         "name": "sample group"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "example creating a workspace V2": {
+                        "parameters": {
+                            "requestParameters": {
+                                "name": "sample workspace V2"
+                            },
+                            "workspaceV2": true
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                        "isOnDedicatedCapacity": false,
+                                        "name": "sample workspace V2"
                                     }
                                 ]
                             }

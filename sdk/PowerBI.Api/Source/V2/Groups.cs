@@ -218,6 +218,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='requestParameters'>
         /// Create group request parameters
         /// </param>
+        /// <param name='workspaceV2'>
+        /// Preview feature: Create a workspace V2. The only supported value is true.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -239,7 +242,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (requestParameters == null)
             {
@@ -253,12 +256,22 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("requestParameters", requestParameters);
+                tracingParameters.Add("workspaceV2", workspaceV2);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateGroup", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (workspaceV2 != null)
+            {
+                _queryParameters.Add(string.Format("workspaceV2={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(workspaceV2, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
