@@ -50,9 +50,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Returns a list of workspaces the user has access to.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
-        /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
+        /// have their new group immediately available.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+        /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='filter'>
@@ -668,8 +669,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Grants the specified user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: Only Admin access right is supported.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// &lt;br/&gt;**Notes**: &lt;li&gt; Only Admin access right is supported.
+        /// &lt;/li&gt; &lt;li&gt; Users that have been recently added to a group may
+        /// not have their new group immediately available.
+        /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
         /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).

@@ -5992,7 +5992,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of workspaces the user has access to.",
-                "description": "<br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**: Users that have been recently added to a group may not have their new group immediately available.<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroups",
                 "consumes": [
 
@@ -6270,7 +6270,7 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user permissions to the specified workspace.",
-                "description": "**Note**: Only Admin access right is supported. <br/><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Notes**: <li> Only Admin access right is supported. </li> <li> Users that have been recently added to a group may not have their new group immediately available. </li><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
