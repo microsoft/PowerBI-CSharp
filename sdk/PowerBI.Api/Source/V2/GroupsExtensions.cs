@@ -331,7 +331,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// permissions on the capacity. To unassign **"My Workspace"** from a
             /// capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be
             /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To set the
+            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -354,7 +354,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// permissions on the capacity. To unassign **"My Workspace"** from a
             /// capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be
             /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To set the
+            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -384,7 +384,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// To unassign the specified workspace from a capacity, Empty Guid
             /// (00000000-0000-0000-0000-000000000000) should be provided as capacityId.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All and
-            /// Workspace.ReadWrite.All. &lt;br/&gt;To set the permissions scope, see
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -411,7 +411,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// To unassign the specified workspace from a capacity, Empty Guid
             /// (00000000-0000-0000-0000-000000000000) should be provided as capacityId.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All and
-            /// Workspace.ReadWrite.All. &lt;br/&gt;To set the permissions scope, see
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -430,6 +430,96 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<object> AssignToCapacityAsync(this IGroups operations, string groupId, AssignToCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AssignToCapacityWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the status of **"My Workspace"** assignment to capacity operation.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All and
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static WorkspaceCapacityAssignmentStatus CapacityAssignmentStatusMyWorkspace(this IGroups operations)
+            {
+                return operations.CapacityAssignmentStatusMyWorkspaceAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the status of **"My Workspace"** assignment to capacity operation.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All and
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorkspaceCapacityAssignmentStatus> CapacityAssignmentStatusMyWorkspaceAsync(this IGroups operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CapacityAssignmentStatusMyWorkspaceWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the status of the assignment to capacity operation of the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: To perform this operation, the user must be admin on the
+            /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            public static WorkspaceCapacityAssignmentStatus CapacityAssignmentStatus(this IGroups operations, string groupId)
+            {
+                return operations.CapacityAssignmentStatusAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the status of the assignment to capacity operation of the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: To perform this operation, the user must be admin on the
+            /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorkspaceCapacityAssignmentStatus> CapacityAssignmentStatusAsync(this IGroups operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CapacityAssignmentStatusWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

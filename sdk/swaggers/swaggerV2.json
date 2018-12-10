@@ -6425,7 +6425,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns **\"My Workspace\"** to the specified capacity.",
-                "description": "**Note**: To perform this operation, the user must have admin or assign permissions on the capacity. To unassign **\"My Workspace\"** from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  <br/><br/>**Required scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: To perform this operation, the user must have admin or assign permissions on the capacity. To unassign **\"My Workspace\"** from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  <br/><br/>**Required scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AssignMyWorkspaceToCapacity",
                 "consumes": [
                     "application/json"
@@ -6472,7 +6472,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns the specified workspace to the specified capacity.",
-                "description": "**Note**: To perform this operation, the user must be admin on the specified workspace and have admin or assign permissions on the capacity. To unassign the specified workspace from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  <br/><br/>**Required scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: To perform this operation, the user must be admin on the specified workspace and have admin or assign permissions on the capacity. To unassign the specified workspace from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  <br/><br/>**Required scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AssignToCapacity",
                 "consumes": [
                     "application/json"
@@ -6521,7 +6521,125 @@
                 "deprecated": false
             }
         },
-
+        "/v1.0/myorg/CapacityAssignmentStatus": {
+            "get": {
+                "tags": [
+                    "Capacities"
+                ],
+                "summary": "Gets the status of **\"My Workspace\"** assignment to capacity operation.",
+                "description": "**Note**: <br/><br/>**Required scope**: Workspace.Read.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Groups_CapacityAssignmentStatusMyWorkspace",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WorkspaceCapacityAssignmentStatus"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Assignment to shared capacity status example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "status": "CompletedSuccessfully",
+                                    "activityId": "dec4010c-9aad-edb6-0063-94b313cfe121",
+                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                    "endTime": "2017-06-13T09:26:43.153Z",
+                                    "capacityId": "00000000-0000-0000-0000-000000000000"
+                                }
+                            }
+                        }
+                    },
+                    "Assignment in progress status example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "status": "InProgress",
+                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                    "capacityId": "EC719732-EC80-4034-8053-0026BD5996D4"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/CapacityAssignmentStatus": {
+            "get": {
+                "tags": [
+                    "Capacities"
+                ],
+                "summary": "Gets the status of the assignment to capacity operation of the specified workspace.",
+                "description": "**Note**: To perform this operation, the user must be admin on the specified workspace. <br/><br/>**Required scope**: Workspace.Read.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Groups_CapacityAssignmentStatus",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WorkspaceCapacityAssignmentStatus"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Assignment completed successfully status example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "status": "CompletedSuccessfully",
+                                    "activityId": "dec4010c-9aad-edb6-0063-94b313cfe121",
+                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                    "endTime": "2017-06-13T09:26:43.153Z",
+                                    "capacityId": "EC719732-EC80-4034-8053-0026BD5996D4"
+                                }
+                            }
+                        }
+                    },
+                    "Assignment in progress status example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "status": "InProgress",
+                                    "startTime": "2017-06-13T09:25:43.153Z",
+                                    "capacityId": "EC719732-EC80-4034-8053-0026BD5996D4"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },    
         "/v1.0/myorg/availableFeatures": {
             "get": {
                 "tags": [
@@ -9323,6 +9441,61 @@
                 "capacityId": {
                     "type": "string",
                     "description": "The capacity id. To unassign from capacity, use Empty Guid (00000000-0000-0000-0000-000000000000)."
+                }
+            }
+        },
+        "WorkspaceCapacityAssignmentStatus": {
+            "description": "Power BI workspace assignment status to capacity response",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "Workspace assignment status",
+                    "enum": [
+                        "Pending",
+                        "InProgress",
+                        "CompletedSuccessfully",
+                        "AssignmentFailed"
+                    ],
+                    "x-ms-enum": {
+                        "name": "AssignmentStatus",
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "Pending",
+                                "description": "Assignment request was initiated, but was not started yet"
+                            },
+                            {
+                                "value": "InProgress",
+                                "description": "Assignment operation is in progress"
+                            },
+                            {
+                                "value": "CompletedSuccessfully",
+                                "description": "Assignment operation was completed successfully"
+                            },
+                            {
+                                "value": "AssignmentFailed",
+                                "description": "Assignment failed"
+                            }
+                        ]
+                    }
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Start time of workspace assignment operation"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "End time of workspace assignment operation"
+                },
+                "capacityId": {
+                    "type": "string",
+                    "description": "The capacity id"
+                },
+                "activityId": {
+                    "type": "string",
+                    "description": "The activity id of the acctual assignment operation, can be provided in case of assignment failures"
                 }
             }
         },

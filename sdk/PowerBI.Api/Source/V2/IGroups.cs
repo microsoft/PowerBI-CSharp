@@ -211,7 +211,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// assign permissions on the capacity. To unassign **"My Workspace"**
         /// from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000)
         /// should be provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All.
+        /// scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -243,7 +243,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// capacity. To unassign the specified workspace from a capacity,
         /// Empty Guid (00000000-0000-0000-0000-000000000000) should be
         /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To
+        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To
         /// set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -269,6 +269,59 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<object>> AssignToCapacityWithHttpMessagesAsync(string groupId, AssignToCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the status of **"My Workspace"** assignment to capacity
+        /// operation.
+        /// </summary>
+        /// <remarks>
+        /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set
+        /// the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<WorkspaceCapacityAssignmentStatus>> CapacityAssignmentStatusMyWorkspaceWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Gets the status of the assignment to capacity operation of the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note**: To perform this operation, the user must be admin on the
+        /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set
+        /// the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<WorkspaceCapacityAssignmentStatus>> CapacityAssignmentStatusWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of workspaces for the organization.
         /// </summary>
