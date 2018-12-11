@@ -56,10 +56,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Business, request Headers should include **Content-Type:
         /// application/json** with
         /// [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in
-        /// the request body.&lt;/li&gt;&lt;li&gt;To import .pbix files larger
-        /// than 1 GB, see [Create Temporary Upload
+        /// the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix files
+        /// between 1 GB and 10 GB, see [Create Temporary Upload
         /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation),
-        /// suported only for workspaces on premium
+        /// supported only for workspaces on premium
         /// capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
@@ -119,20 +119,20 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Import>> GetImportByIdWithHttpMessagesAsync(string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a temporary blob storage to be used to import .pbix files
-        /// larger than 1 GB.
+        /// Creates a temporary blob storage to be used to import large .pbix
+        /// files larger than 1 GB and up to 10 GB.
         /// </summary>
         /// <remarks>
-        /// To import .pbix files larger than 1 GB, create a temporary upload
-        /// location and upload the file using the shared access signature
-        /// (SAS) url from the response, and then call [Post
+        /// To import large .pbix files, create a temporary upload location and
+        /// upload the .pbix file using the shared access signature (SAS) url
+        /// from the response, and then call [Post
         /// Import](/rest/api/power-bi/imports/postimport) and specify
         /// 'fileUrl' to be the SAS url in the [Request
         /// Body](/rest/api/power-bi/imports/postimport#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
         /// Import large .pbix files is only available for workspaces on
-        /// premium capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// premium capacity and for .pbix files that are between 1 GB and 10
+        /// GB. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='customHeaders'>
@@ -192,10 +192,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Business, request Headers should include **Content-Type:
         /// application/json** with
         /// [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo)
-        /// in the request body.&lt;/li&gt;&lt;li&gt;To import .pbix files
-        /// larger than 1 GB see [Create Temporary Upload Location In
+        /// in the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix
+        /// files between 1 GB and 10 GB see [Create Temporary Upload Location
+        /// In
         /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
-        /// suported only for workspaces on premium
+        /// supported only for workspaces on premium
         /// capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -261,20 +262,20 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Import>> GetImportByIdInGroupWithHttpMessagesAsync(string groupId, string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a temporary blob storage used to import .pbix files larger
-        /// than 1 GB.
+        /// Creates a temporary blob storage to be used to import large .pbix
+        /// files larger than 1 GB and up to 10 GB.
         /// </summary>
         /// <remarks>
-        /// To import .pbix files larger than 1 GB, create a temporary upload
-        /// location and upload the .pbix file using the shared access
-        /// signature (SAS) url from the response, and then call [Post Import
-        /// In Group](/rest/api/power-bi/imports/postimportingroup) and specify
+        /// To import large .pbix files, create a temporary upload location and
+        /// upload the .pbix file using the shared access signature (SAS) url
+        /// from the response, and then call [Post Import In
+        /// Group](/rest/api/power-bi/imports/postimportingroup) and specify
         /// 'fileUrl' to be the SAS url in the [Request
         /// Body](/rest/api/power-bi/imports/postimportingroup#request-body).&lt;br/&gt;&lt;br/&gt;**Note**:
         /// Import large .pbix files is only available for workspaces on
-        /// premium capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// premium capacity and for .pbix files that is between 1 GB and 10
+        /// GB. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
