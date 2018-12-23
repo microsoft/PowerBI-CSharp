@@ -1721,7 +1721,7 @@
                         "parameters": {
                             "reportKey": "5b218778-e7a5-4d73-8187-f10824047715",
                             "requestParameters": {
-                                "sourceReport":{
+                                "sourceReport": {
                                     "sourceReportId": "8e4d5880-81d6-4804-ab97-054665050799",
                                     "sourceWorkspaceId": "2f42a406-a075-4a15-bbf2-97ef958c94cb"
                                 },
@@ -4241,7 +4241,7 @@
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportKey": "5b218778-e7a5-4d73-8187-f10824047715",
                             "requestParameters": {
-                                "sourceReport":{
+                                "sourceReport": {
                                     "sourceReportId": "8e4d5880-81d6-4804-ab97-054665050799",
                                     "sourceWorkspaceId": "2f42a406-a075-4a15-bbf2-97ef958c94cb"
                                 },
@@ -6419,6 +6419,183 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/capacities/{capacityId}/Workloads": {
+            "get": {
+                "tags": [
+                    "Workloads"
+                ],
+                "summary": "Returns a list of the capacity workloads settings.",
+                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_GetWorkloads",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "in": "path",
+                        "description": "The capacity Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Workload]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "state": "Enabled",
+                                        "name": "Dataflows",
+                                        "maxMemoryPercentageSetByUser": "66"
+                                    },
+                                    {
+                                        "state": "Disabled",
+                                        "name": "PaginatedReports"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/capacities/{capacityId}/Workloads/{workloadName}": {
+            "get": {
+                "tags": [
+                    "Workloads"
+                ],
+                "summary": "Returns the settings of a specific workload.",
+                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_GetWorkload",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "in": "path",
+                        "description": "The capacity Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workloadName",
+                        "in": "path",
+                        "description": "The name of the workload",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Workload"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                            "workloadName": "Dataflows"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": {
+                                    "state": "Enabled",
+                                    "name": "Dataflows",
+                                    "maxMemoryPercentageSetByUser": "66"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Workloads"
+                ],
+                "summary": "Update the settings of a specific workload.",
+                "description": "<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_PatchWorkload",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "in": "path",
+                        "description": "The capacity Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workloadName",
+                        "in": "path",
+                        "description": "The name of the workload",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "workload",
+                        "in": "body",
+                        "description": "Patch workload parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PatchWorkloadRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                            "workloadName": "Dataflows",
+                            "workload": {
+                                "state": "Enabled",
+                                "maxMemoryPercentageSetByUser": "66"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/AssignToCapacity": {
             "post": {
                 "tags": [
@@ -6639,7 +6816,8 @@
                 },
                 "deprecated": false
             }
-        },    
+        },
+
         "/v1.0/myorg/availableFeatures": {
             "get": {
                 "tags": [
@@ -8973,8 +9151,7 @@
                     "x-ms-enum": {
                         "name": "PrincipalType",
                         "modelAsString": true,
-                        "values": 
-                        [
+                        "values": [
                             {
                                 "value": "User",
                                 "description": "User principal type"
@@ -9039,15 +9216,15 @@
                 "emailAddress"
             ]
         },
-        "IdentityBlob":{
-            "required":[
+        "IdentityBlob": {
+            "required": [
                 "value"
             ],
-            "description":"Preview feature: A blob to specify identity for EmbedToken generation. Only supported for datasets with Direct Query connection to SQL Azure",
-            "properties":{
-                "value":{
-                    "type":"string",
-                    "description":"OAuth2 access token for SQL Azure"
+            "description": "Preview feature: A blob to specify identity for EmbedToken generation. Only supported for datasets with Direct Query connection to SQL Azure",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "description": "OAuth2 access token for SQL Azure"
                 }
             }
         },
@@ -9510,6 +9687,69 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "The expiration time of the shared access signature (SAS) url"
+                }
+            }
+        },
+        "ODataResponse[List[Workload]]": {
+            "description": "Odata response wrapper for capacity workload settings list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The capacity workload settings list",
+                    "items": {
+                        "$ref": "#/definitions/Workload"
+                    }
+                }
+            }
+        },
+        "Workload": {
+            "description": "Capacity workload setting",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The workload name"
+                },
+                "state": {
+                    "type": "string",
+                    "enum": [
+                        "Disabled",
+                        "Enabled",
+                        "Unsupported"
+                    ],
+                    "x-ms-enum": {
+                        "name": "WorkloadState",
+                        "modelAsString": false
+                    },
+                    "description": "The capacity workload state"
+                },
+                "maxMemoryPercentageSetByUser": {
+                    "type": "integer",
+                    "description": "The memory percentage maximum Limit set by the user"
+                }
+            }
+        },
+        "PatchWorkloadRequest": {
+            "description": "Patch workload setting request",
+            "properties": {
+                "state": {
+                    "type": "string",
+                    "enum": [
+                        "Disabled",
+                        "Enabled",
+                        "Unsupported"
+                    ],
+                    "x-ms-enum": {
+                        "name": "WorkloadState",
+                        "modelAsString": false
+                    },
+                    "description": "The capacity workload state"
+                },
+                "maxMemoryPercentageSetByUser": {
+                    "type": "integer",
+                    "description": "The memory percentage maximum Limit set by the user"
                 }
             }
         }
