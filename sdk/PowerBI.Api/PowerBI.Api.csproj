@@ -1,21 +1,67 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.Net.Sdk">
+  
   <PropertyGroup>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <TargetFrameworks>netstandard2.0;portable45-net45+win8+wpa81</TargetFrameworks>
     <ProjectGuid>{1EE969AD-7923-4855-AACA-2A1B790BB0F1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Microsoft.PowerBI.Api</RootNamespace>
-    <AssemblyName>Microsoft.PowerBI.Api</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'portable45-net45+win8+wpa81'">
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="'$(TargetFramework)' == 'portable45-net45+win8+wpa81' and Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+  <!--Package Configuration Properties-->
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkId=780675</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Microsoft/PowerBI-CSharp</PackageProjectUrl>
+    <RootNamespace>Microsoft.PowerBI.Api</RootNamespace>
+    <AssemblyName>Microsoft.PowerBI.Api</AssemblyName>
+    <AssemblyTitle>Microsoft.PowerBI.Api</AssemblyTitle>
+    <Title>Microsoft Power BI API</Title>
+    <Description>.NET Client library for Microsoft Power BI public REST endpoints providing access to your Workspaces, Reports, Datasets and more.</Description>
+    <Authors>Microsoft</Authors>
+    <Owners>Microsoft</Owners>
+    <Company>Microsoft</Company>
+    <Product>Microsoft Power BI Api</Product>
+    <DelaySign>true</DelaySign>
+    <PackageTags>Microsoft Power BI API REST</PackageTags>
+    <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
+    <Version Condition=" '$(AssemblyVersion)' == '' ">1.0.0</Version>
+    <Version Condition=" '$(AssemblyVersion)' != '' ">$(AssemblyVersion)</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\certificates\35MSSharedLib1024.snk">
+      <Link>35MSSharedLib1024.snk</Link>
+    </None>
+    <None Include="app.config" />
+    <None Include="PowerBI.Api.nuspec">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <!--.NETstandard Properties-->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.18" />
+  </ItemGroup>
+  
+
+  <!--.NET45 Properties-->
+  <!--Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"-->  
+  <ItemGroup Condition=" '$(TargetFramework)' == 'portable45-net45+win8+wpa81' ">
+    <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.0.1" />
+  </ItemGroup>
+
+  <!--Shared Properties-->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -37,55 +83,8 @@
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
-  <PropertyGroup>
-    <DelaySign>true</DelaySign>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="Extensions\V2\DashboardsExtensions.cs" />
-    <Compile Include="Extensions\V2\DatasetsExtensions.cs" />
-    <Compile Include="Extensions\V2\ImportsExtensions.cs" />
-    <Compile Include="Extensions\V2\Models\GenerateTokenRequest.cs" />
-    <Compile Include="Extensions\V2\Models\UpdateDatasetParametersRequest.cs" />
-    <Compile Include="Extensions\V2\Models\UpdateDatasourcesRequest.cs" />
-    <Compile Include="Extensions\V2\ReportsExtensions.cs" />
-    <Compile Include="Extensions\V2\TilesExtensions.cs" />
-    <Compile Include="Imports\V1\IImports.cs" />
-    <Compile Include="Imports\V1\Imports.cs" />
-    <Compile Include="Imports\V1\ImportsExtensions.cs" />
-    <Compile Include="Imports\V2\IImports.cs" />
-    <Compile Include="Imports\V2\Imports.cs" />
-    <Compile Include="Imports\V2\ImportsExtensions.cs" />
-    <Compile Include="Source\V1\**\*.cs" />
-    <Compile Include="Source\V2\**\*.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\certificates\35MSSharedLib1024.snk">
-      <Link>35MSSharedLib1024.snk</Link>
-    </None>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-    <None Include="PowerBI.Api.nuspec">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.0.1\lib\portable-net45+win+wpa81\Microsoft.Rest.ClientRuntime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+
+  <Import Condition=" '$(TargetFramework)' == 'portable45-net45+win8+wpa81'" Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
