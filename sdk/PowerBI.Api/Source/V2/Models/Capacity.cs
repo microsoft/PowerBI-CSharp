@@ -33,7 +33,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="sku">The capacity SKU.</param>
         /// <param name="state">The capacity state. Possible values include:
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
-        /// 'PreSuspended', 'Suspended', 'Deleting', 'Deleted', 'Invalid',
+        /// 'Suspended', 'PreSuspended', 'Deleting', 'Deleted', 'Invalid',
         /// 'UpdatingSku'</param>
         /// <param name="capacityUserAccessRight">Access right user has on the
         /// capacity. Possible values include: 'None', 'Assign',
@@ -84,7 +84,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Gets or sets the capacity state. Possible values include:
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
-        /// 'PreSuspended', 'Suspended', 'Deleting', 'Deleted', 'Invalid',
+        /// 'Suspended', 'PreSuspended', 'Deleting', 'Deleted', 'Invalid',
         /// 'UpdatingSku'
         /// </summary>
         [JsonProperty(PropertyName = "state")]

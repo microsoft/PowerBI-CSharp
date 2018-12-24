@@ -12,15 +12,45 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class StateEnum
     {
+        /// <summary>
+        /// Not Supported
+        /// </summary>
         public const string NotActivated = "NotActivated";
+        /// <summary>
+        /// Capacity ready for use
+        /// </summary>
         public const string Active = "Active";
+        /// <summary>
+        /// Capacity in activation process
+        /// </summary>
         public const string Provisioning = "Provisioning";
+        /// <summary>
+        /// Capacity failed to provisioned
+        /// </summary>
         public const string ProvisionFailed = "ProvisionFailed";
-        public const string PreSuspended = "PreSuspended";
+        /// <summary>
+        /// Capacity suspended for use
+        /// </summary>
         public const string Suspended = "Suspended";
+        /// <summary>
+        /// Not Supported
+        /// </summary>
+        public const string PreSuspended = "PreSuspended";
+        /// <summary>
+        /// Capacity in process of being deleted
+        /// </summary>
         public const string Deleting = "Deleting";
+        /// <summary>
+        /// Capacity has been deleted and is not available
+        /// </summary>
         public const string Deleted = "Deleted";
+        /// <summary>
+        /// Capacity can not be used
+        /// </summary>
         public const string Invalid = "Invalid";
+        /// <summary>
+        /// Capacity Sku change is in progress
+        /// </summary>
         public const string UpdatingSku = "UpdatingSku";
     }
 }

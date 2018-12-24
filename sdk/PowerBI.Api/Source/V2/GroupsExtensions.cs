@@ -19,8 +19,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of workspaces the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
+            /// have their new group immediately available.&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -45,8 +46,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of workspaces the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
+            /// have their new group immediately available.&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -77,8 +79,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates new workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -88,17 +89,19 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestParameters'>
             /// Create group request parameters
             /// </param>
-            public static Group CreateGroup(this IGroups operations, GroupCreationRequest requestParameters)
+            /// <param name='workspaceV2'>
+            /// Preview feature: Create a workspace V2. The only supported value is true.
+            /// </param>
+            public static Group CreateGroup(this IGroups operations, GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?))
             {
-                return operations.CreateGroupAsync(requestParameters).GetAwaiter().GetResult();
+                return operations.CreateGroupAsync(requestParameters, workspaceV2).GetAwaiter().GetResult();
             }
 
             /// <summary>
             /// Creates new workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -108,12 +111,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestParameters'>
             /// Create group request parameters
             /// </param>
+            /// <param name='workspaceV2'>
+            /// Preview feature: Create a workspace V2. The only supported value is true.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Group> CreateGroupAsync(this IGroups operations, GroupCreationRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Group> CreateGroupAsync(this IGroups operations, GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateGroupWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateGroupWithHttpMessagesAsync(requestParameters, workspaceV2, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -123,8 +129,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -143,8 +148,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -169,9 +173,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -189,9 +193,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -215,9 +219,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// Grants the specified user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note**: Only Admin access right is supported.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Group.Read.All or
-            /// Group.ReadWrite.All or Workspace.Read.All or
+            /// &lt;br/&gt;**Notes**: &lt;li&gt; Only Admin access right is supported.
+            /// &lt;/li&gt; &lt;li&gt; Users that have been recently added to a group may
+            /// not have their new group immediately available.
+            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
             /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -240,9 +245,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// Grants the specified user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note**: Only Admin access right is supported.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Group.Read.All or
-            /// Group.ReadWrite.All or Workspace.Read.All or
+            /// &lt;br/&gt;**Notes**: &lt;li&gt; Only Admin access right is supported.
+            /// &lt;/li&gt; &lt;li&gt; Users that have been recently added to a group may
+            /// not have their new group immediately available.
+            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
             /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -271,8 +277,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified user permissions from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -294,8 +299,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Deletes the specified user permissions from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-            /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -327,7 +331,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// permissions on the capacity. To unassign **"My Workspace"** from a
             /// capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be
             /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To set the
+            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -350,7 +354,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// permissions on the capacity. To unassign **"My Workspace"** from a
             /// capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be
             /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To set the
+            /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -380,7 +384,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// To unassign the specified workspace from a capacity, Empty Guid
             /// (00000000-0000-0000-0000-000000000000) should be provided as capacityId.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All and
-            /// Workspace.ReadWrite.All. &lt;br/&gt;To set the permissions scope, see
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -407,7 +411,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// To unassign the specified workspace from a capacity, Empty Guid
             /// (00000000-0000-0000-0000-000000000000) should be provided as capacityId.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All and
-            /// Workspace.ReadWrite.All. &lt;br/&gt;To set the permissions scope, see
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -432,15 +436,104 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Gets the status of **"My Workspace"** assignment to capacity operation.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All and
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static WorkspaceCapacityAssignmentStatus CapacityAssignmentStatusMyWorkspace(this IGroups operations)
+            {
+                return operations.CapacityAssignmentStatusMyWorkspaceAsync().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the status of **"My Workspace"** assignment to capacity operation.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All and
+            /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorkspaceCapacityAssignmentStatus> CapacityAssignmentStatusMyWorkspaceAsync(this IGroups operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CapacityAssignmentStatusMyWorkspaceWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Gets the status of the assignment to capacity operation of the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: To perform this operation, the user must be admin on the
+            /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            public static WorkspaceCapacityAssignmentStatus CapacityAssignmentStatus(this IGroups operations, string groupId)
+            {
+                return operations.CapacityAssignmentStatusAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Gets the status of the assignment to capacity operation of the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: To perform this operation, the user must be admin on the
+            /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<WorkspaceCapacityAssignmentStatus> CapacityAssignmentStatusAsync(this IGroups operations, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CapacityAssignmentStatusWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of workspaces for the organization.
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Office 365
             /// Global Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -469,9 +562,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// **Note:** The user must have administrator rights (such as Office 365
             /// Global Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -504,14 +596,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// **Note**: This API is currently limited to updating workspaces in the new
-            /// workspace experiences preview. Only name and description can be updated,
-            /// and name must be unique inside an organization. The user must have
-            /// administrator rights (such as Office 365 Global Administrator or Power BI
-            /// Service Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
-            /// permissions are supported.&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// workspace experience. Only name and description can be updated, and name
+            /// must be unique inside an organization. The user must have administrator
+            /// rights (such as Office 365 Global Administrator or Power BI Service
+            /// Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -532,14 +622,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// **Note**: This API is currently limited to updating workspaces in the new
-            /// workspace experiences preview. Only name and description can be updated,
-            /// and name must be unique inside an organization. The user must have
-            /// administrator rights (such as Office 365 Global Administrator or Power BI
-            /// Service Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
-            /// permissions are supported.&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// workspace experience. Only name and description can be updated, and name
+            /// must be unique inside an organization. The user must have administrator
+            /// rights (such as Office 365 Global Administrator or Power BI Service
+            /// Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -565,12 +653,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// Grants user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// **Note:** This API is currently limited to updating workspaces in the new
+            /// workspace experience. The user must have administrator rights (such as
+            /// Office 365 Global Administrator or Power BI Service Administrator) to call
+            /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -590,12 +678,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// Grants user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// **Note:** This API is currently limited to updating workspaces in the new
+            /// workspace experience. The user must have administrator rights (such as
+            /// Office 365 Global Administrator or Power BI Service Administrator) to call
+            /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -621,12 +709,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// Removes user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// **Note:** This API is currently limited to updating workspaces in the new
+            /// workspace experience. The user must have administrator rights (such as
+            /// Office 365 Global Administrator or Power BI Service Administrator) to call
+            /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -647,12 +735,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// Removes user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// **Note:** This API is currently limited to updating workspaces in the new
+            /// workspace experience. The user must have administrator rights (such as
+            /// Office 365 Global Administrator or Power BI Service Administrator) to call
+            /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -680,12 +768,11 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// **Note**: This API is currently limited to restoring workspaces in the new
-            /// workspace experiences preview. The user must have administrator rights
-            /// (such as Office 365 Global Administrator or Power BI Service Administrator)
-            /// to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// workspace experience. The user must have administrator rights (such as
+            /// Office 365 Global Administrator or Power BI Service Administrator) to call
+            /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -706,12 +793,11 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// **Note**: This API is currently limited to restoring workspaces in the new
-            /// workspace experiences preview. The user must have administrator rights
-            /// (such as Office 365 Global Administrator or Power BI Service Administrator)
-            /// to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// workspace experience. The user must have administrator rights (such as
+            /// Office 365 Global Administrator or Power BI Service Administrator) to call
+            /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

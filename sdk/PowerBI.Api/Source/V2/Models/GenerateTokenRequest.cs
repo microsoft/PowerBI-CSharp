@@ -28,9 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the GenerateTokenRequest class.
         /// </summary>
         /// <param name="accessLevel">Required access level for EmbedToken
-        /// generation. 'Edit' only applies when generating EmbedToken for
-        /// report embedding. 'Create' only applies when generating EmbedToken
-        /// for report creation. Possible values include: 'View', 'Edit',
+        /// generation. Possible values include: 'View', 'Edit',
         /// 'Create'</param>
         /// <param name="datasetId">Dataset id for report creation. Only
         /// applies when generating EmbedToken for report creation.</param>
@@ -56,9 +54,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets required access level for EmbedToken generation.
-        /// 'Edit' only applies when generating EmbedToken for report
-        /// embedding. 'Create' only applies when generating EmbedToken for
-        /// report creation. Possible values include: 'View', 'Edit', 'Create'
+        /// Possible values include: 'View', 'Edit', 'Create'
         /// </summary>
         [JsonProperty(PropertyName = "accessLevel")]
         public string AccessLevel { get; set; }

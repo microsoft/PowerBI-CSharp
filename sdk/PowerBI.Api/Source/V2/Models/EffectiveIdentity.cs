@@ -13,7 +13,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
     using System.Linq;
 
     /// <summary>
-    /// The identity the generated token should reflect
+    /// The identity the generated token should reflect, for more details see
+    /// this
+    /// [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)
     /// </summary>
     public partial class EffectiveIdentity
     {
@@ -29,10 +31,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the EffectiveIdentity class.
         /// </summary>
         /// <param name="username">The effective username reflected by a token
-        /// for applying RLS rules (username can be composed of alpha-numerical
-        /// characters or any of the following characters  '.', '-', '_', '!',
-        /// '#', '^', '~', '\', '@', username cannot contain spaces and must be
-        /// up to 256 characters)</param>
+        /// for applying RLS rules (For OnPrem model, username can be composed
+        /// of alpha-numerical characters or any of the following characters
+        /// '.', '-', '_', '!', '#', '^', '~', '\\', '@', also username cannot
+        /// contain spaces. For Cloud model, username can be composed of all
+        /// ASCII characters. username must be up to 256 characters)</param>
         /// <param name="datasets">An array of datasets for which this identity
         /// applies</param>
         /// <param name="roles">An array of roles reflected by a token when
@@ -42,12 +45,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="customData">The value of customdata to be used for
         /// applying RLS rules. Only supported for live connections to Azure
         /// Analysis Services.</param>
-        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string))
+        /// <param name="identityBlob">Preview feature: The identity blob
+        /// representing the identity that the generated token should
+        /// reflect</param>
+        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob))
         {
             Username = username;
             Roles = roles;
             Datasets = datasets;
             CustomData = customData;
+            IdentityBlob = identityBlob;
             CustomInit();
         }
 
@@ -58,10 +65,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the effective username reflected by a token for
-        /// applying RLS rules (username can be composed of alpha-numerical
-        /// characters or any of the following characters  '.', '-', '_', '!',
-        /// '#', '^', '~', '\', '@', username cannot contain spaces and must be
-        /// up to 256 characters)
+        /// applying RLS rules (For OnPrem model, username can be composed of
+        /// alpha-numerical characters or any of the following characters  '.',
+        /// '-', '_', '!', '#', '^', '~', '\\', '@', also username cannot
+        /// contain spaces. For Cloud model, username can be composed of all
+        /// ASCII characters. username must be up to 256 characters)
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
@@ -90,6 +98,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string CustomData { get; set; }
 
         /// <summary>
+        /// Gets or sets preview feature: The identity blob representing the
+        /// identity that the generated token should reflect
+        /// </summary>
+        [JsonProperty(PropertyName = "identityBlob")]
+        public IdentityBlob IdentityBlob { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -104,6 +119,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
             if (Datasets == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Datasets");
+            }
+            if (IdentityBlob != null)
+            {
+                IdentityBlob.Validate();
             }
         }
     }

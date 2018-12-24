@@ -39,8 +39,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// rebind the new tile to a different dataset.</param>
         /// <param name="positionConflictAction">Optional parameter for
         /// specifying the action in case of position conflict. &lt;br/&gt;If
-        /// not provided, 'Tail' is used. Possible values include: 'Tail',
-        /// 'Abort'</param>
+        /// not provided, 'Tail' is used. &lt;br/&gt;If there is no conflict,
+        /// clone tile to same position as in source. Possible values include:
+        /// 'Tail', 'Abort'</param>
         public CloneTileRequest(string targetDashboardId = default(string), string targetWorkspaceId = default(string), string targetReportId = default(string), string targetModelId = default(string), string positionConflictAction = default(string))
         {
             TargetDashboardId = targetDashboardId;
@@ -90,7 +91,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Gets or sets optional parameter for specifying the action in case
         /// of position conflict. &amp;lt;br/&amp;gt;If not provided, 'Tail' is
-        /// used. Possible values include: 'Tail', 'Abort'
+        /// used. &amp;lt;br/&amp;gt;If there is no conflict, clone tile to
+        /// same position as in source. Possible values include: 'Tail',
+        /// 'Abort'
         /// </summary>
         [JsonProperty(PropertyName = "positionConflictAction")]
         public string PositionConflictAction { get; set; }

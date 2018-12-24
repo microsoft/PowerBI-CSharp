@@ -12,8 +12,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class CapacityUserAccessRightEnum
     {
+        /// <summary>
+        /// User doesn't have access to the capacity
+        /// </summary>
         public const string None = "None";
+        /// <summary>
+        /// User can assign workspaces to the capacity
+        /// </summary>
         public const string Assign = "Assign";
+        /// <summary>
+        /// User has administrator rights on the capacity
+        /// </summary>
         public const string Admin = "Admin";
     }
 }

@@ -8,17 +8,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
 {
 
     /// <summary>
-    /// Defines values for PositionConflictActionEnum.
+    /// Defines values for PrincipalType.
     /// </summary>
-    public static class PositionConflictActionEnum
+    public static class PrincipalType
     {
         /// <summary>
-        /// Tile will be added at the end of the chosen dashboard
+        /// User principal type
         /// </summary>
-        public const string Tail = "Tail";
+        public const string User = "User";
         /// <summary>
-        /// In a case of position conflict, the request will be aborted
+        /// Group principal type
         /// </summary>
-        public const string Abort = "Abort";
+        public const string Group = "Group";
     }
 }

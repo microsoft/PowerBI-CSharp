@@ -40,5 +40,97 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListCapacity>> GetCapacitiesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of the capacity workloads settings.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='capacityId'>
+        /// The capacity Id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListWorkload>> GetWorkloadsWithHttpMessagesAsync(string capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the settings of a specific workload.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='capacityId'>
+        /// The capacity Id
+        /// </param>
+        /// <param name='workloadName'>
+        /// The name of the workload
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Workload>> GetWorkloadWithHttpMessagesAsync(string capacityId, string workloadName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update the settings of a specific workload.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='capacityId'>
+        /// The capacity Id
+        /// </param>
+        /// <param name='workloadName'>
+        /// The name of the workload
+        /// </param>
+        /// <param name='workload'>
+        /// Patch workload parameters
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> PatchWorkloadWithHttpMessagesAsync(string capacityId, string workloadName, PatchWorkloadRequest workload, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

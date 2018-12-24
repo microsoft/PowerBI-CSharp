@@ -12,9 +12,28 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class ImportConflictHandlerMode
     {
+        /// <summary>
+        /// If dataset with the same name already exists, Import operation will
+        /// create a new dataset with the same name.
+        /// </summary>
         public const string Ignore = "Ignore";
+        /// <summary>
+        /// If dataset with the same name already exists, Import operation will
+        /// be aborted.
+        /// </summary>
         public const string Abort = "Abort";
+        /// <summary>
+        /// If dataset with the same name already exists, Import operation will
+        /// replace the existing dataset with the new one.<br/>Import operation
+        /// will fail if there is no conflict or if there are more than one
+        /// datasets with the same name.
+        /// </summary>
         public const string Overwrite = "Overwrite";
+        /// <summary>
+        /// If dataset with the same name already exists, Import operation will
+        /// replace the existing dataset with the new one.<br/>Import operation
+        /// will fail if there are more than one datasets with the same name.
+        /// </summary>
         public const string CreateOrOverwrite = "CreateOrOverwrite";
     }
 }

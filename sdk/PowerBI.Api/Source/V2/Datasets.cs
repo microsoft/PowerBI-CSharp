@@ -1618,7 +1618,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+        /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+        /// supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -1779,9 +1781,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;/li&gt;&lt;li&gt; Cannot pass empty value to an IsRequired parameter.
         /// &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple occurrences
         /// of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types 'Any' or
-        /// 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Parameters may change the
-        /// actual connection (server and/or database), but not its OnPrem status (from
-        /// Cloud to OnPrem, or the other way).&lt;/li&gt;&lt;/ul&gt;
+        /// 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -2106,9 +2106,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
         /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
         /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-        /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-        /// connection from cloud to on-premises or on-premises to cloud is not
-        /// supported. &lt;/li&gt;&lt;/ul&gt;
+        /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -4555,7 +4553,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+        /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+        /// supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -4724,9 +4724,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;/li&gt;&lt;li&gt; An empty value is not permitted for the IsRequired
         /// parameter. &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple
         /// occurrences of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types
-        /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Changing the
-        /// connection status from Cloud to OnPrem or OnPrem to Cloud is not
-        /// supported.&lt;/li&gt;&lt;/ul&gt;
+        /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -5068,9 +5066,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
         /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
         /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-        /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-        /// connection from cloud to on-premises or on-premises to cloud is not
-        /// supported. &lt;/li&gt;&lt;/ul&gt;
+        /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -6229,9 +6225,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -6540,9 +6535,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

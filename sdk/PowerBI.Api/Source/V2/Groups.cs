@@ -50,8 +50,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// Returns a list of workspaces the user has access to.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-        /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+        /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
+        /// have their new group immediately available.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -211,13 +212,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// Creates new workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-        /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+        /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='requestParameters'>
         /// Create group request parameters
+        /// </param>
+        /// <param name='workspaceV2'>
+        /// Preview feature: Create a workspace V2. The only supported value is true.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -240,7 +243,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Group>> CreateGroupWithHttpMessagesAsync(GroupCreationRequest requestParameters, bool? workspaceV2 = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (requestParameters == null)
             {
@@ -254,12 +257,22 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("requestParameters", requestParameters);
+                tracingParameters.Add("workspaceV2", workspaceV2);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateGroup", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups").ToString();
+            List<string> _queryParameters = new List<string>();
+            if (workspaceV2 != null)
+            {
+                _queryParameters.Add(string.Format("workspaceV2={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(workspaceV2, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -363,8 +376,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Deletes the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-        /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+        /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -510,9 +522,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// Returns a list of users that have access to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-        /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+        /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
@@ -657,9 +669,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Grants the specified user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: Only Admin access right is supported.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Group.Read.All or
-        /// Group.ReadWrite.All or Workspace.Read.All or
+        /// &lt;br/&gt;**Notes**: &lt;li&gt; Only Admin access right is supported.
+        /// &lt;/li&gt; &lt;li&gt; Users that have been recently added to a group may
+        /// not have their new group immediately available.
+        /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
         /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -820,8 +833,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Deletes the specified user permissions from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Group.Read.All or Group.ReadWrite.All or
-        /// Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
+        /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -980,7 +992,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// permissions on the capacity. To unassign **"My Workspace"** from a
         /// capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be
         /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All. &lt;br/&gt;To set the
+        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -1136,7 +1148,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// To unassign the specified workspace from a capacity, Empty Guid
         /// (00000000-0000-0000-0000-000000000000) should be provided as capacityId.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All and
-        /// Workspace.ReadWrite.All. &lt;br/&gt;To set the permissions scope, see
+        /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -1293,15 +1305,295 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
+        /// Gets the status of **"My Workspace"** assignment to capacity operation.
+        /// </summary>
+        /// <remarks>
+        /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All and
+        /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<WorkspaceCapacityAssignmentStatus>> CapacityAssignmentStatusMyWorkspaceWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "CapacityAssignmentStatusMyWorkspace", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/CapacityAssignmentStatus").ToString();
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<WorkspaceCapacityAssignmentStatus>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<WorkspaceCapacityAssignmentStatus>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Gets the status of the assignment to capacity operation of the specified
+        /// workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note**: To perform this operation, the user must be admin on the
+        /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<WorkspaceCapacityAssignmentStatus>> CapacityAssignmentStatusWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (groupId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "groupId");
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "CapacityAssignmentStatus", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/CapacityAssignmentStatus").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(groupId));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<WorkspaceCapacityAssignmentStatus>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<WorkspaceCapacityAssignmentStatus>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
         /// Returns a list of workspaces for the organization.
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline
@@ -1468,14 +1760,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         /// <remarks>
         /// **Note**: This API is currently limited to updating workspaces in the new
-        /// workspace experiences preview. Only name and description can be updated,
-        /// and name must be unique inside an organization. The user must have
-        /// administrator rights (such as Office 365 Global Administrator or Power BI
-        /// Service Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
-        /// permissions are supported.&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// workspace experience. Only name and description can be updated, and name
+        /// must be unique inside an organization. The user must have administrator
+        /// rights (such as Office 365 Global Administrator or Power BI Service
+        /// Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -1633,12 +1923,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// Grants user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// **Note:** This API is currently limited to updating workspaces in the new
+        /// workspace experience. The user must have administrator rights (such as
+        /// Office 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -1796,12 +2086,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// Removes user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// **Note:** This API is currently limited to updating workspaces in the new
+        /// workspace experience. The user must have administrator rights (such as
+        /// Office 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -1956,12 +2246,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         /// <remarks>
         /// **Note**: This API is currently limited to restoring workspaces in the new
-        /// workspace experiences preview. The user must have administrator rights
-        /// (such as Office 365 Global Administrator or Power BI Service Administrator)
-        /// to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// workspace experience. The user must have administrator rights (such as
+        /// Office 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

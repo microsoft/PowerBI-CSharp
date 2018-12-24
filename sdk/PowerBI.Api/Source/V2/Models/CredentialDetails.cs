@@ -42,7 +42,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'None', 'Public', 'Organizational', 'Private'</param>
         /// <param name="useCallerAADIdentity">Should the caller's AAD identity
         /// be used for OAuth2 credentials configuration</param>
-        public CredentialDetails(string credentials = default(string), string credentialType = default(string), string encryptedConnection = default(string), string encryptionAlgorithm = default(string), string privacyLevel = default(string), bool? useCallerAADIdentity = default(bool?))
+        /// <param name="useEndUserOAuth2Credentials">Should the end-user
+        /// OAuth2 credentials be used for connecting to the datasource in
+        /// DirectQuery mode. Only supported for Direct Query to SQL
+        /// Azure.</param>
+        public CredentialDetails(string credentials = default(string), string credentialType = default(string), string encryptedConnection = default(string), string encryptionAlgorithm = default(string), string privacyLevel = default(string), bool? useCallerAADIdentity = default(bool?), bool? useEndUserOAuth2Credentials = default(bool?))
         {
             Credentials = credentials;
             CredentialType = credentialType;
@@ -50,6 +54,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
             EncryptionAlgorithm = encryptionAlgorithm;
             PrivacyLevel = privacyLevel;
             UseCallerAADIdentity = useCallerAADIdentity;
+            UseEndUserOAuth2Credentials = useEndUserOAuth2Credentials;
             CustomInit();
         }
 
@@ -103,6 +108,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "useCallerAADIdentity")]
         public bool? UseCallerAADIdentity { get; set; }
+
+        /// <summary>
+        /// Gets or sets should the end-user OAuth2 credentials be used for
+        /// connecting to the datasource in DirectQuery mode. Only supported
+        /// for Direct Query to SQL Azure.
+        /// </summary>
+        [JsonProperty(PropertyName = "useEndUserOAuth2Credentials")]
+        public bool? UseEndUserOAuth2Credentials { get; set; }
 
     }
 }

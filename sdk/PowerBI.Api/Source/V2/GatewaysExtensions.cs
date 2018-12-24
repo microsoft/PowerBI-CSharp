@@ -460,8 +460,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Grants the specified user the permissions required to use the specified
-            /// datasource.
+            /// Grants or updates the permissions required to use the specified datasource
+            /// for the specified user.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -486,8 +486,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Grants the specified user the permissions required to use the specified
-            /// datasource.
+            /// Grants or updates the permissions required to use the specified datasource
+            /// for the specified user.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
