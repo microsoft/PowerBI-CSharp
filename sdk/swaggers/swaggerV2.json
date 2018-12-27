@@ -6422,7 +6422,7 @@
         "/v1.0/myorg/capacities/{capacityId}/Workloads": {
             "get": {
                 "tags": [
-                    "Workloads"
+                    "Capacities"
                 ],
                 "summary": "Returns a list of the capacity workloads settings.",
                 "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
@@ -6478,7 +6478,7 @@
         "/v1.0/myorg/capacities/{capacityId}/Workloads/{workloadName}": {
             "get": {
                 "tags": [
-                    "Workloads"
+                    "Capacities"
                 ],
                 "summary": "Returns the settings of a specific workload.",
                 "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
@@ -6534,7 +6534,7 @@
             },
             "patch": {
                 "tags": [
-                    "Workloads"
+                    "Capacities"
                 ],
                 "summary": "Update the settings of a specific workload.",
                 "description": "<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
