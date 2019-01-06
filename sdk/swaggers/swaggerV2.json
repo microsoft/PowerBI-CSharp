@@ -6424,7 +6424,7 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns a list of the capacity workloads settings.",
+                "summary": "Returns the current state of the specified capacity workloads, if a workload is enabled also returns the maximum memory percentage that the workload can consume.",
                 "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [
@@ -6480,7 +6480,7 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns the settings of a specific workload.",
+                "summary": "Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.",
                 "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_GetWorkload",
                 "consumes": [
@@ -6536,7 +6536,7 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Update the settings of a specific workload.",
+                "summary": "Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.",
                 "description": "<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_PatchWorkload",
                 "consumes": [
@@ -9705,6 +9705,33 @@
                 }
             }
         },
+        "WorkloadState": {
+            "type": "string",
+            "enum": [
+                "Disabled",
+                "Enabled",
+                "Unsupported"
+            ],
+            "x-ms-enum": {
+                "name": "WorkloadState",
+                "modelAsString": false,
+                "values": [
+                    {
+                        "value": "Disabled",
+                        "description": "The workload is disabled"
+                    },
+                    {
+                        "value": "Enabled",
+                        "description": "The workload is enabled"
+                    },
+                    {
+                        "value": "Unsupported",
+                        "description": "The workload is unsupported by the current capacity SKU and cannot be enabled. This value cannot be set by the user in the [Patch Workload](/rest/api/power-bi/capacities/patchworkload)"
+                    }
+                ]
+            },
+            "description": "The capacity workload state"
+        },
         "Workload": {
             "description": "Capacity workload setting",
             "properties": {
@@ -9713,17 +9740,7 @@
                     "description": "The workload name"
                 },
                 "state": {
-                    "type": "string",
-                    "enum": [
-                        "Disabled",
-                        "Enabled",
-                        "Unsupported"
-                    ],
-                    "x-ms-enum": {
-                        "name": "WorkloadState",
-                        "modelAsString": false
-                    },
-                    "description": "The capacity workload state"
+                    "$ref": "#/definitions/WorkloadState"
                 },
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",
@@ -9735,17 +9752,7 @@
             "description": "Patch workload setting request",
             "properties": {
                 "state": {
-                    "type": "string",
-                    "enum": [
-                        "Disabled",
-                        "Enabled",
-                        "Unsupported"
-                    ],
-                    "x-ms-enum": {
-                        "name": "WorkloadState",
-                        "modelAsString": false
-                    },
-                    "description": "The capacity workload state"
+                    "$ref": "#/definitions/WorkloadState"
                 },
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",

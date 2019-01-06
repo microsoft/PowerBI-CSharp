@@ -41,7 +41,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListCapacity>> GetCapacitiesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of the capacity workloads settings.
+        /// Returns the current state of the specified capacity workloads, if a
+        /// workload is enabled also returns the maximum memory percentage that
+        /// the workload can consume.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
@@ -69,7 +71,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListWorkload>> GetWorkloadsWithHttpMessagesAsync(string capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the settings of a specific workload.
+        /// Returns the current state of a workload and if the workload is
+        /// enabled also returns the maximum memory percentage that the
+        /// workload can consume.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
@@ -100,7 +104,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Workload>> GetWorkloadWithHttpMessagesAsync(string capacityId, string workloadName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update the settings of a specific workload.
+        /// Changes the state of a specific workload to Enabled or Disabled.
+        /// When enabling a workload the maximum memory percentage that the
+        /// workload can consume must be set.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To

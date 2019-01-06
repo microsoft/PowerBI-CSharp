@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the Workload class.
         /// </summary>
         /// <param name="name">The workload name</param>
-        /// <param name="state">The capacity workload state. Possible values
-        /// include: 'Disabled', 'Enabled', 'Unsupported'</param>
+        /// <param name="state">Possible values include: 'Disabled', 'Enabled',
+        /// 'Unsupported'</param>
         /// <param name="maxMemoryPercentageSetByUser">The memory percentage
         /// maximum Limit set by the user</param>
         public Workload(string name = default(string), WorkloadState? state = default(WorkloadState?), int? maxMemoryPercentageSetByUser = default(int?))
@@ -50,8 +50,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity workload state. Possible values include:
-        /// 'Disabled', 'Enabled', 'Unsupported'
+        /// Gets or sets possible values include: 'Disabled', 'Enabled',
+        /// 'Unsupported'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
         public WorkloadState? State { get; set; }
