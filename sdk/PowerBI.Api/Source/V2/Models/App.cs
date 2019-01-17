@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="id">The app id</param>
         /// <param name="name">The app name</param>
         /// <param name="description">The app description</param>
-        /// <param name="lastUpdate">The last time the app updated</param>
+        /// <param name="lastUpdate">The last time the app was updated</param>
         /// <param name="publishedBy">The app publisher</param>
         public App(string id = default(string), string name = default(string), string description = default(string), System.DateTime? lastUpdate = default(System.DateTime?), string publishedBy = default(string))
         {
@@ -48,31 +48,31 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Gets or sets the app id
         /// </summary>
-        [JsonProperty(PropertyName = "Id")]
+        [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the app name
         /// </summary>
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the app description
         /// </summary>
-        [JsonProperty(PropertyName = "Description")]
+        [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the last time the app updated
+        /// Gets or sets the last time the app was updated
         /// </summary>
-        [JsonProperty(PropertyName = "LastUpdate")]
+        [JsonProperty(PropertyName = "lastUpdate")]
         public System.DateTime? LastUpdate { get; set; }
 
         /// <summary>
         /// Gets or sets the app publisher
         /// </summary>
-        [JsonProperty(PropertyName = "PublishedBy")]
+        [JsonProperty(PropertyName = "publishedBy")]
         public string PublishedBy { get; set; }
 
     }

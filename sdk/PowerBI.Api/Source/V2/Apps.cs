@@ -186,7 +186,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='appId'>
-        /// The app id to get
+        /// The app id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

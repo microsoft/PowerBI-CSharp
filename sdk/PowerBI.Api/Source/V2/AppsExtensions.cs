@@ -65,7 +65,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id to get
+            /// The app id
             /// </param>
             public static App GetApp(this IApps operations, string appId)
             {
@@ -84,7 +84,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id to get
+            /// The app id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

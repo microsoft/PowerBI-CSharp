@@ -5352,7 +5352,7 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id to get",
+                        "description": "The app id",
                         "type": "string"
                     }
                 ],
@@ -5419,7 +5419,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "appId": "d8a83578-f60b-41b9-82fe-7e0d18b959c9"
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
                         },
                         "responses": {
                             "200": {
@@ -5476,7 +5476,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
                         },
                         "responses": {
                             "200": {
@@ -8972,24 +8972,24 @@
         "App": {
             "description": "A Power BI Installed App",
             "properties": {
-                "Id": {
+                "id": {
                     "type": "string",
                     "description": "The app id"
                 },
-                "Name": {
+                "name": {
                     "type": "string",
                     "description": "The app name"
                 },
-                "Description": {
+                "description": {
                     "type": "string",
                     "description": "The app description"
                 },
-                "LastUpdate": {
+                "lastUpdate": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The last time the app updated"
+                    "description": "The last time the app was updated"
                 },
-                "PublishedBy": {
+                "publishedBy": {
                     "type": "string",
                     "description": "The app publisher"
                 }
