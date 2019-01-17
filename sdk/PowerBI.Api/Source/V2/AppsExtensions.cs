@@ -111,9 +111,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            public static ODataResponseListReport GetReportsInApp(this IApps operations, string appId)
+            public static ODataResponseListReport GetReports(this IApps operations, string appId)
             {
-                return operations.GetReportsInAppAsync(appId).GetAwaiter().GetResult();
+                return operations.GetReportsAsync(appId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -133,9 +133,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListReport> GetReportsInAppAsync(this IApps operations, string appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListReport> GetReportsAsync(this IApps operations, string appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetReportsInAppWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetReportsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -155,9 +155,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            public static ODataResponseListDashboard GetDashboardsInApp(this IApps operations, string appId)
+            public static ODataResponseListDashboard GetDashboards(this IApps operations, string appId)
             {
-                return operations.GetDashboardsInAppAsync(appId).GetAwaiter().GetResult();
+                return operations.GetDashboardsAsync(appId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -177,9 +177,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListDashboard> GetDashboardsInAppAsync(this IApps operations, string appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListDashboard> GetDashboardsAsync(this IApps operations, string appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetDashboardsInAppWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDashboardsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

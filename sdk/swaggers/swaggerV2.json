@@ -5392,7 +5392,7 @@
                 ],
                 "summary": "Returns a list of reports from the specified app.",
                 "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
-                "operationId": "Apps_GetReportsInApp",
+                "operationId": "Apps_GetReports",
                 "consumes": [
 
                 ],
@@ -5449,7 +5449,7 @@
                 ],
                 "summary": "Returns a list of dashboards from the specified app.",
                 "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
-                "operationId": "Apps_GetDashboardsInApp",
+                "operationId": "Apps_GetDashboards",
                 "consumes": [
 
                 ],
