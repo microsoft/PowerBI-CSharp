@@ -14,17 +14,16 @@ namespace Microsoft.PowerBI.Api.V2
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Capacities operations.
+    /// Apps operations.
     /// </summary>
-    public partial interface ICapacities
+    public partial interface IApps
     {
         /// <summary>
-        /// Returns a list of capacities the user has access to.
+        /// Returns a list of installed apps.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
-        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
+        /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='customHeaders'>
@@ -39,20 +38,17 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListCapacity>> GetCapacitiesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListApp>> GetAppsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the current state of the specified capacity workloads, if a
-        /// workload is enabled also returns the maximum memory percentage that
-        /// the workload can consume.
+        /// Returns the specified installed app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
-        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
+        /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
-        /// <param name='capacityId'>
-        /// The capacity Id
+        /// <param name='appId'>
+        /// The app id
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -69,23 +65,18 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListWorkload>> GetWorkloadsWithHttpMessagesAsync(string capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<App>> GetAppWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the current state of a workload and if the workload is
-        /// enabled also returns the maximum memory percentage that the
-        /// workload can consume.
+        /// Returns a list of reports from the specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
-        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
-        /// <param name='capacityId'>
-        /// The capacity Id
-        /// </param>
-        /// <param name='workloadName'>
-        /// The name of the workload
+        /// <param name='appId'>
+        /// The app id
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -102,25 +93,18 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Workload>> GetWorkloadWithHttpMessagesAsync(string capacityId, string workloadName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListReport>> GetReportsWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Changes the state of a specific workload to Enabled or Disabled.
-        /// When enabling a workload the maximum memory percentage that the
-        /// workload can consume must be set.
+        /// Returns a list of dashboards from the specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
-        /// <param name='capacityId'>
-        /// The capacity Id
-        /// </param>
-        /// <param name='workloadName'>
-        /// The name of the workload
-        /// </param>
-        /// <param name='workload'>
-        /// Patch workload parameters
+        /// <param name='appId'>
+        /// The app id
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -137,6 +121,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<object>> PatchWorkloadWithHttpMessagesAsync(string capacityId, string workloadName, PatchWorkloadRequest workload, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

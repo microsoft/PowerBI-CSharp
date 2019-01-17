@@ -62,6 +62,11 @@ namespace Microsoft.PowerBI.Api.V2
         ITiles Tiles { get; }
 
         /// <summary>
+        /// Gets the IApps.
+        /// </summary>
+        IApps Apps { get; }
+
+        /// <summary>
         /// Gets the IGateways.
         /// </summary>
         IGateways Gateways { get; }

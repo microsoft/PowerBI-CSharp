@@ -17,10 +17,21 @@ namespace Microsoft.PowerBI.Api.V2.Models
     [JsonConverter(typeof(StringEnumConverter))]
     public enum WorkloadState
     {
+        /// <summary>
+        /// The workload is disabled
+        /// </summary>
         [EnumMember(Value = "Disabled")]
         Disabled,
+        /// <summary>
+        /// The workload is enabled
+        /// </summary>
         [EnumMember(Value = "Enabled")]
         Enabled,
+        /// <summary>
+        /// The workload is unsupported by the current capacity SKU and cannot
+        /// be enabled. This value cannot be set by the user in the [Patch
+        /// Workload](/rest/api/power-bi/capacities/patchworkload)
+        /// </summary>
         [EnumMember(Value = "Unsupported")]
         Unsupported
     }

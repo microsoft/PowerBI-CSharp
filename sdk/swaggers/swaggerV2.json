@@ -5279,6 +5279,225 @@
             }
         },
 
+        "/v1.0/myorg/apps": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of installed apps.",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetApps",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[App]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                            "description": "The finance app",
+                                            "name": "Finance",
+                                            "publishedBy": "Bill",
+                                            "lastUpdate": "2019-01-13T09:46:53.094+02:00"
+                                        },
+                                        {
+                                            "id": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                            "description": "The marketing app",
+                                            "name": "Marketing",
+                                            "publishedBy": "Ben",
+                                            "lastUpdate": "2018-11-13T09:46:53.094+02:00"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/apps/{appId}": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns the specified installed app.",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetApp",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/App"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                    "description": "The finance app",
+                                    "name": "Finance",
+                                    "publishedBy": "Bill",
+                                    "lastUpdate": "2019-01-13T09:46:53.094+02:00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/apps/{appId}/reports": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of reports from the specified app.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetReports",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "id": "66b2570c-d9d3-40b2-83d9-1095c6700041",
+                                            "name": "SalesMarketing",
+                                            "webUrl": "https://app.powerbi.com/reports/66b2570c-d9d3-40b2-83d9-1095c6700041",
+                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=66b2570c-d9d3-40b2-83d9-1095c6700041"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/apps/{appId}/dashboards": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of dashboards from the specified app.",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetDashboards",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dashboard]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
+                                            "displayName": "SalesMarketing",
+                                            "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
+                                            "isReadOnly": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/gateways": {
             "get": {
                 "tags": [
@@ -6422,9 +6641,9 @@
         "/v1.0/myorg/capacities/{capacityId}/Workloads": {
             "get": {
                 "tags": [
-                    "Workloads"
+                    "Capacities"
                 ],
-                "summary": "Returns a list of the capacity workloads settings.",
+                "summary": "Returns the current state of the specified capacity workloads, if a workload is enabled also returns the maximum memory percentage that the workload can consume.",
                 "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [
@@ -6478,9 +6697,9 @@
         "/v1.0/myorg/capacities/{capacityId}/Workloads/{workloadName}": {
             "get": {
                 "tags": [
-                    "Workloads"
+                    "Capacities"
                 ],
-                "summary": "Returns the settings of a specific workload.",
+                "summary": "Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.",
                 "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_GetWorkload",
                 "consumes": [
@@ -6534,9 +6753,9 @@
             },
             "patch": {
                 "tags": [
-                    "Workloads"
+                    "Capacities"
                 ],
-                "summary": "Update the settings of a specific workload.",
+                "summary": "Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.",
                 "description": "<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_PatchWorkload",
                 "consumes": [
@@ -8547,6 +8766,22 @@
                 }
             }
         },
+        "ODataResponse[List[App]]": {
+            "description": "Odata response wrapper for a Power BI installed App list",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The installed apps",
+                    "items": {
+                        "$ref": "#/definitions/App"
+                    }
+                }
+            }
+        },
         "ODataResponse[List[Gateway]]": {
             "description": "Odata response wrapper for a Power BI gateways list",
             "properties": {
@@ -8732,6 +8967,33 @@
                         "$ref": "#/definitions/GroupUserAccessRight"
                     }
                 }
+            }
+        },
+        "App": {
+            "description": "A Power BI Installed App",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The app id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The app name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The app description"
+                },
+                "lastUpdate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The last time the app was updated"
+                },
+                "publishedBy": {
+                    "type": "string",
+                    "description": "The app publisher"
+                }
+
             }
         },
         "GatewayPublicKey": {
@@ -9705,6 +9967,33 @@
                 }
             }
         },
+        "WorkloadState": {
+            "type": "string",
+            "enum": [
+                "Disabled",
+                "Enabled",
+                "Unsupported"
+            ],
+            "x-ms-enum": {
+                "name": "WorkloadState",
+                "modelAsString": false,
+                "values": [
+                    {
+                        "value": "Disabled",
+                        "description": "The workload is disabled"
+                    },
+                    {
+                        "value": "Enabled",
+                        "description": "The workload is enabled"
+                    },
+                    {
+                        "value": "Unsupported",
+                        "description": "The workload is unsupported by the current capacity SKU and cannot be enabled. This value cannot be set by the user in the [Patch Workload](/rest/api/power-bi/capacities/patchworkload)"
+                    }
+                ]
+            },
+            "description": "The capacity workload state"
+        },
         "Workload": {
             "description": "Capacity workload setting",
             "properties": {
@@ -9713,17 +10002,7 @@
                     "description": "The workload name"
                 },
                 "state": {
-                    "type": "string",
-                    "enum": [
-                        "Disabled",
-                        "Enabled",
-                        "Unsupported"
-                    ],
-                    "x-ms-enum": {
-                        "name": "WorkloadState",
-                        "modelAsString": false
-                    },
-                    "description": "The capacity workload state"
+                    "$ref": "#/definitions/WorkloadState"
                 },
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",
@@ -9735,17 +10014,7 @@
             "description": "Patch workload setting request",
             "properties": {
                 "state": {
-                    "type": "string",
-                    "enum": [
-                        "Disabled",
-                        "Enabled",
-                        "Unsupported"
-                    ],
-                    "x-ms-enum": {
-                        "name": "WorkloadState",
-                        "modelAsString": false
-                    },
-                    "description": "The capacity workload state"
+                    "$ref": "#/definitions/WorkloadState"
                 },
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",
