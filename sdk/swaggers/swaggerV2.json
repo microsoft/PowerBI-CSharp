@@ -5279,6 +5279,225 @@
             }
         },
 
+        "/v1.0/myorg/apps": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of installed apps.",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetApps",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[App]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                            "description": "The finance app",
+                                            "name": "Finance",
+                                            "publishedBy": "Bill",
+                                            "lastUpdate": "2019-01-13T09:46:53.094+02:00"
+                                        },
+                                        {
+                                            "id": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                            "description": "The marketing app",
+                                            "name": "Marketing",
+                                            "publishedBy": "Ben",
+                                            "lastUpdate": "2018-11-13T09:46:53.094+02:00"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/apps/{appId}": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns the specified installed app.",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetApp",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id to get",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/App"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                    "description": "The finance app",
+                                    "name": "Finance",
+                                    "publishedBy": "Bill",
+                                    "lastUpdate": "2019-01-13T09:46:53.094+02:00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/apps/{appId}/reports": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of reports from the specified app.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetReportsInApp",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Report]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "d8a83578-f60b-41b9-82fe-7e0d18b959c9"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "id": "66b2570c-d9d3-40b2-83d9-1095c6700041",
+                                            "name": "SalesMarketing",
+                                            "webUrl": "https://app.powerbi.com/reports/66b2570c-d9d3-40b2-83d9-1095c6700041",
+                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=66b2570c-d9d3-40b2-83d9-1095c6700041"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/apps/{appId}/dashboards": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of dashboards from the specified app.",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetDashboardsInApp",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Dashboard]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
+                                            "displayName": "SalesMarketing",
+                                            "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
+                                            "isReadOnly": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/gateways": {
             "get": {
                 "tags": [
@@ -8547,6 +8766,22 @@
                 }
             }
         },
+        "ODataResponse[List[App]]": {
+            "description": "Odata response wrapper for a Power BI installed App list",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The installed apps",
+                    "items": {
+                        "$ref": "#/definitions/App"
+                    }
+                }
+            }
+        },
         "ODataResponse[List[Gateway]]": {
             "description": "Odata response wrapper for a Power BI gateways list",
             "properties": {
@@ -8732,6 +8967,33 @@
                         "$ref": "#/definitions/GroupUserAccessRight"
                     }
                 }
+            }
+        },
+        "App": {
+            "description": "A Power BI Installed App",
+            "properties": {
+                "Id": {
+                    "type": "string",
+                    "description": "The app id"
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "The app name"
+                },
+                "Description": {
+                    "type": "string",
+                    "description": "The app description"
+                },
+                "LastUpdate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The last time the app updated"
+                },
+                "PublishedBy": {
+                    "type": "string",
+                    "description": "The app publisher"
+                }
+
             }
         },
         "GatewayPublicKey": {
