@@ -282,8 +282,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Creates new content on the specified workspace from .pbix, Excel, or file
-            /// path in OneDrive for Business.
+            /// Creates new content on the specified workspace from .pbix, .json, Excel, or
+            /// file path in OneDrive for Business.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -324,8 +324,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Creates new content on the specified workspace from .pbix, Excel, or file
-            /// path in OneDrive for Business.
+            /// Creates new content on the specified workspace from .pbix, .json, Excel, or
+            /// file path in OneDrive for Business.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
