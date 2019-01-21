@@ -67,6 +67,11 @@ namespace Microsoft.PowerBI.Api.V2
         IApps Apps { get; }
 
         /// <summary>
+        /// Gets the IDataflows.
+        /// </summary>
+        IDataflows Dataflows { get; }
+
+        /// <summary>
         /// Gets the IGateways.
         /// </summary>
         IGateways Gateways { get; }

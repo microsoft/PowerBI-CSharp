@@ -3713,7 +3713,7 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates new content on the specified workspace from .pbix, Excel, or file path in OneDrive for Business.",
+                "summary": "Creates new content on the specified workspace from .pbix, .json, Excel, or file path in OneDrive for Business.",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
@@ -5487,6 +5487,277 @@
                                             "displayName": "SalesMarketing",
                                             "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
                                             "isReadOnly": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}": {
+            "get": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Exports the specified dataflow definition to a .json file.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflow",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Exported Json file",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Deletes a dataflow from the CDS for Analytics storage, including its definition file and actual model.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_DeleteDataflow",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes": {
+            "post": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Triggers a refresh for the specified dataflow.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_RefreshDataflow",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "refreshRequest",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "refreshRequest": {
+                                "notifyOption": "MailOnFailure"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/datasources": {
+            "get": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Returns a list of all of datasources defined in the specified dataflow.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowDataSources",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Datasource]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Sql",
+                                            "datasourceId": "16a54ccd-620d-4af3-9197-0b8c779a9a6d",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "server": "MyServer.database.windows.net",
+                                                "database": "MyDatabase"
+                                            }
+                                        },
+                                        {
+                                            "datasourceType": "OData",
+                                            "connectionDetails": {
+                                                "url": "https://services.odata.org/V4/Northwind/Northwind.svc"
+                                            },
+                                            "datasourceId": "16a54ccd-620d-4af3-9197-0b8c779a9a6d",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows": {
+            "get": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Returns a list of all dataflows from the specified workspace.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflows",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[DataflowMetadata]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "objectId": "bd32e5c0-363f-430b-a03b-5535a4804b9b",
+                                            "name": "AdventureWorks",
+                                            "description": "Our Adventure Works "
                                         }
                                     ]
                                 }
@@ -10019,6 +10290,38 @@
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",
                     "description": "The memory percentage maximum Limit set by the user"
+                }
+            }
+        },
+        "DataflowMetadata": {
+            "description": "The metadata of a dataflow",
+            "properties": {
+                "objectId": {
+                    "type": "string",
+                    "description": "The dataflow id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The dataflow name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The dataflow description"
+                }
+            }
+        },
+        "ODataResponse[List[DataflowMetadata]]": {
+            "description": "Odata response wrapper for a dataflow metadata list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dataflow metadata List",
+                    "items": {
+                        "$ref": "#/definitions/DataflowMetadata"
+                    }
                 }
             }
         }
