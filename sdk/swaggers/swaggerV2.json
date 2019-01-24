@@ -647,6 +647,317 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/datasets/{datasetKey}/refreshSchedule": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the refresh schedule of the specified dataset from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetRefreshSchedule",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RefreshSchedule"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Refresh Schedule example": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "days": [ "Sunday", "Friday", "Saturday" ],
+                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                        "enabled": true,
+                                        "localTimeZoneId": "UTC",
+                                        "notifyOption": "MailOnFailure"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the refresh schedule for the specified dataset from **\"My Workspace\"**.",
+                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request that disables the refresh schedule should contain no other changes.<br/>The days array should not be set to empty array.<br/>The times may be set to empty array (in which case Power BI will use a default single time per day).<br/>The limit on number of time slots per day depends on the type of capacity used (Premium or Shared), see [What is Microsoft Power BI Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_UpdateRefreshSchedule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetModelRefreshScheduleRequest",
+                        "description": "Update Refresh Schedule parameters, by specifying all or some of the parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshScheduleRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "change notification option": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "notifyOption": "NoNotification"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "change days and times": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
+                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "localTimeZoneId": "UTC"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "update times": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "times": [ "08:00", "16:00" ]
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "disable scheduled refresh": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "enabled": false
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetKey}/directQueryRefreshSchedule": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the refresh schedule of a specified DirectQuery or LiveConnection dataset from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDirectQueryRefreshSchedule",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DirectQueryRefreshSchedule"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "By Days Schedule example": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "days": [ "Sunday", "Friday", "Saturday" ],
+                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                        "localTimeZoneId": "UTC"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "By Frequency Schedule example": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "frequency": 15,
+                                        "days": [],
+                                        "times": [],
+                                        "localTimeZoneId": "UTC"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the refresh schedule for the specified DirectQuery or LiveConnection dataset from **\"My Workspace\"**.",
+                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request should contain either a combination of days and times  (setting times is optional, otherwise a default single time per day is used) or a valid frequency, but not both.<br/>Setting frequency will automatically truncate the days and times arrays.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_UpdateDirectQueryRefreshSchedule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetDQRefreshScheduleRequest",
+                        "description": "Patch DirectQuery or LiveConnection Refresh Schedule parameters, by specifying all or some of the parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DirectQueryRefreshScheduleRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "change to frequency based schedule": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "frequency": 30
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "switch to days and times based schedule": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
+                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "localTimeZoneId": "UTC"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "update the times of existing days based schedule": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "times": [ "07:00", "16:30", "23:30" ]
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "disable scheduled refresh": {
+                        "parameters": {
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "enabled": false
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/datasets/{datasetKey}/parameters": {
             "get": {
                 "tags": [
@@ -655,9 +966,7 @@
                 "summary": "Returns a list of parameters for the specified dataset from **\"My Workspace\"**.",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2>Datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.<br/>",
                 "operationId": "Datasets_GetParameters",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -2861,7 +3170,7 @@
                     },
                     {
                         "name": "$top",
-                        "description": "The requested number of entries in the refresh history. If not supported, the default is all available entries.",
+                        "description": "The requested number of entries in the refresh history. If not provided, the default is all available entries.",
                         "in": "query",
                         "required": false,
                         "type": "integer"
@@ -2977,6 +3286,356 @@
                         },
                         "responses": {
                             "202": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/refreshSchedule": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the refresh schedule of the specified dataset from the specified workspace.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetRefreshScheduleInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/RefreshSchedule"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Refresh Schedule example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "days": [ "Sunday", "Friday", "Saturday" ],
+                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                        "enabled": true,
+                                        "localTimeZoneId": "UTC",
+                                        "notifyOption": "MailOnFailure"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the refresh schedule for the specified dataset from the specified workspace.",
+                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request that disables the refresh schedule should contain no other changes.<br/>The days array should not be set to empty array.<br/>The times may be set to empty array (in which case Power BI will use a default single time per day).<br/>The limit on number of time slots per day depends on the type of capacity used (Premium or Shared), see [What is Microsoft Power BI Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_UpdateRefreshScheduleInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetModelRefreshScheduleRequest",
+                        "description": "Update Refresh Schedule parameters, by specifying all or some of the parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshScheduleRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "change notification option": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "notifyOption": "NoNotification"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "change days and times": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
+                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "localTimeZoneId": "UTC"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "update times": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "times": [ "08:00", "16:00" ]
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "disable scheduled refresh": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetModelRefreshSchedule": {
+                                "value": {
+                                    "enabled": false
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetKey}/directQueryRefreshSchedule": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns the refresh schedule of a specified DirectQuery or LiveConnection dataset from the specified workspace.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDirectQueryRefreshScheduleInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DirectQueryRefreshSchedule"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "By Days Schedule example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "days": [ "Sunday", "Friday", "Saturday" ],
+                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                        "localTimeZoneId": "UTC"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "By Frequency Schedule example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "frequency": 15,
+                                        "days": [],
+                                        "times": [],
+                                        "localTimeZoneId": "UTC"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the refresh schedule for the specified DirectQuery or LiveConnection dataset from the specified workspace.",
+                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request should contain either a combination of days and times  (setting times is optional, otherwise a default single time per day is used) or a valid frequency, but not both.<br/>Setting frequency will automatically truncate the days and times arrays.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_UpdateDirectQueryRefreshScheduleInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetKey",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datasetDQRefreshScheduleRequest",
+                        "description": "Patch DirectQuery or LiveConnection Refresh Schedule parameters, by specifying all or some of the parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DirectQueryRefreshScheduleRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "change to frequency based schedule": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "frequency": 30
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "switch to days and times based schedule": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
+                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "localTimeZoneId": "UTC"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "update the times of existing days based schedule": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "times": [ "07:00", "16:30", "23:30" ]
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "disable scheduled refresh": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "datasetDQRefreshSchedule": {
+                                "value": {
+                                    "enabled": false
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -9508,6 +10167,129 @@
             "required": [
                 "notifyOption"
             ]
+        },
+        "RefreshScheduleRequest": {
+            "description": "Power BI refresh schedule request",
+            "properties": {
+                "value": {
+                    "description": "An object containg the refresh schedule details",
+                    "$ref": "#/definitions/RefreshSchedule"
+                }
+            }
+        },
+        "RefreshSchedule": {
+            "description": "A Power BI refresh schedule for cached model",
+            "properties": {
+                "days": {
+                    "type": "array",
+                    "description": "Days to execute the refresh",
+                    "items": {
+                        "type": "string",
+                        "description": "Days of week",
+                        "enum": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
+                            "Sunday"
+                         ],
+                        "x-ms-enum": {
+                            "name": "daysEnum",
+                            "modelAsString": false
+                        }
+                    }
+                },
+                "times": {
+                    "type": "array",
+                    "description": "Times to execute the refresh within each day",
+                    "items": {
+                        "type": "string",
+                        "description": "Time slot, in the format of hh:mm where hh is the hour (from 00 to 23) and mm is the minutes (can only be 00 or 30). "
+                    }
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Is the refresh enabled"
+                },
+                "localTimeZoneId": {
+                    "type": "string",
+                    "description": "The Id of the Time zone to use. See **Name of Time Zone** column in [Microsoft Time Zone Index Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)"
+                },
+                "NotifyOption": {
+                    "type": "string",
+                    "description": "Notification option at scheduled refresh termination",
+                    "enum": [
+                        "NoNotification",
+                        "MailOnFailure"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ScheduleNotifyOption",
+                        "values": [
+                            {
+                                "value": "NoNotification",
+                                "description": "No notification will be sent"
+                            },
+                            {
+                                "value": "MailOnFailure",
+                                "description": "Mail notification will be sent on refresh failure"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DirectQueryRefreshScheduleRequest": {
+            "description": "Power BI  refresh schedule request for DirectQuery or LiveConnection ",
+            "properties": {
+                "value": {
+                    "description": "An object containg the refresh schedule details for DirectQuery or LiveConnection",
+                    "$ref": "#/definitions/DirectQueryRefreshSchedule"
+                }
+            }
+        },
+        "DirectQueryRefreshSchedule": {
+            "description": "A Power BI refresh schedule for DirectQuery or LiveConnection, specified by setting either the frequency or a combination of days and times.",
+            "properties": {
+                "frequency": {
+                    "type": "integer",
+                    "description": "the refresh frequency in minutes, supported values are 15, 30, 60, 120, and 180."
+                },
+                "days": {
+                    "type": "array",
+                    "description": "Days to execute the refresh",
+                    "items": {
+                        "type": "string",
+                        "description": "Days of week",
+                        "enum": [
+                            "Monday",
+                            "Tuesday",
+                            "Wednesday",
+                            "Thursday",
+                            "Friday",
+                            "Saturday",
+                            "Sunday"
+                        ],
+                        "x-ms-enum": {
+                            "name": "daysEnum",
+                            "modelAsString": false
+                        }
+                    }
+                },
+                "times": {
+                    "type": "array",
+                    "description": "Times to execute the refresh within each day",
+                    "items": {
+                        "type": "string",
+                        "description": "Time slot, in the format of hh:mm where hh is the hour (from 00 to 23) and mm is the minutes (can only be 00 or 30). "
+                    }
+                },
+                "localTimeZoneId": {
+                    "type": "string",
+                    "description": "The Id of the Time zone to use. See **Name of Time Zone** column in [Microsoft Time Zone Index Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)"
+                }
+            }
         },
         "DatasetParameter": {
             "description": "Power BI dataset parameter",
