@@ -25,8 +25,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the ImportInfo class.
         /// </summary>
-        /// <param name="filePath">The OneDrive for Business file path to
-        /// import, can be absolute or relative</param>
+        /// <param name="filePath">The OneDrive for Business .xlsx file path to
+        /// import, can be absolute or relative. .pbix files are not
+        /// supported.</param>
         /// <param name="connectionType">The import connection type for
         /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
@@ -47,8 +48,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the OneDrive for Business file path to import, can be
-        /// absolute or relative
+        /// Gets or sets the OneDrive for Business .xlsx file path to import,
+        /// can be absolute or relative. .pbix files are not supported.
         /// </summary>
         [JsonProperty(PropertyName = "filePath")]
         public string FilePath { get; set; }

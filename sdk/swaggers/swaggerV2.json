@@ -1571,7 +1571,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on **\"My Workspace\"** from .pbix, Excel or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body. </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), supported only for workspaces on premium capacity.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body. </li><li>To import xlsx file from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>Import .pbix file from OneDrive is not supported.</li><li>To import large .pbix files between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), supported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json"
@@ -4302,7 +4302,7 @@
                     "Imports"
                 ],
                 "summary": "Returns a list of imports from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<li>Import .pbix file from OneDrive is not supported.</li>",
                 "operationId": "Imports_GetImportsInGroup",
                 "consumes": [
 
@@ -9147,7 +9147,7 @@
             "properties": {
                 "filePath": {
                     "type": "string",
-                    "description": "The OneDrive for Business file path to import, can be absolute or relative"
+                    "description": "The OneDrive for Business .xlsx file path to import, can be absolute or relative. .pbix files are not supported."
                 },
                 "connectionType": {
                     "type": "string",
