@@ -740,7 +740,7 @@
                     "change notification option": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "notifyOption": "NoNotification"
                                 }
@@ -753,7 +753,7 @@
                     "change days and times": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
                                     "times": [ "07:00", "11:30", "16:00", "23:30" ],
@@ -768,7 +768,7 @@
                     "update times": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "times": [ "08:00", "16:00" ]
                                 }
@@ -781,7 +781,7 @@
                     "disable scheduled refresh": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "enabled": false
                                 }
@@ -903,7 +903,7 @@
                     "change to frequency based schedule": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "frequency": 30
                                 }
@@ -916,7 +916,7 @@
                     "switch to days and times based schedule": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
                                     "times": [ "07:00", "11:30", "16:00", "23:30" ],
@@ -931,7 +931,7 @@
                     "update the times of existing days based schedule": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "times": [ "07:00", "16:30", "23:30" ]
                                 }
@@ -944,7 +944,7 @@
                     "disable scheduled refresh": {
                         "parameters": {
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "enabled": false
                                 }
@@ -3401,7 +3401,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "notifyOption": "NoNotification"
                                 }
@@ -3415,7 +3415,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
                                     "times": [ "07:00", "11:30", "16:00", "23:30" ],
@@ -3431,7 +3431,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "times": [ "08:00", "16:00" ]
                                 }
@@ -3445,7 +3445,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetModelRefreshSchedule": {
+                            "datasetModelRefreshScheduleRequest": {
                                 "value": {
                                     "enabled": false
                                 }
@@ -3584,7 +3584,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "frequency": 30
                                 }
@@ -3598,7 +3598,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
                                     "times": [ "07:00", "11:30", "16:00", "23:30" ],
@@ -3614,7 +3614,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "times": [ "07:00", "16:30", "23:30" ]
                                 }
@@ -3628,7 +3628,7 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetKey": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshSchedule": {
+                            "datasetDQRefreshScheduleRequest": {
                                 "value": {
                                     "enabled": false
                                 }
