@@ -1574,7 +1574,8 @@
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body. </li><li>To import xlsx file from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>Import .pbix file from OneDrive is not supported.</li><li>To import large .pbix files between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), supported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
-                    "application/json"
+                    "application/json",
+                    "multipart/form-data"
                 ],
                 "produces": [
                     "application/json"
@@ -1643,6 +1644,27 @@
                         "description": "Accepted",
                         "schema": {
                             "$ref": "#/definitions/Import"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Post import example": {
+                        "parameters": {
+                            "consumes" : "multipart/form-data;",
+                            "boundary" : "f05e5244-f876-43b9-bc87-d71598f6b32a",
+                            "paramType" : "form",
+                            "datasetDisplayName": "MyReport",
+                            "nameConflict": "Ignore",
+                            "importInfo": {
+                                "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "id": "d02b8896-e247-4d83-ae5a-014028cb0665"
+                                }
+                            }
                         }
                     }
                 }
@@ -4376,7 +4398,8 @@
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
-                    "application/json"
+                    "application/json",
+                    "multipart/form-data"
                 ],
                 "produces": [
                     "application/json"
@@ -4452,6 +4475,28 @@
                         "description": "Accepted",
                         "schema": {
                             "$ref": "#/definitions/Import"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Post import example": {
+                        "parameters": {
+                            "groupId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "consumes" : "multipart/form-data;",
+                            "boundary" : "f05e5244-f876-43b9-bc87-d71598f6b32a",
+                            "paramType" : "form",
+                            "datasetDisplayName": "MyReport",
+                            "nameConflict": "Ignore",
+                            "importInfo": {
+                                "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "id": "d02b8896-e247-4d83-ae5a-014028cb0665"
+                                }
+                            }
                         }
                     }
                 }
