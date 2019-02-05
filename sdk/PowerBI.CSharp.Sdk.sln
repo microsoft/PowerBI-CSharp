@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api", "PowerBI.Api\PowerBI.Api.csproj", "{1EE969AD-7923-4855-AACA-2A1B790BB0F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PowerBI.Api", "PowerBI.Api\PowerBI.Api.csproj", "{1EE969AD-7923-4855-AACA-2A1B790BB0F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{DCD4C983-2786-41C7-9A9C-36A9462673B4}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,8 +22,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{73F168
 		tools\ApplyVersionToAssemblies.ps1 = tools\ApplyVersionToAssemblies.ps1
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api.Tests", "PowerBI.Api.Tests\PowerBI.Api.Tests.csproj", "{5B5B3510-BFB9-4C0A-8C3D-970016E20329}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swaggers", "Swaggers", "{913ACEB1-6B79-4C33-93E1-7080097DD888}"
 	ProjectSection(SolutionItems) = preProject
 		swaggers\swagger.json = swaggers\swagger.json
@@ -34,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerBI.Api.Tests", "PowerBI.Api.Tests\PowerBI.Api.Tests.csproj", "{FBDD588A-B80F-47C7-878B-23302D59F4B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,14 +51,14 @@ Global
 		{1EE969AD-7923-4855-AACA-2A1B790BB0F1}.Release|AnyCPU.Build.0 = Release|Any CPU
 		{1EE969AD-7923-4855-AACA-2A1B790BB0F1}.Release|x86.ActiveCfg = Release|Any CPU
 		{1EE969AD-7923-4855-AACA-2A1B790BB0F1}.Release|x86.Build.0 = Release|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Debug|AnyCPU.Build.0 = Debug|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Debug|x86.Build.0 = Debug|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Release|AnyCPU.ActiveCfg = Release|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Release|AnyCPU.Build.0 = Release|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Release|x86.ActiveCfg = Release|Any CPU
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329}.Release|x86.Build.0 = Release|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Debug|AnyCPU.ActiveCfg = Debug|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Debug|AnyCPU.Build.0 = Debug|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Debug|x86.Build.0 = Debug|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Release|AnyCPU.ActiveCfg = Release|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Release|AnyCPU.Build.0 = Release|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Release|x86.ActiveCfg = Release|Any CPU
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,7 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1EE969AD-7923-4855-AACA-2A1B790BB0F1} = {DCD4C983-2786-41C7-9A9C-36A9462673B4}
 		{DCD4C983-2786-41C7-9A9C-36A9462673B4} = {5FD8CA7D-970C-44D6-B18F-ABAE87376D9E}
-		{5B5B3510-BFB9-4C0A-8C3D-970016E20329} = {DCD4C983-2786-41C7-9A9C-36A9462673B4}
+		{FBDD588A-B80F-47C7-878B-23302D59F4B4} = {DCD4C983-2786-41C7-9A9C-36A9462673B4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4929BD7C-89A8-4A6C-888E-79DF36F2F43E}
