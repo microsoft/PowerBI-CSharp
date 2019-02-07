@@ -1,6 +1,5 @@
 pushd "%~dp0"
-del PowerBI.Api\Source\V2\Models
-del PowerBI.Api\Source\V2\
+rd PowerBI.Api\Source\V2\ /s /q
 
 @echo Generating code using powerbi.md
 AutoRest powerbi.md

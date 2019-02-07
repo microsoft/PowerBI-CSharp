@@ -52,12 +52,13 @@ namespace Microsoft.PowerBI.Api.V2
         /// request Headers should include **Content-Type:
         /// multipart/form-data** with the file [encoded as form
         /// data](https://www.w3.org/TR/html401/interact/forms.html) in the
-        /// request body. &lt;/li&gt;&lt;li&gt;To import from OneDrive for
-        /// Business, request Headers should include **Content-Type:
-        /// application/json** with
+        /// request body. &lt;/li&gt;&lt;li&gt;To import xlsx file from
+        /// OneDrive for Business, request Headers should include
+        /// **Content-Type: application/json** with
         /// [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in
-        /// the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix files
-        /// between 1 GB and 10 GB, see [Create Temporary Upload
+        /// the request body.&lt;/li&gt;&lt;li&gt;Import .pbix file from
+        /// OneDrive is not supported.&lt;/li&gt;&lt;li&gt;To import large
+        /// .pbix files between 1 GB and 10 GB, see [Create Temporary Upload
         /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation),
         /// supported only for workspaces on premium
         /// capacity.&lt;/li&gt;&lt;/ul&gt;
@@ -155,7 +156,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
         /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;li&gt;Import
+        /// .pbix file from OneDrive is not supported.&lt;/li&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

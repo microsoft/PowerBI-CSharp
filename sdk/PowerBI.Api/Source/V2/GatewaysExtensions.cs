@@ -535,7 +535,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// The datasource id
             /// </param>
             /// <param name='emailAdress'>
-            /// The user's email address
+            /// The user's email address or the service principal object id
             /// </param>
             public static object DeleteDatasourceUser(this IGateways operations, string gatewayId, string datasourceId, string emailAdress)
             {
@@ -560,7 +560,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// The datasource id
             /// </param>
             /// <param name='emailAdress'>
-            /// The user's email address
+            /// The user's email address or the service principal object id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

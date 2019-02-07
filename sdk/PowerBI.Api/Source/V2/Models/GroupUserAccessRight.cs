@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">The principal type. Possible values
-        /// include: 'User', 'Group'</param>
+        /// include: 'User', 'Group', 'App'</param>
         public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string principalType = default(string))
         {
             GroupUserAccessRightProperty = groupUserAccessRightProperty;
@@ -75,7 +75,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the principal type. Possible values include: 'User',
-        /// 'Group'
+        /// 'Group', 'App'
         /// </summary>
         [JsonProperty(PropertyName = "principalType")]
         public string PrincipalType { get; set; }

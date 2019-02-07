@@ -20,5 +20,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Group principal type
         /// </summary>
         public const string Group = "Group";
+        /// <summary>
+        /// Service principal type
+        /// </summary>
+        public const string App = "App";
     }
 }

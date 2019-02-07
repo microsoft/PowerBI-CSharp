@@ -34,5 +34,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Not Supported
         /// </summary>
         public const string ReadWrite = "ReadWrite";
+        /// <summary>
+        /// Indicates that user can override effective identity for Power BI
+        /// Embedded.
+        /// </summary>
+        public const string ReadOverrideEffectiveIdentity = "ReadOverrideEffectiveIdentity";
     }
 }
