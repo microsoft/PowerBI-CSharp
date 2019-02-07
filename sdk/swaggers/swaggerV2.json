@@ -7047,7 +7047,7 @@
                             "200": {
                                 "value": [
                                     {
-                                        
+                                        "datasourceAccessRight": "Read",
                                         "displayName": "John Nick",
                                         "emailAddress": "john@contoso.com",
                                         "identifier": "john@contoso.com",
