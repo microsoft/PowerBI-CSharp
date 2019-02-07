@@ -1609,7 +1609,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// The datasource id
         /// </param>
         /// <param name='emailAdress'>
-        /// The user's email address
+        /// The user's email address or the service principal object id
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

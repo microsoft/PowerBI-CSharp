@@ -185,7 +185,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// The workspace id
         /// </param>
         /// <param name='user'>
-        /// The email adress of the user to delete
+        /// The email address of the user or the service principal object id to
+        /// delete
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

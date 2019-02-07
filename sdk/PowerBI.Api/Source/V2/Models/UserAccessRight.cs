@@ -26,14 +26,22 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the UserAccessRight class.
         /// </summary>
         /// <param name="datasourceAccessRight">The user access rights for the
-        /// datasource. &lt;br/&gt;Only Read permission is supported. Possible
-        /// values include: 'None', 'Read', 'Write', 'Admin',
-        /// 'ReadWrite'</param>
+        /// datasource. &lt;br/&gt;Only Read and ReadOverrideEffectiveIdentity
+        /// permissions are supported. Possible values include: 'None', 'Read',
+        /// 'Write', 'Admin', 'ReadWrite',
+        /// 'ReadOverrideEffectiveIdentity'</param>
         /// <param name="emailAddress">Email address of the user</param>
-        public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string))
+        /// <param name="displayName">Display name of the principal</param>
+        /// <param name="identifier">Identifier of the principal</param>
+        /// <param name="principalType">The principal type. Possible values
+        /// include: 'User', 'Group', 'App'</param>
+        public UserAccessRight(string datasourceAccessRight = default(string), string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string principalType = default(string))
         {
             DatasourceAccessRight = datasourceAccessRight;
             EmailAddress = emailAddress;
+            DisplayName = displayName;
+            Identifier = identifier;
+            PrincipalType = principalType;
             CustomInit();
         }
 
@@ -44,8 +52,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the user access rights for the datasource.
-        /// &amp;lt;br/&amp;gt;Only Read permission is supported. Possible
-        /// values include: 'None', 'Read', 'Write', 'Admin', 'ReadWrite'
+        /// &amp;lt;br/&amp;gt;Only Read and ReadOverrideEffectiveIdentity
+        /// permissions are supported. Possible values include: 'None', 'Read',
+        /// 'Write', 'Admin', 'ReadWrite', 'ReadOverrideEffectiveIdentity'
         /// </summary>
         [JsonProperty(PropertyName = "datasourceAccessRight")]
         public string DatasourceAccessRight { get; set; }
@@ -55,6 +64,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets display name of the principal
+        /// </summary>
+        [JsonProperty(PropertyName = "displayName")]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or sets identifier of the principal
+        /// </summary>
+        [JsonProperty(PropertyName = "identifier")]
+        public string Identifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets the principal type. Possible values include: 'User',
+        /// 'Group', 'App'
+        /// </summary>
+        [JsonProperty(PropertyName = "principalType")]
+        public string PrincipalType { get; set; }
 
     }
 }

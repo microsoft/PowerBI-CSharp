@@ -7047,8 +7047,17 @@
                             "200": {
                                 "value": [
                                     {
+                                        
+                                        "displayName": "John Nick",
                                         "emailAddress": "john@contoso.com",
-                                        "datasourceAccessRight": "Read"
+                                        "identifier": "john@contoso.com",
+                                        "principalType": "User"
+                                    },
+                                    {
+                                        "datasourceAccessRight": "ReadOverrideEffectiveIdentity",
+                                        "displayName": "ContosoTestApp",
+                                        "identifier": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                        "principalType": "App"
                                     }
                                 ]
                             }
@@ -7115,6 +7124,19 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "example for giving ReadOverrideEffectiveIdentity access right to a service principal": {
+                        "parameters": {
+                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                            "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
+                            "addUserToDatasourceRequest": {
+                                "identifier": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                "datasourceAccessRight": "ReadOverrideEffectiveIdentity"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -7151,7 +7173,7 @@
                     {
                         "name": "emailAdress",
                         "in": "path",
-                        "description": "The user's email address",
+                        "description": "The user's email address or the service principal object id",
                         "required": true,
                         "type": "string"
                     }
@@ -7443,14 +7465,24 @@
                             "200": {
                                 "value": [
                                     {
+                                        "displayName": "John Nick",
                                         "emailAddress": "john@contoso.com",
-                                        "groupUserAccessRight": "Admin"
-
+                                        "groupUserAccessRight": "Admin",
+                                        "identifier": "john@contoso.com",
+                                        "principalType": "User"
                                     },
                                     {
+                                        "displayName": "Adam Wood",
                                         "emailAddress": "Adam@contoso.com",
-                                        "groupUserAccessRight": "Member"
-
+                                        "groupUserAccessRight": "Member",
+                                        "identifier": "Adam@contoso.com",
+                                        "principalType": "User"
+                                    },
+                                    {
+                                        "displayName": "ContosoTestApp",
+                                        "groupUserAccessRight": "Admin",
+                                        "identifier": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                        "principalType": "App"
                                     }
                                 ]
                             }
@@ -7509,6 +7541,19 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "example for giving Admin access right to a service principal": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "userDetails": {
+                                "identifier": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                                "groupUserAccessRight": "Admin",
+                                "principalType":  "App"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -7538,7 +7583,7 @@
                         "name": "user",
                         "in": "path",
                         "required": true,
-                        "description": "The email adress of the user to delete",
+                        "description": "The email address of the user or the service principal object id to delete",
                         "type": "string"
                     }
                 ],
@@ -10413,13 +10458,14 @@
             "properties": {
                 "datasourceAccessRight": {
                     "type": "string",
-                    "description": "The user access rights for the datasource. <br/>Only Read permission is supported.",
+                    "description": "The user access rights for the datasource. <br/>Only Read and ReadOverrideEffectiveIdentity permissions are supported.",
                     "enum": [
                         "None",
                         "Read",
                         "Write",
                         "Admin",
-                        "ReadWrite"
+                        "ReadWrite",
+                        "ReadOverrideEffectiveIdentity"
                     ],
                     "x-ms-enum": {
                         "name": "UserAccessRightEnum",
@@ -10444,6 +10490,10 @@
                             {
                                 "value": "ReadWrite",
                                 "description": "Not Supported"
+                            },
+                            {
+                                "value": "ReadOverrideEffectiveIdentity",
+                                "description": "Indicates that user can override effective identity for Power BI Embedded."
                             }
                         ]
                     }
@@ -10451,6 +10501,41 @@
                 "emailAddress": {
                     "type": "string",
                     "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "principalType": {
+                    "type": "string",
+                    "description": "The principal type",
+                    "enum": [
+                        "User",
+                        "Group",
+                        "App"
+                    ],
+                    "x-ms-enum": {
+                        "name": "PrincipalType",
+                        "modelAsString": true,
+                        "values": [
+                            {
+                                "value": "User",
+                                "description": "User principal type"
+                            },
+                            {
+                                "value": "Group",
+                                "description": "Group principal type"
+                            },
+                            {
+                                "value": "App",
+                                "description": "App principal type"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -10506,7 +10591,8 @@
                     "description": "The principal type",
                     "enum": [
                         "User",
-                        "Group"
+                        "Group",
+                        "App"
                     ],
                     "x-ms-enum": {
                         "name": "PrincipalType",
@@ -10519,6 +10605,10 @@
                             {
                                 "value": "Group",
                                 "description": "Group principal type"
+                            },
+                            {
+                                "value": "App",
+                                "description": "Service principal type"
                             }
                         ]
                     }
