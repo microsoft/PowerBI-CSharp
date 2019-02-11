@@ -1981,7 +1981,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **\"My Workspace\"** to a .pbix file.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Export of a report with [Power BI service live connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets) after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is not supported.<br/>",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -4859,7 +4859,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a .pbix file.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Export of a report with [Power BI service live connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets) after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is not supported.<br/>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -5385,7 +5385,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to allow report creation on the specified workspace based on the specified dataset.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
                     "application/json"
@@ -5473,7 +5473,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -10284,7 +10284,7 @@
                             "Friday",
                             "Saturday",
                             "Sunday"
-                         ],
+                        ],
                         "x-ms-enum": {
                             "name": "daysEnum",
                             "modelAsString": false
