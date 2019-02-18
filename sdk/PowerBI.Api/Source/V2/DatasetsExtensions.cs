@@ -514,13 +514,241 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Returns the refresh schedule of the specified dataset from **"My
+            /// Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static RefreshSchedule GetRefreshSchedule(this IDatasets operations, string datasetKey)
+            {
+                return operations.GetRefreshScheduleAsync(datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the refresh schedule of the specified dataset from **"My
+            /// Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<RefreshSchedule> GetRefreshScheduleAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshScheduleWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified dataset from **"My
+            /// Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request that disables the refresh schedule should
+            /// contain no other changes.&lt;br/&gt;The days array should not be set to
+            /// empty array.&lt;br/&gt;The times may be set to empty array (in which case
+            /// Power BI will use a default single time per day).&lt;br/&gt;The limit on
+            /// number of time slots per day depends on the type of capacity used (Premium
+            /// or Shared), see [What is Microsoft Power BI
+            /// Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetModelRefreshScheduleRequest'>
+            /// Update Refresh Schedule parameters, by specifying all or some of the
+            /// parameters
+            /// </param>
+            public static object UpdateRefreshSchedule(this IDatasets operations, string datasetKey, RefreshScheduleRequest datasetModelRefreshScheduleRequest)
+            {
+                return operations.UpdateRefreshScheduleAsync(datasetKey, datasetModelRefreshScheduleRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified dataset from **"My
+            /// Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request that disables the refresh schedule should
+            /// contain no other changes.&lt;br/&gt;The days array should not be set to
+            /// empty array.&lt;br/&gt;The times may be set to empty array (in which case
+            /// Power BI will use a default single time per day).&lt;br/&gt;The limit on
+            /// number of time slots per day depends on the type of capacity used (Premium
+            /// or Shared), see [What is Microsoft Power BI
+            /// Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetModelRefreshScheduleRequest'>
+            /// Update Refresh Schedule parameters, by specifying all or some of the
+            /// parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateRefreshScheduleAsync(this IDatasets operations, string datasetKey, RefreshScheduleRequest datasetModelRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateRefreshScheduleWithHttpMessagesAsync(datasetKey, datasetModelRefreshScheduleRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the refresh schedule of a specified DirectQuery or LiveConnection
+            /// dataset from **"My Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static DirectQueryRefreshSchedule GetDirectQueryRefreshSchedule(this IDatasets operations, string datasetKey)
+            {
+                return operations.GetDirectQueryRefreshScheduleAsync(datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the refresh schedule of a specified DirectQuery or LiveConnection
+            /// dataset from **"My Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DirectQueryRefreshSchedule> GetDirectQueryRefreshScheduleAsync(this IDatasets operations, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDirectQueryRefreshScheduleWithHttpMessagesAsync(datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified DirectQuery or
+            /// LiveConnection dataset from **"My Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request should contain either a combination of days and
+            /// times  (setting times is optional, otherwise a default single time per day
+            /// is used) or a valid frequency, but not both.&lt;br/&gt;Setting frequency
+            /// will automatically truncate the days and times
+            /// arrays.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetDQRefreshScheduleRequest'>
+            /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
+            /// specifying all or some of the parameters
+            /// </param>
+            public static object UpdateDirectQueryRefreshSchedule(this IDatasets operations, string datasetKey, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest)
+            {
+                return operations.UpdateDirectQueryRefreshScheduleAsync(datasetKey, datasetDQRefreshScheduleRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified DirectQuery or
+            /// LiveConnection dataset from **"My Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request should contain either a combination of days and
+            /// times  (setting times is optional, otherwise a default single time per day
+            /// is used) or a valid frequency, but not both.&lt;br/&gt;Setting frequency
+            /// will automatically truncate the days and times
+            /// arrays.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetDQRefreshScheduleRequest'>
+            /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
+            /// specifying all or some of the parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateDirectQueryRefreshScheduleAsync(this IDatasets operations, string datasetKey, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateDirectQueryRefreshScheduleWithHttpMessagesAsync(datasetKey, datasetDQRefreshScheduleRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of parameters for the specified dataset from **"My
             /// Workspace"**.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -540,7 +768,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -580,9 +810,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; Cannot pass empty value to an IsRequired parameter.
             /// &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple occurrences
             /// of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types 'Any' or
-            /// 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Parameters may change the
-            /// actual connection (server and/or database), but not its OnPrem status (from
-            /// Cloud to OnPrem, or the other way).&lt;/li&gt;&lt;/ul&gt;
+            /// 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -618,9 +846,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; Cannot pass empty value to an IsRequired parameter.
             /// &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple occurrences
             /// of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types 'Any' or
-            /// 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Parameters may change the
-            /// actual connection (server and/or database), but not its OnPrem status (from
-            /// Cloud to OnPrem, or the other way).&lt;/li&gt;&lt;/ul&gt;
+            /// 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -708,9 +934,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -746,9 +970,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1448,7 +1670,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// The dataset id
             /// </param>
             /// <param name='top'>
-            /// The requested number of entries in the refresh history. If not supported,
+            /// The requested number of entries in the refresh history. If not provided,
             /// the default is all available entries.
             /// </param>
             public static ODataResponseListRefresh GetRefreshHistoryInGroup(this IDatasets operations, string groupId, string datasetKey, int? top = default(int?))
@@ -1475,7 +1697,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// The dataset id
             /// </param>
             /// <param name='top'>
-            /// The requested number of entries in the refresh history. If not supported,
+            /// The requested number of entries in the refresh history. If not provided,
             /// the default is all available entries.
             /// </param>
             /// <param name='cancellationToken'>
@@ -1544,13 +1766,265 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Returns the refresh schedule of the specified dataset from the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static RefreshSchedule GetRefreshScheduleInGroup(this IDatasets operations, string groupId, string datasetKey)
+            {
+                return operations.GetRefreshScheduleInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the refresh schedule of the specified dataset from the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<RefreshSchedule> GetRefreshScheduleInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified dataset from the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request that disables the refresh schedule should
+            /// contain no other changes.&lt;br/&gt;The days array should not be set to
+            /// empty array.&lt;br/&gt;The times may be set to empty array (in which case
+            /// Power BI will use a default single time per day).&lt;br/&gt;The limit on
+            /// number of time slots per day depends on the type of capacity used (Premium
+            /// or Shared), see [What is Microsoft Power BI
+            /// Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetModelRefreshScheduleRequest'>
+            /// Update Refresh Schedule parameters, by specifying all or some of the
+            /// parameters
+            /// </param>
+            public static object UpdateRefreshScheduleInGroup(this IDatasets operations, string groupId, string datasetKey, RefreshScheduleRequest datasetModelRefreshScheduleRequest)
+            {
+                return operations.UpdateRefreshScheduleInGroupAsync(groupId, datasetKey, datasetModelRefreshScheduleRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified dataset from the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request that disables the refresh schedule should
+            /// contain no other changes.&lt;br/&gt;The days array should not be set to
+            /// empty array.&lt;br/&gt;The times may be set to empty array (in which case
+            /// Power BI will use a default single time per day).&lt;br/&gt;The limit on
+            /// number of time slots per day depends on the type of capacity used (Premium
+            /// or Shared), see [What is Microsoft Power BI
+            /// Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetModelRefreshScheduleRequest'>
+            /// Update Refresh Schedule parameters, by specifying all or some of the
+            /// parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateRefreshScheduleInGroupAsync(this IDatasets operations, string groupId, string datasetKey, RefreshScheduleRequest datasetModelRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetKey, datasetModelRefreshScheduleRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the refresh schedule of a specified DirectQuery or LiveConnection
+            /// dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            public static DirectQueryRefreshSchedule GetDirectQueryRefreshScheduleInGroup(this IDatasets operations, string groupId, string datasetKey)
+            {
+                return operations.GetDirectQueryRefreshScheduleInGroupAsync(groupId, datasetKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the refresh schedule of a specified DirectQuery or LiveConnection
+            /// dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DirectQueryRefreshSchedule> GetDirectQueryRefreshScheduleInGroupAsync(this IDatasets operations, string groupId, string datasetKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified DirectQuery or
+            /// LiveConnection dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request should contain either a combination of days and
+            /// times  (setting times is optional, otherwise a default single time per day
+            /// is used) or a valid frequency, but not both.&lt;br/&gt;Setting frequency
+            /// will automatically truncate the days and times
+            /// arrays.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetDQRefreshScheduleRequest'>
+            /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
+            /// specifying all or some of the parameters
+            /// </param>
+            public static object UpdateDirectQueryRefreshScheduleInGroup(this IDatasets operations, string groupId, string datasetKey, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest)
+            {
+                return operations.UpdateDirectQueryRefreshScheduleInGroupAsync(groupId, datasetKey, datasetDQRefreshScheduleRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the refresh schedule for the specified DirectQuery or
+            /// LiveConnection dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;This operation is only supported for the dataset
+            /// owner.&lt;br/&gt;A request should contain either a combination of days and
+            /// times  (setting times is optional, otherwise a default single time per day
+            /// is used) or a valid frequency, but not both.&lt;br/&gt;Setting frequency
+            /// will automatically truncate the days and times
+            /// arrays.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='datasetKey'>
+            /// The dataset id
+            /// </param>
+            /// <param name='datasetDQRefreshScheduleRequest'>
+            /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
+            /// specifying all or some of the parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateDirectQueryRefreshScheduleInGroupAsync(this IDatasets operations, string groupId, string datasetKey, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetKey, datasetDQRefreshScheduleRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of parameters for the specified dataset from the specified
             /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1572,7 +2046,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
             /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;Datasets
+            /// with SQL, Oracle, Teradata &amp; SapHana Direct Query connections are not
+            /// supported.&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1614,9 +2090,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; An empty value is not permitted for the IsRequired
             /// parameter. &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple
             /// occurrences of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types
-            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Changing the
-            /// connection status from Cloud to OnPrem or OnPrem to Cloud is not
-            /// supported.&lt;/li&gt;&lt;/ul&gt;
+            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1654,9 +2128,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt; An empty value is not permitted for the IsRequired
             /// parameter. &lt;/li&gt;&lt;li&gt; List cannot be empty or include multiple
             /// occurrences of same parameter. &lt;/li&gt;&lt;li&gt; Parameters of types
-            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;li&gt; Changing the
-            /// connection status from Cloud to OnPrem or OnPrem to Cloud is not
-            /// supported.&lt;/li&gt;&lt;/ul&gt;
+            /// 'Any' or 'Binary' cannot be set. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1751,9 +2223,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1792,9 +2262,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
             /// &lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the connection
             /// string are not supported. &lt;/li&gt;&lt;li&gt;Datasources which are part
-            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;li&gt;Changing
-            /// connection from cloud to on-premises or on-premises to cloud is not
-            /// supported. &lt;/li&gt;&lt;/ul&gt;
+            /// of Merged or Joined tables are not supported. &lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2180,9 +2648,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// **Note:** The user must have administrator rights (such as Office 365
             /// Global Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2208,9 +2675,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// **Note:** The user must have administrator rights (such as Office 365
             /// Global Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2290,9 +2756,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// **Note:** The user must have administrator rights (such as Office 365
             /// Global Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2321,9 +2786,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// **Note:** The user must have administrator rights (such as Office 365
             /// Global Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-            /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

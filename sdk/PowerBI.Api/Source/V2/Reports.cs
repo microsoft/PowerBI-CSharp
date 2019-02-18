@@ -636,6 +636,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
+        /// live
+        /// connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets)
+        /// after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is
+        /// not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='reportKey'>
         /// The report id
@@ -2019,6 +2024,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
+        /// live
+        /// connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets)
+        /// after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is
+        /// not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -2507,6 +2517,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
         /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
+        /// work for AS Azure or AS OnPrem live connection reports for several minutes
+        /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -2675,6 +2688,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
+        /// work for AS Azure or AS OnPrem live connection reports for several minutes
+        /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -2844,9 +2860,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -3022,9 +3037,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated permissions
-        /// are supported.&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition

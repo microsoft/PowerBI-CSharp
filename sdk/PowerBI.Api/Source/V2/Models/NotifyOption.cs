@@ -17,10 +17,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
     [JsonConverter(typeof(StringEnumConverter))]
     public enum NotifyOption
     {
+        /// <summary>
+        /// No notification will be sent
+        /// </summary>
         [EnumMember(Value = "NoNotification")]
         NoNotification,
+        /// <summary>
+        /// Mail notification will be sent on refresh failure
+        /// </summary>
         [EnumMember(Value = "MailOnFailure")]
         MailOnFailure,
+        /// <summary>
+        /// Mail notification will be sent on refresh completion, including
+        /// either failure and success
+        /// </summary>
         [EnumMember(Value = "MailOnCompletion")]
         MailOnCompletion
     }

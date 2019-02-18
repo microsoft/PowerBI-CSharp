@@ -25,14 +25,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the ImportInfo class.
         /// </summary>
-        /// <param name="filePath">The OneDrive for Business file path to
-        /// import, can be absolute or relative</param>
+        /// <param name="filePath">The OneDrive for Business .xlsx file path to
+        /// import, can be absolute or relative. .pbix files are not
+        /// supported.</param>
         /// <param name="connectionType">The import connection type for
         /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
         /// <param name="fileUrl">The shared access signature (SAS) url of the
-        /// temporary blob storage, used to import .pbix files larger than 1
-        /// GB.</param>
+        /// temporary blob storage, used to import large .pbix files between 1
+        /// GB and 10 GB</param>
         public ImportInfo(string filePath = default(string), string connectionType = default(string), string fileUrl = default(string))
         {
             FilePath = filePath;
@@ -47,8 +48,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the OneDrive for Business file path to import, can be
-        /// absolute or relative
+        /// Gets or sets the OneDrive for Business .xlsx file path to import,
+        /// can be absolute or relative. .pbix files are not supported.
         /// </summary>
         [JsonProperty(PropertyName = "filePath")]
         public string FilePath { get; set; }
@@ -62,7 +63,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
 
         /// <summary>
         /// Gets or sets the shared access signature (SAS) url of the temporary
-        /// blob storage, used to import .pbix files larger than 1 GB.
+        /// blob storage, used to import large .pbix files between 1 GB and 10
+        /// GB
         /// </summary>
         [JsonProperty(PropertyName = "fileUrl")]
         public string FileUrl { get; set; }

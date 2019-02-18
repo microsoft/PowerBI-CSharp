@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the UpdateReportContentRequest class.
         /// </summary>
-        /// <param name="sourceType">The source type for the content
-        /// update</param>
+        /// <param name="sourceType">The source type for the content update.
+        /// Possible values include: 'ExistingReport'</param>
         public UpdateReportContentRequest(string sourceType = default(string), SourceReport sourceReport = default(SourceReport))
         {
             SourceType = sourceType;
@@ -40,7 +40,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the source type for the content update
+        /// Gets or sets the source type for the content update. Possible
+        /// values include: 'ExistingReport'
         /// </summary>
         [JsonProperty(PropertyName = "sourceType")]
         public string SourceType { get; set; }

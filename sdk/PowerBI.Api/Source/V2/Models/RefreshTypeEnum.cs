@@ -12,8 +12,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// </summary>
     public static class RefreshTypeEnum
     {
+        /// <summary>
+        /// Refresh was triggered by the dataset refresh schedule setting
+        /// </summary>
         public const string Scheduled = "Scheduled";
+        /// <summary>
+        /// Refresh was triggered interactively threw Power BI portal
+        /// </summary>
         public const string OnDemand = "OnDemand";
+        /// <summary>
+        /// Refresh was triggered by an Api call
+        /// </summary>
         public const string ViaApi = "ViaApi";
     }
 }

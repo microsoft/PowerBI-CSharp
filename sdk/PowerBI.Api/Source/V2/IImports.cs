@@ -52,14 +52,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// request Headers should include **Content-Type:
         /// multipart/form-data** with the file [encoded as form
         /// data](https://www.w3.org/TR/html401/interact/forms.html) in the
-        /// request body. &lt;/li&gt;&lt;li&gt;To import from OneDrive for
-        /// Business, request Headers should include **Content-Type:
-        /// application/json** with
+        /// request body. &lt;/li&gt;&lt;li&gt;To import xlsx file from
+        /// OneDrive for Business, request Headers should include
+        /// **Content-Type: application/json** with
         /// [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in
-        /// the request body.&lt;/li&gt;&lt;li&gt;To import .pbix files larger
-        /// than 1 GB, see [Create Temporary Upload
+        /// the request body.&lt;/li&gt;&lt;li&gt;Import .pbix file from
+        /// OneDrive is not supported.&lt;/li&gt;&lt;li&gt;To import large
+        /// .pbix files between 1 GB and 10 GB, see [Create Temporary Upload
         /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation),
-        /// suported only for workspaces on premium
+        /// supported only for workspaces on premium
         /// capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
@@ -71,8 +72,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
-        /// exists. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-        /// 'CreateOrOverwrite'
+        /// exists. Default value is 'Ignore'. Possible values include:
+        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -119,20 +120,20 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Import>> GetImportByIdWithHttpMessagesAsync(string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a temporary blob storage to be used to import .pbix files
-        /// larger than 1 GB.
+        /// Creates a temporary blob storage to be used to import large .pbix
+        /// files larger than 1 GB and up to 10 GB.
         /// </summary>
         /// <remarks>
-        /// To import .pbix files larger than 1 GB, create a temporary upload
-        /// location and upload the file using the shared access signature
-        /// (SAS) url from the response, and then call [Post
+        /// To import large .pbix files, create a temporary upload location and
+        /// upload the .pbix file using the shared access signature (SAS) url
+        /// from the response, and then call [Post
         /// Import](/rest/api/power-bi/imports/postimport) and specify
         /// 'fileUrl' to be the SAS url in the [Request
         /// Body](/rest/api/power-bi/imports/postimport#request-body)&lt;br/&gt;&lt;br/&gt;**Note**:
         /// Import large .pbix files is only available for workspaces on
-        /// premium capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// premium capacity and for .pbix files that are between 1 GB and 10
+        /// GB. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='customHeaders'>
@@ -155,7 +156,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
         /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;li&gt;Import
+        /// .pbix file from OneDrive is not supported.&lt;/li&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -177,8 +179,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListImport>> GetImportsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates new content on the specified workspace from .pbix, Excel,
-        /// or file path in OneDrive for Business.
+        /// Creates new content on the specified workspace from .pbix, .json,
+        /// Excel, or file path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
@@ -192,10 +194,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Business, request Headers should include **Content-Type:
         /// application/json** with
         /// [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo)
-        /// in the request body.&lt;/li&gt;&lt;li&gt;To import .pbix files
-        /// larger than 1 GB see [Create Temporary Upload Location In
+        /// in the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix
+        /// files between 1 GB and 10 GB see [Create Temporary Upload Location
+        /// In
         /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
-        /// suported only for workspaces on premium
+        /// supported only for workspaces on premium
         /// capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -210,8 +213,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
-        /// exists. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-        /// 'CreateOrOverwrite'
+        /// exists. Default value is 'Ignore'. Possible values include:
+        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -261,20 +264,20 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Import>> GetImportByIdInGroupWithHttpMessagesAsync(string groupId, string importId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a temporary blob storage used to import .pbix files larger
-        /// than 1 GB.
+        /// Creates a temporary blob storage to be used to import large .pbix
+        /// files larger than 1 GB and up to 10 GB.
         /// </summary>
         /// <remarks>
-        /// To import .pbix files larger than 1 GB, create a temporary upload
-        /// location and upload the .pbix file using the shared access
-        /// signature (SAS) url from the response, and then call [Post Import
-        /// In Group](/rest/api/power-bi/imports/postimportingroup) and specify
+        /// To import large .pbix files, create a temporary upload location and
+        /// upload the .pbix file using the shared access signature (SAS) url
+        /// from the response, and then call [Post Import In
+        /// Group](/rest/api/power-bi/imports/postimportingroup) and specify
         /// 'fileUrl' to be the SAS url in the [Request
         /// Body](/rest/api/power-bi/imports/postimportingroup#request-body).&lt;br/&gt;&lt;br/&gt;**Note**:
         /// Import large .pbix files is only available for workspaces on
-        /// premium capacity. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// premium capacity and for .pbix files that is between 1 GB and 10
+        /// GB. &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
@@ -303,9 +306,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** The user must have administrator rights (such as Office
         /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;Application only and delegated
-        /// permissions are supported.&lt;br/&gt;To set the permissions scope,
-        /// see [Register an
+        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='expand'>

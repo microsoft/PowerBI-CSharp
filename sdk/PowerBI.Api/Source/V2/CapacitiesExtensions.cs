@@ -53,5 +53,165 @@ namespace Microsoft.PowerBI.Api.V2
                 }
             }
 
+            /// <summary>
+            /// Returns the current state of the specified capacity workloads, if a
+            /// workload is enabled also returns the maximum memory percentage that the
+            /// workload can consume.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            public static ODataResponseListWorkload GetWorkloads(this ICapacities operations, string capacityId)
+            {
+                return operations.GetWorkloadsAsync(capacityId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the current state of the specified capacity workloads, if a
+            /// workload is enabled also returns the maximum memory percentage that the
+            /// workload can consume.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListWorkload> GetWorkloadsAsync(this ICapacities operations, string capacityId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetWorkloadsWithHttpMessagesAsync(capacityId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the current state of a workload and if the workload is enabled also
+            /// returns the maximum memory percentage that the workload can consume.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            /// <param name='workloadName'>
+            /// The name of the workload
+            /// </param>
+            public static Workload GetWorkload(this ICapacities operations, string capacityId, string workloadName)
+            {
+                return operations.GetWorkloadAsync(capacityId, workloadName).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the current state of a workload and if the workload is enabled also
+            /// returns the maximum memory percentage that the workload can consume.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            /// <param name='workloadName'>
+            /// The name of the workload
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Workload> GetWorkloadAsync(this ICapacities operations, string capacityId, string workloadName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetWorkloadWithHttpMessagesAsync(capacityId, workloadName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Changes the state of a specific workload to Enabled or Disabled. When
+            /// enabling a workload the maximum memory percentage that the workload can
+            /// consume must be set.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            /// <param name='workloadName'>
+            /// The name of the workload
+            /// </param>
+            /// <param name='workload'>
+            /// Patch workload parameters
+            /// </param>
+            public static object PatchWorkload(this ICapacities operations, string capacityId, string workloadName, PatchWorkloadRequest workload)
+            {
+                return operations.PatchWorkloadAsync(capacityId, workloadName, workload).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Changes the state of a specific workload to Enabled or Disabled. When
+            /// enabling a workload the maximum memory percentage that the workload can
+            /// consume must be set.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            /// <param name='workloadName'>
+            /// The name of the workload
+            /// </param>
+            /// <param name='workload'>
+            /// Patch workload parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> PatchWorkloadAsync(this ICapacities operations, string capacityId, string workloadName, PatchWorkloadRequest workload, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.PatchWorkloadWithHttpMessagesAsync(capacityId, workloadName, workload, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

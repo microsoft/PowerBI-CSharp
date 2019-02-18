@@ -63,6 +63,16 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual ITiles Tiles { get; private set; }
 
         /// <summary>
+        /// Gets the IApps.
+        /// </summary>
+        public virtual IApps Apps { get; private set; }
+
+        /// <summary>
+        /// Gets the IDataflows.
+        /// </summary>
+        public virtual IDataflows Dataflows { get; private set; }
+
+        /// <summary>
         /// Gets the IGateways.
         /// </summary>
         public virtual IGateways Gateways { get; private set; }
@@ -288,6 +298,8 @@ namespace Microsoft.PowerBI.Api.V2
             Reports = new Reports(this);
             Dashboards = new Dashboards(this);
             Tiles = new Tiles(this);
+            Apps = new Apps(this);
+            Dataflows = new Dataflows(this);
             Gateways = new Gateways(this);
             Groups = new Groups(this);
             Capacities = new Capacities(this);
