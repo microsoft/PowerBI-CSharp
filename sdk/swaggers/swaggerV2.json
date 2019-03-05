@@ -6452,7 +6452,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                            "groupId": "a2f89923-421a-464e-bf4c-25eab39bb09f"
                         },
                         "responses": {
                             "200": {
@@ -6461,7 +6461,8 @@
                                         {
                                             "objectId": "bd32e5c0-363f-430b-a03b-5535a4804b9b",
                                             "name": "AdventureWorks",
-                                            "description": "Our Adventure Works "
+                                            "description": "Our Adventure Works",
+                                            "modelUrl": "https://MyDataflowStorageAccount.dfs.core.windows.net/powerbi/contoso/AdventureWorks/model.json"
                                         }
                                     ]
                                 }
@@ -7271,7 +7272,8 @@
                                         "id": "a2f89923-421a-464e-bf4c-25eab39bb09f",
                                         "isReadOnly": false,
                                         "isOnDedicatedCapacity": false,
-                                        "name": "contoso"
+                                        "name": "contoso",
+                                        "dataflowStorageId": "d692ae06-708c-485e-9987-06ff0fbdbb1f"
                                     }
                                 ]
                             }
@@ -7294,7 +7296,8 @@
                                         "id": "a2f89923-421a-464e-bf4c-25eab39bb09f",
                                         "isReadOnly": false,
                                         "isOnDedicatedCapacity": false,
-                                        "name": "contoso"
+                                        "name": "contoso",
+                                        "dataflowStorageId": "d692ae06-708c-485e-9987-06ff0fbdbb1f"
                                     }
                                 ]
                             }
@@ -8150,6 +8153,104 @@
                                     }
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/dataflowStorageAccounts": {
+            "get": {
+                "tags": [
+                    "StorageAccounts"
+                ],
+                "summary": "Returns a list of dataflow storage accounts the user has access to.",
+                "description": "<br/>**Required scope**: StorageAccount.Read.All or StorageAccount.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "DataflowStorageAccounts_GetDataflowStorageAccounts",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[DataflowStorageAccount]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "d692ae06-708c-485e-9987-06ff0fbdbb1f",
+                                        "name": "MyDataflowStorageAccount",
+                                        "isEnabled": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/AssignToDataflowStorage": {
+            "post": {
+                "tags": [
+                    "StorageAccounts"
+                ],
+                "summary": "Assigns the specified workspace to the specified dataflow storage account.",
+                "description": "**Note**: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.<br/><br/>**Required scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Groups_AssignToDataflowStorage",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Assign to Power BI dataflow storage account parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignToDataflowStorageRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "requestParameters": {
+                                "dataflowStorageId": "d692ae06-708c-485e-9987-06ff0fbdbb1f"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -9986,6 +10087,10 @@
                     "items": {
                         "$ref": "#/definitions/GroupUserAccessRight"
                     }
+                },
+                "dataflowStorageId": {
+                    "type": "string",
+                    "description": "The Power BI dataflow storage account id"
                 }
             }
         },
@@ -11224,6 +11329,10 @@
                 "description": {
                     "type": "string",
                     "description": "The dataflow description"
+                },
+                "modelUrl": {
+                    "type": "string",
+                    "description": "A URL to the dataflow definition file (model.json)"
                 }
             }
         },
@@ -11239,6 +11348,47 @@
                     "items": {
                         "$ref": "#/definitions/DataflowMetadata"
                     }
+                }
+            }
+        },
+        "DataflowStorageAccount": {
+            "description": "A Power BI dataflow storage account",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The Power BI dataflow storage account id"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The Power BI dataflow storage account name"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates if workspaces can be assigned to this storage account"
+                }
+            }
+        },
+        "ODataResponse[List[DataflowStorageAccount]]": {
+            "description": "Odata response wrapper for Power BI dataflow storage account list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The Power BI dataflow storage account list",
+                    "items": {
+                        "$ref": "#/definitions/DataflowStorageAccount"
+                    }
+                }
+            }
+        },
+        "AssignToDataflowStorageRequest": {
+            "description": "Power BI assign to Power BI dataflow storage account request",
+            "properties": {
+                "dataflowStorageId": {
+                    "type": "string",
+                    "description": "The Power BI dataflow storage account id. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId."
                 }
             }
         }

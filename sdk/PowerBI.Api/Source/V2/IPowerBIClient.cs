@@ -91,5 +91,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         IAvailableFeatures AvailableFeatures { get; }
 
+        /// <summary>
+        /// Gets the IDataflowStorageAccounts.
+        /// </summary>
+        IDataflowStorageAccounts DataflowStorageAccounts { get; }
+
     }
 }

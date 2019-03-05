@@ -28,11 +28,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="objectId">The dataflow id</param>
         /// <param name="name">The dataflow name</param>
         /// <param name="description">The dataflow description</param>
-        public DataflowMetadata(string objectId = default(string), string name = default(string), string description = default(string))
+        /// <param name="modelUrl">A URL to the dataflow definition file
+        /// (model.json)</param>
+        public DataflowMetadata(string objectId = default(string), string name = default(string), string description = default(string), string modelUrl = default(string))
         {
             ObjectId = objectId;
             Name = name;
             Description = description;
+            ModelUrl = modelUrl;
             CustomInit();
         }
 
@@ -58,6 +61,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets a URL to the dataflow definition file (model.json)
+        /// </summary>
+        [JsonProperty(PropertyName = "modelUrl")]
+        public string ModelUrl { get; set; }
 
     }
 }

@@ -38,7 +38,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="state">The group state</param>
         /// <param name="users">The users that belong to the group, and their
         /// access rights.</param>
-        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>))
+        /// <param name="dataflowStorageId">The Power BI dataflow storage
+        /// account id</param>
+        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>), string dataflowStorageId = default(string))
         {
             Id = id;
             Name = name;
@@ -49,6 +51,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
             Type = type;
             State = state;
             Users = users;
+            DataflowStorageId = dataflowStorageId;
             CustomInit();
         }
 
@@ -111,6 +114,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUserAccessRight> Users { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Power BI dataflow storage account id
+        /// </summary>
+        [JsonProperty(PropertyName = "dataflowStorageId")]
+        public string DataflowStorageId { get; set; }
 
     }
 }

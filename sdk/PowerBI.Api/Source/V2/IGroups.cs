@@ -324,6 +324,43 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<WorkspaceCapacityAssignmentStatus>> CapacityAssignmentStatusWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Assigns the specified workspace to the specified dataflow storage
+        /// account.
+        /// </summary>
+        /// <remarks>
+        /// **Note**: To perform this operation, the user must be an admin on
+        /// the specified workspace and the Power BI dataflow storage account
+        /// must be enabled. To unassign the specified workspace from a Power
+        /// BI dataflow storage account, an empty GUID
+        /// (00000000-0000-0000-0000-000000000000) should be provided as
+        /// dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='requestParameters'>
+        /// Assign to Power BI dataflow storage account parameters
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> AssignToDataflowStorageWithHttpMessagesAsync(string groupId, AssignToDataflowStorageRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of workspaces for the organization.
         /// </summary>
         /// <remarks>

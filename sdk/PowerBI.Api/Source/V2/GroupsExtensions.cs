@@ -526,6 +526,66 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Assigns the specified workspace to the specified dataflow storage account.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: To perform this operation, the user must be an admin on the
+            /// specified workspace and the Power BI dataflow storage account must be
+            /// enabled. To unassign the specified workspace from a Power BI dataflow
+            /// storage account, an empty GUID (00000000-0000-0000-0000-000000000000)
+            /// should be provided as dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Assign to Power BI dataflow storage account parameters
+            /// </param>
+            public static object AssignToDataflowStorage(this IGroups operations, string groupId, AssignToDataflowStorageRequest requestParameters)
+            {
+                return operations.AssignToDataflowStorageAsync(groupId, requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Assigns the specified workspace to the specified dataflow storage account.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: To perform this operation, the user must be an admin on the
+            /// specified workspace and the Power BI dataflow storage account must be
+            /// enabled. To unassign the specified workspace from a Power BI dataflow
+            /// storage account, an empty GUID (00000000-0000-0000-0000-000000000000)
+            /// should be provided as dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Assign to Power BI dataflow storage account parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> AssignToDataflowStorageAsync(this IGroups operations, string groupId, AssignToDataflowStorageRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.AssignToDataflowStorageWithHttpMessagesAsync(groupId, requestParameters, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of workspaces for the organization.
             /// </summary>
             /// <remarks>
