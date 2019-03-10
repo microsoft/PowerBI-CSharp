@@ -8163,7 +8163,7 @@
         "/v1.0/myorg/dataflowStorageAccounts": {
             "get": {
                 "tags": [
-                    "StorageAccounts"
+                    "DataflowStorageAccounts"
                 ],
                 "summary": "Returns a list of dataflow storage accounts the user has access to.",
                 "description": "<br/>**Required scope**: StorageAccount.Read.All or StorageAccount.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
@@ -8205,7 +8205,7 @@
         "/v1.0/myorg/groups/{groupId}/AssignToDataflowStorage": {
             "post": {
                 "tags": [
-                    "StorageAccounts"
+                    "DataflowStorageAccounts"
                 ],
                 "summary": "Assigns the specified workspace to the specified dataflow storage account.",
                 "description": "**Note**: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.<br/><br/>**Required scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
