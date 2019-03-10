@@ -93,6 +93,11 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual IAvailableFeatures AvailableFeatures { get; private set; }
 
         /// <summary>
+        /// Gets the IDataflowStorageAccounts.
+        /// </summary>
+        public virtual IDataflowStorageAccounts DataflowStorageAccounts { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
         /// </summary>
         /// <param name='handlers'>
@@ -304,6 +309,7 @@ namespace Microsoft.PowerBI.Api.V2
             Groups = new Groups(this);
             Capacities = new Capacities(this);
             AvailableFeatures = new AvailableFeatures(this);
+            DataflowStorageAccounts = new DataflowStorageAccounts(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
