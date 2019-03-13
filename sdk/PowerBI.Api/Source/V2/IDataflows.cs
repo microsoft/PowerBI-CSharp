@@ -173,5 +173,39 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListDataflowMetadata>> GetDataflowsWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Creates or updates the specified dataflow refresh schedule
+        /// configuration.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        /// <param name='refreshScheduleRequest'>
+        /// The dataflow refresh schedule to create or update
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<object>> UpdateRefreshScheduleWithHttpMessagesAsync(string groupId, string dataflowId, RefreshScheduleRequest refreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

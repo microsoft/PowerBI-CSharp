@@ -6473,6 +6473,118 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule": {
+            "patch": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Creates or updates the specified dataflow refresh schedule configuration.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_UpdateRefreshSchedule",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "refreshScheduleRequest",
+                        "in": "body",
+                        "description": "The dataflow refresh schedule to create or update",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RefreshScheduleRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Object"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Every day schedule example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "refreshScheduleRequest": {
+                                "value": {
+                                  "days": [
+                                    "Sunday",
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday",
+                                    "Saturday"
+                                  ],
+                                  "times": [
+                                    "10:00",
+                                    "16:00"
+                                  ],
+                                  "enabled": true,
+                                  "localTimeZoneId": "UTC",
+                                  "notifyOption": "NoNotification"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Update times schedule example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "refreshScheduleRequest": {
+                                "value": {
+                                  "times": [ 
+                                      "10:30", 
+                                      "16:30" 
+                                  ],
+                                  "enabled": true,
+                                  "localTimeZoneId": "UTC"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Disable schedule example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "refreshScheduleRequest": {
+                                "value": {
+                                    "enabled": false
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
 
         "/v1.0/myorg/gateways": {
             "get": {

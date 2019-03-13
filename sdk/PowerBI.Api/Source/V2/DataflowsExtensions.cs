@@ -265,5 +265,61 @@ namespace Microsoft.PowerBI.Api.V2
                 }
             }
 
+            /// <summary>
+            /// Creates or updates the specified dataflow refresh schedule configuration.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='refreshScheduleRequest'>
+            /// The dataflow refresh schedule to create or update
+            /// </param>
+            public static object UpdateRefreshSchedule(this IDataflows operations, string groupId, string dataflowId, RefreshScheduleRequest refreshScheduleRequest)
+            {
+                return operations.UpdateRefreshScheduleAsync(groupId, dataflowId, refreshScheduleRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates or updates the specified dataflow refresh schedule configuration.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='refreshScheduleRequest'>
+            /// The dataflow refresh schedule to create or update
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> UpdateRefreshScheduleAsync(this IDataflows operations, string groupId, string dataflowId, RefreshScheduleRequest refreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdateRefreshScheduleWithHttpMessagesAsync(groupId, dataflowId, refreshScheduleRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }
