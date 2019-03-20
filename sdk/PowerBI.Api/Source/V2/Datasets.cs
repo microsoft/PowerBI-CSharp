@@ -1456,9 +1456,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Triggers a refresh for the specified dataset from **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;In Shared capacities this call is limited to eight times per day
+        /// (including refreshes executed via Scheduled
+        /// Refresh)&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetKey'>
         /// The dataset id
@@ -5013,9 +5015,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Triggers a refresh for the specified dataset from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;In Shared capacities this call is limited to eight times per day
+        /// (including refreshes executed via Scheduled
+        /// Refresh)&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
