@@ -142,6 +142,56 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Returns the specified report from the specified app.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            public static Report GetReport(this IApps operations, string appId, string reportKey)
+            {
+                return operations.GetReportAsync(appId, reportKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the specified report from the specified app.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='reportKey'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Report> GetReportAsync(this IApps operations, string appId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetReportWithHttpMessagesAsync(appId, reportKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of dashboards from the specified app.
             /// </summary>
             /// <remarks>
@@ -180,6 +230,170 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<ODataResponseListDashboard> GetDashboardsAsync(this IApps operations, string appId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the specified dashboard from the specified app.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static Dashboard GetDashboard(this IApps operations, string appId, string dashboardKey)
+            {
+                return operations.GetDashboardAsync(appId, dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the specified dashboard from the specified app.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dashboard> GetDashboardAsync(this IApps operations, string appId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardWithHttpMessagesAsync(appId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of tiles within the specified dashboard from the specified
+            /// app.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            public static ODataResponseListTile GetTiles(this IApps operations, string appId, string dashboardKey)
+            {
+                return operations.GetTilesAsync(appId, dashboardKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of tiles within the specified dashboard from the specified
+            /// app.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListTile> GetTilesAsync(this IApps operations, string appId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTilesWithHttpMessagesAsync(appId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the specified tile within the specified dashboard from the
+            /// specified app.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            public static Tile GetTile(this IApps operations, string appId, string dashboardKey, string tileKey)
+            {
+                return operations.GetTileAsync(appId, dashboardKey, tileKey).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the specified tile within the specified dashboard from the
+            /// specified app.
+            /// </summary>
+            /// <remarks>
+            /// **Note**: All tile types are supported except for "model tiles", which
+            /// include datasets and live tiles that contain an entire report page.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app id
+            /// </param>
+            /// <param name='dashboardKey'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='tileKey'>
+            /// The tile id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Tile> GetTileAsync(this IApps operations, string appId, string dashboardKey, string tileKey, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetTileWithHttpMessagesAsync(appId, dashboardKey, tileKey, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

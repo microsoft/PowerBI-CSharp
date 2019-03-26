@@ -6130,13 +6130,77 @@
                                 "body": {
                                     "value": [
                                         {
+                                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                                             "id": "66b2570c-d9d3-40b2-83d9-1095c6700041",
                                             "name": "SalesMarketing",
                                             "webUrl": "https://app.powerbi.com/reports/66b2570c-d9d3-40b2-83d9-1095c6700041",
-                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=66b2570c-d9d3-40b2-83d9-1095c6700041"
+                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=66b2570c-d9d3-40b2-83d9-1095c6700041&appId=3d9b93c6-7b6d-4801-a491-1738910904fd&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQifQ"
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/apps/{appId}/reports/{reportId}": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns the specified report from the specified app.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetReport",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Report"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                    "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                    "id": "66b2570c-d9d3-40b2-83d9-1095c6700041",
+                                    "name": "SalesMarketing",
+                                    "webUrl": "https://app.powerbi.com/reports/66b2570c-d9d3-40b2-83d9-1095c6700041",
+                                    "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=66b2570c-d9d3-40b2-83d9-1095c6700041&appId=3d9b93c6-7b6d-4801-a491-1738910904fd&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQifQ"
                                 }
                             }
                         }
@@ -6187,12 +6251,219 @@
                                 "body": {
                                     "value": [
                                         {
+                                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                                             "id": "03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
                                             "displayName": "SalesMarketing",
-                                            "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
+                                            "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=335aee4b-7b38-48fd-9e2f-306c3fd67482&appId=3d9b93c6-7b6d-4801-a491-1738910904fd&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQifQ%3d%3d",
                                             "isReadOnly": false
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns the specified dashboard from the specified app.",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetDashboard",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dashboardId",
+                        "description": "The dashboard id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Dashboard"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                            "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                    "id": "03dac094-2ff8-47e8-b2b9-dedbbc4d22ac",
+                                    "displayName": "SalesMarketing",
+                                    "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=335aee4b-7b38-48fd-9e2f-306c3fd67482&appId=3d9b93c6-7b6d-4801-a491-1738910904fd&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQifQ%3d%3d",
+                                    "isReadOnly": false
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns a list of tiles within the specified dashboard from the specified app.",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetTiles",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dashboardId",
+                        "description": "The dashboard id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[Tile]]"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                            "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b",
+                                            "title": "SalesMarketingTile",
+                                            "embedUrl": "https://app.powerbi.com/embed?dashboardId=69ffaa6c-b36d-4d01-96f5-1ed67c64d4af&tileId=312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9XQUJJLVNPVVRILUNFTlRSQUwtVVMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQifQ%3d%3d",
+                                            "rowSpan": 0,
+                                            "colSpan": 0,
+                                            "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
+                                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles/{tileId}": {
+            "get": {
+                "tags": [
+                    "Apps"
+                ],
+                "summary": "Returns the specified tile within the specified dashboard from the specified app.",
+                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetTile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The app id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dashboardId",
+                        "description": "The dashboard id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "tileId",
+                        "description": "The tile id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Tile"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                            "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
+                            "tileKey": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b",
+                                    "title": "SalesMarketingTile",
+                                    "embedUrl": "https://app.powerbi.com/embed?dashboardId=69ffaa6c-b36d-4d01-96f5-1ed67c64d4af&tileId=312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b&groupId=f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                    "rowSpan": 0,
+                                    "colSpan": 0,
+                                    "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
+                                    "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                                 }
                             }
                         }
@@ -6525,22 +6796,22 @@
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
                             "refreshScheduleRequest": {
                                 "value": {
-                                  "days": [
-                                    "Sunday",
-                                    "Monday",
-                                    "Tuesday",
-                                    "Wednesday",
-                                    "Thursday",
-                                    "Friday",
-                                    "Saturday"
-                                  ],
-                                  "times": [
-                                    "10:00",
-                                    "16:00"
-                                  ],
-                                  "enabled": true,
-                                  "localTimeZoneId": "UTC",
-                                  "notifyOption": "NoNotification"
+                                    "days": [
+                                        "Sunday",
+                                        "Monday",
+                                        "Tuesday",
+                                        "Wednesday",
+                                        "Thursday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "10:00",
+                                        "16:00"
+                                    ],
+                                    "enabled": true,
+                                    "localTimeZoneId": "UTC",
+                                    "notifyOption": "NoNotification"
                                 }
                             }
                         },
@@ -6554,12 +6825,12 @@
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
                             "refreshScheduleRequest": {
                                 "value": {
-                                  "times": [ 
-                                      "10:30", 
-                                      "16:30" 
-                                  ],
-                                  "enabled": true,
-                                  "localTimeZoneId": "UTC"
+                                    "times": [
+                                        "10:30",
+                                        "16:30"
+                                    ],
+                                    "enabled": true,
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         },
@@ -7663,7 +7934,7 @@
                             "userDetails": {
                                 "identifier": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                                 "groupUserAccessRight": "Admin",
-                                "principalType":  "App"
+                                "principalType": "App"
                             }
                         },
                         "responses": {

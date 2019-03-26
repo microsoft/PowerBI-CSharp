@@ -95,6 +95,37 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListReport>> GetReportsWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns the specified report from the specified app.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='appId'>
+        /// The app id
+        /// </param>
+        /// <param name='reportKey'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(string appId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of dashboards from the specified app.
         /// </summary>
         /// <remarks>
@@ -122,5 +153,105 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListDashboard>> GetDashboardsWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the specified dashboard from the specified app.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='appId'>
+        /// The app id
+        /// </param>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(string appId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of tiles within the specified dashboard from the
+        /// specified app.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
+        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='appId'>
+        /// The app id
+        /// </param>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(string appId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the specified tile within the specified dashboard from the
+        /// specified app.
+        /// </summary>
+        /// <remarks>
+        /// **Note**: All tile types are supported except for "model tiles",
+        /// which include datasets and live tiles that contain an entire report
+        /// page. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dashboard.ReadWrite.All or Dashboard.Read.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='appId'>
+        /// The app id
+        /// </param>
+        /// <param name='dashboardKey'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='tileKey'>
+        /// The tile id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(string appId, string dashboardKey, string tileKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
