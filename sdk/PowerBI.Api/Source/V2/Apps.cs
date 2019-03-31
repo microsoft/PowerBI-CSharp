@@ -480,7 +480,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='reportKey'>
+        /// <param name='reportId'>
         /// The report id
         /// </param>
         /// <param name='customHeaders'>
@@ -495,25 +495,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(string appId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(System.Guid appId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (appId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "appId");
-            }
-            if (reportKey == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "reportKey");
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -522,15 +508,15 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appId", appId);
-                tracingParameters.Add("reportKey", reportKey);
+                tracingParameters.Add("reportId", reportId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetReport", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/reports/{reportKey}").ToString();
-            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(appId));
-            _url = _url.Replace("{reportKey}", System.Uri.EscapeDataString(reportKey));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/reports/{reportId}").ToString();
+            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(appId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{reportId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(reportId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -781,7 +767,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='dashboardKey'>
+        /// <param name='dashboardId'>
         /// The dashboard id
         /// </param>
         /// <param name='customHeaders'>
@@ -796,25 +782,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(string appId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (appId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "appId");
-            }
-            if (dashboardKey == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "dashboardKey");
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -823,15 +795,15 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appId", appId);
-                tracingParameters.Add("dashboardKey", dashboardKey);
+                tracingParameters.Add("dashboardId", dashboardId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetDashboard", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/dashboards/{dashboardKey}").ToString();
-            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(appId));
-            _url = _url.Replace("{dashboardKey}", System.Uri.EscapeDataString(dashboardKey));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/dashboards/{dashboardId}").ToString();
+            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(appId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -937,7 +909,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='dashboardKey'>
+        /// <param name='dashboardId'>
         /// The dashboard id
         /// </param>
         /// <param name='customHeaders'>
@@ -952,25 +924,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(string appId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (appId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "appId");
-            }
-            if (dashboardKey == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "dashboardKey");
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -979,15 +937,15 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appId", appId);
-                tracingParameters.Add("dashboardKey", dashboardKey);
+                tracingParameters.Add("dashboardId", dashboardId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetTiles", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/dashboards/{dashboardKey}/tiles").ToString();
-            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(appId));
-            _url = _url.Replace("{dashboardKey}", System.Uri.EscapeDataString(dashboardKey));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles").ToString();
+            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(appId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1095,10 +1053,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='dashboardKey'>
+        /// <param name='dashboardId'>
         /// The dashboard id
         /// </param>
-        /// <param name='tileKey'>
+        /// <param name='tileId'>
         /// The tile id
         /// </param>
         /// <param name='customHeaders'>
@@ -1113,29 +1071,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        /// <exception cref="System.ArgumentNullException">
-        /// Thrown when a required parameter is null
-        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(string appId, string dashboardKey, string tileKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, System.Guid tileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (appId == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "appId");
-            }
-            if (dashboardKey == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "dashboardKey");
-            }
-            if (tileKey == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "tileKey");
-            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1144,17 +1084,17 @@ namespace Microsoft.PowerBI.Api.V2
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appId", appId);
-                tracingParameters.Add("dashboardKey", dashboardKey);
-                tracingParameters.Add("tileKey", tileKey);
+                tracingParameters.Add("dashboardId", dashboardId);
+                tracingParameters.Add("tileId", tileId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetTile", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/dashboards/{dashboardKey}/tiles/{tileKey}").ToString();
-            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(appId));
-            _url = _url.Replace("{dashboardKey}", System.Uri.EscapeDataString(dashboardKey));
-            _url = _url.Replace("{tileKey}", System.Uri.EscapeDataString(tileKey));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles/{tileId}").ToString();
+            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(appId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{tileId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(tileId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

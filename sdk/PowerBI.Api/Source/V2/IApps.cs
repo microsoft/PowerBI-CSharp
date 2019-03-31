@@ -106,7 +106,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='reportKey'>
+        /// <param name='reportId'>
         /// The report id
         /// </param>
         /// <param name='customHeaders'>
@@ -121,10 +121,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(string appId, string reportKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(System.Guid appId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of dashboards from the specified app.
         /// </summary>
@@ -165,7 +162,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='dashboardKey'>
+        /// <param name='dashboardId'>
         /// The dashboard id
         /// </param>
         /// <param name='customHeaders'>
@@ -180,10 +177,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(string appId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from the
         /// specified app.
@@ -197,7 +191,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='dashboardKey'>
+        /// <param name='dashboardId'>
         /// The dashboard id
         /// </param>
         /// <param name='customHeaders'>
@@ -212,10 +206,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(string appId, string dashboardKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListTile>> GetTilesWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified tile within the specified dashboard from the
         /// specified app.
@@ -231,10 +222,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='appId'>
         /// The app id
         /// </param>
-        /// <param name='dashboardKey'>
+        /// <param name='dashboardId'>
         /// The dashboard id
         /// </param>
-        /// <param name='tileKey'>
+        /// <param name='tileId'>
         /// The tile id
         /// </param>
         /// <param name='customHeaders'>
@@ -249,9 +240,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(string appId, string dashboardKey, string tileKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, System.Guid tileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

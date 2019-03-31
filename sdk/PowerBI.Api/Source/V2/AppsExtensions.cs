@@ -155,12 +155,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='reportKey'>
+            /// <param name='reportId'>
             /// The report id
             /// </param>
-            public static Report GetReport(this IApps operations, string appId, string reportKey)
+            public static Report GetReport(this IApps operations, System.Guid appId, System.Guid reportId)
             {
-                return operations.GetReportAsync(appId, reportKey).GetAwaiter().GetResult();
+                return operations.GetReportAsync(appId, reportId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -177,15 +177,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='reportKey'>
+            /// <param name='reportId'>
             /// The report id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Report> GetReportAsync(this IApps operations, string appId, string reportKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Report> GetReportAsync(this IApps operations, System.Guid appId, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetReportWithHttpMessagesAsync(appId, reportKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetReportWithHttpMessagesAsync(appId, reportId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -249,12 +249,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='dashboardKey'>
+            /// <param name='dashboardId'>
             /// The dashboard id
             /// </param>
-            public static Dashboard GetDashboard(this IApps operations, string appId, string dashboardKey)
+            public static Dashboard GetDashboard(this IApps operations, System.Guid appId, System.Guid dashboardId)
             {
-                return operations.GetDashboardAsync(appId, dashboardKey).GetAwaiter().GetResult();
+                return operations.GetDashboardAsync(appId, dashboardId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -271,15 +271,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='dashboardKey'>
+            /// <param name='dashboardId'>
             /// The dashboard id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dashboard> GetDashboardAsync(this IApps operations, string appId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Dashboard> GetDashboardAsync(this IApps operations, System.Guid appId, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetDashboardWithHttpMessagesAsync(appId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDashboardWithHttpMessagesAsync(appId, dashboardId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -300,12 +300,12 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='dashboardKey'>
+            /// <param name='dashboardId'>
             /// The dashboard id
             /// </param>
-            public static ODataResponseListTile GetTiles(this IApps operations, string appId, string dashboardKey)
+            public static ODataResponseListTile GetTiles(this IApps operations, System.Guid appId, System.Guid dashboardId)
             {
-                return operations.GetTilesAsync(appId, dashboardKey).GetAwaiter().GetResult();
+                return operations.GetTilesAsync(appId, dashboardId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -323,15 +323,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='dashboardKey'>
+            /// <param name='dashboardId'>
             /// The dashboard id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListTile> GetTilesAsync(this IApps operations, string appId, string dashboardKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListTile> GetTilesAsync(this IApps operations, System.Guid appId, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTilesWithHttpMessagesAsync(appId, dashboardKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetTilesWithHttpMessagesAsync(appId, dashboardId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -354,15 +354,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='dashboardKey'>
+            /// <param name='dashboardId'>
             /// The dashboard id
             /// </param>
-            /// <param name='tileKey'>
+            /// <param name='tileId'>
             /// The tile id
             /// </param>
-            public static Tile GetTile(this IApps operations, string appId, string dashboardKey, string tileKey)
+            public static Tile GetTile(this IApps operations, System.Guid appId, System.Guid dashboardId, System.Guid tileId)
             {
-                return operations.GetTileAsync(appId, dashboardKey, tileKey).GetAwaiter().GetResult();
+                return operations.GetTileAsync(appId, dashboardId, tileId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -382,18 +382,18 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='appId'>
             /// The app id
             /// </param>
-            /// <param name='dashboardKey'>
+            /// <param name='dashboardId'>
             /// The dashboard id
             /// </param>
-            /// <param name='tileKey'>
+            /// <param name='tileId'>
             /// The tile id
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Tile> GetTileAsync(this IApps operations, string appId, string dashboardKey, string tileKey, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Tile> GetTileAsync(this IApps operations, System.Guid appId, System.Guid dashboardId, System.Guid tileId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetTileWithHttpMessagesAsync(appId, dashboardKey, tileKey, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetTileWithHttpMessagesAsync(appId, dashboardId, tileId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
