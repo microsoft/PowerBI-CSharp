@@ -25,7 +25,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
-        public static Import PostImportWithFileInGroup(this IImports operations, string groupId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string))
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
+        public static Import PostImportWithFileInGroup(this IImports operations, string groupId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?))
         {
             return Task.Factory.StartNew(s => ((IImports)s).PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
@@ -36,7 +39,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name="operations">
         /// The import operations
         /// </param>
-		
         /// <param name='groupId'>
         /// The group id
         /// </param>
@@ -49,18 +51,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsyncInGroup(this IImports operations, string groupId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsyncInGroup(this IImports operations, string groupId, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
+            using (var _result = await operations.PostImportFileWithHttpMessage(groupId, fileStream, datasetDisplayName, nameConflict, skipReport, null, cancellationToken).ConfigureAwait(false))
             {
                 return _result.Body;
             }
         }
-		
-		/// <summary>
+
+        /// <summary>
         /// Uploads a PBIX file to MyWorkspace
         /// </summary>
         /// <param name="operations">
@@ -75,9 +80,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
-        public static Import PostImportWithFile(this IImports operations, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string))
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
+        public static Import PostImportWithFile(this IImports operations, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?))
         {
-            return Task.Factory.StartNew(s => ((IImports)s).PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
+            return Task.Factory.StartNew(s => ((IImports)s).PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, skipReport), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult().Body;
         }
 
         /// <summary>
@@ -86,7 +94,6 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name="operations">
         /// The import operations
         /// </param>
-
         /// <param name='fileStream'>
         /// The PBIX file to import
         /// </param>
@@ -96,12 +103,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Import> PostImportWithFileAsync(this IImports operations, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Import> PostImportWithFileAsync(this IImports operations, Stream fileStream, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, null, cancellationToken).ConfigureAwait(false))
+            using (var _result = await operations.PostImportFileWithHttpMessage(fileStream, datasetDisplayName, nameConflict, skipReport, null, cancellationToken).ConfigureAwait(false))
             {
                 return _result.Body;
             }

@@ -45,19 +45,23 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name="customHeaders">
         /// Optional custom headers
         /// </param>
         /// <param name="cancellationToken">
         /// Optional cancellation token
         /// </param>
-        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await PostImportFileWithHttpMessage(
                             groupId: null,
                             file: file,
                             datasetDisplayName: datasetDisplayName,
                             nameConflict: nameConflict,
+                            skipReport: skipReport,
                             customHeaders: customHeaders,
                             cancellationToken: cancellationToken);
         }
@@ -77,13 +81,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name="customHeaders">
         /// Optional custom headers
         /// </param>
         /// <param name="cancellationToken">
         /// Optional cancellation token
         /// </param>
-        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             string _invocationId = null;
@@ -95,6 +102,7 @@ namespace Microsoft.PowerBI.Api.V2
                 tracingParameters.Add("file", file);
                 tracingParameters.Add("datasetDisplayName", datasetDisplayName);
                 tracingParameters.Add("nameConflict", nameConflict);
+                tracingParameters.Add("skipReport", skipReport);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
             }
@@ -111,15 +119,15 @@ namespace Microsoft.PowerBI.Api.V2
 
             if (file.Length > 1 * GB)
             {
-                return await UploadLargeFile(groupId, file, datasetDisplayName, nameConflict, customHeaders, cancellationToken);
+                return await UploadLargeFile(groupId, file, datasetDisplayName, nameConflict, skipReport, customHeaders, cancellationToken);
             }
             else
             {
-                return await UploadFile(groupId, file, datasetDisplayName, nameConflict, customHeaders, cancellationToken);
+                return await UploadFile(groupId, file, datasetDisplayName, nameConflict, skipReport, customHeaders, cancellationToken);
             }
         }
 
-        private async Task<HttpOperationResponse<Import>> UploadFile(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task<HttpOperationResponse<Import>> UploadFile(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -142,6 +150,10 @@ namespace Microsoft.PowerBI.Api.V2
             if (nameConflict != null)
             {
                 _queryParameters.Add(string.Format("nameConflict={0}", Uri.EscapeDataString(nameConflict)));
+            }
+            if (skipReport != null)
+            {
+                _queryParameters.Add(string.Format("skipReport={0}", skipReport));
             }
             if (_queryParameters.Count > 0)
             {
@@ -238,7 +250,7 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
 
-        private async Task<HttpOperationResponse<Import>> UploadLargeFile(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task<HttpOperationResponse<Import>> UploadLargeFile(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             TemporaryUploadLocation temporaryUploadLocation;
 
@@ -269,11 +281,11 @@ namespace Microsoft.PowerBI.Api.V2
 
                 if (groupId == null)
                 {
-                    return await powerBIClient.Imports.PostImportWithHttpMessagesAsync(datasetDisplayName, new ImportInfo { FileUrl = temporaryUploadLocation.Url }, nameConflict);
+                    return await powerBIClient.Imports.PostImportWithHttpMessagesAsync(datasetDisplayName, new ImportInfo { FileUrl = temporaryUploadLocation.Url }, nameConflict, skipReport);
                 }
                 else
                 {
-                    return await powerBIClient.Imports.PostImportInGroupWithHttpMessagesAsync(groupId, datasetDisplayName, new ImportInfo { FileUrl = temporaryUploadLocation.Url }, nameConflict);
+                    return await powerBIClient.Imports.PostImportInGroupWithHttpMessagesAsync(groupId, datasetDisplayName, new ImportInfo { FileUrl = temporaryUploadLocation.Url }, nameConflict, skipReport);
                 }
             }
         }

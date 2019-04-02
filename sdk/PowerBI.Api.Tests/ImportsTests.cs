@@ -91,6 +91,39 @@ namespace PowerBI.Api.Tests
             }
         }
 
+        [TestMethod]
+        public async Task PostImportFileWithNameAndSkipReport()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, skipReport: true);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&skipReport=True";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task PostImportWithFileWithNameAndConflictAndSkipReport()
+        {
+            var datasetDisplayName = "TestDataset";
+            var nameConflict = "Overwrite";
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, nameConflict, skipReport: true);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}&skipReport=True";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
         private static HttpResponseMessage CreateSampleImportResponse(string name = default(string))
         {
             var import = new Import

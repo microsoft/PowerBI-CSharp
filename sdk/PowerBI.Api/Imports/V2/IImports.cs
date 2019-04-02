@@ -24,12 +24,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name="customHeaders">Optional custom headers</param>
         /// <param name="cancellationToken">Optional cancellation token</param>
         /// <returns></returns>
-        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-		
-		/// <summary>
+        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Uploads a PBIX file to the specified group
         /// </summary>
         /// <param name='groupId'>
@@ -44,12 +47,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Whether to overwrite dataset during conflicts
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name="customHeaders">
         /// Optional custom headers
         /// </param>
         /// <param name="cancellationToken">
         /// Optional cancellation token
         /// </param>
-        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(string groupId, Stream file, string datasetDisplayName = default(string), string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

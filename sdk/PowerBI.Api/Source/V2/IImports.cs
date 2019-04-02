@@ -41,8 +41,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<ODataResponseListImport>> GetImportsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates new content on **"My Workspace"** from .pbix, Excel or file
-        /// path in OneDrive for Business.
+        /// Creates new content on **"My Workspace"** from .pbix, Excel, Rdl or
+        /// file path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
@@ -75,6 +75,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// exists. Default value is 'Ignore'. Possible values include:
         /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must
+        /// be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -90,7 +94,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified import from **"My Workspace"**.
         /// </summary>
@@ -180,7 +184,7 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse<ODataResponseListImport>> GetImportsInGroupWithHttpMessagesAsync(string groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates new content on the specified workspace from .pbix, .json,
-        /// Excel, or file path in OneDrive for Business.
+        /// Excel, Rdl, or file path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
@@ -216,6 +220,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// exists. Default value is 'Ignore'. Possible values include:
         /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must
+        /// be 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -231,7 +239,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified import from the specified workspace.
         /// </summary>

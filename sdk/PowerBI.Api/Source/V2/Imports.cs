@@ -178,8 +178,8 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Creates new content on **"My Workspace"** from .pbix, Excel or file path in
-        /// OneDrive for Business.
+        /// Creates new content on **"My Workspace"** from .pbix, Excel, Rdl or file
+        /// path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -210,6 +210,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
         /// 'Overwrite', 'CreateOrOverwrite'
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be
+        /// 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -231,7 +235,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -250,6 +254,7 @@ namespace Microsoft.PowerBI.Api.V2
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("datasetDisplayName", datasetDisplayName);
                 tracingParameters.Add("nameConflict", nameConflict);
+                tracingParameters.Add("skipReport", skipReport);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
@@ -265,6 +270,10 @@ namespace Microsoft.PowerBI.Api.V2
             if (nameConflict != null)
             {
                 _queryParameters.Add(string.Format("nameConflict={0}", System.Uri.EscapeDataString(nameConflict)));
+            }
+            if (skipReport != null)
+            {
+                _queryParameters.Add(string.Format("skipReport={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skipReport, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -821,8 +830,8 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
-        /// Creates new content on the specified workspace from .pbix, .json, Excel, or
-        /// file path in OneDrive for Business.
+        /// Creates new content on the specified workspace from .pbix, .json, Excel,
+        /// Rdl, or file path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -854,6 +863,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
         /// 'Overwrite', 'CreateOrOverwrite'
         /// </param>
+        /// <param name='skipReport'>
+        /// Determines whether to skip report import, if specified value must be
+        /// 'true'. Only supported for PBIX files.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -875,7 +888,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (groupId == null)
             {
@@ -899,6 +912,7 @@ namespace Microsoft.PowerBI.Api.V2
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("datasetDisplayName", datasetDisplayName);
                 tracingParameters.Add("nameConflict", nameConflict);
+                tracingParameters.Add("skipReport", skipReport);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImportInGroup", tracingParameters);
@@ -915,6 +929,10 @@ namespace Microsoft.PowerBI.Api.V2
             if (nameConflict != null)
             {
                 _queryParameters.Add(string.Format("nameConflict={0}", System.Uri.EscapeDataString(nameConflict)));
+            }
+            if (skipReport != null)
+            {
+                _queryParameters.Add(string.Format("skipReport={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skipReport, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

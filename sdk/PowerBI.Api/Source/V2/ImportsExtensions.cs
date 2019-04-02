@@ -54,8 +54,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Creates new content on **"My Workspace"** from .pbix, Excel or file path in
-            /// OneDrive for Business.
+            /// Creates new content on **"My Workspace"** from .pbix, Excel, Rdl or file
+            /// path in OneDrive for Business.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -89,14 +89,18 @@ namespace Microsoft.PowerBI.Api.V2
             /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
             /// 'Overwrite', 'CreateOrOverwrite'
             /// </param>
-            public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
+            /// <param name='skipReport'>
+            /// Determines whether to skip report import, if specified value must be
+            /// 'true'. Only supported for PBIX files.
+            /// </param>
+            public static Import PostImport(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?))
             {
-                return operations.PostImportAsync(datasetDisplayName, importInfo, nameConflict).GetAwaiter().GetResult();
+                return operations.PostImportAsync(datasetDisplayName, importInfo, nameConflict, skipReport).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Creates new content on **"My Workspace"** from .pbix, Excel or file path in
-            /// OneDrive for Business.
+            /// Creates new content on **"My Workspace"** from .pbix, Excel, Rdl or file
+            /// path in OneDrive for Business.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -129,13 +133,17 @@ namespace Microsoft.PowerBI.Api.V2
             /// Determines what to do if a dataset with the same name already exists.
             /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
             /// 'Overwrite', 'CreateOrOverwrite'
+            /// </param>
+            /// <param name='skipReport'>
+            /// Determines whether to skip report import, if specified value must be
+            /// 'true'. Only supported for PBIX files.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportAsync(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync(this IImports operations, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportWithHttpMessagesAsync(datasetDisplayName, importInfo, nameConflict, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportWithHttpMessagesAsync(datasetDisplayName, importInfo, nameConflict, skipReport, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -288,8 +296,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Creates new content on the specified workspace from .pbix, .json, Excel, or
-            /// file path in OneDrive for Business.
+            /// Creates new content on the specified workspace from .pbix, .json, Excel,
+            /// Rdl, or file path in OneDrive for Business.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -324,14 +332,18 @@ namespace Microsoft.PowerBI.Api.V2
             /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
             /// 'Overwrite', 'CreateOrOverwrite'
             /// </param>
-            public static Import PostImportInGroup(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string))
+            /// <param name='skipReport'>
+            /// Determines whether to skip report import, if specified value must be
+            /// 'true'. Only supported for PBIX files.
+            /// </param>
+            public static Import PostImportInGroup(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?))
             {
-                return operations.PostImportInGroupAsync(groupId, datasetDisplayName, importInfo, nameConflict).GetAwaiter().GetResult();
+                return operations.PostImportInGroupAsync(groupId, datasetDisplayName, importInfo, nameConflict, skipReport).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Creates new content on the specified workspace from .pbix, .json, Excel, or
-            /// file path in OneDrive for Business.
+            /// Creates new content on the specified workspace from .pbix, .json, Excel,
+            /// Rdl, or file path in OneDrive for Business.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -365,13 +377,17 @@ namespace Microsoft.PowerBI.Api.V2
             /// Determines what to do if a dataset with the same name already exists.
             /// Default value is 'Ignore'. Possible values include: 'Ignore', 'Abort',
             /// 'Overwrite', 'CreateOrOverwrite'
+            /// </param>
+            /// <param name='skipReport'>
+            /// Determines whether to skip report import, if specified value must be
+            /// 'true'. Only supported for PBIX files.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportInGroupAsync(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportInGroupAsync(this IImports operations, string groupId, string datasetDisplayName, ImportInfo importInfo, string nameConflict = default(string), bool? skipReport = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportInGroupWithHttpMessagesAsync(groupId, datasetDisplayName, importInfo, nameConflict, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportInGroupWithHttpMessagesAsync(groupId, datasetDisplayName, importInfo, nameConflict, skipReport, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
