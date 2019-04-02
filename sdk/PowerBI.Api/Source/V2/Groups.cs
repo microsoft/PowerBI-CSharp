@@ -1760,17 +1760,19 @@ namespace Microsoft.PowerBI.Api.V2
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
+        /// <param name='top'>
+        /// Returns only the first n results. This parameter is mandatory and must be
+        /// in the range of 1-5000.
+        /// </param>
         /// <param name='expand'>
         /// Expands related entities inline
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
         /// </param>
-        /// <param name='top'>
-        /// Returns only the first n results
-        /// </param>
         /// <param name='skip'>
-        /// Skips the first n results
+        /// Skips the first n results. Use with top to fetch results beyond the first
+        /// 5000.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1787,8 +1789,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsAsAdminWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (top > 5000)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMaximum, "top", 5000);
+            }
+            if (top < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "top", 1);
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1815,10 +1825,7 @@ namespace Microsoft.PowerBI.Api.V2
             {
                 _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
             }
-            if (top != null)
-            {
-                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
-            }
+            _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
             if (skip != null)
             {
                 _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));

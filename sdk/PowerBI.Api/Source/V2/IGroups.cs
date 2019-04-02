@@ -371,17 +371,19 @@ namespace Microsoft.PowerBI.Api.V2
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
+        /// <param name='top'>
+        /// Returns only the first n results. This parameter is mandatory and
+        /// must be in the range of 1-5000.
+        /// </param>
         /// <param name='expand'>
         /// Expands related entities inline
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
         /// </param>
-        /// <param name='top'>
-        /// Returns only the first n results
-        /// </param>
         /// <param name='skip'>
-        /// Skips the first n results
+        /// Skips the first n results. Use with top to fetch results beyond the
+        /// first 5000.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -395,7 +397,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ODataResponseListGroup>> GetGroupsAsAdminWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the specified workspace properties.
         /// </summary>

@@ -8861,15 +8861,17 @@
                     {
                         "name": "$top",
                         "in": "query",
-                        "description": "Returns only the first n results",
-                        "required": false,
+                        "description": "Returns only the first n results. This parameter is mandatory and must be in the range of 1-5000.",
+                        "required": true,
+                        "minimum": 1,
+                        "maximum": 5000,
                         "type": "integer",
                         "format": "int32"
                     },
                     {
                         "name": "$skip",
                         "in": "query",
-                        "description": "Skips the first n results",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 5000.",
                         "required": false,
                         "type": "integer",
                         "format": "int32"
@@ -8886,7 +8888,8 @@
                 "x-ms-examples": {
                     "Get workspaces with users expanded (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
-                            "$expand": "users"
+                            "$expand": "users",
+                            "$top": 100
                         },
                         "responses": {
                             "200": {
@@ -8925,6 +8928,7 @@
                     "Get orphaned workspaces (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
                             "$expand": "users",
+                            "$top": 100,
                             "$filter": "(not users/any()) or (not users/any(u: u/groupUserAccessRight eq Microsoft.PowerBI.ServiceContracts.Api.GroupUserAccessRight'Admin'))"
                         },
                         "responses": {
@@ -8948,6 +8952,7 @@
                     },
                     "Get deleted workspaces (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
+                            "$top": 100,
                             "$filter": "state eq 'Deleted'"
                         },
                         "responses": {

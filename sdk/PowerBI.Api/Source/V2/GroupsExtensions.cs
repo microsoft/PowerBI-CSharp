@@ -598,21 +598,23 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results. This parameter is mandatory and must be
+            /// in the range of 1-5000.
+            /// </param>
             /// <param name='expand'>
             /// Expands related entities inline
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
             /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results
-            /// </param>
             /// <param name='skip'>
-            /// Skips the first n results
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 5000.
             /// </param>
-            public static ODataResponseListGroup GetGroupsAsAdmin(this IGroups operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static ODataResponseListGroup GetGroupsAsAdmin(this IGroups operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
             {
-                return operations.GetGroupsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
+                return operations.GetGroupsAsAdminAsync(top, expand, filter, skip).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -628,24 +630,26 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results. This parameter is mandatory and must be
+            /// in the range of 1-5000.
+            /// </param>
             /// <param name='expand'>
             /// Expands related entities inline
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
             /// </param>
-            /// <param name='top'>
-            /// Returns only the first n results
-            /// </param>
             /// <param name='skip'>
-            /// Skips the first n results
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 5000.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListGroup> GetGroupsAsAdminAsync(this IGroups operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ODataResponseListGroup> GetGroupsAsAdminAsync(this IGroups operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetGroupsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGroupsAsAdminWithHttpMessagesAsync(top, expand, filter, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
