@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -35,7 +36,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// target associated dataset id. &lt;br/&gt;If not provided, the new
         /// report will be associated with the same dataset as the source
         /// report.</param>
-        public CloneReportRequest(string name = default(string), string targetWorkspaceId = default(string), string targetModelId = default(string))
+        public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), System.Guid? targetModelId = default(System.Guid?))
         {
             Name = name;
             TargetWorkspaceId = targetWorkspaceId;
@@ -61,7 +62,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// be cloned within the same workspace as the source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
-        public string TargetWorkspaceId { get; set; }
+        public System.Guid? TargetWorkspaceId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target
@@ -70,7 +71,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// report.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
-        public string TargetModelId { get; set; }
+        public System.Guid? TargetModelId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Name == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+        }
     }
 }

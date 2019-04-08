@@ -6,34 +6,82 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    using System.Runtime;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for ImportConflictHandlerMode.
     /// </summary>
-    public static class ImportConflictHandlerMode
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum ImportConflictHandlerMode
     {
         /// <summary>
         /// If dataset with the same name already exists, Import operation will
         /// create a new dataset with the same name.
         /// </summary>
-        public const string Ignore = "Ignore";
+        [EnumMember(Value = "Ignore")]
+        Ignore,
         /// <summary>
         /// If dataset with the same name already exists, Import operation will
         /// be aborted.
         /// </summary>
-        public const string Abort = "Abort";
+        [EnumMember(Value = "Abort")]
+        Abort,
         /// <summary>
         /// If dataset with the same name already exists, Import operation will
         /// replace the existing dataset with the new one.<br/>Import operation
         /// will fail if there is no conflict or if there are more than one
         /// datasets with the same name.
         /// </summary>
-        public const string Overwrite = "Overwrite";
+        [EnumMember(Value = "Overwrite")]
+        Overwrite,
         /// <summary>
         /// If dataset with the same name already exists, Import operation will
         /// replace the existing dataset with the new one.<br/>Import operation
         /// will fail if there are more than one datasets with the same name.
         /// </summary>
-        public const string CreateOrOverwrite = "CreateOrOverwrite";
+        [EnumMember(Value = "CreateOrOverwrite")]
+        CreateOrOverwrite
+    }
+    internal static class ImportConflictHandlerModeEnumExtension
+    {
+        internal static string ToSerializedValue(this ImportConflictHandlerMode? value)
+        {
+            return value == null ? null : ((ImportConflictHandlerMode)value).ToSerializedValue();
+        }
+
+        internal static string ToSerializedValue(this ImportConflictHandlerMode value)
+        {
+            switch( value )
+            {
+                case ImportConflictHandlerMode.Ignore:
+                    return "Ignore";
+                case ImportConflictHandlerMode.Abort:
+                    return "Abort";
+                case ImportConflictHandlerMode.Overwrite:
+                    return "Overwrite";
+                case ImportConflictHandlerMode.CreateOrOverwrite:
+                    return "CreateOrOverwrite";
+            }
+            return null;
+        }
+
+        internal static ImportConflictHandlerMode? ParseImportConflictHandlerMode(this string value)
+        {
+            switch( value )
+            {
+                case "Ignore":
+                    return ImportConflictHandlerMode.Ignore;
+                case "Abort":
+                    return ImportConflictHandlerMode.Abort;
+                case "Overwrite":
+                    return ImportConflictHandlerMode.Overwrite;
+                case "CreateOrOverwrite":
+                    return ImportConflictHandlerMode.CreateOrOverwrite;
+            }
+            return null;
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the BindToGatewayRequest class.
         /// </summary>
         /// <param name="gatewayObjectId">The gateway id</param>
-        public BindToGatewayRequest(string gatewayObjectId = default(string))
+        public BindToGatewayRequest(System.Guid gatewayObjectId)
         {
             GatewayObjectId = gatewayObjectId;
             CustomInit();
@@ -41,7 +41,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the gateway id
         /// </summary>
         [JsonProperty(PropertyName = "gatewayObjectId")]
-        public string GatewayObjectId { get; set; }
+        public System.Guid GatewayObjectId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

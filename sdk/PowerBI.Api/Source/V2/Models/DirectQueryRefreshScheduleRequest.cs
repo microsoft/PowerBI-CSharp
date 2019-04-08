@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -29,7 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="value">An object containg the refresh schedule details
         /// for DirectQuery or LiveConnection</param>
-        public DirectQueryRefreshScheduleRequest(DirectQueryRefreshSchedule value = default(DirectQueryRefreshSchedule))
+        public DirectQueryRefreshScheduleRequest(DirectQueryRefreshSchedule value)
         {
             Value = value;
             CustomInit();
@@ -47,5 +48,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "value")]
         public DirectQueryRefreshSchedule Value { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Value == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Value");
+            }
+        }
     }
 }

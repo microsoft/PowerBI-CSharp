@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="notifyOption">Notification option at scheduled refresh
         /// termination. Possible values include: 'NoNotification',
         /// 'MailOnFailure'</param>
-        public RefreshSchedule(IList<DaysEnum?> days = default(IList<DaysEnum?>), IList<string> times = default(IList<string>), bool? enabled = default(bool?), string localTimeZoneId = default(string), ScheduleNotifyOption? notifyOption = default(ScheduleNotifyOption?))
+        public RefreshSchedule(IList<Days?> days = default(IList<Days?>), IList<string> times = default(IList<string>), bool? enabled = default(bool?), string localTimeZoneId = default(string), ScheduleNotifyOption? notifyOption = default(ScheduleNotifyOption?))
         {
             Days = days;
             Times = times;
@@ -56,7 +56,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets days to execute the refresh
         /// </summary>
         [JsonProperty(PropertyName = "days")]
-        public IList<DaysEnum?> Days { get; set; }
+        public IList<Days?> Days { get; set; }
 
         /// <summary>
         /// Gets or sets times to execute the refresh within each day

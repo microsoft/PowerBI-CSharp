@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -30,7 +31,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="dataSourceType">The datasource type</param>
         /// <param name="connectionDetails">The connection details</param>
         /// <param name="dataSourceName">The datasource name</param>
-        public PublishDatasourceToGatewayRequest(string dataSourceType = default(string), string connectionDetails = default(string), CredentialDetails credentialDetails = default(CredentialDetails), string dataSourceName = default(string))
+        public PublishDatasourceToGatewayRequest(string dataSourceType, string connectionDetails, CredentialDetails credentialDetails, string dataSourceName)
         {
             DataSourceType = dataSourceType;
             ConnectionDetails = connectionDetails;
@@ -67,5 +68,34 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "dataSourceName")]
         public string DataSourceName { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (DataSourceType == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DataSourceType");
+            }
+            if (ConnectionDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "ConnectionDetails");
+            }
+            if (CredentialDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "CredentialDetails");
+            }
+            if (DataSourceName == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DataSourceName");
+            }
+            if (CredentialDetails != null)
+            {
+                CredentialDetails.Validate();
+            }
+        }
     }
 }

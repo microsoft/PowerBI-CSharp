@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="webUrl">The report web url</param>
         /// <param name="embedUrl">The report embed url</param>
         /// <param name="datasetId">The dataset id</param>
-        public Report(string id = default(string), string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string))
+        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), System.Guid? datasetId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the report id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the report name
@@ -73,7 +73,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the dataset id
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
-        public string DatasetId { get; set; }
+        public System.Guid? DatasetId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

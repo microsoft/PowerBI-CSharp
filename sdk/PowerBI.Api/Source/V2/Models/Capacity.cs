@@ -28,9 +28,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the Capacity class.
         /// </summary>
         /// <param name="id">The capacity id</param>
-        /// <param name="displayName">The capacity display name</param>
-        /// <param name="admins">An array of capacity admins.</param>
-        /// <param name="sku">The capacity SKU.</param>
         /// <param name="state">The capacity state. Possible values include:
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
         /// 'Suspended', 'PreSuspended', 'Deleting', 'Deleted', 'Invalid',
@@ -38,9 +35,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="capacityUserAccessRight">Access right user has on the
         /// capacity. Possible values include: 'None', 'Assign',
         /// 'Admin'</param>
+        /// <param name="displayName">The capacity display name</param>
+        /// <param name="admins">An array of capacity admins.</param>
+        /// <param name="sku">The capacity SKU.</param>
         /// <param name="region">The Azure region where the capacity is
         /// provisioned</param>
-        public Capacity(string id = default(string), string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string state = default(string), string capacityUserAccessRight = default(string), string region = default(string))
+        public Capacity(System.Guid id, CapacityState state, CapacityUserAccessRight capacityUserAccessRight, string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string region = default(string))
         {
             Id = id;
             DisplayName = displayName;
@@ -61,7 +61,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the capacity id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the capacity display name
@@ -88,14 +88,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'UpdatingSku'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
-        public string State { get; set; }
+        public CapacityState State { get; set; }
 
         /// <summary>
         /// Gets or sets access right user has on the capacity. Possible values
         /// include: 'None', 'Assign', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]
-        public string CapacityUserAccessRight { get; set; }
+        public CapacityUserAccessRight CapacityUserAccessRight { get; set; }
 
         /// <summary>
         /// Gets or sets the Azure region where the capacity is provisioned
@@ -103,5 +103,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "region")]
         public string Region { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+        }
     }
 }

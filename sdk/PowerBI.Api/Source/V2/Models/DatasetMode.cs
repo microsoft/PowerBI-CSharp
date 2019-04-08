@@ -6,36 +6,89 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    using System.Runtime;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for DatasetMode.
     /// </summary>
-    public static class DatasetMode
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum DatasetMode
     {
         /// <summary>
         /// Creates a dataset with a live connection to Azure Analysis Service
         /// </summary>
-        public const string AsAzure = "AsAzure";
+        [EnumMember(Value = "AsAzure")]
+        AsAzure,
         /// <summary>
         /// Creates a dataset with a live connection to On-premise Analysis
         /// Service
         /// </summary>
-        public const string AsOnPrem = "AsOnPrem";
+        [EnumMember(Value = "AsOnPrem")]
+        AsOnPrem,
         /// <summary>
         /// Creates a dataset which allows programmatic access for pushing data
         /// into PowerBI, [learn
         /// more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)
         /// </summary>
-        public const string Push = "Push";
+        [EnumMember(Value = "Push")]
+        Push,
         /// <summary>
         /// Creates a dataset which supports data streaming, [learn
         /// more](https://docs.microsoft.com/power-bi/service-real-time-streaming)
         /// </summary>
-        public const string Streaming = "Streaming";
+        [EnumMember(Value = "Streaming")]
+        Streaming,
         /// <summary>
         /// Creates a dataset which supports data streaming and allows
         /// programmatic access for pushing data into Power BI
         /// </summary>
-        public const string PushStreaming = "PushStreaming";
+        [EnumMember(Value = "PushStreaming")]
+        PushStreaming
+    }
+    internal static class DatasetModeEnumExtension
+    {
+        internal static string ToSerializedValue(this DatasetMode? value)
+        {
+            return value == null ? null : ((DatasetMode)value).ToSerializedValue();
+        }
+
+        internal static string ToSerializedValue(this DatasetMode value)
+        {
+            switch( value )
+            {
+                case DatasetMode.AsAzure:
+                    return "AsAzure";
+                case DatasetMode.AsOnPrem:
+                    return "AsOnPrem";
+                case DatasetMode.Push:
+                    return "Push";
+                case DatasetMode.Streaming:
+                    return "Streaming";
+                case DatasetMode.PushStreaming:
+                    return "PushStreaming";
+            }
+            return null;
+        }
+
+        internal static DatasetMode? ParseDatasetMode(this string value)
+        {
+            switch( value )
+            {
+                case "AsAzure":
+                    return DatasetMode.AsAzure;
+                case "AsOnPrem":
+                    return DatasetMode.AsOnPrem;
+                case "Push":
+                    return DatasetMode.Push;
+                case "Streaming":
+                    return DatasetMode.Streaming;
+                case "PushStreaming":
+                    return DatasetMode.PushStreaming;
+            }
+            return null;
+        }
     }
 }

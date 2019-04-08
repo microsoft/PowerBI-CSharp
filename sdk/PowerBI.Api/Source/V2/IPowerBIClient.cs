@@ -37,64 +37,64 @@ namespace Microsoft.PowerBI.Api.V2
 
 
         /// <summary>
-        /// Gets the IDatasets.
+        /// Gets the IDatasetsOperations.
         /// </summary>
-        IDatasets Datasets { get; }
+        IDatasetsOperations Datasets { get; }
 
         /// <summary>
-        /// Gets the IImports.
+        /// Gets the IImportsOperations.
         /// </summary>
-        IImports Imports { get; }
+        IImportsOperations Imports { get; }
 
         /// <summary>
-        /// Gets the IReports.
+        /// Gets the IReportsOperations.
         /// </summary>
-        IReports Reports { get; }
+        IReportsOperations Reports { get; }
 
         /// <summary>
-        /// Gets the IDashboards.
+        /// Gets the IDashboardsOperations.
         /// </summary>
-        IDashboards Dashboards { get; }
+        IDashboardsOperations Dashboards { get; }
 
         /// <summary>
-        /// Gets the ITiles.
+        /// Gets the ITilesOperations.
         /// </summary>
-        ITiles Tiles { get; }
+        ITilesOperations Tiles { get; }
 
         /// <summary>
-        /// Gets the IApps.
+        /// Gets the IAppsOperations.
         /// </summary>
-        IApps Apps { get; }
+        IAppsOperations Apps { get; }
 
         /// <summary>
-        /// Gets the IDataflows.
+        /// Gets the IDataflowsOperations.
         /// </summary>
-        IDataflows Dataflows { get; }
+        IDataflowsOperations Dataflows { get; }
 
         /// <summary>
-        /// Gets the IGateways.
+        /// Gets the IGatewaysOperations.
         /// </summary>
-        IGateways Gateways { get; }
+        IGatewaysOperations Gateways { get; }
 
         /// <summary>
-        /// Gets the IGroups.
+        /// Gets the IGroupsOperations.
         /// </summary>
-        IGroups Groups { get; }
+        IGroupsOperations Groups { get; }
 
         /// <summary>
-        /// Gets the ICapacities.
+        /// Gets the ICapacitiesOperations.
         /// </summary>
-        ICapacities Capacities { get; }
+        ICapacitiesOperations Capacities { get; }
 
         /// <summary>
-        /// Gets the IAvailableFeatures.
+        /// Gets the IAvailableFeaturesOperations.
         /// </summary>
-        IAvailableFeatures AvailableFeatures { get; }
+        IAvailableFeaturesOperations AvailableFeatures { get; }
 
         /// <summary>
-        /// Gets the IDataflowStorageAccounts.
+        /// Gets the IDataflowStorageAccountsOperations.
         /// </summary>
-        IDataflowStorageAccounts DataflowStorageAccounts { get; }
+        IDataflowStorageAccountsOperations DataflowStorageAccounts { get; }
 
     }
 }

@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// access rights.</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account id</param>
-        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>), string dataflowStorageId = default(string))
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), System.Guid? dataflowStorageId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -64,7 +64,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the workspace id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the group name
@@ -88,7 +88,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the capacity id
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
-        public string CapacityId { get; set; }
+        public System.Guid? CapacityId { get; set; }
 
         /// <summary>
         /// Gets or sets the group description
@@ -113,13 +113,32 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// rights.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
-        public IList<GroupUserAccessRight> Users { get; set; }
+        public IList<GroupUser> Users { get; set; }
 
         /// <summary>
         /// Gets or sets the Power BI dataflow storage account id
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
-        public string DataflowStorageId { get; set; }
+        public System.Guid? DataflowStorageId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Users != null)
+            {
+                foreach (var element in Users)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

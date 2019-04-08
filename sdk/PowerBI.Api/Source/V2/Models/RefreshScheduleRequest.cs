@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -27,7 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="value">An object containg the refresh schedule
         /// details</param>
-        public RefreshScheduleRequest(RefreshSchedule value = default(RefreshSchedule))
+        public RefreshScheduleRequest(RefreshSchedule value)
         {
             Value = value;
             CustomInit();
@@ -44,5 +45,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "value")]
         public RefreshSchedule Value { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Value == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Value");
+            }
+        }
     }
 }

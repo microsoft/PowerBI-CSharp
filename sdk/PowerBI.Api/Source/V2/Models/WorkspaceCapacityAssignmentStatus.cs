@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="capacityId">The capacity id</param>
         /// <param name="activityId">The activity id of the acctual assignment
         /// operation, can be provided in case of assignment failures</param>
-        public WorkspaceCapacityAssignmentStatus(AssignmentStatus? status = default(AssignmentStatus?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string capacityId = default(string), string activityId = default(string))
+        public WorkspaceCapacityAssignmentStatus(AssignmentStatus status, System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), System.Guid? capacityId = default(System.Guid?), System.Guid? activityId = default(System.Guid?))
         {
             Status = status;
             StartTime = startTime;
@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'AssignmentFailed'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
-        public AssignmentStatus? Status { get; set; }
+        public AssignmentStatus Status { get; set; }
 
         /// <summary>
         /// Gets or sets start time of workspace assignment operation
@@ -76,14 +76,23 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the capacity id
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
-        public string CapacityId { get; set; }
+        public System.Guid? CapacityId { get; set; }
 
         /// <summary>
         /// Gets or sets the activity id of the acctual assignment operation,
         /// can be provided in case of assignment failures
         /// </summary>
         [JsonProperty(PropertyName = "activityId")]
-        public string ActivityId { get; set; }
+        public System.Guid? ActivityId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+        }
     }
 }

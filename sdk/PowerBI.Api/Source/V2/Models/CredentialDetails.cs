@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -46,7 +47,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// OAuth2 credentials be used for connecting to the datasource in
         /// DirectQuery mode. Only supported for Direct Query to SQL
         /// Azure.</param>
-        public CredentialDetails(string credentials = default(string), string credentialType = default(string), string encryptedConnection = default(string), string encryptionAlgorithm = default(string), string privacyLevel = default(string), bool? useCallerAADIdentity = default(bool?), bool? useEndUserOAuth2Credentials = default(bool?))
+        public CredentialDetails(string credentials, CredentialType credentialType, EncryptedConnection encryptedConnection, EncryptionAlgorithm encryptionAlgorithm, PrivacyLevel privacyLevel, bool? useCallerAADIdentity = default(bool?), bool? useEndUserOAuth2Credentials = default(bool?))
         {
             Credentials = credentials;
             CredentialType = credentialType;
@@ -76,7 +77,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Windows', 'Anonymous', 'OAuth2', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
-        public string CredentialType { get; set; }
+        public CredentialType CredentialType { get; set; }
 
         /// <summary>
         /// Gets or sets should Power BI allow fallback to unencrypted if the
@@ -84,7 +85,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Encrypted', 'NotEncrypted'
         /// </summary>
         [JsonProperty(PropertyName = "encryptedConnection")]
-        public string EncryptedConnection { get; set; }
+        public EncryptedConnection EncryptedConnection { get; set; }
 
         /// <summary>
         /// Gets or sets the encryption algorithm. For cloud datasource, use
@@ -92,7 +93,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'RSA-OAEP' algorithm. Possible values include: 'None', 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
-        public string EncryptionAlgorithm { get; set; }
+        public EncryptionAlgorithm EncryptionAlgorithm { get; set; }
 
         /// <summary>
         /// Gets or sets the privacy level. Relevant when combining data from
@@ -100,7 +101,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Organizational', 'Private'
         /// </summary>
         [JsonProperty(PropertyName = "privacyLevel")]
-        public string PrivacyLevel { get; set; }
+        public PrivacyLevel PrivacyLevel { get; set; }
 
         /// <summary>
         /// Gets or sets should the caller's AAD identity be used for OAuth2
@@ -117,5 +118,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "useEndUserOAuth2Credentials")]
         public bool? UseEndUserOAuth2Credentials { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Credentials == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Credentials");
+            }
+        }
     }
 }

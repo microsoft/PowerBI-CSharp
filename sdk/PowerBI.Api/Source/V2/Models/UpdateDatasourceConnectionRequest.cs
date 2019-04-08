@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -24,7 +25,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the UpdateDatasourceConnectionRequest
         /// class.
         /// </summary>
-        public UpdateDatasourceConnectionRequest(DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), Datasource datasourceSelector = default(Datasource))
+        public UpdateDatasourceConnectionRequest(DatasourceConnectionDetails connectionDetails, Datasource datasourceSelector = default(Datasource))
         {
             ConnectionDetails = connectionDetails;
             DatasourceSelector = datasourceSelector;
@@ -46,5 +47,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "datasourceSelector")]
         public Datasource DatasourceSelector { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (ConnectionDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "ConnectionDetails");
+            }
+        }
     }
 }

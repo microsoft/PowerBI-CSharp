@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="capacityId">The capacity id. To unassign from
         /// capacity, use Empty Guid
         /// (00000000-0000-0000-0000-000000000000).</param>
-        public AssignToCapacityRequest(string capacityId = default(string))
+        public AssignToCapacityRequest(System.Guid capacityId)
         {
             CapacityId = capacityId;
             CustomInit();
@@ -44,7 +44,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Guid (00000000-0000-0000-0000-000000000000).
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
-        public string CapacityId { get; set; }
+        public System.Guid CapacityId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

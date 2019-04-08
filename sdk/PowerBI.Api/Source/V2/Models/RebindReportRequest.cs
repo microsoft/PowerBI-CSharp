@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="datasetId">The new dataset of the rebinded
         /// report</param>
-        public RebindReportRequest(string datasetId = default(string))
+        public RebindReportRequest(System.Guid datasetId)
         {
             DatasetId = datasetId;
             CustomInit();
@@ -42,7 +42,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the new dataset of the rebinded report
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
-        public string DatasetId { get; set; }
+        public System.Guid DatasetId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

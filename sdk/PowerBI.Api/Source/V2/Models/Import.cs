@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// import</param>
         /// <param name="createdDateTime">Import creation time</param>
         /// <param name="updatedDateTime">Import last update time</param>
-        public Import(string id = default(string), string name = default(string), string importState = default(string), IList<Report> reports = default(IList<Report>), IList<Dataset> datasets = default(IList<Dataset>), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? updatedDateTime = default(System.DateTime?))
+        public Import(System.Guid id, string name = default(string), string importState = default(string), IList<Report> reports = default(IList<Report>), IList<Dataset> datasets = default(IList<Dataset>), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? updatedDateTime = default(System.DateTime?))
         {
             Id = id;
             Name = name;
@@ -57,7 +57,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the import id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the import name
@@ -95,5 +95,34 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "updatedDateTime")]
         public System.DateTime? UpdatedDateTime { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Reports != null)
+            {
+                foreach (var element in Reports)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (Datasets != null)
+            {
+                foreach (var element1 in Datasets)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
+        }
     }
 }

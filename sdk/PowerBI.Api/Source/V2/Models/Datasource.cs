@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// to a gateway.</param>
         /// <param name="datasourceId">The bound datasource id. Empty when not
         /// bound to a gateway.</param>
-        public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), string gatewayId = default(string), string datasourceId = default(string))
+        public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), System.Guid? gatewayId = default(System.Guid?), System.Guid? datasourceId = default(System.Guid?))
         {
             Name = name;
             ConnectionString = connectionString;
@@ -82,14 +82,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// gateway.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
-        public string GatewayId { get; set; }
+        public System.Guid? GatewayId { get; set; }
 
         /// <summary>
         /// Gets or sets the bound datasource id. Empty when not bound to a
         /// gateway.
         /// </summary>
         [JsonProperty(PropertyName = "datasourceId")]
-        public string DatasourceId { get; set; }
+        public System.Guid? DatasourceId { get; set; }
 
     }
 }

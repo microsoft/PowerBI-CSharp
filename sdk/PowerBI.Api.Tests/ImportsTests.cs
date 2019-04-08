@@ -17,19 +17,19 @@ namespace PowerBI.Api.Tests
     {
         private const string AccessKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-        private string groupId;
+        private Guid groupId;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            this.groupId = Guid.NewGuid().ToString();
+            this.groupId = Guid.NewGuid();
         }
 
         [TestMethod]
         public async Task PostImportWithFileWithNameAndConflict()
         {
             var datasetDisplayName = "TestDataset";
-            var nameConflict = "Overwrite";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
             var importResponse = CreateSampleImportResponse();
 
             using (var handler = new FakeHttpClientHandler(importResponse))
@@ -46,7 +46,7 @@ namespace PowerBI.Api.Tests
         public async Task Groups_PostImportWithFileWithNameAndConflict()
         {
             var datasetDisplayName = "TestDataset";
-            var nameConflict = "Overwrite";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
             var importResponse = CreateSampleImportResponse();
 
             using (var handler = new FakeHttpClientHandler(importResponse))
@@ -111,7 +111,7 @@ namespace PowerBI.Api.Tests
         public async Task PostImportWithFileWithNameAndConflictAndSkipReport()
         {
             var datasetDisplayName = "TestDataset";
-            var nameConflict = "Overwrite";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
             var importResponse = CreateSampleImportResponse();
 
             using (var handler = new FakeHttpClientHandler(importResponse))
@@ -128,7 +128,7 @@ namespace PowerBI.Api.Tests
         {
             var import = new Import
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = Guid.NewGuid(),
                 Name = name ?? "Sample",
                 Datasets = new List<Dataset>(),
                 Reports = new List<Report>(),

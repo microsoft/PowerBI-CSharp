@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="sourceReportId">source report id</param>
         /// <param name="sourceWorkspaceId">source worksapce id</param>
-        public SourceReport(string sourceReportId = default(string), string sourceWorkspaceId = default(string))
+        public SourceReport(System.Guid sourceReportId, System.Guid? sourceWorkspaceId = default(System.Guid?))
         {
             SourceReportId = sourceReportId;
             SourceWorkspaceId = sourceWorkspaceId;
@@ -43,13 +43,23 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets source report id
         /// </summary>
         [JsonProperty(PropertyName = "sourceReportId")]
-        public string SourceReportId { get; set; }
+        public System.Guid SourceReportId { get; set; }
 
         /// <summary>
         /// Gets or sets source worksapce id
         /// </summary>
         [JsonProperty(PropertyName = "sourceWorkspaceId")]
-        public string SourceWorkspaceId { get; set; }
+        public System.Guid? SourceWorkspaceId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

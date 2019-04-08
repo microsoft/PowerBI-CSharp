@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Failed' - Refresh failed. serviceExceptionJson will contain the
         /// error. &lt;br/&gt;'Disabled' - Refresh disabled by Selective
         /// Refresh.</param>
-        public Refresh(string refreshType = default(string), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string))
+        public Refresh(RefreshType? refreshType = default(RefreshType?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string))
         {
             RefreshType = refreshType;
             StartTime = startTime;
@@ -59,7 +59,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Scheduled', 'OnDemand', 'ViaApi'
         /// </summary>
         [JsonProperty(PropertyName = "refreshType")]
-        public string RefreshType { get; set; }
+        public RefreshType? RefreshType { get; set; }
 
         /// <summary>
         /// Gets or sets dateTime of start

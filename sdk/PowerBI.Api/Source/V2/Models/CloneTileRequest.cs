@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// not provided, 'Tail' is used. &lt;br/&gt;If there is no conflict,
         /// clone tile to same position as in source. Possible values include:
         /// 'Tail', 'Abort'</param>
-        public CloneTileRequest(string targetDashboardId = default(string), string targetWorkspaceId = default(string), string targetReportId = default(string), string targetModelId = default(string), string positionConflictAction = default(string))
+        public CloneTileRequest(System.Guid targetDashboardId, System.Guid? targetWorkspaceId = default(System.Guid?), System.Guid? targetReportId = default(System.Guid?), System.Guid? targetModelId = default(System.Guid?), PositionConflictAction? positionConflictAction = default(PositionConflictAction?))
         {
             TargetDashboardId = targetDashboardId;
             TargetWorkspaceId = targetWorkspaceId;
@@ -61,7 +61,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the target dashboard id
         /// </summary>
         [JsonProperty(PropertyName = "targetDashboardId")]
-        public string TargetDashboardId { get; set; }
+        public System.Guid TargetDashboardId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target workspace
@@ -70,7 +70,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// within the same workspace as the source tile.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
-        public string TargetWorkspaceId { get; set; }
+        public System.Guid? TargetWorkspaceId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter &amp;lt;br/&amp;gt;When cloning a
@@ -78,7 +78,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// new tile to a different report.
         /// </summary>
         [JsonProperty(PropertyName = "targetReportId")]
-        public string TargetReportId { get; set; }
+        public System.Guid? TargetReportId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter &amp;lt;br/&amp;gt;When cloning a
@@ -86,7 +86,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// new tile to a different dataset.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
-        public string TargetModelId { get; set; }
+        public System.Guid? TargetModelId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the action in case
@@ -96,7 +96,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Abort'
         /// </summary>
         [JsonProperty(PropertyName = "positionConflictAction")]
-        public string PositionConflictAction { get; set; }
+        public PositionConflictAction? PositionConflictAction { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+        }
     }
 }

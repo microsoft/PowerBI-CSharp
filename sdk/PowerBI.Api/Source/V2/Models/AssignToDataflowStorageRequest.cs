@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// dataflow storage account, an empty GUID
         /// (00000000-0000-0000-0000-000000000000) should be provided as
         /// dataflowStorageId.</param>
-        public AssignToDataflowStorageRequest(string dataflowStorageId = default(string))
+        public AssignToDataflowStorageRequest(System.Guid dataflowStorageId)
         {
             DataflowStorageId = dataflowStorageId;
             CustomInit();
@@ -50,7 +50,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// provided as dataflowStorageId.
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
-        public string DataflowStorageId { get; set; }
+        public System.Guid DataflowStorageId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

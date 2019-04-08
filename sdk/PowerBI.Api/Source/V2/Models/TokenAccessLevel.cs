@@ -6,28 +6,71 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    using System.Runtime;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for TokenAccessLevel.
     /// </summary>
-    public static class TokenAccessLevel
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum TokenAccessLevel
     {
         /// <summary>
         /// Indicates that the generated EmbedToken should grant only Viewing
         /// permissions
         /// </summary>
-        public const string View = "View";
+        [EnumMember(Value = "View")]
+        View,
         /// <summary>
         /// Indicates that the generated EmbedToken should grant Viewing and
         /// Editing permissions, only applies when generating EmbedToken for
         /// report embedding
         /// </summary>
-        public const string Edit = "Edit";
+        [EnumMember(Value = "Edit")]
+        Edit,
         /// <summary>
         /// Indicates that the generated EmbedToken should grant Creation
         /// permissions, only applies when generating EmbedToken for report
         /// creation
         /// </summary>
-        public const string Create = "Create";
+        [EnumMember(Value = "Create")]
+        Create
+    }
+    internal static class TokenAccessLevelEnumExtension
+    {
+        internal static string ToSerializedValue(this TokenAccessLevel? value)
+        {
+            return value == null ? null : ((TokenAccessLevel)value).ToSerializedValue();
+        }
+
+        internal static string ToSerializedValue(this TokenAccessLevel value)
+        {
+            switch( value )
+            {
+                case TokenAccessLevel.View:
+                    return "View";
+                case TokenAccessLevel.Edit:
+                    return "Edit";
+                case TokenAccessLevel.Create:
+                    return "Create";
+            }
+            return null;
+        }
+
+        internal static TokenAccessLevel? ParseTokenAccessLevel(this string value)
+        {
+            switch( value )
+            {
+                case "View":
+                    return TokenAccessLevel.View;
+                case "Edit":
+                    return TokenAccessLevel.Edit;
+                case "Create":
+                    return TokenAccessLevel.Create;
+            }
+            return null;
+        }
     }
 }

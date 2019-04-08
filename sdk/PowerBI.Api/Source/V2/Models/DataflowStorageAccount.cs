@@ -26,11 +26,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the DataflowStorageAccount class.
         /// </summary>
         /// <param name="id">The Power BI dataflow storage account id</param>
-        /// <param name="name">The Power BI dataflow storage account
-        /// name</param>
         /// <param name="isEnabled">Indicates if workspaces can be assigned to
         /// this storage account</param>
-        public DataflowStorageAccount(string id = default(string), string name = default(string), bool? isEnabled = default(bool?))
+        /// <param name="name">The Power BI dataflow storage account
+        /// name</param>
+        public DataflowStorageAccount(System.Guid id, bool isEnabled, string name = default(string))
         {
             Id = id;
             Name = name;
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the Power BI dataflow storage account id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the Power BI dataflow storage account name
@@ -60,7 +60,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// storage account
         /// </summary>
         [JsonProperty(PropertyName = "isEnabled")]
-        public bool? IsEnabled { get; set; }
+        public bool IsEnabled { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

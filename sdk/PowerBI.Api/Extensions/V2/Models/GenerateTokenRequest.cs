@@ -1,5 +1,7 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using System;
+
     /// <summary>
     /// Power BI Generate Token Request
     /// </summary>
@@ -15,7 +17,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// token.</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(string accessLevel, string datasetId, bool? allowSaveAs, EffectiveIdentity identity)
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, Guid? datasetId, bool? allowSaveAs, EffectiveIdentity identity)
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
@@ -33,10 +35,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// token.</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(string accessLevel, bool? allowSaveAs, EffectiveIdentity identity)
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, bool? allowSaveAs, EffectiveIdentity identity)
         {
             AccessLevel = accessLevel;
-            DatasetId = default(string);
+            DatasetId = null;
             AllowSaveAs = allowSaveAs;
             Identities = new[] { identity };
             CustomInit();
@@ -50,7 +52,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="datasetId">The dataset Id</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(string accessLevel, string datasetId, EffectiveIdentity identity)
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, Guid? datasetId, EffectiveIdentity identity)
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
@@ -66,10 +68,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// include: 'View', 'Edit', 'Create'</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(string accessLevel, EffectiveIdentity identity)
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, EffectiveIdentity identity)
         {
             AccessLevel = accessLevel;
-            DatasetId = default(string);
+            DatasetId = null;
             AllowSaveAs = null;
             Identities = new[] { identity };
             CustomInit();

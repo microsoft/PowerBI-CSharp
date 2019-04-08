@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -26,7 +27,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the GroupCreationRequest class.
         /// </summary>
         /// <param name="name">The name of the newly created group</param>
-        public GroupCreationRequest(string name = default(string))
+        public GroupCreationRequest(string name)
         {
             Name = name;
             CustomInit();
@@ -43,5 +44,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Name == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+        }
     }
 }

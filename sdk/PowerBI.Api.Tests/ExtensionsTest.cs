@@ -15,7 +15,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public void VerifyAllInGroupFunctionsHasMatchingOverrideWithoutInGroup()
         {
-            Type[] expectedTypeWithInGroupVersions = { typeof(ReportsExtensions), typeof(DatasetsExtensions), typeof(DashboardsExtensions), typeof(TilesExtensions), typeof(ImportsExtensions) };
+            Type[] expectedTypeWithInGroupVersions = { typeof(ReportsOperationsExtensions), typeof(DatasetsOperationsExtensions), typeof(DashboardsOperationsExtensions), typeof(TilesOperationsExtensions), typeof(ImportsOperationsExtensions) };
             string[] notOverridenMethods = { "DeleteUserInGroup", "DeleteUserInGroupAsync" };
             
             var allExtensionTypes = typeof(PowerBIClient).Assembly.GetTypes().Where(t => t.Name.EndsWith("Extensions"));

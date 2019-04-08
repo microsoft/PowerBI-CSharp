@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="displayName">The dashboard display name</param>
         /// <param name="isReadOnly">Is ReadOnly dashboard</param>
         /// <param name="embedUrl">The dashboard embed url</param>
-        public Dashboard(string id = default(string), string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string))
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string))
         {
             Id = id;
             DisplayName = displayName;
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the dashboard id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the dashboard display name
@@ -67,5 +67,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "embedUrl")]
         public string EmbedUrl { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

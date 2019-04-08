@@ -6,23 +6,66 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
+    using System.Runtime;
+    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for PrincipalType.
     /// </summary>
-    public static class PrincipalType
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum PrincipalType
     {
         /// <summary>
         /// User principal type
         /// </summary>
-        public const string User = "User";
+        [EnumMember(Value = "User")]
+        User,
         /// <summary>
         /// Group principal type
         /// </summary>
-        public const string Group = "Group";
+        [EnumMember(Value = "Group")]
+        Group,
         /// <summary>
         /// Service principal type
         /// </summary>
-        public const string App = "App";
+        [EnumMember(Value = "App")]
+        App
+    }
+    internal static class PrincipalTypeEnumExtension
+    {
+        internal static string ToSerializedValue(this PrincipalType? value)
+        {
+            return value == null ? null : ((PrincipalType)value).ToSerializedValue();
+        }
+
+        internal static string ToSerializedValue(this PrincipalType value)
+        {
+            switch( value )
+            {
+                case PrincipalType.User:
+                    return "User";
+                case PrincipalType.Group:
+                    return "Group";
+                case PrincipalType.App:
+                    return "App";
+            }
+            return null;
+        }
+
+        internal static PrincipalType? ParsePrincipalType(this string value)
+        {
+            switch( value )
+            {
+                case "User":
+                    return PrincipalType.User;
+                case "Group":
+                    return PrincipalType.Group;
+                case "App":
+                    return PrincipalType.App;
+            }
+            return null;
+        }
     }
 }

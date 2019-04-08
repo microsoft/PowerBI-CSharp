@@ -15,12 +15,12 @@ namespace PowerBI.Api.Tests
     {
         private const string AccessKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-        private string groupId;
+        private Guid groupId;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            this.groupId = Guid.NewGuid().ToString();
+            this.groupId = Guid.NewGuid();
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace PowerBI.Api.Tests
         {
             var deleteResponse = CreateSampleReportResponse();
 
-            var reportId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid();
 
             using (var handler = new FakeHttpClientHandler(deleteResponse))
             using (var client = CreatePowerBIClient(handler))
@@ -46,7 +46,7 @@ namespace PowerBI.Api.Tests
         {
             var deleteResponse = CreateSampleReportResponse();
 
-            var reportId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid();
 
             using (var handler = new FakeHttpClientHandler(deleteResponse))
             using (var client = CreatePowerBIClient(handler))
@@ -64,8 +64,8 @@ namespace PowerBI.Api.Tests
         {
             var rebindResponse = CreateSampleOKResponse();
 
-            var reportId = Guid.NewGuid().ToString();
-            var datasetId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid();
+            var datasetId = Guid.NewGuid();
 
             using (var handler = new FakeHttpClientHandler(rebindResponse))
             using (var client = CreatePowerBIClient(handler))
@@ -90,13 +90,13 @@ namespace PowerBI.Api.Tests
         {
             var cloneResponse = CreateSampleReportResponse();
 
-            var reportId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid();
 
             var cloneRequest = new CloneReportRequest()
             {
-                TargetModelId = Guid.NewGuid().ToString(),
+                TargetModelId = Guid.NewGuid(),
                 Name = "Model Name",
-                TargetWorkspaceId = Guid.NewGuid().ToString()
+                TargetWorkspaceId = Guid.NewGuid()
             };
 
             using (var handler = new FakeHttpClientHandler(cloneResponse))
@@ -120,12 +120,11 @@ namespace PowerBI.Api.Tests
         {
             var updateReportContentResponse = CreateSampleReportResponse();
 
-            var reportId = Guid.NewGuid().ToString();
+            var reportId = Guid.NewGuid();
 
             var reportUpdateContentRequest = new UpdateReportContentRequest()
             {
-                SourceType = "ExistingReport",
-                SourceReport = new SourceReport(Guid.NewGuid().ToString(), Guid.NewGuid().ToString())
+                SourceReport = new SourceReport(Guid.NewGuid(), Guid.NewGuid())
             };
 
             using (var handler = new FakeHttpClientHandler(updateReportContentResponse))
@@ -160,7 +159,7 @@ namespace PowerBI.Api.Tests
 
         private static HttpResponseMessage CreateSampleReportResponse(string name = default(string))
         {
-            var report = new Report(Guid.NewGuid().ToString(), "Report Name", "AN URL", "EMBEDURL");
+            var report = new Report(Guid.NewGuid(), "Report Name", "AN URL", "EMBEDURL");
 
             return new HttpResponseMessage(HttpStatusCode.OK)
             {
