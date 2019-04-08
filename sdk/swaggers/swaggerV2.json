@@ -1592,7 +1592,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.",
+                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -1965,7 +1965,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Content.Create<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_CloneReport",
                 "consumes": [
                     "application/json"
@@ -2100,7 +2100,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from **\"My Workspace\"** to the requested dataset.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_RebindReport",
                 "consumes": [
                     "application/json"
@@ -4450,7 +4450,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'",
+                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -4864,7 +4864,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from the specified workspace.",
-                "description": "<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_CloneReportInGroup",
                 "consumes": [
                     "application/json"
@@ -5021,7 +5021,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from the specified workspace to the requested dataset.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"

@@ -72,7 +72,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
-        /// exists. Default value is 'Ignore'. Possible values include:
+        /// exists. Default value is 'Ignore'.&lt;br/&gt;Only Abort and
+        /// Overwrite are supported with Rdl files. Possible values include:
         /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
         /// <param name='skipReport'>
@@ -217,7 +218,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
-        /// exists. Default value is 'Ignore'. Possible values include:
+        /// exists. Default value is 'Ignore'.&lt;br/&gt;Only Abort and
+        /// Overwrite are supported with Rdl files. Possible values include:
         /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
         /// </param>
         /// <param name='skipReport'>

@@ -473,7 +473,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// Clones the specified report from **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
+        /// &lt;br/&gt;Reports with live connection will lose the live connection when
+        /// cloning, and will have a direct binding to the target
+        /// dataset.&lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -933,8 +935,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// &lt;br/&gt;Reports with live connection will lose the live connection when
+        /// rebinding, and will have a direct binding to the target
+        /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportKey'>
@@ -1852,7 +1856,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// Clones the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
+        /// &lt;br/&gt;Reports with live connection will lose the live connection when
+        /// cloning, and will have a direct binding to the target
+        /// dataset.&lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -2339,8 +2345,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
+        /// &lt;br/&gt;Reports with live connection will lose the live connection when
+        /// rebinding, and will have a direct binding to the target
+        /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
+        /// set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
