@@ -584,10 +584,10 @@
                                 "body": {
                                     "value": [
                                         {
-                                            "Id": "823456",
                                             "refreshType": "ViaApi",
                                             "startTime": "2017-06-13T09:25:43.153Z",
-                                            "status": "Unknown"
+                                            "status": "Unknown",
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
                                         }
                                     ]
                                 }
@@ -604,11 +604,33 @@
                                 "body": {
                                     "value": [
                                         {
-                                            "endTime": "2017-06-13T09:31:43.153Z",
-                                            "Id": "823456",
                                             "refreshType": "ViaApi",
                                             "startTime": "2017-06-13T09:25:43.153Z",
-                                            "status": "Completed"
+                                            "endTime": "2017-06-13T09:31:43.153Z",
+                                            "status": "Completed",
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Failed refresh example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "$top": 1
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "refreshType": "ViaApi",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-13T09:31:43.153Z",
+                                            "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
+                                            "status": "Failed",
+                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff"
                                         }
                                     ]
                                 }
@@ -3125,10 +3147,10 @@
                                 "body": {
                                     "value": [
                                         {
-                                            "Id": "823456",
                                             "refreshType": "ViaApi",
                                             "startTime": "2017-06-13T09:25:43.153Z",
-                                            "status": "Unknown"
+                                            "status": "Unknown",
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
                                         }
                                     ]
                                 }
@@ -3146,11 +3168,33 @@
                                 "body": {
                                     "value": [
                                         {
-                                            "endTime": "2017-06-13T09:31:43.153Z",
-                                            "Id": "823456",
                                             "refreshType": "ViaApi",
                                             "startTime": "2017-06-13T09:25:43.153Z",
-                                            "status": "Completed"
+                                            "endTime": "2017-06-13T09:31:43.153Z",
+                                            "status": "Completed",
+                                            "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Failed refresh example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "$top": 1
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "refreshType": "ViaApi",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-13T09:31:43.153Z",
+                                            "serviceExceptionJson": "{\"errorCode\":\"ModelRefreshFailed_CredentialsNotSpecified\"}",
+                                            "status": "Failed",
+                                            "requestId": "11bf290a-346b-48b7-8973-c5df149337ff"
                                         }
                                     ]
                                 }
@@ -10729,11 +10773,15 @@
                 },
                 "serviceExceptionJson": {
                     "type": "string",
-                    "description": "Failure exception details in json format. Includes cluster, time, Request, and Activity IDs (only on error)."
+                    "description": "Failure error code in json format (not empty only on error)."
                 },
                 "status": {
                     "type": "string",
                     "description": "'Unknown' - Unknown completion state or refresh is in progress. endTime will be empty with this status. <br/>'Completed' - refresh completed successfully <br/> 'Failed' - Refresh failed. serviceExceptionJson will contain the error. <br/>'Disabled' - Refresh disabled by Selective Refresh."
+                },
+                "requestId": {
+                    "type": "string",
+                    "description": "The identifier of the Refresh request. <br/>Please provide this identifier in all service requests"
                 }
             }
         },

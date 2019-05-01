@@ -30,22 +30,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="startTime">DateTime of start</param>
         /// <param name="endTime">DateTime of termination (may be empty if
         /// refresh is progress)</param>
-        /// <param name="serviceExceptionJson">Failure exception details in
-        /// json format. Includes cluster, time, Request, and Activity IDs
-        /// (only on error).</param>
+        /// <param name="serviceExceptionJson">Failure error code in json
+        /// format (not empty only on error).</param>
         /// <param name="status">'Unknown' - Unknown completion state or
         /// refresh is in progress. endTime will be empty with this status.
         /// &lt;br/&gt;'Completed' - refresh completed successfully &lt;br/&gt;
         /// 'Failed' - Refresh failed. serviceExceptionJson will contain the
         /// error. &lt;br/&gt;'Disabled' - Refresh disabled by Selective
         /// Refresh.</param>
-        public Refresh(RefreshType? refreshType = default(RefreshType?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string))
+        /// <param name="requestId">The identifier of the Refresh request.
+        /// &lt;br/&gt;Please provide this identifier in all service
+        /// requests</param>
+        public Refresh(RefreshType? refreshType = default(RefreshType?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), string serviceExceptionJson = default(string), string status = default(string), string requestId = default(string))
         {
             RefreshType = refreshType;
             StartTime = startTime;
             EndTime = endTime;
             ServiceExceptionJson = serviceExceptionJson;
             Status = status;
+            RequestId = requestId;
             CustomInit();
         }
 
@@ -75,8 +78,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public System.DateTime? EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets failure exception details in json format. Includes
-        /// cluster, time, Request, and Activity IDs (only on error).
+        /// Gets or sets failure error code in json format (not empty only on
+        /// error).
         /// </summary>
         [JsonProperty(PropertyName = "serviceExceptionJson")]
         public string ServiceExceptionJson { get; set; }
@@ -91,6 +94,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or sets the identifier of the Refresh request.
+        /// &amp;lt;br/&amp;gt;Please provide this identifier in all service
+        /// requests
+        /// </summary>
+        [JsonProperty(PropertyName = "requestId")]
+        public string RequestId { get; set; }
 
     }
 }
