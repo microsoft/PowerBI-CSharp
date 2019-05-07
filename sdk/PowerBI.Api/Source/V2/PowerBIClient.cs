@@ -43,6 +43,11 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual IDatasetsOperations Datasets { get; private set; }
 
         /// <summary>
+        /// Gets the IUsers.
+        /// </summary>
+        public virtual IUsers Users { get; private set; }
+
+        /// <summary>
         /// Gets the IImportsOperations.
         /// </summary>
         public virtual IImportsOperations Imports { get; private set; }
@@ -299,6 +304,7 @@ namespace Microsoft.PowerBI.Api.V2
         private void Initialize()
         {
             Datasets = new DatasetsOperations(this);
+            Users = new Users(this);
             Imports = new ImportsOperations(this);
             Reports = new ReportsOperations(this);
             Dashboards = new DashboardsOperations(this);

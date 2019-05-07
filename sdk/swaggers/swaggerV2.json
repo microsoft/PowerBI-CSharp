@@ -1539,6 +1539,38 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/RefreshUserPermissions": {
+            "post": {
+                "tags": [
+                    "Users"
+                ],
+                "summary": "Refreshes user permissions in Power BI",
+                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls. <br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.  <br/><br/>**Required scope**: Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
+                "operationId": "Users_RefreshUserPermissions",
+                "consumes": [
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
 
         "/v1.0/myorg/imports": {
             "get": {

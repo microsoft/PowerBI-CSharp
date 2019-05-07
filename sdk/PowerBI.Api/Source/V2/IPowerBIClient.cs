@@ -42,6 +42,11 @@ namespace Microsoft.PowerBI.Api.V2
         IDatasetsOperations Datasets { get; }
 
         /// <summary>
+        /// Gets the IUsers.
+        /// </summary>
+        IUsers Users { get; }
+
+        /// <summary>
         /// Gets the IImportsOperations.
         /// </summary>
         IImportsOperations Imports { get; }
