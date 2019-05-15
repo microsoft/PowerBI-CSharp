@@ -11074,7 +11074,7 @@
                 },
                 "encryptedConnection": {
                     "type": "string",
-                    "description": "Should Power BI allow fallback to unencrypted if the target server doesn't support encryption",
+                    "description": "User input for this attribute is currently ignored. Today, regardless of the provided value, we always try to establish an encrypted connection first but fall back to an unencrypted option in case of a failure. <br/>This will be fixed for the following data source types with the June 2019 gateway release causing a value of Encrypted to try only an encrypted connection and NotEncrypted with an unencrypted connection and there would be no fallback behavior <ul><li>Impala</li><li>MySql</li><li>DB2</li><li>Netezza</li><li>PostgreSQL</li><li>Sybase</li><li>Teradata</li><li>GoogleBigQuery</li><li>Amazon Redshift</li></ul>",
                     "enum": [
                         "Encrypted",
                         "NotEncrypted"

@@ -31,9 +31,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).</param>
         /// <param name="credentialType">The credential type. Possible values
         /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'</param>
-        /// <param name="encryptedConnection">Should Power BI allow fallback to
-        /// unencrypted if the target server doesn't support encryption.
-        /// Possible values include: 'Encrypted', 'NotEncrypted'</param>
+        /// <param name="encryptedConnection">User input for this attribute is
+        /// currently ignored. Today, regardless of the provided value, we
+        /// always try to establish an encrypted connection first but fall back
+        /// to an unencrypted option in case of a failure. &lt;br/&gt;This will
+        /// be fixed for the following data source types with the June 2019
+        /// gateway release causing a value of Encrypted to try only an
+        /// encrypted connection and NotEncrypted with an unencrypted
+        /// connection and there would be no fallback behavior
+        /// &lt;ul&gt;&lt;li&gt;Impala&lt;/li&gt;&lt;li&gt;MySql&lt;/li&gt;&lt;li&gt;DB2&lt;/li&gt;&lt;li&gt;Netezza&lt;/li&gt;&lt;li&gt;PostgreSQL&lt;/li&gt;&lt;li&gt;Sybase&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;GoogleBigQuery&lt;/li&gt;&lt;li&gt;Amazon
+        /// Redshift&lt;/li&gt;&lt;/ul&gt;. Possible values include:
+        /// 'Encrypted', 'NotEncrypted'</param>
         /// <param name="encryptionAlgorithm">The encryption algorithm. For
         /// cloud datasource, use 'None'. For on-premises datasource, use
         /// gateway public key with 'RSA-OAEP' algorithm. Possible values
@@ -80,9 +88,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public CredentialType CredentialType { get; set; }
 
         /// <summary>
-        /// Gets or sets should Power BI allow fallback to unencrypted if the
-        /// target server doesn't support encryption. Possible values include:
-        /// 'Encrypted', 'NotEncrypted'
+        /// Gets or sets user input for this attribute is currently ignored.
+        /// Today, regardless of the provided value, we always try to establish
+        /// an encrypted connection first but fall back to an unencrypted
+        /// option in case of a failure. &amp;lt;br/&amp;gt;This will be fixed
+        /// for the following data source types with the June 2019 gateway
+        /// release causing a value of Encrypted to try only an encrypted
+        /// connection and NotEncrypted with an unencrypted connection and
+        /// there would be no fallback behavior
+        /// &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Impala&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MySql&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;DB2&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Netezza&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PostgreSQL&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Sybase&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Teradata&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;GoogleBigQuery&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Amazon
+        /// Redshift&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;. Possible values
+        /// include: 'Encrypted', 'NotEncrypted'
         /// </summary>
         [JsonProperty(PropertyName = "encryptedConnection")]
         public EncryptedConnection EncryptedConnection { get; set; }
