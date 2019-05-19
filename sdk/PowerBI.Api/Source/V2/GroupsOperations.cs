@@ -220,7 +220,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Create group request parameters
         /// </param>
         /// <param name='workspaceV2'>
-        /// Preview feature: Create a workspace V2. The only supported value is true.
+        /// Determines whether to create a Workspace V2. The default value is true.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
