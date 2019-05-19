@@ -7,80 +7,105 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for Days.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum Days
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(DaysConverter))]
+    public struct Days : System.IEquatable<Days>
     {
-        [EnumMember(Value = "Monday")]
-        Monday,
-        [EnumMember(Value = "Tuesday")]
-        Tuesday,
-        [EnumMember(Value = "Wednesday")]
-        Wednesday,
-        [EnumMember(Value = "Thursday")]
-        Thursday,
-        [EnumMember(Value = "Friday")]
-        Friday,
-        [EnumMember(Value = "Saturday")]
-        Saturday,
-        [EnumMember(Value = "Sunday")]
-        Sunday
-    }
-    internal static class DaysEnumExtension
-    {
-        internal static string ToSerializedValue(this Days? value)
+        private Days(string underlyingValue)
         {
-            return value == null ? null : ((Days)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this Days value)
+        public static readonly Days Monday = "Monday";
+
+        public static readonly Days Tuesday = "Tuesday";
+
+        public static readonly Days Wednesday = "Wednesday";
+
+        public static readonly Days Thursday = "Thursday";
+
+        public static readonly Days Friday = "Friday";
+
+        public static readonly Days Saturday = "Saturday";
+
+        public static readonly Days Sunday = "Sunday";
+
+
+        /// <summary>
+        /// Underlying value of enum Days
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for Days
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case Days.Monday:
-                    return "Monday";
-                case Days.Tuesday:
-                    return "Tuesday";
-                case Days.Wednesday:
-                    return "Wednesday";
-                case Days.Thursday:
-                    return "Thursday";
-                case Days.Friday:
-                    return "Friday";
-                case Days.Saturday:
-                    return "Saturday";
-                case Days.Sunday:
-                    return "Sunday";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static Days? ParseDays(this string value)
+        /// <summary>
+        /// Compares enums of type Days
+        /// </summary>
+        public bool Equals(Days e)
         {
-            switch( value )
-            {
-                case "Monday":
-                    return Days.Monday;
-                case "Tuesday":
-                    return Days.Tuesday;
-                case "Wednesday":
-                    return Days.Wednesday;
-                case "Thursday":
-                    return Days.Thursday;
-                case "Friday":
-                    return Days.Friday;
-                case "Saturday":
-                    return Days.Saturday;
-                case "Sunday":
-                    return Days.Sunday;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to Days
+        /// </summary>
+        public static implicit operator Days(string value)
+        {
+            return new Days(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert Days to string
+        /// </summary>
+        public static implicit operator string(Days e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum Days
+        /// </summary>
+        public static bool operator == (Days e1, Days e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum Days
+        /// </summary>
+        public static bool operator != (Days e1, Days e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for Days
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is Days && Equals((Days)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode Days
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

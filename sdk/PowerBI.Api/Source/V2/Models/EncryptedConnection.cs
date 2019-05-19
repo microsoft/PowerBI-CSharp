@@ -7,50 +7,95 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for EncryptedConnection.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum EncryptedConnection
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(EncryptedConnectionConverter))]
+    public struct EncryptedConnection : System.IEquatable<EncryptedConnection>
     {
-        [EnumMember(Value = "Encrypted")]
-        Encrypted,
-        [EnumMember(Value = "NotEncrypted")]
-        NotEncrypted
-    }
-    internal static class EncryptedConnectionEnumExtension
-    {
-        internal static string ToSerializedValue(this EncryptedConnection? value)
+        private EncryptedConnection(string underlyingValue)
         {
-            return value == null ? null : ((EncryptedConnection)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this EncryptedConnection value)
+        public static readonly EncryptedConnection Encrypted = "Encrypted";
+
+        public static readonly EncryptedConnection NotEncrypted = "NotEncrypted";
+
+
+        /// <summary>
+        /// Underlying value of enum EncryptedConnection
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for EncryptedConnection
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case EncryptedConnection.Encrypted:
-                    return "Encrypted";
-                case EncryptedConnection.NotEncrypted:
-                    return "NotEncrypted";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static EncryptedConnection? ParseEncryptedConnection(this string value)
+        /// <summary>
+        /// Compares enums of type EncryptedConnection
+        /// </summary>
+        public bool Equals(EncryptedConnection e)
         {
-            switch( value )
-            {
-                case "Encrypted":
-                    return EncryptedConnection.Encrypted;
-                case "NotEncrypted":
-                    return EncryptedConnection.NotEncrypted;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to EncryptedConnection
+        /// </summary>
+        public static implicit operator EncryptedConnection(string value)
+        {
+            return new EncryptedConnection(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert EncryptedConnection to string
+        /// </summary>
+        public static implicit operator string(EncryptedConnection e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum EncryptedConnection
+        /// </summary>
+        public static bool operator == (EncryptedConnection e1, EncryptedConnection e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum EncryptedConnection
+        /// </summary>
+        public static bool operator != (EncryptedConnection e1, EncryptedConnection e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for EncryptedConnection
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is EncryptedConnection && Equals((EncryptedConnection)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode EncryptedConnection
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

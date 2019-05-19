@@ -7,56 +7,101 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for DefaultRetentionPolicy.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum DefaultRetentionPolicy
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(DefaultRetentionPolicyConverter))]
+    public struct DefaultRetentionPolicy : System.IEquatable<DefaultRetentionPolicy>
     {
+        private DefaultRetentionPolicy(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// None
         /// </summary>
-        [EnumMember(Value = "None")]
-        None,
+        public static readonly DefaultRetentionPolicy None = "None";
+
         /// <summary>
         /// basicFIFO
         /// </summary>
-        [EnumMember(Value = "basicFIFO")]
-        BasicFIFO
-    }
-    internal static class DefaultRetentionPolicyEnumExtension
-    {
-        internal static string ToSerializedValue(this DefaultRetentionPolicy? value)
+        public static readonly DefaultRetentionPolicy BasicFIFO = "basicFIFO";
+
+
+        /// <summary>
+        /// Underlying value of enum DefaultRetentionPolicy
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for DefaultRetentionPolicy
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((DefaultRetentionPolicy)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this DefaultRetentionPolicy value)
+        /// <summary>
+        /// Compares enums of type DefaultRetentionPolicy
+        /// </summary>
+        public bool Equals(DefaultRetentionPolicy e)
         {
-            switch( value )
-            {
-                case DefaultRetentionPolicy.None:
-                    return "None";
-                case DefaultRetentionPolicy.BasicFIFO:
-                    return "basicFIFO";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static DefaultRetentionPolicy? ParseDefaultRetentionPolicy(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to DefaultRetentionPolicy
+        /// </summary>
+        public static implicit operator DefaultRetentionPolicy(string value)
         {
-            switch( value )
-            {
-                case "None":
-                    return DefaultRetentionPolicy.None;
-                case "basicFIFO":
-                    return DefaultRetentionPolicy.BasicFIFO;
-            }
-            return null;
+            return new DefaultRetentionPolicy(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert DefaultRetentionPolicy to string
+        /// </summary>
+        public static implicit operator string(DefaultRetentionPolicy e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum DefaultRetentionPolicy
+        /// </summary>
+        public static bool operator == (DefaultRetentionPolicy e1, DefaultRetentionPolicy e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum DefaultRetentionPolicy
+        /// </summary>
+        public static bool operator != (DefaultRetentionPolicy e1, DefaultRetentionPolicy e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for DefaultRetentionPolicy
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is DefaultRetentionPolicy && Equals((DefaultRetentionPolicy)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode DefaultRetentionPolicy
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

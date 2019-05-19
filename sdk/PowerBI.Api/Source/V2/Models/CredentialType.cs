@@ -7,68 +7,101 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for CredentialType.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum CredentialType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(CredentialTypeConverter))]
+    public struct CredentialType : System.IEquatable<CredentialType>
     {
-        [EnumMember(Value = "Basic")]
-        Basic,
-        [EnumMember(Value = "Windows")]
-        Windows,
-        [EnumMember(Value = "Anonymous")]
-        Anonymous,
-        [EnumMember(Value = "OAuth2")]
-        OAuth2,
-        [EnumMember(Value = "Key")]
-        Key
-    }
-    internal static class CredentialTypeEnumExtension
-    {
-        internal static string ToSerializedValue(this CredentialType? value)
+        private CredentialType(string underlyingValue)
         {
-            return value == null ? null : ((CredentialType)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this CredentialType value)
+        public static readonly CredentialType Basic = "Basic";
+
+        public static readonly CredentialType Windows = "Windows";
+
+        public static readonly CredentialType Anonymous = "Anonymous";
+
+        public static readonly CredentialType OAuth2 = "OAuth2";
+
+        public static readonly CredentialType Key = "Key";
+
+
+        /// <summary>
+        /// Underlying value of enum CredentialType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for CredentialType
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case CredentialType.Basic:
-                    return "Basic";
-                case CredentialType.Windows:
-                    return "Windows";
-                case CredentialType.Anonymous:
-                    return "Anonymous";
-                case CredentialType.OAuth2:
-                    return "OAuth2";
-                case CredentialType.Key:
-                    return "Key";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static CredentialType? ParseCredentialType(this string value)
+        /// <summary>
+        /// Compares enums of type CredentialType
+        /// </summary>
+        public bool Equals(CredentialType e)
         {
-            switch( value )
-            {
-                case "Basic":
-                    return CredentialType.Basic;
-                case "Windows":
-                    return CredentialType.Windows;
-                case "Anonymous":
-                    return CredentialType.Anonymous;
-                case "OAuth2":
-                    return CredentialType.OAuth2;
-                case "Key":
-                    return CredentialType.Key;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to CredentialType
+        /// </summary>
+        public static implicit operator CredentialType(string value)
+        {
+            return new CredentialType(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert CredentialType to string
+        /// </summary>
+        public static implicit operator string(CredentialType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum CredentialType
+        /// </summary>
+        public static bool operator == (CredentialType e1, CredentialType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum CredentialType
+        /// </summary>
+        public static bool operator != (CredentialType e1, CredentialType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for CredentialType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is CredentialType && Equals((CredentialType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode CredentialType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

@@ -7,70 +7,111 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for TokenAccessLevel.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum TokenAccessLevel
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(TokenAccessLevelConverter))]
+    public struct TokenAccessLevel : System.IEquatable<TokenAccessLevel>
     {
+        private TokenAccessLevel(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Indicates that the generated EmbedToken should grant only Viewing
         /// permissions
         /// </summary>
-        [EnumMember(Value = "View")]
-        View,
+        public static readonly TokenAccessLevel View = "View";
+
         /// <summary>
         /// Indicates that the generated EmbedToken should grant Viewing and
         /// Editing permissions, only applies when generating EmbedToken for
         /// report embedding
         /// </summary>
-        [EnumMember(Value = "Edit")]
-        Edit,
+        public static readonly TokenAccessLevel Edit = "Edit";
+
         /// <summary>
         /// Indicates that the generated EmbedToken should grant Creation
         /// permissions, only applies when generating EmbedToken for report
         /// creation
         /// </summary>
-        [EnumMember(Value = "Create")]
-        Create
-    }
-    internal static class TokenAccessLevelEnumExtension
-    {
-        internal static string ToSerializedValue(this TokenAccessLevel? value)
+        public static readonly TokenAccessLevel Create = "Create";
+
+
+        /// <summary>
+        /// Underlying value of enum TokenAccessLevel
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for TokenAccessLevel
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((TokenAccessLevel)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this TokenAccessLevel value)
+        /// <summary>
+        /// Compares enums of type TokenAccessLevel
+        /// </summary>
+        public bool Equals(TokenAccessLevel e)
         {
-            switch( value )
-            {
-                case TokenAccessLevel.View:
-                    return "View";
-                case TokenAccessLevel.Edit:
-                    return "Edit";
-                case TokenAccessLevel.Create:
-                    return "Create";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static TokenAccessLevel? ParseTokenAccessLevel(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to TokenAccessLevel
+        /// </summary>
+        public static implicit operator TokenAccessLevel(string value)
         {
-            switch( value )
-            {
-                case "View":
-                    return TokenAccessLevel.View;
-                case "Edit":
-                    return TokenAccessLevel.Edit;
-                case "Create":
-                    return TokenAccessLevel.Create;
-            }
-            return null;
+            return new TokenAccessLevel(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert TokenAccessLevel to string
+        /// </summary>
+        public static implicit operator string(TokenAccessLevel e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum TokenAccessLevel
+        /// </summary>
+        public static bool operator == (TokenAccessLevel e1, TokenAccessLevel e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum TokenAccessLevel
+        /// </summary>
+        public static bool operator != (TokenAccessLevel e1, TokenAccessLevel e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for TokenAccessLevel
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is TokenAccessLevel && Equals((TokenAccessLevel)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode TokenAccessLevel
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

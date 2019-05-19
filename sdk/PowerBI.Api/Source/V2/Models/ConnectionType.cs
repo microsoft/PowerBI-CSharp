@@ -7,50 +7,95 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for ConnectionType.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum ConnectionType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ConnectionTypeConverter))]
+    public struct ConnectionType : System.IEquatable<ConnectionType>
     {
-        [EnumMember(Value = "import")]
-        Import,
-        [EnumMember(Value = "connect")]
-        Connect
-    }
-    internal static class ConnectionTypeEnumExtension
-    {
-        internal static string ToSerializedValue(this ConnectionType? value)
+        private ConnectionType(string underlyingValue)
         {
-            return value == null ? null : ((ConnectionType)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this ConnectionType value)
+        public static readonly ConnectionType Import = "import";
+
+        public static readonly ConnectionType Connect = "connect";
+
+
+        /// <summary>
+        /// Underlying value of enum ConnectionType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for ConnectionType
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case ConnectionType.Import:
-                    return "import";
-                case ConnectionType.Connect:
-                    return "connect";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static ConnectionType? ParseConnectionType(this string value)
+        /// <summary>
+        /// Compares enums of type ConnectionType
+        /// </summary>
+        public bool Equals(ConnectionType e)
         {
-            switch( value )
-            {
-                case "import":
-                    return ConnectionType.Import;
-                case "connect":
-                    return ConnectionType.Connect;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to ConnectionType
+        /// </summary>
+        public static implicit operator ConnectionType(string value)
+        {
+            return new ConnectionType(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert ConnectionType to string
+        /// </summary>
+        public static implicit operator string(ConnectionType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum ConnectionType
+        /// </summary>
+        public static bool operator == (ConnectionType e1, ConnectionType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum ConnectionType
+        /// </summary>
+        public static bool operator != (ConnectionType e1, ConnectionType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for ConnectionType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is ConnectionType && Equals((ConnectionType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode ConnectionType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

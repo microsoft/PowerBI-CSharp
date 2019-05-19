@@ -7,74 +7,111 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for GroupUserAccessRight.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum GroupUserAccessRight
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(GroupUserAccessRightConverter))]
+    public struct GroupUserAccessRight : System.IEquatable<GroupUserAccessRight>
     {
+        private GroupUserAccessRight(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Removes permission to content in workspace
         /// </summary>
-        [EnumMember(Value = "None")]
-        None,
+        public static readonly GroupUserAccessRight None = "None";
+
         /// <summary>
         /// Grants read access to content in workspace
         /// </summary>
-        [EnumMember(Value = "Member")]
-        Member,
+        public static readonly GroupUserAccessRight Member = "Member";
+
         /// <summary>
         /// Grants administrator rights to workspace
         /// </summary>
-        [EnumMember(Value = "Admin")]
-        Admin,
+        public static readonly GroupUserAccessRight Admin = "Admin";
+
         /// <summary>
         /// Grants read and write access to content in group
         /// </summary>
-        [EnumMember(Value = "Contributor")]
-        Contributor
-    }
-    internal static class GroupUserAccessRightEnumExtension
-    {
-        internal static string ToSerializedValue(this GroupUserAccessRight? value)
+        public static readonly GroupUserAccessRight Contributor = "Contributor";
+
+
+        /// <summary>
+        /// Underlying value of enum GroupUserAccessRight
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for GroupUserAccessRight
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((GroupUserAccessRight)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this GroupUserAccessRight value)
+        /// <summary>
+        /// Compares enums of type GroupUserAccessRight
+        /// </summary>
+        public bool Equals(GroupUserAccessRight e)
         {
-            switch( value )
-            {
-                case GroupUserAccessRight.None:
-                    return "None";
-                case GroupUserAccessRight.Member:
-                    return "Member";
-                case GroupUserAccessRight.Admin:
-                    return "Admin";
-                case GroupUserAccessRight.Contributor:
-                    return "Contributor";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static GroupUserAccessRight? ParseGroupUserAccessRight(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to GroupUserAccessRight
+        /// </summary>
+        public static implicit operator GroupUserAccessRight(string value)
         {
-            switch( value )
-            {
-                case "None":
-                    return GroupUserAccessRight.None;
-                case "Member":
-                    return GroupUserAccessRight.Member;
-                case "Admin":
-                    return GroupUserAccessRight.Admin;
-                case "Contributor":
-                    return GroupUserAccessRight.Contributor;
-            }
-            return null;
+            return new GroupUserAccessRight(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert GroupUserAccessRight to string
+        /// </summary>
+        public static implicit operator string(GroupUserAccessRight e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum GroupUserAccessRight
+        /// </summary>
+        public static bool operator == (GroupUserAccessRight e1, GroupUserAccessRight e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum GroupUserAccessRight
+        /// </summary>
+        public static bool operator != (GroupUserAccessRight e1, GroupUserAccessRight e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for GroupUserAccessRight
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is GroupUserAccessRight && Equals((GroupUserAccessRight)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode GroupUserAccessRight
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

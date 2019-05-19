@@ -14,7 +14,7 @@
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        public CredentialDetails(CredentialsBase credentialsBase, PrivacyLevel privacyLevel = PrivacyLevel.Private, EncryptedConnection encryptedConnection = EncryptedConnection.Encrypted, ICredentialsEncryptor credentialsEncryptor = null)
+        public CredentialDetails(CredentialsBase credentialsBase, PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection, ICredentialsEncryptor credentialsEncryptor = null)
             : this(privacyLevel, encryptedConnection, credentialsEncryptor)
         {
             var credentials = new CredentialsRequest
@@ -54,7 +54,7 @@
         /// <summary>
         /// Initializes a new instance of the UpdateDatasourceRequest class for cloud datasource.
         /// </summary>
-        public CredentialDetailsUsingCallerOauthAADIdentity(PrivacyLevel privacyLevel = PrivacyLevel.Private, EncryptedConnection encryptedConnection = EncryptedConnection.Encrypted)
+        public CredentialDetailsUsingCallerOauthAADIdentity(PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection)
             : base(privacyLevel, encryptedConnection, null)
         {
             CredentialType = CredentialType.OAuth2;

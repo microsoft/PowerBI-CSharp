@@ -7,88 +7,121 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for DatasetMode.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum DatasetMode
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(DatasetModeConverter))]
+    public struct DatasetMode : System.IEquatable<DatasetMode>
     {
+        private DatasetMode(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Creates a dataset with a live connection to Azure Analysis Service
         /// </summary>
-        [EnumMember(Value = "AsAzure")]
-        AsAzure,
+        public static readonly DatasetMode AsAzure = "AsAzure";
+
         /// <summary>
         /// Creates a dataset with a live connection to On-premise Analysis
         /// Service
         /// </summary>
-        [EnumMember(Value = "AsOnPrem")]
-        AsOnPrem,
+        public static readonly DatasetMode AsOnPrem = "AsOnPrem";
+
         /// <summary>
         /// Creates a dataset which allows programmatic access for pushing data
         /// into PowerBI, [learn
         /// more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)
         /// </summary>
-        [EnumMember(Value = "Push")]
-        Push,
+        public static readonly DatasetMode Push = "Push";
+
         /// <summary>
         /// Creates a dataset which supports data streaming, [learn
         /// more](https://docs.microsoft.com/power-bi/service-real-time-streaming)
         /// </summary>
-        [EnumMember(Value = "Streaming")]
-        Streaming,
+        public static readonly DatasetMode Streaming = "Streaming";
+
         /// <summary>
         /// Creates a dataset which supports data streaming and allows
         /// programmatic access for pushing data into Power BI
         /// </summary>
-        [EnumMember(Value = "PushStreaming")]
-        PushStreaming
-    }
-    internal static class DatasetModeEnumExtension
-    {
-        internal static string ToSerializedValue(this DatasetMode? value)
+        public static readonly DatasetMode PushStreaming = "PushStreaming";
+
+
+        /// <summary>
+        /// Underlying value of enum DatasetMode
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for DatasetMode
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((DatasetMode)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this DatasetMode value)
+        /// <summary>
+        /// Compares enums of type DatasetMode
+        /// </summary>
+        public bool Equals(DatasetMode e)
         {
-            switch( value )
-            {
-                case DatasetMode.AsAzure:
-                    return "AsAzure";
-                case DatasetMode.AsOnPrem:
-                    return "AsOnPrem";
-                case DatasetMode.Push:
-                    return "Push";
-                case DatasetMode.Streaming:
-                    return "Streaming";
-                case DatasetMode.PushStreaming:
-                    return "PushStreaming";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static DatasetMode? ParseDatasetMode(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to DatasetMode
+        /// </summary>
+        public static implicit operator DatasetMode(string value)
         {
-            switch( value )
-            {
-                case "AsAzure":
-                    return DatasetMode.AsAzure;
-                case "AsOnPrem":
-                    return DatasetMode.AsOnPrem;
-                case "Push":
-                    return DatasetMode.Push;
-                case "Streaming":
-                    return DatasetMode.Streaming;
-                case "PushStreaming":
-                    return DatasetMode.PushStreaming;
-            }
-            return null;
+            return new DatasetMode(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert DatasetMode to string
+        /// </summary>
+        public static implicit operator string(DatasetMode e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum DatasetMode
+        /// </summary>
+        public static bool operator == (DatasetMode e1, DatasetMode e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum DatasetMode
+        /// </summary>
+        public static bool operator != (DatasetMode e1, DatasetMode e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for DatasetMode
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is DatasetMode && Equals((DatasetMode)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode DatasetMode
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

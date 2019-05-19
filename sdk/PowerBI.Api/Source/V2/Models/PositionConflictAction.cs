@@ -7,56 +7,101 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for PositionConflictAction.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum PositionConflictAction
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(PositionConflictActionConverter))]
+    public struct PositionConflictAction : System.IEquatable<PositionConflictAction>
     {
+        private PositionConflictAction(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Tile will be added at the end of the chosen dashboard
         /// </summary>
-        [EnumMember(Value = "Tail")]
-        Tail,
+        public static readonly PositionConflictAction Tail = "Tail";
+
         /// <summary>
         /// In a case of position conflict, the request will be aborted
         /// </summary>
-        [EnumMember(Value = "Abort")]
-        Abort
-    }
-    internal static class PositionConflictActionEnumExtension
-    {
-        internal static string ToSerializedValue(this PositionConflictAction? value)
+        public static readonly PositionConflictAction Abort = "Abort";
+
+
+        /// <summary>
+        /// Underlying value of enum PositionConflictAction
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for PositionConflictAction
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((PositionConflictAction)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this PositionConflictAction value)
+        /// <summary>
+        /// Compares enums of type PositionConflictAction
+        /// </summary>
+        public bool Equals(PositionConflictAction e)
         {
-            switch( value )
-            {
-                case PositionConflictAction.Tail:
-                    return "Tail";
-                case PositionConflictAction.Abort:
-                    return "Abort";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static PositionConflictAction? ParsePositionConflictAction(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to PositionConflictAction
+        /// </summary>
+        public static implicit operator PositionConflictAction(string value)
         {
-            switch( value )
-            {
-                case "Tail":
-                    return PositionConflictAction.Tail;
-                case "Abort":
-                    return PositionConflictAction.Abort;
-            }
-            return null;
+            return new PositionConflictAction(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert PositionConflictAction to string
+        /// </summary>
+        public static implicit operator string(PositionConflictAction e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum PositionConflictAction
+        /// </summary>
+        public static bool operator == (PositionConflictAction e1, PositionConflictAction e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum PositionConflictAction
+        /// </summary>
+        public static bool operator != (PositionConflictAction e1, PositionConflictAction e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for PositionConflictAction
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is PositionConflictAction && Equals((PositionConflictAction)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode PositionConflictAction
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

@@ -7,75 +7,112 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for EncryptionStatus.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum EncryptionStatus
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(EncryptionStatusConverter))]
+    public struct EncryptionStatus : System.IEquatable<EncryptionStatus>
     {
+        private EncryptionStatus(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Unable to determine state due to dataset corruption
         /// </summary>
-        [EnumMember(Value = "Unknown")]
-        Unknown,
+        public static readonly EncryptionStatus Unknown = "Unknown";
+
         /// <summary>
         /// Encryption is not supported for this dataset
         /// </summary>
-        [EnumMember(Value = "NotSupported")]
-        NotSupported,
+        public static readonly EncryptionStatus NotSupported = "NotSupported";
+
         /// <summary>
         /// Encryption is supported and is in sync with the encryption settings
         /// </summary>
-        [EnumMember(Value = "InSyncWithWorkspace")]
-        InSyncWithWorkspace,
+        public static readonly EncryptionStatus InSyncWithWorkspace = "InSyncWithWorkspace";
+
         /// <summary>
         /// Encryption is supported and not in sync with the encryption
         /// settings
         /// </summary>
-        [EnumMember(Value = "NotInSyncWithWorkspace")]
-        NotInSyncWithWorkspace
-    }
-    internal static class EncryptionStatusEnumExtension
-    {
-        internal static string ToSerializedValue(this EncryptionStatus? value)
+        public static readonly EncryptionStatus NotInSyncWithWorkspace = "NotInSyncWithWorkspace";
+
+
+        /// <summary>
+        /// Underlying value of enum EncryptionStatus
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for EncryptionStatus
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((EncryptionStatus)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this EncryptionStatus value)
+        /// <summary>
+        /// Compares enums of type EncryptionStatus
+        /// </summary>
+        public bool Equals(EncryptionStatus e)
         {
-            switch( value )
-            {
-                case EncryptionStatus.Unknown:
-                    return "Unknown";
-                case EncryptionStatus.NotSupported:
-                    return "NotSupported";
-                case EncryptionStatus.InSyncWithWorkspace:
-                    return "InSyncWithWorkspace";
-                case EncryptionStatus.NotInSyncWithWorkspace:
-                    return "NotInSyncWithWorkspace";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static EncryptionStatus? ParseEncryptionStatus(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to EncryptionStatus
+        /// </summary>
+        public static implicit operator EncryptionStatus(string value)
         {
-            switch( value )
-            {
-                case "Unknown":
-                    return EncryptionStatus.Unknown;
-                case "NotSupported":
-                    return EncryptionStatus.NotSupported;
-                case "InSyncWithWorkspace":
-                    return EncryptionStatus.InSyncWithWorkspace;
-                case "NotInSyncWithWorkspace":
-                    return EncryptionStatus.NotInSyncWithWorkspace;
-            }
-            return null;
+            return new EncryptionStatus(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert EncryptionStatus to string
+        /// </summary>
+        public static implicit operator string(EncryptionStatus e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum EncryptionStatus
+        /// </summary>
+        public static bool operator == (EncryptionStatus e1, EncryptionStatus e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum EncryptionStatus
+        /// </summary>
+        public static bool operator != (EncryptionStatus e1, EncryptionStatus e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for EncryptionStatus
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is EncryptionStatus && Equals((EncryptionStatus)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode EncryptionStatus
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

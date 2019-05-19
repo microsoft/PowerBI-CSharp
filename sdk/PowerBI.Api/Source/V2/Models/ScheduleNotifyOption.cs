@@ -7,56 +7,101 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for ScheduleNotifyOption.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum ScheduleNotifyOption
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(ScheduleNotifyOptionConverter))]
+    public struct ScheduleNotifyOption : System.IEquatable<ScheduleNotifyOption>
     {
+        private ScheduleNotifyOption(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// No notification will be sent
         /// </summary>
-        [EnumMember(Value = "NoNotification")]
-        NoNotification,
+        public static readonly ScheduleNotifyOption NoNotification = "NoNotification";
+
         /// <summary>
         /// Mail notification will be sent on refresh failure
         /// </summary>
-        [EnumMember(Value = "MailOnFailure")]
-        MailOnFailure
-    }
-    internal static class ScheduleNotifyOptionEnumExtension
-    {
-        internal static string ToSerializedValue(this ScheduleNotifyOption? value)
+        public static readonly ScheduleNotifyOption MailOnFailure = "MailOnFailure";
+
+
+        /// <summary>
+        /// Underlying value of enum ScheduleNotifyOption
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for ScheduleNotifyOption
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((ScheduleNotifyOption)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this ScheduleNotifyOption value)
+        /// <summary>
+        /// Compares enums of type ScheduleNotifyOption
+        /// </summary>
+        public bool Equals(ScheduleNotifyOption e)
         {
-            switch( value )
-            {
-                case ScheduleNotifyOption.NoNotification:
-                    return "NoNotification";
-                case ScheduleNotifyOption.MailOnFailure:
-                    return "MailOnFailure";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static ScheduleNotifyOption? ParseScheduleNotifyOption(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to ScheduleNotifyOption
+        /// </summary>
+        public static implicit operator ScheduleNotifyOption(string value)
         {
-            switch( value )
-            {
-                case "NoNotification":
-                    return ScheduleNotifyOption.NoNotification;
-                case "MailOnFailure":
-                    return ScheduleNotifyOption.MailOnFailure;
-            }
-            return null;
+            return new ScheduleNotifyOption(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert ScheduleNotifyOption to string
+        /// </summary>
+        public static implicit operator string(ScheduleNotifyOption e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum ScheduleNotifyOption
+        /// </summary>
+        public static bool operator == (ScheduleNotifyOption e1, ScheduleNotifyOption e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum ScheduleNotifyOption
+        /// </summary>
+        public static bool operator != (ScheduleNotifyOption e1, ScheduleNotifyOption e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for ScheduleNotifyOption
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is ScheduleNotifyOption && Equals((ScheduleNotifyOption)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode ScheduleNotifyOption
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

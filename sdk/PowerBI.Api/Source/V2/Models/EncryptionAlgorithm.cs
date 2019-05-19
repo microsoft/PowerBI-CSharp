@@ -7,50 +7,95 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for EncryptionAlgorithm.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum EncryptionAlgorithm
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(EncryptionAlgorithmConverter))]
+    public struct EncryptionAlgorithm : System.IEquatable<EncryptionAlgorithm>
     {
-        [EnumMember(Value = "None")]
-        None,
-        [EnumMember(Value = "RSA-OAEP")]
-        RSAOAEP
-    }
-    internal static class EncryptionAlgorithmEnumExtension
-    {
-        internal static string ToSerializedValue(this EncryptionAlgorithm? value)
+        private EncryptionAlgorithm(string underlyingValue)
         {
-            return value == null ? null : ((EncryptionAlgorithm)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this EncryptionAlgorithm value)
+        public static readonly EncryptionAlgorithm None = "None";
+
+        public static readonly EncryptionAlgorithm RSAOAEP = "RSA-OAEP";
+
+
+        /// <summary>
+        /// Underlying value of enum EncryptionAlgorithm
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for EncryptionAlgorithm
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case EncryptionAlgorithm.None:
-                    return "None";
-                case EncryptionAlgorithm.RSAOAEP:
-                    return "RSA-OAEP";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static EncryptionAlgorithm? ParseEncryptionAlgorithm(this string value)
+        /// <summary>
+        /// Compares enums of type EncryptionAlgorithm
+        /// </summary>
+        public bool Equals(EncryptionAlgorithm e)
         {
-            switch( value )
-            {
-                case "None":
-                    return EncryptionAlgorithm.None;
-                case "RSA-OAEP":
-                    return EncryptionAlgorithm.RSAOAEP;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to EncryptionAlgorithm
+        /// </summary>
+        public static implicit operator EncryptionAlgorithm(string value)
+        {
+            return new EncryptionAlgorithm(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert EncryptionAlgorithm to string
+        /// </summary>
+        public static implicit operator string(EncryptionAlgorithm e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum EncryptionAlgorithm
+        /// </summary>
+        public static bool operator == (EncryptionAlgorithm e1, EncryptionAlgorithm e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum EncryptionAlgorithm
+        /// </summary>
+        public static bool operator != (EncryptionAlgorithm e1, EncryptionAlgorithm e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for EncryptionAlgorithm
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is EncryptionAlgorithm && Equals((EncryptionAlgorithm)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode EncryptionAlgorithm
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

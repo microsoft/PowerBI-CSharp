@@ -100,6 +100,7 @@
                         ],
                         "x-ms-enum": {
                             "name": "DefaultRetentionPolicy",
+                            "modelAsExtensible": true,
                             "values": [
                                 {
                                     "value": "None",
@@ -1672,6 +1673,7 @@
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
+                            "modelAsExtensible": true,
                             "values": [
                                 {
                                     "value": "Ignore",
@@ -2638,6 +2640,7 @@
                         ],
                         "x-ms-enum": {
                             "name": "DefaultRetentionPolicy",
+                            "modelAsExtensible": true,
                             "values": [
                                 {
                                     "value": "None",
@@ -4422,6 +4425,7 @@
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
+                            "modelAsExtensible": true,
                             "values": [
                                 {
                                     "value": "Ignore",
@@ -10132,7 +10136,8 @@
                         "connect"
                     ],
                     "x-ms-enum": {
-                        "name": "connectionType"
+                        "name": "connectionType",
+                        "modelAsExtensible": true
                     }
                 },
                 "fileUrl": {
@@ -10225,6 +10230,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "EncryptionStatus",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "Unknown",
@@ -10291,6 +10297,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "DatasetMode",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "AsAzure",
@@ -10377,6 +10384,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "CrossFilteringBehavior",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "OneDirection",
@@ -10613,7 +10621,8 @@
                         "Key"
                     ],
                     "x-ms-enum": {
-                        "name": "credentialType"
+                        "name": "credentialType",
+                        "modelAsExtensible": true
                     }
                 }
             }
@@ -11070,7 +11079,8 @@
                         "Key"
                     ],
                     "x-ms-enum": {
-                        "name": "credentialType"
+                        "name": "credentialType",
+                        "modelAsExtensible": true
                     }
                 },
                 "encryptedConnection": {
@@ -11081,7 +11091,8 @@
                         "NotEncrypted"
                     ],
                     "x-ms-enum": {
-                        "name": "encryptedConnection"
+                        "name": "encryptedConnection",
+                        "modelAsExtensible": true
                     }
                 },
                 "encryptionAlgorithm": {
@@ -11092,7 +11103,8 @@
                         "RSA-OAEP"
                     ],
                     "x-ms-enum": {
-                        "name": "encryptionAlgorithm"
+                        "name": "encryptionAlgorithm",
+                        "modelAsExtensible": true
                     }
                 },
                 "privacyLevel": {
@@ -11105,7 +11117,8 @@
                         "Private"
                     ],
                     "x-ms-enum": {
-                        "name": "privacyLevel"
+                        "name": "privacyLevel",
+                        "modelAsExtensible": true
                     }
                 },
                 "useCallerAADIdentity": {
@@ -11167,6 +11180,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "RefreshType",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "Scheduled",
@@ -11220,6 +11234,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "NotifyOption",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "NoNotification",
@@ -11272,7 +11287,8 @@
                             "Sunday"
                         ],
                         "x-ms-enum": {
-                            "name": "days"
+                            "name": "days",
+                            "modelAsExtensible": true
                         }
                     }
                 },
@@ -11301,6 +11317,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "ScheduleNotifyOption",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "NoNotification",
@@ -11350,7 +11367,8 @@
                             "Sunday"
                         ],
                         "x-ms-enum": {
-                            "name": "days"
+                            "name": "days",
+                            "modelAsExtensible": true
                         }
                     }
                 },
@@ -11456,6 +11474,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "DatasourceUserAccessRight",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "None",
@@ -11494,6 +11513,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "PrincipalType",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "User",
@@ -11529,6 +11549,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "GroupUserAccessRight",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "None",
@@ -11571,6 +11592,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "PrincipalType",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "User",
@@ -11714,6 +11736,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "TokenAccessLevel",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "View",
@@ -11807,6 +11830,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "positionConflictAction",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "Tail",
@@ -11866,6 +11890,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "sourceType",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "ExistingReport",
@@ -11924,6 +11949,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "CapacityState",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "NotActivated",
@@ -11978,6 +12004,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "capacityUserAccessRight",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "None",
@@ -12058,7 +12085,8 @@
                         "Disabled"
                     ],
                     "x-ms-enum": {
-                        "name": "FeatureState"
+                        "name": "FeatureState",
+                        "modelAsExtensible": true
                     },
                     "description": "The feature state"
                 },
@@ -12070,7 +12098,8 @@
                         "UserNotLicensed"
                     ],
                     "x-ms-enum": {
-                        "name": "FeatureExtendedState"
+                        "name": "FeatureExtendedState",
+                        "modelAsExtensible": true
                     },
                     "description": "The feature extended state"
                 },
@@ -12119,6 +12148,7 @@
                     ],
                     "x-ms-enum": {
                         "name": "AssignmentStatus",
+                        "modelAsExtensible": true,
                         "values": [
                             {
                                 "value": "Pending",
@@ -12203,6 +12233,7 @@
             ],
             "x-ms-enum": {
                 "name": "WorkloadState",
+                "modelAsExtensible": true,
                 "values": [
                     {
                         "value": "Disabled",

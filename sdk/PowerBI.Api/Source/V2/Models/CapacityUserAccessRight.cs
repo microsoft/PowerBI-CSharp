@@ -7,65 +7,106 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for CapacityUserAccessRight.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum CapacityUserAccessRight
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(CapacityUserAccessRightConverter))]
+    public struct CapacityUserAccessRight : System.IEquatable<CapacityUserAccessRight>
     {
+        private CapacityUserAccessRight(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// User doesn't have access to the capacity
         /// </summary>
-        [EnumMember(Value = "None")]
-        None,
+        public static readonly CapacityUserAccessRight None = "None";
+
         /// <summary>
         /// User can assign workspaces to the capacity
         /// </summary>
-        [EnumMember(Value = "Assign")]
-        Assign,
+        public static readonly CapacityUserAccessRight Assign = "Assign";
+
         /// <summary>
         /// User has administrator rights on the capacity
         /// </summary>
-        [EnumMember(Value = "Admin")]
-        Admin
-    }
-    internal static class CapacityUserAccessRightEnumExtension
-    {
-        internal static string ToSerializedValue(this CapacityUserAccessRight? value)
+        public static readonly CapacityUserAccessRight Admin = "Admin";
+
+
+        /// <summary>
+        /// Underlying value of enum CapacityUserAccessRight
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for CapacityUserAccessRight
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((CapacityUserAccessRight)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this CapacityUserAccessRight value)
+        /// <summary>
+        /// Compares enums of type CapacityUserAccessRight
+        /// </summary>
+        public bool Equals(CapacityUserAccessRight e)
         {
-            switch( value )
-            {
-                case CapacityUserAccessRight.None:
-                    return "None";
-                case CapacityUserAccessRight.Assign:
-                    return "Assign";
-                case CapacityUserAccessRight.Admin:
-                    return "Admin";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static CapacityUserAccessRight? ParseCapacityUserAccessRight(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to CapacityUserAccessRight
+        /// </summary>
+        public static implicit operator CapacityUserAccessRight(string value)
         {
-            switch( value )
-            {
-                case "None":
-                    return CapacityUserAccessRight.None;
-                case "Assign":
-                    return CapacityUserAccessRight.Assign;
-                case "Admin":
-                    return CapacityUserAccessRight.Admin;
-            }
-            return null;
+            return new CapacityUserAccessRight(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert CapacityUserAccessRight to string
+        /// </summary>
+        public static implicit operator string(CapacityUserAccessRight e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum CapacityUserAccessRight
+        /// </summary>
+        public static bool operator == (CapacityUserAccessRight e1, CapacityUserAccessRight e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum CapacityUserAccessRight
+        /// </summary>
+        public static bool operator != (CapacityUserAccessRight e1, CapacityUserAccessRight e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for CapacityUserAccessRight
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is CapacityUserAccessRight && Equals((CapacityUserAccessRight)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode CapacityUserAccessRight
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

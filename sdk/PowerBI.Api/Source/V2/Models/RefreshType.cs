@@ -7,65 +7,106 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for RefreshType.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum RefreshType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(RefreshTypeConverter))]
+    public struct RefreshType : System.IEquatable<RefreshType>
     {
+        private RefreshType(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Refresh was triggered by the dataset refresh schedule setting
         /// </summary>
-        [EnumMember(Value = "Scheduled")]
-        Scheduled,
+        public static readonly RefreshType Scheduled = "Scheduled";
+
         /// <summary>
         /// Refresh was triggered interactively threw Power BI portal
         /// </summary>
-        [EnumMember(Value = "OnDemand")]
-        OnDemand,
+        public static readonly RefreshType OnDemand = "OnDemand";
+
         /// <summary>
         /// Refresh was triggered by an Api call
         /// </summary>
-        [EnumMember(Value = "ViaApi")]
-        ViaApi
-    }
-    internal static class RefreshTypeEnumExtension
-    {
-        internal static string ToSerializedValue(this RefreshType? value)
+        public static readonly RefreshType ViaApi = "ViaApi";
+
+
+        /// <summary>
+        /// Underlying value of enum RefreshType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for RefreshType
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((RefreshType)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this RefreshType value)
+        /// <summary>
+        /// Compares enums of type RefreshType
+        /// </summary>
+        public bool Equals(RefreshType e)
         {
-            switch( value )
-            {
-                case RefreshType.Scheduled:
-                    return "Scheduled";
-                case RefreshType.OnDemand:
-                    return "OnDemand";
-                case RefreshType.ViaApi:
-                    return "ViaApi";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static RefreshType? ParseRefreshType(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to RefreshType
+        /// </summary>
+        public static implicit operator RefreshType(string value)
         {
-            switch( value )
-            {
-                case "Scheduled":
-                    return RefreshType.Scheduled;
-                case "OnDemand":
-                    return RefreshType.OnDemand;
-                case "ViaApi":
-                    return RefreshType.ViaApi;
-            }
-            return null;
+            return new RefreshType(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert RefreshType to string
+        /// </summary>
+        public static implicit operator string(RefreshType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum RefreshType
+        /// </summary>
+        public static bool operator == (RefreshType e1, RefreshType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum RefreshType
+        /// </summary>
+        public static bool operator != (RefreshType e1, RefreshType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for RefreshType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is RefreshType && Equals((RefreshType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode RefreshType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

@@ -7,128 +7,141 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for CapacityState.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum CapacityState
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(CapacityStateConverter))]
+    public struct CapacityState : System.IEquatable<CapacityState>
     {
+        private CapacityState(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Not Supported
         /// </summary>
-        [EnumMember(Value = "NotActivated")]
-        NotActivated,
+        public static readonly CapacityState NotActivated = "NotActivated";
+
         /// <summary>
         /// Capacity ready for use
         /// </summary>
-        [EnumMember(Value = "Active")]
-        Active,
+        public static readonly CapacityState Active = "Active";
+
         /// <summary>
         /// Capacity in activation process
         /// </summary>
-        [EnumMember(Value = "Provisioning")]
-        Provisioning,
+        public static readonly CapacityState Provisioning = "Provisioning";
+
         /// <summary>
         /// Capacity failed to provisioned
         /// </summary>
-        [EnumMember(Value = "ProvisionFailed")]
-        ProvisionFailed,
+        public static readonly CapacityState ProvisionFailed = "ProvisionFailed";
+
         /// <summary>
         /// Capacity suspended for use
         /// </summary>
-        [EnumMember(Value = "Suspended")]
-        Suspended,
+        public static readonly CapacityState Suspended = "Suspended";
+
         /// <summary>
         /// Not Supported
         /// </summary>
-        [EnumMember(Value = "PreSuspended")]
-        PreSuspended,
+        public static readonly CapacityState PreSuspended = "PreSuspended";
+
         /// <summary>
         /// Capacity in process of being deleted
         /// </summary>
-        [EnumMember(Value = "Deleting")]
-        Deleting,
+        public static readonly CapacityState Deleting = "Deleting";
+
         /// <summary>
         /// Capacity has been deleted and is not available
         /// </summary>
-        [EnumMember(Value = "Deleted")]
-        Deleted,
+        public static readonly CapacityState Deleted = "Deleted";
+
         /// <summary>
         /// Capacity can not be used
         /// </summary>
-        [EnumMember(Value = "Invalid")]
-        Invalid,
+        public static readonly CapacityState Invalid = "Invalid";
+
         /// <summary>
         /// Capacity Sku change is in progress
         /// </summary>
-        [EnumMember(Value = "UpdatingSku")]
-        UpdatingSku
-    }
-    internal static class CapacityStateEnumExtension
-    {
-        internal static string ToSerializedValue(this CapacityState? value)
+        public static readonly CapacityState UpdatingSku = "UpdatingSku";
+
+
+        /// <summary>
+        /// Underlying value of enum CapacityState
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for CapacityState
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((CapacityState)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this CapacityState value)
+        /// <summary>
+        /// Compares enums of type CapacityState
+        /// </summary>
+        public bool Equals(CapacityState e)
         {
-            switch( value )
-            {
-                case CapacityState.NotActivated:
-                    return "NotActivated";
-                case CapacityState.Active:
-                    return "Active";
-                case CapacityState.Provisioning:
-                    return "Provisioning";
-                case CapacityState.ProvisionFailed:
-                    return "ProvisionFailed";
-                case CapacityState.Suspended:
-                    return "Suspended";
-                case CapacityState.PreSuspended:
-                    return "PreSuspended";
-                case CapacityState.Deleting:
-                    return "Deleting";
-                case CapacityState.Deleted:
-                    return "Deleted";
-                case CapacityState.Invalid:
-                    return "Invalid";
-                case CapacityState.UpdatingSku:
-                    return "UpdatingSku";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static CapacityState? ParseCapacityState(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to CapacityState
+        /// </summary>
+        public static implicit operator CapacityState(string value)
         {
-            switch( value )
-            {
-                case "NotActivated":
-                    return CapacityState.NotActivated;
-                case "Active":
-                    return CapacityState.Active;
-                case "Provisioning":
-                    return CapacityState.Provisioning;
-                case "ProvisionFailed":
-                    return CapacityState.ProvisionFailed;
-                case "Suspended":
-                    return CapacityState.Suspended;
-                case "PreSuspended":
-                    return CapacityState.PreSuspended;
-                case "Deleting":
-                    return CapacityState.Deleting;
-                case "Deleted":
-                    return CapacityState.Deleted;
-                case "Invalid":
-                    return CapacityState.Invalid;
-                case "UpdatingSku":
-                    return CapacityState.UpdatingSku;
-            }
-            return null;
+            return new CapacityState(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert CapacityState to string
+        /// </summary>
+        public static implicit operator string(CapacityState e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum CapacityState
+        /// </summary>
+        public static bool operator == (CapacityState e1, CapacityState e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum CapacityState
+        /// </summary>
+        public static bool operator != (CapacityState e1, CapacityState e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for CapacityState
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is CapacityState && Equals((CapacityState)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode CapacityState
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

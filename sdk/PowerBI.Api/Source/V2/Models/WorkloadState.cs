@@ -7,67 +7,108 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for WorkloadState.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum WorkloadState
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(WorkloadStateConverter))]
+    public struct WorkloadState : System.IEquatable<WorkloadState>
     {
+        private WorkloadState(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// The workload is disabled
         /// </summary>
-        [EnumMember(Value = "Disabled")]
-        Disabled,
+        public static readonly WorkloadState Disabled = "Disabled";
+
         /// <summary>
         /// The workload is enabled
         /// </summary>
-        [EnumMember(Value = "Enabled")]
-        Enabled,
+        public static readonly WorkloadState Enabled = "Enabled";
+
         /// <summary>
         /// The workload is unsupported by the current capacity SKU and cannot
         /// be enabled. This value cannot be set by the user in the [Patch
         /// Workload](/rest/api/power-bi/capacities/patchworkload)
         /// </summary>
-        [EnumMember(Value = "Unsupported")]
-        Unsupported
-    }
-    internal static class WorkloadStateEnumExtension
-    {
-        internal static string ToSerializedValue(this WorkloadState? value)
+        public static readonly WorkloadState Unsupported = "Unsupported";
+
+
+        /// <summary>
+        /// Underlying value of enum WorkloadState
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for WorkloadState
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((WorkloadState)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this WorkloadState value)
+        /// <summary>
+        /// Compares enums of type WorkloadState
+        /// </summary>
+        public bool Equals(WorkloadState e)
         {
-            switch( value )
-            {
-                case WorkloadState.Disabled:
-                    return "Disabled";
-                case WorkloadState.Enabled:
-                    return "Enabled";
-                case WorkloadState.Unsupported:
-                    return "Unsupported";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static WorkloadState? ParseWorkloadState(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to WorkloadState
+        /// </summary>
+        public static implicit operator WorkloadState(string value)
         {
-            switch( value )
-            {
-                case "Disabled":
-                    return WorkloadState.Disabled;
-                case "Enabled":
-                    return WorkloadState.Enabled;
-                case "Unsupported":
-                    return WorkloadState.Unsupported;
-            }
-            return null;
+            return new WorkloadState(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert WorkloadState to string
+        /// </summary>
+        public static implicit operator string(WorkloadState e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum WorkloadState
+        /// </summary>
+        public static bool operator == (WorkloadState e1, WorkloadState e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum WorkloadState
+        /// </summary>
+        public static bool operator != (WorkloadState e1, WorkloadState e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for WorkloadState
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is WorkloadState && Equals((WorkloadState)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode WorkloadState
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }
