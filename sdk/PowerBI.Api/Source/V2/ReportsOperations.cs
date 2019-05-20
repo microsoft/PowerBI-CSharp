@@ -2569,7 +2569,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Reports>> GetReportsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Reports>> GetReportsAsAdminWithHttpMessagesAsync(System.Guid? filter = default(System.Guid?), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2590,7 +2590,7 @@ namespace Microsoft.PowerBI.Api.V2
             List<string> _queryParameters = new List<string>();
             if (filter != null)
             {
-                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));
+                _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(filter, Client.SerializationSettings).Trim('"'))));
             }
             if (top != null)
             {

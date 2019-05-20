@@ -38,9 +38,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// roles</param>
         /// <param name="isOnPremGatewayRequired">Dataset requires an
         /// On-premises Data Gateway</param>
-        /// <param name="encryption">The dataset encryption information (Only
-        /// applicable when $expand is specified)</param>
-        public Dataset(System.Guid id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption))
+        public Dataset(System.Guid id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
         {
             Id = id;
             Name = name;
@@ -51,7 +49,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
             IsEffectiveIdentityRequired = isEffectiveIdentityRequired;
             IsEffectiveIdentityRolesRequired = isEffectiveIdentityRolesRequired;
             IsOnPremGatewayRequired = isOnPremGatewayRequired;
-            Encryption = encryption;
             CustomInit();
         }
 
@@ -115,13 +112,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public bool? IsOnPremGatewayRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset encryption information (Only applicable
-        /// when $expand is specified)
-        /// </summary>
-        [JsonProperty(PropertyName = "Encryption")]
-        public Encryption Encryption { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -129,6 +119,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </exception>
         public virtual void Validate()
         {
+            //Nothing to validate
         }
     }
 }

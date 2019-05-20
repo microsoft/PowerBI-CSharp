@@ -69,12 +69,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='skip'>
         /// Skips the first n results
         /// </param>
-        /// <param name='expand'>
-        /// Expands related entities inline
-        /// </param>
-        public static Datasets GetDatasetsAsAdmin(this IDatasetsOperations operations, Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string))
+        public static Datasets GetDatasetsAsAdmin(this IDatasetsOperations operations, Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
         {
-            return operations.GetDatasetsInGroupAsAdminAsync(groupId, filter, top, skip, expand).GetAwaiter().GetResult();
+            return operations.GetDatasetsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -102,15 +99,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='skip'>
         /// Skips the first n results
         /// </param>
-        /// <param name='expand'>
-        /// Expands related entities inline
-        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Datasets> GetDatasetsAsAdminAsync(this IDatasetsOperations operations, Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Datasets> GetDatasetsAsAdminAsync(this IDatasetsOperations operations, Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
-            using (var _result = await operations.GetDatasetsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, expand, null, cancellationToken).ConfigureAwait(false))
+            using (var _result = await operations.GetDatasetsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
             {
                 return _result.Body;
             }

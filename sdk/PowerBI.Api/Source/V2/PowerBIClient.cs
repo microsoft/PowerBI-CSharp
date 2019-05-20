@@ -103,11 +103,6 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual IDataflowStorageAccountsOperations DataflowStorageAccounts { get; private set; }
 
         /// <summary>
-        /// Gets the IAdmin.
-        /// </summary>
-        public virtual IAdmin Admin { get; private set; }
-
-        /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
         /// </summary>
         /// <param name='handlers'>
@@ -321,7 +316,6 @@ namespace Microsoft.PowerBI.Api.V2
             Capacities = new CapacitiesOperations(this);
             AvailableFeatures = new AvailableFeaturesOperations(this);
             DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
-            Admin = new Admin(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {
