@@ -7775,7 +7775,7 @@
                         "name": "workspaceV2",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to create a Workspace V2. The default value is true.",
+                        "description": "Preview feature: Create a workspace V2. The only supported value is true.",
                         "type": "boolean"
                     }
                 ],
@@ -7801,27 +7801,26 @@
                                         "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                                         "isReadOnly": false,
                                         "isOnDedicatedCapacity": false,
-                                        "name": "sample workspace V2"
+                                        "name": "sample group"
                                     }
                                 ]
                             }
                         }
                     },
-                    "example creating a workspace V1": {
+                    "example creating a workspace V2": {
                         "parameters": {
                             "requestParameters": {
-                                "name": "sample workspace V1"
+                                "name": "sample workspace V2"
                             },
-                            "workspaceV2": false
+                            "workspaceV2": true
                         },
                         "responses": {
                             "200": {
                                 "value": [
                                     {
                                         "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
-                                        "isReadOnly": false,
                                         "isOnDedicatedCapacity": false,
-                                        "name": "sample workspace V1"
+                                        "name": "sample workspace V2"
                                     }
                                 ]
                             }
