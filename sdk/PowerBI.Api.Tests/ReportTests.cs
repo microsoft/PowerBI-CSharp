@@ -65,7 +65,7 @@ namespace PowerBI.Api.Tests
             var rebindResponse = CreateSampleOKResponse();
 
             var reportId = Guid.NewGuid();
-            var datasetId = Guid.NewGuid();
+            var datasetId = Guid.NewGuid().ToString();
 
             using (var handler = new FakeHttpClientHandler(rebindResponse))
             using (var client = CreatePowerBIClient(handler))
@@ -94,7 +94,7 @@ namespace PowerBI.Api.Tests
 
             var cloneRequest = new CloneReportRequest()
             {
-                TargetModelId = Guid.NewGuid(),
+                TargetModelId = Guid.NewGuid().ToString(),
                 Name = "Model Name",
                 TargetWorkspaceId = Guid.NewGuid()
             };

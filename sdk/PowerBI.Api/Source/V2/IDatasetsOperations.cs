@@ -95,7 +95,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Dataset>> GetDatasetWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Dataset>> GetDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the specified dataset from **"My Workspace"**.
         /// </summary>
@@ -116,7 +119,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tables tables within the specified dataset from
         /// **"My Workspace"**.
@@ -143,7 +149,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Tables>> GetTablesWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Tables>> GetTablesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the metadata and schema for the specified table within the
         /// specified dataset from **"My Workspace"**.
@@ -178,7 +187,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Table>> PutTableWithHttpMessagesAsync(System.Guid datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Table>> PutTableWithHttpMessagesAsync(string datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds new data rows to the specified table within the specified
         /// dataset from **"My Workspace"**.
@@ -212,7 +221,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(System.Guid datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(string datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes all rows from the specified table within the specified
         /// dataset from **"My Workspace"**.
@@ -241,7 +250,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteRowsWithHttpMessagesAsync(System.Guid datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteRowsWithHttpMessagesAsync(string datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh history of the specified dataset from **"My
         /// Workspace"**.
@@ -271,7 +280,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryWithHttpMessagesAsync(System.Guid datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryWithHttpMessagesAsync(string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Triggers a refresh for the specified dataset from **"My
         /// Workspace"**.
@@ -298,7 +310,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> RefreshDatasetWithHttpMessagesAsync(System.Guid datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> RefreshDatasetWithHttpMessagesAsync(string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh schedule of the specified dataset from **"My
         /// Workspace"**.
@@ -324,7 +339,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the refresh schedule for the specified dataset from **"My
         /// Workspace"**.
@@ -362,7 +380,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateRefreshScheduleWithHttpMessagesAsync(string datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh schedule of a specified DirectQuery or
         /// LiveConnection dataset from **"My Workspace"**.
@@ -388,7 +406,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the refresh schedule for the specified DirectQuery or
         /// LiveConnection dataset from **"My Workspace"**.
@@ -423,7 +444,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleWithHttpMessagesAsync(string datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of parameters for the specified dataset from **"My
         /// Workspace"**.
@@ -450,7 +471,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<MashupParameters>> GetParametersWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<MashupParameters>> GetParametersWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the parameters values for the specified dataset from **"My
         /// Workspace"**.
@@ -493,7 +517,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateParametersWithHttpMessagesAsync(System.Guid datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateParametersWithHttpMessagesAsync(string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasources for the specified dataset from **"My
         /// Workspace"**.
@@ -519,7 +543,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the datasources of the specified dataset from **"My
         /// Workspace"**.
@@ -562,7 +589,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(System.Guid datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates all connections for the specified dataset from **"My
         /// Workspace"**.
@@ -597,7 +624,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> SetAllDatasetConnectionsWithHttpMessagesAsync(System.Guid datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> SetAllDatasetConnectionsWithHttpMessagesAsync(string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Binds the specified dataset from **"My Workspace"** to the
         /// specified gateway. This only supports the On-Premises Data Gateway.
@@ -625,7 +652,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> BindToGatewayWithHttpMessagesAsync(System.Guid datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> BindToGatewayWithHttpMessagesAsync(string datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of gateway datasources for the specified dataset
         /// from **"My Workspace"**.
@@ -653,7 +680,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of gateways which the specified dataset from **"My
         /// Workspace"** can be bound to.
@@ -681,7 +711,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Gateways>> DiscoverGatewaysWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Gateways>> DiscoverGatewaysWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasets from the specified workspace.
         /// </summary>
@@ -768,7 +801,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Dataset>> GetDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Dataset>> GetDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the specified dataset from the specified workspace.
         /// </summary>
@@ -792,7 +828,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> DeleteDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tables within the specified dataset from the
         /// specified workspace.
@@ -822,7 +861,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Tables>> GetTablesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Tables>> GetTablesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the metadata and schema for the specified table, within the
         /// specified dataset, from the specified workspace.
@@ -860,7 +902,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<Table>> PutTableInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Table>> PutTableInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds new data rows to the specified table, within the specified
         /// dataset, from the specified workspace.
@@ -897,7 +939,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes all rows from the specified table, within the specified
         /// dataset, from the specified workspace.
@@ -929,7 +971,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteRowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh history of the specified dataset from the
         /// specified workspace.
@@ -962,7 +1004,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Triggers a refresh for the specified dataset from the specified
         /// workspace.
@@ -992,7 +1037,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh schedule of the specified dataset from the
         /// specified workspace.
@@ -1021,7 +1069,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the refresh schedule for the specified dataset from the
         /// specified workspace.
@@ -1062,7 +1113,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh schedule of a specified DirectQuery or
         /// LiveConnection dataset from the specified workspace.
@@ -1091,7 +1142,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the refresh schedule for the specified DirectQuery or
         /// LiveConnection dataset from the specified workspace.
@@ -1129,7 +1183,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of parameters for the specified dataset from the
         /// specified workspace.
@@ -1158,7 +1212,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<MashupParameters>> GetParametersInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<MashupParameters>> GetParametersInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the parameters values for the specified dataset from the
         /// specified workspace.
@@ -1203,7 +1260,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateParametersInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateParametersInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasources for the specified dataset from the
         /// specified workspace.
@@ -1231,7 +1288,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the datasources of the specified dataset from the specified
         /// workspace.
@@ -1276,7 +1336,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates all connections for the specified dataset from the
         /// specified workspace.
@@ -1314,7 +1374,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Binds the specified dataset from the specified workspace to the
         /// specified gateway. Only supported for the On-Premises Data Gateway.
@@ -1345,7 +1405,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> BindToGatewayInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> BindToGatewayInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of gateway datasources for the specified dataset
         /// from the specified workspace.
@@ -1376,7 +1436,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of gateways that the specified dataset from the
         /// specified workspace can be bound to.
@@ -1407,7 +1470,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Gateways>> DiscoverGatewaysInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Gateways>> DiscoverGatewaysInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Transfers ownership over the specified dataset to the current
         /// authorized user.
@@ -1432,7 +1498,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> TakeOverInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> TakeOverInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generates an embed token to [Embed
         /// Q&amp;A](https://docs.microsoft.com/power-bi/developer/qanda) based
@@ -1471,7 +1540,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<EmbedToken>> GenerateTokenInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<EmbedToken>> GenerateTokenInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasets for the organization.
         /// </summary>
@@ -1531,7 +1600,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasets from the specified workspace.
         /// </summary>

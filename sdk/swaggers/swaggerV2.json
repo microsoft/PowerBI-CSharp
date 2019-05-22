@@ -198,8 +198,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -252,8 +251,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -294,8 +292,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -329,8 +326,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "tableName",
@@ -424,8 +420,7 @@
                         "in": "path",
                         "required": true,
                         "description": "The dataset id",
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "tableName",
@@ -506,8 +501,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "tableName",
@@ -554,8 +548,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "$top",
@@ -659,8 +652,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "refreshRequest",
@@ -710,8 +702,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -762,8 +753,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "datasetModelRefreshScheduleRequest",
@@ -857,8 +847,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -924,8 +913,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "datasetDQRefreshScheduleRequest",
@@ -1019,8 +1007,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1105,8 +1092,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "updateMashupParametersRequest",
@@ -1167,8 +1153,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1258,8 +1243,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "updateDatasourcesRequest",
@@ -1336,8 +1320,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "parameters",
@@ -1390,8 +1373,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "bindToGatewayRequest",
@@ -1444,8 +1426,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -1500,8 +1481,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -2741,8 +2721,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -2804,8 +2783,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -2855,8 +2833,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -2898,8 +2875,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "tableName",
@@ -3002,8 +2978,7 @@
                         "in": "path",
                         "required": true,
                         "description": "The dataset id",
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "tableName",
@@ -3093,8 +3068,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "tableName",
@@ -3150,8 +3124,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "$top",
@@ -3265,8 +3238,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "refreshRequest",
@@ -3325,8 +3297,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -3386,8 +3357,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "datasetModelRefreshScheduleRequest",
@@ -3493,8 +3463,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -3570,8 +3539,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "datasetDQRefreshScheduleRequest",
@@ -3678,8 +3646,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -3772,8 +3739,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "updateMashupParametersRequest",
@@ -3842,8 +3808,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -3942,8 +3907,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "updateDatasourcesRequest",
@@ -4029,8 +3993,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "parameters",
@@ -4092,8 +4055,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "bindToGatewayRequest",
@@ -4155,8 +4117,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -4220,8 +4181,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -4284,8 +4244,7 @@
                         "in": "path",
                         "description": "The dataset id",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -5738,8 +5697,7 @@
                         "description": "The dataset id",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "requestParameters",
@@ -8781,8 +8739,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -9449,8 +9406,7 @@
                         "in": "query",
                         "description": "Filters the results, based on a boolean condition",
                         "required": false,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "$top",
@@ -9825,7 +9781,6 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "The dataset id"
                 },
                 "name": {
@@ -10433,7 +10388,6 @@
                 },
                 "datasetId": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "The dataset id"
                 }
             }
@@ -10501,7 +10455,6 @@
                 },
                 "datasetId": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "The dataset id. Available only for tiles created from a report or using a dataset; for example, Q&A tiles."
                 }
             }
@@ -11237,7 +11190,6 @@
                 },
                 "targetModelId": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "Optional parameter for specifying the target associated dataset id. <br/>If not provided, the new report will be associated with the same dataset as the source report."
                 }
             }
@@ -11250,7 +11202,6 @@
             "properties": {
                 "datasetId": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "The new dataset of the rebinded report"
                 }
             }
@@ -11318,7 +11269,6 @@
                     "description": "An array of datasets for which this identity applies",
                     "items": {
                         "type": "string",
-                        "format": "uuid",
                         "x-nullable": false
                     }
                 },
@@ -11364,7 +11314,6 @@
                 },
                 "datasetId": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "Dataset id for report creation. Only applies when generating EmbedToken for report creation."
                 },
                 "allowSaveAs": {
@@ -11427,7 +11376,6 @@
                 },
                 "targetModelId": {
                     "type": "string",
-                    "format": "uuid",
                     "description": "Optional parameter <br/>When cloning a tile linked to a dataset, pass the target model id to rebind the new tile to a different dataset."
                 },
                 "positionConflictAction": {

@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="identityBlob">Preview feature: The identity blob
         /// representing the identity that the generated token should
         /// reflect</param>
-        public EffectiveIdentity(string username, IList<System.Guid> datasets, IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob))
+        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob))
         {
             Username = username;
             Roles = roles;
@@ -87,7 +87,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets an array of datasets for which this identity applies
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
-        public IList<System.Guid> Datasets { get; set; }
+        public IList<string> Datasets { get; set; }
 
         /// <summary>
         /// Gets or sets the value of customdata to be used for applying RLS

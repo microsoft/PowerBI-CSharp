@@ -162,7 +162,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetId'>
         /// The dataset id
         /// </param>
-        public static Dataset GetDataset(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static Dataset GetDataset(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetDatasetAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -182,7 +182,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Dataset> GetDatasetAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Dataset> GetDatasetAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -202,7 +202,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetId'>
         /// The dataset id
         /// </param>
-        public static void DeleteDataset(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static void DeleteDataset(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             operations.DeleteDatasetAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -222,7 +222,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task DeleteDatasetAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task DeleteDatasetAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.DeleteDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -239,7 +239,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetId'>
         /// The dataset id
         /// </param>
-        public static Tables GetTables(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static Tables GetTables(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetTablesAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -259,7 +259,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Tables> GetTablesAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Tables> GetTablesAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetTablesInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -285,7 +285,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='requestMessage'>
         /// The request message
         /// </param>
-        public static Table PutTable(this IDatasetsOperations operations, Guid groupId, Guid datasetId, string tableName, Table requestMessage)
+        public static Table PutTable(this IDatasetsOperations operations, Guid groupId, string datasetId, string tableName, Table requestMessage)
         {
             return operations.PutTableAsync(groupId, datasetId, tableName, requestMessage).GetAwaiter().GetResult();
         }
@@ -311,7 +311,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Table> PutTableAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, string tableName, Table requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Table> PutTableAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, string tableName, Table requestMessage, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.PutTableInGroupWithHttpMessagesAsync(groupId, datasetId, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false))
             {
@@ -337,7 +337,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='requestMessage'>
         /// The request message
         /// </param>
-        public static void PostRows(this IDatasetsOperations operations, Guid groupId, Guid datasetId, string tableName, object requestMessage)
+        public static void PostRows(this IDatasetsOperations operations, Guid groupId, string datasetId, string tableName, object requestMessage)
         {
             operations.PostRowsAsync(groupId, datasetId, tableName, requestMessage).GetAwaiter().GetResult();
         }
@@ -363,7 +363,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task PostRowsAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task PostRowsAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.PostRowsInGroupWithHttpMessagesAsync(groupId, datasetId, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -383,7 +383,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='tableName'>
         /// The table name
         /// </param>
-        public static void DeleteRows(this IDatasetsOperations operations, Guid groupId, Guid datasetId, string tableName)
+        public static void DeleteRows(this IDatasetsOperations operations, Guid groupId, string datasetId, string tableName)
         {
             operations.DeleteRowsAsync(groupId, datasetId, tableName).GetAwaiter().GetResult();
         }
@@ -406,7 +406,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task DeleteRowsAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, string tableName, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task DeleteRowsAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, string tableName, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.DeleteRowsInGroupWithHttpMessagesAsync(groupId, datasetId, tableName, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -427,7 +427,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// The requested number of entries in the refresh history, if not supported
         /// the default is all available entries
         /// </param>
-        public static Refreshes GetRefreshHistory(this IDatasetsOperations operations, Guid groupId, Guid datasetId, int? top = default(int?))
+        public static Refreshes GetRefreshHistory(this IDatasetsOperations operations, Guid groupId, string datasetId, int? top = default(int?))
         {
             return operations.GetRefreshHistoryAsync(groupId, datasetId, top).GetAwaiter().GetResult();
         }
@@ -451,7 +451,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Refreshes> GetRefreshHistoryAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, int? top = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Refreshes> GetRefreshHistoryAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, int? top = default(int?), CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetRefreshHistoryInGroupWithHttpMessagesAsync(groupId, datasetId, top, null, cancellationToken).ConfigureAwait(false))
             {
@@ -472,7 +472,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// The dataset id
         /// </param>
         /// <param name='refreshRequest'>
-        public static void RefreshDataset(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshRequest refreshRequest = null)
+        public static void RefreshDataset(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshRequest refreshRequest = null)
         {
             operations.RefreshDatasetAsync(groupId, datasetId, refreshRequest).GetAwaiter().GetResult();
         }
@@ -493,7 +493,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task RefreshDatasetAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task RefreshDatasetAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, refreshRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -509,7 +509,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='datasetId'>
         /// </param>
-        public static Datasources GetDatasources(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static Datasources GetDatasources(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetDatasourcesAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -528,7 +528,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Datasources> GetDatasourcesAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Datasources> GetDatasourcesAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetDatasourcesInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -549,7 +549,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='updateDatasourcesRequest'>
         /// </param>
-        public static void UpdateDatasources(this IDatasetsOperations operations, Guid groupId, Guid datasetId, UpdateDatasourcesRequest updateDatasourcesRequest)
+        public static void UpdateDatasources(this IDatasetsOperations operations, Guid groupId, string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest)
         {
             operations.UpdateDatasourcesAsync(groupId, datasetId, updateDatasourcesRequest).GetAwaiter().GetResult();
         }
@@ -570,7 +570,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateDatasourcesAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateDatasourcesAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateDatasourcesInGroupWithHttpMessagesAsync(groupId, datasetId, updateDatasourcesRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -590,7 +590,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='parameters'>
         /// The body
         /// </param>
-        public static void SetAllDatasetConnections(this IDatasetsOperations operations, Guid groupId, Guid datasetId, ConnectionDetails parameters)
+        public static void SetAllDatasetConnections(this IDatasetsOperations operations, Guid groupId, string datasetId, ConnectionDetails parameters)
         {
             operations.SetAllDatasetConnectionsAsync(groupId, datasetId, parameters).GetAwaiter().GetResult();
         }
@@ -613,7 +613,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task SetAllDatasetConnectionsAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, ConnectionDetails parameters, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task SetAllDatasetConnectionsAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, ConnectionDetails parameters, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(groupId, datasetId, parameters, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -633,7 +633,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='bindToGatewayRequest'>
         /// The bind to gateway request
         /// </param>
-        public static void BindToGateway(this IDatasetsOperations operations, Guid groupId, Guid datasetId, BindToGatewayRequest bindToGatewayRequest)
+        public static void BindToGateway(this IDatasetsOperations operations, Guid groupId, string datasetId, BindToGatewayRequest bindToGatewayRequest)
         {
             operations.BindToGatewayAsync(groupId, datasetId, bindToGatewayRequest).GetAwaiter().GetResult();
         }
@@ -656,7 +656,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task BindToGatewayAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, BindToGatewayRequest bindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task BindToGatewayAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, BindToGatewayRequest bindToGatewayRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.BindToGatewayInGroupWithHttpMessagesAsync(groupId, datasetId, bindToGatewayRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -673,7 +673,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetId'>
         /// The dataset id
         /// </param>
-        public static GatewayDatasources GetGatewayDatasources(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static GatewayDatasources GetGatewayDatasources(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetGatewayDatasourcesAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -693,7 +693,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<GatewayDatasources> GetGatewayDatasourcesAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<GatewayDatasources> GetGatewayDatasourcesAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetGatewayDatasourcesInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -713,7 +713,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetId'>
         /// The dataset id
         /// </param>
-        public static void TakeOver(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static void TakeOver(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             operations.TakeOverAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -733,7 +733,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task TakeOverAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task TakeOverAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.TakeOverInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -753,7 +753,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='requestParameters'>
         /// Generate token parameters
         /// </param>
-        public static EmbedToken GenerateToken(this IDatasetsOperations operations, Guid groupId, Guid datasetId, GenerateTokenRequest requestParameters)
+        public static EmbedToken GenerateToken(this IDatasetsOperations operations, Guid groupId, string datasetId, GenerateTokenRequest requestParameters)
         {
             return operations.GenerateTokenAsync(groupId, datasetId, requestParameters).GetAwaiter().GetResult();
         }
@@ -776,7 +776,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<EmbedToken> GenerateTokenAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<EmbedToken> GenerateTokenAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, GenerateTokenRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GenerateTokenInGroupWithHttpMessagesAsync(groupId, datasetId, requestParameters, null, cancellationToken).ConfigureAwait(false))
             {
@@ -795,7 +795,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='datasetId'>
         /// </param>
-        public static RefreshSchedule GetRefreshSchedule(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static RefreshSchedule GetRefreshSchedule(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetRefreshScheduleInGroupAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -814,7 +814,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<RefreshSchedule> GetRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<RefreshSchedule> GetRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -837,7 +837,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetModelRefreshScheduleRequest'>
         /// Patch Refresh Schedule parameters, by specifying all or some of the parameters
         /// </param>
-        public static void UpdateRefreshSchedule(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest)
+        public static void UpdateRefreshSchedule(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest)
         {
             operations.UpdateRefreshScheduleInGroupAsync(groupId, datasetId, datasetModelRefreshScheduleRequest).GetAwaiter().GetResult();
         }
@@ -860,7 +860,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, datasetModelRefreshScheduleRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -876,7 +876,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='datasetId'>
         /// </param>
-        public static DirectQueryRefreshSchedule GetDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static DirectQueryRefreshSchedule GetDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetDirectQueryRefreshScheduleInGroupAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -895,7 +895,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<DirectQueryRefreshSchedule> GetDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<DirectQueryRefreshSchedule> GetDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -918,7 +918,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetDQRefreshScheduleRequest'>
         /// Patch DirectQuery Refresh Schedule parameters, by specifying all or some of the parameters
         /// </param>
-        public static void UpdateDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid groupId, Guid datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest)
+        public static void UpdateDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid groupId, string datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest)
         {
             operations.UpdateDirectQueryRefreshScheduleInGroupAsync(groupId, datasetId, datasetDQRefreshScheduleRequest).GetAwaiter().GetResult();
         }
@@ -941,7 +941,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, datasetDQRefreshScheduleRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -973,7 +973,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Update Refresh Schedule parameters, by specifying all or some of the
         /// parameters
         /// </param>
-        public static void UpdateRefreshSchedule(this IDatasetsOperations operations, Guid datasetId, RefreshSchedule datasetModelRefreshSchedule)
+        public static void UpdateRefreshSchedule(this IDatasetsOperations operations, string datasetId, RefreshSchedule datasetModelRefreshSchedule)
         {
             operations.UpdateRefreshScheduleAsync(datasetId, new RefreshScheduleRequest { Value = datasetModelRefreshSchedule }).GetAwaiter().GetResult();
         }
@@ -1008,7 +1008,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateRefreshScheduleAsync(this IDatasetsOperations operations, Guid datasetId, RefreshSchedule datasetModelRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateRefreshScheduleAsync(this IDatasetsOperations operations, string datasetId, RefreshSchedule datasetModelRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateRefreshScheduleWithHttpMessagesAsync(datasetId, new RefreshScheduleRequest { Value = datasetModelRefreshSchedule }, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1037,7 +1037,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
         /// specifying all or some of the parameters
         /// </param>
-        public static void UpdateDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule)
+        public static void UpdateDirectQueryRefreshSchedule(this IDatasetsOperations operations, string datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule)
         {
             operations.UpdateDirectQueryRefreshScheduleAsync(datasetId, new DirectQueryRefreshScheduleRequest { Value = datasetDQRefreshSchedule }).GetAwaiter().GetResult();
         }
@@ -1069,7 +1069,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, string datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateDirectQueryRefreshScheduleWithHttpMessagesAsync(datasetId, new DirectQueryRefreshScheduleRequest { Value = datasetDQRefreshSchedule }, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1104,7 +1104,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Update Refresh Schedule parameters, by specifying all or some of the
         /// parameters
         /// </param>
-        public static void UpdateRefreshScheduleInGroup(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshSchedule datasetModelRefreshSchedule)
+        public static void UpdateRefreshScheduleInGroup(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshSchedule datasetModelRefreshSchedule)
         {
             operations.UpdateRefreshScheduleInGroupAsync(groupId, datasetId, new RefreshScheduleRequest { Value = datasetModelRefreshSchedule }).GetAwaiter().GetResult();
         }
@@ -1142,7 +1142,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateRefreshScheduleInGroupAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshSchedule datasetModelRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateRefreshScheduleInGroupAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshSchedule datasetModelRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, new RefreshScheduleRequest { Value = datasetModelRefreshSchedule }, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1174,7 +1174,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
         /// specifying all or some of the parameters
         /// </param>
-        public static void UpdateDirectQueryRefreshScheduleInGroup(this IDatasetsOperations operations, Guid groupId, Guid datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule)
+        public static void UpdateDirectQueryRefreshScheduleInGroup(this IDatasetsOperations operations, Guid groupId, string datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule)
         {
             operations.UpdateDirectQueryRefreshScheduleInGroupAsync(groupId, datasetId, new DirectQueryRefreshScheduleRequest { Value = datasetDQRefreshSchedule }).GetAwaiter().GetResult();
         }
@@ -1209,7 +1209,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateDirectQueryRefreshScheduleInGroupAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateDirectQueryRefreshScheduleInGroupAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, new DirectQueryRefreshScheduleRequest { Value = datasetDQRefreshSchedule }, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1244,7 +1244,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Update Refresh Schedule parameters, by specifying all or some of the
         /// parameters
         /// </param>
-        public static void UpdateRefreshSchedule(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshSchedule datasetModelRefreshSchedule)
+        public static void UpdateRefreshSchedule(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshSchedule datasetModelRefreshSchedule)
         {
             operations.UpdateRefreshScheduleInGroupAsync(groupId, datasetId, new RefreshScheduleRequest { Value = datasetModelRefreshSchedule }).GetAwaiter().GetResult();
         }
@@ -1282,7 +1282,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, RefreshSchedule datasetModelRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshSchedule datasetModelRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, new RefreshScheduleRequest { Value = datasetModelRefreshSchedule }, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1314,7 +1314,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
         /// specifying all or some of the parameters
         /// </param>
-        public static void UpdateDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid groupId, Guid datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule)
+        public static void UpdateDirectQueryRefreshSchedule(this IDatasetsOperations operations, Guid groupId, string datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule)
         {
             operations.UpdateDirectQueryRefreshScheduleInGroupAsync(groupId, datasetId, new DirectQueryRefreshScheduleRequest { Value = datasetDQRefreshSchedule }).GetAwaiter().GetResult();
         }
@@ -1349,7 +1349,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateDirectQueryRefreshScheduleAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, DirectQueryRefreshSchedule datasetDQRefreshSchedule, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(groupId, datasetId, new DirectQueryRefreshScheduleRequest { Value = datasetDQRefreshSchedule }, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1365,7 +1365,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='datasetId'>
         /// </param>
-        public static MashupParameters GetParameters(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static MashupParameters GetParameters(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.GetParametersInGroupAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -1384,7 +1384,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<MashupParameters> GetParametersAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<MashupParameters> GetParametersAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetParametersInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -1405,7 +1405,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </param>
         /// <param name='updateMashupParametersRequest'>
         /// </param>
-        public static void UpdateParameters(this IDatasetsOperations operations, Guid groupId, Guid datasetId, UpdateMashupParametersRequest updateMashupParametersRequest)
+        public static void UpdateParameters(this IDatasetsOperations operations, Guid groupId, string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest)
         {
             operations.UpdateParametersInGroupAsync(groupId, datasetId, updateMashupParametersRequest).GetAwaiter().GetResult();
         }
@@ -1426,7 +1426,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task UpdateParametersAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task UpdateParametersAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.UpdateParametersInGroupWithHttpMessagesAsync(groupId, datasetId, updateMashupParametersRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
@@ -1443,7 +1443,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='datasetId'>
         /// The dataset id
         /// </param>
-        public static Gateways DiscoverGateways(this IDatasetsOperations operations, Guid groupId, Guid datasetId)
+        public static Gateways DiscoverGateways(this IDatasetsOperations operations, Guid groupId, string datasetId)
         {
             return operations.DiscoverGatewaysInGroupAsync(groupId, datasetId).GetAwaiter().GetResult();
         }
@@ -1463,7 +1463,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<Gateways> DiscoverGatewaysAsync(this IDatasetsOperations operations, Guid groupId, Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Gateways> DiscoverGatewaysAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.DiscoverGatewaysInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
             {

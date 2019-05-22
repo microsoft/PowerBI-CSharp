@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -38,7 +39,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// roles</param>
         /// <param name="isOnPremGatewayRequired">Dataset requires an
         /// On-premises Data Gateway</param>
-        public Dataset(System.Guid id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
         {
             Id = id;
             Name = name;
@@ -61,7 +62,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the dataset id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public System.Guid Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets the dataset name
@@ -114,12 +115,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="Rest.ValidationException">
+        /// <exception cref="ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
+            if (Id == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Id");
+            }
         }
     }
 }

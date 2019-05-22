@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// target associated dataset id. &lt;br/&gt;If not provided, the new
         /// report will be associated with the same dataset as the source
         /// report.</param>
-        public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), System.Guid? targetModelId = default(System.Guid?))
+        public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), string targetModelId = default(string))
         {
             Name = name;
             TargetWorkspaceId = targetWorkspaceId;
@@ -71,7 +71,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// report.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
-        public System.Guid? TargetModelId { get; set; }
+        public string TargetModelId { get; set; }
 
         /// <summary>
         /// Validate the object.

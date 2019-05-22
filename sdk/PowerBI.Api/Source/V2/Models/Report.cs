@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="webUrl">The report web url</param>
         /// <param name="embedUrl">The report embed url</param>
         /// <param name="datasetId">The dataset id</param>
-        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), System.Guid? datasetId = default(System.Guid?))
+        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string))
         {
             Id = id;
             Name = name;
@@ -73,7 +73,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the dataset id
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
-        public System.Guid? DatasetId { get; set; }
+        public string DatasetId { get; set; }
 
         /// <summary>
         /// Validate the object.

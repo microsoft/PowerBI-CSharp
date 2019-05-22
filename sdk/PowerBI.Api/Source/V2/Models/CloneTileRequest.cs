@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// not provided, 'Tail' is used. &lt;br/&gt;If there is no conflict,
         /// clone tile to same position as in source. Possible values include:
         /// 'Tail', 'Abort'</param>
-        public CloneTileRequest(System.Guid targetDashboardId, System.Guid? targetWorkspaceId = default(System.Guid?), System.Guid? targetReportId = default(System.Guid?), System.Guid? targetModelId = default(System.Guid?), PositionConflictAction? positionConflictAction = default(PositionConflictAction?))
+        public CloneTileRequest(System.Guid targetDashboardId, System.Guid? targetWorkspaceId = default(System.Guid?), System.Guid? targetReportId = default(System.Guid?), string targetModelId = default(string), PositionConflictAction? positionConflictAction = default(PositionConflictAction?))
         {
             TargetDashboardId = targetDashboardId;
             TargetWorkspaceId = targetWorkspaceId;
@@ -86,7 +86,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// new tile to a different dataset.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
-        public System.Guid? TargetModelId { get; set; }
+        public string TargetModelId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the action in case

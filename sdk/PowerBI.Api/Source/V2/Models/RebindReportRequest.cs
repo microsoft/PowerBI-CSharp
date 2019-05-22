@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -27,7 +28,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         /// <param name="datasetId">The new dataset of the rebinded
         /// report</param>
-        public RebindReportRequest(System.Guid datasetId)
+        public RebindReportRequest(string datasetId)
         {
             DatasetId = datasetId;
             CustomInit();
@@ -42,17 +43,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the new dataset of the rebinded report
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
-        public System.Guid DatasetId { get; set; }
+        public string DatasetId { get; set; }
 
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="Rest.ValidationException">
+        /// <exception cref="ValidationException">
         /// Thrown if validation fails
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
+            if (DatasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "DatasetId");
+            }
         }
     }
 }

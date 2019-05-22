@@ -17,7 +17,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// token.</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(TokenAccessLevel accessLevel, Guid? datasetId, bool? allowSaveAs, EffectiveIdentity identity)
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, string datasetId, bool? allowSaveAs, EffectiveIdentity identity)
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
@@ -52,7 +52,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="datasetId">The dataset Id</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(TokenAccessLevel accessLevel, Guid? datasetId, EffectiveIdentity identity)
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, string datasetId, EffectiveIdentity identity)
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;

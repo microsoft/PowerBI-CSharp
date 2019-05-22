@@ -386,11 +386,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Dataset>> GetDatasetWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Dataset>> GetDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -405,7 +415,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -519,11 +529,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -538,7 +558,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -639,11 +659,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Tables>> GetTablesWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Tables>> GetTablesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -658,7 +688,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/tables").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -792,8 +822,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Table>> PutTableWithHttpMessagesAsync(System.Guid datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Table>> PutTableWithHttpMessagesAsync(string datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (tableName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
@@ -822,7 +856,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/tables/{tableName}").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             _url = _url.Replace("{tableName}", System.Uri.EscapeDataString(tableName));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -962,8 +996,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(System.Guid datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(string datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (tableName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
@@ -988,7 +1026,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             _url = _url.Replace("{tableName}", System.Uri.EscapeDataString(tableName));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1105,8 +1143,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteRowsWithHttpMessagesAsync(System.Guid datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteRowsWithHttpMessagesAsync(string datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (tableName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
@@ -1126,7 +1168,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             _url = _url.Replace("{tableName}", System.Uri.EscapeDataString(tableName));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1231,11 +1273,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryWithHttpMessagesAsync(System.Guid datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryWithHttpMessagesAsync(string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (top < 1)
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "top", 1);
@@ -1255,7 +1307,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/refreshes").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             List<string> _queryParameters = new List<string>();
             if (top != null)
             {
@@ -1382,11 +1434,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> RefreshDatasetWithHttpMessagesAsync(System.Guid datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> RefreshDatasetWithHttpMessagesAsync(string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (refreshRequest != null)
             {
                 refreshRequest.Validate();
@@ -1406,7 +1468,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/refreshes").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1512,11 +1574,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1531,7 +1603,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/refreshSchedule").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1667,8 +1739,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateRefreshScheduleWithHttpMessagesAsync(string datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (datasetModelRefreshScheduleRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetModelRefreshScheduleRequest");
@@ -1688,7 +1764,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/refreshSchedule").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1794,11 +1870,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1813,7 +1899,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/directQueryRefreshSchedule").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1946,8 +2032,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleWithHttpMessagesAsync(System.Guid datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleWithHttpMessagesAsync(string datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (datasetDQRefreshScheduleRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetDQRefreshScheduleRequest");
@@ -1967,7 +2057,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/directQueryRefreshSchedule").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2075,11 +2165,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<MashupParameters>> GetParametersWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<MashupParameters>> GetParametersWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -2094,7 +2194,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/parameters").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2234,8 +2334,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateParametersWithHttpMessagesAsync(System.Guid datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateParametersWithHttpMessagesAsync(string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (updateMashupParametersRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "updateMashupParametersRequest");
@@ -2259,7 +2363,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/Default.UpdateParameters").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2365,11 +2469,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -2384,7 +2498,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/datasources").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2524,8 +2638,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(System.Guid datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (updateDatasourcesRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "updateDatasourcesRequest");
@@ -2549,7 +2667,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/Default.UpdateDatasources").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2670,8 +2788,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> SetAllDatasetConnectionsWithHttpMessagesAsync(System.Guid datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> SetAllDatasetConnectionsWithHttpMessagesAsync(string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (parameters == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "parameters");
@@ -2695,7 +2817,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/Default.SetAllConnections").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2810,8 +2932,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> BindToGatewayWithHttpMessagesAsync(System.Guid datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> BindToGatewayWithHttpMessagesAsync(string datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (bindToGatewayRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "bindToGatewayRequest");
@@ -2835,7 +2961,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/Default.BindToGateway").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -2943,11 +3069,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -2962,7 +3098,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/Default.GetBoundGatewayDatasources").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3082,11 +3218,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Gateways>> DiscoverGatewaysWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Gateways>> DiscoverGatewaysWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -3101,7 +3247,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/Default.DiscoverGateways").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3530,11 +3676,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Dataset>> GetDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Dataset>> GetDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -3551,7 +3707,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3668,11 +3824,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -3689,7 +3855,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3793,11 +3959,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Tables>> GetTablesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Tables>> GetTablesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -3814,7 +3990,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -3951,8 +4127,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Table>> PutTableInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Table>> PutTableInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (tableName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
@@ -3983,7 +4163,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             _url = _url.Replace("{tableName}", System.Uri.EscapeDataString(tableName));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4126,8 +4306,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (tableName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
@@ -4154,7 +4338,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}/rows").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             _url = _url.Replace("{tableName}", System.Uri.EscapeDataString(tableName));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4274,8 +4458,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteRowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (tableName == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "tableName");
@@ -4297,7 +4485,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}/rows").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             _url = _url.Replace("{tableName}", System.Uri.EscapeDataString(tableName));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -4405,11 +4593,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (top < 1)
             {
                 throw new ValidationException(ValidationRules.InclusiveMinimum, "top", 1);
@@ -4431,7 +4629,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshes").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             List<string> _queryParameters = new List<string>();
             if (top != null)
             {
@@ -4561,11 +4759,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (refreshRequest != null)
             {
                 refreshRequest.Validate();
@@ -4587,7 +4795,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshes").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -4696,11 +4904,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<RefreshSchedule>> GetRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4717,7 +4935,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshSchedule").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -4856,8 +5074,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, RefreshScheduleRequest datasetModelRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (datasetModelRefreshScheduleRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetModelRefreshScheduleRequest");
@@ -4879,7 +5101,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshSchedule").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -4988,11 +5210,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DirectQueryRefreshSchedule>> GetDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -5009,7 +5241,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/directQueryRefreshSchedule").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -5145,8 +5377,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateDirectQueryRefreshScheduleInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DirectQueryRefreshScheduleRequest datasetDQRefreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (datasetDQRefreshScheduleRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetDQRefreshScheduleRequest");
@@ -5168,7 +5404,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/directQueryRefreshSchedule").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -5278,11 +5514,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<MashupParameters>> GetParametersInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<MashupParameters>> GetParametersInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -5299,7 +5545,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/parameters").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -5441,8 +5687,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateParametersInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateParametersInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (updateMashupParametersRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "updateMashupParametersRequest");
@@ -5468,7 +5718,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.UpdateParameters").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -5576,11 +5826,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -5597,7 +5857,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/datasources").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -5740,8 +6000,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (updateDatasourcesRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "updateDatasourcesRequest");
@@ -5767,7 +6031,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.UpdateDatasources").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -5891,8 +6155,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (parameters == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "parameters");
@@ -5918,7 +6186,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.SetAllConnections").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -6036,8 +6304,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> BindToGatewayInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> BindToGatewayInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, BindToGatewayRequest bindToGatewayRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (bindToGatewayRequest == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "bindToGatewayRequest");
@@ -6063,7 +6335,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.BindToGateway").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -6174,11 +6446,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<GatewayDatasources>> GetGatewayDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -6195,7 +6477,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.GetBoundGatewayDatasources").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -6318,11 +6600,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Gateways>> DiscoverGatewaysInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Gateways>> DiscoverGatewaysInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -6339,7 +6631,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.DiscoverGateways").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -6457,11 +6749,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> TakeOverInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> TakeOverInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -6478,7 +6780,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.TakeOver").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -6596,8 +6898,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<EmbedToken>> GenerateTokenInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<EmbedToken>> GenerateTokenInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, GenerateTokenRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             if (requestParameters == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "requestParameters");
@@ -6619,7 +6925,7 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/GenerateToken").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -6906,11 +7212,21 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -6925,7 +7241,7 @@ namespace Microsoft.PowerBI.Api.V2
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/datasets/{datasetId}/datasources").ToString();
-            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
