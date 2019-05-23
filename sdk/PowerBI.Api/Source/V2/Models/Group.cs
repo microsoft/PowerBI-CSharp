@@ -33,11 +33,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="isOnDedicatedCapacity">Is the group on dedicated
         /// capacity</param>
         /// <param name="capacityId">The capacity id</param>
-        /// <param name="description">The group description</param>
-        /// <param name="type">The type of group</param>
-        /// <param name="state">The group state</param>
+        /// <param name="description">The group description. Available only for
+        /// admin API calls.</param>
+        /// <param name="type">The type of group. Available only for admin API
+        /// calls.</param>
+        /// <param name="state">The group state. Available only for admin API
+        /// calls.</param>
         /// <param name="users">The users that belong to the group, and their
-        /// access rights.</param>
+        /// access rights. Available only for admin API calls.</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account id</param>
         public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), System.Guid? dataflowStorageId = default(System.Guid?))
@@ -91,26 +94,27 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public System.Guid? CapacityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the group description
+        /// Gets or sets the group description. Available only for admin API
+        /// calls.
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of group
+        /// Gets or sets the type of group. Available only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the group state
+        /// Gets or sets the group state. Available only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "state")]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or sets the users that belong to the group, and their access
-        /// rights.
+        /// rights. Available only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }

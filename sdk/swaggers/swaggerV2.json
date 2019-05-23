@@ -10489,19 +10489,19 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "The group description"
+                    "description": "The group description. Available only for admin API calls."
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of group"
+                    "description": "The type of group. Available only for admin API calls."
                 },
                 "state": {
                     "type": "string",
-                    "description": "The group state"
+                    "description": "The group state. Available only for admin API calls."
                 },
                 "users": {
                     "type": "array",
-                    "description": "The users that belong to the group, and their access rights.",
+                    "description": "The users that belong to the group, and their access rights. Available only for admin API calls.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
