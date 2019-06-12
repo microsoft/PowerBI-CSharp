@@ -721,13 +721,11 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
-                                        "days": [ "Sunday", "Friday", "Saturday" ],
-                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
-                                        "enabled": true,
-                                        "localTimeZoneId": "UTC",
-                                        "notifyOption": "MailOnFailure"
-                                    }
+                                    "days": [ "Sunday", "Friday", "Saturday" ],
+                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "enabled": true,
+                                    "localTimeZoneId": "UTC",
+                                    "notifyOption": "MailOnFailure"
                                 }
                             }
                         }
@@ -866,11 +864,9 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
-                                        "days": [ "Sunday", "Friday", "Saturday" ],
-                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
-                                        "localTimeZoneId": "UTC"
-                                    }
+                                    "days": [ "Sunday", "Friday", "Saturday" ],
+                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         }
@@ -882,12 +878,10 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
-                                        "frequency": 15,
-                                        "days": [],
-                                        "times": [],
-                                        "localTimeZoneId": "UTC"
-                                    }
+                                    "frequency": 15,
+                                    "days": [],
+                                    "times": [],
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         }
@@ -3317,13 +3311,11 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
-                                        "days": [ "Sunday", "Friday", "Saturday" ],
-                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
-                                        "enabled": true,
-                                        "localTimeZoneId": "UTC",
-                                        "notifyOption": "MailOnFailure"
-                                    }
+                                    "days": [ "Sunday", "Friday", "Saturday" ],
+                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "enabled": true,
+                                    "localTimeZoneId": "UTC",
+                                    "notifyOption": "MailOnFailure"
                                 }
                             }
                         }
@@ -3483,11 +3475,9 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
-                                        "days": [ "Sunday", "Friday", "Saturday" ],
-                                        "times": [ "05:00", "11:30", "17:30", "23:00" ],
-                                        "localTimeZoneId": "UTC"
-                                    }
+                                    "days": [ "Sunday", "Friday", "Saturday" ],
+                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         }
@@ -3500,12 +3490,10 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
-                                        "frequency": 15,
-                                        "days": [],
-                                        "times": [],
-                                        "localTimeZoneId": "UTC"
-                                    }
+                                    "frequency": 15,
+                                    "days": [],
+                                    "times": [],
+                                    "localTimeZoneId": "UTC"
                                 }
                             }
                         }
