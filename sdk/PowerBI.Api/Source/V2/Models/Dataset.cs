@@ -39,7 +39,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// roles</param>
         /// <param name="isOnPremGatewayRequired">Dataset requires an
         /// On-premises Data Gateway</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?))
+        /// <param name="encryption">The dataset encryption information (Only
+        /// applicable when $expand is specified)</param>
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption))
         {
             Id = id;
             Name = name;
@@ -50,6 +52,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
             IsEffectiveIdentityRequired = isEffectiveIdentityRequired;
             IsEffectiveIdentityRolesRequired = isEffectiveIdentityRolesRequired;
             IsOnPremGatewayRequired = isOnPremGatewayRequired;
+            Encryption = encryption;
             CustomInit();
         }
 
@@ -111,6 +114,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "IsOnPremGatewayRequired")]
         public bool? IsOnPremGatewayRequired { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset encryption information (Only applicable
+        /// when $expand is specified)
+        /// </summary>
+        [JsonProperty(PropertyName = "Encryption")]
+        public Encryption Encryption { get; set; }
 
         /// <summary>
         /// Validate the object.

@@ -9335,6 +9335,13 @@
                         "required": false,
                         "type": "integer",
                         "format": "int32"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -9363,6 +9370,34 @@
                                             "isEffectiveIdentityRequired": false,
                                             "isEffectiveIdentityRolesRequired": false,
                                             "isOnPremGatewayRequired": false
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Example with expand on encryption": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "$expand": "encryption"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "addRowsAPIEnabled": false,
+                                            "configuredBy": "john@contoso.com",
+                                            "isRefreshable": true,
+                                            "isEffectiveIdentityRequired": false,
+                                            "isEffectiveIdentityRolesRequired": false,
+                                            "isOnPremGatewayRequired": false,
+                                            "encryption": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "encryptionStatus": "InSyncWithWorkspace"
+                                            }
                                         }
                                     ]
                                 }
@@ -9667,6 +9702,321 @@
                 },
                 "deprecated": false
             }
+        },
+        "/v1.0/myorg/admin/tenantKeys": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Adds an encryption key for Power BI workspaces assigned to a capacity.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_AddPowerBIEncryptionKey",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tenantKeyCreationRequest",
+                        "in": "body",
+                        "description": "Tenant key information",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TenantKeyCreationRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/TenantKey"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "tenantKeyCreationRequest": {
+                                "name": "Contoso Sales",
+                                "keyVaultKeyIdentifier": "https://contoso-vault2.vault.azure.net/keys/ContosoKeyVault/b2ab4ba1c7b341eea5ecaaa2wb54c4d2",
+                                "activate": true,
+                                "isDefault": true
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                                    "name": "Contoso Sales",
+                                    "keyVaultKeyIdentifier": "https://contoso-vault2.vault.azure.net/keys/ContosoKeyVault/b2ab4ba1c7b341eea5ecaaa2wb54c4d2",
+                                    "isDefault": true,
+                                    "createdAt": "2019-04-30T21:35:15.867-07:00",
+                                    "updatedAt": "2019-04-30T21:35:15.867-07:00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns the encryption keys for the tenant.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_GetPowerBIEncryptionKeys",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/TenantKeys"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                                            "name": "Contoso Sales",
+                                            "keyVaultKeyIdentifier": "https://contoso-vault2.vault.azure.net/keys/ContosoKeyVault/b2ab4ba1c7b341eea5ecaaa2wb54c4d2",
+                                            "isDefault": true,
+                                            "createdAt": "2019-04-30T21:35:15.867-07:00",
+                                            "updatedAt": "2019-04-30T21:35:15.867-07:00"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/tenantKeys/{tenantKeyId}/Default.Rotate": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Rotate the encryption key for Power BI workspaces assigned to a capacity.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_RotatePowerBIEncryptionKey",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tenantKeyId",
+                        "description": "Tenant key id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "tenantKeyRotationRequest",
+                        "in": "body",
+                        "description": "Tenant key information",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/TenantKeyRotationRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/TenantKey"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "tenantKeyId": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                            "tenantKeyRotationRequest": {
+                                "keyVaultKeyIdentifier": "https://contoso-vault2.vault.azure.net/keys/ContosoKeyVault/b2ab4ba1c7b341eea5ecaaa2wb54c4d2"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                                    "name": "Contoso Sales",
+                                    "keyVaultKeyIdentifier": "https://contoso-vault2.vault.azure.net/keys/ContosoKeyVault/b2ab4ba1c7b341eea5ecaaa2wb54c4d2",
+                                    "isDefault": true,
+                                    "createdAt": "2019-04-30T21:35:15.867-07:00",
+                                    "updatedAt": "2019-04-30T21:35:15.867-07:00"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/capacities": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of capacities for the organization.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_GetCapacitiesAsAdmin",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Capacities"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "displayName": "MyCapacity",
+                                            "admins": [ "john@contoso.com" ],
+                                            "sku": "A1",
+                                            "state": "Active",
+                                            "region": "West Central US",
+                                            "capacityUserAccessRight": "Admin",
+                                            "tenantKeyId": "82d9a37a-2b45-4221-b012-cb109b8e30c7"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Example with expand on tenant key": {
+                        "parameters": {
+                            "$expand": "tenantKey"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                            "displayName": "MyCapacity",
+                                            "admins": [ "john@contoso.com" ],
+                                            "sku": "A1",
+                                            "state": "Active",
+                                            "region": "West Central US",
+                                            "capacityUserAccessRight": "Admin",
+                                            "tenantKeyId": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                                            "tenantKey": {
+                                                "id": "82d9a37a-2b45-4221-b012-cb109b8e30c7",
+                                                "name": "Contoso Sales",
+                                                "keyVaultKeyIdentifier": "https://contoso-vault2.vault.azure.net/keys/ContosoKeyVault/b2ab4ba1c7b341eea5ecaaa2wb54c4d2",
+                                                "isDefault": true,
+                                                "createdAt": "2019-04-30T21:35:15.867-07:00",
+                                                "updatedAt": "2019-04-30T21:35:15.867-07:00"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/capacities/{capacityId}": {
+            "patch": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Changes the specific capacity information. Currently, only supports changing the capacity encryption key",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_PatchCapacityAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "description": "The capacity Id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "capacityPatchRequest",
+                        "in": "body",
+                        "description": "Patch capacity information",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CapacityPatchRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                            "capacityPatchRequest": {
+                                "tenantKeyId": "82d9a37a-2b45-4221-b012-cb109b8e30c7"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         }
     },
     "definitions": {
@@ -9802,6 +10152,47 @@
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
                     "description": "Dataset requires an On-premises Data Gateway"
+                },
+                "Encryption": {
+                    "$ref": "#/definitions/Encryption",
+                    "description": "The dataset encryption information (Only applicable when $expand is specified)"
+                }
+            }
+        },
+        "Encryption": {
+            "description": "Encryption information for a dataset",
+            "properties": {
+                "EncryptionStatus": {
+                    "type": "string",
+                    "description": "Dataset encryption status",
+                    "enum": [
+                        "Unknown",
+                        "NotSupported",
+                        "InSyncWithWorkspace",
+                        "NotInSyncWithWorkspace"
+                    ],
+                    "x-ms-enum": {
+                        "name": "EncryptionStatus",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Unknown",
+                                "description": "Unable to determine state due to dataset corruption"
+                            },
+                            {
+                                "value": "NotSupported",
+                                "description": "Encryption is not supported for this dataset"
+                            },
+                            {
+                                "value": "InSyncWithWorkspace",
+                                "description": "Encryption is supported and is in sync with the encryption settings"
+                            },
+                            {
+                                "value": "NotInSyncWithWorkspace",
+                                "description": "Encryption is supported and not in sync with the encryption settings"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -11569,6 +11960,15 @@
                 "region": {
                     "type": "string",
                     "description": "The Azure region where the capacity is provisioned"
+                },
+                "tenantKeyId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The id of the encryption key (Only applicable for admin route)"
+                },
+                "tenantKey": {
+                    "$ref": "#/definitions/TenantKey",
+                    "description": "Encryption key information (Only applicable for admin route)"
                 }
             }
         },
@@ -11908,6 +12308,93 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account id. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId."
+                }
+            }
+        },
+        "TenantKeyCreationRequest": {
+            "description": "Add encryption key request",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the encryption key"
+                },
+                "keyVaultKeyIdentifier": {
+                    "type": "string",
+                    "description": "Uri to the version of the Azure Key Vault key to be used"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Indicates that this key is set as default for the entire tenant. Any new capacity creation will inherit this key upon creation"
+                },
+                "activate": {
+                    "type": "boolean",
+                    "description": "Indicates to activate any inactivated capacities to use this key for its encryption"
+                }
+            }
+        },
+        "TenantKeys": {
+            "description": "Encryption keys information",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "Encryption keys",
+                    "items": {
+                        "$ref": "#/definitions/TenantKey"
+                    }
+                }
+            }
+        },
+        "TenantKey": {
+            "description": "Encryption key information",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The id of the encryption key"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the encryption key"
+                },
+                "keyVaultKeyIdentifier": {
+                    "type": "string",
+                    "description": "Uri to the version of the Azure Key Vault key"
+                },
+                "isDefault": {
+                    "type": "boolean",
+                    "description": "Indicates that this key is set as default for the entire tenant. Any new capacity creation will inherit this key upon creation"
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Encryption key creation time"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Encryption key last update time"
+                }
+            }
+        },
+        "TenantKeyRotationRequest": {
+            "description": "Rotate encryption key request",
+            "properties": {
+                "keyVaultKeyIdentifier": {
+                    "type": "string",
+                    "description": "Uri to the version of the Azure Key Vault key to be used"
+                }
+            }
+        },
+        "CapacityPatchRequest": {
+            "description": "Patch capacity request",
+            "properties": {
+                "tenantKeyId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The id of the encryption key"
                 }
             }
         }

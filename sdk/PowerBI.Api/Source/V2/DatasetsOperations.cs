@@ -7357,6 +7357,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='skip'>
         /// Skips the first n results
         /// </param>
+        /// <param name='expand'>
+        /// Expands related entities inline
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -7372,7 +7375,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Datasets>> GetDatasetsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Datasets>> GetDatasetsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -7385,6 +7388,7 @@ namespace Microsoft.PowerBI.Api.V2
                 tracingParameters.Add("filter", filter);
                 tracingParameters.Add("top", top);
                 tracingParameters.Add("skip", skip);
+                tracingParameters.Add("expand", expand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetDatasetsInGroupAsAdmin", tracingParameters);
             }
@@ -7404,6 +7408,10 @@ namespace Microsoft.PowerBI.Api.V2
             if (skip != null)
             {
                 _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
+            if (expand != null)
+            {
+                _queryParameters.Add(string.Format("$expand={0}", System.Uri.EscapeDataString(expand)));
             }
             if (_queryParameters.Count > 0)
             {

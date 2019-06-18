@@ -40,7 +40,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="sku">The capacity SKU.</param>
         /// <param name="region">The Azure region where the capacity is
         /// provisioned</param>
-        public Capacity(System.Guid id, CapacityState state, CapacityUserAccessRight capacityUserAccessRight, string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string region = default(string))
+        /// <param name="tenantKeyId">The id of the encryption key (Only
+        /// applicable for admin route)</param>
+        /// <param name="tenantKey">Encryption key information (Only applicable
+        /// for admin route)</param>
+        public Capacity(System.Guid id, CapacityState state, CapacityUserAccessRight capacityUserAccessRight, string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string region = default(string), System.Guid? tenantKeyId = default(System.Guid?), TenantKey tenantKey = default(TenantKey))
         {
             Id = id;
             DisplayName = displayName;
@@ -49,6 +53,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
             State = state;
             CapacityUserAccessRight = capacityUserAccessRight;
             Region = region;
+            TenantKeyId = tenantKeyId;
+            TenantKey = tenantKey;
             CustomInit();
         }
 
@@ -102,6 +108,20 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "region")]
         public string Region { get; set; }
+
+        /// <summary>
+        /// Gets or sets the id of the encryption key (Only applicable for
+        /// admin route)
+        /// </summary>
+        [JsonProperty(PropertyName = "tenantKeyId")]
+        public System.Guid? TenantKeyId { get; set; }
+
+        /// <summary>
+        /// Gets or sets encryption key information (Only applicable for admin
+        /// route)
+        /// </summary>
+        [JsonProperty(PropertyName = "tenantKey")]
+        public TenantKey TenantKey { get; set; }
 
         /// <summary>
         /// Validate the object.
