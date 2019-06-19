@@ -1352,7 +1352,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway. This only supports the On-Premises Data Gateway.",
+                "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
@@ -1385,11 +1385,23 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "example without datasourceIds": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
-                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"								
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+					"example with datasourceIds": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "bindToGatewayRequest": {
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+								"datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
                             }
                         },
                         "responses": {
@@ -4020,7 +4032,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from the specified workspace to the specified gateway. Only supported for the On-Premises Data Gateway.",
+                "summary": "Binds the specified dataset from the specified workspace to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
@@ -4061,12 +4073,25 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "example without datasourceIds": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
-                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"								
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+					"example with datasourceIds": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "bindToGatewayRequest": {
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+								"datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
                             }
                         },
                         "responses": {
@@ -11093,6 +11118,15 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The gateway id"
+                },
+				"datasourceObjectIds": {
+                    "type": "array",
+                    "description": "datasourceObjectIds belonging to the gateway",
+					"items": {
+                        "type": "string",
+						"format": "uuid",
+                        "description": "The datasource id"
+                    }
                 }
             }
         },

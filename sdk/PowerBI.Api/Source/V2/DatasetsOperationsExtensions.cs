@@ -1040,7 +1040,8 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Binds the specified dataset from **"My Workspace"** to the specified
-            /// gateway. This only supports the On-Premises Data Gateway.
+            /// gateway with (optional) given set of datasource Ids. This only supports the
+            /// On-Premises Data Gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -1063,7 +1064,8 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Binds the specified dataset from **"My Workspace"** to the specified
-            /// gateway. This only supports the On-Premises Data Gateway.
+            /// gateway with (optional) given set of datasource Ids. This only supports the
+            /// On-Premises Data Gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -2320,7 +2322,8 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Binds the specified dataset from the specified workspace to the specified
-            /// gateway. Only supported for the On-Premises Data Gateway.
+            /// gateway with (optional) given set of datasource Ids. This only supports the
+            /// On-Premises Data Gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -2346,7 +2349,8 @@ namespace Microsoft.PowerBI.Api.V2
 
             /// <summary>
             /// Binds the specified dataset from the specified workspace to the specified
-            /// gateway. Only supported for the On-Premises Data Gateway.
+            /// gateway with (optional) given set of datasource Ids. This only supports the
+            /// On-Premises Data Gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the

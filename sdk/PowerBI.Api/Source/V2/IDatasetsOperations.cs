@@ -627,7 +627,8 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse> SetAllDatasetConnectionsWithHttpMessagesAsync(string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Binds the specified dataset from **"My Workspace"** to the
-        /// specified gateway. This only supports the On-Premises Data Gateway.
+        /// specified gateway with (optional) given set of datasource Ids. This
+        /// only supports the On-Premises Data Gateway.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
@@ -1377,7 +1378,8 @@ namespace Microsoft.PowerBI.Api.V2
         Task<HttpOperationResponse> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Binds the specified dataset from the specified workspace to the
-        /// specified gateway. Only supported for the On-Premises Data Gateway.
+        /// specified gateway with (optional) given set of datasource Ids. This
+        /// only supports the On-Premises Data Gateway.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
