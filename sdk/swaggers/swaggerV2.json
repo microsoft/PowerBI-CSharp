@@ -11668,7 +11668,7 @@
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "Optional parameter for specifying the target associated dataset id. <br/>If not provided, the new report will be associated with the same dataset as the source report."
+                    "description": "Optional parameter for specifying the target associated dataset id. <br/>If not provided, the new report will be associated with the same dataset as the source report and it must be cloned within the same workspace as the source report."
                 }
             }
         },

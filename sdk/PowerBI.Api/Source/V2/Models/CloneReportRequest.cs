@@ -35,7 +35,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="targetModelId">Optional parameter for specifying the
         /// target associated dataset id. &lt;br/&gt;If not provided, the new
         /// report will be associated with the same dataset as the source
-        /// report.</param>
+        /// report and it must be cloned within the same workspace as the
+        /// source report.</param>
         public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), string targetModelId = default(string))
         {
             Name = name;
@@ -68,7 +69,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets optional parameter for specifying the target
         /// associated dataset id. &amp;lt;br/&amp;gt;If not provided, the new
         /// report will be associated with the same dataset as the source
-        /// report.
+        /// report and it must be cloned within the same workspace as the
+        /// source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
         public string TargetModelId { get; set; }
