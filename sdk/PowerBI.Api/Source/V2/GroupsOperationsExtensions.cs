@@ -20,7 +20,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
-            /// have their new group immediately available.&lt;br/&gt;&lt;br/&gt;**Required
+            /// have their new group immediately available, see [Refresh user
+            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).&lt;br/&gt;&lt;br/&gt;**Required
             /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -47,7 +48,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
-            /// have their new group immediately available.&lt;br/&gt;&lt;br/&gt;**Required
+            /// have their new group immediately available, see [Refresh user
+            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).&lt;br/&gt;&lt;br/&gt;**Required
             /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -216,9 +218,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Grants the specified user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**: &lt;li&gt; Only Admin access right is supported.
-            /// &lt;/li&gt; &lt;li&gt; Users that have been recently added to a group may
-            /// not have their new group immediately available.
+            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users that have been recently added to a
+            /// group may not have their new group immediately available, see [Refresh user
+            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).
             /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
             /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
             /// [Register an
@@ -242,9 +244,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Grants the specified user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**: &lt;li&gt; Only Admin access right is supported.
-            /// &lt;/li&gt; &lt;li&gt; Users that have been recently added to a group may
-            /// not have their new group immediately available.
+            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users that have been recently added to a
+            /// group may not have their new group immediately available, see [Refresh user
+            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).
             /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
             /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
             /// [Register an
@@ -265,6 +267,59 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task AddGroupUserAsync(this IGroupsOperations operations, System.Guid groupId, GroupUser userDetails, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.AddGroupUserWithHttpMessagesAsync(groupId, userDetails, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Update the specified user permissions to the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users permissions that have been recently
+            /// updated may not have their new permissions immediately updated.
+            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='userDetails'>
+            /// Details of user access right
+            /// </param>
+            public static void UpdateGroupUser(this IGroupsOperations operations, System.Guid groupId, GroupUser userDetails)
+            {
+                operations.UpdateGroupUserAsync(groupId, userDetails).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Update the specified user permissions to the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users permissions that have been recently
+            /// updated may not have their new permissions immediately updated.
+            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='userDetails'>
+            /// Details of user access right
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdateGroupUserAsync(this IGroupsOperations operations, System.Guid groupId, GroupUser userDetails, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdateGroupUserWithHttpMessagesAsync(groupId, userDetails, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

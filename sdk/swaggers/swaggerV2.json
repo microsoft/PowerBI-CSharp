@@ -7622,7 +7622,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of workspaces the user has access to.",
-                "description": "<br/>**Note**: Users that have been recently added to a group may not have their new group immediately available.<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**: Users that have been recently added to a group may not have their new group immediately available, see [Refresh user permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroups",
                 "consumes": [
 
@@ -7911,8 +7911,73 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user permissions to the specified workspace.",
-                "description": "<br/>**Notes**: <li> Only Admin access right is supported. </li> <li> Users that have been recently added to a group may not have their new group immediately available. </li><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Notes**: <li> Users that have been recently added to a group may not have their new group immediately available, see [Refresh user permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions). </li><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddGroupUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GroupUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "userDetails": {
+                                "emailAddress": "john@contoso.com",
+                                "groupUserAccessRight": "Admin"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "example for giving Admin access right to a service principal": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "userDetails": {
+                                "identifier": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                                "groupUserAccessRight": "Admin",
+                                "principalType": "App"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Groups"
+                ],
+                "summary": "Update the specified user permissions to the specified workspace.",
+                "description": "<br/>**Notes**: <li> Users permissions that have been recently updated may not have their new permissions immediately updated. </li><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Groups_UpdateGroupUser",
                 "consumes": [
                     "application/json"
                 ],
