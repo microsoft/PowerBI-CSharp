@@ -30,12 +30,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="description">The dataflow description</param>
         /// <param name="modelUrl">A URL to the dataflow definition file
         /// (model.json)</param>
-        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string))
+        /// <param name="configuredBy">The dataflow owner</param>
+        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string))
         {
             ObjectId = objectId;
             Name = name;
             Description = description;
             ModelUrl = modelUrl;
+            ConfiguredBy = configuredBy;
             CustomInit();
         }
 
@@ -67,6 +69,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "modelUrl")]
         public string ModelUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataflow owner
+        /// </summary>
+        [JsonProperty(PropertyName = "configuredBy")]
+        public string ConfiguredBy { get; set; }
 
         /// <summary>
         /// Validate the object.

@@ -6650,7 +6650,7 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Returns a list of all of datasources defined in the specified dataflow.",
+                "summary": "Returns a list of datasources for the specified dataflow.",
                 "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowDataSources",
                 "consumes": [],
@@ -9498,6 +9498,86 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/groups/{groupId}/dataflows": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of dataflows from the specified workspace.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Dataflows"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "objectId": "bd32e5c0-363f-430b-a03b-5535a4804b9b",
+                                            "name": "AdventureWorks",
+                                            "description": "Our Adventure Works",
+                                            "modelUrl": "https://MyDataflowStorageAccount.dfs.core.windows.net/powerbi/contoso/AdventureWorks/model.json",
+                                            "configuredBy": "john@contoso.com"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
 
         "/v1.0/myorg/admin/reports": {
             "get": {
@@ -9698,7 +9778,7 @@
                 "deprecated": false
             }
         },
-
+         
         "/v1.0/myorg/admin/imports": {
             "get": {
                 "tags": [
@@ -10101,6 +10181,171 @@
                         },
                         "responses": {
                             "200": {
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/admin/dataflows": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of dataflows for the organization.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results, based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Dataflows"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "objectId": "bd32e5c0-363f-430b-a03b-5535a4804b9b",
+                                            "name": "AdventureWorks",
+                                            "description": "Our Adventure Works",
+                                            "modelUrl": "https://MyDataflowStorageAccount.dfs.core.windows.net/powerbi/contoso/AdventureWorks/model.json",
+                                            "configuredBy": "john@contoso.com"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/dataflows/{dataflowId}/export": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Exports the specified dataflow definition to a .json file.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_ExportDataflowAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Exported Json file",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/dataflows/{dataflowId}/datasources": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of datasources for the specified dataflow.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Datasources"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "dataflowId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "name": "301",
+                                            "connectionString": "data source=MyServer.database.windows.net;initial catalog=MyDatabase;persist security info=True;encrypt=True;trustservercertificate=False",
+                                            "datasourceType": "Sql",
+                                            "datasourceId": "16a54ccd-620d-4af3-9197-0b8c779a9a6d",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "server": "MyServer.database.windows.net",
+                                                "database": "MyDatabase"
+                                            }
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
@@ -12342,6 +12587,10 @@
                 "modelUrl": {
                     "type": "string",
                     "description": "A URL to the dataflow definition file (model.json)"
+                },
+                "configuredBy": {
+                    "type": "string",
+                    "description": "The dataflow owner"
                 }
             }
         },

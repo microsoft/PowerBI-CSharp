@@ -99,8 +99,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse> RefreshDataflowWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of all of datasources defined in the specified
-        /// dataflow.
+        /// Returns a list of datasources for the specified dataflow.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
@@ -183,5 +182,130 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse> UpdateRefreshScheduleWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, RefreshScheduleRequest refreshScheduleRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of dataflows from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
+        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='filter'>
+        /// Filters the results, based on a boolean condition
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Dataflows>> GetDataflowsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of dataflows for the organization.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
+        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='filter'>
+        /// Filters the results, based on a boolean condition
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Dataflows>> GetDataflowsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Exports the specified dataflow definition to a .json file.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All&lt;br/&gt;Application only and delegated
+        /// permissions are supported.&lt;br/&gt;To set the permissions scope,
+        /// see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Stream>> ExportDataflowAsAdminWithHttpMessagesAsync(System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of datasources for the specified dataflow.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All&lt;br/&gt;Application only and delegated
+        /// permissions are supported.&lt;br/&gt;To set the permissions scope,
+        /// see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Datasources>> GetDataflowDatasourcesAsAdminWithHttpMessagesAsync(System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

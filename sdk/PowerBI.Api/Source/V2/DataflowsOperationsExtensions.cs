@@ -166,7 +166,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of all of datasources defined in the specified dataflow.
+            /// Returns a list of datasources for the specified dataflow.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
@@ -188,7 +188,7 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of all of datasources defined in the specified dataflow.
+            /// Returns a list of datasources for the specified dataflow.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
@@ -310,6 +310,231 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task UpdateRefreshScheduleAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshScheduleRequest refreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateRefreshScheduleWithHttpMessagesAsync(groupId, dataflowId, refreshScheduleRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of dataflows from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static Dataflows GetDataflowsInGroupAsAdmin(this IDataflowsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDataflowsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of dataflows from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dataflows> GetDataflowsInGroupAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDataflowsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of dataflows for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static Dataflows GetDataflowsAsAdmin(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetDataflowsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of dataflows for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results, based on a boolean condition
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Dataflows> GetDataflowsAsAdminAsync(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDataflowsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Exports the specified dataflow definition to a .json file.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+            /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            public static Stream ExportDataflowAsAdmin(this IDataflowsOperations operations, System.Guid dataflowId)
+            {
+                return operations.ExportDataflowAsAdminAsync(dataflowId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Exports the specified dataflow definition to a .json file.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+            /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Stream> ExportDataflowAsAdminAsync(this IDataflowsOperations operations, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                var _result = await operations.ExportDataflowAsAdminWithHttpMessagesAsync(dataflowId, null, cancellationToken).ConfigureAwait(false);
+                _result.Request.Dispose();
+                return _result.Body;
+            }
+
+            /// <summary>
+            /// Returns a list of datasources for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+            /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            public static Datasources GetDataflowDatasourcesAsAdmin(this IDataflowsOperations operations, System.Guid dataflowId)
+            {
+                return operations.GetDataflowDatasourcesAsAdminAsync(dataflowId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of datasources for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All&lt;br/&gt;Application only and delegated permissions are
+            /// supported.&lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Datasources> GetDataflowDatasourcesAsAdminAsync(this IDataflowsOperations operations, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDataflowDatasourcesAsAdminWithHttpMessagesAsync(dataflowId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }
