@@ -639,7 +639,7 @@
                     "Datasets"
                 ],
                 "summary": "Triggers a refresh for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)<br/>In Premium capacities this call is not limited in number of times per day, but only by the available resources in the capacity, hence if overloaded, the refresh execution may be throttled until the load is reduced. If this throttling exceeds 1 hour, the refresh will fail.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_RefreshDataset",
                 "consumes": [
                     "application/json"
@@ -3223,7 +3223,7 @@
                     "Datasets"
                 ],
                 "summary": "Triggers a refresh for the specified dataset from the specified workspace.",
-                "description": "<br/>In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)<br/>In Premium capacities this call is not limited in number of times per day, but only by the available resources in the capacity, hence if overloaded, the refresh execution may be throttled until the load is reduced. If this throttling exceeds 1 hour, the refresh will fail.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
                     "application/json"
