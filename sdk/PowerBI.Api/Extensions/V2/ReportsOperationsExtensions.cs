@@ -363,6 +363,112 @@ namespace Microsoft.PowerBI.Api.V2
         }
 
         /// <summary>
+        /// Returns a list of pages within the specified report from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        public static Pages GetPages(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
+        {
+            return operations.GetPagesAsync(groupId, reportId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns a list of pages within the specified report from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<Pages> GetPagesAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetPagesInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Returns the specified page within the specified report from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='pageName'>
+        /// The page name
+        /// </param>
+        public static Page GetPage(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, string pageName)
+        {
+            return operations.GetPageAsync(groupId, reportId, pageName).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns the specified page within the specified report from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='pageName'>
+        /// The page name
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<Page> GetPageAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, string pageName, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetPageInGroupWithHttpMessagesAsync(groupId, reportId, pageName, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
         /// Generate token to create a new report on a given dataset
         /// </summary>
         /// <param name='operations'>

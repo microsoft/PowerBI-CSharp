@@ -1389,19 +1389,19 @@
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
-                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"								
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"
                             }
                         },
                         "responses": {
                             "200": {}
                         }
                     },
-					"example with datasourceIds": {
+                    "example with datasourceIds": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
                                 "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-								"datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
+                                "datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
                             }
                         },
                         "responses": {
@@ -2190,6 +2190,125 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/pages": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns a list of pages within the specified report from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetPages",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Pages"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "displayName": "Regional Sales Analysis",
+                                            "name": "ReportSection",
+                                            "order": "0"
+                                        },
+                                        {
+                                            "displayName": "Geographic Analysis",
+                                            "name": "ReportSection1",
+                                            "order": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/pages/{pageName}": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns the specified page within the specified report from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetPage",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "pageName",
+                        "in": "path",
+                        "required": true,
+                        "description": "The page name",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Page"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11",
+                            "pageName": "ReportSection"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "displayName": "Regional Sales Analysis",
+                                    "name": "ReportSection",
+                                    "order": "0"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -4078,20 +4197,20 @@
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
-                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"								
+                                "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"
                             }
                         },
                         "responses": {
                             "200": {}
                         }
                     },
-					"example with datasourceIds": {
+                    "example with datasourceIds": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
                                 "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-								"datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
+                                "datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
                             }
                         },
                         "responses": {
@@ -5007,6 +5126,143 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/pages": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns a list of pages within the specified report from the specified workspace.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetPagesInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Pages"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "displayName": "Regional Sales Analysis",
+                                            "name": "ReportSection",
+                                            "order": "0"
+                                        },
+                                        {
+                                            "displayName": "Geographic Analysis",
+                                            "name": "ReportSection1",
+                                            "order": "1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/pages/{pageName}": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns the specified page within the specified report from the specified workspace.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetPageInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "pageName",
+                        "in": "path",
+                        "required": true,
+                        "description": "The page name",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Page"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11",
+                            "pageName": "ReportSection"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "displayName": "Regional Sales Analysis",
+                                    "name": "ReportSection",
+                                    "order": "0"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -9778,7 +10034,7 @@
                 "deprecated": false
             }
         },
-         
+
         "/v1.0/myorg/admin/imports": {
             "get": {
                 "tags": [
@@ -10937,6 +11193,22 @@
                 }
             }
         },
+        "Pages": {
+            "description": "Odata response wrapper for a Power BI page collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The page collection",
+                    "items": {
+                        "$ref": "#/definitions/Page"
+                    }
+                }
+            }
+        },
         "Dashboards": {
             "description": "Odata response wrapper for a Power BI dashboard collection",
             "properties": {
@@ -11103,6 +11375,24 @@
                 "datasetId": {
                     "type": "string",
                     "description": "The dataset id"
+                }
+            }
+        },
+        "Page": {
+            "description": "A Power BI report page",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The page name"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The page display name"
+                },
+                "order": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The page order"
                 }
             }
         },
@@ -11429,12 +11719,12 @@
                     "format": "uuid",
                     "description": "The gateway id"
                 },
-				"datasourceObjectIds": {
+                "datasourceObjectIds": {
                     "type": "array",
                     "description": "datasourceObjectIds belonging to the gateway",
-					"items": {
+                    "items": {
                         "type": "string",
-						"format": "uuid",
+                        "format": "uuid",
                         "description": "The datasource id"
                     }
                 }
