@@ -1747,6 +1747,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -1927,7 +1928,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// workspace experience. Only name and description can be updated, and name
         /// must be unique inside an organization. The user must have administrator
         /// rights (such as Office 365 Global Administrator or Power BI Service
-        /// Administrator) to call this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Administrator) to call this API. &lt;br/&gt;This API allows 200 requests
+        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -2065,9 +2067,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** This API is currently limited to updating workspaces in the new
         /// workspace experience. The user must have administrator rights (such as
         /// Office 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// this API. &lt;br/&gt;This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All&lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -2207,9 +2210,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note:** This API is currently limited to updating workspaces in the new
         /// workspace experience. The user must have administrator rights (such as
         /// Office 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// this API. &lt;br/&gt;This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All&lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -2341,9 +2345,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// **Note**: This API is currently limited to restoring workspaces in the new
         /// workspace experience. The user must have administrator rights (such as
         /// Office 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// this API. &lt;br/&gt;This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All&lt;br/&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

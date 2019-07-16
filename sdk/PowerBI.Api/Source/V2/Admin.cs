@@ -52,6 +52,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;This API allows 600 requests per hour at maximum.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -338,6 +339,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office 365
         /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;This API allows 600 requests per hour at maximum.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).

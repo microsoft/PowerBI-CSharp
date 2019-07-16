@@ -8987,7 +8987,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API processes each request for 2 seconds, in the mean time other requests will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [
 
@@ -9060,7 +9060,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasources for the specified dataset.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API processes each request for 0.5 seconds, in the mean time other requests  will be queued. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [
 
@@ -9120,7 +9120,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [
 
@@ -9235,6 +9235,142 @@
                             }
                         }
                     },
+                    "Get workspaces with reports expanded": {
+                        "parameters": {
+                            "$expand": "reports",
+                            "$top": 100,
+                            "skip": 0
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value":  [
+                                        {
+                                          "id": "EC1EE11F-845D-495E-82A3-9DAC2072305A",
+                                          "isReadOnly": false,
+                                          "isOnDedicatedCapacity": false,
+                                          "capacityMigrationStatus": "Migrated",
+                                          "description": "cvcv",
+                                          "type": "Workspace",
+                                          "state": "Active",
+                                          "name": "WSv2Test12",
+                                          "reports": []
+                                        },
+                                        {
+                                          "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
+                                          "isReadOnly": false,
+                                          "isOnDedicatedCapacity": false,
+                                          "capacityMigrationStatus": "Migrated",
+                                          "description": "shorter description",
+                                          "type": "Workspace",
+                                          "state": "Removing",
+                                          "name": "a",
+                                          "reports": [
+                                            {
+                                              "id": "5DBA60B0-D9A7-42AE-B12C-6D9D51E7739A",
+                                              "reportType": "PowerBIReport",
+                                              "name": "SQlAzure-Refresh",
+                                              "datasetId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
+                                            },
+                                            {
+                                              "id": "197E5C3C-D2F3-42D8-A536-875FB6D7D48C",
+                                              "reportType": "PowerBIReport",
+                                              "name": "NESGames",
+                                              "datasetId": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69"
+                                            }
+                                          ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get workspaces with dashboards expanded": {
+                        "parameters": {
+                            "$expand": "dashboards",
+                            "$top": 100,
+                            "skip": 0
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value":  [
+                                        {
+                                            "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "capacityMigrationStatus": "Migrated",
+                                            "description": "shorter description",
+                                            "type": "Workspace",
+                                            "state": "Removing",
+                                            "name": "a",
+                                            "dashboards": [
+                                              {
+                                                "id": "4668133c-ae3f-42fb-ad7c-214a8623280c",
+                                                "displayName": "SQlAzure-Refresh.pbix",
+                                                "isReadOnly": false
+                                              },
+                                              {
+                                                "id": "a8f18ca7-63e8-4220-bc1c-f576ec180b98",
+                                                "displayName": "cdvc",
+                                                "isReadOnly": false
+                                              }
+                                            ]
+                                          }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get workspaces with datasets expanded": {
+                        "parameters": {
+                            "$expand": "datasets",
+                            "$top": 100,
+                            "skip": 0
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value":  [
+                                        {
+                                            "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "capacityMigrationStatus": "Migrated",
+                                            "description": "shorter description",
+                                            "type": "Workspace",
+                                            "state": "Removing",
+                                            "name": "a",
+                                            "datasets": [
+                                              {
+                                                "id": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                                                "name": "SQlAzure-Refresh",
+                                                "addRowsAPIEnabled": false,
+                                                "configuredBy": "admin@granularcontrols.ccsctp.net",
+                                                "isRefreshable": true,
+                                                "isEffectiveIdentityRequired": false,
+                                                "isEffectiveIdentityRolesRequired": false,
+                                                "isOnPremGatewayRequired": false,
+                                                "targetStorageMode": "Abf"
+                                              },
+                                              {
+                                                "id": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69",
+                                                "name": "NESGames",
+                                                "addRowsAPIEnabled": false,
+                                                "configuredBy": "admin@granularcontrols.ccsctp.net",
+                                                "isRefreshable": true,
+                                                "isEffectiveIdentityRequired": false,
+                                                "isEffectiveIdentityRolesRequired": false,
+                                                "isOnPremGatewayRequired": false,
+                                                "targetStorageMode": "Abf"
+                                              }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
                     "Get deleted workspaces (only applicable for workspaces in the new workspace experience)": {
                         "parameters": {
                             "$top": 100,
@@ -9316,7 +9452,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the specified workspace properties.",
-                "description": "**Note**: This API is currently limited to updating workspaces in the new workspace experience. Only name and description can be updated, and name must be unique inside an organization. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: This API is currently limited to updating workspaces in the new workspace experience. Only name and description can be updated, and name must be unique inside an organization. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [
 
@@ -9371,7 +9507,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -9426,7 +9562,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions to the specified workspace.",
-                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [
 
@@ -9476,7 +9612,7 @@
                     "Admin"
                 ],
                 "summary": "Restores a deleted workspace.",
-                "description": "**Note**: This API is currently limited to restoring workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note**: This API is currently limited to restoring workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_RestoreDeletedGroupAsAdmin",
                 "consumes": [
                     "application/json"
@@ -9531,7 +9667,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
                 "consumes": [
 
@@ -9610,7 +9746,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
                 "consumes": [
 
@@ -9690,7 +9826,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
                 "consumes": [
 
@@ -9960,7 +10096,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [
 
@@ -10029,7 +10165,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetTilesAsAdmin",
                 "consumes": [
 
@@ -10183,7 +10319,7 @@
                     "Admin"
                 ],
                 "summary": "Adds an encryption key for Power BI workspaces assigned to a capacity.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 600 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_AddPowerBIEncryptionKey",
                 "consumes": [
                     "application/json"
@@ -10289,7 +10425,7 @@
                     "Admin"
                 ],
                 "summary": "Rotate the encryption key for Power BI workspaces assigned to a capacity.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 600 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_RotatePowerBIEncryptionKey",
                 "consumes": [
                     "application/json"
