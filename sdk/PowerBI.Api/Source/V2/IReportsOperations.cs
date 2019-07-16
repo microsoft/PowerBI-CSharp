@@ -214,7 +214,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse> RebindReportWithHttpMessagesAsync(System.Guid reportId, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of report pages from **"My Workspace"**.
+        /// Returns a list of pages within the specified report from **"My
+        /// Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
@@ -239,7 +240,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Pages>> GetPagesWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified report page from **"My Workspace"**.
+        /// Returns the specified page within the specified report from **"My
+        /// Workspace"**.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
@@ -484,7 +486,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse> RebindReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of report pages from the specified workspace..
+        /// Returns a list of pages within the specified report from the
+        /// specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
@@ -512,7 +515,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Pages>> GetPagesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified report page from the specified workspace.
+        /// Returns the specified page within the specified report from the
+        /// specified workspace.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or

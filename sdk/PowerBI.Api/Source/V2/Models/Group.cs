@@ -41,9 +41,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// calls.</param>
         /// <param name="users">The users that belong to the group, and their
         /// access rights. Available only for admin API calls.</param>
+        /// <param name="reports">The reports that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="dashboards">The dashboards that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="datasets">The datasets that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="dataflows">The dataflows that belong to the group.
+        /// Available only for admin API calls.</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account id</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), System.Guid? dataflowStorageId = default(System.Guid?))
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -54,6 +62,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
             Type = type;
             State = state;
             Users = users;
+            Reports = reports;
+            Dashboards = dashboards;
+            Datasets = datasets;
+            Dataflows = dataflows;
             DataflowStorageId = dataflowStorageId;
             CustomInit();
         }
@@ -120,6 +132,34 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public IList<GroupUser> Users { get; set; }
 
         /// <summary>
+        /// Gets or sets the reports that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "reports")]
+        public IList<Report> Reports { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dashboards that belong to the group. Available
+        /// only for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "dashboards")]
+        public IList<Dashboard> Dashboards { get; set; }
+
+        /// <summary>
+        /// Gets or sets the datasets that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "datasets")]
+        public IList<Dataset> Datasets { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataflows that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "dataflows")]
+        public IList<Dataflow> Dataflows { get; set; }
+
+        /// <summary>
         /// Gets or sets the Power BI dataflow storage account id
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
@@ -140,6 +180,46 @@ namespace Microsoft.PowerBI.Api.V2.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Reports != null)
+            {
+                foreach (var element1 in Reports)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
+            if (Dashboards != null)
+            {
+                foreach (var element2 in Dashboards)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
+                    }
+                }
+            }
+            if (Datasets != null)
+            {
+                foreach (var element3 in Datasets)
+                {
+                    if (element3 != null)
+                    {
+                        element3.Validate();
+                    }
+                }
+            }
+            if (Dataflows != null)
+            {
+                foreach (var element4 in Dataflows)
+                {
+                    if (element4 != null)
+                    {
+                        element4.Validate();
                     }
                 }
             }

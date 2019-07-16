@@ -9132,7 +9132,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows",
                         "required": false,
                         "type": "string"
                     },
@@ -9252,6 +9252,54 @@
                                             "description": "Deleted sample group",
                                             "type": "Workspace",
                                             "state": "Deleted"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get workspaces with datasets expanded (only applicable for workspaces in the new workspace experience)": {
+                        "parameters": {
+                            "$expand": "datasets"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "name": "Sample Group 1",
+                                            "description": "Sample group",
+                                            "type": "Workspace",
+                                            "state": "Active",
+                                            "datasets": [
+                                                {
+                                                    "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                    "name": "SalesMarketing",
+                                                    "addRowsAPIEnabled": false,
+                                                    "configuredBy": "john@contoso.com",
+                                                    "isRefreshable": true,
+                                                    "isEffectiveIdentityRequired": false,
+                                                    "isEffectiveIdentityRolesRequired": false,
+                                                    "isOnPremGatewayRequired": false,
+                                                    "encryption": {
+                                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                        "encryptionStatus": "InSyncWithWorkspace"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "name": "Sample Group 2",
+                                            "description": "Deleted sample group",
+                                            "type": "Workspace",
+                                            "state": "Deleted",
+                                            "datasets": []
                                         }
                                     ]
                                 }
@@ -11508,6 +11556,34 @@
                     "description": "The users that belong to the group, and their access rights. Available only for admin API calls.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "The reports that belong to the group. Available only for admin API calls.",
+                    "items": {
+                        "$ref": "#/definitions/Report"
+                    }
+                },
+                "dashboards": {
+                    "type": "array",
+                    "description": "The dashboards that belong to the group. Available only for admin API calls.",
+                    "items": {
+                        "$ref": "#/definitions/Dashboard"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "The datasets that belong to the group. Available only for admin API calls.",
+                    "items": {
+                        "$ref": "#/definitions/Dataset"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "The dataflows that belong to the group. Available only for admin API calls.",
+                    "items": {
+                        "$ref": "#/definitions/Dataflow"
                     }
                 },
                 "dataflowStorageId": {

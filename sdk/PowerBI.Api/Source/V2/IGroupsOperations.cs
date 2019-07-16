@@ -381,7 +381,9 @@ namespace Microsoft.PowerBI.Api.V2
         /// must be in the range of 1-5000.
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline
+        /// Expands related entities inline, receives a comma-separated list of
+        /// data types. Supported: users, reports, dashboards, datasets,
+        /// dataflows
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition

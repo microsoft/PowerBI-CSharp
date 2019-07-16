@@ -352,7 +352,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of report pages from **"My Workspace"**.
+            /// Returns a list of pages within the specified report from **"My
+            /// Workspace"**.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -371,7 +372,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of report pages from **"My Workspace"**.
+            /// Returns a list of pages within the specified report from **"My
+            /// Workspace"**.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -396,7 +398,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified report page from **"My Workspace"**.
+            /// Returns the specified page within the specified report from **"My
+            /// Workspace"**.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -418,7 +421,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified report page from **"My Workspace"**.
+            /// Returns the specified page within the specified report from **"My
+            /// Workspace"**.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -823,7 +827,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of report pages from the specified workspace..
+            /// Returns a list of pages within the specified report from the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -845,7 +850,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns a list of report pages from the specified workspace..
+            /// Returns a list of pages within the specified report from the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -873,7 +879,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified report page from the specified workspace.
+            /// Returns the specified page within the specified report from the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
@@ -898,7 +905,8 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
-            /// Returns the specified report page from the specified workspace.
+            /// Returns the specified page within the specified report from the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
