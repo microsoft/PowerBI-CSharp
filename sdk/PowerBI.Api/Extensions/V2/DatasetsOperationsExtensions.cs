@@ -128,7 +128,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='dataset'>
         /// Create dataset parameters
         /// </param>
-        public static object PostDataset(this IDatasetsOperations operations, Guid groupId, CreateDatasetRequest dataset, DefaultRetentionPolicy? defaultRetentionPolicy = default(DefaultRetentionPolicy?))
+        public static Dataset PostDataset(this IDatasetsOperations operations, Guid groupId, CreateDatasetRequest dataset, DefaultRetentionPolicy? defaultRetentionPolicy = default(DefaultRetentionPolicy?))
         {
             return operations.PostDatasetAsync(groupId, dataset, defaultRetentionPolicy).GetAwaiter().GetResult();
         }
@@ -148,7 +148,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task<object> PostDatasetAsync(this IDatasetsOperations operations, Guid groupId, CreateDatasetRequest dataset, DefaultRetentionPolicy? defaultRetentionPolicy = default(DefaultRetentionPolicy?), CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<Dataset> PostDatasetAsync(this IDatasetsOperations operations, Guid groupId, CreateDatasetRequest dataset, DefaultRetentionPolicy? defaultRetentionPolicy = default(DefaultRetentionPolicy?), CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.PostDatasetInGroupWithHttpMessagesAsync(groupId, dataset, defaultRetentionPolicy, null, cancellationToken).ConfigureAwait(false))
             {

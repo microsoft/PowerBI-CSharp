@@ -2765,6 +2765,12 @@
                         "schema": {
                             "$ref": "#/definitions/Dataset"
                         }
+                    },
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/Dataset"
+                        }
                     }
                 },
                 "x-ms-examples": {
