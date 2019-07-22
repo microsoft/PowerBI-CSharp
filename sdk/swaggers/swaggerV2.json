@@ -8987,6 +8987,72 @@
             }
         },
 
+        "/v1.0/myorg/admin/capacities/AssignWorkspaces": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Assigns the provided workspaces to the specified capacity.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_AssignWorkspacesToCapacity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Admin assign workspaces capacity parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignWorkspacesToCapacityRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
+        "/v1.0/myorg/admin/capacities/UnassignWorkspaces": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Unassigns the provided workspaces from capacity.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_UnassignWorkspacesFromCapacity",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "requestParameters",
+                        "in": "body",
+                        "description": "Admin assign workspaces to shared capacity parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UnassignWorkspacesCapacityRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/admin/datasets": {
             "get": {
                 "tags": [
@@ -13251,6 +13317,57 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The id of the encryption key"
+                }
+            }
+        },
+        "AssignWorkspacesToCapacityRequest": {
+            "required": [
+                "capacityMigrationAssignments"
+            ],
+            "description": "Request body for assigning workspaces to a premium capacity as tenant admin",
+            "properties": {
+                "capacityMigrationAssignments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CapacityMigrationAssignment"
+                    }
+                }
+            }
+        },
+        "CapacityMigrationAssignment": {
+            "required": [
+                "workspacesToAssign",
+                "targetCapacityObjectId"
+            ],
+            "description": "Assignment contract for migrating workspaces to shared capacity as tenant admin",
+            "properties": {
+                "workspacesToAssign": {
+                    "type": "array",
+                    "description": "Workspaces to be migrated to shared capacity",
+                    "items": {
+                        "type": "string",
+                        "description": "Workspace id"
+                    }
+                },
+                "targetCapacityObjectId": {
+                    "type": "string",
+                    "description": "Capacity id"
+                }
+            }
+        },
+        "UnassignWorkspacesCapacityRequest": {
+            "required": [
+                "workspacesToUnassign"
+            ],
+            "description": "Request body for migrating workspaces to shared capacity as tenant admin",
+            "properties": {
+                "workspacesToUnassign": {
+                    "type": "array",
+                    "description": "Workspaces to be migrated to shared capacity",
+                    "items": {
+                        "type": "string",
+                        "description": "Workspace id"
+                    }
                 }
             }
         }

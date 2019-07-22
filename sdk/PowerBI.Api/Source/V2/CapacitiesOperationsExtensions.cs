@@ -210,5 +210,95 @@ namespace Microsoft.PowerBI.Api.V2
                 (await operations.PatchWorkloadWithHttpMessagesAsync(capacityId, workloadName, workload, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
+            /// <summary>
+            /// Assigns the provided workspaces to the specified capacity.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Admin assign workspaces capacity parameters
+            /// </param>
+            public static void AssignWorkspacesToCapacity(this ICapacitiesOperations operations, AssignWorkspacesToCapacityRequest requestParameters)
+            {
+                operations.AssignWorkspacesToCapacityAsync(requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Assigns the provided workspaces to the specified capacity.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Admin assign workspaces capacity parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task AssignWorkspacesToCapacityAsync(this ICapacitiesOperations operations, AssignWorkspacesToCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.AssignWorkspacesToCapacityWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Unassigns the provided workspaces from capacity.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Admin assign workspaces to shared capacity parameters
+            /// </param>
+            public static void UnassignWorkspacesFromCapacity(this ICapacitiesOperations operations, UnassignWorkspacesCapacityRequest requestParameters)
+            {
+                operations.UnassignWorkspacesFromCapacityAsync(requestParameters).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Unassigns the provided workspaces from capacity.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='requestParameters'>
+            /// Admin assign workspaces to shared capacity parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UnassignWorkspacesFromCapacityAsync(this ICapacitiesOperations operations, UnassignWorkspacesCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UnassignWorkspacesFromCapacityWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
     }
 }
