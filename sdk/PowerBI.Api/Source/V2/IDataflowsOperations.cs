@@ -177,7 +177,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListDependentDataflow>> GetUpstreamDataflowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DependentDataflows>> GetUpstreamDataflowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates or updates the specified dataflow refresh schedule
         /// configuration.
@@ -238,7 +238,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ODataResponseListDependentDataflow>> GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<DependentDataflows>> GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of dataflows from the specified workspace.
         /// </summary>

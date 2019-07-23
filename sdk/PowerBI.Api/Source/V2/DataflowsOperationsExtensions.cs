@@ -276,7 +276,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='dataflowId'>
             /// The dataflow id
             /// </param>
-            public static ODataResponseListDependentDataflow GetUpstreamDataflowsInGroup(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+            public static DependentDataflows GetUpstreamDataflowsInGroup(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
                 return operations.GetUpstreamDataflowsInGroupAsync(groupId, dataflowId).GetAwaiter().GetResult();
             }
@@ -301,7 +301,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsInGroupAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DependentDataflows> GetUpstreamDataflowsInGroupAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetUpstreamDataflowsInGroupWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -381,7 +381,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='dataflowId'>
             /// The dataflow id
             /// </param>
-            public static ODataResponseListDependentDataflow GetUpstreamDataflowsInGroupAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+            public static DependentDataflows GetUpstreamDataflowsInGroupAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
                 return operations.GetUpstreamDataflowsInGroupAsAdminAsync(groupId, dataflowId).GetAwaiter().GetResult();
             }
@@ -408,7 +408,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsInGroupAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DependentDataflows> GetUpstreamDataflowsInGroupAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
                 {

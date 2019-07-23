@@ -14,23 +14,21 @@ namespace Microsoft.PowerBI.Api.V2.Models
     /// <summary>
     /// Odata response wrapper for a Power BI dependent dataflows list
     /// </summary>
-    public partial class ODataResponseListDependentDataflow
+    public partial class DependentDataflows
     {
         /// <summary>
-        /// Initializes a new instance of the
-        /// ODataResponseListDependentDataflow class.
+        /// Initializes a new instance of the DependentDataflows class.
         /// </summary>
-        public ODataResponseListDependentDataflow()
+        public DependentDataflows()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the
-        /// ODataResponseListDependentDataflow class.
+        /// Initializes a new instance of the DependentDataflows class.
         /// </summary>
         /// <param name="value">The dependent dataflows</param>
-        public ODataResponseListDependentDataflow(string odatacontext = default(string), IList<DependentDataflow> value = default(IList<DependentDataflow>))
+        public DependentDataflows(string odatacontext = default(string), IList<DependentDataflow> value = default(IList<DependentDataflow>))
         {
             Odatacontext = odatacontext;
             Value = value;

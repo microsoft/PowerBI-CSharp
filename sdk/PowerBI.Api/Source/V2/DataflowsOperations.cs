@@ -734,7 +734,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ODataResponseListDependentDataflow>> GetUpstreamDataflowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DependentDataflows>> GetUpstreamDataflowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -818,7 +818,7 @@ namespace Microsoft.PowerBI.Api.V2
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ODataResponseListDependentDataflow>();
+            var _result = new HttpOperationResponse<DependentDataflows>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -827,7 +827,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDependentDataflow>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DependentDataflows>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1017,7 +1017,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ODataResponseListDependentDataflow>> GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<DependentDataflows>> GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1101,7 +1101,7 @@ namespace Microsoft.PowerBI.Api.V2
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ODataResponseListDependentDataflow>();
+            var _result = new HttpOperationResponse<DependentDataflows>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1110,7 +1110,7 @@ namespace Microsoft.PowerBI.Api.V2
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ODataResponseListDependentDataflow>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DependentDataflows>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

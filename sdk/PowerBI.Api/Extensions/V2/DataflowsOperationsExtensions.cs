@@ -94,7 +94,7 @@
         /// <param name='dataflowId'>
         /// The dataflow id
         /// </param>
-        public static ODataResponseListDependentDataflow GetUpstreamDataflowsAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+        public static DependentDataflows GetUpstreamDataflowsAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
         {
             return operations.GetUpstreamDataflowsInGroupAsAdmin(groupId, dataflowId);
         }
@@ -121,7 +121,7 @@
         /// <param name="cancellationToken">
         /// The cancellation token.
         /// </param>
-        public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<DependentDataflows> GetUpstreamDataflowsAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
             {
@@ -145,7 +145,7 @@
         /// <param name='dataflowId'>
         /// The dataflow id
         /// </param>
-        public static ODataResponseListDependentDataflow GetUpstreamDataflows(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+        public static DependentDataflows GetUpstreamDataflows(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
         {
             return operations.GetUpstreamDataflowsInGroup(groupId, dataflowId);
         }
@@ -168,7 +168,7 @@
         /// <param name="cancellationToken">
         /// The cancellation token.
         /// </param>
-        public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<DependentDataflows> GetUpstreamDataflowsAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
         {
             using (var _result = await operations.GetUpstreamDataflowsInGroupWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
             {

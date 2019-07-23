@@ -7071,7 +7071,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[DependentDataflow]]"
+                            "$ref": "#/definitions/DependentDataflows"
                         }
                     }
                 },
@@ -9813,7 +9813,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ODataResponse[List[DependentDataflow]]"
+                            "$ref": "#/definitions/DependentDataflows"
                         }
                     }
                 },
@@ -11236,7 +11236,7 @@
                 }
             }
         },
-        "ODataResponse[List[DependentDataflow]]": {
+        "DependentDataflows": {
             "description": "Odata response wrapper for a Power BI dependent dataflows list",
             "properties": {
                 "odata.context": {
