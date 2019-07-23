@@ -1401,7 +1401,7 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
                                 "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-                                "datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
+                                "datasourceObjectIds": [ "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb", "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5" ]
                             }
                         },
                         "responses": {
@@ -4216,7 +4216,7 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
                                 "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-                                "datasourceObjectIds": ["dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb","3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"]
+                                "datasourceObjectIds": [ "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb", "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5" ]
                             }
                         },
                         "responses": {
@@ -7035,6 +7035,49 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows": {
+            "get": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Returns a list of upstream dataflows for the specified dataflow.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetUpstreamDataflowsInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[DependentDataflow]]"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule": {
             "patch": {
                 "tags": [
@@ -9316,41 +9359,41 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value":  [
+                                    "value": [
                                         {
-                                          "id": "EC1EE11F-845D-495E-82A3-9DAC2072305A",
-                                          "isReadOnly": false,
-                                          "isOnDedicatedCapacity": false,
-                                          "capacityMigrationStatus": "Migrated",
-                                          "description": "cvcv",
-                                          "type": "Workspace",
-                                          "state": "Active",
-                                          "name": "WSv2Test12",
-                                          "reports": []
+                                            "id": "EC1EE11F-845D-495E-82A3-9DAC2072305A",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "capacityMigrationStatus": "Migrated",
+                                            "description": "cvcv",
+                                            "type": "Workspace",
+                                            "state": "Active",
+                                            "name": "WSv2Test12",
+                                            "reports": []
                                         },
                                         {
-                                          "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
-                                          "isReadOnly": false,
-                                          "isOnDedicatedCapacity": false,
-                                          "capacityMigrationStatus": "Migrated",
-                                          "description": "shorter description",
-                                          "type": "Workspace",
-                                          "state": "Removing",
-                                          "name": "a",
-                                          "reports": [
-                                            {
-                                              "id": "5DBA60B0-D9A7-42AE-B12C-6D9D51E7739A",
-                                              "reportType": "PowerBIReport",
-                                              "name": "SQlAzure-Refresh",
-                                              "datasetId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
-                                            },
-                                            {
-                                              "id": "197E5C3C-D2F3-42D8-A536-875FB6D7D48C",
-                                              "reportType": "PowerBIReport",
-                                              "name": "NESGames",
-                                              "datasetId": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69"
-                                            }
-                                          ]
+                                            "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "capacityMigrationStatus": "Migrated",
+                                            "description": "shorter description",
+                                            "type": "Workspace",
+                                            "state": "Removing",
+                                            "name": "a",
+                                            "reports": [
+                                                {
+                                                    "id": "5DBA60B0-D9A7-42AE-B12C-6D9D51E7739A",
+                                                    "reportType": "PowerBIReport",
+                                                    "name": "SQlAzure-Refresh",
+                                                    "datasetId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
+                                                },
+                                                {
+                                                    "id": "197E5C3C-D2F3-42D8-A536-875FB6D7D48C",
+                                                    "reportType": "PowerBIReport",
+                                                    "name": "NESGames",
+                                                    "datasetId": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -9366,7 +9409,7 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value":  [
+                                    "value": [
                                         {
                                             "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
                                             "isReadOnly": false,
@@ -9377,18 +9420,18 @@
                                             "state": "Removing",
                                             "name": "a",
                                             "dashboards": [
-                                              {
-                                                "id": "4668133c-ae3f-42fb-ad7c-214a8623280c",
-                                                "displayName": "SQlAzure-Refresh.pbix",
-                                                "isReadOnly": false
-                                              },
-                                              {
-                                                "id": "a8f18ca7-63e8-4220-bc1c-f576ec180b98",
-                                                "displayName": "cdvc",
-                                                "isReadOnly": false
-                                              }
+                                                {
+                                                    "id": "4668133c-ae3f-42fb-ad7c-214a8623280c",
+                                                    "displayName": "SQlAzure-Refresh.pbix",
+                                                    "isReadOnly": false
+                                                },
+                                                {
+                                                    "id": "a8f18ca7-63e8-4220-bc1c-f576ec180b98",
+                                                    "displayName": "cdvc",
+                                                    "isReadOnly": false
+                                                }
                                             ]
-                                          }
+                                        }
                                     ]
                                 }
                             }
@@ -9403,7 +9446,7 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value":  [
+                                    "value": [
                                         {
                                             "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
                                             "isReadOnly": false,
@@ -9414,28 +9457,28 @@
                                             "state": "Removing",
                                             "name": "a",
                                             "datasets": [
-                                              {
-                                                "id": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
-                                                "name": "SQlAzure-Refresh",
-                                                "addRowsAPIEnabled": false,
-                                                "configuredBy": "admin@granularcontrols.ccsctp.net",
-                                                "isRefreshable": true,
-                                                "isEffectiveIdentityRequired": false,
-                                                "isEffectiveIdentityRolesRequired": false,
-                                                "isOnPremGatewayRequired": false,
-                                                "targetStorageMode": "Abf"
-                                              },
-                                              {
-                                                "id": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69",
-                                                "name": "NESGames",
-                                                "addRowsAPIEnabled": false,
-                                                "configuredBy": "admin@granularcontrols.ccsctp.net",
-                                                "isRefreshable": true,
-                                                "isEffectiveIdentityRequired": false,
-                                                "isEffectiveIdentityRolesRequired": false,
-                                                "isOnPremGatewayRequired": false,
-                                                "targetStorageMode": "Abf"
-                                              }
+                                                {
+                                                    "id": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                                                    "name": "SQlAzure-Refresh",
+                                                    "addRowsAPIEnabled": false,
+                                                    "configuredBy": "admin@granularcontrols.ccsctp.net",
+                                                    "isRefreshable": true,
+                                                    "isEffectiveIdentityRequired": false,
+                                                    "isEffectiveIdentityRolesRequired": false,
+                                                    "isOnPremGatewayRequired": false,
+                                                    "targetStorageMode": "Abf"
+                                                },
+                                                {
+                                                    "id": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69",
+                                                    "name": "NESGames",
+                                                    "addRowsAPIEnabled": false,
+                                                    "configuredBy": "admin@granularcontrols.ccsctp.net",
+                                                    "isRefreshable": true,
+                                                    "isEffectiveIdentityRequired": false,
+                                                    "isEffectiveIdentityRolesRequired": false,
+                                                    "isOnPremGatewayRequired": false,
+                                                    "targetStorageMode": "Abf"
+                                                }
                                             ]
                                         }
                                     ]
@@ -9727,6 +9770,50 @@
                         },
                         "responses": {
                             "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of upstream dataflows for the specified dataflow.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The dataflow id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ODataResponse[List[DependentDataflow]]"
                         }
                     }
                 },
@@ -11149,6 +11236,21 @@
                 }
             }
         },
+        "ODataResponse[List[DependentDataflow]]": {
+            "description": "Odata response wrapper for a Power BI dependent dataflows list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dependent dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
         "Relationship": {
             "required": [
                 "name",
@@ -11414,6 +11516,19 @@
                         "name": "credentialType",
                         "modelAsExtensible": true
                     }
+                }
+            }
+        },
+        "DependentDataflow": {
+            "description": "A Power BI Dependent dataflow",
+            "properties": {
+                "targetDataflowId": {
+                    "type": "string",
+                    "description": "The target dataflow id"
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The target group id"
                 }
             }
         },

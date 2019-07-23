@@ -260,6 +260,56 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Returns a list of upstream dataflows for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            public static ODataResponseListDependentDataflow GetUpstreamDataflowsInGroup(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+            {
+                return operations.GetUpstreamDataflowsInGroupAsync(groupId, dataflowId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of upstream dataflows for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsInGroupAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUpstreamDataflowsInGroupWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Creates or updates the specified dataflow refresh schedule configuration.
             /// </summary>
             /// <remarks>
@@ -310,6 +360,60 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task UpdateRefreshScheduleAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshScheduleRequest refreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateRefreshScheduleWithHttpMessagesAsync(groupId, dataflowId, refreshScheduleRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of upstream dataflows for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            public static ODataResponseListDependentDataflow GetUpstreamDataflowsInGroupAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+            {
+                return operations.GetUpstreamDataflowsInGroupAsAdminAsync(groupId, dataflowId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of upstream dataflows for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsInGroupAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>

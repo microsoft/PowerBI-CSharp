@@ -74,5 +74,106 @@
                 return _result.Body;
             }
         }
+
+        /// <summary>
+        /// Returns a list of upstream dataflows for the requested dataflow as admin.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        public static ODataResponseListDependentDataflow GetUpstreamDataflowsAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+        {
+            return operations.GetUpstreamDataflowsInGroupAsAdmin(groupId, dataflowId);
+        }
+
+        /// <summary>
+        /// Returns a list of upstream dataflows for the requested dataflow as admin.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        /// <param name="cancellationToken">
+        /// The cancellation token.
+        /// </param>
+        public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsAsAdminAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetUpstreamDataflowsInGroupAsAdminWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of upstream dataflows for the requested dataflow.
+        /// </summary>
+        /// <remarks>
+        /// <br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>
+        /// To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).,
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        public static ODataResponseListDependentDataflow GetUpstreamDataflows(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+        {
+            return operations.GetUpstreamDataflowsInGroup(groupId, dataflowId);
+        }
+        /// <summary>
+        /// Returns a list of upstream dataflows for the requested dataflow.
+        /// </summary>
+        /// <remarks>
+        /// <br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>
+        /// To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).,
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='dataflowId'>
+        /// The dataflow id
+        /// </param>
+        /// <param name="cancellationToken">
+        /// The cancellation token.
+        /// </param>
+        public static async Task<ODataResponseListDependentDataflow> GetUpstreamDataflowsAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetUpstreamDataflowsInGroupWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
     }
 }
