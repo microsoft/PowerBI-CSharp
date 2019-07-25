@@ -7,56 +7,97 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for FeatureExtendedState.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum FeatureExtendedState
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(FeatureExtendedStateConverter))]
+    public struct FeatureExtendedState : System.IEquatable<FeatureExtendedState>
     {
-        [EnumMember(Value = "Enabled")]
-        Enabled,
-        [EnumMember(Value = "DisabledByAdmin")]
-        DisabledByAdmin,
-        [EnumMember(Value = "UserNotLicensed")]
-        UserNotLicensed
-    }
-    internal static class FeatureExtendedStateEnumExtension
-    {
-        internal static string ToSerializedValue(this FeatureExtendedState? value)
+        private FeatureExtendedState(string underlyingValue)
         {
-            return value == null ? null : ((FeatureExtendedState)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this FeatureExtendedState value)
+        public static readonly FeatureExtendedState Enabled = "Enabled";
+
+        public static readonly FeatureExtendedState DisabledByAdmin = "DisabledByAdmin";
+
+        public static readonly FeatureExtendedState UserNotLicensed = "UserNotLicensed";
+
+
+        /// <summary>
+        /// Underlying value of enum FeatureExtendedState
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for FeatureExtendedState
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case FeatureExtendedState.Enabled:
-                    return "Enabled";
-                case FeatureExtendedState.DisabledByAdmin:
-                    return "DisabledByAdmin";
-                case FeatureExtendedState.UserNotLicensed:
-                    return "UserNotLicensed";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static FeatureExtendedState? ParseFeatureExtendedState(this string value)
+        /// <summary>
+        /// Compares enums of type FeatureExtendedState
+        /// </summary>
+        public bool Equals(FeatureExtendedState e)
         {
-            switch( value )
-            {
-                case "Enabled":
-                    return FeatureExtendedState.Enabled;
-                case "DisabledByAdmin":
-                    return FeatureExtendedState.DisabledByAdmin;
-                case "UserNotLicensed":
-                    return FeatureExtendedState.UserNotLicensed;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to FeatureExtendedState
+        /// </summary>
+        public static implicit operator FeatureExtendedState(string value)
+        {
+            return new FeatureExtendedState(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert FeatureExtendedState to string
+        /// </summary>
+        public static implicit operator string(FeatureExtendedState e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum FeatureExtendedState
+        /// </summary>
+        public static bool operator == (FeatureExtendedState e1, FeatureExtendedState e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum FeatureExtendedState
+        /// </summary>
+        public static bool operator != (FeatureExtendedState e1, FeatureExtendedState e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for FeatureExtendedState
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is FeatureExtendedState && Equals((FeatureExtendedState)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode FeatureExtendedState
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

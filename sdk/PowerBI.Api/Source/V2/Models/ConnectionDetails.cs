@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -26,7 +27,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the ConnectionDetails class.
         /// </summary>
         /// <param name="connectionString">A dataset connection string.</param>
-        public ConnectionDetails(string connectionString = default(string))
+        public ConnectionDetails(string connectionString)
         {
             ConnectionString = connectionString;
             CustomInit();
@@ -43,5 +44,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (ConnectionString == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "ConnectionString");
+            }
+        }
     }
 }

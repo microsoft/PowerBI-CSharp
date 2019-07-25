@@ -1,14 +1,13 @@
 ﻿namespace Microsoft.PowerBI.Api.V2.Models
 {
-    public partial class UpdateDatasetParametersRequest
+    public partial class UpdateMashupParametersRequest
     {
         /// <summary>
-        /// Initializes a new instance of the UpdateDatasetParametersRequest
+        /// Initializes a new instance of the UpdateMashupParametersDetails
         /// class.
         /// </summary>
-        /// <param name="updateDetails">The dataset parameter list to
-        /// update</param>
-        public UpdateDatasetParametersRequest(UpdateDatasetParameterDetails updateDetails)
+        /// <param name="updateDetails">The mashup parameter to update</param>
+        public UpdateMashupParametersRequest(UpdateMashupParameterDetails updateDetails)
         {
             UpdateDetails = new [] { updateDetails };
             CustomInit();

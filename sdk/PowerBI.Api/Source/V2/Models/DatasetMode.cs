@@ -6,36 +6,122 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for DatasetMode.
     /// </summary>
-    public static class DatasetMode
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(DatasetModeConverter))]
+    public struct DatasetMode : System.IEquatable<DatasetMode>
     {
+        private DatasetMode(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Creates a dataset with a live connection to Azure Analysis Service
         /// </summary>
-        public const string AsAzure = "AsAzure";
+        public static readonly DatasetMode AsAzure = "AsAzure";
+
         /// <summary>
         /// Creates a dataset with a live connection to On-premise Analysis
         /// Service
         /// </summary>
-        public const string AsOnPrem = "AsOnPrem";
+        public static readonly DatasetMode AsOnPrem = "AsOnPrem";
+
         /// <summary>
         /// Creates a dataset which allows programmatic access for pushing data
         /// into PowerBI, [learn
         /// more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)
         /// </summary>
-        public const string Push = "Push";
+        public static readonly DatasetMode Push = "Push";
+
         /// <summary>
         /// Creates a dataset which supports data streaming, [learn
         /// more](https://docs.microsoft.com/power-bi/service-real-time-streaming)
         /// </summary>
-        public const string Streaming = "Streaming";
+        public static readonly DatasetMode Streaming = "Streaming";
+
         /// <summary>
         /// Creates a dataset which supports data streaming and allows
         /// programmatic access for pushing data into Power BI
         /// </summary>
-        public const string PushStreaming = "PushStreaming";
+        public static readonly DatasetMode PushStreaming = "PushStreaming";
+
+
+        /// <summary>
+        /// Underlying value of enum DatasetMode
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for DatasetMode
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type DatasetMode
+        /// </summary>
+        public bool Equals(DatasetMode e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to DatasetMode
+        /// </summary>
+        public static implicit operator DatasetMode(string value)
+        {
+            return new DatasetMode(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert DatasetMode to string
+        /// </summary>
+        public static implicit operator string(DatasetMode e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum DatasetMode
+        /// </summary>
+        public static bool operator == (DatasetMode e1, DatasetMode e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum DatasetMode
+        /// </summary>
+        public static bool operator != (DatasetMode e1, DatasetMode e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for DatasetMode
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is DatasetMode && Equals((DatasetMode)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode DatasetMode
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

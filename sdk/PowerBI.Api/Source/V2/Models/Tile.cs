@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="datasetId">The dataset id. Available only for tiles
         /// created from a report or using a dataset; for example, Q&amp;A
         /// tiles.</param>
-        public Tile(string id = default(string), string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string), string reportId = default(string), string datasetId = default(string))
+        public Tile(System.Guid id, string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string), System.Guid? reportId = default(System.Guid?), string datasetId = default(string))
         {
             Id = id;
             Title = title;
@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the tile id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the dashboard display name
@@ -95,7 +95,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// report.
         /// </summary>
         [JsonProperty(PropertyName = "reportId")]
-        public string ReportId { get; set; }
+        public System.Guid? ReportId { get; set; }
 
         /// <summary>
         /// Gets or sets the dataset id. Available only for tiles created from
@@ -104,5 +104,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

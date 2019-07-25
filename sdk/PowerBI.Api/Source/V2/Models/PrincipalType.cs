@@ -6,23 +6,107 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Newtonsoft.Json;
 
     /// <summary>
     /// Defines values for PrincipalType.
     /// </summary>
-    public static class PrincipalType
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(PrincipalTypeConverter))]
+    public struct PrincipalType : System.IEquatable<PrincipalType>
     {
+        private PrincipalType(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// User principal type
         /// </summary>
-        public const string User = "User";
+        public static readonly PrincipalType User = "User";
+
         /// <summary>
         /// Group principal type
         /// </summary>
-        public const string Group = "Group";
+        public static readonly PrincipalType Group = "Group";
+
         /// <summary>
         /// Service principal type
         /// </summary>
-        public const string App = "App";
+        public static readonly PrincipalType App = "App";
+
+
+        /// <summary>
+        /// Underlying value of enum PrincipalType
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for PrincipalType
+        /// </summary>
+        public override string ToString()
+        {
+            return UnderlyingValue.ToString();
+        }
+
+        /// <summary>
+        /// Compares enums of type PrincipalType
+        /// </summary>
+        public bool Equals(PrincipalType e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert string to PrincipalType
+        /// </summary>
+        public static implicit operator PrincipalType(string value)
+        {
+            return new PrincipalType(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert PrincipalType to string
+        /// </summary>
+        public static implicit operator string(PrincipalType e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum PrincipalType
+        /// </summary>
+        public static bool operator == (PrincipalType e1, PrincipalType e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum PrincipalType
+        /// </summary>
+        public static bool operator != (PrincipalType e1, PrincipalType e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for PrincipalType
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is PrincipalType && Equals((PrincipalType)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode PrincipalType
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

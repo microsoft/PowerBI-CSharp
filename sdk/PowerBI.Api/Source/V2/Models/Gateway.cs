@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// format</param>
         /// <param name="publicKey">The gateway public key</param>
         /// <param name="gatewayStatus">The gateway connectivity status</param>
-        public Gateway(string id = default(string), string name = default(string), string type = default(string), string gatewayAnnotation = default(string), GatewayPublicKey publicKey = default(GatewayPublicKey), string gatewayStatus = default(string))
+        public Gateway(System.Guid id, string name = default(string), string type = default(string), string gatewayAnnotation = default(string), GatewayPublicKey publicKey = default(GatewayPublicKey), string gatewayStatus = default(string))
         {
             Id = id;
             Name = name;
@@ -52,7 +52,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the gateway id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the gateway name
@@ -84,5 +84,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "gatewayStatus")]
         public string GatewayStatus { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="crossFilteringBehavior">The filter direction of the
         /// relationship. Possible values include: 'OneDirection',
         /// 'BothDirections', 'Automatic'</param>
-        public Relationship(string name, string fromTable, string fromColumn, string toTable, string toColumn, CrossFilteringBehaviorEnum? crossFilteringBehavior = default(CrossFilteringBehaviorEnum?))
+        public Relationship(string name, string fromTable, string fromColumn, string toTable, string toColumn, CrossFilteringBehavior? crossFilteringBehavior = default(CrossFilteringBehavior?))
         {
             Name = name;
             CrossFilteringBehavior = crossFilteringBehavior;
@@ -61,7 +61,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// values include: 'OneDirection', 'BothDirections', 'Automatic'
         /// </summary>
         [JsonProperty(PropertyName = "crossFilteringBehavior")]
-        public CrossFilteringBehaviorEnum? CrossFilteringBehavior { get; set; }
+        public CrossFilteringBehavior? CrossFilteringBehavior { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the foreign key table

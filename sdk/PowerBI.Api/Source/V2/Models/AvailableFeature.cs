@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -32,7 +33,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// values include: 'Enabled', 'DisabledByAdmin',
         /// 'UserNotLicensed'</param>
         /// <param name="additionalInfo">Additional feature information</param>
-        public AvailableFeature(string name = default(string), FeatureState? state = default(FeatureState?), FeatureExtendedState? extendedState = default(FeatureExtendedState?), AdditionalFeatureInfo additionalInfo = default(AdditionalFeatureInfo))
+        public AvailableFeature(string name, FeatureState state, FeatureExtendedState extendedState, AdditionalFeatureInfo additionalInfo = default(AdditionalFeatureInfo))
         {
             Name = name;
             State = state;
@@ -57,14 +58,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Disabled'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
-        public FeatureState? State { get; set; }
+        public FeatureState State { get; set; }
 
         /// <summary>
         /// Gets or sets the feature extended state. Possible values include:
         /// 'Enabled', 'DisabledByAdmin', 'UserNotLicensed'
         /// </summary>
         [JsonProperty(PropertyName = "extendedState")]
-        public FeatureExtendedState? ExtendedState { get; set; }
+        public FeatureExtendedState ExtendedState { get; set; }
 
         /// <summary>
         /// Gets or sets additional feature information
@@ -72,5 +73,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "additionalInfo")]
         public AdditionalFeatureInfo AdditionalInfo { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Name == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+        }
     }
 }

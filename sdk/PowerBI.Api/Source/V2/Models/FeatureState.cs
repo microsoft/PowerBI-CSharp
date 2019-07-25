@@ -7,50 +7,95 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for FeatureState.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum FeatureState
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(FeatureStateConverter))]
+    public struct FeatureState : System.IEquatable<FeatureState>
     {
-        [EnumMember(Value = "Enabled")]
-        Enabled,
-        [EnumMember(Value = "Disabled")]
-        Disabled
-    }
-    internal static class FeatureStateEnumExtension
-    {
-        internal static string ToSerializedValue(this FeatureState? value)
+        private FeatureState(string underlyingValue)
         {
-            return value == null ? null : ((FeatureState)value).ToSerializedValue();
+            UnderlyingValue=underlyingValue;
         }
 
-        internal static string ToSerializedValue(this FeatureState value)
+        public static readonly FeatureState Enabled = "Enabled";
+
+        public static readonly FeatureState Disabled = "Disabled";
+
+
+        /// <summary>
+        /// Underlying value of enum FeatureState
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for FeatureState
+        /// </summary>
+        public override string ToString()
         {
-            switch( value )
-            {
-                case FeatureState.Enabled:
-                    return "Enabled";
-                case FeatureState.Disabled:
-                    return "Disabled";
-            }
-            return null;
+            return UnderlyingValue.ToString();
         }
 
-        internal static FeatureState? ParseFeatureState(this string value)
+        /// <summary>
+        /// Compares enums of type FeatureState
+        /// </summary>
+        public bool Equals(FeatureState e)
         {
-            switch( value )
-            {
-                case "Enabled":
-                    return FeatureState.Enabled;
-                case "Disabled":
-                    return FeatureState.Disabled;
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
+
+        /// <summary>
+        /// Implicit operator to convert string to FeatureState
+        /// </summary>
+        public static implicit operator FeatureState(string value)
+        {
+            return new FeatureState(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert FeatureState to string
+        /// </summary>
+        public static implicit operator string(FeatureState e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum FeatureState
+        /// </summary>
+        public static bool operator == (FeatureState e1, FeatureState e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum FeatureState
+        /// </summary>
+        public static bool operator != (FeatureState e1, FeatureState e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for FeatureState
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is FeatureState && Equals((FeatureState)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode FeatureState
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

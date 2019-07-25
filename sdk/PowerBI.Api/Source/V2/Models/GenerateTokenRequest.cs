@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="identities">List of identities to use for RLS rules.
         /// Specifying identities is not supported when generating EmbedToken
         /// for dataset embedding.</param>
-        public GenerateTokenRequest(string accessLevel = default(string), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
+        public GenerateTokenRequest(TokenAccessLevel? accessLevel = default(TokenAccessLevel?), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
@@ -57,7 +57,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Possible values include: 'View', 'Edit', 'Create'
         /// </summary>
         [JsonProperty(PropertyName = "accessLevel")]
-        public string AccessLevel { get; set; }
+        public TokenAccessLevel? AccessLevel { get; set; }
 
         /// <summary>
         /// Gets or sets dataset id for report creation. Only applies when

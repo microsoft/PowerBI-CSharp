@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -34,8 +35,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="targetModelId">Optional parameter for specifying the
         /// target associated dataset id. &lt;br/&gt;If not provided, the new
         /// report will be associated with the same dataset as the source
-        /// report.</param>
-        public CloneReportRequest(string name = default(string), string targetWorkspaceId = default(string), string targetModelId = default(string))
+        /// report and it must be cloned within the same workspace as the
+        /// source report.</param>
+        public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), string targetModelId = default(string))
         {
             Name = name;
             TargetWorkspaceId = targetWorkspaceId;
@@ -61,16 +63,30 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// be cloned within the same workspace as the source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
-        public string TargetWorkspaceId { get; set; }
+        public System.Guid? TargetWorkspaceId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target
         /// associated dataset id. &amp;lt;br/&amp;gt;If not provided, the new
         /// report will be associated with the same dataset as the source
-        /// report.
+        /// report and it must be cloned within the same workspace as the
+        /// source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
         public string TargetModelId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Name == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Name");
+            }
+        }
     }
 }

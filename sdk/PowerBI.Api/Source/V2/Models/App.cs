@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="description">The app description</param>
         /// <param name="lastUpdate">The last time the app was updated</param>
         /// <param name="publishedBy">The app publisher</param>
-        public App(string id = default(string), string name = default(string), string description = default(string), System.DateTime? lastUpdate = default(System.DateTime?), string publishedBy = default(string))
+        public App(System.Guid id, string name = default(string), string description = default(string), System.DateTime? lastUpdate = default(System.DateTime?), string publishedBy = default(string))
         {
             Id = id;
             Name = name;
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the app id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the app name
@@ -75,5 +75,15 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "publishedBy")]
         public string PublishedBy { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            //Nothing to validate
+        }
     }
 }

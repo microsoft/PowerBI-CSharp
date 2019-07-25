@@ -38,59 +38,74 @@ namespace Microsoft.PowerBI.Api.V2
         public ServiceClientCredentials Credentials { get; private set; }
 
         /// <summary>
-        /// Gets the IDatasets.
+        /// Gets the IDatasetsOperations.
         /// </summary>
-        public virtual IDatasets Datasets { get; private set; }
+        public virtual IDatasetsOperations Datasets { get; private set; }
 
         /// <summary>
-        /// Gets the IImports.
+        /// Gets the IUsers.
         /// </summary>
-        public virtual IImports Imports { get; private set; }
+        public virtual IUsers Users { get; private set; }
 
         /// <summary>
-        /// Gets the IReports.
+        /// Gets the IImportsOperations.
         /// </summary>
-        public virtual IReports Reports { get; private set; }
+        public virtual IImportsOperations Imports { get; private set; }
 
         /// <summary>
-        /// Gets the IDashboards.
+        /// Gets the IReportsOperations.
         /// </summary>
-        public virtual IDashboards Dashboards { get; private set; }
+        public virtual IReportsOperations Reports { get; private set; }
 
         /// <summary>
-        /// Gets the ITiles.
+        /// Gets the IDashboardsOperations.
         /// </summary>
-        public virtual ITiles Tiles { get; private set; }
+        public virtual IDashboardsOperations Dashboards { get; private set; }
 
         /// <summary>
-        /// Gets the IApps.
+        /// Gets the ITilesOperations.
         /// </summary>
-        public virtual IApps Apps { get; private set; }
+        public virtual ITilesOperations Tiles { get; private set; }
 
         /// <summary>
-        /// Gets the IDataflows.
+        /// Gets the IAppsOperations.
         /// </summary>
-        public virtual IDataflows Dataflows { get; private set; }
+        public virtual IAppsOperations Apps { get; private set; }
 
         /// <summary>
-        /// Gets the IGateways.
+        /// Gets the IDataflowsOperations.
         /// </summary>
-        public virtual IGateways Gateways { get; private set; }
+        public virtual IDataflowsOperations Dataflows { get; private set; }
 
         /// <summary>
-        /// Gets the IGroups.
+        /// Gets the IGatewaysOperations.
         /// </summary>
-        public virtual IGroups Groups { get; private set; }
+        public virtual IGatewaysOperations Gateways { get; private set; }
 
         /// <summary>
-        /// Gets the ICapacities.
+        /// Gets the IGroupsOperations.
         /// </summary>
-        public virtual ICapacities Capacities { get; private set; }
+        public virtual IGroupsOperations Groups { get; private set; }
 
         /// <summary>
-        /// Gets the IAvailableFeatures.
+        /// Gets the ICapacitiesOperations.
         /// </summary>
-        public virtual IAvailableFeatures AvailableFeatures { get; private set; }
+        public virtual ICapacitiesOperations Capacities { get; private set; }
+
+        /// <summary>
+        /// Gets the IAvailableFeaturesOperations.
+        /// </summary>
+        public virtual IAvailableFeaturesOperations AvailableFeatures { get; private set; }
+
+        /// <summary>
+        /// Gets the IDataflowStorageAccountsOperations.
+        /// </summary>
+        public virtual IDataflowStorageAccountsOperations DataflowStorageAccounts { get; private set; }
+
+        /// <summary>
+        /// Gets the IAdmin.
+        /// </summary>
+        public virtual IAdmin Admin { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
@@ -293,17 +308,20 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         private void Initialize()
         {
-            Datasets = new Datasets(this);
-            Imports = new Imports(this);
-            Reports = new Reports(this);
-            Dashboards = new Dashboards(this);
-            Tiles = new Tiles(this);
-            Apps = new Apps(this);
-            Dataflows = new Dataflows(this);
-            Gateways = new Gateways(this);
-            Groups = new Groups(this);
-            Capacities = new Capacities(this);
-            AvailableFeatures = new AvailableFeatures(this);
+            Datasets = new DatasetsOperations(this);
+            Users = new Users(this);
+            Imports = new ImportsOperations(this);
+            Reports = new ReportsOperations(this);
+            Dashboards = new DashboardsOperations(this);
+            Tiles = new TilesOperations(this);
+            Apps = new AppsOperations(this);
+            Dataflows = new DataflowsOperations(this);
+            Gateways = new GatewaysOperations(this);
+            Groups = new GroupsOperations(this);
+            Capacities = new CapacitiesOperations(this);
+            AvailableFeatures = new AvailableFeaturesOperations(this);
+            DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
+            Admin = new Admin(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {

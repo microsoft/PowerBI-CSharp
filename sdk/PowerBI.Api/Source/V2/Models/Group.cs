@@ -33,12 +33,25 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="isOnDedicatedCapacity">Is the group on dedicated
         /// capacity</param>
         /// <param name="capacityId">The capacity id</param>
-        /// <param name="description">The group description</param>
-        /// <param name="type">The type of group</param>
-        /// <param name="state">The group state</param>
+        /// <param name="description">The group description. Available only for
+        /// admin API calls.</param>
+        /// <param name="type">The type of group. Available only for admin API
+        /// calls.</param>
+        /// <param name="state">The group state. Available only for admin API
+        /// calls.</param>
         /// <param name="users">The users that belong to the group, and their
-        /// access rights.</param>
-        public Group(string id = default(string), string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), string description = default(string), string type = default(string), string state = default(string), IList<GroupUserAccessRight> users = default(IList<GroupUserAccessRight>))
+        /// access rights. Available only for admin API calls.</param>
+        /// <param name="reports">The reports that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="dashboards">The dashboards that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="datasets">The datasets that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="dataflows">The dataflows that belong to the group.
+        /// Available only for admin API calls.</param>
+        /// <param name="dataflowStorageId">The Power BI dataflow storage
+        /// account id</param>
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -49,6 +62,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
             Type = type;
             State = state;
             Users = users;
+            Reports = reports;
+            Dashboards = dashboards;
+            Datasets = datasets;
+            Dataflows = dataflows;
+            DataflowStorageId = dataflowStorageId;
             CustomInit();
         }
 
@@ -61,7 +79,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the workspace id
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the group name
@@ -85,32 +103,126 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets the capacity id
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
-        public string CapacityId { get; set; }
+        public System.Guid? CapacityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the group description
+        /// Gets or sets the group description. Available only for admin API
+        /// calls.
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of group
+        /// Gets or sets the type of group. Available only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the group state
+        /// Gets or sets the group state. Available only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "state")]
         public string State { get; set; }
 
         /// <summary>
         /// Gets or sets the users that belong to the group, and their access
-        /// rights.
+        /// rights. Available only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
-        public IList<GroupUserAccessRight> Users { get; set; }
+        public IList<GroupUser> Users { get; set; }
 
+        /// <summary>
+        /// Gets or sets the reports that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "reports")]
+        public IList<Report> Reports { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dashboards that belong to the group. Available
+        /// only for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "dashboards")]
+        public IList<Dashboard> Dashboards { get; set; }
+
+        /// <summary>
+        /// Gets or sets the datasets that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "datasets")]
+        public IList<Dataset> Datasets { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataflows that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "dataflows")]
+        public IList<Dataflow> Dataflows { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Power BI dataflow storage account id
+        /// </summary>
+        [JsonProperty(PropertyName = "dataflowStorageId")]
+        public System.Guid? DataflowStorageId { get; set; }
+
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Users != null)
+            {
+                foreach (var element in Users)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (Reports != null)
+            {
+                foreach (var element1 in Reports)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
+            if (Dashboards != null)
+            {
+                foreach (var element2 in Dashboards)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
+                    }
+                }
+            }
+            if (Datasets != null)
+            {
+                foreach (var element3 in Datasets)
+                {
+                    if (element3 != null)
+                    {
+                        element3.Validate();
+                    }
+                }
+            }
+            if (Dataflows != null)
+            {
+                foreach (var element4 in Dataflows)
+                {
+                    if (element4 != null)
+                    {
+                        element4.Validate();
+                    }
+                }
+            }
+        }
     }
 }

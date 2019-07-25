@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -25,7 +26,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Initializes a new instance of the UpdateDatasourcesRequest class.
         /// </summary>
         /// <param name="updateDetails">The connection server</param>
-        public UpdateDatasourcesRequest(IList<UpdateDatasourceConnectionRequest> updateDetails = default(IList<UpdateDatasourceConnectionRequest>))
+        public UpdateDatasourcesRequest(IList<UpdateDatasourceConnectionRequest> updateDetails)
         {
             UpdateDetails = updateDetails;
             CustomInit();
@@ -42,5 +43,28 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "updateDetails")]
         public IList<UpdateDatasourceConnectionRequest> UpdateDetails { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (UpdateDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "UpdateDetails");
+            }
+            if (UpdateDetails != null)
+            {
+                foreach (var element in UpdateDetails)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

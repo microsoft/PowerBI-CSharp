@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -25,7 +26,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the UpdateDatasourceRequest class.
         /// </summary>
-        public UpdateDatasourceRequest(CredentialDetails credentialDetails = default(CredentialDetails))
+        public UpdateDatasourceRequest(CredentialDetails credentialDetails)
         {
             CredentialDetails = credentialDetails;
             CustomInit();
@@ -41,5 +42,22 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "credentialDetails")]
         public CredentialDetails CredentialDetails { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (CredentialDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "CredentialDetails");
+            }
+            if (CredentialDetails != null)
+            {
+                CredentialDetails.Validate();
+            }
+        }
     }
 }

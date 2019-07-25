@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="localTimeZoneId">The Id of the Time zone to use. See
         /// **Name of Time Zone** column in [Microsoft Time Zone Index
         /// Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)</param>
-        public DirectQueryRefreshSchedule(int? frequency = default(int?), IList<DaysEnum?> days = default(IList<DaysEnum?>), IList<string> times = default(IList<string>), string localTimeZoneId = default(string))
+        public DirectQueryRefreshSchedule(int? frequency = default(int?), IList<Days?> days = default(IList<Days?>), IList<string> times = default(IList<string>), string localTimeZoneId = default(string))
         {
             Frequency = frequency;
             Days = days;
@@ -62,7 +62,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Gets or sets days to execute the refresh
         /// </summary>
         [JsonProperty(PropertyName = "days")]
-        public IList<DaysEnum?> Days { get; set; }
+        public IList<Days?> Days { get; set; }
 
         /// <summary>
         /// Gets or sets times to execute the refresh within each day

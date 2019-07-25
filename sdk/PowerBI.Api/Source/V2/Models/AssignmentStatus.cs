@@ -7,74 +7,111 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for AssignmentStatus.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum AssignmentStatus
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(AssignmentStatusConverter))]
+    public struct AssignmentStatus : System.IEquatable<AssignmentStatus>
     {
+        private AssignmentStatus(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// Assignment request was initiated, but was not started yet
         /// </summary>
-        [EnumMember(Value = "Pending")]
-        Pending,
+        public static readonly AssignmentStatus Pending = "Pending";
+
         /// <summary>
         /// Assignment operation is in progress
         /// </summary>
-        [EnumMember(Value = "InProgress")]
-        InProgress,
+        public static readonly AssignmentStatus InProgress = "InProgress";
+
         /// <summary>
         /// Assignment operation was completed successfully
         /// </summary>
-        [EnumMember(Value = "CompletedSuccessfully")]
-        CompletedSuccessfully,
+        public static readonly AssignmentStatus CompletedSuccessfully = "CompletedSuccessfully";
+
         /// <summary>
         /// Assignment failed
         /// </summary>
-        [EnumMember(Value = "AssignmentFailed")]
-        AssignmentFailed
-    }
-    internal static class AssignmentStatusEnumExtension
-    {
-        internal static string ToSerializedValue(this AssignmentStatus? value)
+        public static readonly AssignmentStatus AssignmentFailed = "AssignmentFailed";
+
+
+        /// <summary>
+        /// Underlying value of enum AssignmentStatus
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for AssignmentStatus
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((AssignmentStatus)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this AssignmentStatus value)
+        /// <summary>
+        /// Compares enums of type AssignmentStatus
+        /// </summary>
+        public bool Equals(AssignmentStatus e)
         {
-            switch( value )
-            {
-                case AssignmentStatus.Pending:
-                    return "Pending";
-                case AssignmentStatus.InProgress:
-                    return "InProgress";
-                case AssignmentStatus.CompletedSuccessfully:
-                    return "CompletedSuccessfully";
-                case AssignmentStatus.AssignmentFailed:
-                    return "AssignmentFailed";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static AssignmentStatus? ParseAssignmentStatus(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to AssignmentStatus
+        /// </summary>
+        public static implicit operator AssignmentStatus(string value)
         {
-            switch( value )
-            {
-                case "Pending":
-                    return AssignmentStatus.Pending;
-                case "InProgress":
-                    return AssignmentStatus.InProgress;
-                case "CompletedSuccessfully":
-                    return AssignmentStatus.CompletedSuccessfully;
-                case "AssignmentFailed":
-                    return AssignmentStatus.AssignmentFailed;
-            }
-            return null;
+            return new AssignmentStatus(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert AssignmentStatus to string
+        /// </summary>
+        public static implicit operator string(AssignmentStatus e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum AssignmentStatus
+        /// </summary>
+        public static bool operator == (AssignmentStatus e1, AssignmentStatus e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum AssignmentStatus
+        /// </summary>
+        public static bool operator != (AssignmentStatus e1, AssignmentStatus e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for AssignmentStatus
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is AssignmentStatus && Equals((AssignmentStatus)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode AssignmentStatus
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

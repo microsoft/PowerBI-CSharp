@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -30,7 +31,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// operations that use this token with the generate operation through
         /// audit logs.</param>
         /// <param name="expiration">Expiration time of token. In UTC.</param>
-        public EmbedToken(string token = default(string), string tokenId = default(string), System.DateTime? expiration = default(System.DateTime?))
+        public EmbedToken(string token, System.Guid tokenId, System.DateTime expiration)
         {
             Token = token;
             TokenId = tokenId;
@@ -54,13 +55,26 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// that use this token with the generate operation through audit logs.
         /// </summary>
         [JsonProperty(PropertyName = "tokenId")]
-        public string TokenId { get; set; }
+        public System.Guid TokenId { get; set; }
 
         /// <summary>
         /// Gets or sets expiration time of token. In UTC.
         /// </summary>
         [JsonProperty(PropertyName = "expiration")]
-        public System.DateTime? Expiration { get; set; }
+        public System.DateTime Expiration { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Token == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "Token");
+            }
+        }
     }
 }

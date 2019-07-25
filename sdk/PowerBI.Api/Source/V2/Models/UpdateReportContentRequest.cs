@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.V2.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -25,13 +26,17 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the UpdateReportContentRequest class.
         /// </summary>
-        /// <param name="sourceType">The source type for the content update.
-        /// Possible values include: 'ExistingReport'</param>
-        public UpdateReportContentRequest(string sourceType = default(string), SourceReport sourceReport = default(SourceReport))
+        public UpdateReportContentRequest(SourceReport sourceReport)
         {
-            SourceType = sourceType;
             SourceReport = sourceReport;
             CustomInit();
+        }
+        /// <summary>
+        /// Static constructor for UpdateReportContentRequest class.
+        /// </summary>
+        static UpdateReportContentRequest()
+        {
+            SourceType = "ExistingReport";
         }
 
         /// <summary>
@@ -40,16 +45,32 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the source type for the content update. Possible
-        /// values include: 'ExistingReport'
-        /// </summary>
-        [JsonProperty(PropertyName = "sourceType")]
-        public string SourceType { get; set; }
-
-        /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "sourceReport")]
         public SourceReport SourceReport { get; set; }
 
+        /// <summary>
+        /// The source type for the content update.
+        /// </summary>
+        [JsonProperty(PropertyName = "sourceType")]
+        public static string SourceType { get; private set; }
+
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (SourceReport == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "SourceReport");
+            }
+            if (SourceReport != null)
+            {
+                SourceReport.Validate();
+            }
+        }
     }
 }

@@ -7,78 +7,111 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for workspace
+    /// Defines values for GroupUserAccessRight.
     /// </summary>
-    public partial class GroupUserAccessRight
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(GroupUserAccessRightConverter))]
+    public struct GroupUserAccessRight : System.IEquatable<GroupUserAccessRight>
     {
-        /// <summary>
-        /// Initializes a new instance of the GroupUserAccessRight class.
-        /// </summary>
-        public GroupUserAccessRight()
+        private GroupUserAccessRight(string underlyingValue)
         {
-            CustomInit();
+            UnderlyingValue=underlyingValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the GroupUserAccessRight class.
+        /// Removes permission to content in workspace
         /// </summary>
-        /// <param name="groupUserAccessRightProperty">Access rights user has
-        /// for the workspace. Possible values include: 'None', 'Member',
-        /// 'Admin', 'Contributor'</param>
-        /// <param name="emailAddress">Email address of the user</param>
-        /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">Identifier of the principal</param>
-        /// <param name="principalType">The principal type. Possible values
-        /// include: 'User', 'Group', 'App'</param>
-        public GroupUserAccessRight(string groupUserAccessRightProperty = default(string), string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string principalType = default(string))
+        public static readonly GroupUserAccessRight None = "None";
+
+        /// <summary>
+        /// Grants read access to content in workspace
+        /// </summary>
+        public static readonly GroupUserAccessRight Member = "Member";
+
+        /// <summary>
+        /// Grants administrator rights to workspace
+        /// </summary>
+        public static readonly GroupUserAccessRight Admin = "Admin";
+
+        /// <summary>
+        /// Grants read and write access to content in group
+        /// </summary>
+        public static readonly GroupUserAccessRight Contributor = "Contributor";
+
+
+        /// <summary>
+        /// Underlying value of enum GroupUserAccessRight
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for GroupUserAccessRight
+        /// </summary>
+        public override string ToString()
         {
-            GroupUserAccessRightProperty = groupUserAccessRightProperty;
-            EmailAddress = emailAddress;
-            DisplayName = displayName;
-            Identifier = identifier;
-            PrincipalType = principalType;
-            CustomInit();
+            return UnderlyingValue.ToString();
         }
 
         /// <summary>
-        /// An initialization method that performs custom operations like setting defaults
+        /// Compares enums of type GroupUserAccessRight
         /// </summary>
-        partial void CustomInit();
+        public bool Equals(GroupUserAccessRight e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
 
         /// <summary>
-        /// Gets or sets access rights user has for the workspace. Possible
-        /// values include: 'None', 'Member', 'Admin', 'Contributor'
+        /// Implicit operator to convert string to GroupUserAccessRight
         /// </summary>
-        [JsonProperty(PropertyName = "groupUserAccessRight")]
-        public string GroupUserAccessRightProperty { get; set; }
+        public static implicit operator GroupUserAccessRight(string value)
+        {
+            return new GroupUserAccessRight(value);
+        }
 
         /// <summary>
-        /// Gets or sets email address of the user
+        /// Implicit operator to convert GroupUserAccessRight to string
         /// </summary>
-        [JsonProperty(PropertyName = "emailAddress")]
-        public string EmailAddress { get; set; }
+        public static implicit operator string(GroupUserAccessRight e)
+        {
+            return e.UnderlyingValue;
+        }
 
         /// <summary>
-        /// Gets or sets display name of the principal
+        /// Overriding == operator for enum GroupUserAccessRight
         /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
+        public static bool operator == (GroupUserAccessRight e1, GroupUserAccessRight e2)
+        {
+            return e2.Equals(e1);
+        }
 
         /// <summary>
-        /// Gets or sets identifier of the principal
+        /// Overriding != operator for enum GroupUserAccessRight
         /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
+        public static bool operator != (GroupUserAccessRight e1, GroupUserAccessRight e2)
+        {
+            return !e2.Equals(e1);
+        }
 
         /// <summary>
-        /// Gets or sets the principal type. Possible values include: 'User',
-        /// 'Group', 'App'
+        /// Overrides Equals operator for GroupUserAccessRight
         /// </summary>
-        [JsonProperty(PropertyName = "principalType")]
-        public string PrincipalType { get; set; }
+        public override bool Equals(object obj)
+        {
+            return obj is GroupUserAccessRight && Equals((GroupUserAccessRight)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode GroupUserAccessRight
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
 
     }
 }

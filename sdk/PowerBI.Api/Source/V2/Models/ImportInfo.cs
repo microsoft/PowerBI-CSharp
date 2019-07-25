@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="fileUrl">The shared access signature (SAS) url of the
         /// temporary blob storage, used to import large .pbix files between 1
         /// GB and 10 GB</param>
-        public ImportInfo(string filePath = default(string), string connectionType = default(string), string fileUrl = default(string))
+        public ImportInfo(string filePath = default(string), ConnectionType? connectionType = default(ConnectionType?), string fileUrl = default(string))
         {
             FilePath = filePath;
             ConnectionType = connectionType;
@@ -59,7 +59,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// file. Possible values include: 'import', 'connect'
         /// </summary>
         [JsonProperty(PropertyName = "connectionType")]
-        public string ConnectionType { get; set; }
+        public ConnectionType? ConnectionType { get; set; }
 
         /// <summary>
         /// Gets or sets the shared access signature (SAS) url of the temporary

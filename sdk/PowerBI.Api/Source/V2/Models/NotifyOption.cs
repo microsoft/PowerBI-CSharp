@@ -7,66 +7,107 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Converters;
-    using System.Runtime;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// Defines values for NotifyOption.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum NotifyOption
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(NotifyOptionConverter))]
+    public struct NotifyOption : System.IEquatable<NotifyOption>
     {
+        private NotifyOption(string underlyingValue)
+        {
+            UnderlyingValue=underlyingValue;
+        }
+
         /// <summary>
         /// No notification will be sent
         /// </summary>
-        [EnumMember(Value = "NoNotification")]
-        NoNotification,
+        public static readonly NotifyOption NoNotification = "NoNotification";
+
         /// <summary>
         /// Mail notification will be sent on refresh failure
         /// </summary>
-        [EnumMember(Value = "MailOnFailure")]
-        MailOnFailure,
+        public static readonly NotifyOption MailOnFailure = "MailOnFailure";
+
         /// <summary>
         /// Mail notification will be sent on refresh completion, including
         /// either failure and success
         /// </summary>
-        [EnumMember(Value = "MailOnCompletion")]
-        MailOnCompletion
-    }
-    internal static class NotifyOptionEnumExtension
-    {
-        internal static string ToSerializedValue(this NotifyOption? value)
+        public static readonly NotifyOption MailOnCompletion = "MailOnCompletion";
+
+
+        /// <summary>
+        /// Underlying value of enum NotifyOption
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for NotifyOption
+        /// </summary>
+        public override string ToString()
         {
-            return value == null ? null : ((NotifyOption)value).ToSerializedValue();
+            return UnderlyingValue.ToString();
         }
 
-        internal static string ToSerializedValue(this NotifyOption value)
+        /// <summary>
+        /// Compares enums of type NotifyOption
+        /// </summary>
+        public bool Equals(NotifyOption e)
         {
-            switch( value )
-            {
-                case NotifyOption.NoNotification:
-                    return "NoNotification";
-                case NotifyOption.MailOnFailure:
-                    return "MailOnFailure";
-                case NotifyOption.MailOnCompletion:
-                    return "MailOnCompletion";
-            }
-            return null;
+            return UnderlyingValue.Equals(e.UnderlyingValue);
         }
 
-        internal static NotifyOption? ParseNotifyOption(this string value)
+        /// <summary>
+        /// Implicit operator to convert string to NotifyOption
+        /// </summary>
+        public static implicit operator NotifyOption(string value)
         {
-            switch( value )
-            {
-                case "NoNotification":
-                    return NotifyOption.NoNotification;
-                case "MailOnFailure":
-                    return NotifyOption.MailOnFailure;
-                case "MailOnCompletion":
-                    return NotifyOption.MailOnCompletion;
-            }
-            return null;
+            return new NotifyOption(value);
         }
+
+        /// <summary>
+        /// Implicit operator to convert NotifyOption to string
+        /// </summary>
+        public static implicit operator string(NotifyOption e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum NotifyOption
+        /// </summary>
+        public static bool operator == (NotifyOption e1, NotifyOption e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum NotifyOption
+        /// </summary>
+        public static bool operator != (NotifyOption e1, NotifyOption e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for NotifyOption
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is NotifyOption && Equals((NotifyOption)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode NotifyOption
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
+
     }
 }

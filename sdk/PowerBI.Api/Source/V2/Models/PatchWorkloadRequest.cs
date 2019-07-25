@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Unsupported'</param>
         /// <param name="maxMemoryPercentageSetByUser">The memory percentage
         /// maximum Limit set by the user</param>
-        public PatchWorkloadRequest(WorkloadState? state = default(WorkloadState?), int? maxMemoryPercentageSetByUser = default(int?))
+        public PatchWorkloadRequest(WorkloadState state, int? maxMemoryPercentageSetByUser = default(int?))
         {
             State = state;
             MaxMemoryPercentageSetByUser = maxMemoryPercentageSetByUser;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// 'Unsupported'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
-        public WorkloadState? State { get; set; }
+        public WorkloadState State { get; set; }
 
         /// <summary>
         /// Gets or sets the memory percentage maximum Limit set by the user
@@ -54,5 +54,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         [JsonProperty(PropertyName = "maxMemoryPercentageSetByUser")]
         public int? MaxMemoryPercentageSetByUser { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+        }
     }
 }

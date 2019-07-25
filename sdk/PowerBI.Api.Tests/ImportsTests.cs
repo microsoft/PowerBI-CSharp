@@ -17,19 +17,19 @@ namespace PowerBI.Api.Tests
     {
         private const string AccessKey = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-        private string groupId;
+        private Guid groupId;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            this.groupId = Guid.NewGuid().ToString();
+            this.groupId = Guid.NewGuid();
         }
 
         [TestMethod]
         public async Task PostImportWithFileWithNameAndConflict()
         {
             var datasetDisplayName = "TestDataset";
-            var nameConflict = "Overwrite";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
             var importResponse = CreateSampleImportResponse();
 
             using (var handler = new FakeHttpClientHandler(importResponse))
@@ -46,7 +46,7 @@ namespace PowerBI.Api.Tests
         public async Task Groups_PostImportWithFileWithNameAndConflict()
         {
             var datasetDisplayName = "TestDataset";
-            var nameConflict = "Overwrite";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
             var importResponse = CreateSampleImportResponse();
 
             using (var handler = new FakeHttpClientHandler(importResponse))
@@ -91,11 +91,44 @@ namespace PowerBI.Api.Tests
             }
         }
 
+        [TestMethod]
+        public async Task PostImportFileWithNameAndSkipReport()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, skipReport: true);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&skipReport=True";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task PostImportWithFileWithNameAndConflictAndSkipReport()
+        {
+            var datasetDisplayName = "TestDataset";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, nameConflict, skipReport: true);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}&skipReport=True";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
         private static HttpResponseMessage CreateSampleImportResponse(string name = default(string))
         {
             var import = new Import
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = Guid.NewGuid(),
                 Name = name ?? "Sample",
                 Datasets = new List<Dataset>(),
                 Reports = new List<Report>(),
