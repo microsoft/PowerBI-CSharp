@@ -29,12 +29,14 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="displayName">The dashboard display name</param>
         /// <param name="isReadOnly">Is ReadOnly dashboard</param>
         /// <param name="embedUrl">The dashboard embed url</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string))
+        /// <param name="tiles">The tiles associated with the dashboard</param>
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), Tiles tiles = default(Tiles))
         {
             Id = id;
             DisplayName = displayName;
             IsReadOnly = isReadOnly;
             EmbedUrl = embedUrl;
+            Tiles = tiles;
             CustomInit();
         }
 
@@ -68,6 +70,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string EmbedUrl { get; set; }
 
         /// <summary>
+        /// Gets or sets the tiles associated with the dashboard
+        /// </summary>
+        [JsonProperty(PropertyName = "tiles")]
+        public Tiles Tiles { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -75,7 +83,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
         }
     }
 }

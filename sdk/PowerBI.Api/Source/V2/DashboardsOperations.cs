@@ -2172,6 +2172,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
+        /// <param name='expand'>
+        /// Expands related entities inline, receives a comma-separated list of data
+        /// types. Supported: tiles
+        /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
         /// </param>
@@ -2196,7 +2200,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Dashboards>> GetDashboardsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Dashboards>> GetDashboardsAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2205,6 +2209,7 @@ namespace Microsoft.PowerBI.Api.V2
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("expand", expand);
                 tracingParameters.Add("filter", filter);
                 tracingParameters.Add("top", top);
                 tracingParameters.Add("skip", skip);
@@ -2215,6 +2220,10 @@ namespace Microsoft.PowerBI.Api.V2
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dashboards").ToString();
             List<string> _queryParameters = new List<string>();
+            if (expand != null)
+            {
+                _queryParameters.Add(string.Format("$expand={0}", System.Uri.EscapeDataString(expand)));
+            }
             if (filter != null)
             {
                 _queryParameters.Add(string.Format("$filter={0}", System.Uri.EscapeDataString(filter)));

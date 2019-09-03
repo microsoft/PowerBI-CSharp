@@ -10265,6 +10265,13 @@
                 ],
                 "parameters": [
                     {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: tiles",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
                         "name": "$filter",
                         "in": "query",
                         "description": "Filters the results, based on a boolean condition",
@@ -11789,6 +11796,10 @@
                 "embedUrl": {
                     "type": "string",
                     "description": "The dashboard embed url"
+                },
+                "tiles": {
+                    "$ref": "#/definitions/Tiles",
+                    "description": "The tiles associated with the dashboard"
                 }
             }
         },
