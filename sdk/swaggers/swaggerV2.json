@@ -10958,6 +10958,147 @@
                 },
                 "deprecated": false
             }
+        },
+        "/v1.0/myorg/GenerateToken": {
+            "post": {
+                "tags": [
+                    "EmbedToken"
+                ],
+                "summary": "Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Target workspaces are workspaces where creation of reports is allowed.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "description": "<br/>**Required scope**: <ul><li>Content.Create - required only if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All or Report.Read.All - required only if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All - required if allowEdit flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><li>All the reports and datasets must reside in workspace V2. All the target workpaces must be workspace V2.</li><li>Maximum number of reports, datasets and target workspaces is 50 each.</li><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><br/>",
+                "operationId": "GenerateToken",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestParameters",
+                        "description": "Generate token parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GenerateTokenRequestV2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/EmbedToken"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Generate EmbedToken for two datasets with RLS identities and a single report with read-only permissions. This token allows to view the report dynamically bound to two different datasets": {
+                        "parameters": {
+                            "requestParameters": {
+                                "datasets": [
+                                    {
+                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                    },
+                                    {
+                                        "id": "e75afc47-1150-45e0-aba7-4eb04e4876e5"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "identities": [
+                                    {
+                                        "username": "john@contoso.com",
+                                        "roles": [ "sales" ],
+                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                    },
+                                    {
+                                        "username": "iris@contoso.com",
+                                        "roles": [ "executive" ],
+                                        "datasets": [ "e75afc47-1150-45e0-aba7-4eb04e4876e5" ]
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Generate EmbedToken for two datasets, no reports and three target workspaces. This token allows creation of reports in three workpaces. The created reports are bound to one of the two datasets that do not have to reside in any of the three workpaces": {
+                        "parameters": {
+                            "requestParameters": {
+                                "datasets": [
+                                    {
+                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                    },
+                                    {
+                                        "id": "e75afc47-1150-45e0-aba7-4eb04e4876e5"
+                                    }
+                                ],
+                                "targetWorkspaces": [
+                                    {
+                                        "id": "86f49768-a737-4dd4-801d-8bea6927876c"
+                                    },
+                                    {
+                                        "id": "35dc6de2-6985-42be-a18c-2e1f7826ecbf"
+                                    },
+                                    {
+                                        "id": "b18cc7fe-5db0-4a2f-b905-b83692eb4ffd"
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Generate EmbedToken for a dataset and two reports. Editing is allowed for only one of the two reports": {
+                        "parameters": {
+                            "requestParameters": {
+                                "datasets": [
+                                    {
+                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "allowEdit": true,
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    },
+                                    {
+                                        "id": "759908bb-ead8-4a43-9645-7ffbf921c68d"
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2018-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         }
     },
     "definitions": {
@@ -12705,6 +12846,48 @@
                 }
             }
         },
+        "GenerateTokenRequestV2Dataset": {
+            "required": [
+                "id"
+            ],
+            "description": "The dataset object for Generate Token Request V2.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Dataset Id"
+                }
+            }
+        },
+        "GenerateTokenRequestV2TargetWorkspace": {
+            "required": [
+                "id"
+            ],
+            "description": "The workspace object for Generate Token Request V2.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Workspace Id"
+                }
+            }
+        },
+        "GenerateTokenRequestV2Report": {
+            "required": [
+                "id"
+            ],
+            "description": "The report object for Generate Token Request V2.",
+            "properties": {
+                "allowEdit": {
+                    "type": "boolean",
+                    "description": "Indicates that the generated EmbedToken grand editing for this report"
+                },
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Report Id"
+                }
+            }
+        },
         "GenerateTokenRequest": {
             "description": "Power BI Generate Token Request",
             "properties": {
@@ -12745,7 +12928,40 @@
                 },
                 "identities": {
                     "type": "array",
-                    "description": "List of identities to use for RLS rules. Specifying identities is not supported when generating EmbedToken for dataset embedding.",
+                    "description": "List of identities to use for RLS rules.",
+                    "items": {
+                        "$ref": "#/definitions/EffectiveIdentity"
+                    }
+                }
+            }
+        },
+        "GenerateTokenRequestV2": {
+            "description": "Power BI Generate Token Request V2",
+            "properties": {
+                "datasets": {
+                    "type": "array",
+                    "description": "List of datasets",
+                    "items": {
+                        "$ref": "#/definitions/GenerateTokenRequestV2Dataset"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "List of reports",
+                    "items": {
+                        "$ref": "#/definitions/GenerateTokenRequestV2Report"
+                    }
+                },
+                "targetWorkspaces": {
+                    "type": "array",
+                    "description": "List of target workspaces",
+                    "items": {
+                        "$ref": "#/definitions/GenerateTokenRequestV2TargetWorkspace"
+                    }
+                },
+                "identities": {
+                    "type": "array",
+                    "description": "List of identities to use for RLS rules.",
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
