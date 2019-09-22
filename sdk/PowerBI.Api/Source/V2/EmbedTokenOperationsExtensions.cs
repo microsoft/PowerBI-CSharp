@@ -11,9 +11,9 @@ namespace Microsoft.PowerBI.Api.V2
     using System.Threading.Tasks;
 
     /// <summary>
-    /// Extension methods for PowerBIClient.
+    /// Extension methods for EmbedTokenOperations.
     /// </summary>
-    public static partial class PowerBIClientExtensions
+    public static partial class EmbedTokenOperationsExtensions
     {
             /// <summary>
             /// Generates an embed token for multiple reports, datasets and target
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestParameters'>
             /// Generate token parameters
             /// </param>
-            public static EmbedToken GenerateToken(this IPowerBIClient operations, GenerateTokenRequestV2 requestParameters)
+            public static EmbedToken GenerateToken(this IEmbedTokenOperations operations, GenerateTokenRequestV2 requestParameters)
             {
                 return operations.GenerateTokenAsync(requestParameters).GetAwaiter().GetResult();
             }
@@ -89,7 +89,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<EmbedToken> GenerateTokenAsync(this IPowerBIClient operations, GenerateTokenRequestV2 requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<EmbedToken> GenerateTokenAsync(this IEmbedTokenOperations operations, GenerateTokenRequestV2 requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GenerateTokenWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false))
                 {
