@@ -320,7 +320,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestMessage'>
             /// The request message
             /// </param>
-            public static void PostRows(this IDatasetsOperations operations, string datasetId, string tableName, object requestMessage)
+            public static void PostRows(this IDatasetsOperations operations, string datasetId, string tableName, PostRowsRequest requestMessage)
             {
                 operations.PostRowsAsync(datasetId, tableName, requestMessage).GetAwaiter().GetResult();
             }
@@ -352,7 +352,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostRowsAsync(this IDatasetsOperations operations, string datasetId, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostRowsAsync(this IDatasetsOperations operations, string datasetId, string tableName, PostRowsRequest requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.PostRowsWithHttpMessagesAsync(datasetId, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -1541,7 +1541,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='requestMessage'>
             /// The request message
             /// </param>
-            public static void PostRowsInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, string tableName, object requestMessage)
+            public static void PostRowsInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, string tableName, PostRowsRequest requestMessage)
             {
                 operations.PostRowsInGroupAsync(groupId, datasetId, tableName, requestMessage).GetAwaiter().GetResult();
             }
@@ -1576,7 +1576,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PostRowsInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, string tableName, object requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PostRowsInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, string tableName, PostRowsRequest requestMessage, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.PostRowsInGroupWithHttpMessagesAsync(groupId, datasetId, tableName, requestMessage, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

@@ -435,7 +435,7 @@
                         "description": "The request message",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Object"
+                            "$ref": "#/definitions/PostRowsRequest"
                         }
                     }
                 ],
@@ -3124,7 +3124,7 @@
                         "description": "The request message",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/Object"
+                            "$ref": "#/definitions/PostRowsRequest"
                         }
                     }
                 ],
@@ -11380,6 +11380,18 @@
                     "description": "The measures within this table",
                     "items": {
                         "$ref": "#/definitions/Measure"
+                    }
+                }
+            }
+        },
+        "PostRowsRequest": {
+            "description": "",
+            "properties": {
+                "rows": {
+                    "type": "array",
+                    "description": "An array of data rows pushed to a dataset table",
+                    "items": {
+                        "$ref": "#/definitions/Object"
                     }
                 }
             }
