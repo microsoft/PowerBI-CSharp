@@ -108,6 +108,11 @@ namespace Microsoft.PowerBI.Api.V2
         public virtual IAdmin Admin { get; private set; }
 
         /// <summary>
+        /// Gets the IEmbedTokenOperations.
+        /// </summary>
+        public virtual IEmbedTokenOperations EmbedToken { get; private set; }
+
+        /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
         /// </summary>
         /// <param name='handlers'>
@@ -322,6 +327,7 @@ namespace Microsoft.PowerBI.Api.V2
             AvailableFeatures = new AvailableFeaturesOperations(this);
             DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
             Admin = new Admin(this);
+            EmbedToken = new EmbedTokenOperations(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {

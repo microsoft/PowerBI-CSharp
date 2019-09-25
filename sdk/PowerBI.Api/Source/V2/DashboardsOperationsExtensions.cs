@@ -797,6 +797,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: tiles
+            /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
             /// </param>
@@ -806,9 +810,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dashboards GetDashboardsAsAdmin(this IDashboardsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static Dashboards GetDashboardsAsAdmin(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
-                return operations.GetDashboardsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
+                return operations.GetDashboardsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -825,6 +829,10 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: tiles
+            /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
             /// </param>
@@ -837,9 +845,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dashboards> GetDashboardsAsAdminAsync(this IDashboardsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Dashboards> GetDashboardsAsAdminAsync(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetDashboardsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetDashboardsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

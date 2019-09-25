@@ -35,9 +35,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="allowSaveAs">Indicates an embedded report can be saved
         /// as a new report. Default value is 'false'. Only applies when
         /// generating EmbedToken for report embedding.</param>
-        /// <param name="identities">List of identities to use for RLS rules.
-        /// Specifying identities is not supported when generating EmbedToken
-        /// for dataset embedding.</param>
+        /// <param name="identities">List of identities to use for RLS
+        /// rules.</param>
         public GenerateTokenRequest(TokenAccessLevel? accessLevel = default(TokenAccessLevel?), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             AccessLevel = accessLevel;
@@ -75,9 +74,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public bool? AllowSaveAs { get; set; }
 
         /// <summary>
-        /// Gets or sets list of identities to use for RLS rules. Specifying
-        /// identities is not supported when generating EmbedToken for dataset
-        /// embedding.
+        /// Gets or sets list of identities to use for RLS rules.
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
