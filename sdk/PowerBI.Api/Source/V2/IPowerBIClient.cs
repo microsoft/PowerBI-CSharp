@@ -106,5 +106,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// </summary>
         IAdmin Admin { get; }
 
+        /// <summary>
+        /// Gets the IEmbedTokenOperations.
+        /// </summary>
+        IEmbedTokenOperations EmbedToken { get; }
+
     }
 }

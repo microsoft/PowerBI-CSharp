@@ -221,7 +221,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(string datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(string datasetId, string tableName, PostRowsRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes all rows from the specified table within the specified
         /// dataset from **"My Workspace"**.
@@ -944,7 +944,7 @@ namespace Microsoft.PowerBI.Api.V2
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, object requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, PostRowsRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes all rows from the specified table, within the specified
         /// dataset, from the specified workspace.
