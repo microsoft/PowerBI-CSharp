@@ -48,13 +48,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="identityBlob">Preview feature: The identity blob
         /// representing the identity that the generated token should
         /// reflect</param>
-        public EffectiveIdentity(string username, IList<string> datasets, IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob))
+        /// <param name="reports">An array of reports for which this identity
+        /// applies, Only supported for paginated reports</param>
+        public EffectiveIdentity(string username, IList<string> datasets = default(IList<string>), IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob), IList<string> reports = default(IList<string>))
         {
             Username = username;
-            Roles = roles;
             Datasets = datasets;
+            Roles = roles;
             CustomData = customData;
             IdentityBlob = identityBlob;
+            Reports = reports;
             CustomInit();
         }
 
@@ -75,6 +78,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string Username { get; set; }
 
         /// <summary>
+        /// Gets or sets an array of datasets for which this identity applies
+        /// </summary>
+        [JsonProperty(PropertyName = "datasets")]
+        public IList<string> Datasets { get; set; }
+
+        /// <summary>
         /// Gets or sets an array of roles reflected by a token when applying
         /// RLS rules (identity can contain up to 50 roles, role can be
         /// composed of any character besides ',' and must be up to 50
@@ -82,12 +91,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "roles")]
         public IList<string> Roles { get; set; }
-
-        /// <summary>
-        /// Gets or sets an array of datasets for which this identity applies
-        /// </summary>
-        [JsonProperty(PropertyName = "datasets")]
-        public IList<string> Datasets { get; set; }
 
         /// <summary>
         /// Gets or sets the value of customdata to be used for applying RLS
@@ -105,6 +108,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public IdentityBlob IdentityBlob { get; set; }
 
         /// <summary>
+        /// Gets or sets an array of reports for which this identity applies,
+        /// Only supported for paginated reports
+        /// </summary>
+        [JsonProperty(PropertyName = "reports")]
+        public IList<string> Reports { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -115,10 +125,6 @@ namespace Microsoft.PowerBI.Api.V2.Models
             if (Username == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Username");
-            }
-            if (Datasets == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Datasets");
             }
             if (IdentityBlob != null)
             {

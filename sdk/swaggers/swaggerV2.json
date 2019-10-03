@@ -5939,6 +5939,30 @@
                                 }
                             }
                         }
+                    },
+                    "Generate paginated report EmbedToken with EffectiveIdentity": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
+                            "requestParameters": {
+                                "accessLevel": "View",
+                                "identities": [
+                                    {
+                                        "username": "John Smith",
+                                        "reports": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2018-07-29T17:58:19Z"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -12824,8 +12848,7 @@
         },
         "EffectiveIdentity": {
             "required": [
-                "username",
-                "datasets"
+                "username"
             ],
             "description": "The identity the generated token should reflect, for more details see this [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)",
             "properties": {
@@ -12833,19 +12856,18 @@
                     "type": "string",
                     "description": "The effective username reflected by a token for applying RLS rules (For OnPrem model, username can be composed of alpha-numerical characters or any of the following characters  '.', '-', '_', '!', '#', '^', '~', '\\\\', '@', also username cannot contain spaces. For Cloud model, username can be composed of all ASCII characters. username must be up to 256 characters)"
                 },
+                "datasets": {
+                    "type": "array",
+                    "description": "An array of datasets for which this identity applies",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "roles": {
                     "type": "array",
                     "description": "An array of roles reflected by a token when applying RLS rules (identity can contain up to 50 roles, role can be composed of any character besides ',' and must be up to 50 characters)",
                     "items": {
                         "type": "string"
-                    }
-                },
-                "datasets": {
-                    "type": "array",
-                    "description": "An array of datasets for which this identity applies",
-                    "items": {
-                        "type": "string",
-                        "x-nullable": false
                     }
                 },
                 "customData": {
@@ -12855,6 +12877,13 @@
                 "identityBlob": {
                     "$ref": "#/definitions/IdentityBlob",
                     "description": "Preview feature: The identity blob representing the identity that the generated token should reflect"
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "An array of reports for which this identity applies, Only supported for paginated reports",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
