@@ -1655,7 +1655,8 @@
                             "Ignore",
                             "Abort",
                             "Overwrite",
-                            "CreateOrOverwrite"
+                            "CreateOrOverwrite",
+                            "GenerateUniqueName"
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
@@ -1676,6 +1677,10 @@
                                 {
                                     "value": "CreateOrOverwrite",
                                     "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                },
+                                {
+                                    "value": "GenerateUniqueName",
+                                    "description": "If a dataflow with the same name already exists, Import operation will generate a new unique name for the dataflow."
                                 }
                             ]
                         }
@@ -1741,6 +1746,25 @@
                             "skipReport": true,
                             "importInfo": {
                                 "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "id": "d02b8896-e247-4d83-ae5a-014028cb0665"
+                                }
+                            }
+                        }
+                    },
+                    "Import dataflow example": {
+                        "parameters": {
+                            "consumes": "multipart/form-data;",
+                            "boundary": "f05e5244-f876-43b9-bc87-d71598f6b32a",
+                            "paramType": "form",
+                            "datasetDisplayName": "model.json",
+                            "nameConflict": "Abort",
+                            "importInfo": {
+                                "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data name=model.json; filename=model.json Content-Type: application/json [Contents of Model JSON Encoded] --f05e5244-f876-43b9-bc87-d71598f6b32a--"
                             }
                         },
                         "responses": {
@@ -4483,7 +4507,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on the specified workspace from .pbix, .json, Excel, Rdl, or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -4505,20 +4529,21 @@
                         "name": "datasetDisplayName",
                         "in": "query",
                         "required": true,
-                        "description": "The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business.",
+                        "description": "The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business. For importing or creating dataflows, this parameter should be hardcoded to model.json.",
                         "type": "string"
                     },
                     {
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.",
+                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.<br/>Only Abort and GenerateUniqueName are supported with dataflow model.json files.",
                         "type": "string",
                         "enum": [
                             "Ignore",
                             "Abort",
                             "Overwrite",
-                            "CreateOrOverwrite"
+                            "CreateOrOverwrite",
+                            "GenerateUniqueName"
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
@@ -4530,7 +4555,7 @@
                                 },
                                 {
                                     "value": "Abort",
-                                    "description": "If dataset with the same name already exists, Import operation will be aborted."
+                                    "description": "If dataset or dataflow with the same name already exists, Import operation will be aborted."
                                 },
                                 {
                                     "value": "Overwrite",
@@ -4539,6 +4564,10 @@
                                 {
                                     "value": "CreateOrOverwrite",
                                     "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                },
+                                {
+                                    "value": "GenerateUniqueName",
+                                    "description": "If a dataflow with the same name already exists, Import operation will generate a new unique name for the dataflow."
                                 }
                             ]
                         }
@@ -4606,6 +4635,27 @@
                             "skipReport": true,
                             "importInfo": {
                                 "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "id": "d02b8896-e247-4d83-ae5a-014028cb0665"
+                                }
+                            }
+                        }
+                    },
+                    "Import dataflow model.json example": {
+                        "parameters": {
+                            "groupId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "consumes": "multipart/form-data;",
+                            "boundary": "f05e5244-f876-43b9-bc87-d71598f6b32a",
+                            "paramType": "form",
+                            "datasetDisplayName": "model.json",
+                            "nameConflict": "Abort",
+                            "skipReport": true,
+                            "importInfo": {
+                                "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data name=model.json; filename=model.json Content-Type: application/json [Contents of Model JSON Encoded] --f05e5244-f876-43b9-bc87-d71598f6b32a--"
                             }
                         },
                         "responses": {
