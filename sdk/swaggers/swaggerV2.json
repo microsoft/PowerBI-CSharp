@@ -2338,6 +2338,65 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/reports/{reportId}/datasources": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns a list of datasources for the specified RDL report from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetDatasources",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Datasources"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff228"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AnalysisServices",
+                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f51",
+                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e931",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
 
         "/v1.0/myorg/dashboards": {
             "get": {
@@ -5351,6 +5410,73 @@
                                     "displayName": "Regional Sales Analysis",
                                     "name": "ReportSection",
                                     "order": "0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/datasources": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns a list of datasources for the specified RDL report from the specified workspace.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Reportt.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetDatasourcesInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Datasources"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AnalysisServices",
+                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f55",
+                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }

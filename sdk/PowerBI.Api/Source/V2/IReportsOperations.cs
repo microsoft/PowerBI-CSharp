@@ -272,6 +272,32 @@ namespace Microsoft.PowerBI.Api.V2
         /// </exception>
         Task<HttpOperationResponse<Page>> GetPageWithHttpMessagesAsync(System.Guid reportId, string pageName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns a list of datasources for the specified RDL report from
+        /// **"My Workspace"**.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of reports from the specified workspace.
         /// </summary>
         /// <remarks>
@@ -549,6 +575,34 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Page>> GetPageInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, string pageName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of datasources for the specified RDL report from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+        /// Reportt.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generates an embed token to allow report creation on the specified
         /// workspace based on the specified dataset.&lt;br/&gt;This API is

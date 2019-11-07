@@ -554,5 +554,56 @@ namespace Microsoft.PowerBI.Api.V2
             }
         }
 
+        /// <summary>
+        /// Returns a list of datasources for the specified RDL report from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Reportt.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// </param>
+        public static Datasources GetDatasources(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
+        {
+            return operations.GetDatasourcesAsync(groupId, reportId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns a list of datasources for the specified RDL report from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Reportt.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<Datasources> GetDatasourcesAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetDatasourcesInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+
     }
 }
