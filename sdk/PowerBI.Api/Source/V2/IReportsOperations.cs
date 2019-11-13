@@ -91,12 +91,17 @@ namespace Microsoft.PowerBI.Api.V2
         /// Clones the specified report from **"My Workspace"**.
         /// </summary>
         /// <remarks>
+        /// &lt;br/&gt;If after cloning the report and its dataset reside in
+        /// two different upgraded workspaces or "My Workspace", a shared
+        /// dataset will be created in the report's workspace.
         /// &lt;br/&gt;Reports with live connection will lose the live
         /// connection when cloning, and will have a direct binding to the
         /// target dataset.&lt;br/&gt;**Required scope**:
         /// Content.Create&lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
+        /// Target dataset (if provided) - Build permissions.
         /// </remarks>
         /// <param name='reportId'>
         /// The report id
@@ -188,11 +193,15 @@ namespace Microsoft.PowerBI.Api.V2
         /// requested dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;Reports with live connection will lose the live
-        /// connection when rebinding, and will have a direct binding to the
-        /// target dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All
+        /// &lt;br/If the dataset resides in a different upgraded workspace, a
+        /// shared dataset will be created in "My Workspace".&lt;br/&gt;Reports
+        /// with live connection will lose the live connection when rebinding,
+        /// and will have a direct binding to the target
+        /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
+        /// Target dataset - Build permissions.
         /// </remarks>
         /// <param name='reportId'>
         /// The report id
@@ -378,11 +387,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// Clones the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
+        /// &lt;br/&gt;If after cloning the report and its dataset reside in
+        /// two different upgraded workspaces or "My Workspace", a shared
+        /// dataset will be created in the report's workspace.
         /// &lt;br/&gt;Reports with live connection will lose the live
         /// connection when cloning, and will have a direct binding to the
         /// target dataset.&lt;br/&gt;**Required scope**: Content.Create
         /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
+        /// Target dataset (if provided) - Build permissions
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -483,11 +497,16 @@ namespace Microsoft.PowerBI.Api.V2
         /// requested dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;Reports with live connection will lose the live
-        /// connection when rebinding, and will have a direct binding to the
-        /// target dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// &lt;br/If the dataset resides in a different upgraded workspace or
+        /// in "My Workspace", a shared dataset will be created in the report's
+        /// workspace.&lt;br/&gt;Reports with live connection will lose the
+        /// live connection when rebinding, and will have a direct binding to
+        /// the target dataset.&lt;br/&gt;**Required scope**:
+        /// Report.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
+        /// Target dataset - Build permissions
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
