@@ -2184,7 +2184,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from **\"My Workspace\"** to the requested dataset.",
-                "description": "<br/If the dataset resides in a different upgraded workspace, a shared dataset will be created in \"My Workspace\".<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions.",
+                "description": "<br/>If the dataset resides in a different upgraded workspace, a shared dataset will be created in \"My Workspace\".<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions.",
                 "operationId": "Reports_RebindReport",
                 "consumes": [
                     "application/json"
@@ -5238,7 +5238,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from the specified workspace to the requested dataset.",
-                "description": "<br/If the dataset resides in a different upgraded workspace or in \"My Workspace\", a shared dataset will be created in the report's workspace.<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions",
+                "description": "<br/>If the dataset resides in a different upgraded workspace or in \"My Workspace\", a shared dataset will be created in the report's workspace.<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"
