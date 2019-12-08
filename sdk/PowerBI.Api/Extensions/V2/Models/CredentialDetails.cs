@@ -14,8 +14,8 @@
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        public CredentialDetails(CredentialsBase credentialsBase, PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection, ICredentialsEncryptor credentialsEncryptor = null)
-            : this(privacyLevel, encryptedConnection, credentialsEncryptor)
+        public CredentialDetails(CredentialsBase credentialsBase, PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection, ICredentialsEncryptor credentialsEncryptor = null, bool? useEndUserOAuth2Credentials = default(bool?))
+            : this(privacyLevel, encryptedConnection, credentialsEncryptor, useEndUserOAuth2Credentials)
         {
             var credentials = new CredentialsRequest
             {
@@ -36,12 +36,13 @@
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        protected CredentialDetails(PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection, ICredentialsEncryptor credentialsEncryptor)
+        protected CredentialDetails(PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection, ICredentialsEncryptor credentialsEncryptor, bool? useEndUserOAuth2Credentials = default(bool?))
         {
             EncryptedConnection = encryptedConnection;
             EncryptionAlgorithm = credentialsEncryptor != null ? EncryptionAlgorithm.RSAOAEP : EncryptionAlgorithm.None;
             PrivacyLevel = privacyLevel;
             UseCallerAADIdentity = false;
+            UseEndUserOAuth2Credentials = useEndUserOAuth2Credentials;
             CustomInit();
         }
     }
@@ -54,8 +55,8 @@
         /// <summary>
         /// Initializes a new instance of the UpdateDatasourceRequest class for cloud datasource.
         /// </summary>
-        public CredentialDetailsUsingCallerOauthAADIdentity(PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection)
-            : base(privacyLevel, encryptedConnection, null)
+        public CredentialDetailsUsingCallerOauthAADIdentity(PrivacyLevel privacyLevel, EncryptedConnection encryptedConnection, bool? useEndUserOAuth2Credentials = default(bool?))
+            : base(privacyLevel, encryptedConnection, null, useEndUserOAuth2Credentials)
         {
             CredentialType = CredentialType.OAuth2;
             UseCallerAADIdentity = true;
