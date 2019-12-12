@@ -29,14 +29,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="id">The dataset id</param>
         /// <param name="name">The dataset name</param>
         /// <param name="configuredBy">The dataset owner</param>
-        /// <param name="addRowsAPIEnabled">Whether dataset allows adding new
-        /// rows</param>
+        /// <param name="addRowsAPIEnabled">Whether the dataset allows adding
+        /// new rows</param>
         /// <param name="webUrl">The dataset web url</param>
         /// <param name="isRefreshable">Can this dataset be refreshed</param>
-        /// <param name="isEffectiveIdentityRequired">Dataset requires
-        /// effective identity</param>
-        /// <param name="isEffectiveIdentityRolesRequired">Dataset requires
-        /// roles</param>
+        /// <param name="isEffectiveIdentityRequired">Whether the dataset
+        /// requires an effective identity. This indicates that you must send
+        /// an effective identity using the GenerateToken API.</param>
+        /// <param name="isEffectiveIdentityRolesRequired">Whether RLS is
+        /// defined inside the PBIX file. This indicates that you must specify
+        /// a role.</param>
         /// <param name="isOnPremGatewayRequired">Dataset requires an
         /// On-premises Data Gateway</param>
         /// <param name="encryption">The dataset encryption information (Only
@@ -80,7 +82,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string ConfiguredBy { get; set; }
 
         /// <summary>
-        /// Gets or sets whether dataset allows adding new rows
+        /// Gets or sets whether the dataset allows adding new rows
         /// </summary>
         [JsonProperty(PropertyName = "addRowsAPIEnabled")]
         public bool? AddRowsAPIEnabled { get; set; }
@@ -98,13 +100,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public bool? IsRefreshable { get; set; }
 
         /// <summary>
-        /// Gets or sets dataset requires effective identity
+        /// Gets or sets whether the dataset requires an effective identity.
+        /// This indicates that you must send an effective identity using the
+        /// GenerateToken API.
         /// </summary>
         [JsonProperty(PropertyName = "IsEffectiveIdentityRequired")]
         public bool? IsEffectiveIdentityRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets dataset requires roles
+        /// Gets or sets whether RLS is defined inside the PBIX file. This
+        /// indicates that you must specify a role.
         /// </summary>
         [JsonProperty(PropertyName = "IsEffectiveIdentityRolesRequired")]
         public bool? IsEffectiveIdentityRolesRequired { get; set; }

@@ -11483,7 +11483,7 @@
                 },
                 "addRowsAPIEnabled": {
                     "type": "boolean",
-                    "description": "Whether dataset allows adding new rows"
+                    "description": "Whether the dataset allows adding new rows"
                 },
                 "webUrl": {
                     "type": "string",
@@ -11495,11 +11495,11 @@
                 },
                 "IsEffectiveIdentityRequired": {
                     "type": "boolean",
-                    "description": "Dataset requires effective identity"
+                    "description": "Whether the dataset requires an effective identity. This indicates that you must send an effective identity using the GenerateToken API."
                 },
                 "IsEffectiveIdentityRolesRequired": {
                     "type": "boolean",
-                    "description": "Dataset requires roles"
+                    "description": "Whether RLS is defined inside the PBIX file. This indicates that you must specify a role."
                 },
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
