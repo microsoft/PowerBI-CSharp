@@ -167,5 +167,46 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse> PatchCapacityAsAdminWithHttpMessagesAsync(System.Guid capacityId, CapacityPatchRequest capacityPatchRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of audit activity events for a tenant.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;This API allows 200 requests per hour at
+        /// maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
+        /// or Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide
+        /// either a continuation token or both a start and end date time.
+        /// StartDateTime and EndDateTime must be in the same UTC day.
+        /// </remarks>
+        /// <param name='startDateTime'>
+        /// Start date and time of the window for audit event results. Must be
+        /// in ISO 8601 compliant UTC format.
+        /// </param>
+        /// <param name='endDateTime'>
+        /// End date and time of the window for audit event results. Must be in
+        /// ISO 8601 compliant UTC format.
+        /// </param>
+        /// <param name='continuationToken'>
+        /// Token required to get the next chunk of the result set
+        /// </param>
+        /// <param name='filter'>
+        /// Filters the results based on a boolean condition, using 'Activity',
+        /// 'UserId', or both properties. Supports only 'eq' and 'and'
+        /// operators.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<ActivityEventResponse>> GetActivityEventsWithHttpMessagesAsync(string startDateTime = default(string), string endDateTime = default(string), string continuationToken = default(string), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -11369,6 +11369,255 @@
                 },
                 "deprecated": false
             }
+        },
+        "/v1.0/myorg/admin/activityevents": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of audit activity events for a tenant.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
+                "operationId": "Admin_GetActivityEvents",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "startDateTime",
+                        "in": "query",
+                        "description": "Start date and time of the window for audit event results. Must be in ISO 8601 compliant UTC format.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "endDateTime",
+                        "in": "query",
+                        "description": "End date and time of the window for audit event results. Must be in ISO 8601 compliant UTC format.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition, using 'Activity', 'UserId', or both properties. Supports only 'eq' and 'and' operators.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ActivityEventResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get audit activity events between a time window": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "779438769",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewDashboard",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "321HK34324",
+                                            "Activity": "ViewDashboard",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get audit activity events between a time window and with a specific activity type": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "$filter": "Activity eq 'ViewReport'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "123456",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK53K45J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get audit activity events between a time window and with a specific user id": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "$filter": "UserId eq 'john@contoso.com'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "123456",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK53K45J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get audit activity events between a time window and with a specific activity type and user id": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "$filter": "Activity eq 'viewreport' and UserId eq 'john@contoso.com'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "123456",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK53K45J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get the next set of audit activity events by sending the continuation token to the API": {
+                        "parameters": {
+                            "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "91ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T08:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "d43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "1236",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "g632bb64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T09:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK55J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'",
+                                    "continuationToken": "%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         }
     },
     "definitions": {
@@ -14029,6 +14278,26 @@
                         "type": "string",
                         "description": "Workspace id"
                     }
+                }
+            }
+        },
+        "ActivityEventResponse": {
+            "description": "Odata response wrapper for audit activity events list",
+            "properties": {
+                "activityEventEntities": {
+                    "type": "array",
+                    "description": "The activity event entities",
+                    "items": {
+                        "$ref": "#/definitions/Object"
+                    }
+                },
+                "continuationUri": {
+                    "type": "string",
+                    "description": "Uri to get the next chunk of the result set"
+                },
+                "continuationToken": {
+                    "type": "string",
+                    "description": "Token to get the next chunk of the result set"
                 }
             }
         }
