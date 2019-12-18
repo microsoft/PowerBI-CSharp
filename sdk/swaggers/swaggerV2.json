@@ -12502,9 +12502,12 @@
                     "description": "The dashboard embed url"
                 },
                 "tiles": {
-                    "$ref": "#/definitions/Tiles",
-                    "description": "The tiles associated with the dashboard"
-                }
+                    "type": "array",
+                    "description": "The tiles that belong to the dashboard.",
+                    "items": {
+                        "$ref": "#/definitions/Tile"
+                    }
+                },
             }
         },
         "Tile": {
