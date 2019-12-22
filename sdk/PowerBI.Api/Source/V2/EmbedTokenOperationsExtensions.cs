@@ -31,9 +31,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// - required if allowEdit flag is specified for at least one report in
             /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
-            /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;li&gt;All the reports and datasets
             /// must reside in workspace V2. All the target workpaces must be workspace
             /// V2.&lt;/li&gt;&lt;li&gt;Maximum number of reports, datasets and target
@@ -69,9 +73,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// - required if allowEdit flag is specified for at least one report in
             /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
-            /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;li&gt;All the reports and datasets
             /// must reside in workspace V2. All the target workpaces must be workspace
             /// V2.&lt;/li&gt;&lt;li&gt;Maximum number of reports, datasets and target

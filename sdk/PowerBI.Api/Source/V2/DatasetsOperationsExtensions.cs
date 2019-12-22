@@ -57,15 +57,16 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates a new dataset on **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Note**: This API supports only Push
+            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataset'>
-            /// Dataset defenition to create
+            /// Dataset definition to create
             /// </param>
             /// <param name='defaultRetentionPolicy'>
             /// The default retention policy. Possible values include: 'None', 'basicFIFO'
@@ -79,15 +80,16 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates a new dataset on **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Note**: This API supports only Push
+            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataset'>
-            /// Dataset defenition to create
+            /// Dataset definition to create
             /// </param>
             /// <param name='defaultRetentionPolicy'>
             /// The default retention policy. Possible values include: 'None', 'basicFIFO'
@@ -1245,8 +1247,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates a new dataset in the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Note**: This API supports only Push
+            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -1270,8 +1273,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// Creates a new dataset in the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Note**: This API supports only Push
+            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -2610,7 +2614,11 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2639,7 +2647,11 @@ namespace Microsoft.PowerBI.Api.V2
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
