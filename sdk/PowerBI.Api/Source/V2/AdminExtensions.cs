@@ -264,5 +264,81 @@ namespace Microsoft.PowerBI.Api.V2
                 (await operations.PatchCapacityAsAdminWithHttpMessagesAsync(capacityId, capacityPatchRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
+            /// <summary>
+            /// Returns a list of audit activity events for a tenant.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide either a
+            /// continuation token or both a start and end date time. StartDateTime and
+            /// EndDateTime must be in the same UTC day.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='startDateTime'>
+            /// Start date and time of the window for audit event results. Must be in ISO
+            /// 8601 compliant UTC format.
+            /// </param>
+            /// <param name='endDateTime'>
+            /// End date and time of the window for audit event results. Must be in ISO
+            /// 8601 compliant UTC format.
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition, using 'Activity',
+            /// 'UserId', or both properties. Supports only 'eq' and 'and' operators.
+            /// </param>
+            public static ActivityEventResponse GetActivityEvents(this IAdmin operations, string startDateTime = default(string), string endDateTime = default(string), string continuationToken = default(string), string filter = default(string))
+            {
+                return operations.GetActivityEventsAsync(startDateTime, endDateTime, continuationToken, filter).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of audit activity events for a tenant.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide either a
+            /// continuation token or both a start and end date time. StartDateTime and
+            /// EndDateTime must be in the same UTC day.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='startDateTime'>
+            /// Start date and time of the window for audit event results. Must be in ISO
+            /// 8601 compliant UTC format.
+            /// </param>
+            /// <param name='endDateTime'>
+            /// End date and time of the window for audit event results. Must be in ISO
+            /// 8601 compliant UTC format.
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition, using 'Activity',
+            /// 'UserId', or both properties. Supports only 'eq' and 'and' operators.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ActivityEventResponse> GetActivityEventsAsync(this IAdmin operations, string startDateTime = default(string), string endDateTime = default(string), string continuationToken = default(string), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetActivityEventsWithHttpMessagesAsync(startDateTime, endDateTime, continuationToken, filter, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

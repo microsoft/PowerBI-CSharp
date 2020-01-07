@@ -74,7 +74,8 @@ namespace Microsoft.PowerBI.Api.V2
         /// Determines what to do if a dataset with the same name already
         /// exists. Default value is 'Ignore'.&lt;br/&gt;Only Abort and
         /// Overwrite are supported with Rdl files. Possible values include:
-        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
+        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite',
+        /// 'GenerateUniqueName'
         /// </param>
         /// <param name='skipReport'>
         /// Determines whether to skip report import, if specified value must
@@ -198,14 +199,18 @@ namespace Microsoft.PowerBI.Api.V2
         /// In
         /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
         /// supported only for workspaces on premium
-        /// capacity.&lt;/li&gt;&lt;/ul&gt;
+        /// capacity.&lt;/li&gt;&lt;li&gt;To create a dataflow from a
+        /// model.json, specify the parameter datasetDisplayName as described
+        /// below.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
         /// </param>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset should include file extension. Not
-        /// supported when importing from OneDrive for Business.
+        /// supported when importing from OneDrive for Business. For importing
+        /// or creating dataflows, this parameter should be hardcoded to
+        /// model.json.
         /// </param>
         /// <param name='importInfo'>
         /// The import to post
@@ -213,8 +218,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// <param name='nameConflict'>
         /// Determines what to do if a dataset with the same name already
         /// exists. Default value is 'Ignore'.&lt;br/&gt;Only Abort and
-        /// Overwrite are supported with Rdl files. Possible values include:
-        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite'
+        /// Overwrite are supported with Rdl files.&lt;br/&gt;Only Abort and
+        /// GenerateUniqueName are supported with dataflow model.json files.
+        /// Possible values include: 'Ignore', 'Abort', 'Overwrite',
+        /// 'CreateOrOverwrite', 'GenerateUniqueName'
         /// </param>
         /// <param name='skipReport'>
         /// Determines whether to skip report import, if specified value must

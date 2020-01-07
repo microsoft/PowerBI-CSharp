@@ -51,6 +51,7 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.18" />
+    <PackageReference Include="System.Security.Cryptography.Cng" Version="4.7.0" />
   </ItemGroup>
   
 
@@ -59,7 +60,7 @@
   <ItemGroup Condition=" '$(TargetFramework)' == 'portable45-net45+win8+wpa81' ">
     <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.0.1" />
-  </ItemGroup>
+  </ItemGroup>  
 
   <!--Shared Properties-->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

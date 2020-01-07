@@ -1,18 +1,15 @@
 ﻿#if NETSTANDARD2_0
 
+using Microsoft.PowerBI.Api.Extensions.V2.Models.Credentials;
+using Microsoft.PowerBI.Api.V2.Models;
+using System;
+using System.Text;
+
 namespace Microsoft.PowerBI.Api.Extensions.V2
 {
-    using Microsoft.PowerBI.Api.Extensions.V2.Models.Credentials;
-    using Microsoft.PowerBI.Api.V2.Models;
-    using System;
-    using System.Security.Cryptography;
-    using System.Text;
-
     public class AsymmetricKeyEncryptor : ICredentialsEncryptor
     {
-        private const int SegmentLength = 85;
-        private const int EncryptedLength = 128;
-
+        private const int DefaultRSAKeySize = 1024;
         private readonly GatewayPublicKey publicKey;
 
         public AsymmetricKeyEncryptor(GatewayPublicKey publicKey)
@@ -45,49 +42,13 @@ namespace Microsoft.PowerBI.Api.Extensions.V2
                 throw new ArgumentNullException("credentialData");
             }
 
-            using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(EncryptedLength * 8))
-            {
-                var parameters = rsa.ExportParameters(false);
-                parameters.Exponent = Convert.FromBase64String(publicKey.Exponent);
-                parameters.Modulus = Convert.FromBase64String(publicKey.Modulus);
-                rsa.ImportParameters(parameters);
-                return Encrypt(credentialData, rsa);
-            }
-        }
+            var plainTextBytes = Encoding.UTF8.GetBytes(credentialData);
+            var modulusBytes = Convert.FromBase64String(this.publicKey.Modulus);
+            var exponentBytes = Convert.FromBase64String(this.publicKey.Exponent);
 
-        private static string Encrypt(string plainText, RSACryptoServiceProvider rsa)
-        {
-            byte[] plainTextArray = Encoding.UTF8.GetBytes(plainText);
-
-            // Split the message into different segments, each segment's length is 85. So the result may be 85,85,85,20.
-            bool hasIncompleteSegment = plainTextArray.Length % SegmentLength != 0;
-
-            int segmentNumber = (!hasIncompleteSegment) ? (plainTextArray.Length / SegmentLength) : ((plainTextArray.Length / SegmentLength) + 1);
-
-            byte[] encryptedData = new byte[segmentNumber * EncryptedLength];
-            int encryptedDataPosition = 0;
-
-            for (var i = 0; i < segmentNumber; i++)
-            {
-                int lengthToCopy;
-
-                if (i == segmentNumber - 1 && hasIncompleteSegment)
-                    lengthToCopy = plainTextArray.Length % SegmentLength;
-                else
-                    lengthToCopy = SegmentLength;
-
-                var segment = new byte[lengthToCopy];
-
-                Array.Copy(plainTextArray, i * SegmentLength, segment, 0, lengthToCopy);
-
-                var segmentEncryptedResult = rsa.Encrypt(segment, true);
-
-                Array.Copy(segmentEncryptedResult, 0, encryptedData, encryptedDataPosition, segmentEncryptedResult.Length);
-
-                encryptedDataPosition += segmentEncryptedResult.Length;
-            }
-
-            return Convert.ToBase64String(encryptedData);
+                return modulusBytes.Length == 128
+                ? Asymmetric1024KeyEncryptionHelper.Encrypt(plainTextBytes, modulusBytes, exponentBytes)
+                : AsymmetricHigherKeyEncryptionHelper.Encrypt(plainTextBytes, modulusBytes, exponentBytes);
         }
     }
 }

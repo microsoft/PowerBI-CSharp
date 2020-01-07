@@ -143,11 +143,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// Clones the specified report from **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// cloning, and will have a direct binding to the target
-            /// dataset.&lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;If after cloning the report and its dataset reside in two
+            /// different upgraded workspaces or "My Workspace", a shared dataset will be
+            /// created in the report's workspace. &lt;br/&gt;Reports with live connection
+            /// will lose the live connection when cloning, and will have a direct binding
+            /// to the target dataset.&lt;br/&gt;**Required scope**:
+            /// Content.Create&lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset (if provided) - Build permissions.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -167,11 +171,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// Clones the specified report from **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// cloning, and will have a direct binding to the target
-            /// dataset.&lt;br/&gt;**Required scope**: Content.Create&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;If after cloning the report and its dataset reside in two
+            /// different upgraded workspaces or "My Workspace", a shared dataset will be
+            /// created in the report's workspace. &lt;br/&gt;Reports with live connection
+            /// will lose the live connection when cloning, and will have a direct binding
+            /// to the target dataset.&lt;br/&gt;**Required scope**:
+            /// Content.Create&lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset (if provided) - Build permissions.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -303,11 +311,14 @@ namespace Microsoft.PowerBI.Api.V2
             /// dataset.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// rebinding, and will have a direct binding to the target
-            /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-            /// set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;If the dataset resides in a different upgraded workspace, a
+            /// shared dataset will be created in "My Workspace".&lt;br/&gt;Reports with
+            /// live connection will lose the live connection when rebinding, and will have
+            /// a direct binding to the target dataset.&lt;br/&gt;**Required scope**:
+            /// Report.ReadWrite.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset - Build permissions.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -328,11 +339,14 @@ namespace Microsoft.PowerBI.Api.V2
             /// dataset.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// rebinding, and will have a direct binding to the target
-            /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-            /// set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;If the dataset resides in a different upgraded workspace, a
+            /// shared dataset will be created in "My Workspace".&lt;br/&gt;Reports with
+            /// live connection will lose the live connection when rebinding, and will have
+            /// a direct binding to the target dataset.&lt;br/&gt;**Required scope**:
+            /// Report.ReadWrite.All &lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset - Build permissions.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -444,6 +458,52 @@ namespace Microsoft.PowerBI.Api.V2
             public static async Task<Page> GetPageAsync(this IReportsOperations operations, System.Guid reportId, string pageName, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPageWithHttpMessagesAsync(reportId, pageName, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of datasources for the specified RDL report from **"My
+            /// Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportId'>
+            /// The report id
+            /// </param>
+            public static Datasources GetDatasources(this IReportsOperations operations, System.Guid reportId)
+            {
+                return operations.GetDatasourcesAsync(reportId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of datasources for the specified RDL report from **"My
+            /// Workspace"**.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportId'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Datasources> GetDatasourcesAsync(this IReportsOperations operations, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasourcesWithHttpMessagesAsync(reportId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -594,11 +654,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// Clones the specified report from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// cloning, and will have a direct binding to the target
-            /// dataset.&lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;If after cloning the report and its dataset reside in two
+            /// different upgraded workspaces or "My Workspace", a shared dataset will be
+            /// created in the report's workspace. &lt;br/&gt;Reports with live connection
+            /// will lose the live connection when cloning, and will have a direct binding
+            /// to the target dataset.&lt;br/&gt;**Required scope**: Content.Create
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset (if provided) - Build permissions
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -621,11 +685,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// Clones the specified report from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// cloning, and will have a direct binding to the target
-            /// dataset.&lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;If after cloning the report and its dataset reside in two
+            /// different upgraded workspaces or "My Workspace", a shared dataset will be
+            /// created in the report's workspace. &lt;br/&gt;Reports with live connection
+            /// will lose the live connection when cloning, and will have a direct binding
+            /// to the target dataset.&lt;br/&gt;**Required scope**: Content.Create
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset (if provided) - Build permissions
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -772,11 +840,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// dataset.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// rebinding, and will have a direct binding to the target
+            /// &lt;br/&gt;If the dataset resides in a different upgraded workspace or in
+            /// "My Workspace", a shared dataset will be created in the report's
+            /// workspace.&lt;br/&gt;Reports with live connection will lose the live
+            /// connection when rebinding, and will have a direct binding to the target
             /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
             /// set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset - Build permissions
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -800,11 +872,15 @@ namespace Microsoft.PowerBI.Api.V2
             /// dataset.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;Reports with live connection will lose the live connection when
-            /// rebinding, and will have a direct binding to the target
+            /// &lt;br/&gt;If the dataset resides in a different upgraded workspace or in
+            /// "My Workspace", a shared dataset will be created in the report's
+            /// workspace.&lt;br/&gt;Reports with live connection will lose the live
+            /// connection when rebinding, and will have a direct binding to the target
             /// dataset.&lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
             /// set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;br/&gt;**Required permissions**: Report - Write permissions. Target
+            /// dataset - Build permissions
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -937,6 +1013,56 @@ namespace Microsoft.PowerBI.Api.V2
             }
 
             /// <summary>
+            /// Returns a list of datasources for the specified RDL report from the
+            /// specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Reportt.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportId'>
+            /// </param>
+            public static Datasources GetDatasourcesInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
+            {
+                return operations.GetDatasourcesInGroupAsync(groupId, reportId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of datasources for the specified RDL report from the
+            /// specified workspace.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Reportt.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportId'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Datasources> GetDatasourcesInGroupAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasourcesInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Generates an embed token to allow report creation on the specified
             /// workspace based on the specified dataset.&lt;br/&gt;This API is relevant
             /// only to ['App owns data' embed
@@ -946,9 +1072,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;br/&gt;**Required scope**: (all of the below)
             /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
             /// work for AS Azure or AS OnPrem live connection reports for several minutes
             /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
@@ -977,9 +1107,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// &lt;br/&gt;**Required scope**: (all of the below)
             /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt; &lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
             /// work for AS Azure or AS OnPrem live connection reports for several minutes
             /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
@@ -1016,9 +1150,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
             /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
             /// allowSaveAs specified in
-            /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;To
+            /// set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
             /// work for AS Azure or AS OnPrem live connection reports for several minutes
             /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
@@ -1052,9 +1190,13 @@ namespace Microsoft.PowerBI.Api.V2
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
             /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
             /// allowSaveAs specified in
-            /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;To
+            /// set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;&lt;/br&gt;When
+            /// using service principal for authentication, refer to [Service Principal
+            /// with Power
+            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+            /// document along with considerations and limitations section.
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
             /// work for AS Azure or AS OnPrem live connection reports for several minutes
             /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;

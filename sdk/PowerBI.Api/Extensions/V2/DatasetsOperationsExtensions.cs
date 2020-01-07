@@ -116,6 +116,96 @@ namespace Microsoft.PowerBI.Api.V2
             }
         }
 
+
+        /// <summary>
+        /// Returns a list of upstream dataflows for datasets from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        public static DatasetToDataflowLinksResponse GetDatasetToDataflowsLinksAsAdmin(this IDatasetsOperations operations, System.Guid groupId)
+        {
+            return operations.GetDatasetToDataflowsLinksInGroupAsAdmin(groupId);
+        }
+
+        /// <summary>
+        /// Returns a list of upstream dataflows for datasets from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) to call this API.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name="cancellationToken">
+        /// The cancellation token.
+        /// </param>
+        public static async Task<DatasetToDataflowLinksResponse> GetDatasetToDataflowsLinksAsAdminAsync(this IDatasetsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetDatasetToDataflowsLinksInGroupAsAdminWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of upstream dataflows for datasets from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// <br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>
+        /// To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).,
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        public static DatasetToDataflowLinksResponse GetDatasetToDataflowsLinks(this IDatasetsOperations operations, System.Guid groupId)
+        {
+            return operations.GetDatasetToDataflowsLinksInGroup(groupId);
+        }
+        /// <summary>
+        /// Returns a list of upstream dataflows for datasets from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// <br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>
+        /// To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).,
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name="cancellationToken">
+        /// The cancellation token.
+        /// </param>
+        public static async Task<DatasetToDataflowLinksResponse> GetDatasetToDataflowsLinksAsync(this IDatasetsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetDatasetToDataflowsLinksInGroupWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
         /// <summary>
         /// Post a new entity to datasets
         /// </summary>

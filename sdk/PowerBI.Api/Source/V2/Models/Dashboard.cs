@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.V2.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -29,8 +31,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <param name="displayName">The dashboard display name</param>
         /// <param name="isReadOnly">Is ReadOnly dashboard</param>
         /// <param name="embedUrl">The dashboard embed url</param>
-        /// <param name="tiles">The tiles associated with the dashboard</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), Tiles tiles = default(Tiles))
+        /// <param name="tiles">The tiles that belong to the dashboard.</param>
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>))
         {
             Id = id;
             DisplayName = displayName;
@@ -70,10 +72,10 @@ namespace Microsoft.PowerBI.Api.V2.Models
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the tiles associated with the dashboard
+        /// Gets or sets the tiles that belong to the dashboard.
         /// </summary>
         [JsonProperty(PropertyName = "tiles")]
-        public Tiles Tiles { get; set; }
+        public IList<Tile> Tiles { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -83,6 +85,16 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (Tiles != null)
+            {
+                foreach (var element in Tiles)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
         }
     }
 }
