@@ -263,8 +263,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of upstream dataflows for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
+            /// Dataflow.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -285,8 +285,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// Returns a list of upstream dataflows for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
+            /// Dataflow.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>

@@ -44,12 +44,14 @@ namespace Microsoft.PowerBI.Api.V2
         /// Creates a new dataset on **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note**: This API supports only Push
+        /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dataset'>
-        /// Dataset defenition to create
+        /// Dataset definition to create
         /// </param>
         /// <param name='defaultRetentionPolicy'>
         /// The default retention policy. Possible values include: 'None',
@@ -749,8 +751,10 @@ namespace Microsoft.PowerBI.Api.V2
         /// Creates a new dataset in the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note**: This API supports only Push
+        /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
@@ -779,6 +783,32 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse<Dataset>> PostDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, CreateDatasetRequest dataset, DefaultRetentionPolicy? defaultRetentionPolicy = default(DefaultRetentionPolicy?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of upstream dataflows for datasets from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DatasetToDataflowLinksResponse>> GetDatasetToDataflowsLinksInGroupWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified dataset from the specified workspace.
         /// </summary>
@@ -1524,7 +1554,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
         /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;&lt;/br&gt;When
+        /// using service principal for authentication, refer to [Service
+        /// Principal with Power
+        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
+        /// document along with considerations and limitations section.
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -1658,5 +1692,33 @@ namespace Microsoft.PowerBI.Api.V2
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<Datasets>> GetDatasetsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of upstream dataflows for datasets from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
+        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DatasetToDataflowLinksResponse>> GetDatasetToDataflowsLinksInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -88,7 +88,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Determines what to do if a dataset with the same name already exists.
             /// Default value is 'Ignore'.&lt;br/&gt;Only Abort and Overwrite are supported
             /// with Rdl files. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// 'CreateOrOverwrite', 'GenerateUniqueName'
             /// </param>
             /// <param name='skipReport'>
             /// Determines whether to skip report import, if specified value must be
@@ -134,7 +134,7 @@ namespace Microsoft.PowerBI.Api.V2
             /// Determines what to do if a dataset with the same name already exists.
             /// Default value is 'Ignore'.&lt;br/&gt;Only Abort and Overwrite are supported
             /// with Rdl files. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// 'CreateOrOverwrite', 'GenerateUniqueName'
             /// </param>
             /// <param name='skipReport'>
             /// Determines whether to skip report import, if specified value must be
@@ -314,7 +314,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// in the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix files
             /// between 1 GB and 10 GB see [Create Temporary Upload Location In
             /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
-            /// supported only for workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+            /// supported only for workspaces on premium capacity.&lt;/li&gt;&lt;li&gt;To
+            /// create a dataflow from a model.json, specify the parameter
+            /// datasetDisplayName as described below.&lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -324,7 +326,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset should include file extension. Not
-            /// supported when importing from OneDrive for Business.
+            /// supported when importing from OneDrive for Business. For importing or
+            /// creating dataflows, this parameter should be hardcoded to model.json.
             /// </param>
             /// <param name='importInfo'>
             /// The import to post
@@ -332,8 +335,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists.
             /// Default value is 'Ignore'.&lt;br/&gt;Only Abort and Overwrite are supported
-            /// with Rdl files. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// with Rdl files.&lt;br/&gt;Only Abort and GenerateUniqueName are supported
+            /// with dataflow model.json files. Possible values include: 'Ignore', 'Abort',
+            /// 'Overwrite', 'CreateOrOverwrite', 'GenerateUniqueName'
             /// </param>
             /// <param name='skipReport'>
             /// Determines whether to skip report import, if specified value must be
@@ -361,7 +365,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// in the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix files
             /// between 1 GB and 10 GB see [Create Temporary Upload Location In
             /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
-            /// supported only for workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+            /// supported only for workspaces on premium capacity.&lt;/li&gt;&lt;li&gt;To
+            /// create a dataflow from a model.json, specify the parameter
+            /// datasetDisplayName as described below.&lt;/li&gt;&lt;/ul&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -371,7 +377,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset should include file extension. Not
-            /// supported when importing from OneDrive for Business.
+            /// supported when importing from OneDrive for Business. For importing or
+            /// creating dataflows, this parameter should be hardcoded to model.json.
             /// </param>
             /// <param name='importInfo'>
             /// The import to post
@@ -379,8 +386,9 @@ namespace Microsoft.PowerBI.Api.V2
             /// <param name='nameConflict'>
             /// Determines what to do if a dataset with the same name already exists.
             /// Default value is 'Ignore'.&lt;br/&gt;Only Abort and Overwrite are supported
-            /// with Rdl files. Possible values include: 'Ignore', 'Abort', 'Overwrite',
-            /// 'CreateOrOverwrite'
+            /// with Rdl files.&lt;br/&gt;Only Abort and GenerateUniqueName are supported
+            /// with dataflow model.json files. Possible values include: 'Ignore', 'Abort',
+            /// 'Overwrite', 'CreateOrOverwrite', 'GenerateUniqueName'
             /// </param>
             /// <param name='skipReport'>
             /// Determines whether to skip report import, if specified value must be

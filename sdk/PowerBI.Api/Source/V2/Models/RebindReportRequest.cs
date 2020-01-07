@@ -26,8 +26,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// <summary>
         /// Initializes a new instance of the RebindReportRequest class.
         /// </summary>
-        /// <param name="datasetId">The new dataset of the rebinded
-        /// report</param>
+        /// <param name="datasetId">The new dataset for the rebound report. If
+        /// the dataset resides in a different workspace than the report, a
+        /// shared dataset will be created in the report's workspace</param>
         public RebindReportRequest(string datasetId)
         {
             DatasetId = datasetId;
@@ -40,7 +41,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the new dataset of the rebinded report
+        /// Gets or sets the new dataset for the rebound report. If the dataset
+        /// resides in a different workspace than the report, a shared dataset
+        /// will be created in the report's workspace
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

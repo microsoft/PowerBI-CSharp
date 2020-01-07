@@ -70,7 +70,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset on **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**: This API supports only Push datasets.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_PostDataset",
                 "consumes": [
                     "application/json"
@@ -82,7 +82,7 @@
                     {
                         "name": "dataset",
                         "in": "body",
-                        "description": "Dataset defenition to create",
+                        "description": "Dataset definition to create",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/CreateDatasetRequest"
@@ -1655,7 +1655,8 @@
                             "Ignore",
                             "Abort",
                             "Overwrite",
-                            "CreateOrOverwrite"
+                            "CreateOrOverwrite",
+                            "GenerateUniqueName"
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
@@ -1676,6 +1677,10 @@
                                 {
                                     "value": "CreateOrOverwrite",
                                     "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                },
+                                {
+                                    "value": "GenerateUniqueName",
+                                    "description": "If a dataflow with the same name already exists, Import operation will generate a new unique name for the dataflow."
                                 }
                             ]
                         }
@@ -1741,6 +1746,25 @@
                             "skipReport": true,
                             "importInfo": {
                                 "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "id": "d02b8896-e247-4d83-ae5a-014028cb0665"
+                                }
+                            }
+                        }
+                    },
+                    "Import dataflow example": {
+                        "parameters": {
+                            "consumes": "multipart/form-data;",
+                            "boundary": "f05e5244-f876-43b9-bc87-d71598f6b32a",
+                            "paramType": "form",
+                            "datasetDisplayName": "model.json",
+                            "nameConflict": "Abort",
+                            "importInfo": {
+                                "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data name=model.json; filename=model.json Content-Type: application/json [Contents of Model JSON Encoded] --f05e5244-f876-43b9-bc87-d71598f6b32a--"
                             }
                         },
                         "responses": {
@@ -2022,7 +2046,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from **\"My Workspace\"**.",
-                "description": "<br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If after cloning the report and its dataset reside in two different upgraded workspaces or \"My Workspace\", a shared dataset will be created in the report's workspace. <br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset (if provided) - Build permissions.",
                 "operationId": "Reports_CloneReport",
                 "consumes": [
                     "application/json"
@@ -2160,7 +2184,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from **\"My Workspace\"** to the requested dataset.",
-                "description": "<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If the dataset resides in a different upgraded workspace, a shared dataset will be created in \"My Workspace\".<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions.",
                 "operationId": "Reports_RebindReport",
                 "consumes": [
                     "application/json"
@@ -2306,6 +2330,65 @@
                                     "displayName": "Regional Sales Analysis",
                                     "name": "ReportSection",
                                     "order": "0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/datasources": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns a list of datasources for the specified RDL report from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetDatasources",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Datasources"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff228"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AnalysisServices",
+                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f51",
+                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e931",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -2707,7 +2790,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset in the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**: This API supports only Push datasets.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_PostDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -2818,6 +2901,41 @@
                                     "defaultRetentionPolicy": "basicFIFO"
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/upstreamDataflows": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDatasetToDataflowsLinksInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetToDataflowLinksResponse"
                         }
                     }
                 },
@@ -4483,7 +4601,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on the specified workspace from .pbix, .json, Excel, Rdl, or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -4505,20 +4623,21 @@
                         "name": "datasetDisplayName",
                         "in": "query",
                         "required": true,
-                        "description": "The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business.",
+                        "description": "The display name of the dataset should include file extension. Not supported when importing from OneDrive for Business. For importing or creating dataflows, this parameter should be hardcoded to model.json.",
                         "type": "string"
                     },
                     {
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.",
+                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.<br/>Only Abort and GenerateUniqueName are supported with dataflow model.json files.",
                         "type": "string",
                         "enum": [
                             "Ignore",
                             "Abort",
                             "Overwrite",
-                            "CreateOrOverwrite"
+                            "CreateOrOverwrite",
+                            "GenerateUniqueName"
                         ],
                         "x-ms-enum": {
                             "name": "ImportConflictHandlerMode",
@@ -4530,7 +4649,7 @@
                                 },
                                 {
                                     "value": "Abort",
-                                    "description": "If dataset with the same name already exists, Import operation will be aborted."
+                                    "description": "If dataset or dataflow with the same name already exists, Import operation will be aborted."
                                 },
                                 {
                                     "value": "Overwrite",
@@ -4539,6 +4658,10 @@
                                 {
                                     "value": "CreateOrOverwrite",
                                     "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                },
+                                {
+                                    "value": "GenerateUniqueName",
+                                    "description": "If a dataflow with the same name already exists, Import operation will generate a new unique name for the dataflow."
                                 }
                             ]
                         }
@@ -4606,6 +4729,27 @@
                             "skipReport": true,
                             "importInfo": {
                                 "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "id": "d02b8896-e247-4d83-ae5a-014028cb0665"
+                                }
+                            }
+                        }
+                    },
+                    "Import dataflow model.json example": {
+                        "parameters": {
+                            "groupId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "consumes": "multipart/form-data;",
+                            "boundary": "f05e5244-f876-43b9-bc87-d71598f6b32a",
+                            "paramType": "form",
+                            "datasetDisplayName": "model.json",
+                            "nameConflict": "Abort",
+                            "skipReport": true,
+                            "importInfo": {
+                                "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data name=model.json; filename=model.json Content-Type: application/json [Contents of Model JSON Encoded] --f05e5244-f876-43b9-bc87-d71598f6b32a--"
                             }
                         },
                         "responses": {
@@ -4931,7 +5075,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from the specified workspace.",
-                "description": "<br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If after cloning the report and its dataset reside in two different upgraded workspaces or \"My Workspace\", a shared dataset will be created in the report's workspace. <br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset (if provided) - Build permissions",
                 "operationId": "Reports_CloneReportInGroup",
                 "consumes": [
                     "application/json"
@@ -5094,7 +5238,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from the specified workspace to the requested dataset.",
-                "description": "<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If the dataset resides in a different upgraded workspace or in \"My Workspace\", a shared dataset will be created in the report's workspace.<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"
@@ -5266,6 +5410,73 @@
                                     "displayName": "Regional Sales Analysis",
                                     "name": "ReportSection",
                                     "order": "0"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/datasources": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns a list of datasources for the specified RDL report from the specified workspace.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Reportt.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetDatasourcesInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Datasources"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AnalysisServices",
+                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f55",
+                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
+                                            }
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -5661,7 +5872,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to allow report creation on the specified workspace based on the specified dataset.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
                     "application/json"
@@ -5750,7 +5961,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -5939,6 +6150,30 @@
                                 }
                             }
                         }
+                    },
+                    "Generate paginated report EmbedToken with EffectiveIdentity": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
+                            "requestParameters": {
+                                "accessLevel": "View",
+                                "identities": [
+                                    {
+                                        "username": "John Smith",
+                                        "reports": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2018-07-29T17:58:19Z"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -5950,7 +6185,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to [Embed Q&A](https://docs.microsoft.com/power-bi/developer/qanda) based on the specified dataset from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Datasets_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6021,7 +6256,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified dashboard from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6131,7 +6366,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified tile from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -7041,7 +7276,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroup",
                 "consumes": [
 
@@ -10097,6 +10332,41 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/groups/{groupId}/datasets/upstreamDataflows": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetToDataflowLinksResponse"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/admin/groups/{groupId}/dataflows": {
             "get": {
                 "tags": [
@@ -10965,7 +11235,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Target workspaces are workspaces where creation of reports is allowed.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: <ul><li>Content.Create - required only if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All or Report.Read.All - required only if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All - required if allowEdit flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul> <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><li>All the reports and datasets must reside in workspace V2. All the target workpaces must be workspace V2.</li><li>Maximum number of reports, datasets and target workspaces is 50 each.</li><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><br/>",
+                "description": "<br/>**Required scope**: <ul><li>Content.Create - required only if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All or Report.Read.All - required only if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All - required if allowEdit flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><li>All the reports and datasets must reside in workspace V2. All the target workpaces must be workspace V2.</li><li>Maximum number of reports, datasets and target workspaces is 50 each.</li><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><br/>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -11099,6 +11369,255 @@
                 },
                 "deprecated": false
             }
+        },
+        "/v1.0/myorg/admin/activityevents": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of audit activity events for a tenant.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
+                "operationId": "Admin_GetActivityEvents",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "startDateTime",
+                        "in": "query",
+                        "description": "Start date and time of the window for audit event results. Must be in ISO 8601 compliant UTC format.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "endDateTime",
+                        "in": "query",
+                        "description": "End date and time of the window for audit event results. Must be in ISO 8601 compliant UTC format.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition, using 'Activity', 'UserId', or both properties. Supports only 'eq' and 'and' operators.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ActivityEventResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get audit activity events between a time window": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "779438769",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewDashboard",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "321HK34324",
+                                            "Activity": "ViewDashboard",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get audit activity events between a time window and with a specific activity type": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "$filter": "Activity eq 'ViewReport'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "123456",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK53K45J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get audit activity events between a time window and with a specific user id": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "$filter": "UserId eq 'john@contoso.com'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "123456",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK53K45J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get audit activity events between a time window and with a specific activity type and user id": {
+                        "parameters": {
+                            "startDateTime": "2019-08-13T07:55:00.000Z",
+                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "$filter": "Activity eq 'viewreport' and UserId eq 'john@contoso.com'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T07:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "123456",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "c632aa64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T07:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK53K45J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'&$filter=Activity eq 'ViewReport'",
+                                    "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    },
+                    "Get the next set of audit activity events by sending the continuation token to the API": {
+                        "parameters": {
+                            "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "activityEventEntities": [
+                                        {
+                                            "Id": "91ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "CreationTime": "2019-08-13T08:55:15",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "d43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "1236",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "127.0.0.1"
+                                        },
+                                        {
+                                            "Id": "g632bb64-70fc-4e80-88f3-9fc2cdcacce8",
+                                            "CreationTime": "2019-08-13T09:55:10",
+                                            "Operation": "ViewReport",
+                                            "OrganizationId": "e43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                            "UserKey": "42343KJK55J",
+                                            "Activity": "ViewReport",
+                                            "Workload": "PowerBI",
+                                            "UserId": "john@contoso.com",
+                                            "ClientIP": "131.107.160.240"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'",
+                                    "continuationToken": "%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         }
     },
     "definitions": {
@@ -11213,7 +11732,7 @@
                 },
                 "addRowsAPIEnabled": {
                     "type": "boolean",
-                    "description": "Whether dataset allows adding new rows"
+                    "description": "Whether the dataset allows adding new rows"
                 },
                 "webUrl": {
                     "type": "string",
@@ -11225,11 +11744,11 @@
                 },
                 "IsEffectiveIdentityRequired": {
                     "type": "boolean",
-                    "description": "Dataset requires effective identity"
+                    "description": "Whether the dataset requires an effective identity. This indicates that you must send an effective identity using the GenerateToken API."
                 },
                 "IsEffectiveIdentityRolesRequired": {
                     "type": "boolean",
-                    "description": "Dataset requires roles"
+                    "description": "Whether RLS is defined inside the PBIX file. This indicates that you must specify a role."
                 },
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
@@ -11326,23 +11845,23 @@
                         "values": [
                             {
                                 "value": "AsAzure",
-                                "description": "Creates a dataset with a live connection to Azure Analysis Service"
+                                "description": "A dataset with a live connection to Azure Analysis Service"
                             },
                             {
                                 "value": "AsOnPrem",
-                                "description": "Creates a dataset with a live connection to On-premise Analysis Service"
+                                "description": "A dataset with a live connection to On-premise Analysis Service"
                             },
                             {
                                 "value": "Push",
-                                "description": "Creates a dataset which allows programmatic access for pushing data into PowerBI, [learn more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)"
+                                "description": "A dataset which allows programmatic access for pushing data into PowerBI, [learn more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)"
                             },
                             {
                                 "value": "Streaming",
-                                "description": "Creates a dataset which supports data streaming, [learn more](https://docs.microsoft.com/power-bi/service-real-time-streaming)"
+                                "description": "A dataset which supports data streaming, [learn more](https://docs.microsoft.com/power-bi/service-real-time-streaming)"
                             },
                             {
                                 "value": "PushStreaming",
-                                "description": "Creates a dataset which supports data streaming and allows programmatic access for pushing data into Power BI"
+                                "description": "A dataset which supports data streaming and allows programmatic access for pushing data into Power BI"
                             }
                         ]
                     }
@@ -11407,6 +11926,21 @@
                     "description": "The dependent dataflows",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
+        "DatasetToDataflowLinksResponse": {
+            "description": "Odata response wrapper for a Power BI dataset to dataflow links list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dataset to dataflow links ",
+                    "items": {
+                        "$ref": "#/definitions/DatasetToDataflowLinkResponse"
                     }
                 }
             }
@@ -11692,6 +12226,23 @@
                 }
             }
         },
+        "DatasetToDataflowLinkResponse": {
+            "description": "A Power BI dataset to dataflow link",
+            "properties": {
+                "datasetObjectId": {
+                    "type": "string",
+                    "description": "The dataset object id"
+                },
+                "dataflowObjectId": {
+                    "type": "string",
+                    "description": "The dataflow object id"
+                },
+                "workspaceObjectId": {
+                    "type": "string",
+                    "description": "The workspace object id"
+                }
+            }
+        },
         "Datasources": {
             "description": "Odata response wrapper for a Power BI datasource collection",
             "properties": {
@@ -11951,8 +12502,11 @@
                     "description": "The dashboard embed url"
                 },
                 "tiles": {
-                    "$ref": "#/definitions/Tiles",
-                    "description": "The tiles associated with the dashboard"
+                    "type": "array",
+                    "description": "The tiles that belong to the dashboard.",
+                    "items": {
+                        "$ref": "#/definitions/Tile"
+                    }
                 }
             }
         },
@@ -12766,7 +13320,7 @@
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "Optional parameter for specifying the target associated dataset id. <br/>If not provided, the new report will be associated with the same dataset as the source report and it must be cloned within the same workspace as the source report."
+                    "description": "Optional parameter for specifying the target associated dataset id. <br/>If not provided, the new report will be associated with the same dataset as the source report"
                 }
             }
         },
@@ -12778,7 +13332,7 @@
             "properties": {
                 "datasetId": {
                     "type": "string",
-                    "description": "The new dataset of the rebinded report"
+                    "description": "The new dataset for the rebound report. If the dataset resides in a different workspace than the report, a shared dataset will be created in the report's workspace"
                 }
             }
         },
@@ -12824,8 +13378,7 @@
         },
         "EffectiveIdentity": {
             "required": [
-                "username",
-                "datasets"
+                "username"
             ],
             "description": "The identity the generated token should reflect, for more details see this [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)",
             "properties": {
@@ -12833,19 +13386,18 @@
                     "type": "string",
                     "description": "The effective username reflected by a token for applying RLS rules (For OnPrem model, username can be composed of alpha-numerical characters or any of the following characters  '.', '-', '_', '!', '#', '^', '~', '\\\\', '@', also username cannot contain spaces. For Cloud model, username can be composed of all ASCII characters. username must be up to 256 characters)"
                 },
+                "datasets": {
+                    "type": "array",
+                    "description": "An array of datasets for which this identity applies",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "roles": {
                     "type": "array",
                     "description": "An array of roles reflected by a token when applying RLS rules (identity can contain up to 50 roles, role can be composed of any character besides ',' and must be up to 50 characters)",
                     "items": {
                         "type": "string"
-                    }
-                },
-                "datasets": {
-                    "type": "array",
-                    "description": "An array of datasets for which this identity applies",
-                    "items": {
-                        "type": "string",
-                        "x-nullable": false
                     }
                 },
                 "customData": {
@@ -12855,6 +13407,13 @@
                 "identityBlob": {
                     "$ref": "#/definitions/IdentityBlob",
                     "description": "Preview feature: The identity blob representing the identity that the generated token should reflect"
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "An array of reports for which this identity applies, Only supported for paginated reports",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             }
         },
@@ -13722,6 +14281,26 @@
                         "type": "string",
                         "description": "Workspace id"
                     }
+                }
+            }
+        },
+        "ActivityEventResponse": {
+            "description": "Odata response wrapper for audit activity events list",
+            "properties": {
+                "activityEventEntities": {
+                    "type": "array",
+                    "description": "The activity event entities",
+                    "items": {
+                        "$ref": "#/definitions/Object"
+                    }
+                },
+                "continuationUri": {
+                    "type": "string",
+                    "description": "Uri to get the next chunk of the result set"
+                },
+                "continuationToken": {
+                    "type": "string",
+                    "description": "Token to get the next chunk of the result set"
                 }
             }
         }

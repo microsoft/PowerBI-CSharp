@@ -24,32 +24,31 @@ namespace Microsoft.PowerBI.Api.V2.Models
         }
 
         /// <summary>
-        /// Creates a dataset with a live connection to Azure Analysis Service
+        /// A dataset with a live connection to Azure Analysis Service
         /// </summary>
         public static readonly DatasetMode AsAzure = "AsAzure";
 
         /// <summary>
-        /// Creates a dataset with a live connection to On-premise Analysis
-        /// Service
+        /// A dataset with a live connection to On-premise Analysis Service
         /// </summary>
         public static readonly DatasetMode AsOnPrem = "AsOnPrem";
 
         /// <summary>
-        /// Creates a dataset which allows programmatic access for pushing data
-        /// into PowerBI, [learn
+        /// A dataset which allows programmatic access for pushing data into
+        /// PowerBI, [learn
         /// more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)
         /// </summary>
         public static readonly DatasetMode Push = "Push";
 
         /// <summary>
-        /// Creates a dataset which supports data streaming, [learn
+        /// A dataset which supports data streaming, [learn
         /// more](https://docs.microsoft.com/power-bi/service-real-time-streaming)
         /// </summary>
         public static readonly DatasetMode Streaming = "Streaming";
 
         /// <summary>
-        /// Creates a dataset which supports data streaming and allows
-        /// programmatic access for pushing data into Power BI
+        /// A dataset which supports data streaming and allows programmatic
+        /// access for pushing data into Power BI
         /// </summary>
         public static readonly DatasetMode PushStreaming = "PushStreaming";
 

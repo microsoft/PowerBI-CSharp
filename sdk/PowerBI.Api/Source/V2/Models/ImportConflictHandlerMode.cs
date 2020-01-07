@@ -50,6 +50,12 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         public static readonly ImportConflictHandlerMode CreateOrOverwrite = "CreateOrOverwrite";
 
+        /// <summary>
+        /// If a dataflow with the same name already exists, Import operation
+        /// will generate a new unique name for the dataflow.
+        /// </summary>
+        public static readonly ImportConflictHandlerMode GenerateUniqueName = "GenerateUniqueName";
+
 
         /// <summary>
         /// Underlying value of enum ImportConflictHandlerMode
