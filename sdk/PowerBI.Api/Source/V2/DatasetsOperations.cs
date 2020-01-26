@@ -2611,8 +2611,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update datasources
-        /// supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis
-        /// Services, OData Feed, and SharePoint datasources. For other datasource
+        /// supports the following datasource types: &lt;ul&gt;&lt;li&gt;SQL Server
+        /// &lt;/li&gt;&lt;li&gt;Azure SQL Server &lt;/li&gt;&lt;li&gt;Analysis
+        /// Services &lt;/li&gt;&lt;li&gt;Azure Analysis Services
+        /// &lt;/li&gt;&lt;li&gt;OData Feed &lt;/li&gt;&lt;li&gt;SharePoint
+        /// &lt;/li&gt;&lt;li&gt;Oracle &lt;/li&gt;&lt;li&gt;Teradata
+        /// &lt;/li&gt;&lt;li&gt;SapHana &lt;/li&gt;&lt;/ul&gt;For other datasource
         /// types, use [Update
         /// Parameters](/rest/api/power-bi/datasets/updateparameters)
         /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
@@ -6132,8 +6136,12 @@ namespace Microsoft.PowerBI.Api.V2
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update datasources
-        /// supports SQL Server, Azure SQL Server, Analysis Services, Azure Analysis
-        /// Services, OData Feed, and SharePoint datasources. For other datasource
+        /// supports the following datasource types: &lt;ul&gt;&lt;li&gt;SQL Server
+        /// &lt;/li&gt;&lt;li&gt;Azure SQL Server &lt;/li&gt;&lt;li&gt;Analysis
+        /// Services &lt;/li&gt;&lt;li&gt;Azure Analysis Services
+        /// &lt;/li&gt;&lt;li&gt;OData Feed &lt;/li&gt;&lt;li&gt;SharePoint
+        /// &lt;/li&gt;&lt;li&gt;Oracle &lt;/li&gt;&lt;li&gt;Teradata
+        /// &lt;/li&gt;&lt;li&gt;SapHana &lt;/li&gt;&lt;/ul&gt;For other datasource
         /// types, use [Update Parameters In
         /// Group](/rest/api/power-bi/datasets/updateparametersingroup).
         /// &lt;/li&gt;&lt;li&gt;Changing datasource type is not supported.
