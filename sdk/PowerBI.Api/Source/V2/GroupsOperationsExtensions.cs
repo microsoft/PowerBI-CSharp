@@ -642,7 +642,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, reports, dashboards, datasets, dataflows
+            /// types. Supported: users, reports, dashboards, datasets, dataflows,
+            /// workbooks
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -676,7 +677,8 @@ namespace Microsoft.PowerBI.Api.V2
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, reports, dashboards, datasets, dataflows
+            /// types. Supported: users, reports, dashboards, datasets, dataflows,
+            /// workbooks
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition

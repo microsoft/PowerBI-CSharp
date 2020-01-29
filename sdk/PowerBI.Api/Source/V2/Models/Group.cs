@@ -51,7 +51,9 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// Available only for admin API calls.</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account id</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?))
+        /// <param name="workbooks">The workbooks that belong to the group.
+        /// Available only for admin API calls.</param>
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?), IList<Workbook> workbooks = default(IList<Workbook>))
         {
             Id = id;
             Name = name;
@@ -67,6 +69,7 @@ namespace Microsoft.PowerBI.Api.V2.Models
             Datasets = datasets;
             Dataflows = dataflows;
             DataflowStorageId = dataflowStorageId;
+            Workbooks = workbooks;
             CustomInit();
         }
 
@@ -164,6 +167,13 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the workbooks that belong to the group. Available only
+        /// for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "workbooks")]
+        public IList<Workbook> Workbooks { get; set; }
 
         /// <summary>
         /// Validate the object.

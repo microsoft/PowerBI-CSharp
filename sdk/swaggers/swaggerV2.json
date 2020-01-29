@@ -9482,7 +9482,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks",
                         "required": false,
                         "type": "string"
                     },
@@ -9701,7 +9701,9 @@
                                                     "isEffectiveIdentityRequired": false,
                                                     "isEffectiveIdentityRolesRequired": false,
                                                     "isOnPremGatewayRequired": false,
-                                                    "targetStorageMode": "Abf"
+                                                    "targetStorageMode": "Abf",
+                                                    "createdDate": "2019-04-30T21:35:15.867-07:00",
+                                                    "ContentProviderType": "PbixInImportMode"
                                                 },
                                                 {
                                                     "id": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69",
@@ -9712,7 +9714,9 @@
                                                     "isEffectiveIdentityRequired": false,
                                                     "isEffectiveIdentityRolesRequired": false,
                                                     "isOnPremGatewayRequired": false,
-                                                    "targetStorageMode": "Abf"
+                                                    "targetStorageMode": "Abf",
+                                                    "createdDate": "2019-04-30T21:35:15.867-07:00",
+                                                    "ContentProviderType": "PbixInImportMode"
                                                 }
                                             ]
                                         }
@@ -9786,6 +9790,36 @@
                                             "type": "Workspace",
                                             "state": "Deleted",
                                             "datasets": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get workspaces with workbooks expanded": {
+                        "parameters": {
+                            "$expand": "workbooks",
+                            "$top": 100,
+                            "skip": 0
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "94E57E92-CEE2-486D-8CC8-218C97200579",
+                                            "isReadOnly": false,
+                                            "isOnDedicatedCapacity": false,
+                                            "description": "shorter description",
+                                            "type": "Workspace",
+                                            "state": "Removing",
+                                            "name": "a",
+                                            "workbooks": [
+                                                {
+                                                    "name": "My Excel sheet",
+                                                    "datasetId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -11757,6 +11791,15 @@
                 "Encryption": {
                     "$ref": "#/definitions/Encryption",
                     "description": "The dataset encryption information (Only applicable when $expand is specified)"
+                },
+                "CreatedDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "DateTime of creation of this dataset"
+                },
+                "ContentProviderType": {
+                    "type": "string",
+                    "description": "The content provider type for the dataset"
                 }
             }
         },
@@ -12631,6 +12674,13 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account id"
+                },
+                "workbooks": {
+                    "type": "array",
+                    "description": "The workbooks that belong to the group. Available only for admin API calls.",
+                    "items": {
+                        "$ref": "#/definitions/Workbook"
+                    }
                 }
             }
         },
@@ -14301,6 +14351,35 @@
                 "continuationToken": {
                     "type": "string",
                     "description": "Token to get the next chunk of the result set"
+                }
+            }
+        },
+        "Workbooks": {
+            "description": "Power BI workbook list",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The workbooks",
+                    "items": {
+                        "$ref": "#/definitions/Workbook"
+                    }
+                }
+            }
+        },
+        "Workbook": {
+            "description": "A Power BI workbook",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The workbook name"
+                },
+                "datasetId": {
+                    "type": "string",
+                    "description": "DatasetId for workbooks. Only applies for workbooks that has an associated dataset."
                 }
             }
         }

@@ -43,7 +43,11 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// On-premises Data Gateway</param>
         /// <param name="encryption">The dataset encryption information (Only
         /// applicable when $expand is specified)</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption))
+        /// <param name="createdDate">DateTime of creation of this
+        /// dataset</param>
+        /// <param name="contentProviderType">The content provider type for the
+        /// dataset</param>
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string))
         {
             Id = id;
             Name = name;
@@ -55,6 +59,8 @@ namespace Microsoft.PowerBI.Api.V2.Models
             IsEffectiveIdentityRolesRequired = isEffectiveIdentityRolesRequired;
             IsOnPremGatewayRequired = isOnPremGatewayRequired;
             Encryption = encryption;
+            CreatedDate = createdDate;
+            ContentProviderType = contentProviderType;
             CustomInit();
         }
 
@@ -126,6 +132,18 @@ namespace Microsoft.PowerBI.Api.V2.Models
         /// </summary>
         [JsonProperty(PropertyName = "Encryption")]
         public Encryption Encryption { get; set; }
+
+        /// <summary>
+        /// Gets or sets dateTime of creation of this dataset
+        /// </summary>
+        [JsonProperty(PropertyName = "CreatedDate")]
+        public System.DateTime? CreatedDate { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content provider type for the dataset
+        /// </summary>
+        [JsonProperty(PropertyName = "ContentProviderType")]
+        public string ContentProviderType { get; set; }
 
         /// <summary>
         /// Validate the object.
