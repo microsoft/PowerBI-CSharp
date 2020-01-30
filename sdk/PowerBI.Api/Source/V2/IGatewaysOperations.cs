@@ -94,9 +94,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// Creates a new datasource on the specified gateway.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All&lt;li&gt;To
         /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
+        /// encrypt credentials, see [Encrypt
+        /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id
@@ -177,13 +179,11 @@ namespace Microsoft.PowerBI.Api.V2
         /// specified gateway.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;To get the gateway and datasource ids for a dataset, use
-        /// [Get Datasources](/rest/api/power-bi/datasets/getdatasources) or
-        /// [Get Datasources In
-        /// Group](/rest/api/power-bi/datasets/getdatasourcesingroup)&lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All&lt;li&gt;To
+        /// set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
+        /// encrypt credentials, see [Encrypt
+        /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway id

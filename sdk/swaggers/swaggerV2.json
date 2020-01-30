@@ -7592,7 +7592,7 @@
                     "Gateways"
                 ],
                 "summary": "Creates a new datasource on the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"
@@ -7763,7 +7763,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified datasource from the specified gateway.",
-                "description": "<br/>To get the gateway and datasource ids for a dataset, use [Get Datasources](/rest/api/power-bi/datasets/getdatasources) or [Get Datasources In Group](/rest/api/power-bi/datasets/getdatasourcesingroup)<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
