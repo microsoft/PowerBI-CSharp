@@ -1,8 +1,8 @@
-﻿using Microsoft.PowerBI.Api.Extensions.V2;
-using Microsoft.PowerBI.Api.V2.Models;
-using Microsoft.PowerBI.Api.V2.Models.Credentials;
+﻿using Microsoft.PowerBI.Api.Extensions;
+using Microsoft.PowerBI.Api.Models;
+using Microsoft.PowerBI.Api.Models.Credentials;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BasicCredentials = Microsoft.PowerBI.Api.V2.Models.Credentials.BasicCredentials;
+using BasicCredentials = Microsoft.PowerBI.Api.Models.Credentials.BasicCredentials;
 
 namespace PowerBI.Api.Tests
 {

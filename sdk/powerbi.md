@@ -6,12 +6,12 @@ To build the SDK for PowerBI API, simply install AutoRest via `npm` (`npm instal
 > `autorest powerbi.md`
 
 ``` yaml
-input-file: swaggers\swaggerV2.json
-namespace: Microsoft.PowerBI.Api.V2
+input-file: swaggers\swagger.json
+namespace: Microsoft.PowerBI.Api
 use-extension: 
     "@microsoft.azure/autorest.csharp" : "2.2.57"
 csharp:
-    output-folder: PowerBI.Api\Source\V2
+    output-folder: PowerBI.Api\Source
     override-client-name: PowerBIClient
     add-credentials: true
     model-name: PowerBIClient 
