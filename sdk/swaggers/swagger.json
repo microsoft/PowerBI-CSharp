@@ -1299,8 +1299,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates all connections for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note**:<ul><li>To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources](/rest/api/power-bi/datasets/updatedatasources). For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters).</li><li>This API only supports SQL DirectQuery datasets.</li></ul><br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "**Note: This API is deprecated and no longer supported.**</br>Updates all connections for the specified dataset from **\"My Workspace\"**.",
+                "description": "<br/>**Notes**:<ul><li>To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources](/rest/api/power-bi/datasets/updatedatasources). For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters).</li><li>This API only supports SQL DirectQuery datasets.</li></ul><br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_SetAllDatasetConnections",
                 "consumes": [
                     "application/json"
@@ -4213,8 +4213,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates all connections for the specified dataset from the specified workspace.",
-                "description": "<br/>**Note**:<ul><li>To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>This API only supports SQL DirectQuery datasets.</li></ul> <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "**Note: This API is deprecated and no longer supported.**</br>Updates all connections for the specified dataset from the specified workspace.",
+                "description": "<br/>**Notes**:<ul><li>To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>This API only supports SQL DirectQuery datasets.</li></ul> <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_SetAllDatasetConnectionsInGroup",
                 "consumes": [
                     "application/json"

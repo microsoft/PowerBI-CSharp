@@ -996,10 +996,11 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates all connections for the specified dataset from **"My Workspace"**.
+            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
+            /// all connections for the specified dataset from **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection details for
+            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
             /// SQL, AS, OData Feed, and SharePoint, use [Update
             /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For other
             /// datasource types, use [Update
@@ -1026,10 +1027,11 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates all connections for the specified dataset from **"My Workspace"**.
+            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
+            /// all connections for the specified dataset from **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection details for
+            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
             /// SQL, AS, OData Feed, and SharePoint, use [Update
             /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For other
             /// datasource types, use [Update
@@ -2338,11 +2340,11 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates all connections for the specified dataset from the specified
-            /// workspace.
+            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
+            /// all connections for the specified dataset from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection details for
+            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
             /// SQL, AS, OData Feed, and SharePoint, use [Update Datasources In
             /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other
             /// datasource types, use [Update Parameters In
@@ -2371,11 +2373,11 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates all connections for the specified dataset from the specified
-            /// workspace.
+            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
+            /// all connections for the specified dataset from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**:&lt;ul&gt;&lt;li&gt;To update connection details for
+            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
             /// SQL, AS, OData Feed, and SharePoint, use [Update Datasources In
             /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other
             /// datasource types, use [Update Parameters In
