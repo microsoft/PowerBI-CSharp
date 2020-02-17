@@ -25,7 +25,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swaggers", "Swaggers", "{913ACEB1-6B79-4C33-93E1-7080097DD888}"
 	ProjectSection(SolutionItems) = preProject
 		swaggers\swagger.json = swaggers\swagger.json
-		swaggers\swaggerV2.json = swaggers\swaggerV2.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EF1FCBE7-CDC4-48CC-9199-914759D02D6B}"

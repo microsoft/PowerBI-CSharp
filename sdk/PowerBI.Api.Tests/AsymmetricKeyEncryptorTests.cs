@@ -1,6 +1,6 @@
-﻿using Microsoft.PowerBI.Api.Extensions.V2;
-using Microsoft.PowerBI.Api.V2;
-using Microsoft.PowerBI.Api.V2.Models;
+﻿using Microsoft.PowerBI.Api.Extensions;
+using Microsoft.PowerBI.Api;
+using Microsoft.PowerBI.Api.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -40,7 +40,7 @@ namespace PowerBI.Api.Tests
         [TestMethod]
         public void EncodeCredentialsTest_2048bitKey_LongInput()
         {
-            EncodeCredentialsTestImpl(credentialData, Exponent, Modulus4096bitKey);
+            EncodeCredentialsTestImpl(credentialData, Exponent, Modulus2048bitKey);
         }
 
         [TestMethod]
