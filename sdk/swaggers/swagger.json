@@ -2373,7 +2373,144 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/reports/{reportId}/ExportTo": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Exports the specified report from **\"My Workspace\"** to the requested format.",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only exporting a Power BI report is supported. Exporting paginated reports is coming soon.</li><li>Currently service principal is not supported.</li></ul><br/>",
+                "operationId": "Reports_ExportToFile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "description": "Export to file request parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ExportReportRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/Export"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/exports/{exportId}": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns the status of the Export to file job from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetExportToFileStatus",
+                "consumes": [
 
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "exportId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The export id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Export"
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/Export"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/exports/{exportId}/file": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns the file of the Export to file job of the specified report from **\"My Workspace\"**.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetFileOfExportToFile",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/*",
+                    "image/*",
+                    "text/csv",
+                    "text/xml",
+                    "multipart/related"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "exportId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The export id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "file"
+                        },
+                        "description": "The exported file"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/dashboards": {
             "get": {
                 "tags": [
@@ -5461,7 +5598,168 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/ExportTo": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Exports the specified report from the specified workspace to the requested format.",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only export of a Power BI report is supported. Export paginated report is coming soon.</li><li>Currently service principal is not supported</li></ul><br/>",
+                "operationId": "Reports_ExportToFileInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "requestParameters",
+                        "description": "Export to file request parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/ExportReportRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/Export"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/exports/{exportId}": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns the status of the Export to file job from the specified workspace.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetExportToFileStatusInGroup",
+                "consumes": [
 
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "exportId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The export id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Export"
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/Export"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/exports/{exportId}/file": {
+            "get": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Returns the file of the Export to file job of the specified report from the specified group.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetFileOfExportToFileInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/*",
+                    "image/*",
+                    "text/csv",
+                    "text/xml",
+                    "multipart/related"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "exportId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The export id",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "file"
+                        },
+                        "description": "The exported file"
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/dashboards": {
             "get": {
                 "tags": [
@@ -13362,6 +13660,184 @@
                 }
             }
         },
+        "ExportReportRequest": {
+            "required": [
+                "format"
+            ],
+            "description": "The Export to file request",
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "description": "Export to file format",
+                    "enum": [
+                        "PPTX",
+                        "PDF",
+                        "PNG",
+                        "IMAGE",
+                        "XLSX",
+                        "DOCX",
+                        "CSV",
+                        "XML",
+                        "MHTML"
+                    ],
+                    "x-ms-enum": {
+                        "name": "FileFormat",
+                        "values": [
+                            {
+                                "value": "PPTX",
+                                "description": "Requested file format is PPTX"
+                            },
+                            {
+                                "value": "PDF",
+                                "description": "Requested file format is PDF"
+                            },
+                            {
+                                "value": "PNG",
+                                "description": "Requested file format is PNG (only supported for Power BI reports)"
+                            },
+                            {
+                                "value": "IMAGE",
+                                "description": "Requested file format is [IMAGE](https://https://docs.microsoft.com/en-us/sql/reporting-services/image-device-information-settings) (only supported for paginated reports)"
+                            },
+                            {
+                                "value": "XLSX",
+                                "description": "Requested file format is XLSX (only supported for paginated reports)"
+                            },
+                            {
+                                "value": "DOCX",
+                                "description": "Requested file format is DOCX (only supported for paginated reports)"
+                            },
+                            {
+                                "value": "CSV",
+                                "description": "Requested file format is CSV (only supported for paginated reports)"
+                            },
+                            {
+                                "value": "XML",
+                                "description": "Requested file format is XML (only supported for paginated reports)"
+                            },
+                            {
+                                "value": "MHTML",
+                                "description": "Requested file format is MHTML (only supported for paginated reports)"
+                            }
+                        ]
+                    }
+                },
+                "powerBIReportConfiguration": {
+                    "$ref": "#/definitions/PowerBIReportExportConfiguration",
+                    "description": "The configuration used to export a Power BI report"
+                },
+                "paginatedReportExportConfiguration": {
+                    "$ref": "#/definitions/PaginatedReportExportConfiguration",
+                    "description": "Coming soon: The configuration used to export a paginated report"
+                }
+            }
+        },
+        "PowerBIReportExportConfiguration": {
+            "description": "Power BI report Export to file configuration",
+            "properties": {
+                "settings": {
+                    "$ref": "#/definitions/ExportReportSettings",
+                    "description": "The settings to be applied in this Export to file job"
+                },
+                "defaultBookmark": {
+                    "$ref": "#/definitions/PageBookmark",
+                    "description": "The default bookmark to apply on all pages which don't have a specific bookmark"
+                },
+                "pages": {
+                    "type": "array",
+                    "description": "List of pages to export and their properties",
+                    "items": {
+                        "$ref": "#/definitions/ExportReportPage"
+                    }
+                },
+                "identities": {
+                    "type": "array",
+                    "description": "List of identities to use for RLS rules",
+                    "items": {
+                        "$ref": "#/definitions/EffectiveIdentity"
+                    }
+                }
+            }
+        },
+        "PaginatedReportExportConfiguration": {
+            "description": "Paginated report Export to file configuration",
+            "properties": {
+                "identities": {
+                    "type": "array",
+                    "description": "List of identities to use for RLS rules",
+                    "items": {
+                        "$ref": "#/definitions/EffectiveIdentity"
+                    }
+                },
+                "formatSettings": {
+                    "type": "object",
+                    "description": "Disctionary of format settings",
+                    "additionalProperties":
+                    {
+                        "type": "string"
+                    }
+                },
+                "parameterValues": {
+                    "type": "array",
+                    "description": "List of report parameters",
+                    "items": {
+                        "$ref": "#/definitions/ParameterValue"
+                    }
+                }
+            }
+        },
+        "ExportReportSettings": {
+            "description": "Export to file request settings",
+            "properties": {
+                "locale": {
+                    "type": "string",
+                    "description": "The locale to apply"
+                },
+                "includeHiddenPages": {
+                    "type": "boolean",
+                    "description": "A flag indicating whether to include hidden pages when exporting the entire report (when passing specific pages this property will be ignored). If not provided, the default behavior is to exclude hidden pages"
+                }
+            }
+        },
+        "ExportReportPage": {
+            "description": "A single page configuration for the export request",
+            "properties": {
+                "pageName": {
+                    "type": "string",
+                    "description": "The page name"
+                },
+                "bookmark": {
+                    "$ref": "#/definitions/PageBookmark",
+                    "description": "The bookmark to be applied on the page"
+                }
+            }
+        },
+        "PageBookmark": {
+            "description": "The bookmark to apply on a single page. Provide name or state, but not both.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The bookmark name. Currently not supported"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The bookmark state"
+                }
+            }
+        },
+        "ParameterValue": {
+            "description": "Data contract for paginated report parameters",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The parameter name"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The parameter value"
+                }
+            }
+        },
         "GroupCreationRequest": {
             "required": [
                 "name"
@@ -13394,7 +13870,7 @@
             "required": [
                 "value"
             ],
-            "description": "Preview feature: A blob to specify identity for EmbedToken generation. Only supported for datasets with Direct Query connection to SQL Azure",
+            "description": "A blob for specifying the identity. Only supported for datasets with Direct Query connection to SQL Azure",
             "properties": {
                 "value": {
                     "type": "string",
@@ -13406,7 +13882,7 @@
             "required": [
                 "username"
             ],
-            "description": "The identity the generated token should reflect, for more details see this [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)",
+            "description": "Defines the user identity and roles, for more details see this [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)",
             "properties": {
                 "username": {
                     "type": "string",
@@ -13421,7 +13897,7 @@
                 },
                 "roles": {
                     "type": "array",
-                    "description": "An array of roles reflected by a token when applying RLS rules (identity can contain up to 50 roles, role can be composed of any character besides ',' and must be up to 50 characters)",
+                    "description": "An array of RLS roles reflected by a token when applying RLS rules (identity can contain up to 50 roles, role can be composed of any character besides ',' and must be up to 50 characters)",
                     "items": {
                         "type": "string"
                     }
@@ -13432,7 +13908,7 @@
                 },
                 "identityBlob": {
                     "$ref": "#/definitions/IdentityBlob",
-                    "description": "Preview feature: The identity blob representing the identity that the generated token should reflect"
+                    "description": "A blob for specifying the identity. Only supported for datasets with Direct Query connection to SQL Azure"
                 },
                 "reports": {
                     "type": "array",
@@ -14169,6 +14645,82 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The Power BI dataflow storage account id. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId."
+                }
+            }
+        },
+        "Export": {
+            "description": "An object describing Export to file details and current state",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The Export to file job ID"
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start time of the Export to file job"
+                },
+                "lastActionDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The time of last change in the Export to file job"
+                },
+                "reportId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the exported report"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The current state of the Export to file job",
+                    "enum": [
+                        "Undefined",
+                        "NotStarted",
+                        "Running",
+                        "Succeeded",
+                        "Failed"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ExportState",
+                        "values": [
+                            {
+                                "value": "Undefined",
+                                "description": "Indicates that the state of the Export to file job is undefined"
+                            },
+                            {
+                                "value": "NotStarted",
+                                "description": "Indicates that the Export to file job did not start"
+                            },
+                            {
+                                "value": "Running",
+                                "description": "Indicates that the Export to file job is running"
+                            },
+                            {
+                                "value": "Succeeded",
+                                "description": "Indicates that the Export to file job finished succesfully"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "Indicates that the Export to file job failed"
+                            }
+                        ]
+                    }
+                },
+                "percentComplete": {
+                    "type": "integer",
+                    "description": "Indicate job progress as percentage",
+                    "format": "int32",
+                    "minimum": 0,
+                    "maximum": 100
+                },
+                "resourceLocation": {
+                    "type": "string",
+                    "description": "The URL for retrieving the exported file"
+                },
+                "expirationTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The expiration time of the URL"
                 }
             }
         },
