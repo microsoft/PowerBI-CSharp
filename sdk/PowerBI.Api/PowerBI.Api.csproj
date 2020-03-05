@@ -58,8 +58,8 @@
   <!--.NET45 Properties-->
   <!--Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"-->  
   <ItemGroup Condition=" '$(TargetFramework)' == 'portable45-net45+win8+wpa81' ">
-    <PackageReference Include="Newtonsoft.Json" Version="7.0.1" />
-    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.6" />
   </ItemGroup>  
 
   <!--Shared Properties-->
