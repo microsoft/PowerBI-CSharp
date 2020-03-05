@@ -604,6 +604,171 @@ namespace Microsoft.PowerBI.Api
             }
         }
 
+        /// <summary>
+        /// Exports the specified report from the specified workspace to the requested
+        /// format: PPTX/PDF/PNG.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Currently only export of a single page is
+        /// supported.&lt;br/&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='requestParameters'>
+        /// Export to file request parameters
+        /// </param>
+        public static Export ExportToFile(this IReportsOperations operations, Guid groupId, Guid reportId, ExportReportRequest requestParameters)
+        {
+            return operations.ExportToFileAsync(groupId, reportId, requestParameters).GetAwaiter().GetResult();
+        }
 
+        /// <summary>
+        /// Exports the specified report from the specified workspace to the requested
+        /// format: PPTX/PDF/PNG.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Currently only export of a single page is
+        /// supported.&lt;br/&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='requestParameters'>
+        /// Export to file request parameters
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<Export> ExportToFileAsync(this IReportsOperations operations, Guid groupId, Guid reportId, ExportReportRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.ExportToFileInGroupWithHttpMessagesAsync(groupId, reportId, requestParameters, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Returns the status of the specified report Export To operation from
+        /// the specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='exportId'>
+        /// The export id
+        /// </param>
+        public static Export GetExportToFileStatus(this IReportsOperations operations, Guid groupId, Guid reportId, string exportId)
+        {
+            return operations.GetExportToFileStatusAsync(groupId, reportId, exportId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns the status of the specified report Export To operation from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='exportId'>
+        /// The export id
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<Export> GetExportToFileStatusAsync(this IReportsOperations operations, Guid groupId, Guid reportId, string exportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetExportToFileStatusInGroupWithHttpMessagesAsync(groupId, reportId, exportId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Returns the exported file of the specified "Export To" operation of
+        /// the specified report from the specified workspace.
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='exportId'>
+        /// The export id
+        /// </param>
+        public static Stream GetFileOfExportToFile(this IReportsOperations operations, Guid groupId, Guid reportId, string exportId)
+        {
+            return operations.GetFileOfExportToFileAsync(groupId, reportId, exportId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns the exported file of the specified "Export To" operation of
+        /// the specified report from the specified workspace.
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='exportId'>
+        /// The export id
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<Stream> GetFileOfExportToFileAsync(this IReportsOperations operations, Guid groupId, Guid reportId, string exportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var _result = await operations.GetFileOfExportToFileInGroupWithHttpMessagesAsync(groupId, reportId, exportId, null, cancellationToken).ConfigureAwait(false);
+            _result.Request.Dispose();
+            return _result.Body;
+        }
     }
 }

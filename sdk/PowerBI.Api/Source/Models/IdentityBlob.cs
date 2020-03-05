@@ -11,8 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Preview feature: A blob to specify identity for EmbedToken generation.
-    /// Only supported for datasets with Direct Query connection to SQL Azure
+    /// A blob for specifying the identity. Only supported for datasets with
+    /// Direct Query connection to SQL Azure
     /// </summary>
     public partial class IdentityBlob
     {

@@ -13,8 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The identity the generated token should reflect, for more details see
-    /// this
+    /// Defines the user identity and roles, for more details see this
     /// [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)
     /// </summary>
     public partial class EffectiveIdentity
@@ -38,16 +37,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// ASCII characters. username must be up to 256 characters)</param>
         /// <param name="datasets">An array of datasets for which this identity
         /// applies</param>
-        /// <param name="roles">An array of roles reflected by a token when
+        /// <param name="roles">An array of RLS roles reflected by a token when
         /// applying RLS rules (identity can contain up to 50 roles, role can
         /// be composed of any character besides ',' and must be up to 50
         /// characters)</param>
         /// <param name="customData">The value of customdata to be used for
         /// applying RLS rules. Only supported for live connections to Azure
         /// Analysis Services.</param>
-        /// <param name="identityBlob">Preview feature: The identity blob
-        /// representing the identity that the generated token should
-        /// reflect</param>
+        /// <param name="identityBlob">A blob for specifying the identity. Only
+        /// supported for datasets with Direct Query connection to SQL
+        /// Azure</param>
         /// <param name="reports">An array of reports for which this identity
         /// applies, Only supported for paginated reports</param>
         public EffectiveIdentity(string username, IList<string> datasets = default(IList<string>), IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob), IList<string> reports = default(IList<string>))
@@ -84,9 +83,9 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<string> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets an array of roles reflected by a token when applying
-        /// RLS rules (identity can contain up to 50 roles, role can be
-        /// composed of any character besides ',' and must be up to 50
+        /// Gets or sets an array of RLS roles reflected by a token when
+        /// applying RLS rules (identity can contain up to 50 roles, role can
+        /// be composed of any character besides ',' and must be up to 50
         /// characters)
         /// </summary>
         [JsonProperty(PropertyName = "roles")]
@@ -101,8 +100,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string CustomData { get; set; }
 
         /// <summary>
-        /// Gets or sets preview feature: The identity blob representing the
-        /// identity that the generated token should reflect
+        /// Gets or sets a blob for specifying the identity. Only supported for
+        /// datasets with Direct Query connection to SQL Azure
         /// </summary>
         [JsonProperty(PropertyName = "identityBlob")]
         public IdentityBlob IdentityBlob { get; set; }
