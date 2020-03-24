@@ -2379,7 +2379,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **\"My Workspace\"** to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only exporting a Power BI report is supported. Exporting paginated reports is coming soon.</li><li>Currently service principal is not supported.</li></ul><br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only exporting a Power BI report is supported. Exporting paginated reports is coming soon.</li></ul><br/>",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -5604,7 +5604,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only export of a Power BI report is supported. Export paginated report is coming soon.</li><li>Currently service principal is not supported</li></ul><br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only export of a Power BI report is supported. Export paginated report is coming soon.</li></ul><br/>",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -12336,7 +12336,7 @@
                 },
                 "connectionString": {
                     "type": "string",
-                    "description": "(Deprecated) The datasource connection string. Available only for DirectQuery.",
+                    "description": "(Deprecated) The datasource connection string. Available only for DirectQuery."
                 },
                 "datasourceType": {
                     "type": "string",
@@ -13726,7 +13726,7 @@
                     "$ref": "#/definitions/PowerBIReportExportConfiguration",
                     "description": "The configuration used to export a Power BI report"
                 },
-                "paginatedReportExportConfiguration": {
+                "paginatedReportConfiguration": {
                     "$ref": "#/definitions/PaginatedReportExportConfiguration",
                     "description": "Coming soon: The configuration used to export a paginated report"
                 }
@@ -13771,7 +13771,7 @@
                 },
                 "formatSettings": {
                     "type": "object",
-                    "description": "Disctionary of format settings",
+                    "description": "Dictionary of format settings",
                     "additionalProperties":
                     {
                         "type": "string"
@@ -14670,6 +14670,10 @@
                     "format": "uuid",
                     "description": "The ID of the exported report"
                 },
+                "reportName": {
+                    "type": "string",
+                    "description": "The name of the exported report"
+                },
                 "status": {
                     "type": "string",
                     "description": "The current state of the Export to file job",
@@ -14716,6 +14720,10 @@
                 "resourceLocation": {
                     "type": "string",
                     "description": "The URL for retrieving the exported file"
+                },
+                "ResourceFileExtension": {
+                    "type": "string",
+                    "description": "The extension of the exported file"
                 },
                 "expirationTime": {
                     "type": "string",

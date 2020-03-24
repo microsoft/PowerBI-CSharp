@@ -25,10 +25,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Datasource class.
         /// </summary>
-        /// <param name="name">The datasource name. Available only for
-        /// DirectQuery.</param>
-        /// <param name="connectionString">The datasource connection string.
-        /// Available only for DirectQuery.</param>
+        /// <param name="name">(Deprecated) The datasource name. Available only
+        /// for DirectQuery.</param>
+        /// <param name="connectionString">(Deprecated) The datasource
+        /// connection string. Available only for DirectQuery.</param>
         /// <param name="datasourceType">The datasource type</param>
         /// <param name="connectionDetails">The datasource connection
         /// details</param>
@@ -53,14 +53,15 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the datasource name. Available only for DirectQuery.
+        /// Gets or sets (Deprecated) The datasource name. Available only for
+        /// DirectQuery.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource connection string. Available only for
-        /// DirectQuery.
+        /// Gets or sets (Deprecated) The datasource connection string.
+        /// Available only for DirectQuery.
         /// </summary>
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }
