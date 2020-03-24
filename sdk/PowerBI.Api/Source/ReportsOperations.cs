@@ -1467,8 +1467,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Currently only
         /// exporting a Power BI report is supported. Exporting paginated reports is
-        /// coming soon.&lt;/li&gt;&lt;li&gt;Currently service principal is not
-        /// supported.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+        /// coming soon.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report id
@@ -3401,8 +3400,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Currently only export
         /// of a Power BI report is supported. Export paginated report is coming
-        /// soon.&lt;/li&gt;&lt;li&gt;Currently service principal is not
-        /// supported&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+        /// soon.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

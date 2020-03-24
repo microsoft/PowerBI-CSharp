@@ -32,6 +32,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="lastActionDateTime">The time of last change in the
         /// Export to file job</param>
         /// <param name="reportId">The ID of the exported report</param>
+        /// <param name="reportName">The name of the exported report</param>
         /// <param name="status">The current state of the Export to file job.
         /// Possible values include: 'Undefined', 'NotStarted', 'Running',
         /// 'Succeeded', 'Failed'</param>
@@ -39,16 +40,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// percentage</param>
         /// <param name="resourceLocation">The URL for retrieving the exported
         /// file</param>
+        /// <param name="resourceFileExtension">The extension of the exported
+        /// file</param>
         /// <param name="expirationTime">The expiration time of the URL</param>
-        public Export(string id = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastActionDateTime = default(System.DateTime?), System.Guid? reportId = default(System.Guid?), ExportState? status = default(ExportState?), int? percentComplete = default(int?), string resourceLocation = default(string), System.DateTime? expirationTime = default(System.DateTime?))
+        public Export(string id = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastActionDateTime = default(System.DateTime?), System.Guid? reportId = default(System.Guid?), string reportName = default(string), ExportState? status = default(ExportState?), int? percentComplete = default(int?), string resourceLocation = default(string), string resourceFileExtension = default(string), System.DateTime? expirationTime = default(System.DateTime?))
         {
             Id = id;
             CreatedDateTime = createdDateTime;
             LastActionDateTime = lastActionDateTime;
             ReportId = reportId;
+            ReportName = reportName;
             Status = status;
             PercentComplete = percentComplete;
             ResourceLocation = resourceLocation;
+            ResourceFileExtension = resourceFileExtension;
             ExpirationTime = expirationTime;
             CustomInit();
         }
@@ -83,6 +88,12 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? ReportId { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the exported report
+        /// </summary>
+        [JsonProperty(PropertyName = "reportName")]
+        public string ReportName { get; set; }
+
+        /// <summary>
         /// Gets or sets the current state of the Export to file job. Possible
         /// values include: 'Undefined', 'NotStarted', 'Running', 'Succeeded',
         /// 'Failed'
@@ -101,6 +112,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "resourceLocation")]
         public string ResourceLocation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the extension of the exported file
+        /// </summary>
+        [JsonProperty(PropertyName = "ResourceFileExtension")]
+        public string ResourceFileExtension { get; set; }
 
         /// <summary>
         /// Gets or sets the expiration time of the URL

@@ -30,13 +30,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'XML', 'MHTML'</param>
         /// <param name="powerBIReportConfiguration">The configuration used to
         /// export a Power BI report</param>
-        /// <param name="paginatedReportExportConfiguration">Coming soon: The
+        /// <param name="paginatedReportConfiguration">Coming soon: The
         /// configuration used to export a paginated report</param>
-        public ExportReportRequest(FileFormat format, PowerBIReportExportConfiguration powerBIReportConfiguration = default(PowerBIReportExportConfiguration), PaginatedReportExportConfiguration paginatedReportExportConfiguration = default(PaginatedReportExportConfiguration))
+        public ExportReportRequest(FileFormat format, PowerBIReportExportConfiguration powerBIReportConfiguration = default(PowerBIReportExportConfiguration), PaginatedReportExportConfiguration paginatedReportConfiguration = default(PaginatedReportExportConfiguration))
         {
             Format = format;
             PowerBIReportConfiguration = powerBIReportConfiguration;
-            PaginatedReportExportConfiguration = paginatedReportExportConfiguration;
+            PaginatedReportConfiguration = paginatedReportConfiguration;
             CustomInit();
         }
 
@@ -63,8 +63,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Gets or sets coming soon: The configuration used to export a
         /// paginated report
         /// </summary>
-        [JsonProperty(PropertyName = "paginatedReportExportConfiguration")]
-        public PaginatedReportExportConfiguration PaginatedReportExportConfiguration { get; set; }
+        [JsonProperty(PropertyName = "paginatedReportConfiguration")]
+        public PaginatedReportExportConfiguration PaginatedReportConfiguration { get; set; }
 
         /// <summary>
         /// Validate the object.
