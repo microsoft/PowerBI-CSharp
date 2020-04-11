@@ -519,10 +519,7 @@ namespace Microsoft.PowerBI.Api
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
             /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Currently only
-            /// exporting a Power BI report is supported. Exporting paginated reports is
-            /// coming soon.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -548,10 +545,7 @@ namespace Microsoft.PowerBI.Api
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
             /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Currently only
-            /// exporting a Power BI report is supported. Exporting paginated reports is
-            /// coming soon.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1237,10 +1231,7 @@ namespace Microsoft.PowerBI.Api
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
             /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Currently only export
-            /// of a Power BI report is supported. Export paginated report is coming
-            /// soon.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1269,10 +1260,7 @@ namespace Microsoft.PowerBI.Api
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
             /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Currently only export
-            /// of a Power BI report is supported. Export paginated report is coming
-            /// soon.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

@@ -31,7 +31,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="identities">List of identities to use for RLS
         /// rules</param>
-        /// <param name="formatSettings">Dictionary of format settings</param>
+        /// <param name="formatSettings">Dictionary of format settings. The
+        /// keys are the device info property names for the requested file
+        /// format.</param>
         /// <param name="parameterValues">List of report parameters</param>
         public PaginatedReportExportConfiguration(IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), IDictionary<string, string> formatSettings = default(IDictionary<string, string>), IList<ParameterValue> parameterValues = default(IList<ParameterValue>))
         {
@@ -53,7 +55,8 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<EffectiveIdentity> Identities { get; set; }
 
         /// <summary>
-        /// Gets or sets dictionary of format settings
+        /// Gets or sets dictionary of format settings. The keys are the device
+        /// info property names for the requested file format.
         /// </summary>
         [JsonProperty(PropertyName = "formatSettings")]
         public IDictionary<string, string> FormatSettings { get; set; }
