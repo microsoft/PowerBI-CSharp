@@ -2379,7 +2379,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **\"My Workspace\"** to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only exporting a Power BI report is supported. Exporting paginated reports is coming soon.</li></ul><br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -5604,7 +5604,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>Currently only export of a Power BI report is supported. Export paginated report is coming soon.</li></ul><br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -13697,7 +13697,7 @@
                             },
                             {
                                 "value": "IMAGE",
-                                "description": "Requested file format is [IMAGE](https://https://docs.microsoft.com/en-us/sql/reporting-services/image-device-information-settings) (only supported for paginated reports)"
+                                "description": "Requested file format is [IMAGE](https://docs.microsoft.com/sql/reporting-services/image-device-information-settings) (only supported for paginated reports)"
                             },
                             {
                                 "value": "XLSX",
@@ -13728,7 +13728,7 @@
                 },
                 "paginatedReportConfiguration": {
                     "$ref": "#/definitions/PaginatedReportExportConfiguration",
-                    "description": "Coming soon: The configuration used to export a paginated report"
+                    "description": "The configuration used to export a paginated report"
                 }
             }
         },
@@ -13771,7 +13771,7 @@
                 },
                 "formatSettings": {
                     "type": "object",
-                    "description": "Dictionary of format settings",
+                    "description": "Dictionary of format settings. The keys are the device info property names for the requested file format.",
                     "additionalProperties":
                     {
                         "type": "string"

@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.Models
         PNG,
         /// <summary>
         /// Requested file format is
-        /// [IMAGE](https://https://docs.microsoft.com/en-us/sql/reporting-services/image-device-information-settings)
+        /// [IMAGE](https://docs.microsoft.com/sql/reporting-services/image-device-information-settings)
         /// (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "IMAGE")]

@@ -1,5 +1,4 @@
-﻿#if NETSTANDARD2_0
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -402,5 +401,3 @@ namespace Microsoft.PowerBI.Api.Extensions
         }
     }
 }
-
-#endif

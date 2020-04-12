@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD2_0
-
-using Microsoft.PowerBI.Api.Extensions.Models.Credentials;
+﻿using Microsoft.PowerBI.Api.Extensions.Models.Credentials;
 using Microsoft.PowerBI.Api.Models;
 using System;
 using System.Text;
@@ -52,5 +50,3 @@ namespace Microsoft.PowerBI.Api.Extensions
         }
     }
 }
-
-#endif
