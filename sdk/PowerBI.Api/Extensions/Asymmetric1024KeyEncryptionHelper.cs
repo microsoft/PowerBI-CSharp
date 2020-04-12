@@ -1,6 +1,4 @@
-﻿#if NETSTANDARD2_0
-
-using System;
+﻿using System;
 using System.Security.Cryptography;
 using System.Threading;
 
@@ -90,5 +88,3 @@ namespace Microsoft.PowerBI.Api.Extensions
         }
     }
 }
-
-#endif
