@@ -1,0 +1,19 @@
+version:
+  name: 'sdk version'
+  major: 0
+  minor: 1
+  system: 'Buildrevision'
+  exclude_commit: false
+  assembly_version: 'majorminoronly'
+  assembly_file_version: 'fullversionnumber'
+  assembly_informational_version: 'fullversionnumber'
+
+package:
+  commands:
+    - !!buildcommand
+      name: 'pack sdk\**\PowerBI.Api.csproj for dev feed'
+      command: './scripts/pack-sdk-dev.cmd'
+      artifacts:
+        - from: 'pack\Dev'
+          include:
+            - '**/*'

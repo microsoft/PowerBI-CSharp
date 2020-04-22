@@ -1,0 +1,48 @@
+environment:
+  host:
+    os: 'windows'
+    flavor: 'server'
+    version: '2016'
+  runtime:
+    provider: 'appcontainer'
+
+    image: 'cdpxwin1809.azurecr.io/global/vse2017:latest'
+    source_mode: 'map'
+
+signing_options:
+  profile: 'external_distribution'
+  
+restore:
+  commands:
+    - !!defaultcommand
+      name: 'Nuget Restore'
+      command: './scripts/nuget-restore.cmd'
+      logs:
+        - include:
+          - 'MSBuildLogs\*'
+build:
+  commands:
+    - !!buildcommand
+      name: 'Build SDK'
+      command: './scripts/build-sdk.cmd'
+      logs:
+        - include:
+            - './scripts/msbuild.log'
+          exclude:
+      artifacts:
+        - from: 'sdk\PowerBI.Api\bin'
+          include:
+            - '**/*'
+
+test:
+  commands:
+    - !!testcommand 
+      name: 'Test sdk'
+      command: './scripts/run-tests.cmd'
+      testresults:
+        - from: 'TestResults'
+          title: 'SDK Tests'
+          type: 'vstest'
+          include:
+            - '**/*'
+
