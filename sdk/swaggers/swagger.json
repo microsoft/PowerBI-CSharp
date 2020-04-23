@@ -10360,6 +10360,30 @@
                         }
                     }
                 },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "dataflowId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "targetDataflowId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                                        },
+                                        {
+                                            "targetDataflowId": "67a4529b-0cdd-4584-9867-5c0e77d57a2f",
+                                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
                 "deprecated": false
             }
         },
@@ -10669,6 +10693,26 @@
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/DatasetToDataflowLinksResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasetObjectId": "0d6e2a35-c606-4fb7-8690-1b3a5370a294",
+                                            "dataflowObjectId": "4caab73a-2660-4255-8e53-de6745f3d92c",
+                                            "workspaceObjectId": "358240c2-b8f3-4817-aa7a-0efa03687a7b"
+                                        }
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
