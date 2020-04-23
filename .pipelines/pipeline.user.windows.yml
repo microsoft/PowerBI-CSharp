@@ -30,9 +30,10 @@ build:
             - './scripts/msbuild.log'
           exclude:
       artifacts:
-        - from: 'sdk\PowerBI.Api\bin'
+        - from: 'sdk\PowerBI.Api\'
           include:
-            - '**/*'
+            - '**/bin/**/*'
+            - '**/obj/**/*'
 
 test:
   commands:
