@@ -3,7 +3,7 @@ version:
   major: 3
   minor: 12
   system: 'Buildrevision'
-  exclude_commit: false
+  exclude_commit: true
   assembly_version: 'majorminoronly'
   assembly_file_version: 'fullversionnumber'
   assembly_informational_version: 'fullversionnumber'
@@ -15,6 +15,7 @@ package:
       command: './scripts/pack-sdk.cmd'
       artifacts:
         - from: 'pack\Clean'
+          to: 'Clean'
           include:
             - '**/*'
 
@@ -23,5 +24,6 @@ package:
       command: './scripts/pack-sdk-dev.cmd'
       artifacts:
         - from: 'pack\Dev'
+          to: 'Dev'
           include:
             - '**/*'

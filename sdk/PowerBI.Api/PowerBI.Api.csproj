@@ -101,6 +101,11 @@
     </Compile>
   </ItemGroup>  
 
+  <PropertyGroup Condition=" '$(CdpxPostSigning)' == 'true' ">
+    <IsCleaning>false</IsCleaning>
+    <CopyRoleFilesDependsOn />
+    <AddRoleContentDependsOn />
+  </PropertyGroup>
   <!-- <Import Condition=" '$(TargetFramework)' == 'net48'" Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" /> -->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
