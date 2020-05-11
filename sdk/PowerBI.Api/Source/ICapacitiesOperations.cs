@@ -133,6 +133,119 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> PatchWorkloadWithHttpMessagesAsync(System.Guid capacityId, string workloadName, PatchWorkloadRequest workload, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns a list of refreshables for all capacities of which the user
+        /// has access to.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='top'>
+        /// Returns only the first n results.
+        /// </param>
+        /// <param name='expand'>
+        /// Expands related entities inline, receives a comma-separated list of
+        /// data types. Supported: capacities and groups
+        /// </param>
+        /// <param name='filter'>
+        /// Filters the results based on a boolean condition
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results. Use with top to fetch results beyond the
+        /// first 1000.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Refreshables>> GetRefreshablesWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of refreshables for the specified capacity the user
+        /// has access to
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='capacityId'>
+        /// The capacity id
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results.
+        /// </param>
+        /// <param name='expand'>
+        /// Expands related entities inline, receives a comma-separated list of
+        /// data types. Supported: capacities and groups
+        /// </param>
+        /// <param name='filter'>
+        /// Filters the results based on a boolean condition
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results. Use with top to fetch results beyond the
+        /// first 1000.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Refreshables>> GetRefreshablesForCapacityWithHttpMessagesAsync(System.Guid capacityId, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the specified refreshable for the specified capacity the
+        /// user has access to
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='capacityId'>
+        /// The capacity id
+        /// </param>
+        /// <param name='refreshableId'>
+        /// The refreshable id
+        /// </param>
+        /// <param name='expand'>
+        /// Expands related entities inline, receives a comma-separated list of
+        /// data types. Supported: capacities and groups
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Refreshables>> GetRefreshableForCapacityWithHttpMessagesAsync(System.Guid capacityId, string refreshableId, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Assigns the provided workspaces to the specified capacity.
         /// </summary>
         /// <remarks>

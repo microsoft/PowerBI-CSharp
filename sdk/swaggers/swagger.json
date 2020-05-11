@@ -9125,6 +9125,616 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/capacities/refreshables": {
+            "get": {
+                "tags": [
+                    "Capacities"
+                ],
+                "summary": "Returns a list of refreshables for all capacities of which the user has access to.",
+                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_GetRefreshables",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": true,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 1000.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshables with capacities and groups expanded": {
+                        "parameters": {
+                            "$expand": "capacity,group"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ],
+                                            "capacity": {
+                                                "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                                "displayName": "MyCapacity",
+                                                "sku": "A1"
+                                            },
+                                            "group": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "name": "SalesMarketing"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshes with an average duration greater than thirty minutes": {
+                        "parameters": {
+                            "$filter": "averageDuration gt 1800"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 3289.3814,
+                                            "medianDuration": 2268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:58:05.221Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/capacities/{capacityId}/refreshables": {
+            "get": {
+                "tags": [
+                    "Capacities"
+                ],
+                "summary": "Returns a list of refreshables for the specified capacity the user has access to",
+                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_GetRefreshablesForCapacity",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "description": "The capacity id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": true,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 1000.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshables with capacities and groups expanded": {
+                        "parameters": {
+                            "$expand": "capacity,group"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ],
+                                            "capacity": {
+                                                "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                                "displayName": "MyCapacity",
+                                                "sku": "A1"
+                                            },
+                                            "group": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "name": "SalesMarketing"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshes with an average duration greater than thirty minutes": {
+                        "parameters": {
+                            "$filter": "averageDuration gt 1800"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 3289.3814,
+                                            "medianDuration": 2268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:58:05.221Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/capacities/{capacityId}/refreshables/{refreshableId}": {
+            "get": {
+                "tags": [
+                    "Capacities"
+                ],
+                "summary": "Returns the specified refreshable for the specified capacity the user has access to",
+                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_GetRefreshableForCapacity",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "description": "The capacity id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "refreshableId",
+                        "description": "The refreshable id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshable with capacity and group expanded": {
+                        "parameters": {
+                            "$expand": "capacity,group"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ],
+                                            "capacity": {
+                                                "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                                "displayName": "MyCapacity",
+                                                "sku": "A1"
+                                            },
+                                            "group": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "name": "SalesMarketing"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/AssignToCapacity": {
             "post": {
                 "tags": [
@@ -11416,7 +12026,614 @@
                 "deprecated": false
             }
         },
-
+        "/v1.0/myorg/admin/capacities/refreshables": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of refreshables for the organization within a capacity",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_GetRefreshables",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": true,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 1000.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshables with capacities and groups expanded": {
+                        "parameters": {
+                            "$expand": "capacity,group"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ],
+                                            "capacity": {
+                                                "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                                "displayName": "MyCapacity",
+                                                "sku": "A1"
+                                            },
+                                            "group": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "name": "SalesMarketing"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshes with an average duration greater than thirty minutes": {
+                        "parameters": {
+                            "$filter": "averageDuration gt 1800"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 3289.3814,
+                                            "medianDuration": 2268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:58:05.221Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/capacities/{capacityId}/refreshables": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of refreshables for the specified capacity the user has access to",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_GetRefreshablesForCapacity",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "description": "The capacity id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": true,
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 1000.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshables with capacities and groups expanded": {
+                        "parameters": {
+                            "$expand": "capacity,group"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ],
+                                            "capacity": {
+                                                "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                                "displayName": "MyCapacity",
+                                                "sku": "A1"
+                                            },
+                                            "group": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "name": "SalesMarketing"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshes with an average duration greater than thirty minutes": {
+                        "parameters": {
+                            "$filter": "averageDuration gt 1800"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 3289.3814,
+                                            "medianDuration": 2268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:58:05.221Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/capacities/{capacityId}/refreshables/{refreshableId}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns the specified refreshable for the specified capacity the user has access to",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Admin_GetRefreshableForCapacity",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "description": "The capacity id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "refreshableId",
+                        "description": "The refreshable id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get refreshable with capacity and group expanded": {
+                        "parameters": {
+                            "$expand": "capacity,group"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                            "name": "SalesMarketing",
+                                            "kind": "Dataset",
+                                            "startTime": "2017-06-13T09:25:43.153Z",
+                                            "endTime": "2017-06-19T11:22:32.445Z",
+                                            "refreshCount": 22,
+                                            "refreshFailures": 0,
+                                            "averageDuration": 289.3814,
+                                            "medianDuration": 268.6245,
+                                            "refreshesPerDay": 11,
+                                            "lastRefresh": {
+                                                "refreshType": "ViaApi",
+                                                "startTime": "2017-06-13T09:25:43.153Z",
+                                                "endTime": "2017-06-13T09:31:43.153Z",
+                                                "status": "Completed",
+                                                "requestId": "9399bb89-25d1-44f8-8576-136d7e9014b1"
+                                            },
+                                            "refreshSchedule": {
+                                                "days": [
+                                                    "Sunday",
+                                                    "Friday",
+                                                    "Saturday"
+                                                ],
+                                                "times": [
+                                                    "05:00",
+                                                    "11:30",
+                                                    "17:30",
+                                                    "23:00"
+                                                ],
+                                                "enabled": true,
+                                                "localTimeZoneId": "UTC",
+                                                "notifyOption": "MailOnFailure"
+                                            },
+                                            "configuredBy": [
+                                                "john@contoso.com"
+                                            ],
+                                            "capacity": {
+                                                "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
+                                                "displayName": "MyCapacity",
+                                                "sku": "A1"
+                                            },
+                                            "group": {
+                                                "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                                "name": "SalesMarketing"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/admin/dataflows": {
             "get": {
                 "tags": [
@@ -14960,6 +16177,105 @@
                 "datasetId": {
                     "type": "string",
                     "description": "DatasetId for workbooks. Only applies for workbooks that has an associated dataset."
+                }
+            }
+        },
+        "Refreshables": {
+            "description": "Power BI refreshable list",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The refreshables",
+                    "items": {
+                        "$ref": "#/definitions/Refreshable"
+                    }
+                }
+            }
+        },
+        "Refreshable": {
+            "description": "A Power BI refreshable",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Object id of refreshable"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Display name of refreshable"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The refreshable kind",
+                    "enum": [
+                        "Dataset"
+                    ],
+                    "x-ms-enum": {
+                        "name": "RefreshableKind",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Dataset",
+                                "description": "Dataset"
+                            }
+                        ]
+                    }
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start time of the window for which summary data exists"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The end time of the window for which summary data exists"
+                },
+                "refreshCount": {
+                    "type": "integer",
+                    "description": "The number of refreshes within the summary time window"
+                },
+                "refreshFailures": {
+                    "type": "integer",
+                    "description": "The number of refresh failures within the summary time window"
+                },
+                "averageDuration": {
+                    "type": "number",
+                    "description": "The average duration in seconds of a refresh within the summary time window"
+                },
+                "medianDuration": {
+                    "type": "number",
+                    "description": "The median duration in seconds of a refresh within the summary time window"
+                },
+                "refreshesPerDay": {
+                    "type": "integer",
+                    "description": "The number of refreshes per day within the summary time window"
+                },
+                "lastRefresh": {
+                    "$ref": "#/definitions/Refresh",
+                    "description": "The last Power BI refresh history entry for the refreshable item"
+                },
+                "refreshSchedule": {
+                    "$ref": "#/definitions/RefreshSchedule",
+                    "description": "The refresh schedule for the refreshable item"
+                },
+                "configuredBy": {
+                    "type": "array",
+                    "description": "Refreshable owners",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "capacity": {
+                    "$ref": "#/definitions/Capacity",
+                    "description": "The capacity for the refreshable item"
+                },
+                "group": {
+                    "$ref": "#/definitions/Group",
+                    "description": "The associated group for the refreshable item"
                 }
             }
         }
