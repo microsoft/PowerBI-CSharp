@@ -11,7 +11,9 @@ environment:
 
 signing_options:
   profile: 'external_distribution'
-  
+  codesign_validation_glob_pattern: 'regex|.+(?:exe|dll)$;-|*.nd.dll;-|.gdn\**'
+  codesign_validation_break_build: true
+
 restore:
   commands:
     - !!defaultcommand
@@ -32,8 +34,8 @@ build:
       artifacts:
         - from: 'sdk\PowerBI.Api\'
           include:
-            - '**/bin/**/*'
-            - '**/obj/**/*'
+            - '**/bin/**/Microsoft.PowerBI.Api.dll'
+            - '**/obj/**/Microsoft.PowerBI.Api.dll'
 
 test:
   commands:
