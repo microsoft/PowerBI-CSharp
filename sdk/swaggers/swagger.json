@@ -15025,7 +15025,7 @@
             "properties": {
                 "identities": {
                     "type": "array",
-                    "description": "List of identities to use for RLS rules",
+                    "description": "A single identity to use when exporting a report. Required when a report uses a Power BI dataset or an Azure AS datasource.",
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }

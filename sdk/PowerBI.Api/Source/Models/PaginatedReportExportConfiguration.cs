@@ -29,8 +29,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// PaginatedReportExportConfiguration class.
         /// </summary>
-        /// <param name="identities">List of identities to use for RLS
-        /// rules</param>
+        /// <param name="identities">A single identity to use when exporting a
+        /// report. Required when a report uses a Power BI dataset or an Azure
+        /// AS datasource.</param>
         /// <param name="formatSettings">Dictionary of format settings. The
         /// keys are the device info property names for the requested file
         /// format.</param>
@@ -49,7 +50,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets list of identities to use for RLS rules
+        /// Gets or sets a single identity to use when exporting a report.
+        /// Required when a report uses a Power BI dataset or an Azure AS
+        /// datasource.
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
