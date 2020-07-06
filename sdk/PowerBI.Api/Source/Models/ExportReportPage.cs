@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the ExportReportPage class.
         /// </summary>
         /// <param name="pageName">The page name</param>
-        /// <param name="bookmark">The bookmark to be applied on the
+        /// <param name="bookmark">(Optional) The bookmark to be applied on the
         /// page</param>
         public ExportReportPage(string pageName = default(string), PageBookmark bookmark = default(PageBookmark))
         {
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string PageName { get; set; }
 
         /// <summary>
-        /// Gets or sets the bookmark to be applied on the page
+        /// Gets or sets (Optional) The bookmark to be applied on the page
         /// </summary>
         [JsonProperty(PropertyName = "bookmark")]
         public PageBookmark Bookmark { get; set; }
