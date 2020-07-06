@@ -47,7 +47,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// dataset</param>
         /// <param name="contentProviderType">The content provider type for the
         /// dataset</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string))
+        /// <param name="createReportEmbedURL">The dataset create report embed
+        /// url</param>
+        /// <param name="qnaEmbedURL">The dataset qna embed url</param>
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string))
         {
             Id = id;
             Name = name;
@@ -61,6 +64,8 @@ namespace Microsoft.PowerBI.Api.Models
             Encryption = encryption;
             CreatedDate = createdDate;
             ContentProviderType = contentProviderType;
+            CreateReportEmbedURL = createReportEmbedURL;
+            QnaEmbedURL = qnaEmbedURL;
             CustomInit();
         }
 
@@ -144,6 +149,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "ContentProviderType")]
         public string ContentProviderType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset create report embed url
+        /// </summary>
+        [JsonProperty(PropertyName = "CreateReportEmbedURL")]
+        public string CreateReportEmbedURL { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset qna embed url
+        /// </summary>
+        [JsonProperty(PropertyName = "QnaEmbedURL")]
+        public string QnaEmbedURL { get; set; }
 
         /// <summary>
         /// Validate the object.

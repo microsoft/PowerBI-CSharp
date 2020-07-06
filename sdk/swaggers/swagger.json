@@ -13335,6 +13335,14 @@
                 "ContentProviderType": {
                     "type": "string",
                     "description": "The content provider type for the dataset"
+                },
+                "CreateReportEmbedURL": {
+                    "type": "string",
+                    "description": "The dataset create report embed url"
+                },
+                "QnaEmbedURL": {
+                    "type": "string",
+                    "description": "The dataset qna embed url"
                 }
             }
         },
