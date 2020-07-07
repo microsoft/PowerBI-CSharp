@@ -2300,15 +2300,16 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
         /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;**Important**:
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:
         /// The dataset must be refreshed for new parameters values to be applied. If
         /// you're not using [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update parameters operation to complete before
-        /// refreshing.&lt;br/&gt;**Required scope**:
+        /// refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dataset.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All parameters must
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation is only
+        /// supported for the dataset owner&lt;/li&gt;&lt;li&gt;All parameters must
         /// exist in the dataset. Names are case-sensitive.&lt;/li&gt;&lt;li&gt;If
         /// you're not using [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
@@ -2608,21 +2609,22 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
         /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
         /// original datasource and the new datasource must have the exact same
         /// schema.&lt;/li&gt;&lt;li&gt;For cached models, the dataset must be
         /// refreshed to get the data from the new data sources. If you're not using
         /// [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update datasources operation to complete before
-        /// refreshing.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;**Required scope**:
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
         /// Dataset.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update
-        /// datasources supports the following datasource types:&lt;ul&gt;&lt;li&gt;SQL
-        /// Server&lt;/li&gt;&lt;li&gt;Azure SQL Server&lt;/li&gt;&lt;li&gt;Analysis
-        /// Services&lt;/li&gt;&lt;li&gt;Azure Analysis
-        /// Services&lt;/li&gt;&lt;li&gt;OData
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the dataset
+        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
+        /// datasource types:&lt;ul&gt;&lt;li&gt;SQL Server&lt;/li&gt;&lt;li&gt;Azure
+        /// SQL Server&lt;/li&gt;&lt;li&gt;Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+        /// Analysis Services&lt;/li&gt;&lt;li&gt;OData
         /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
         /// other datasource types, use [Update
         /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
@@ -5834,15 +5836,16 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
         /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;**Important**:
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:
         /// The dataset must be refreshed for the new parameter values to be applied.
         /// If you're not using [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update parameters operation to complete before
-        /// refreshing.&lt;br/&gt;**Required scope**:
+        /// refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
         /// Dataset.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
         /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the dataset owner&lt;/li&gt;&lt;li&gt;All
         /// parameters must exist in the dataset. Names are
         /// case-sensitive.&lt;/li&gt;&lt;li&gt;If you're not using [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
@@ -6151,21 +6154,22 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
         /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
         /// original datasource and the new datasource must have the exact same
         /// schema.&lt;/li&gt;&lt;li&gt;For cached models, the dataset must be
         /// refreshed to get the data from the new datasources. If you're not using
         /// [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update datasources operation to complete before
-        /// refreshing.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;**Required scope**:
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
         /// Dataset.ReadWrite.Al&lt;br/&gt;To set the permissions scope, see [Register
         /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Update
-        /// datasources supports the following datasource types:
-        /// &lt;ul&gt;&lt;li&gt;SQL Server &lt;/li&gt;&lt;li&gt;Azure SQL Server
-        /// &lt;/li&gt;&lt;li&gt;Analysis Services &lt;/li&gt;&lt;li&gt;Azure Analysis
-        /// Services&lt;/li&gt;&lt;li&gt;OData
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the dataset
+        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
+        /// datasource types: &lt;ul&gt;&lt;li&gt;SQL Server &lt;/li&gt;&lt;li&gt;Azure
+        /// SQL Server &lt;/li&gt;&lt;li&gt;Analysis Services
+        /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;OData
         /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Oracle&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
         /// other datasource types, use [Update Parameters In
         /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;Changing
