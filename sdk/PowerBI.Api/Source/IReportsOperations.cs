@@ -26,7 +26,10 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
         /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br&gt;**Note:**
+        /// Paginated reports (rdl) don’t have a dataset. As a result, in the
+        /// API response for paginated reports, the dataset ID value isn’t
+        /// displayed.
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -412,7 +415,10 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
         /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br&gt;**Note:**
+        /// Paginated reports (rdl) don’t have a dataset. As a result, in the
+        /// API response for paginated reports, the dataset ID value isn’t
+        /// displayed.
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
@@ -891,10 +897,11 @@ namespace Microsoft.PowerBI.Api
         /// Principal with Power
         /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
         /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS
-        /// may not work for AS Azure or AS OnPrem live connection reports for
-        /// several minutes after a
-        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Generating
+        /// Embed Token with RLS may not work for AS Azure or AS OnPrem live
+        /// connection reports for several minutes after a
+        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
+        /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;/br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

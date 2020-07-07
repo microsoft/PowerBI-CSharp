@@ -16,7 +16,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageIconUrl>http://go.microsoft.com/fwlink/?LinkId=780675</PackageIconUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/Microsoft/dotnet/master/LICENSE</PackageLicenseUrl>
@@ -30,11 +29,13 @@
     <Owners>Microsoft</Owners>
     <Company>Microsoft</Company>
     <Product>Microsoft Power BI Api</Product>
-    <DelaySign>true</DelaySign>
     <PackageTags>Microsoft Power BI API REST</PackageTags>
     <Copyright>© Microsoft Corporation. All rights reserved.</Copyright>
-    <Version Condition=" '$(AssemblyVersion)' == '' ">1.0.0</Version>
+    <PipelineAssemblyInfo>$(RepoBaseDir)\.version\PipelineAssemblyInfo.cs</PipelineAssemblyInfo>
+    <Version Condition=" '$(AssemblyVersion)' == '' and '$(CDP_FILE_VERSION_NUMERIC)' == ''">1.0.0</Version>
     <Version Condition=" '$(AssemblyVersion)' != '' ">$(AssemblyVersion)</Version>
+    <Version Condition=" '$(CDP_FILE_VERSION_NUMERIC)' != '' ">$(CDP_FILE_VERSION_NUMERIC)</Version>
+    <PackageVersion>$([MSBuild]::ValueOrDefault('$(CDP_PACKAGE_VERSION_NUMERIC)', '1.0.0'))</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="..\certificates\35MSSharedLib1024.snk">
@@ -60,7 +61,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.21" />
   </ItemGroup>  
-
+ <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>  
+  
   <!--Shared Properties-->
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,9 +85,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(CDP_BUILD_TYPE)==Official or $(POWERBI_CSHARP_QUEUE)==true ">
     <SignAssembly>true</SignAssembly>
+    <DelaySign>true</DelaySign>
+    <AssemblyOriginatorKeyFile>..\certificates\35MSSharedLib1024.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
+    <!-- PipelineAssemblyInfo.cs contains CDPx generated version attributes -->
+  <ItemGroup>
+	<Folder Include="Properties\" />
+    <Compile Include="..\..\.version\PipelineAssemblyInfo.cs">
+      <Link>PipelineAssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>  
+
+  <PropertyGroup Condition=" '$(CdpxPostSigning)' == 'true' ">
+    <IsCleaning>false</IsCleaning>
+    <CopyRoleFilesDependsOn />
+    <AddRoleContentDependsOn />
+  </PropertyGroup>
   <!-- <Import Condition=" '$(TargetFramework)' == 'net48'" Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" /> -->
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

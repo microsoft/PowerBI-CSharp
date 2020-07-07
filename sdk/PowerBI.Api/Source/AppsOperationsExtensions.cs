@@ -19,7 +19,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of installed apps.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;**Limitations:**
+            /// Service principal authentication is not supported.&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -35,7 +36,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of installed apps.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;**Limitations:**
+            /// Service principal authentication is not supported.&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -57,7 +59,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified installed app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;**Limitations:**
+            /// Service principal authentication is not supported.&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -76,7 +79,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified installed app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
+            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;**Limitations:**
+            /// Service principal authentication is not supported.&lt;br/&gt;To set the
             /// permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
