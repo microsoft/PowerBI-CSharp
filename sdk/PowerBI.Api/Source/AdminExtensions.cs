@@ -265,6 +265,218 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Returns a list of refreshables for the organization within a capacity
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: capacities and groups
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 1000.
+            /// </param>
+            public static Refreshables GetRefreshables(this IAdmin operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
+            {
+                return operations.GetRefreshablesAsync(top, expand, filter, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of refreshables for the organization within a capacity
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: capacities and groups
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 1000.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Refreshables> GetRefreshablesAsync(this IAdmin operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshablesWithHttpMessagesAsync(top, expand, filter, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of refreshables for the specified capacity the user has
+            /// access to
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity id
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: capacities and groups
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 1000.
+            /// </param>
+            public static Refreshables GetRefreshablesForCapacity(this IAdmin operations, System.Guid capacityId, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
+            {
+                return operations.GetRefreshablesForCapacityAsync(capacityId, top, expand, filter, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of refreshables for the specified capacity the user has
+            /// access to
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity id
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: capacities and groups
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 1000.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Refreshables> GetRefreshablesForCapacityAsync(this IAdmin operations, System.Guid capacityId, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshablesForCapacityWithHttpMessagesAsync(capacityId, top, expand, filter, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns the specified refreshable for the specified capacity the user has
+            /// access to
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity id
+            /// </param>
+            /// <param name='refreshableId'>
+            /// The refreshable id
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: capacities and groups
+            /// </param>
+            public static Refreshables GetRefreshableForCapacity(this IAdmin operations, System.Guid capacityId, string refreshableId, string expand = default(string))
+            {
+                return operations.GetRefreshableForCapacityAsync(capacityId, refreshableId, expand).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the specified refreshable for the specified capacity the user has
+            /// access to
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity id
+            /// </param>
+            /// <param name='refreshableId'>
+            /// The refreshable id
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: capacities and groups
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Refreshables> GetRefreshableForCapacityAsync(this IAdmin operations, System.Guid capacityId, string refreshableId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshableForCapacityWithHttpMessagesAsync(capacityId, refreshableId, expand, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of audit activity events for a tenant.
             /// </summary>
             /// <remarks>
