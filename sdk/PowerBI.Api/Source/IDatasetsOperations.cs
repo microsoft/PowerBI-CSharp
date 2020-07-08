@@ -500,12 +500,10 @@ namespace Microsoft.PowerBI.Api
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation
         /// is only supported for the dataset owner&lt;/li&gt;&lt;li&gt;All
         /// parameters must exist in the dataset. Names are
-        /// case-sensitive.&lt;/li&gt;&lt;li&gt;If you're not using [enhanced
-        /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
-        /// datasets with SQL, Oracle, Teradata &amp; SapHana Direct Query
-        /// connections are not supported.&lt;/li&gt;&lt;li&gt;Datasets with
-        /// Analysis Services Live connections are not
+        /// case-sensitive.&lt;/li&gt;&lt;li&gt;Direct Query connections are
+        /// supported only with [enhanced dataset
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;/li&gt;&lt;li&gt;Datasets
+        /// with Analysis Services Live connections are not
         /// supported.&lt;/li&gt;&lt;li&gt;Maximum of 100 parameters in a
         /// request is allowed.&lt;/li&gt;&lt;li&gt;Values should be of
         /// expected type.&lt;/li&gt;&lt;li&gt;An empty value is not permitted
@@ -1301,12 +1299,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
         /// operation is only supported for the dataset
         /// owner&lt;/li&gt;&lt;li&gt;All parameters must exist in the dataset.
-        /// Names are case-sensitive.&lt;/li&gt;&lt;li&gt;If you're not using
-        /// [enhanced dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
-        /// datasets with SQL, Oracle, Teradata &amp; SapHana Direct Query
-        /// connections are not supported.&lt;/li&gt;&lt;li&gt;Datasets with
-        /// Analysis Services Live connections are not
+        /// Names are case-sensitive.&lt;/li&gt;&lt;li&gt;Direct Query
+        /// connections are supported only with [enhanced dataset
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;/li&gt;&lt;li&gt;Datasets
+        /// with Analysis Services Live connections are not
         /// supported.&lt;/li&gt;&lt;li&gt;Maximum of 100 parameters in a
         /// request is allowed.&lt;/li&gt;&lt;li&gt;Values should be of
         /// expected type.&lt;/li&gt;&lt;li&gt;An empty value is not permitted

@@ -1505,7 +1505,7 @@ namespace Microsoft.PowerBI.Api
             /// with RLS may not work for AS Azure or AS OnPrem live connection reports for
             /// several minutes after a
             /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
-            /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;/br/&gt;
+            /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1547,7 +1547,7 @@ namespace Microsoft.PowerBI.Api
             /// with RLS may not work for AS Azure or AS OnPrem live connection reports for
             /// several minutes after a
             /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
-            /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;/br/&gt;
+            /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

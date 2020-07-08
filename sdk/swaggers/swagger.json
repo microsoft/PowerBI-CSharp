@@ -1072,7 +1072,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
                 "operationId": "Datasets_UpdateParameters",
                 "consumes": [
                     "application/json"
@@ -4074,7 +4074,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -6235,7 +6235,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><ul><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><li>Paginated reports are not supported.</li></ul></br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><ul><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><li>Paginated reports are not supported.</li></ul><br/>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6783,7 +6783,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of installed apps.",
-                "description": "<br/>**Required scope**: App.Read.All<br/>**Limitations:** Service principal authentication is not supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetApps",
                 "consumes": [
 
@@ -6837,7 +6837,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified installed app.",
-                "description": "<br/>**Required scope**: App.Read.All<br/>**Limitations:** Service principal authentication is not supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetApp",
                 "consumes": [
 
@@ -6890,7 +6890,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of reports from the specified app.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetReports",
                 "consumes": [
 
@@ -6949,7 +6949,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified report from the specified app.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetReport",
                 "consumes": [
 
@@ -7012,7 +7012,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of dashboards from the specified app.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetDashboards",
                 "consumes": [
 
@@ -7070,7 +7070,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified dashboard from the specified app.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetDashboard",
                 "consumes": [
 
@@ -7133,7 +7133,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified app.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetTiles",
                 "consumes": [
                     "application/json"
@@ -7202,7 +7202,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified app.",
-                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetTile",
                 "consumes": [
                     "application/json"
