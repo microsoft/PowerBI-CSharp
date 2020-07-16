@@ -947,10 +947,9 @@ namespace Microsoft.PowerBI.Api
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update
             /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
-            /// datasource type is not supported.&lt;/li&gt;&lt;li&gt;Analysis
-            /// Services&lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the
-            /// connection string are not supported.&lt;/li&gt;&lt;li&gt;If you are not
-            /// using [enhanced dataset
+            /// datasource type is not supported.&lt;/li&gt;&lt;li&gt;Datasources that
+            /// contain parameters on the connection string are not
+            /// supported.&lt;/li&gt;&lt;li&gt;If you are not using [enhanced dataset
             /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
             /// updating datasources which are part of merged or joined tables are not
             /// supported. If you are using [enhanced dataset
@@ -999,10 +998,9 @@ namespace Microsoft.PowerBI.Api
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update
             /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
-            /// datasource type is not supported.&lt;/li&gt;&lt;li&gt;Analysis
-            /// Services&lt;/li&gt;&lt;li&gt;Datasources that contain parameters on the
-            /// connection string are not supported.&lt;/li&gt;&lt;li&gt;If you are not
-            /// using [enhanced dataset
+            /// datasource type is not supported.&lt;/li&gt;&lt;li&gt;Datasources that
+            /// contain parameters on the connection string are not
+            /// supported.&lt;/li&gt;&lt;li&gt;If you are not using [enhanced dataset
             /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
             /// updating datasources which are part of merged or joined tables are not
             /// supported. If you are using [enhanced dataset
