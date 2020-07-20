@@ -1159,33 +1159,176 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
-                        "parameters": {
-                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
-                        },
+                    "Analysis Services": {
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": [
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
                                         {
-                                            "datasourceType": "AnalysisServices",
-                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f55",
-                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-                                            "connectionDetails": {
-                                                "server": "My-As-Server",
-                                                "database": "My-As-Database"
-                                            }
-                                        },
-                                        {
-                                            "datasourceType": "Web",
-                                            "datasourceId": "96e4bb31-7b77-4b6d-8483-d76855639a23",
-                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
-                                            "connectionDetails": {
-                                                "url": "http://myWebSource.com"
-                                            }
+                                            "datasourceType":"AnalysisServices",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
+                            }
+                        }
+                    },
+                    "Azure Analysis Services": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"AnalysisServices",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SQL": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"Sql",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Azure SQL": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"Sql",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Excel": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"File",
+                                            "connectionDetails":{
+                                                "path":"c:\\users\\username\\documents\\orders1.xlsx"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "OData": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"OData",
+                                            "connectionDetails":{
+                                                "url":"http://services.odata.org/MyOdata/MyOdata.svc"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SharePoint": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"SharePointList",
+                                            "connectionDetails":{
+                                                "url":"https://microsoft.sharepoint.com/hello/myproj/"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SAP HANA": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    {
+                                        "datasourceType":"SAPHana",
+                                        "connectionDetails":{
+                                            "server":"My-SapHana-Server",
+                                            "database":"My-SapHana-Database"
+                                        },
+                                        "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Oracle": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    {
+                                        "datasourceType":"Oracle",
+                                        "connectionDetails":{
+                                            "server":"My-Oracle-Server",
+                                            "database":"My-Oracle-Database"
+                                        },
+                                        "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
                             }
                         }
                     }
