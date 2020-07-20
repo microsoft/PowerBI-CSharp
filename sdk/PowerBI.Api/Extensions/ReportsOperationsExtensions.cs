@@ -605,6 +605,71 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Updates the datasources of the specified paginated report from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The original datasource and
+        /// the new datasource must have the exact same
+        /// schema.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
+        /// Reports.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the dataset
+        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports only paginated
+        /// reports&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='updateRdlDatasourcesRequest'>
+        /// </param>
+        public static void UpdateDatasources(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest)
+        {
+            operations.UpdateDatasourcesAsync(groupId, reportId, updateRdlDatasourcesRequest).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Updates the datasources of the specified paginated report from the
+        /// specified workspace.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The original datasource and
+        /// the new datasource must have the exact same
+        /// schema.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
+        /// Reports.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the dataset
+        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports only paginated
+        /// reports&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='updateRdlDatasourcesRequest'>
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task UpdateDatasourcesAsync(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.UpdateDatasourcesInGroupWithHttpMessagesAsync(groupId, reportId, updateRdlDatasourcesRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
+
+        /// <summary>
         /// Exports the specified report from the specified workspace to the requested
         /// format: PPTX/PDF/PNG.
         /// </summary>

@@ -2499,6 +2499,7 @@
                                 "body": {
                                     "value": [
                                         {
+                                            "name":  "MyDatasource",
                                             "datasourceType": "AnalysisServices",
                                             "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f51",
                                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e931",
@@ -2510,6 +2511,75 @@
                                     ]
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/Default.UpdateDatasources": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Updates the datasources of the specified paginated report from **\"My Workspace\"**. (Preview)",
+                "description": "<br/>**Important**: The original datasource and the new datasource must have the exact same schema.<br/>**Required scope**: Reports.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the datasource owner</li><li>Update datasources supports only paginated reports</li><li>Changing datasource type is not supported</li></ul>",
+                "operationId": "Reports_UpdateDatasources",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updateRdlDatasourcesRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateRdlDatasourcesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateRdlDatasourcesRequest": {
+                                "updateDetails": [
+                                    {
+                                        "datasourceName": "SqlDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-Sql-Server",
+                                            "database": "New-Sql-Database"
+                                        }
+                                    },
+                                    {
+                                        "datasourceName": "SqlAzureDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-SqlAzure-Server.windows.net",
+                                            "database": "New-SqlAzure-Database"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -5735,6 +5805,83 @@
                                     ]
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Default.UpdateDatasources": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Updates the datasources of the specified paginated report from the specified workspace. (Preview)",
+                "description": "<br/>**Important**: The original datasource and the new datasource must have the exact same schema.<br/>**Required scope**: Reports.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the datasource owner</li><li>Update datasources supports only paginated reports</li><li>Changing datasource type is not supported</li></ul>",
+                "operationId": "Reports_UpdateDatasourcesInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updateRdlDatasourcesRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateRdlDatasourcesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateRdlDatasourcesRequest": {
+                                "updateDetails": [
+                                    {
+                                        "datasourceName": "SqlDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-Sql-Server",
+                                            "database": "New-Sql-Database"
+                                        }
+                                    },
+                                    {
+                                        "datasourceName": "SqlAzureDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-SqlAzure-Server.windows.net",
+                                            "database": "New-SqlAzure-Database"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -13741,11 +13888,11 @@
             "properties": {
                 "server": {
                     "type": "string",
-                    "description": "The connection server"
+                    "description": "The connection server."
                 },
                 "database": {
                     "type": "string",
-                    "description": "The connection database"
+                    "description": "The connection database."
                 },
                 "url": {
                     "type": "string",
@@ -15150,8 +15297,7 @@
                 "formatSettings": {
                     "type": "object",
                     "description": "Dictionary of format settings. The keys are the device info property names for the requested file format.",
-                    "additionalProperties":
-                    {
+                    "additionalProperties":{
                         "type": "string"
                     }
                 },
@@ -16393,6 +16539,51 @@
                 "group": {
                     "$ref": "#/definitions/Group",
                     "description": "The associated group for the refreshable item"
+                }
+            }
+        },
+        "UpdateRdlDatasourcesRequest": {
+            "required": [
+                "updateDetails"
+            ],
+            "description": "A paginated report datasources update request.",
+            "properties": {
+                "updateDetails": {
+                    "type": "array",
+                    "description": "The paginated report datasources update details.",
+                    "items": {
+                        "$ref": "#/definitions/UpdateRdlDatasourceDetails"
+                    }
+                }
+            }
+        },
+        "UpdateRdlDatasourceDetails": {
+            "required": [
+                "connectionDetails",
+                "datasourceName"
+            ],
+            "description": "The new connection details and the target datasource name to be updated.",
+            "properties": {
+                "connectionDetails": {
+                    "$ref": "#/definitions/RdlDatasourceConnectionDetails",
+                    "description": "The new server and database name."
+                },
+                "datasourceName": {
+                    "type": "string",
+                    "description": "The target datasource name to be updated."
+                }
+            }
+        },
+        "RdlDatasourceConnectionDetails": {
+            "description": "A paginated report datasource connection details.",
+            "properties": {
+                "server": {
+                    "type": "string",
+                    "description": "The connection server."
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The connection database."
                 }
             }
         }
