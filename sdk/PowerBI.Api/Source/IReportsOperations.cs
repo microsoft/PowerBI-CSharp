@@ -966,11 +966,10 @@ namespace Microsoft.PowerBI.Api
         /// Principal with Power
         /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
         /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Generating
-        /// Embed Token with RLS may not work for AS Azure or AS OnPrem live
-        /// connection reports for several minutes after a
-        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
-        /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS
+        /// may not work for AS Azure or AS OnPrem live connection reports for
+        /// several minutes after a
+        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
