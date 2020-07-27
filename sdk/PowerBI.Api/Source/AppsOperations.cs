@@ -50,10 +50,10 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of installed apps.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;To set the
+        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
         /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -182,10 +182,10 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified installed app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;To set the
+        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
         /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id
@@ -321,7 +321,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id
@@ -457,7 +458,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id
@@ -598,7 +600,9 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
         /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id
@@ -734,7 +738,9 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
         /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id
@@ -875,8 +881,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Dashboard.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id
@@ -1016,11 +1023,13 @@ namespace Microsoft.PowerBI.Api
         /// specified app.
         /// </summary>
         /// <remarks>
-        /// **Note**: All tile types are supported except for "model tiles", which
-        /// include datasets and live tiles that contain an entire report page.
+        /// &lt;br/&gt;**Note**: All tile types are supported except for "model tiles",
+        /// which include datasets and live tiles that contain an entire report page.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
         /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+        /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app id

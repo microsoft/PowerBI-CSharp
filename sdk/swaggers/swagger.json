@@ -1072,7 +1072,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
                 "operationId": "Datasets_UpdateParameters",
                 "consumes": [
                     "application/json"
@@ -1159,33 +1159,176 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
-                        "parameters": {
-                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
-                        },
+                    "Analysis Services": {
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": [
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
                                         {
-                                            "datasourceType": "AnalysisServices",
-                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f55",
-                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-                                            "connectionDetails": {
-                                                "server": "My-As-Server",
-                                                "database": "My-As-Database"
-                                            }
-                                        },
-                                        {
-                                            "datasourceType": "Web",
-                                            "datasourceId": "96e4bb31-7b77-4b6d-8483-d76855639a23",
-                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
-                                            "connectionDetails": {
-                                                "url": "http://myWebSource.com"
-                                            }
+                                            "datasourceType":"AnalysisServices",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
+                            }
+                        }
+                    },
+                    "Azure Analysis Services": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"AnalysisServices",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SQL": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"Sql",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Azure SQL": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"Sql",
+                                            "connectionDetails":{
+                                                "server":"My-As-Server",
+                                                "database":"My-As-Database"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Excel": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"File",
+                                            "connectionDetails":{
+                                                "path":"c:\\users\\username\\documents\\orders1.xlsx"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "OData": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"OData",
+                                            "connectionDetails":{
+                                                "url":"http://services.odata.org/MyOdata/MyOdata.svc"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SharePoint": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                        {
+                                            "datasourceType":"SharePointList",
+                                            "connectionDetails":{
+                                                "url":"https://microsoft.sharepoint.com/hello/myproj/"
+                                            },
+                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SAP HANA": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    {
+                                        "datasourceType":"SAPHana",
+                                        "connectionDetails":{
+                                            "server":"My-SapHana-Server",
+                                            "database":"My-SapHana-Database"
+                                        },
+                                        "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Oracle": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    {
+                                        "datasourceType":"Oracle",
+                                        "connectionDetails":{
+                                            "server":"My-Oracle-Server",
+                                            "database":"My-Oracle-Database"
+                                        },
+                                        "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -1199,7 +1342,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Analysis Services</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
+                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
                 "operationId": "Datasets_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -2356,6 +2499,7 @@
                                 "body": {
                                     "value": [
                                         {
+                                            "name":  "MyDatasource",
                                             "datasourceType": "AnalysisServices",
                                             "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f51",
                                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e931",
@@ -2367,6 +2511,75 @@
                                     ]
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/reports/{reportId}/Default.UpdateDatasources": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Updates the datasources of the specified paginated report from **\"My Workspace\"**. (Preview)",
+                "description": "<br/>**Important**: The original datasource and the new datasource must have the exact same schema.<br/>**Required scope**: Reports.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the datasource owner</li><li>Update datasources supports only paginated reports</li><li>Changing datasource type is not supported</li></ul>",
+                "operationId": "Reports_UpdateDatasources",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updateRdlDatasourcesRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateRdlDatasourcesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateRdlDatasourcesRequest": {
+                                "updateDetails": [
+                                    {
+                                        "datasourceName": "SqlDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-Sql-Server",
+                                            "database": "New-Sql-Database"
+                                        }
+                                    },
+                                    {
+                                        "datasourceName": "SqlAzureDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-SqlAzure-Server.windows.net",
+                                            "database": "New-SqlAzure-Database"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -4074,7 +4287,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -5598,6 +5811,83 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Default.UpdateDatasources": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Updates the datasources of the specified paginated report from the specified workspace. (Preview)",
+                "description": "<br/>**Important**: The original datasource and the new datasource must have the exact same schema.<br/>**Required scope**: Reports.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the datasource owner</li><li>Update datasources supports only paginated reports</li><li>Changing datasource type is not supported</li></ul>",
+                "operationId": "Reports_UpdateDatasourcesInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "description": "The report id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updateRdlDatasourcesRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateRdlDatasourcesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateRdlDatasourcesRequest": {
+                                "updateDetails": [
+                                    {
+                                        "datasourceName": "SqlDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-Sql-Server",
+                                            "database": "New-Sql-Database"
+                                        }
+                                    },
+                                    {
+                                        "datasourceName": "SqlAzureDatasource",
+                                        "connectionDetails": {
+                                            "server": "New-SqlAzure-Server.windows.net",
+                                            "database": "New-SqlAzure-Database"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/reports/{reportId}/ExportTo": {
             "post": {
                 "tags": [
@@ -6235,7 +6525,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><ul><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><li>Paginated reports are not supported.</li></ul></br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6783,7 +7073,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of installed apps.",
-                "description": "<br/>**Required scope**: App.Read.All<br/>**Limitations:** Service principal authentication is not supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetApps",
                 "consumes": [
 
@@ -6837,7 +7127,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified installed app.",
-                "description": "<br/>**Required scope**: App.Read.All<br/>**Limitations:** Service principal authentication is not supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: App.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetApp",
                 "consumes": [
 
@@ -6890,7 +7180,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of reports from the specified app.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetReports",
                 "consumes": [
 
@@ -6949,7 +7239,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified report from the specified app.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetReport",
                 "consumes": [
 
@@ -7012,7 +7302,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of dashboards from the specified app.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetDashboards",
                 "consumes": [
 
@@ -7070,7 +7360,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified dashboard from the specified app.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetDashboard",
                 "consumes": [
 
@@ -7133,7 +7423,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified app.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetTiles",
                 "consumes": [
                     "application/json"
@@ -7202,7 +7492,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified app.",
-                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Service principal authentication is not supported.<br/>",
                 "operationId": "Apps_GetTile",
                 "consumes": [
                     "application/json"
@@ -12872,40 +13162,6 @@
                             }
                         }
                     },
-                    "Generate EmbedToken for two datasets, no reports and three target workspaces. This token allows creation of reports in three workpaces. The created reports are bound to one of the two datasets that do not have to reside in any of the three workpaces": {
-                        "parameters": {
-                            "requestParameters": {
-                                "datasets": [
-                                    {
-                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
-                                    },
-                                    {
-                                        "id": "e75afc47-1150-45e0-aba7-4eb04e4876e5"
-                                    }
-                                ],
-                                "targetWorkspaces": [
-                                    {
-                                        "id": "86f49768-a737-4dd4-801d-8bea6927876c"
-                                    },
-                                    {
-                                        "id": "35dc6de2-6985-42be-a18c-2e1f7826ecbf"
-                                    },
-                                    {
-                                        "id": "b18cc7fe-5db0-4a2f-b905-b83692eb4ffd"
-                                    }
-                                ]
-                            }
-                        },
-                        "responses": {
-                            "200": {
-                                "body": {
-                                    "token": "H4sI....AAA=",
-                                    "tokenId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
-                                    "expiration": "2028-07-29T17:58:19Z"
-                                }
-                            }
-                        }
-                    },
                     "Generate EmbedToken for a dataset and two reports. Editing is allowed for only one of the two reports": {
                         "parameters": {
                             "requestParameters": {
@@ -13632,11 +13888,11 @@
             "properties": {
                 "server": {
                     "type": "string",
-                    "description": "The connection server"
+                    "description": "The connection server."
                 },
                 "database": {
                     "type": "string",
-                    "description": "The connection database"
+                    "description": "The connection database."
                 },
                 "url": {
                     "type": "string",
@@ -15041,8 +15297,7 @@
                 "formatSettings": {
                     "type": "object",
                     "description": "Dictionary of format settings. The keys are the device info property names for the requested file format.",
-                    "additionalProperties":
-                    {
+                    "additionalProperties":{
                         "type": "string"
                     }
                 },
@@ -16284,6 +16539,51 @@
                 "group": {
                     "$ref": "#/definitions/Group",
                     "description": "The associated group for the refreshable item"
+                }
+            }
+        },
+        "UpdateRdlDatasourcesRequest": {
+            "required": [
+                "updateDetails"
+            ],
+            "description": "A paginated report datasources update request.",
+            "properties": {
+                "updateDetails": {
+                    "type": "array",
+                    "description": "The paginated report datasources update details.",
+                    "items": {
+                        "$ref": "#/definitions/UpdateRdlDatasourceDetails"
+                    }
+                }
+            }
+        },
+        "UpdateRdlDatasourceDetails": {
+            "required": [
+                "connectionDetails",
+                "datasourceName"
+            ],
+            "description": "The new connection details and the target datasource name to be updated.",
+            "properties": {
+                "connectionDetails": {
+                    "$ref": "#/definitions/RdlDatasourceConnectionDetails",
+                    "description": "The new server and database name."
+                },
+                "datasourceName": {
+                    "type": "string",
+                    "description": "The target datasource name to be updated."
+                }
+            }
+        },
+        "RdlDatasourceConnectionDetails": {
+            "description": "A paginated report datasource connection details.",
+            "properties": {
+                "server": {
+                    "type": "string",
+                    "description": "The connection server."
+                },
+                "database": {
+                    "type": "string",
+                    "description": "The connection database."
                 }
             }
         }

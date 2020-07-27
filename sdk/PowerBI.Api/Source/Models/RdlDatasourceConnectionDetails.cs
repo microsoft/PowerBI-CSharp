@@ -10,31 +10,29 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI datasource connection details
+    /// A paginated report datasource connection details.
     /// </summary>
-    public partial class DatasourceConnectionDetails
+    public partial class RdlDatasourceConnectionDetails
     {
         /// <summary>
-        /// Initializes a new instance of the DatasourceConnectionDetails
+        /// Initializes a new instance of the RdlDatasourceConnectionDetails
         /// class.
         /// </summary>
-        public DatasourceConnectionDetails()
+        public RdlDatasourceConnectionDetails()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the DatasourceConnectionDetails
+        /// Initializes a new instance of the RdlDatasourceConnectionDetails
         /// class.
         /// </summary>
         /// <param name="server">The connection server.</param>
         /// <param name="database">The connection database.</param>
-        /// <param name="url">The connection url</param>
-        public DatasourceConnectionDetails(string server = default(string), string database = default(string), string url = default(string))
+        public RdlDatasourceConnectionDetails(string server = default(string), string database = default(string))
         {
             Server = server;
             Database = database;
-            Url = url;
             CustomInit();
         }
 
@@ -54,12 +52,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "database")]
         public string Database { get; set; }
-
-        /// <summary>
-        /// Gets or sets the connection url
-        /// </summary>
-        [JsonProperty(PropertyName = "url")]
-        public string Url { get; set; }
 
     }
 }

@@ -311,6 +311,39 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Updates the datasources of the specified paginated report from
+        /// **"My Workspace"**. (Preview)
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**: The original datasource and the new
+        /// datasource must have the exact same schema.&lt;br/&gt;**Required
+        /// scope**: Reports.ReadWrite.All&lt;br/&gt;To set the permissions
+        /// scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the datasource
+        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports only
+        /// paginated reports&lt;/li&gt;&lt;li&gt;Changing datasource type is
+        /// not supported&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='updateRdlDatasourcesRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(System.Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Exports the specified report from **"My Workspace"** to the
         /// requested format.
         /// </summary>
@@ -728,6 +761,42 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Updates the datasources of the specified paginated report from the
+        /// specified workspace. (Preview)
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Important**: The original datasource and the new
+        /// datasource must have the exact same schema.&lt;br/&gt;**Required
+        /// scope**: Reports.ReadWrite.All&lt;br/&gt;To set the permissions
+        /// scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
+        /// operation is only supported for the datasource
+        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports only
+        /// paginated reports&lt;/li&gt;&lt;li&gt;Changing datasource type is
+        /// not supported&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='updateRdlDatasourcesRequest'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Exports the specified report from the specified workspace to the
         /// requested format.
         /// </summary>
@@ -897,11 +966,10 @@ namespace Microsoft.PowerBI.Api
         /// Principal with Power
         /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
         /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Generating
-        /// Embed Token with RLS may not work for AS Azure or AS OnPrem live
-        /// connection reports for several minutes after a
-        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
-        /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;/br/&gt;
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS
+        /// may not work for AS Azure or AS OnPrem live connection reports for
+        /// several minutes after a
+        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id
