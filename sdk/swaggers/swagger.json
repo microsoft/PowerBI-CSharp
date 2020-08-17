@@ -15243,6 +15243,10 @@
                             {
                                 "value": "MHTML",
                                 "description": "Requested file format is MHTML (only supported for paginated reports)"
+                            },
+                            {
+                                "value": "ACCESSIBLEPDF",
+                                "description": "Requested file format is Accessible PDF"
                             }
                         ]
                     }
