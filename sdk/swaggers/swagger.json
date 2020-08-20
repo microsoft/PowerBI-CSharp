@@ -11065,7 +11065,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience and adding user principle only. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -11120,7 +11120,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions to the specified workspace.",
-                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** This API is currently limited to updating workspaces in the new workspace experience and adding user principle only. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [
 
@@ -11141,7 +11141,7 @@
                         "name": "user",
                         "in": "path",
                         "required": true,
-                        "description": "The user principal name (UPN) of the user to remove (usually the user's email)",
+                        "description": "The user principal name (UPN) of the user to remove (usually the user's email).",
                         "type": "string"
                     }
                 ],
@@ -15203,7 +15203,8 @@
                         "DOCX",
                         "CSV",
                         "XML",
-                        "MHTML"
+                        "MHTML",
+                        "ACCESSIBLEPDF"
                     ],
                     "x-ms-enum": {
                         "name": "FileFormat",

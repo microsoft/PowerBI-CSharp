@@ -86,13 +86,6 @@ namespace Microsoft.PowerBI.Api.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Columns");
             }
-            if (Name != null)
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(Name, "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$"))
-                {
-                    throw new ValidationException(ValidationRules.Pattern, "Name", "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$");
-                }
-            }
             if (Columns != null)
             {
                 foreach (var element in Columns)
