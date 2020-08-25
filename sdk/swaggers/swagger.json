@@ -7651,7 +7651,7 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Triggers a refresh for the specified dataflow.",
+                "summary": "Triggers a refresh for the specified dataflow. The only supported mail notification options are either in case of failure, or none. MailOnCompletion is not supported.",
                 "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_RefreshDataflow",
                 "consumes": [

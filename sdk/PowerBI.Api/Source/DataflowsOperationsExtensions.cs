@@ -115,7 +115,9 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataflow.
+            /// Triggers a refresh for the specified dataflow. The only supported mail
+            /// notification options are either in case of failure, or none.
+            /// MailOnCompletion is not supported.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
@@ -139,7 +141,9 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataflow.
+            /// Triggers a refresh for the specified dataflow. The only supported mail
+            /// notification options are either in case of failure, or none.
+            /// MailOnCompletion is not supported.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
