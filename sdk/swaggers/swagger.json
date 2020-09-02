@@ -14349,6 +14349,10 @@
                     "items": {
                         "$ref": "#/definitions/Tile"
                     }
+                },
+                "dataClassification": {
+                    "type": "string",
+                    "description": "The data classification tag of the dashboard"
                 }
             }
         },
