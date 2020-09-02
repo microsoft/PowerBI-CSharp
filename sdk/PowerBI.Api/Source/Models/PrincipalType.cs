@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly PrincipalType Group = "Group";
 
         /// <summary>
-        /// App principal type
+        /// Service principal type
         /// </summary>
         public static readonly PrincipalType App = "App";
 

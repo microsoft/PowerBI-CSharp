@@ -68,6 +68,13 @@ namespace Microsoft.PowerBI.Api.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Expression");
             }
+            if (Name != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(Name, "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "Name", "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$");
+                }
+            }
         }
     }
 }

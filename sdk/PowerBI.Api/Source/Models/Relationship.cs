@@ -115,6 +115,41 @@ namespace Microsoft.PowerBI.Api.Models
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "ToColumn");
             }
+            if (Name != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(Name, "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "Name", "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$");
+                }
+            }
+            if (FromTable != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(FromTable, "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "FromTable", "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$");
+                }
+            }
+            if (FromColumn != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(FromColumn, "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "FromColumn", "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$");
+                }
+            }
+            if (ToTable != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(ToTable, "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "ToTable", "^[\\x09\\x0A\\x0D\\x20\\x23\\x2D\\x30-\\x39\\x40-\\x5A\\x5E-\\x5F\\x61-\\x7A\\x7E-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]{1,100}$");
+                }
+            }
+            if (ToColumn != null)
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(ToColumn, "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$"))
+                {
+                    throw new ValidationException(ValidationRules.Pattern, "ToColumn", "^[\\x09\\x0A\\x0D\\x20-\\uD7FF\\uE000-\\uFFFD\\u10000-\\u10FFFF]+$");
+                }
+            }
         }
     }
 }

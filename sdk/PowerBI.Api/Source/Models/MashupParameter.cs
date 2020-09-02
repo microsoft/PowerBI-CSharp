@@ -32,7 +32,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="type">The parameter type</param>
         /// <param name="isRequired">Is dataset parameter required</param>
         /// <param name="currentValue">The parameter current value</param>
-        /// <param name="suggestedValues">List of the parameter suggested values</param>
+        /// <param name="suggestedValues">List of the parameter suggested
+        /// values</param>
         public MashupParameter(string name, string type, bool isRequired, string currentValue = default(string), IList<string> suggestedValues = default(IList<string>))
         {
             Name = name;
