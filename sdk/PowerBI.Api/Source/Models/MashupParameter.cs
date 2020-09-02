@@ -8,6 +8,8 @@ namespace Microsoft.PowerBI.Api.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -30,12 +32,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="type">The parameter type</param>
         /// <param name="isRequired">Is dataset parameter required</param>
         /// <param name="currentValue">The parameter current value</param>
-        public MashupParameter(string name, string type, bool isRequired, string currentValue = default(string))
+        /// <param name="suggestedValues">List of the parameter suggested values</param>
+        public MashupParameter(string name, string type, bool isRequired, string currentValue = default(string), IList<string> suggestedValues = default(IList<string>))
         {
             Name = name;
             Type = type;
             CurrentValue = currentValue;
             IsRequired = isRequired;
+            SuggestedValues = suggestedValues;
             CustomInit();
         }
 
@@ -67,6 +71,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "isRequired")]
         public bool IsRequired { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of the parameter suggested values
+        /// </summary>
+        [JsonProperty(PropertyName = "suggestedValues")]
+        public IList<string> SuggestedValues { get; set; }
 
         /// <summary>
         /// Validate the object.

@@ -14945,6 +14945,13 @@
                 "isRequired": {
                     "type": "boolean",
                     "description": "Is dataset parameter required"
+                },
+                "suggestedValues": {
+                    "type": "array",
+                    "description": "List of the parameter suggested values",
+                    "items": {
+                        "type": "string"
+                    }
                 }
             },
             "required": [
