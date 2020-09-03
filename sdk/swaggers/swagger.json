@@ -4169,20 +4169,6 @@
                         "responses": {
                             "200": {}
                         }
-                    },
-                    "disable scheduled refresh": {
-                        "parameters": {
-                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
-                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "datasetDQRefreshScheduleRequest": {
-                                "value": {
-                                    "enabled": false
-                                }
-                            }
-                        },
-                        "responses": {
-                            "200": {}
-                        }
                     }
                 },
                 "deprecated": false
