@@ -66,7 +66,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// reports)
         /// </summary>
         [EnumMember(Value = "MHTML")]
-        MHTML
+        MHTML,
+        /// <summary>
+        /// Requested file format is Accessible PDF
+        /// </summary>
+        [EnumMember(Value = "ACCESSIBLEPDF")]
+        ACCESSIBLEPDF
     }
     internal static class FileFormatEnumExtension
     {
@@ -97,6 +102,8 @@ namespace Microsoft.PowerBI.Api.Models
                     return "XML";
                 case FileFormat.MHTML:
                     return "MHTML";
+                case FileFormat.ACCESSIBLEPDF:
+                    return "ACCESSIBLEPDF";
             }
             return null;
         }
@@ -123,6 +130,8 @@ namespace Microsoft.PowerBI.Api.Models
                     return FileFormat.XML;
                 case "MHTML":
                     return FileFormat.MHTML;
+                case "ACCESSIBLEPDF":
+                    return FileFormat.ACCESSIBLEPDF;
             }
             return null;
         }

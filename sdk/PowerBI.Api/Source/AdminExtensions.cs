@@ -480,8 +480,9 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of audit activity events for a tenant.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// **Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland.
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
             /// Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide either a
@@ -515,8 +516,9 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of audit activity events for a tenant.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// **Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland.
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) to call this API.
             /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
             /// Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide either a

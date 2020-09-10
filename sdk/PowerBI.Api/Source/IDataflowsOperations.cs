@@ -73,7 +73,9 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> DeleteDataflowWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Triggers a refresh for the specified dataflow.
+        /// Triggers a refresh for the specified dataflow. The only supported
+        /// mail notification options are either in case of failure, or none.
+        /// MailOnCompletion is not supported.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To

@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="format">Export to file format. Possible values
         /// include: 'PPTX', 'PDF', 'PNG', 'IMAGE', 'XLSX', 'DOCX', 'CSV',
-        /// 'XML', 'MHTML'</param>
+        /// 'XML', 'MHTML', 'ACCESSIBLEPDF'</param>
         /// <param name="powerBIReportConfiguration">The configuration used to
         /// export a Power BI report</param>
         /// <param name="paginatedReportConfiguration">The configuration used
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets export to file format. Possible values include:
         /// 'PPTX', 'PDF', 'PNG', 'IMAGE', 'XLSX', 'DOCX', 'CSV', 'XML',
-        /// 'MHTML'
+        /// 'MHTML', 'ACCESSIBLEPDF'
         /// </summary>
         [JsonProperty(PropertyName = "format")]
         public FileFormat Format { get; set; }
