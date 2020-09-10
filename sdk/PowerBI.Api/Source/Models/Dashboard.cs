@@ -32,13 +32,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="isReadOnly">Is ReadOnly dashboard</param>
         /// <param name="embedUrl">The dashboard embed url</param>
         /// <param name="tiles">The tiles that belong to the dashboard.</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>))
+        /// <param name="dataClassification">The data classification tag of the
+        /// dashboard</param>
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string))
         {
             Id = id;
             DisplayName = displayName;
             IsReadOnly = isReadOnly;
             EmbedUrl = embedUrl;
             Tiles = tiles;
+            DataClassification = dataClassification;
             CustomInit();
         }
 
@@ -76,6 +79,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "tiles")]
         public IList<Tile> Tiles { get; set; }
+
+        /// <summary>
+        /// Gets or sets the data classification tag of the dashboard
+        /// </summary>
+        [JsonProperty(PropertyName = "dataClassification")]
+        public string DataClassification { get; set; }
 
         /// <summary>
         /// Validate the object.
