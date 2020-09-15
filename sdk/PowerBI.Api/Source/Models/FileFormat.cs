@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api.Models
         [EnumMember(Value = "MHTML")]
         MHTML,
         /// <summary>
-        /// Requested file format is Accessible PDF
+        /// Requested file format is Accessible PDF (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "ACCESSIBLEPDF")]
         ACCESSIBLEPDF
@@ -82,7 +82,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         internal static string ToSerializedValue(this FileFormat value)
         {
-            switch( value )
+            switch (value)
             {
                 case FileFormat.PPTX:
                     return "PPTX";
@@ -110,7 +110,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         internal static FileFormat? ParseFileFormat(this string value)
         {
-            switch( value )
+            switch (value)
             {
                 case "PPTX":
                     return FileFormat.PPTX;

@@ -15244,7 +15244,7 @@
                             },
                             {
                                 "value": "ACCESSIBLEPDF",
-                                "description": "Requested file format is Accessible PDF"
+                                "description": "Requested file format is Accessible PDF (only supported for paginated reports)"
                             }
                         ]
                     }
