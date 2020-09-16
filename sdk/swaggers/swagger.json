@@ -7630,6 +7630,70 @@
                     }
                 },
                 "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Update dataflow properties, capabilities and settings.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_UpdateDataflow",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowUpdateRequest",
+                        "description": "Patch dataflow properties, capabilities and settings",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DataflowUpdateRequestMessage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "dataflowUpdateRequest": {
+                                "name": "newDataflowName",
+                                "description": "New dataflow description",
+                                "allowNativeQueries": "false",
+                                "computeEngineBehavior": "computeOptimized"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "Ok"
+                              }
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes": {
@@ -7668,6 +7732,18 @@
                         "schema": {
                             "$ref": "#/definitions/RefreshRequest"
                         }
+                    },
+                    {
+                        "name": "processType",
+                        "description": "Type of refresh process to use.",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "format": "uuid",
+                        "enum": [
+                            "default",
+                            "processFull"
+                        ]
                     }
                 ],
                 "responses": {
@@ -7682,7 +7758,8 @@
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
                             "refreshRequest": {
                                 "notifyOption": "MailOnFailure"
-                            }
+                            },
+                            "processType": "default"
                         },
                         "responses": {
                             "200": {}
@@ -7968,6 +8045,128 @@
                         },
                         "responses": {
                             "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/transactions": {
+            "get": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Returns a list of transactions for the specified dataflow.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowTransactions",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DataflowTransactions"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/98674fdf-baab-45e1-a04a-c17ab378dce1/$metadata#transactions",
+                                    "value": [
+                                        {
+                                            "id": "2020-08-27T16:07:47.2487692Z@8dbd8c92-4d16-4947-8329-4172f04f4f93$2"
+                                        },
+                                        {
+                                            "id": "2020-08-26T16:40:55.0968787Z@e33eed4d-5b1a-4bb9-8b5b-dff1cd371109$1",
+                                            "refreshType": "OnDemand"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows//transactions/{transactionId}/cancel": {
+            "post": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Attempts to Cancel the specified transactions.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_CancelDataflowTransaction",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "The transaction id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DataflowTransactionStatus"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021111110abd",
+                            "transactionId": "2020-09-11T19:21:52.8778432Z@9cc7a369-6112-4dba-97b6-b07ff5699568$1374282"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "transactionId": "2020-09-11T19:21:52.8778432Z@9cc7a369-6112-4dba-97b6-b07ff5699568$1374282",
+                                    "status": "SuccessfullyMarked"
+                                }
+                            }
                         }
                     }
                 },
@@ -16586,6 +16785,95 @@
                 "database": {
                     "type": "string",
                     "description": "The connection database."
+                }
+            }
+        },
+        "DataflowTransactions": {
+            "description": "A dataflow transaction odata list wrapper",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dataflow transactions",
+                    "items": {
+                        "$ref": "#/definitions/DataflowTransaction"
+                    }
+                }
+            }
+        },
+        "DataflowTransaction": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI dataflow transaction",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The transaction id"
+                },
+                "refreshType": {
+                    "type": "string",
+                    "description": "The type of refresh transaction"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "Start time of the transaction"
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "End time of the transaction"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the transaction"
+                }
+            }
+        },
+        "DataflowTransactionStatus": {
+            "description": "Status of dataflow refresh transaction",
+            "properties": {
+                "transactionId": {
+                    "description": "Transaction id",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of transaction",
+                    "type": "string",
+                    "enum": [
+                        "invalid",
+                        "successfullyMarked",
+                        "alreadyConcluded",
+                        "notFound"
+                    ]
+                }
+            }  
+        },
+        "DataflowUpdateRequestMessage": {
+            "description": "Request payload for updating dataflow information",
+            "properties": {
+                "name": {
+                    "description": "New name of the dataflow",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "New description for the dataflow",
+                    "type": "string"
+                },
+                "allowNativeQueries": {
+                    "description": "Allow native queries",
+                    "type": "boolean"
+                },
+                "computeEngineBehavior": {
+                    "description": "Compute Engine Behavior",
+                    "type": "string",
+                    "enum": [
+                        "computeOptimized",
+                        "computeOn",
+                        "computeDisabled"
+                    ]
                 }
             }
         }
