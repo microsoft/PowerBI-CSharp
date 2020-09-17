@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="groupUserAccessRight">Access rights user has for the
         /// workspace. Possible values include: 'None', 'Member', 'Admin',
-        /// 'Contributor'</param>
+        /// 'Contributor', 'Viewer'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">Identifier of the principal</param>
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets access rights user has for the workspace. Possible
-        /// values include: 'None', 'Member', 'Admin', 'Contributor'
+        /// values include: 'None', 'Member', 'Admin', 'Contributor', 'Viewer'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
         public GroupUserAccessRight GroupUserAccessRight { get; set; }
