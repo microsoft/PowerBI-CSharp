@@ -15547,7 +15547,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The bookmark name. Currently not supported"
+                    "description": "The bookmark name"
                 },
                 "state": {
                     "type": "string",
