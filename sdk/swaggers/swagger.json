@@ -158,6 +158,11 @@
                                             {
                                                 "name": "ManufacturedOn",
                                                 "dataType": "DateTime"
+                                            },
+                                            {
+                                                "name": "Sales",
+                                                "dataType": "Int64",
+                                                "formatString": "Currency"
                                             }
                                         ]
                                     }
@@ -3213,6 +3218,11 @@
                                             {
                                                 "name": "ManufacturedOn",
                                                 "dataType": "DateTime"
+                                            },
+                                            {
+                                                "name": "Sales",
+                                                "dataType": "Int64",
+                                                "formatString": "Currency"
                                             }
                                         ]
                                     }
@@ -14131,6 +14141,10 @@
                 "dataType": {
                     "type": "string",
                     "description": "The column data type"
+                },
+                "formatString": {
+                    "type": "string",
+                    "description": "(Optional) The format of the column as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
                 }
             }
         },
