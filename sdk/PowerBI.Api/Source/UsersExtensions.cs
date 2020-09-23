@@ -16,15 +16,17 @@ namespace Microsoft.PowerBI.Api
     public static partial class UsersExtensions
     {
             /// <summary>
-            /// Refreshes user permissions in Power BI
+            /// Refreshes user permissions in Power BI.
             /// </summary>
             /// <remarks>
             /// When a user is granted permissions to a workspace, app, or artifact, it
-            /// might not be immediately available through API calls. &lt;br/&gt;This
+            /// might not be immediately available through API calls.&lt;br/&gt;This
             /// operation refreshes user permissions and makes sure the user permissions
-            /// are fully updated.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Workspace.Read.All  or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// are fully updated.&lt;br/&gt;&lt;br/&gt;**Important:** Make the *refresh
+            /// user permissions* call, before any other API
+            /// calls.&lt;br/&gt;&lt;br/&gt;**Required scope:** Workspace.Read.All  or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// &lt;h2&gt;Restrictions&lt;/h2&gt; User can call this API once per hour.
             /// </remarks>
@@ -37,15 +39,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Refreshes user permissions in Power BI
+            /// Refreshes user permissions in Power BI.
             /// </summary>
             /// <remarks>
             /// When a user is granted permissions to a workspace, app, or artifact, it
-            /// might not be immediately available through API calls. &lt;br/&gt;This
+            /// might not be immediately available through API calls.&lt;br/&gt;This
             /// operation refreshes user permissions and makes sure the user permissions
-            /// are fully updated.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Workspace.Read.All  or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// are fully updated.&lt;br/&gt;&lt;br/&gt;**Important:** Make the *refresh
+            /// user permissions* call, before any other API
+            /// calls.&lt;br/&gt;&lt;br/&gt;**Required scope:** Workspace.Read.All  or
+            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// &lt;h2&gt;Restrictions&lt;/h2&gt; User can call this API once per hour.
             /// </remarks>

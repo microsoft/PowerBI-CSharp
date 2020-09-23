@@ -1655,8 +1655,8 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Refreshes user permissions in Power BI",
-                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls. <br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.  <br/><br/>**Required scope**: Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
+                "summary": "Refreshes user permissions in Power BI.",
+                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls.<br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.<br/><br/>**Important:** Make the *refresh user permissions* call, before any other API calls.<br/><br/>**Required scope:** Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
                 "operationId": "Users_RefreshUserPermissions",
                 "consumes": [
                 ],
@@ -1751,8 +1751,8 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates new content on **\"My Workspace\"** from .pbix, Excel, Rdl or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body. </li><li>To import xlsx file from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>Import .pbix file from OneDrive is not supported.</li><li>To import large .pbix files between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), supported only for workspaces on premium capacity.</li></ul>",
+                "summary": "Creates new content on **\"My Workspace\"** from PBIX (Power BI Desktop), JSON, XLSX (Excel), RDL or file path in OneDrive for Business.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an XLSX (Excel) file from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>Importing a .pbix file from OneDrive is not supported.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This is supported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -3010,7 +3010,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from **\"My Workspace\"**.",
-                "description": "<br/>If target report id and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If target report id and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_CloneTile",
                 "consumes": [
                     "application/json"
@@ -4922,8 +4922,8 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates new content on the specified workspace from .pbix, .json, Excel, Rdl, or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
+                "summary": "Creates new content on the specified workspace from PBIX (Power BI Desktop), JSON, XLSX (Excel), RDL, or file path in OneDrive for Business.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>To import from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup). This is supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -6371,7 +6371,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from the specified workspace.",
-                "description": "<br/>If target report id and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If target report id and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_CloneTileInGroup",
                 "consumes": [
                     "application/json"
@@ -8522,7 +8522,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified datasource from the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "description": "<br/>**Note:** It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).<br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8569,7 +8569,8 @@
                                     "credentials": "{\"credentialData\":[{\"name\":\"username\", \"value\":\"john\"},{\"name\":\"password\", \"value\":\"*****\"}]}",
                                     "encryptedConnection": "Encrypted",
                                     "encryptionAlgorithm": "None",
-                                    "privacyLevel": "None"
+                                    "privacyLevel": "None",
+                                    "useEndUserOAuth2Credentials": "False"
                                 }
                             }
                         },
