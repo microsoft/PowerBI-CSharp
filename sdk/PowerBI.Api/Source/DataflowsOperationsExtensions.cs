@@ -115,9 +115,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataflow. The only supported mail
-            /// notification options are either in case of failure, or none.
-            /// MailOnCompletion is not supported.
+            /// Update dataflow properties, capabilities and settings.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
@@ -133,11 +131,40 @@ namespace Microsoft.PowerBI.Api
             /// <param name='dataflowId'>
             /// The dataflow id
             /// </param>
-            /// <param name='refreshRequest'>
+            /// <param name='dataflowUpdateRequest'>
+            /// Patch dataflow properties, capabilities and settings
             /// </param>
-            public static void RefreshDataflow(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshRequest refreshRequest = default(RefreshRequest))
+            public static void UpdateDataflow(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, DataflowUpdateRequestMessage dataflowUpdateRequest)
             {
-                operations.RefreshDataflowAsync(groupId, dataflowId, refreshRequest).GetAwaiter().GetResult();
+                operations.UpdateDataflowAsync(groupId, dataflowId, dataflowUpdateRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Update dataflow properties, capabilities and settings.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='dataflowUpdateRequest'>
+            /// Patch dataflow properties, capabilities and settings
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdateDataflowAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, DataflowUpdateRequestMessage dataflowUpdateRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdateDataflowWithHttpMessagesAsync(groupId, dataflowId, dataflowUpdateRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -161,12 +188,44 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
+            /// <param name='processType'>
+            /// Type of refresh process to use.
+            /// </param>
+            public static void RefreshDataflow(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshRequest refreshRequest = default(RefreshRequest), System.Guid? processType = default(System.Guid?))
+            {
+                operations.RefreshDataflowAsync(groupId, dataflowId, refreshRequest, processType).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Triggers a refresh for the specified dataflow. The only supported mail
+            /// notification options are either in case of failure, or none.
+            /// MailOnCompletion is not supported.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='refreshRequest'>
+            /// </param>
+            /// <param name='processType'>
+            /// Type of refresh process to use.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RefreshDataflowAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshRequest refreshRequest = default(RefreshRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task RefreshDataflowAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshRequest refreshRequest = default(RefreshRequest), System.Guid? processType = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RefreshDataflowWithHttpMessagesAsync(groupId, dataflowId, refreshRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.RefreshDataflowWithHttpMessagesAsync(groupId, dataflowId, refreshRequest, processType, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -364,6 +423,106 @@ namespace Microsoft.PowerBI.Api
             public static async Task UpdateRefreshScheduleAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, RefreshScheduleRequest refreshScheduleRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateRefreshScheduleWithHttpMessagesAsync(groupId, dataflowId, refreshScheduleRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of transactions for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            public static DataflowTransactions GetDataflowTransactions(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
+            {
+                return operations.GetDataflowTransactionsAsync(groupId, dataflowId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of transactions for the specified dataflow.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DataflowTransactions> GetDataflowTransactionsAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDataflowTransactionsWithHttpMessagesAsync(groupId, dataflowId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Attempts to Cancel the specified transactions.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='transactionId'>
+            /// The transaction id
+            /// </param>
+            public static DataflowTransactionStatus CancelDataflowTransaction(this IDataflowsOperations operations, System.Guid groupId, System.Guid transactionId)
+            {
+                return operations.CancelDataflowTransactionAsync(groupId, transactionId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Attempts to Cancel the specified transactions.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='transactionId'>
+            /// The transaction id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DataflowTransactionStatus> CancelDataflowTransactionAsync(this IDataflowsOperations operations, System.Guid groupId, System.Guid transactionId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CancelDataflowTransactionWithHttpMessagesAsync(groupId, transactionId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
