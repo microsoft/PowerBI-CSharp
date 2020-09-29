@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly GroupUserAccessRight None = "None";
 
         /// <summary>
-        /// Grants read access to content in workspace
+        /// Grants Read, Reshare and Explore access to content in workspace
         /// </summary>
         public static readonly GroupUserAccessRight Member = "Member";
 
@@ -39,9 +39,14 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly GroupUserAccessRight Admin = "Admin";
 
         /// <summary>
-        /// Grants read and write access to content in group
+        /// Grants Read and Explore access to content in group
         /// </summary>
         public static readonly GroupUserAccessRight Contributor = "Contributor";
+
+        /// <summary>
+        /// Grants Read only access to content in group
+        /// </summary>
+        public static readonly GroupUserAccessRight Viewer = "Viewer";
 
 
         /// <summary>

@@ -2298,11 +2298,15 @@ namespace Microsoft.PowerBI.Api
         /// Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
-        /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:
-        /// The dataset must be refreshed for new parameters values to be applied. If
-        /// you're not using [enhanced dataset
+        /// &lt;br/&gt;**Note:**&lt;ul&gt;&lt;li&gt;When using this API, it's
+        /// recommended to use [enhanced dataset
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;/li&gt;&lt;li&gt;This
+        /// API doesn't support datasets created using the public XML/A endpoint. To
+        /// make changes to these datasources, the admin must use the Analysis Services
+        /// Client Library for Tabular Object Model
+        /// (TOM).&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;**Important**: The dataset must be
+        /// refreshed for new parameters values to be applied. If you're not using
+        /// [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update parameters operation to complete before
         /// refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
@@ -2606,9 +2610,13 @@ namespace Microsoft.PowerBI.Api
         /// Updates the datasources of the specified dataset from **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
-        /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
+        /// &lt;br/&gt;**Note:**&lt;ul&gt;&lt;li&gt;When using this API, it's
+        /// recommended to use [enhanced dataset
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;/li&gt;&lt;li&gt;This
+        /// API doesn't support datasets created using the public XML/A endpoint. To
+        /// make changes to these datasources, the admin must use the Analysis Services
+        /// Client Library for Tabular Object Model
+        /// (TOM).&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
         /// original datasource and the new datasource must have the exact same
         /// schema.&lt;/li&gt;&lt;li&gt;For cached models, the dataset must be
         /// refreshed to get the data from the new data sources. If you're not using
@@ -5832,11 +5840,15 @@ namespace Microsoft.PowerBI.Api
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
-        /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:
-        /// The dataset must be refreshed for the new parameter values to be applied.
-        /// If you're not using [enhanced dataset
+        /// &lt;br/&gt;**Note:**&lt;ul&gt;&lt;li&gt;When using this API, it's
+        /// recommended to use [enhanced dataset
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;/li&gt;&lt;li&gt;This
+        /// API doesn't support datasets created using the public XML/A endpoint. To
+        /// make changes to these datasources, the admin must use the Analysis Services
+        /// Client Library for Tabular Object Model
+        /// (TOM).&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;**Important**: The dataset must be
+        /// refreshed for the new parameter values to be applied. If you're not using
+        /// [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update parameters operation to complete before
         /// refreshing.&lt;br/&gt;&lt;br/&gt;**Required scope**:
@@ -6150,9 +6162,13 @@ namespace Microsoft.PowerBI.Api
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note:** When using this API, it's recommended to use [enhanced
-        /// dataset
-        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;br/&gt;&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
+        /// &lt;br/&gt;**Note:**&lt;ul&gt;&lt;li&gt;When using this API, it's
+        /// recommended to use [enhanced dataset
+        /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).&lt;/li&gt;&lt;li&gt;This
+        /// API doesn't support datasets created using the public XML/A endpoint. To
+        /// make changes to these datasources, the admin must use the Analysis Services
+        /// Client Library for Tabular Object Model
+        /// (TOM).&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;**Important**:&lt;ul&gt;&lt;li&gt;The
         /// original datasource and the new datasource must have the exact same
         /// schema.&lt;/li&gt;&lt;li&gt;For cached models, the dataset must be
         /// refreshed to get the data from the new datasources. If you're not using

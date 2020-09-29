@@ -158,6 +158,11 @@
                                             {
                                                 "name": "ManufacturedOn",
                                                 "dataType": "DateTime"
+                                            },
+                                            {
+                                                "name": "Sales",
+                                                "dataType": "Int64",
+                                                "formatString": "Currency"
                                             }
                                         ]
                                     }
@@ -1072,7 +1077,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
                 "operationId": "Datasets_UpdateParameters",
                 "consumes": [
                     "application/json"
@@ -1342,7 +1347,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
+                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
                 "operationId": "Datasets_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -1650,8 +1655,8 @@
                 "tags": [
                     "Users"
                 ],
-                "summary": "Refreshes user permissions in Power BI",
-                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls. <br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.  <br/><br/>**Required scope**: Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
+                "summary": "Refreshes user permissions in Power BI.",
+                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls.<br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.<br/><br/>**Important:** Make the *refresh user permissions* call, before any other API calls.<br/><br/>**Required scope:** Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
                 "operationId": "Users_RefreshUserPermissions",
                 "consumes": [
                 ],
@@ -1746,8 +1751,8 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates new content on **\"My Workspace\"** from .pbix, Excel, Rdl or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body. </li><li>To import xlsx file from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>Import .pbix file from OneDrive is not supported.</li><li>To import large .pbix files between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation), supported only for workspaces on premium capacity.</li></ul>",
+                "summary": "Creates new content on **\"My Workspace\"** from PBIX (Power BI Desktop), JSON, XLSX (Excel), RDL or file path in OneDrive for Business.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an XLSX (Excel) file from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>Importing a .pbix file from OneDrive is not supported.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This is supported only for workspaces on premium capacity.</li></ul>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -3005,7 +3010,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from **\"My Workspace\"**.",
-                "description": "<br/>If target report id and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If target report id and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_CloneTile",
                 "consumes": [
                     "application/json"
@@ -3213,6 +3218,11 @@
                                             {
                                                 "name": "ManufacturedOn",
                                                 "dataType": "DateTime"
+                                            },
+                                            {
+                                                "name": "Sales",
+                                                "dataType": "Int64",
+                                                "formatString": "Currency"
                                             }
                                         ]
                                     }
@@ -4273,7 +4283,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -4441,7 +4451,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:** When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).<br/><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new datasources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.Al<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types: <ul><li>SQL Server </li><li>Azure SQL Server </li><li>Analysis Services </li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Oracle</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters In Group](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/updateparametersingroup).</li></ul>",
+                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new datasources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.Al<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types: <ul><li>SQL Server </li><li>Azure SQL Server </li><li>Analysis Services </li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Oracle</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters In Group](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/updateparametersingroup).</li></ul>",
                 "operationId": "Datasets_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -4912,8 +4922,8 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates new content on the specified workspace from .pbix, .json, Excel, Rdl, or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body </li><li>To import from OneDrive for Business, request Headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files between 1 GB and 10 GB see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup), supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
+                "summary": "Creates new content on the specified workspace from PBIX (Power BI Desktop), JSON, XLSX (Excel), RDL, or file path in OneDrive for Business.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>To import from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup). This is supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -6361,7 +6371,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from the specified workspace.",
-                "description": "<br/>If target report id and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If target report id and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_CloneTileInGroup",
                 "consumes": [
                     "application/json"
@@ -7630,6 +7640,70 @@
                     }
                 },
                 "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Update dataflow properties, capabilities and settings.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_UpdateDataflow",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowUpdateRequest",
+                        "description": "Patch dataflow properties, capabilities and settings",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DataflowUpdateRequestMessage"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
+                            "dataflowUpdateRequest": {
+                                "name": "newDataflowName",
+                                "description": "New dataflow description",
+                                "allowNativeQueries": "false",
+                                "computeEngineBehavior": "computeOptimized"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "description": "Ok"
+                              }
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes": {
@@ -7668,6 +7742,18 @@
                         "schema": {
                             "$ref": "#/definitions/RefreshRequest"
                         }
+                    },
+                    {
+                        "name": "processType",
+                        "description": "Type of refresh process to use.",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "format": "uuid",
+                        "enum": [
+                            "default",
+                            "processFull"
+                        ]
                     }
                 ],
                 "responses": {
@@ -7682,7 +7768,8 @@
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
                             "refreshRequest": {
                                 "notifyOption": "MailOnFailure"
-                            }
+                            },
+                            "processType": "default"
                         },
                         "responses": {
                             "200": {}
@@ -7968,6 +8055,128 @@
                         },
                         "responses": {
                             "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/transactions": {
+            "get": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Returns a list of transactions for the specified dataflow.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowTransactions",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DataflowTransactions"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
+                            "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/98674fdf-baab-45e1-a04a-c17ab378dce1/$metadata#transactions",
+                                    "value": [
+                                        {
+                                            "id": "2020-08-27T16:07:47.2487692Z@8dbd8c92-4d16-4947-8329-4172f04f4f93$2"
+                                        },
+                                        {
+                                            "id": "2020-08-26T16:40:55.0968787Z@e33eed4d-5b1a-4bb9-8b5b-dff1cd371109$1",
+                                            "refreshType": "OnDemand"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/dataflows//transactions/{transactionId}/cancel": {
+            "post": {
+                "tags": [
+                    "Dataflows"
+                ],
+                "summary": "Attempts to Cancel the specified transactions.",
+                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_CancelDataflowTransaction",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "transactionId",
+                        "description": "The transaction id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DataflowTransactionStatus"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "51e47fc5-48fd-4826-89f0-021111110abd",
+                            "transactionId": "2020-09-11T19:21:52.8778432Z@9cc7a369-6112-4dba-97b6-b07ff5699568$1374282"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "transactionId": "2020-09-11T19:21:52.8778432Z@9cc7a369-6112-4dba-97b6-b07ff5699568$1374282",
+                                    "status": "SuccessfullyMarked"
+                                }
+                            }
                         }
                     }
                 },
@@ -8313,7 +8522,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified datasource from the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "description": "<br/>**Note:** It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).<br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8360,7 +8569,8 @@
                                     "credentials": "{\"credentialData\":[{\"name\":\"username\", \"value\":\"john\"},{\"name\":\"password\", \"value\":\"*****\"}]}",
                                     "encryptedConnection": "Encrypted",
                                     "encryptionAlgorithm": "None",
-                                    "privacyLevel": "None"
+                                    "privacyLevel": "None",
+                                    "useEndUserOAuth2Credentials": "False"
                                 }
                             }
                         },
@@ -13932,6 +14142,10 @@
                 "dataType": {
                     "type": "string",
                     "description": "The column data type"
+                },
+                "formatString": {
+                    "type": "string",
+                    "description": "(Optional) The format of the column as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
                 }
             }
         },
@@ -15083,7 +15297,8 @@
                         "None",
                         "Member",
                         "Admin",
-                        "Contributor"
+                        "Contributor",
+                        "Viewer"
                     ],
                     "x-ms-enum": {
                         "name": "GroupUserAccessRight",
@@ -15095,7 +15310,7 @@
                             },
                             {
                                 "value": "Member",
-                                "description": "Grants read access to content in workspace"
+                                "description": "Grants Read, Reshare and Explore access to content in workspace"
                             },
                             {
                                 "value": "Admin",
@@ -15103,7 +15318,11 @@
                             },
                             {
                                 "value": "Contributor",
-                                "description": "Grants read and write access to content in group"
+                                "description": "Grants Read and Explore access to content in group"
+                            },
+                            {
+                                "value": "Viewer",
+                                "description": "Grants Read only access to content in group"
                             }
                         ]
                     }
@@ -15244,7 +15463,7 @@
                             },
                             {
                                 "value": "ACCESSIBLEPDF",
-                                "description": "Requested file format is Accessible PDF"
+                                "description": "Requested file format is Accessible PDF (only supported for paginated reports)"
                             }
                         ]
                     }
@@ -15343,7 +15562,7 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The bookmark name. Currently not supported"
+                    "description": "The bookmark name"
                 },
                 "state": {
                     "type": "string",
@@ -16586,6 +16805,95 @@
                 "database": {
                     "type": "string",
                     "description": "The connection database."
+                }
+            }
+        },
+        "DataflowTransactions": {
+            "description": "A dataflow transaction odata list wrapper",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dataflow transactions",
+                    "items": {
+                        "$ref": "#/definitions/DataflowTransaction"
+                    }
+                }
+            }
+        },
+        "DataflowTransaction": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI dataflow transaction",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The transaction id"
+                },
+                "refreshType": {
+                    "type": "string",
+                    "description": "The type of refresh transaction"
+                },
+                "startTime": {
+                    "type": "string",
+                    "description": "Start time of the transaction"
+                },
+                "endTime": {
+                    "type": "string",
+                    "description": "End time of the transaction"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Status of the transaction"
+                }
+            }
+        },
+        "DataflowTransactionStatus": {
+            "description": "Status of dataflow refresh transaction",
+            "properties": {
+                "transactionId": {
+                    "description": "Transaction id",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "Status of transaction",
+                    "type": "string",
+                    "enum": [
+                        "invalid",
+                        "successfullyMarked",
+                        "alreadyConcluded",
+                        "notFound"
+                    ]
+                }
+            }  
+        },
+        "DataflowUpdateRequestMessage": {
+            "description": "Request payload for updating dataflow information",
+            "properties": {
+                "name": {
+                    "description": "New name of the dataflow",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "New description for the dataflow",
+                    "type": "string"
+                },
+                "allowNativeQueries": {
+                    "description": "Allow native queries",
+                    "type": "boolean"
+                },
+                "computeEngineBehavior": {
+                    "description": "Compute Engine Behavior",
+                    "type": "string",
+                    "enum": [
+                        "computeOptimized",
+                        "computeOn",
+                        "computeDisabled"
+                    ]
                 }
             }
         }

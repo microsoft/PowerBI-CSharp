@@ -28,10 +28,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The column name</param>
         /// <param name="dataType">The column data type</param>
-        public Column(string name, string dataType)
+        /// <param name="formatString">(Optional) The format of the column as
+        /// specified in
+        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)</param>
+        public Column(string name, string dataType, string formatString = default(string))
         {
             Name = name;
             DataType = dataType;
+            FormatString = formatString;
             CustomInit();
         }
 
@@ -51,6 +55,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "dataType")]
         public string DataType { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) The format of the column as specified in
+        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)
+        /// </summary>
+        [JsonProperty(PropertyName = "formatString")]
+        public string FormatString { get; set; }
 
         /// <summary>
         /// Validate the object.

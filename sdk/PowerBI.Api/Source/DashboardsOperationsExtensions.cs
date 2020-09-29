@@ -256,7 +256,10 @@ namespace Microsoft.PowerBI.Api
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
             /// report and dataset links will be rested, and the tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
+            /// workspace and bound to another report and dataset, it is cloned as is with
+            /// its underlying query containing the original report
+            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -286,7 +289,10 @@ namespace Microsoft.PowerBI.Api
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
             /// report and dataset links will be rested, and the tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
+            /// workspace and bound to another report and dataset, it is cloned as is with
+            /// its underlying query containing the original report
+            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -584,7 +590,10 @@ namespace Microsoft.PowerBI.Api
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
             /// workspace, report and dataset links will be rested. The tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
+            /// workspace and bound to another report and dataset, it is cloned as is with
+            /// its underlying query containing the original report
+            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -617,7 +626,10 @@ namespace Microsoft.PowerBI.Api
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
             /// workspace, report and dataset links will be rested. The tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
+            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
+            /// workspace and bound to another report and dataset, it is cloned as is with
+            /// its underlying query containing the original report
+            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>

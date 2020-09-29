@@ -68,7 +68,8 @@ namespace Microsoft.PowerBI.Api.Models
         [EnumMember(Value = "MHTML")]
         MHTML,
         /// <summary>
-        /// Requested file format is Accessible PDF
+        /// Requested file format is Accessible PDF (only supported for
+        /// paginated reports)
         /// </summary>
         [EnumMember(Value = "ACCESSIBLEPDF")]
         ACCESSIBLEPDF

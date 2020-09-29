@@ -178,8 +178,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Creates new content on **"My Workspace"** from .pbix, Excel, Rdl or file
-        /// path in OneDrive for Business.
+        /// Creates new content on **"My Workspace"** from PBIX (Power BI Desktop),
+        /// JSON, XLSX (Excel), RDL or file path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -188,15 +188,17 @@ namespace Microsoft.PowerBI.Api
         /// &lt;h3&gt;Notes&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;To import a file, request
         /// Headers should include **Content-Type: multipart/form-data** with the file
         /// [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html)
-        /// in the request body. &lt;/li&gt;&lt;li&gt;To import xlsx file from OneDrive
-        /// for Business, request Headers should include **Content-Type:
+        /// in the request body.&lt;/li&gt;&lt;li&gt;To import an XLSX (Excel) file
+        /// from OneDrive for Business, request headers should include **Content-Type:
         /// application/json** with
         /// [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the
-        /// request body.&lt;/li&gt;&lt;li&gt;Import .pbix file from OneDrive is not
-        /// supported.&lt;/li&gt;&lt;li&gt;To import large .pbix files between 1 GB and
-        /// 10 GB, see [Create Temporary Upload
-        /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation),
-        /// supported only for workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+        /// request body.&lt;/li&gt;&lt;li&gt;To import an RDL file, in the
+        /// **DatasetDisplayName** property, include **.rdl** to define the file
+        /// type.&lt;/li&gt;&lt;li&gt;Importing a .pbix file from OneDrive is not
+        /// supported.&lt;/li&gt;&lt;li&gt;To import large .pbix files, between 1 GB
+        /// and 10 GB, see [Create Temporary Upload
+        /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This
+        /// is supported only for workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset, should include file extension. Not
@@ -811,8 +813,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Creates new content on the specified workspace from .pbix, .json, Excel,
-        /// Rdl, or file path in OneDrive for Business.
+        /// Creates new content on the specified workspace from PBIX (Power BI
+        /// Desktop), JSON, XLSX (Excel), RDL, or file path in OneDrive for Business.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the
@@ -821,15 +823,18 @@ namespace Microsoft.PowerBI.Api
         /// &lt;h3&gt;Notes&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;To import a file, request
         /// Headers should include **Content-Type: multipart/form-data** with the file
         /// [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html)
-        /// in the request body &lt;/li&gt;&lt;li&gt;To import from OneDrive for
-        /// Business, request Headers should include **Content-Type: application/json**
-        /// with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo)
-        /// in the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix files
-        /// between 1 GB and 10 GB see [Create Temporary Upload Location In
-        /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup),
-        /// supported only for workspaces on premium capacity.&lt;/li&gt;&lt;li&gt;To
-        /// create a dataflow from a model.json, specify the parameter
-        /// datasetDisplayName as described below.&lt;/li&gt;&lt;/ul&gt;
+        /// in the request body.&lt;/li&gt;&lt;li&gt;To import an RDL file, in the
+        /// **DatasetDisplayName** property, include **.rdl** to define the file
+        /// type.&lt;/li&gt;&lt;li&gt;To import from OneDrive for Business, request
+        /// headers should include **Content-Type: application/json** with
+        /// [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in
+        /// the request body.&lt;/li&gt;&lt;li&gt;To import large .pbix files, between
+        /// 1 GB and 10 GB, see [Create Temporary Upload Location In
+        /// Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup).
+        /// This is supported only for workspaces on premium
+        /// capacity.&lt;/li&gt;&lt;li&gt;To create a dataflow from a model.json,
+        /// specify the parameter datasetDisplayName as described
+        /// below.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace id

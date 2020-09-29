@@ -26,8 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PageBookmark class.
         /// </summary>
-        /// <param name="name">The bookmark name. Currently not
-        /// supported</param>
+        /// <param name="name">The bookmark name</param>
         /// <param name="state">The bookmark state</param>
         public PageBookmark(string name = default(string), string state = default(string))
         {
@@ -42,7 +41,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the bookmark name. Currently not supported
+        /// Gets or sets the bookmark name
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
