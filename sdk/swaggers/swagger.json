@@ -11421,7 +11421,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
                 "consumes": [
 
@@ -11766,7 +11766,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
                 "consumes": [
 
@@ -11821,7 +11821,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
                 "consumes": [
 
@@ -11902,7 +11902,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [
 
@@ -12109,7 +12109,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of imports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_GetImportsAsAdmin",
                 "consumes": [
 
@@ -13632,6 +13632,94 @@
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'",
                                     "continuationToken": "%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/CreateTemplateAppInstallTicket": {
+            "post": {
+                "tags": [
+                    "TemplateApps"
+                ],
+                "summary": "Generates an installation ticket for Template Apps automated install flow.",
+                "description": "<br/>This API is only available when using service principal for authentication, see [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><li>Target App MUST be owned by the tenant calling this API.</li><li>Application must either be published to AppSource or have explicit access for both ticket creator & end-user installing with ticket.</li><li>All query parameters MUST be configured in ticket.</li><br/>",
+                "operationId": "TemplateApps_CreateInstallTicket",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "requestParameters",
+                        "description": "Create Install Ticket parameters",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateInstallTicketRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/InstallTicket"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Create install ticket for Template app with 2 query parameters to set": {
+                        "parameters": {
+                            "requestParameters": {
+                                "appId": "91ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                "packageKey": "g632bb64...OfsoqT56xEM=",
+                                "ownerTenantId": "d43e3248-3d83-44aa-a94d-c836bd7f9b79",
+                                "config": {
+                                    "configuration": {
+                                        "param1": "value1",
+                                        "param2": "value2"
+                                    }
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "ticket": "H4sI....AAA=",
+                                    "ticketId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
+                                    "expiration": "2020-07-29T17:58:19Z"
+                                }
+                            },
+                            "401": {
+                                "body": {
+                                    "error": {
+                                        "code": "ServiceAppApplicationOwnershipValidationFailed",
+                                        "pbi.error": {
+                                            "code": "ServiceAppApplicationOwnershipValidationFailed",
+                                            "parameters": {},
+                                            "details": [],
+                                            "exceptionCulprit": 1
+                                        }
+                                    }
+                                }
+                            },
+                            "400": {
+                                "body": {
+                                    "error": {
+                                        "code": "ServiceAppInstallTicketInvalidConfiguration",
+                                        "pbi.error": {
+                                            "code": "ServiceAppInstallTicketInvalidConfiguration",
+                                            "parameters": {},
+                                            "details": [],
+                                            "exceptionCulprit": 1
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -16894,6 +16982,85 @@
                         "computeOn",
                         "computeDisabled"
                     ]
+                }
+            }
+        },
+        "CreateInstallTicketRequest": {
+            "description": "Power BI Create Install Ticket Request",
+            "properties": {
+                "installDetails": {
+                    "type": "array",
+                    "description": "List of install details",
+                    "items": {
+                        "$ref": "#/definitions/TemplateAppInstallDetails"
+                    }
+                }
+            }
+        },
+        "TemplateAppInstallDetails": {
+            "required": [
+                "appId",
+                "packageKey",
+                "ownerTenantId"
+            ],
+            "description": "Power BI Template App Install Details",
+            "properties": {
+                "appId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique application Id."
+                },
+                "packageKey": {
+                    "type": "string",
+                    "description": "Application version secure key"
+                },
+                "ownerTenantId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Application owner's tenant object Id"
+                },
+                "config": {
+                    "$ref": "#/definitions/TemplateAppConfigurationRequest",
+                    "description": "Automated install configuration."
+                }
+            }
+        },
+        "TemplateAppConfigurationRequest": {
+            "description": "Power BI Template App Automated install configuration. Dictionary of name-value pairs",
+            "properties": {
+                "configuration": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "example": {
+                        "param1": "value1",
+                        "param2": "value2"
+                    }
+                }
+            }
+        },
+        "InstallTicket": {
+            "required": [
+                "ticket",
+                "ticketId",
+                "expiration"
+            ],
+            "description": "Power BI Template Apps automated install token",
+            "properties": {
+                "ticket": {
+                    "type": "string",
+                    "description": "Install ticket"
+                },
+                "ticketId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Unique ticket Id. Can be used to correlate operations that use this ticket with the generate operation through audit logs."
+                },
+                "expiration": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Expiration time of token. In UTC."
                 }
             }
         }
