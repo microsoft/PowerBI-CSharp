@@ -19,7 +19,7 @@ namespace Microsoft.PowerBI.Api
     public partial interface ITemplateApps
     {
         /// <summary>
-        /// Generates an installaiton ticket for Template Apps automated
+        /// Generates an installation ticket for Template Apps automated
         /// install flow.
         /// </summary>
         /// <remarks>

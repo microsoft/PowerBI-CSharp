@@ -1169,15 +1169,16 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"AnalysisServices",
-                                            "connectionDetails":{
-                                                "server":"My-As-Server",
-                                                "database":"My-As-Database"
+                                            "datasourceType": "AnalysisServices",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1189,15 +1190,16 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"AnalysisServices",
-                                            "connectionDetails":{
-                                                "server":"My-As-Server",
-                                                "database":"My-As-Database"
+                                            "datasourceType": "AnalysisServices",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1209,15 +1211,16 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"Sql",
-                                            "connectionDetails":{
-                                                "server":"My-As-Server",
-                                                "database":"My-As-Database"
+                                            "datasourceType": "Sql",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1229,15 +1232,16 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"Sql",
-                                            "connectionDetails":{
-                                                "server":"My-As-Server",
-                                                "database":"My-As-Database"
+                                            "datasourceType": "Sql",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1249,14 +1253,15 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"File",
-                                            "connectionDetails":{
-                                                "path":"c:\\users\\username\\documents\\orders1.xlsx"
+                                            "datasourceType": "File",
+                                            "connectionDetails": {
+                                                "path": "c:\\users\\username\\documents\\orders1.xlsx"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1268,14 +1273,15 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"OData",
-                                            "connectionDetails":{
-                                                "url":"http://services.odata.org/MyOdata/MyOdata.svc"
+                                            "datasourceType": "OData",
+                                            "connectionDetails": {
+                                                "url": "http://services.odata.org/MyOdata/MyOdata.svc"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1287,14 +1293,15 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                    "value": [
                                         {
-                                            "datasourceType":"SharePointList",
-                                            "connectionDetails":{
-                                                "url":"https://microsoft.sharepoint.com/hello/myproj/"
+                                            "datasourceType": "SharePointList",
+                                            "connectionDetails": {
+                                                "url": "https://microsoft.sharepoint.com/hello/myproj/"
                                             },
-                                            "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                         }
                                     ]
                                 }
@@ -1305,15 +1312,16 @@
                         "parameters": {},
                         "responses": {
                             "200": {
-                                "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                "value": [
                                     {
-                                        "datasourceType":"SAPHana",
-                                        "connectionDetails":{
-                                            "server":"My-SapHana-Server",
-                                            "database":"My-SapHana-Database"
+                                        "datasourceType": "SAPHana",
+                                        "connectionDetails": {
+                                            "server": "My-SapHana-Server",
+                                            "database": "My-SapHana-Database"
                                         },
-                                        "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                        "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                     }
                                 ]
                             }
@@ -1323,15 +1331,16 @@
                         "parameters": {},
                         "responses": {
                             "200": {
-                                "@odata.context":"http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources","value":[
+                                "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
+                                "value": [
                                     {
-                                        "datasourceType":"Oracle",
-                                        "connectionDetails":{
-                                            "server":"My-Oracle-Server",
-                                            "database":"My-Oracle-Database"
+                                        "datasourceType": "Oracle",
+                                        "connectionDetails": {
+                                            "server": "My-Oracle-Server",
+                                            "database": "My-Oracle-Database"
                                         },
-                                        "datasourceId":"33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                        "gatewayId":"0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                     }
                                 ]
                             }
@@ -2504,7 +2513,7 @@
                                 "body": {
                                     "value": [
                                         {
-                                            "name":  "MyDatasource",
+                                            "name": "MyDatasource",
                                             "datasourceType": "AnalysisServices",
                                             "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f51",
                                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e931",
@@ -7699,7 +7708,7 @@
                         "responses": {
                             "200": {
                                 "description": "Ok"
-                              }
+                            }
                         }
                     }
                 },
@@ -13722,6 +13731,52 @@
                                     }
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Default.TakeOver": {
+            "post": {
+                "tags": [
+                    "Reports"
+                ],
+                "summary": "Transfers ownership over the specified paginated report datasources to the current authorized user.",
+                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<li>TakeOver report datasources supports only paginated reports</li>",
+                "operationId": "Reports_TakeOverInGroup",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace id",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
