@@ -835,5 +835,42 @@ namespace Microsoft.PowerBI.Api
             _result.Request.Dispose();
             return _result.Body;
         }
+
+        /// <summary>
+        /// Take Over a paginated report datasources
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        public static void TakeOver(this IReportsOperations operations, Guid groupId, string reportId)
+        {
+            operations.TakeOverAsync(groupId, reportId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Take Over a paginated report datasources
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task TakeOverAsync(this IReportsOperations operations, Guid groupId, string reportId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.TakeOverInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
     }
 }
