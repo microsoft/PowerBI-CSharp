@@ -1822,5 +1822,56 @@ namespace Microsoft.PowerBI.Api
                 }
             }
 
+            /// <summary>
+            /// Transfers ownership over the specified paginated report datasources to the
+            /// current authorized user.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;li&gt;TakeOver
+            /// report datasources supports only paginated reports&lt;/li&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportId'>
+            /// The report id
+            /// </param>
+            public static void TakeOverInGroup(this IReportsOperations operations, System.Guid groupId, string reportId)
+            {
+                operations.TakeOverInGroupAsync(groupId, reportId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Transfers ownership over the specified paginated report datasources to the
+            /// current authorized user.
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To set the
+            /// permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;li&gt;TakeOver
+            /// report datasources supports only paginated reports&lt;/li&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='reportId'>
+            /// The report id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task TakeOverInGroupAsync(this IReportsOperations operations, System.Guid groupId, string reportId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.TakeOverInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
     }
 }

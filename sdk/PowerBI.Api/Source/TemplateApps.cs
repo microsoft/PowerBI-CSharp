@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Generates an installaiton ticket for Template Apps automated install flow.
+        /// Generates an installation ticket for Template Apps automated install flow.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;This API is only available when using service principal for
