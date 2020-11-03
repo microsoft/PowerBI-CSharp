@@ -15194,7 +15194,7 @@
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The Id of the Time zone to use. See **Name of Time Zone** column in [Microsoft Time Zone Index Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)"
+                    "description": "The Id of the Time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)."
                 },
                 "NotifyOption": {
                     "type": "string",
@@ -15270,7 +15270,7 @@
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The Id of the Time zone to use. See **Name of Time Zone** column in [Microsoft Time Zone Index Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)"
+                    "description": "The Id of the Time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)."
                 }
             }
         },
