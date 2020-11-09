@@ -13761,7 +13761,8 @@
                         "in": "path",
                         "description": "The report id",
                         "required": true,
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
                 "responses": {
