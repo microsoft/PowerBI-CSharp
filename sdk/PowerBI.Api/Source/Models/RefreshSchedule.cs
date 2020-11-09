@@ -32,8 +32,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// day</param>
         /// <param name="enabled">Is the refresh enabled</param>
         /// <param name="localTimeZoneId">The Id of the Time zone to use. See
-        /// **Name of Time Zone** column in [Microsoft Time Zone Index
-        /// Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)</param>
+        /// [Time Zone
+        /// Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id).</param>
         /// <param name="notifyOption">Notification option at scheduled refresh
         /// termination. Possible values include: 'NoNotification',
         /// 'MailOnFailure'</param>
@@ -71,9 +71,8 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// Gets or sets the Id of the Time zone to use. See **Name of Time
-        /// Zone** column in [Microsoft Time Zone Index
-        /// Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)
+        /// Gets or sets the Id of the Time zone to use. See [Time Zone
+        /// Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id).
         /// </summary>
         [JsonProperty(PropertyName = "localTimeZoneId")]
         public string LocalTimeZoneId { get; set; }
