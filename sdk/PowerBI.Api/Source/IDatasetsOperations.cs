@@ -1624,9 +1624,12 @@ namespace Microsoft.PowerBI.Api
         /// Generates an embed token to [Embed
         /// Q&amp;A](https://docs.microsoft.com/power-bi/developer/qanda) based
         /// on the specified dataset from the specified
-        /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data'
-        /// embed
+        /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to ['App
+        /// owns data' embed
         /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+        /// For more information about using this API, see [Considerations when
+        /// generating an embed
+        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or

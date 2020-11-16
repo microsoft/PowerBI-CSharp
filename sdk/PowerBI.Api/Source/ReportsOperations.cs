@@ -4172,9 +4172,12 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Generates an embed token to allow report creation on the specified
-        /// workspace based on the specified dataset.&lt;br/&gt;This API is relevant
-        /// only to ['App owns data' embed
+        /// workspace based on the specified dataset.&lt;br/&gt;&lt;br/&gt;This API is
+        /// relevant only to ['App owns data' embed
         /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+        /// For more information about using this API, see [Considerations when
+        /// generating an embed
+        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -4341,9 +4344,12 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Generates an embed token to view or edit the specified report from the
-        /// specified workspace.&lt;br/&gt;This API is relevant only to ['App owns
-        /// data' embed
+        /// specified workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to
+        /// ['App owns data' embed
         /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+        /// For more information about using this API, see [Considerations when
+        /// generating an embed
+        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: (all of the below)
