@@ -629,20 +629,26 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// **Note: This API is deprecated and no longer
-        /// supported.**&lt;/br&gt;Updates all connections for the specified
-        /// dataset from **"My Workspace"**.
+        /// Updates all connections for the specified dataset from **"My
+        /// Workspace"**. This API only supports SQL DirectQuery
+        /// datasets.&lt;h3&gt;Note: This API is deprecated and no longer
+        /// supported&lt;/h3&gt;
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection
-        /// details for SQL, AS, OData Feed, and SharePoint, use [Update
-        /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For
-        /// other datasource types, use [Update
-        /// Parameters](/rest/api/power-bi/datasets/updateparameters).&lt;/li&gt;&lt;li&gt;This
-        /// API only supports SQL DirectQuery
-        /// datasets.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
-        /// scope, see [Register an
+        /// Following the 2020 Power BI Desktop release, the Power BI dataset
+        /// was updated. This API no longer works with the new dataset
+        /// ([enhanced metadata
+        /// dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)).
+        /// Instead of this API, use the following
+        /// APIs:&lt;ul&gt;&lt;li&gt;[Update Datasources In
+        /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup) - To
+        /// update connection details for SQL, AS, OData Feed, and
+        /// SharePoint.&lt;/li&gt;&lt;li&gt;[Update Parameters In
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup) - To
+        /// update connection details for other datasource
+        /// types.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
@@ -1441,20 +1447,26 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, UpdateDatasourcesRequest updateDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// **Note: This API is deprecated and no longer
-        /// supported.**&lt;/br&gt;Updates all connections for the specified
-        /// dataset from the specified workspace.
+        /// Updates all connections for the specified dataset from the
+        /// specified workspace. This API only supports SQL DirectQuery
+        /// datasets.&lt;h3&gt;Note: This API is deprecated and no longer
+        /// supported&lt;/h3&gt;
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection
-        /// details for SQL, AS, OData Feed, and SharePoint, use [Update
-        /// Datasources In
-        /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For
-        /// other datasource types, use [Update Parameters In
-        /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;This
-        /// API only supports SQL DirectQuery datasets.&lt;/li&gt;&lt;/ul&gt;
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// Following the 2020 Power BI Desktop release, the Power BI dataset
+        /// was updated. This API no longer works with the new dataset
+        /// ([enhanced metadata
+        /// dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)).
+        /// Instead of this API, use the following
+        /// APIs:&lt;ul&gt;&lt;li&gt;[Update Datasources In
+        /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup) - To
+        /// update connection details for SQL, AS, OData Feed, and
+        /// SharePoint.&lt;/li&gt;&lt;li&gt;[Update Parameters In
+        /// Group](/rest/api/power-bi/datasets/updateparametersingroup) - To
+        /// update connection details for other datasource
+        /// types.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
+        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
