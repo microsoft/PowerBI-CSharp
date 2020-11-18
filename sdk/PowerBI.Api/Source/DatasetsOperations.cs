@@ -6178,9 +6178,8 @@ namespace Microsoft.PowerBI.Api
         /// [enhanced dataset
         /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
         /// wait 30 minutes for the update datasources operation to complete before
-        /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
-        /// Dataset.ReadWrite.Al&lt;br/&gt;To set the permissions scope, see [Register
-        /// an
+        /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
         /// operation is only supported for the dataset
         /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
