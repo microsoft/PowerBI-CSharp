@@ -2606,7 +2606,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **\"My Workspace\"** to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Premium Per User (PPU) is not supported.",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -5899,7 +5899,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Premium Per User (PPU) is not supported.",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"

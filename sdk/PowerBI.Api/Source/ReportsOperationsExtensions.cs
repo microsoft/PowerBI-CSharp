@@ -580,9 +580,10 @@ namespace Microsoft.PowerBI.Api
             /// &lt;br/&gt;**Required scope**: (all of the below)
             /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+            /// Premium Per User (PPU) is not supported.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -606,9 +607,10 @@ namespace Microsoft.PowerBI.Api
             /// &lt;br/&gt;**Required scope**: (all of the below)
             /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+            /// Premium Per User (PPU) is not supported.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1361,9 +1363,10 @@ namespace Microsoft.PowerBI.Api
             /// &lt;br/&gt;**Required scope**: (all of the below)
             /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+            /// Premium Per User (PPU) is not supported.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1390,9 +1393,10 @@ namespace Microsoft.PowerBI.Api
             /// &lt;br/&gt;**Required scope**: (all of the below)
             /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
             /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;
+            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
+            /// [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
+            /// Premium Per User (PPU) is not supported.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
