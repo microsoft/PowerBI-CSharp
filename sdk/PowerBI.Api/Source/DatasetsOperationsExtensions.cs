@@ -955,7 +955,8 @@ namespace Microsoft.PowerBI.Api
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types:&lt;ul&gt;&lt;li&gt;SQL Server&lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server&lt;/li&gt;&lt;li&gt;Analysis Services&lt;/li&gt;&lt;li&gt;Azure
-            /// Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update
             /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
@@ -1010,7 +1011,8 @@ namespace Microsoft.PowerBI.Api
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types:&lt;ul&gt;&lt;li&gt;SQL Server&lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server&lt;/li&gt;&lt;li&gt;Analysis Services&lt;/li&gt;&lt;li&gt;Azure
-            /// Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update
             /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
@@ -2349,7 +2351,8 @@ namespace Microsoft.PowerBI.Api
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types: &lt;ul&gt;&lt;li&gt;SQL Server &lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server &lt;/li&gt;&lt;li&gt;Analysis Services
-            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Oracle&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;Changing
@@ -2406,7 +2409,8 @@ namespace Microsoft.PowerBI.Api
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types: &lt;ul&gt;&lt;li&gt;SQL Server &lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server &lt;/li&gt;&lt;li&gt;Analysis Services
-            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Oracle&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;Changing
