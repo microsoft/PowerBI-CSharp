@@ -10644,6 +10644,351 @@
             }
         },
 
+        "/v1.0/myorg/admin/workspaces/getInfo": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Initiate a call to receive metadata for the requested list of workspaces",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_PostWorkspaceInfo",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "requiredWorkspaces",
+                        "in": "body",
+                        "description": "Required workspace IDs to get info for",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequiredWorkspaces"
+                        }
+                    },
+                    {
+                        "name": "$lineage",
+                        "in": "query",
+                        "description": "Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "$datasourceDetails",
+                        "in": "query",
+                        "description": "Whether to return datasource details​",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/ScanRequest"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "lineage": true,
+                            "datasourceDetails": true,
+                            "requiredWorkspaces": {
+                                "workspaces": [
+                                    "97d03602-4873-4760-b37e-1563ef5358e3",
+                                    "67b7e93a-3fb3-493c-9e41-2c5051008f24"
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "header": "Location",
+                                "body": {
+                                    "value": {
+                                        "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
+                                        "createdDateTime": "2020-06-15T16:46:28.0487687Z",
+                                        "status": "NotStarted"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/workspaces/scanStatus": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Gets scan status for the specified scan",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows a maximum of 10000 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_GetScanStatus",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "scanId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ScanRequest"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "scanId": "e7d03602-4873-4760-b37e-1563ef5358e3"
+                        },
+                        "responses": {
+                            "200": {
+                                "header": "Location",
+                                "body": {
+                                    "value": {
+                                        "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
+                                        "createdDateTime": "2020-06-15T16:46:28.0487687Z",
+                                        "status": "Succeeded"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/workspaces/scanResult": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Gets scan result for the specified scan (should be called only after getting status Succeeded in the scan status API). Scan result will be available for up to 24 hours",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_GetScanResult",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "scanId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WorkspaceInfoResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "scanId": "e7d03602-4873-4760-b37e-1563ef5358e3"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "workspaces": [
+                                            {
+                                                "id": "d507422c-8d6d-4361-ac7a-30074a8cd0a1",
+                                                "name": "V2 shared",
+                                                "type": "Workspace",
+                                                "state": "Active",
+                                                "isOnDedicatedCapacity": false,
+                                                "reports": [
+                                                    {
+                                                        "id": "c6d072d1-ed20-4b60-8329-16c4b934203b",
+                                                        "name": "CompositeModelParams-RLS",
+                                                        "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c",
+                                                        "createdDateTime": "2020-06-16T08:22:49.14",
+                                                        "modifiedDateTime": "2020-06-16T08:22:49.14",
+                                                        "modifiedBy": "john@contoso.com",
+                                                        "reportType": "PaginatedReport",
+                                                        "endorsementDetails": {
+                                                            "endorsement": "Certified",
+                                                            "certifiedBy": "john@contoso.com"
+                                                        },
+                                                        "sensitivityLabel": {
+                                                            "labelId": "85b38049-4259-43a2-8feb-244e222d96c0"
+                                                        }
+                                                    }
+                                                ],
+                                                "dashboards": [
+                                                    {
+                                                        "id": "80814ece-9302-49e3-b6bc-bad2f7a86c1a",
+                                                        "displayName": "CompositeModelParamsDashboard",
+                                                        "isReadOnly": false,
+                                                        "tiles": [
+                                                            {
+                                                                "id": "e687cc21-5b32-48f5-8c5e-4b844f190579",
+                                                                "title": "CompositeModelParamsDashboard",
+                                                                "reportId": "c6d072d1-ed20-4b60-8329-16c4b934203b",
+                                                                "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c"
+                                                            }
+                                                        ],
+                                                        "sensitivityLabel": {
+                                                            "labelId": "d9b9581a-0594-4c39-81c5-91ddf40baeda"
+                                                        }
+                                                    }
+                                                ],
+                                                "datasets": [
+                                                    {
+                                                        "id": "e7e8a355-e77b-4418-a7b8-ae5972fdaa03",
+                                                        "name": "ExportB",
+                                                        "tables": [],
+                                                        "relationships": [],
+                                                        "configuredBy": "john@contoso.com",
+                                                        "targetStorageMode": "Abf",
+                                                        "endorsementDetails": {
+                                                            "endorsement": "Certified",
+                                                            "certifiedBy": "john@contoso.com"
+                                                        },
+                                                        "upstreamDataflows": [
+                                                            {
+                                                                "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
+                                                                "groupId": "b7416115-7421-42c0-b525-1505ce40d2f0"
+                                                            },
+                                                            {
+                                                                "targetDataflowId": "06898194-2eaf-4122-bacc-133db1f8585d",
+                                                                "groupId": "7263838d-80d7-4b8d-a1f6-50fc27e74a97"
+                                                            }
+                                                        ],
+                                                        "datasourceUsages": [
+                                                            {
+                                                                "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                            }
+                                                        ],
+                                                        "sensitivityLabel": {
+                                                            "labelId": "bf3dc57d-d796-41c0-bbe9-a47f5ee3331e"
+                                                        }
+                                                    }
+                                                ],
+                                                "dataflows": [
+                                                    {
+                                                        "objectId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
+                                                        "name": "Azure SQL",
+                                                        "description": "Azure SQL dataflow",
+                                                        "configuredBy": "john@contoso.com",
+                                                        "modifiedBy": "john@contoso.com",
+                                                        "modifiedDateTime": "2020-06-16T08:27:47.783Z",
+                                                        "endorsementDetails": {
+                                                            "endorsement": "Certified",
+                                                            "certifiedBy": "john@contoso.com"
+                                                        },
+                                                        "datasourceUsages": [
+                                                            {
+                                                                "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                            }
+                                                        ],
+                                                        "sensitivityLabel": {
+                                                            "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "datasourceInstances": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "qlserver.database.windows.net",
+                                                    "database": "dbo.largest_table"
+                                                },
+                                                "datasourceId": "c79ad907-df19-43fe-a0f7-d9f365d67070",
+                                                "gatewayId": "e820592e-f8cf-4a6f-b1ed-566799d29565"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/workspaces/modified": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Gets a list of workspace IDs in the organization. When using $modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization.",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$modifiedSince",
+                        "in": "query",
+                        "description": "Last modified date​ (must be in ISO 8601 compliant UTC format)",
+                        "required": false,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModifiedWorkspaces"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "modifiedSince": "2020-10-02T05:51:30.0000000Z"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "Id": "3740504d-1f93-42f9-8e9d-c8ba9b787a3b"
+                                        },
+                                        {
+                                            "Id": "19cb346c-9839-4e19-81e6-76364d0b836f"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/admin/capacities/AssignWorkspaces": {
             "post": {
                 "tags": [
@@ -13786,6 +14131,215 @@
         }
     },
     "definitions": {
+        "EndorsementDetails": {
+            "description": "Power BI endorsement details",
+            "properties": {
+                "endorsement": {
+                    "type": "string",
+                    "description": "The endorsement status"
+                },
+                "certifiedBy": {
+                    "type": "string",
+                    "description": "The user that certified the artifact"
+                }
+            }
+        },
+        "DatasourceUsage": {
+            "required": [
+                "datasourceInstanceId"
+            ],
+            "description": "Datasource usage",
+            "properties": {
+                "datasourceInstanceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The datasource instance ID"
+                }
+            }
+        },
+        "SensitivityLabel": {
+            "required": [
+                "labelId"
+            ],
+            "description": "Workspace info sensitivity label",
+            "properties": {
+                "labelId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The datasource instance ID"
+                }
+            }
+        },
+        "ModifiedWorkspaces": {
+            "description": "Odata response wrapper for modified workspaces list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The modified workspaces list",
+                    "items": {
+                        "$ref": "#/definitions/ModifiedWorkspace"
+                    }
+                }
+            }
+        },
+        "ModifiedWorkspace": {
+            "required": [
+                "Id"
+            ],
+            "description": "A modified workspace",
+            "properties": {
+                "Id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The workspace object ID."
+                }
+            }
+        },
+        "ScanRequest": {
+            "description": "A scan request",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The scan ID."
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The scan created date time."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The scan state."
+                },
+                "error": {
+                    "$ref": "#/definitions/PowerBIApiErrorResponseDetail",
+                    "description": "The scan error (if such exists)"
+                }
+            }
+        },
+        "PowerBIApiErrorResponseDetail": {
+            "description": "A Power BI error response details",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The error code."
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The error message."
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The error target."
+                }
+            }
+        },
+        "RequiredWorkspaces": {
+            "description": "A required workspaces request",
+            "properties": {
+                "workspaces": {
+                    "type": "array",
+                    "description": "Required workspace IDs to be scaned. It should contain 1-100 workspaces.",
+                    "items": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Workspace object ID"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfoResponse": {
+            "description": "Workspace info response",
+            "properties": {
+                "workspaces": {
+                    "type": "array",
+                    "description": "The workspace info associated with this scan",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfo"
+                    }
+                },
+                "datasourceInstances": {
+                    "type": "array",
+                    "description": "The datasources' instances associated with this scan",
+                    "items": {
+                        "$ref": "#/definitions/Datasource"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfo": {
+            "required": [
+                "id"
+            ],
+            "description": "Workspace info details",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The workspace object ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The workspace name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The workspace description"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The workspace type"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The workspace state"
+                },
+                "dataRetrievalState": {
+                    "type": "string",
+                    "description": "The workspace data retrieval state"
+                },
+                "isOnDedicatedCapacity": {
+                    "type": "boolean",
+                    "description": "Whether the workspace is on dedicated capacity"
+                },
+                "capacityId": {
+                    "type": "string",
+                    "description": "The workspace capacity ID"
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "The reports associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Report"
+                    }
+                },
+                "dashboards": {
+                    "type": "array",
+                    "description": "The dashboards associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Dashboard"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "The datasets associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Dataset"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "The dataflows associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Dataflow"
+                    }
+                }
+            }
+        },
         "Import": {
             "required": [
                 "id"
@@ -13939,6 +14493,30 @@
                 "QnaEmbedURL": {
                     "type": "string",
                     "description": "The dataset qna embed url"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The dataset description"
+                },
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails"
+                },
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "Datasource usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                },
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Upstream Dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
                 }
             }
         },
@@ -14643,6 +15221,41 @@
                 "datasetId": {
                     "type": "string",
                     "description": "The dataset id"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The report description"
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "The report owner"
+                },
+                "modifiedBy": {
+                    "type": "string",
+                    "description": "The user that modified this report"
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The report created date time."
+                },
+                "modifiedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The report modified date time."
+                },
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails"
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
+                },
+                "reportType": {
+                    "type": "string",
+                    "description": "Report type",
+                    "enum": [
+                        "PaginatedReport"
+                    ]
                 }
             }
         },
@@ -14697,6 +15310,9 @@
                 "dataClassification": {
                     "type": "string",
                     "description": "The data classification tag of the dashboard"
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
                 }
             }
         },
@@ -15662,7 +16278,7 @@
                 "formatSettings": {
                     "type": "object",
                     "description": "Dictionary of format settings. The keys are the device info property names for the requested file format.",
-                    "additionalProperties":{
+                    "additionalProperties": {
                         "type": "string"
                     }
                 },
@@ -16469,6 +17085,35 @@
                 "configuredBy": {
                     "type": "string",
                     "description": "The dataflow owner"
+                },
+                "modifiedBy": {
+                    "type": "string",
+                    "description": "The user that modified this dataflow"
+                },
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails"
+                },
+                "modifiedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "modification date time"
+                },
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "Datasource usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                },
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Upstream Dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
                 }
             }
         },
@@ -17013,7 +17658,7 @@
                         "notFound"
                     ]
                 }
-            }  
+            }
         },
         "DataflowUpdateRequestMessage": {
             "description": "Request payload for updating dataflow information",
@@ -17121,15 +17766,15 @@
             }
         }
     },
-    "parameters": {
+        "parameters": {
 
-    },
-    "responses": {
+        },
+        "responses": {
 
-    },
-    "security": [
-    ],
-    "tags": [
+        },
+        "security": [
+        ],
+        "tags": [
 
-    ]
-}
+        ]
+    }

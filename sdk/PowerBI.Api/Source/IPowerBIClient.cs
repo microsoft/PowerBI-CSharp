@@ -102,6 +102,11 @@ namespace Microsoft.PowerBI.Api
         IDataflowStorageAccountsOperations DataflowStorageAccounts { get; }
 
         /// <summary>
+        /// Gets the IWorkspaceInfoOperations.
+        /// </summary>
+        IWorkspaceInfoOperations WorkspaceInfo { get; }
+
+        /// <summary>
         /// Gets the IAdmin.
         /// </summary>
         IAdmin Admin { get; }

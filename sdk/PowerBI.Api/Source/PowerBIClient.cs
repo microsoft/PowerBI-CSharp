@@ -103,6 +103,11 @@ namespace Microsoft.PowerBI.Api
         public virtual IDataflowStorageAccountsOperations DataflowStorageAccounts { get; private set; }
 
         /// <summary>
+        /// Gets the IWorkspaceInfoOperations.
+        /// </summary>
+        public virtual IWorkspaceInfoOperations WorkspaceInfo { get; private set; }
+
+        /// <summary>
         /// Gets the IAdmin.
         /// </summary>
         public virtual IAdmin Admin { get; private set; }
@@ -331,6 +336,7 @@ namespace Microsoft.PowerBI.Api
             Capacities = new CapacitiesOperations(this);
             AvailableFeatures = new AvailableFeaturesOperations(this);
             DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
+            WorkspaceInfo = new WorkspaceInfoOperations(this);
             Admin = new Admin(this);
             EmbedToken = new EmbedTokenOperations(this);
             TemplateApps = new TemplateApps(this);

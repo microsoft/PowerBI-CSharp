@@ -8,6 +8,8 @@ namespace Microsoft.PowerBI.Api.Models
 {
     using Microsoft.Rest;
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -50,7 +52,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="createReportEmbedURL">The dataset create report embed
         /// url</param>
         /// <param name="qnaEmbedURL">The dataset qna embed url</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string))
+        /// <param name="description">The dataset description</param>
+        /// <param name="datasourceUsages">Datasource usages</param>
+        /// <param name="upstreamDataflows">Upstream Dataflows</param>
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
         {
             Id = id;
             Name = name;
@@ -66,6 +71,11 @@ namespace Microsoft.PowerBI.Api.Models
             ContentProviderType = contentProviderType;
             CreateReportEmbedURL = createReportEmbedURL;
             QnaEmbedURL = qnaEmbedURL;
+            Description = description;
+            EndorsementDetails = endorsementDetails;
+            DatasourceUsages = datasourceUsages;
+            UpstreamDataflows = upstreamDataflows;
+            SensitivityLabel = sensitivityLabel;
             CustomInit();
         }
 
@@ -163,6 +173,34 @@ namespace Microsoft.PowerBI.Api.Models
         public string QnaEmbedURL { get; set; }
 
         /// <summary>
+        /// Gets or sets the dataset description
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "endorsementDetails")]
+        public EndorsementDetails EndorsementDetails { get; set; }
+
+        /// <summary>
+        /// Gets or sets datasource usages
+        /// </summary>
+        [JsonProperty(PropertyName = "datasourceUsages")]
+        public IList<DatasourceUsage> DatasourceUsages { get; set; }
+
+        /// <summary>
+        /// Gets or sets upstream Dataflows
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDataflows")]
+        public IList<DependentDataflow> UpstreamDataflows { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sensitivityLabel")]
+        public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -173,6 +211,20 @@ namespace Microsoft.PowerBI.Api.Models
             if (Id == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Id");
+            }
+            if (DatasourceUsages != null)
+            {
+                foreach (var element in DatasourceUsages)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (SensitivityLabel != null)
+            {
+                SensitivityLabel.Validate();
             }
         }
     }
