@@ -16249,6 +16249,13 @@
                     "$ref": "#/definitions/PageBookmark",
                     "description": "The default bookmark to apply on all pages which don't have a specific bookmark"
                 },
+                "reportLevelFilters": {
+                    "type": "array",
+                    "description": "List of report level filters to apply. Currently only one filter can be provided",
+                    "items": {
+                        "$ref": "#/definitions/ExportFilter"
+                    }
+                },
                 "pages": {
                     "type": "array",
                     "description": "List of pages to export and their properties",
@@ -16327,6 +16334,15 @@
                 "state": {
                     "type": "string",
                     "description": "The bookmark state"
+                }
+            }
+        },
+        "ExportFilter": {
+            "description": "A filter to be applied during the export operation",
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "description": "The filter to apply. Filter format should be as described [here](https://docs.microsoft.com/power-bi/collaborate-share/service-url-filters)"
                 }
             }
         },

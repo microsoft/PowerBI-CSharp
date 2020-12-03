@@ -33,14 +33,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// file job</param>
         /// <param name="defaultBookmark">The default bookmark to apply on all
         /// pages which don't have a specific bookmark</param>
+        /// <param name="reportLevelFilters">List of report level filters to
+        /// apply. Currently only one filter can be provided</param>
         /// <param name="pages">List of pages to export and their
         /// properties</param>
         /// <param name="identities">List of identities to use for RLS
         /// rules</param>
-        public PowerBIReportExportConfiguration(ExportReportSettings settings = default(ExportReportSettings), PageBookmark defaultBookmark = default(PageBookmark), IList<ExportReportPage> pages = default(IList<ExportReportPage>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
+        public PowerBIReportExportConfiguration(ExportReportSettings settings = default(ExportReportSettings), PageBookmark defaultBookmark = default(PageBookmark), IList<ExportFilter> reportLevelFilters = default(IList<ExportFilter>), IList<ExportReportPage> pages = default(IList<ExportReportPage>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             Settings = settings;
             DefaultBookmark = defaultBookmark;
+            ReportLevelFilters = reportLevelFilters;
             Pages = pages;
             Identities = identities;
             CustomInit();
@@ -63,6 +66,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "defaultBookmark")]
         public PageBookmark DefaultBookmark { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of report level filters to apply. Currently only
+        /// one filter can be provided
+        /// </summary>
+        [JsonProperty(PropertyName = "reportLevelFilters")]
+        public IList<ExportFilter> ReportLevelFilters { get; set; }
 
         /// <summary>
         /// Gets or sets list of pages to export and their properties
