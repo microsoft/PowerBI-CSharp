@@ -51,10 +51,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows a maximum of 500 requests per hour.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All or AdminReadAll&lt;br/&gt;To set the permissions
+        /// Global Administrator or Power BI Service Administrator) to call this API or
+        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
+        /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
         /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -227,10 +227,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows a maximum of 10000 requests per hour.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All or AdminReadAll&lt;br/&gt;To set the permissions
+        /// Global Administrator or Power BI Service Administrator) to call this API or
+        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
+        /// 10000 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
         /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -368,10 +368,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows a maximum of 500 requests per hour.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All or AdminReadAll&lt;br/&gt;To set the permissions
+        /// Global Administrator or Power BI Service Administrator) to call this API or
+        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
+        /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
         /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
@@ -510,10 +510,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All or AdminReadAll&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
+        /// Global Administrator or Power BI Service Administrator) to call this API or
+        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the
+        /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='modifiedSince'>
