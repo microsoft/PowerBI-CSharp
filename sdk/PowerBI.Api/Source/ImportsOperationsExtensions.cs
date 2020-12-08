@@ -74,7 +74,9 @@ namespace Microsoft.PowerBI.Api
             /// supported.&lt;/li&gt;&lt;li&gt;To import large .pbix files, between 1 GB
             /// and 10 GB, see [Create Temporary Upload
             /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This
-            /// is supported only for workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+            /// is supported only for workspaces on premium
+            /// capacity.&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Limitations&lt;/h3&gt;Post import
+            /// is not supported for dataflows with service principal.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -122,7 +124,9 @@ namespace Microsoft.PowerBI.Api
             /// supported.&lt;/li&gt;&lt;li&gt;To import large .pbix files, between 1 GB
             /// and 10 GB, see [Create Temporary Upload
             /// Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This
-            /// is supported only for workspaces on premium capacity.&lt;/li&gt;&lt;/ul&gt;
+            /// is supported only for workspaces on premium
+            /// capacity.&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Limitations&lt;/h3&gt;Post import
+            /// is not supported for dataflows with service principal.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -323,7 +327,8 @@ namespace Microsoft.PowerBI.Api
             /// This is supported only for workspaces on premium
             /// capacity.&lt;/li&gt;&lt;li&gt;To create a dataflow from a model.json,
             /// specify the parameter datasetDisplayName as described
-            /// below.&lt;/li&gt;&lt;/ul&gt;
+            /// below.&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Limitations&lt;/h3&gt;Post import is
+            /// not supported for dataflows with service principal.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -377,7 +382,8 @@ namespace Microsoft.PowerBI.Api
             /// This is supported only for workspaces on premium
             /// capacity.&lt;/li&gt;&lt;li&gt;To create a dataflow from a model.json,
             /// specify the parameter datasetDisplayName as described
-            /// below.&lt;/li&gt;&lt;/ul&gt;
+            /// below.&lt;/li&gt;&lt;/ul&gt;&lt;h3&gt;Limitations&lt;/h3&gt;Post import is
+            /// not supported for dataflows with service principal.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

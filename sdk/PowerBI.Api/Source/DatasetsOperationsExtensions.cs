@@ -955,7 +955,8 @@ namespace Microsoft.PowerBI.Api
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types:&lt;ul&gt;&lt;li&gt;SQL Server&lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server&lt;/li&gt;&lt;li&gt;Analysis Services&lt;/li&gt;&lt;li&gt;Azure
-            /// Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update
             /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
@@ -1010,7 +1011,8 @@ namespace Microsoft.PowerBI.Api
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types:&lt;ul&gt;&lt;li&gt;SQL Server&lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server&lt;/li&gt;&lt;li&gt;Analysis Services&lt;/li&gt;&lt;li&gt;Azure
-            /// Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update
             /// Parameters](/rest/api/power-bi/datasets/updateparameters)&lt;/li&gt;&lt;li&gt;Changing
@@ -1044,19 +1046,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
-            /// all connections for the specified dataset from **"My Workspace"**.
+            /// Updates all connections for the specified dataset from **"My Workspace"**.
+            /// This API only supports SQL DirectQuery datasets.&lt;h3&gt;Note: This API is
+            /// deprecated and no longer supported&lt;/h3&gt;
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
-            /// SQL, AS, OData Feed, and SharePoint, use [Update
-            /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For other
-            /// datasource types, use [Update
-            /// Parameters](/rest/api/power-bi/datasets/updateparameters).&lt;/li&gt;&lt;li&gt;This
-            /// API only supports SQL DirectQuery
-            /// datasets.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
+            /// Following the 2020 Power BI Desktop release, the Power BI dataset was
+            /// updated. This API no longer works with the new dataset ([enhanced metadata
+            /// dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)).
+            /// Instead of this API, use the following APIs:&lt;ul&gt;&lt;li&gt;[Update
+            /// Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup)
+            /// - To update connection details for SQL, AS, OData Feed, and
+            /// SharePoint.&lt;/li&gt;&lt;li&gt;[Update Parameters In
+            /// Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update
+            /// connection details for other datasource
+            /// types.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -1075,19 +1080,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
-            /// all connections for the specified dataset from **"My Workspace"**.
+            /// Updates all connections for the specified dataset from **"My Workspace"**.
+            /// This API only supports SQL DirectQuery datasets.&lt;h3&gt;Note: This API is
+            /// deprecated and no longer supported&lt;/h3&gt;
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
-            /// SQL, AS, OData Feed, and SharePoint, use [Update
-            /// Datasources](/rest/api/power-bi/datasets/updatedatasources). For other
-            /// datasource types, use [Update
-            /// Parameters](/rest/api/power-bi/datasets/updateparameters).&lt;/li&gt;&lt;li&gt;This
-            /// API only supports SQL DirectQuery
-            /// datasets.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
+            /// Following the 2020 Power BI Desktop release, the Power BI dataset was
+            /// updated. This API no longer works with the new dataset ([enhanced metadata
+            /// dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)).
+            /// Instead of this API, use the following APIs:&lt;ul&gt;&lt;li&gt;[Update
+            /// Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup)
+            /// - To update connection details for SQL, AS, OData Feed, and
+            /// SharePoint.&lt;/li&gt;&lt;li&gt;[Update Parameters In
+            /// Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update
+            /// connection details for other datasource
+            /// types.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -2336,15 +2344,15 @@ namespace Microsoft.PowerBI.Api
             /// [enhanced dataset
             /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
             /// wait 30 minutes for the update datasources operation to complete before
-            /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
-            /// Dataset.ReadWrite.Al&lt;br/&gt;To set the permissions scope, see [Register
-            /// an
+            /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
             /// operation is only supported for the dataset
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types: &lt;ul&gt;&lt;li&gt;SQL Server &lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server &lt;/li&gt;&lt;li&gt;Analysis Services
-            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Oracle&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;Changing
@@ -2394,15 +2402,15 @@ namespace Microsoft.PowerBI.Api
             /// [enhanced dataset
             /// metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata),
             /// wait 30 minutes for the update datasources operation to complete before
-            /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**:
-            /// Dataset.ReadWrite.Al&lt;br/&gt;To set the permissions scope, see [Register
-            /// an
+            /// refreshing.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
             /// operation is only supported for the dataset
             /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports the following
             /// datasource types: &lt;ul&gt;&lt;li&gt;SQL Server &lt;/li&gt;&lt;li&gt;Azure
             /// SQL Server &lt;/li&gt;&lt;li&gt;Analysis Services
-            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;OData
+            /// &lt;/li&gt;&lt;li&gt;Azure Analysis Services&lt;/li&gt;&lt;li&gt;Azure
+            /// Synapse&lt;/li&gt;&lt;li&gt;OData
             /// Feed&lt;/li&gt;&lt;li&gt;SharePoint&lt;/li&gt;&lt;li&gt;Oracle&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;SapHana&lt;/li&gt;&lt;/ul&gt;For
             /// other datasource types, use [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;Changing
@@ -2438,17 +2446,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
-            /// all connections for the specified dataset from the specified workspace.
+            /// Updates all connections for the specified dataset from the specified
+            /// workspace. This API only supports SQL DirectQuery datasets.&lt;h3&gt;Note:
+            /// This API is deprecated and no longer supported&lt;/h3&gt;
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
-            /// SQL, AS, OData Feed, and SharePoint, use [Update Datasources In
-            /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other
-            /// datasource types, use [Update Parameters In
-            /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;This
-            /// API only supports SQL DirectQuery datasets.&lt;/li&gt;&lt;/ul&gt;
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// Following the 2020 Power BI Desktop release, the Power BI dataset was
+            /// updated. This API no longer works with the new dataset ([enhanced metadata
+            /// dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)).
+            /// Instead of this API, use the following APIs:&lt;ul&gt;&lt;li&gt;[Update
+            /// Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup)
+            /// - To update connection details for SQL, AS, OData Feed, and
+            /// SharePoint.&lt;/li&gt;&lt;li&gt;[Update Parameters In
+            /// Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update
+            /// connection details for other datasource
+            /// types.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -2471,17 +2483,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// **Note: This API is deprecated and no longer supported.**&lt;/br&gt;Updates
-            /// all connections for the specified dataset from the specified workspace.
+            /// Updates all connections for the specified dataset from the specified
+            /// workspace. This API only supports SQL DirectQuery datasets.&lt;h3&gt;Note:
+            /// This API is deprecated and no longer supported&lt;/h3&gt;
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**:&lt;ul&gt;&lt;li&gt;To update connection details for
-            /// SQL, AS, OData Feed, and SharePoint, use [Update Datasources In
-            /// Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other
-            /// datasource types, use [Update Parameters In
-            /// Group](/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;li&gt;This
-            /// API only supports SQL DirectQuery datasets.&lt;/li&gt;&lt;/ul&gt;
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
+            /// Following the 2020 Power BI Desktop release, the Power BI dataset was
+            /// updated. This API no longer works with the new dataset ([enhanced metadata
+            /// dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)).
+            /// Instead of this API, use the following APIs:&lt;ul&gt;&lt;li&gt;[Update
+            /// Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup)
+            /// - To update connection details for SQL, AS, OData Feed, and
+            /// SharePoint.&lt;/li&gt;&lt;li&gt;[Update Parameters In
+            /// Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update
+            /// connection details for other datasource
+            /// types.&lt;/li&gt;&lt;/ul&gt;**Required scope**: Dataset.ReadWrite.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
@@ -2727,9 +2743,12 @@ namespace Microsoft.PowerBI.Api
             /// <summary>
             /// Generates an embed token to [Embed
             /// Q&amp;A](https://docs.microsoft.com/power-bi/developer/qanda) based on the
-            /// specified dataset from the specified workspace.&lt;br/&gt;This API is
-            /// relevant only to ['App owns data' embed
+            /// specified dataset from the specified workspace.&lt;br/&gt;&lt;br/&gt;This
+            /// API is relevant only to ['App owns data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// For more information about using this API, see [Considerations when
+            /// generating an embed
+            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
@@ -2760,9 +2779,12 @@ namespace Microsoft.PowerBI.Api
             /// <summary>
             /// Generates an embed token to [Embed
             /// Q&amp;A](https://docs.microsoft.com/power-bi/developer/qanda) based on the
-            /// specified dataset from the specified workspace.&lt;br/&gt;This API is
-            /// relevant only to ['App owns data' embed
+            /// specified dataset from the specified workspace.&lt;br/&gt;&lt;br/&gt;This
+            /// API is relevant only to ['App owns data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// For more information about using this API, see [Considerations when
+            /// generating an embed
+            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All

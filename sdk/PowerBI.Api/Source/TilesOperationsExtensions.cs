@@ -17,8 +17,11 @@ namespace Microsoft.PowerBI.Api
     {
             /// <summary>
             /// Generates an embed token to view the specified tile from the specified
-            /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to ['App owns
+            /// data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// Generates an embed token to view the specified tile from the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -55,8 +58,11 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified tile from the specified
-            /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to ['App owns
+            /// data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// Generates an embed token to view the specified tile from the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: (all of the below)

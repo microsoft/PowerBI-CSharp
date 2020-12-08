@@ -52,9 +52,12 @@ namespace Microsoft.PowerBI.Api
         /// When a user is granted permissions to a workspace, app, or artifact, it
         /// might not be immediately available through API calls.&lt;br/&gt;This
         /// operation refreshes user permissions and makes sure the user permissions
-        /// are fully updated.&lt;br/&gt;&lt;br/&gt;**Important:** Make the *refresh
-        /// user permissions* call, before any other API
-        /// calls.&lt;br/&gt;&lt;br/&gt;**Required scope:** Workspace.Read.All  or
+        /// are fully
+        /// updated.&lt;br/&gt;&lt;br/&gt;**Important:**&lt;ul&gt;&lt;li&gt;Make the
+        /// *refresh user permissions* call, before any other API
+        /// calls.&lt;/li&gt;&lt;li&gt;It takes about two minutes for the permissions
+        /// to get refreshed. Before calling other APIs, wait for two
+        /// minutes.&lt;/li&gt;&lt;/ul&gt;**Required scope:** Workspace.Read.All  or
         /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
