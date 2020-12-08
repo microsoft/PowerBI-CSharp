@@ -848,7 +848,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='reportId'>
         /// The report id
         /// </param>
-        public static void TakeOver(this IReportsOperations operations, Guid groupId, string reportId)
+        public static void TakeOver(this IReportsOperations operations, Guid groupId, Guid reportId)
         {
             operations.TakeOverAsync(groupId, reportId).GetAwaiter().GetResult();
         }
@@ -868,7 +868,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task TakeOverAsync(this IReportsOperations operations, Guid groupId, string reportId, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task TakeOverAsync(this IReportsOperations operations, Guid groupId, Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.TakeOverInGroupWithHttpMessagesAsync(groupId, reportId, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }

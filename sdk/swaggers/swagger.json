@@ -1356,7 +1356,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
+                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>Azure Synapse</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
                 "operationId": "Datasets_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -1432,8 +1432,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "**Note: This API is deprecated and no longer supported.**</br>Updates all connections for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Notes**:<ul><li>To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources](/rest/api/power-bi/datasets/updatedatasources). For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters).</li><li>This API only supports SQL DirectQuery datasets.</li></ul><br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates all connections for the specified dataset from **\"My Workspace\"**. This API only supports SQL DirectQuery datasets.<h3>Note: This API is deprecated and no longer supported</h3>",
+                "description": "Following the 2020 Power BI Desktop release, the Power BI dataset was updated. This API no longer works with the new dataset ([enhanced metadata dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)). Instead of this API, use the following APIs:<ul><li>[Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup) - To update connection details for SQL, AS, OData Feed, and SharePoint.</li><li>[Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update connection details for other datasource types.</li></ul>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_SetAllDatasetConnections",
                 "consumes": [
                     "application/json"
@@ -1665,7 +1665,7 @@
                     "Users"
                 ],
                 "summary": "Refreshes user permissions in Power BI.",
-                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls.<br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.<br/><br/>**Important:** Make the *refresh user permissions* call, before any other API calls.<br/><br/>**Required scope:** Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
+                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls.<br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.<br/><br/>**Important:**<ul><li>Make the *refresh user permissions* call, before any other API calls.</li><li>It takes about two minutes for the permissions to get refreshed. Before calling other APIs, wait for two minutes.</li></ul>**Required scope:** Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
                 "operationId": "Users_RefreshUserPermissions",
                 "consumes": [
                 ],
@@ -1761,7 +1761,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on **\"My Workspace\"** from PBIX (Power BI Desktop), JSON, XLSX (Excel), RDL or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an XLSX (Excel) file from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>Importing a .pbix file from OneDrive is not supported.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This is supported only for workspaces on premium capacity.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an XLSX (Excel) file from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimport#importinfo) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>Importing a .pbix file from OneDrive is not supported.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location](/rest/api/power-bi/imports/createtemporaryuploadlocation). This is supported only for workspaces on premium capacity.</li></ul><h3>Limitations</h3>Post import is not supported for dataflows with service principal.",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -2606,7 +2606,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **\"My Workspace\"** to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Premium Per User (PPU) is not supported.",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -4460,7 +4460,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the datasources of the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new datasources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.Al<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types: <ul><li>SQL Server </li><li>Azure SQL Server </li><li>Analysis Services </li><li>Azure Analysis Services</li><li>OData Feed</li><li>SharePoint</li><li>Oracle</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters In Group](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/updateparametersingroup).</li></ul>",
+                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new datasources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types: <ul><li>SQL Server </li><li>Azure SQL Server </li><li>Analysis Services </li><li>Azure Analysis Services</li><li>Azure Synapse</li><li>OData Feed</li><li>SharePoint</li><li>Oracle</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters In Group](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/updateparametersingroup).</li></ul>",
                 "operationId": "Datasets_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -4544,8 +4544,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "**Note: This API is deprecated and no longer supported.**</br>Updates all connections for the specified dataset from the specified workspace.",
-                "description": "<br/>**Notes**:<ul><li>To update connection details for SQL, AS, OData Feed, and SharePoint, use [Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup). For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>This API only supports SQL DirectQuery datasets.</li></ul> <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates all connections for the specified dataset from the specified workspace. This API only supports SQL DirectQuery datasets.<h3>Note: This API is deprecated and no longer supported</h3>",
+                "description": "Following the 2020 Power BI Desktop release, the Power BI dataset was updated. This API no longer works with the new dataset ([enhanced metadata dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)). Instead of this API, use the following APIs:<ul><li>[Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup) - To update connection details for SQL, AS, OData Feed, and SharePoint.</li><li>[Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update connection details for other datasource types.</li></ul>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_SetAllDatasetConnectionsInGroup",
                 "consumes": [
                     "application/json"
@@ -4932,7 +4932,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content on the specified workspace from PBIX (Power BI Desktop), JSON, XLSX (Excel), RDL, or file path in OneDrive for Business.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>To import from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup). This is supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul>",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h3>Notes</h3><ul><li>To import a file, request Headers should include **Content-Type: multipart/form-data** with the file [encoded as form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.</li><li>To import an RDL file, in the **DatasetDisplayName** property, include **.rdl** to define the file type.</li><li>To import from OneDrive for Business, request headers should include **Content-Type: application/json** with [ImportInfo](/rest/api/power-bi/imports/postimportingroup#importinfo) in the request body.</li><li>To import large .pbix files, between 1 GB and 10 GB, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/createtemporaryuploadlocationingroup). This is supported only for workspaces on premium capacity.</li><li>To create a dataflow from a model.json, specify the parameter datasetDisplayName as described below.</li></ul><h3>Limitations</h3>Post import is not supported for dataflows with service principal.",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -5899,7 +5899,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul><br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Premium Per User (PPU) is not supported.",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -6440,7 +6440,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "Generates an embed token to allow report creation on the specified workspace based on the specified dataset.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "summary": "Generates an embed token to allow report creation on the specified workspace based on the specified dataset.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
                 "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
@@ -6529,7 +6529,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
                 "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
@@ -6753,7 +6753,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "Generates an embed token to [Embed Q&A](https://docs.microsoft.com/power-bi/developer/qanda) based on the specified dataset from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "summary": "Generates an embed token to [Embed Q&A](https://docs.microsoft.com/power-bi/developer/qanda) based on the specified dataset from the specified workspace.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
                 "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Datasets_GenerateTokenInGroup",
                 "consumes": [
@@ -6824,7 +6824,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "Generates an embed token to view the specified dashboard from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "summary": "Generates an embed token to view the specified dashboard from the specified workspace.<br/><br/>This API is relevant only to the ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
                 "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
@@ -6934,7 +6934,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "Generates an embed token to view the specified tile from the specified workspace.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "summary": "Generates an embed token to view the specified tile from the specified workspace.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). Generates an embed token to view the specified tile from the specified workspace.",
                 "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
@@ -10644,6 +10644,351 @@
             }
         },
 
+        "/v1.0/myorg/admin/workspaces/getInfo": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Initiate a call to receive metadata for the requested list of workspaces",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_PostWorkspaceInfo",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "requiredWorkspaces",
+                        "in": "body",
+                        "description": "Required workspace IDs to get info for",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequiredWorkspaces"
+                        }
+                    },
+                    {
+                        "name": "$lineage",
+                        "in": "query",
+                        "description": "Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "$datasourceDetails",
+                        "in": "query",
+                        "description": "Whether to return datasource details​",
+                        "required": false,
+                        "type": "boolean"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/ScanRequest"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "lineage": true,
+                            "datasourceDetails": true,
+                            "requiredWorkspaces": {
+                                "workspaces": [
+                                    "97d03602-4873-4760-b37e-1563ef5358e3",
+                                    "67b7e93a-3fb3-493c-9e41-2c5051008f24"
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "202": {
+                                "header": "Location",
+                                "body": {
+                                    "value": {
+                                        "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
+                                        "createdDateTime": "2020-06-15T16:46:28.0487687Z",
+                                        "status": "NotStarted"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/workspaces/scanStatus": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Gets scan status for the specified scan",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows a maximum of 10000 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_GetScanStatus",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "scanId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ScanRequest"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "scanId": "e7d03602-4873-4760-b37e-1563ef5358e3"
+                        },
+                        "responses": {
+                            "200": {
+                                "header": "Location",
+                                "body": {
+                                    "value": {
+                                        "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
+                                        "createdDateTime": "2020-06-15T16:46:28.0487687Z",
+                                        "status": "Succeeded"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/workspaces/scanResult": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Gets scan result for the specified scan (should be called only after getting status Succeeded in the scan status API). Scan result will be available for up to 24 hours",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_GetScanResult",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "scanId",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/WorkspaceInfoResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "scanId": "e7d03602-4873-4760-b37e-1563ef5358e3"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": {
+                                        "workspaces": [
+                                            {
+                                                "id": "d507422c-8d6d-4361-ac7a-30074a8cd0a1",
+                                                "name": "V2 shared",
+                                                "type": "Workspace",
+                                                "state": "Active",
+                                                "isOnDedicatedCapacity": false,
+                                                "reports": [
+                                                    {
+                                                        "id": "c6d072d1-ed20-4b60-8329-16c4b934203b",
+                                                        "name": "CompositeModelParams-RLS",
+                                                        "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c",
+                                                        "createdDateTime": "2020-06-16T08:22:49.14",
+                                                        "modifiedDateTime": "2020-06-16T08:22:49.14",
+                                                        "modifiedBy": "john@contoso.com",
+                                                        "reportType": "PaginatedReport",
+                                                        "endorsementDetails": {
+                                                            "endorsement": "Certified",
+                                                            "certifiedBy": "john@contoso.com"
+                                                        },
+                                                        "sensitivityLabel": {
+                                                            "labelId": "85b38049-4259-43a2-8feb-244e222d96c0"
+                                                        }
+                                                    }
+                                                ],
+                                                "dashboards": [
+                                                    {
+                                                        "id": "80814ece-9302-49e3-b6bc-bad2f7a86c1a",
+                                                        "displayName": "CompositeModelParamsDashboard",
+                                                        "isReadOnly": false,
+                                                        "tiles": [
+                                                            {
+                                                                "id": "e687cc21-5b32-48f5-8c5e-4b844f190579",
+                                                                "title": "CompositeModelParamsDashboard",
+                                                                "reportId": "c6d072d1-ed20-4b60-8329-16c4b934203b",
+                                                                "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c"
+                                                            }
+                                                        ],
+                                                        "sensitivityLabel": {
+                                                            "labelId": "d9b9581a-0594-4c39-81c5-91ddf40baeda"
+                                                        }
+                                                    }
+                                                ],
+                                                "datasets": [
+                                                    {
+                                                        "id": "e7e8a355-e77b-4418-a7b8-ae5972fdaa03",
+                                                        "name": "ExportB",
+                                                        "tables": [],
+                                                        "relationships": [],
+                                                        "configuredBy": "john@contoso.com",
+                                                        "targetStorageMode": "Abf",
+                                                        "endorsementDetails": {
+                                                            "endorsement": "Certified",
+                                                            "certifiedBy": "john@contoso.com"
+                                                        },
+                                                        "upstreamDataflows": [
+                                                            {
+                                                                "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
+                                                                "groupId": "b7416115-7421-42c0-b525-1505ce40d2f0"
+                                                            },
+                                                            {
+                                                                "targetDataflowId": "06898194-2eaf-4122-bacc-133db1f8585d",
+                                                                "groupId": "7263838d-80d7-4b8d-a1f6-50fc27e74a97"
+                                                            }
+                                                        ],
+                                                        "datasourceUsages": [
+                                                            {
+                                                                "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                            }
+                                                        ],
+                                                        "sensitivityLabel": {
+                                                            "labelId": "bf3dc57d-d796-41c0-bbe9-a47f5ee3331e"
+                                                        }
+                                                    }
+                                                ],
+                                                "dataflows": [
+                                                    {
+                                                        "objectId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
+                                                        "name": "Azure SQL",
+                                                        "description": "Azure SQL dataflow",
+                                                        "configuredBy": "john@contoso.com",
+                                                        "modifiedBy": "john@contoso.com",
+                                                        "modifiedDateTime": "2020-06-16T08:27:47.783Z",
+                                                        "endorsementDetails": {
+                                                            "endorsement": "Certified",
+                                                            "certifiedBy": "john@contoso.com"
+                                                        },
+                                                        "datasourceUsages": [
+                                                            {
+                                                                "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                            }
+                                                        ],
+                                                        "sensitivityLabel": {
+                                                            "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "datasourceInstances": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "qlserver.database.windows.net",
+                                                    "database": "dbo.largest_table"
+                                                },
+                                                "datasourceId": "c79ad907-df19-43fe-a0f7-d9f365d67070",
+                                                "gatewayId": "e820592e-f8cf-4a6f-b1ed-566799d29565"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/workspaces/modified": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Gets a list of workspace IDs in the organization. When using $modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization.",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All or AdminReadAll<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$modifiedSince",
+                        "in": "query",
+                        "description": "Last modified date​ (must be in ISO 8601 compliant UTC format)",
+                        "required": false,
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ModifiedWorkspaces"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "modifiedSince": "2020-10-02T05:51:30.0000000Z"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "Id": "3740504d-1f93-42f9-8e9d-c8ba9b787a3b"
+                                        },
+                                        {
+                                            "Id": "19cb346c-9839-4e19-81e6-76364d0b836f"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/admin/capacities/AssignWorkspaces": {
             "post": {
                 "tags": [
@@ -13298,7 +13643,7 @@
                 "tags": [
                     "EmbedToken"
                 ],
-                "summary": "Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Target workspaces are workspaces where creation of reports is allowed.<br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).",
+                "summary": "Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Creating a report can only be done in workspaces specified in *targetWrokspaces*.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
                 "description": "<br/>**Required scope**: <ul><li>Content.Create - required only if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All or Report.Read.All - required only if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All - required if allowEdit flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><ul><li>All the reports and datasets must reside in workspace V2. All the target workpaces must be workspace V2.</li><li>Maximum number of reports, datasets and target workspaces is 50 each.</li><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><li>Paginated reports are not supported.</li></ul><br/>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
@@ -13761,7 +14106,8 @@
                         "in": "path",
                         "description": "The report id",
                         "required": true,
-                        "type": "string"
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
                 "responses": {
@@ -13785,6 +14131,215 @@
         }
     },
     "definitions": {
+        "EndorsementDetails": {
+            "description": "Power BI endorsement details",
+            "properties": {
+                "endorsement": {
+                    "type": "string",
+                    "description": "The endorsement status"
+                },
+                "certifiedBy": {
+                    "type": "string",
+                    "description": "The user that certified the artifact"
+                }
+            }
+        },
+        "DatasourceUsage": {
+            "required": [
+                "datasourceInstanceId"
+            ],
+            "description": "Datasource usage",
+            "properties": {
+                "datasourceInstanceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The datasource instance ID"
+                }
+            }
+        },
+        "SensitivityLabel": {
+            "required": [
+                "labelId"
+            ],
+            "description": "Workspace info sensitivity label",
+            "properties": {
+                "labelId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The datasource instance ID"
+                }
+            }
+        },
+        "ModifiedWorkspaces": {
+            "description": "Odata response wrapper for modified workspaces list",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The modified workspaces list",
+                    "items": {
+                        "$ref": "#/definitions/ModifiedWorkspace"
+                    }
+                }
+            }
+        },
+        "ModifiedWorkspace": {
+            "required": [
+                "Id"
+            ],
+            "description": "A modified workspace",
+            "properties": {
+                "Id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The workspace object ID."
+                }
+            }
+        },
+        "ScanRequest": {
+            "description": "A scan request",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The scan ID."
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The scan created date time."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The scan state."
+                },
+                "error": {
+                    "$ref": "#/definitions/PowerBIApiErrorResponseDetail",
+                    "description": "The scan error (if such exists)"
+                }
+            }
+        },
+        "PowerBIApiErrorResponseDetail": {
+            "description": "A Power BI error response details",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The error code."
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The error message."
+                },
+                "target": {
+                    "type": "string",
+                    "description": "The error target."
+                }
+            }
+        },
+        "RequiredWorkspaces": {
+            "description": "A required workspaces request",
+            "properties": {
+                "workspaces": {
+                    "type": "array",
+                    "description": "Required workspace IDs to be scaned. It should contain 1-100 workspaces.",
+                    "items": {
+                        "type": "string",
+                        "format": "uuid",
+                        "description": "Workspace object ID"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfoResponse": {
+            "description": "Workspace info response",
+            "properties": {
+                "workspaces": {
+                    "type": "array",
+                    "description": "The workspace info associated with this scan",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfo"
+                    }
+                },
+                "datasourceInstances": {
+                    "type": "array",
+                    "description": "The datasources' instances associated with this scan",
+                    "items": {
+                        "$ref": "#/definitions/Datasource"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfo": {
+            "required": [
+                "id"
+            ],
+            "description": "Workspace info details",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The workspace object ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The workspace name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The workspace description"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The workspace type"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The workspace state"
+                },
+                "dataRetrievalState": {
+                    "type": "string",
+                    "description": "The workspace data retrieval state"
+                },
+                "isOnDedicatedCapacity": {
+                    "type": "boolean",
+                    "description": "Whether the workspace is on dedicated capacity"
+                },
+                "capacityId": {
+                    "type": "string",
+                    "description": "The workspace capacity ID"
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "The reports associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Report"
+                    }
+                },
+                "dashboards": {
+                    "type": "array",
+                    "description": "The dashboards associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Dashboard"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "The datasets associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Dataset"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "The dataflows associated with this workspace",
+                    "items": {
+                        "$ref": "#/definitions/Dataflow"
+                    }
+                }
+            }
+        },
         "Import": {
             "required": [
                 "id"
@@ -13938,6 +14493,30 @@
                 "QnaEmbedURL": {
                     "type": "string",
                     "description": "The dataset qna embed url"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The dataset description"
+                },
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails"
+                },
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "Datasource usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                },
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Upstream Dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
                 }
             }
         },
@@ -14642,6 +15221,41 @@
                 "datasetId": {
                     "type": "string",
                     "description": "The dataset id"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The report description"
+                },
+                "createdBy": {
+                    "type": "string",
+                    "description": "The report owner"
+                },
+                "modifiedBy": {
+                    "type": "string",
+                    "description": "The user that modified this report"
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The report created date time."
+                },
+                "modifiedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The report modified date time."
+                },
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails"
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
+                },
+                "reportType": {
+                    "type": "string",
+                    "description": "Report type",
+                    "enum": [
+                        "PaginatedReport"
+                    ]
                 }
             }
         },
@@ -14696,6 +15310,9 @@
                 "dataClassification": {
                     "type": "string",
                     "description": "The data classification tag of the dashboard"
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
                 }
             }
         },
@@ -15194,7 +15811,7 @@
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The Id of the Time zone to use. See **Name of Time Zone** column in [Microsoft Time Zone Index Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)"
+                    "description": "The Id of the Time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)."
                 },
                 "NotifyOption": {
                     "type": "string",
@@ -15270,7 +15887,7 @@
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The Id of the Time zone to use. See **Name of Time Zone** column in [Microsoft Time Zone Index Values.](https://support.microsoft.com/help/973627/microsoft-time-zone-index-values)"
+                    "description": "The Id of the Time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)."
                 }
             }
         },
@@ -15632,6 +16249,13 @@
                     "$ref": "#/definitions/PageBookmark",
                     "description": "The default bookmark to apply on all pages which don't have a specific bookmark"
                 },
+                "reportLevelFilters": {
+                    "type": "array",
+                    "description": "List of report level filters to apply. Currently only one filter can be provided",
+                    "items": {
+                        "$ref": "#/definitions/ExportFilter"
+                    }
+                },
                 "pages": {
                     "type": "array",
                     "description": "List of pages to export and their properties",
@@ -15661,7 +16285,7 @@
                 "formatSettings": {
                     "type": "object",
                     "description": "Dictionary of format settings. The keys are the device info property names for the requested file format.",
-                    "additionalProperties":{
+                    "additionalProperties": {
                         "type": "string"
                     }
                 },
@@ -15710,6 +16334,15 @@
                 "state": {
                     "type": "string",
                     "description": "The bookmark state"
+                }
+            }
+        },
+        "ExportFilter": {
+            "description": "A filter to be applied during the export operation",
+            "properties": {
+                "filter": {
+                    "type": "string",
+                    "description": "The filter to apply. Filter format should be as described [here](https://docs.microsoft.com/power-bi/collaborate-share/service-url-filters)"
                 }
             }
         },
@@ -15915,7 +16548,7 @@
                 },
                 "targetWorkspaces": {
                     "type": "array",
-                    "description": "List of target workspaces",
+                    "description": "List of workspaces *Embed Token* allows saving to",
                     "items": {
                         "$ref": "#/definitions/GenerateTokenRequestV2TargetWorkspace"
                     }
@@ -16468,6 +17101,35 @@
                 "configuredBy": {
                     "type": "string",
                     "description": "The dataflow owner"
+                },
+                "modifiedBy": {
+                    "type": "string",
+                    "description": "The user that modified this dataflow"
+                },
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails"
+                },
+                "modifiedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "modification date time"
+                },
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "Datasource usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                },
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Upstream Dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                },
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel"
                 }
             }
         },
@@ -17012,7 +17674,7 @@
                         "notFound"
                     ]
                 }
-            }  
+            }
         },
         "DataflowUpdateRequestMessage": {
             "description": "Request payload for updating dataflow information",
@@ -17120,15 +17782,15 @@
             }
         }
     },
-    "parameters": {
+        "parameters": {
 
-    },
-    "responses": {
+        },
+        "responses": {
 
-    },
-    "security": [
-    ],
-    "tags": [
+        },
+        "security": [
+        ],
+        "tags": [
 
-    ]
-}
+        ]
+    }

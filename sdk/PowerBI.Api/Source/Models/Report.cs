@@ -30,13 +30,29 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="webUrl">The report web url</param>
         /// <param name="embedUrl">The report embed url</param>
         /// <param name="datasetId">The dataset id</param>
-        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string))
+        /// <param name="description">The report description</param>
+        /// <param name="createdBy">The report owner</param>
+        /// <param name="modifiedBy">The user that modified this report</param>
+        /// <param name="createdDateTime">The report created date time.</param>
+        /// <param name="modifiedDateTime">The report modified date
+        /// time.</param>
+        /// <param name="reportType">Report type. Possible values include:
+        /// 'PaginatedReport'</param>
+        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string))
         {
             Id = id;
             Name = name;
             WebUrl = webUrl;
             EmbedUrl = embedUrl;
             DatasetId = datasetId;
+            Description = description;
+            CreatedBy = createdBy;
+            ModifiedBy = modifiedBy;
+            CreatedDateTime = createdDateTime;
+            ModifiedDateTime = modifiedDateTime;
+            EndorsementDetails = endorsementDetails;
+            SensitivityLabel = sensitivityLabel;
+            ReportType = reportType;
             CustomInit();
         }
 
@@ -76,6 +92,53 @@ namespace Microsoft.PowerBI.Api.Models
         public string DatasetId { get; set; }
 
         /// <summary>
+        /// Gets or sets the report description
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the report owner
+        /// </summary>
+        [JsonProperty(PropertyName = "createdBy")]
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user that modified this report
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedBy")]
+        public string ModifiedBy { get; set; }
+
+        /// <summary>
+        /// Gets or sets the report created date time.
+        /// </summary>
+        [JsonProperty(PropertyName = "createdDateTime")]
+        public System.DateTime? CreatedDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets the report modified date time.
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedDateTime")]
+        public System.DateTime? ModifiedDateTime { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "endorsementDetails")]
+        public EndorsementDetails EndorsementDetails { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sensitivityLabel")]
+        public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
+        /// Gets or sets report type. Possible values include:
+        /// 'PaginatedReport'
+        /// </summary>
+        [JsonProperty(PropertyName = "reportType")]
+        public string ReportType { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -83,7 +146,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
+            if (SensitivityLabel != null)
+            {
+                SensitivityLabel.Validate();
+            }
         }
     }
 }

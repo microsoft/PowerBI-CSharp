@@ -29,7 +29,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="datasets">List of datasets</param>
         /// <param name="reports">List of reports</param>
-        /// <param name="targetWorkspaces">List of target workspaces</param>
+        /// <param name="targetWorkspaces">List of workspaces *Embed Token*
+        /// allows saving to</param>
         /// <param name="identities">List of identities to use for RLS
         /// rules.</param>
         public GenerateTokenRequestV2(IList<GenerateTokenRequestV2Dataset> datasets = default(IList<GenerateTokenRequestV2Dataset>), IList<GenerateTokenRequestV2Report> reports = default(IList<GenerateTokenRequestV2Report>), IList<GenerateTokenRequestV2TargetWorkspace> targetWorkspaces = default(IList<GenerateTokenRequestV2TargetWorkspace>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
@@ -59,7 +60,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<GenerateTokenRequestV2Report> Reports { get; set; }
 
         /// <summary>
-        /// Gets or sets list of target workspaces
+        /// Gets or sets list of workspaces *Embed Token* allows saving to
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaces")]
         public IList<GenerateTokenRequestV2TargetWorkspace> TargetWorkspaces { get; set; }
