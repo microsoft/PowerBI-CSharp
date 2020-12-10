@@ -14962,7 +14962,7 @@
                 },
                 "credentialType": {
                     "type": "string",
-                    "description": "Type of the datasoruce credentials",
+                    "description": "Type of the datasource credentials",
                     "enum": [
                         "Basic",
                         "Windows",
