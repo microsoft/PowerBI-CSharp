@@ -118,7 +118,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<WorkspaceInfoResponse>> GetScanResultWithHttpMessagesAsync(System.Guid scanId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets a list of workspace IDs in the organization. When using
-        /// $modifiedSince, returns only the IDs of workspaces that had changed
+        /// modifiedSince, returns only the IDs of workspaces that had changed
         /// since the time specified in the modifiedSince parameter. If not
         /// provided, returns a list of all workspace IDs in the organization.
         /// </summary>

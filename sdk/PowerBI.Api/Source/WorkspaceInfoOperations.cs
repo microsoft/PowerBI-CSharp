@@ -113,11 +113,11 @@ namespace Microsoft.PowerBI.Api
             List<string> _queryParameters = new List<string>();
             if (lineage != null)
             {
-                _queryParameters.Add(string.Format("$lineage={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(lineage, Client.SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("lineage={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(lineage, Client.SerializationSettings).Trim('"'))));
             }
             if (datasourceDetails != null)
             {
-                _queryParameters.Add(string.Format("$datasourceDetails={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceDetails, Client.SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("datasourceDetails={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceDetails, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -503,10 +503,10 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets a list of workspace IDs in the organization. When using
-        /// $modifiedSince, returns only the IDs of workspaces that had changed since
-        /// the time specified in the modifiedSince parameter. If not provided, returns
-        /// a list of all workspace IDs in the organization.
+        /// Gets a list of workspace IDs in the organization. When using modifiedSince,
+        /// returns only the IDs of workspaces that had changed since the time
+        /// specified in the modifiedSince parameter. If not provided, returns a list
+        /// of all workspace IDs in the organization.
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -553,7 +553,7 @@ namespace Microsoft.PowerBI.Api
             List<string> _queryParameters = new List<string>();
             if (modifiedSince != null)
             {
-                _queryParameters.Add(string.Format("$modifiedSince={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(modifiedSince, Client.SerializationSettings).Trim('"'))));
+                _queryParameters.Add(string.Format("modifiedSince={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(modifiedSince, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

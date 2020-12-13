@@ -10669,14 +10669,14 @@
                         }
                     },
                     {
-                        "name": "$lineage",
+                        "name": "lineage",
                         "in": "query",
                         "description": "Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​",
                         "required": false,
                         "type": "boolean"
                     },
                     {
-                        "name": "$datasourceDetails",
+                        "name": "datasourceDetails",
                         "in": "query",
                         "description": "Whether to return datasource details​",
                         "required": false,
@@ -10937,7 +10937,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets a list of workspace IDs in the organization. When using $modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization.",
+                "summary": "Gets a list of workspace IDs in the organization. When using modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization.",
                 "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [
@@ -10948,7 +10948,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "$modifiedSince",
+                        "name": "modifiedSince",
                         "in": "query",
                         "description": "Last modified date​ (must be in ISO 8601 compliant UTC format)",
                         "required": false,
