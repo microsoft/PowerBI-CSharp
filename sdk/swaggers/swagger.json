@@ -10707,11 +10707,9 @@
                             "202": {
                                 "header": "Location",
                                 "body": {
-                                    "value": {
-                                        "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
-                                        "createdDateTime": "2020-06-15T16:46:28.0487687Z",
-                                        "status": "NotStarted"
-                                    }
+                                    "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
+                                    "createdDateTime": "2020-06-15T16:46:28.0487687Z",
+                                    "status": "NotStarted"
                                 }
                             }
                         }
@@ -10760,11 +10758,9 @@
                             "200": {
                                 "header": "Location",
                                 "body": {
-                                    "value": {
-                                        "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
-                                        "createdDateTime": "2020-06-15T16:46:28.0487687Z",
-                                        "status": "Succeeded"
-                                    }
+                                    "id": "e7d03602-4873-4760-b37e-1563ef5358e3",
+                                    "createdDateTime": "2020-06-15T16:46:28.0487687Z",
+                                    "status": "Succeeded"
                                 }
                             }
                         }
@@ -10812,7 +10808,6 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "value": {
                                         "workspaces": [
                                             {
                                                 "id": "d507422c-8d6d-4361-ac7a-30074a8cd0a1",
@@ -10923,7 +10918,6 @@
                                                 "gatewayId": "e820592e-f8cf-4a6f-b1ed-566799d29565"
                                             }
                                         ]
-                                    }
                                 }
                             }
                         }
@@ -10937,8 +10931,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets a list of workspace IDs in the organization. When using modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Gets a list of workspace IDs in the organization. When using modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization. modifiedSince parameter should range from 30 minutes to 30 days ago. Notice changes can take up to 30 minutes to take effect.",
+                "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows a maximum of 30 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [
                     "application/json"
@@ -10971,16 +10965,14 @@
                         },
                         "responses": {
                             "200": {
-                                "body": {
-                                    "value": [
-                                        {
-                                            "Id": "3740504d-1f93-42f9-8e9d-c8ba9b787a3b"
-                                        },
-                                        {
-                                            "Id": "19cb346c-9839-4e19-81e6-76364d0b836f"
-                                        }
-                                    ]
-                                }
+                                "body": [
+                                    {
+                                        "Id": "3740504d-1f93-42f9-8e9d-c8ba9b787a3b"
+                                    },
+                                    {
+                                        "Id": "19cb346c-9839-4e19-81e6-76364d0b836f"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -14312,28 +14304,28 @@
                 },
                 "reports": {
                     "type": "array",
-                    "description": "The reports associated with this workspace",
+                    "description": "The reports associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
                     "items": {
                         "$ref": "#/definitions/Report"
                     }
                 },
                 "dashboards": {
                     "type": "array",
-                    "description": "The dashboards associated with this workspace",
+                    "description": "The dashboards associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
                     "items": {
                         "$ref": "#/definitions/Dashboard"
                     }
                 },
                 "datasets": {
                     "type": "array",
-                    "description": "The datasets associated with this workspace",
+                    "description": "The datasets associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
                     "items": {
                         "$ref": "#/definitions/Dataset"
                     }
                 },
                 "dataflows": {
                     "type": "array",
-                    "description": "The dataflows associated with this workspace",
+                    "description": "The dataflows associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
                     "items": {
                         "$ref": "#/definitions/Dataflow"
                     }
