@@ -37,14 +37,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="isOnDedicatedCapacity">Whether the workspace is on
         /// dedicated capacity</param>
         /// <param name="capacityId">The workspace capacity ID</param>
-        /// <param name="reports">The reports associated with this
-        /// workspace</param>
+        /// <param name="reports">The reports associated with this workspace.
+        /// The list of properties returned varies between APIs, thus you may
+        /// not see them all as part of the API response.</param>
         /// <param name="dashboards">The dashboards associated with this
-        /// workspace</param>
-        /// <param name="datasets">The datasets associated with this
-        /// workspace</param>
+        /// workspace. The list of properties returned varies between APIs,
+        /// thus you may not see them all as part of the API response.</param>
+        /// <param name="datasets">The datasets associated with this workspace.
+        /// The list of properties returned varies between APIs, thus you may
+        /// not see them all as part of the API response.</param>
         /// <param name="dataflows">The dataflows associated with this
-        /// workspace</param>
+        /// workspace. The list of properties returned varies between APIs,
+        /// thus you may not see them all as part of the API response.</param>
         public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>))
         {
             Id = id;
@@ -116,25 +120,33 @@ namespace Microsoft.PowerBI.Api.Models
         public string CapacityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the reports associated with this workspace
+        /// Gets or sets the reports associated with this workspace. The list
+        /// of properties returned varies between APIs, thus you may not see
+        /// them all as part of the API response.
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<Report> Reports { get; set; }
 
         /// <summary>
-        /// Gets or sets the dashboards associated with this workspace
+        /// Gets or sets the dashboards associated with this workspace. The
+        /// list of properties returned varies between APIs, thus you may not
+        /// see them all as part of the API response.
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
         public IList<Dashboard> Dashboards { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasets associated with this workspace
+        /// Gets or sets the datasets associated with this workspace. The list
+        /// of properties returned varies between APIs, thus you may not see
+        /// them all as part of the API response.
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<Dataset> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataflows associated with this workspace
+        /// Gets or sets the dataflows associated with this workspace. The list
+        /// of properties returned varies between APIs, thus you may not see
+        /// them all as part of the API response.
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
         public IList<Dataflow> Dataflows { get; set; }
