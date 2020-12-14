@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="tiles">The tiles that belong to the dashboard.</param>
         /// <param name="dataClassification">The data classification tag of the
         /// dashboard</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string))
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
         {
             Id = id;
             DisplayName = displayName;
@@ -42,6 +42,7 @@ namespace Microsoft.PowerBI.Api.Models
             EmbedUrl = embedUrl;
             Tiles = tiles;
             DataClassification = dataClassification;
+            SensitivityLabel = sensitivityLabel;
             CustomInit();
         }
 
@@ -87,6 +88,11 @@ namespace Microsoft.PowerBI.Api.Models
         public string DataClassification { get; set; }
 
         /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sensitivityLabel")]
+        public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -103,6 +109,10 @@ namespace Microsoft.PowerBI.Api.Models
                         element.Validate();
                     }
                 }
+            }
+            if (SensitivityLabel != null)
+            {
+                SensitivityLabel.Validate();
             }
         }
     }

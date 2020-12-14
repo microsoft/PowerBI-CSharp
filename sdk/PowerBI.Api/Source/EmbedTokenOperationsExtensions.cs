@@ -18,10 +18,14 @@ namespace Microsoft.PowerBI.Api
             /// <summary>
             /// Generates an embed token for multiple reports, datasets and target
             /// workspaces. Reports and datasets do not have to be related. The binding of
-            /// a report to a dataset can be done during embedding. Target workspaces are
-            /// workspaces where creation of reports is allowed.&lt;br/&gt;This API is
-            /// relevant only to ['App owns data' embed
+            /// a report to a dataset can be done during embedding. Creating a report can
+            /// only be done in workspaces specified in
+            /// *targetWrokspaces*.&lt;br/&gt;&lt;br/&gt;This API is relevant only to ['App
+            /// owns data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// For more information about using this API, see [Considerations when
+            /// generating an embed
+            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: &lt;ul&gt;&lt;li&gt;Content.Create -
@@ -61,10 +65,14 @@ namespace Microsoft.PowerBI.Api
             /// <summary>
             /// Generates an embed token for multiple reports, datasets and target
             /// workspaces. Reports and datasets do not have to be related. The binding of
-            /// a report to a dataset can be done during embedding. Target workspaces are
-            /// workspaces where creation of reports is allowed.&lt;br/&gt;This API is
-            /// relevant only to ['App owns data' embed
+            /// a report to a dataset can be done during embedding. Creating a report can
+            /// only be done in workspaces specified in
+            /// *targetWrokspaces*.&lt;br/&gt;&lt;br/&gt;This API is relevant only to ['App
+            /// owns data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// For more information about using this API, see [Considerations when
+            /// generating an embed
+            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: &lt;ul&gt;&lt;li&gt;Content.Create -

@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -31,13 +33,24 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="modelUrl">A URL to the dataflow definition file
         /// (model.json)</param>
         /// <param name="configuredBy">The dataflow owner</param>
-        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string))
+        /// <param name="modifiedBy">The user that modified this
+        /// dataflow</param>
+        /// <param name="modifiedDateTime">modification date time</param>
+        /// <param name="datasourceUsages">Datasource usages</param>
+        /// <param name="upstreamDataflows">Upstream Dataflows</param>
+        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
         {
             ObjectId = objectId;
             Name = name;
             Description = description;
             ModelUrl = modelUrl;
             ConfiguredBy = configuredBy;
+            ModifiedBy = modifiedBy;
+            EndorsementDetails = endorsementDetails;
+            ModifiedDateTime = modifiedDateTime;
+            DatasourceUsages = datasourceUsages;
+            UpstreamDataflows = upstreamDataflows;
+            SensitivityLabel = sensitivityLabel;
             CustomInit();
         }
 
@@ -77,6 +90,40 @@ namespace Microsoft.PowerBI.Api.Models
         public string ConfiguredBy { get; set; }
 
         /// <summary>
+        /// Gets or sets the user that modified this dataflow
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedBy")]
+        public string ModifiedBy { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "endorsementDetails")]
+        public EndorsementDetails EndorsementDetails { get; set; }
+
+        /// <summary>
+        /// Gets or sets modification date time
+        /// </summary>
+        [JsonProperty(PropertyName = "modifiedDateTime")]
+        public System.DateTime? ModifiedDateTime { get; set; }
+
+        /// <summary>
+        /// Gets or sets datasource usages
+        /// </summary>
+        [JsonProperty(PropertyName = "datasourceUsages")]
+        public IList<DatasourceUsage> DatasourceUsages { get; set; }
+
+        /// <summary>
+        /// Gets or sets upstream Dataflows
+        /// </summary>
+        [JsonProperty(PropertyName = "upstreamDataflows")]
+        public IList<DependentDataflow> UpstreamDataflows { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "sensitivityLabel")]
+        public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -84,7 +131,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            //Nothing to validate
+            if (DatasourceUsages != null)
+            {
+                foreach (var element in DatasourceUsages)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+            if (SensitivityLabel != null)
+            {
+                SensitivityLabel.Validate();
+            }
         }
     }
 }

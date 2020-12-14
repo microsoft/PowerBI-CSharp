@@ -661,8 +661,12 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified dashboard from the specified
-            /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to the ['App owns
+            /// data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// For more information about using this API, see [Considerations when
+            /// generating an embed
+            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -696,8 +700,12 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified dashboard from the specified
-            /// workspace.&lt;br/&gt;This API is relevant only to ['App owns data' embed
+            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to the ['App owns
+            /// data' embed
             /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
+            /// For more information about using this API, see [Considerations when
+            /// generating an embed
+            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: (all of the below)
@@ -808,11 +816,12 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
+            /// scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -840,11 +849,12 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
+            /// scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
