@@ -497,10 +497,11 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-        /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Global Administrator or Power BI Service Administrator) to call this API or
+        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the
+        /// permissions scope, see [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline
@@ -1302,12 +1303,12 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// **Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland.
         /// The user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide either a
-        /// continuation token or both a start and end date time. StartDateTime and
-        /// EndDateTime must be in the same UTC day.
+        /// Administrator or Power BI Service Administrator) to call this API or
+        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;To call this API,
+        /// provide either a continuation token or both a start and end date time.
+        /// StartDateTime and EndDateTime must be in the same UTC day.
         /// </remarks>
         /// <param name='startDateTime'>
         /// Start date and time of the window for audit event results. Must be in ISO
