@@ -34,6 +34,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="tiles">The tiles that belong to the dashboard.</param>
         /// <param name="dataClassification">The data classification tag of the
         /// dashboard</param>
+        /// <param name="sensitivityLabel">The dashboard sensitivity
+        /// label</param>
         public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
         {
             Id = id;
@@ -88,6 +90,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string DataClassification { get; set; }
 
         /// <summary>
+        /// Gets or sets the dashboard sensitivity label
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }

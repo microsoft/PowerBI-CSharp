@@ -14153,12 +14153,12 @@
             "required": [
                 "labelId"
             ],
-            "description": "Workspace info sensitivity label",
+            "description": "Artifact sensitivity label info",
             "properties": {
                 "labelId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The datasource instance ID"
+                    "description": "The sensitivity label ID"
                 }
             }
         },
@@ -14491,7 +14491,8 @@
                     "description": "The dataset description"
                 },
                 "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails"
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The dataset endorsement details"
                 },
                 "datasourceUsages": {
                     "type": "array",
@@ -14508,7 +14509,8 @@
                     }
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The dataset sensitivity label"
                 }
             }
         },
@@ -15237,14 +15239,17 @@
                     "description": "The report modified date time."
                 },
                 "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails"
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The report endorsement details"
+
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The report sensitivity label"
                 },
                 "reportType": {
                     "type": "string",
-                    "description": "Report type",
+                    "description": "The report type",
                     "enum": [
                         "PaginatedReport"
                     ]
@@ -15304,7 +15309,8 @@
                     "description": "The data classification tag of the dashboard"
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The dashboard sensitivity label"
                 }
             }
         },
@@ -17099,7 +17105,8 @@
                     "description": "The user that modified this dataflow"
                 },
                 "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails"
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The dataflow endorsement details"
                 },
                 "modifiedDateTime": {
                     "type": "string",
@@ -17121,7 +17128,9 @@
                     }
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The dataflow sensitivity label"
+
                 }
             }
         },

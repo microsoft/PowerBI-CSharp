@@ -35,9 +35,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="configuredBy">The dataflow owner</param>
         /// <param name="modifiedBy">The user that modified this
         /// dataflow</param>
+        /// <param name="endorsementDetails">The dataflow endorsement
+        /// details</param>
         /// <param name="modifiedDateTime">modification date time</param>
         /// <param name="datasourceUsages">Datasource usages</param>
         /// <param name="upstreamDataflows">Upstream Dataflows</param>
+        /// <param name="sensitivityLabel">The dataflow sensitivity
+        /// label</param>
         public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
         {
             ObjectId = objectId;
@@ -96,6 +100,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string ModifiedBy { get; set; }
 
         /// <summary>
+        /// Gets or sets the dataflow endorsement details
         /// </summary>
         [JsonProperty(PropertyName = "endorsementDetails")]
         public EndorsementDetails EndorsementDetails { get; set; }
@@ -119,6 +124,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
 
         /// <summary>
+        /// Gets or sets the dataflow sensitivity label
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }
