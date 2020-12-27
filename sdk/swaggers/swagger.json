@@ -14860,6 +14860,22 @@
                 "formatString": {
                     "type": "string",
                     "description": "(Optional) The format of the column as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                },
+                "sortByColumn": {
+                    "type": "string",
+                    "description": "(Optional) String name of a column in the same table to be used to order the current column"
+                },
+                "dataCategory": {
+                    "type": "string",
+                    "description": "(Optional) String value to be used for the data category which describes the data within this column"
+                },
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "(Optional) Property indicating if the column is hidden from view. Default is false."
+                },
+                "summarizeBy": {
+                    "type": "string",
+                    "description": "(Optional) Aggregate Function to use for summarizing this column"
                 }
             }
         },
@@ -14887,6 +14903,18 @@
                 "expression": {
                     "type": "string",
                     "description": "A valid DAX expression"
+                },
+                "formatString": {
+                    "type": "string",
+                    "description": "(Optional) A string describing how the value should be formatted when it is displayed as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional) Measure description"
+                },
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "(Optional) Is measure hidden"
                 }
             }
         },
