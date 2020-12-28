@@ -12,7 +12,7 @@ if "%MINOR%"=="" SET MINOR=0
 echo ========================================
 echo "Pack PowerBI.Api.csproj Release - AnyCPU..."
 echo ========================================
-call msbuild %~dp0..\sdk\PowerBI.Api\PowerBI.Api.csproj /t:pack /p:Configuration=Release /p:CdpxPostSigning=true /p:PackageVersion=%MAJOR%.%MINOR%.0 /p:PackageOutputPath=%~dp0..\pack\Clean
+call msbuild %~dp0..\sdk\PowerBI.Api\PowerBI.Api.csproj /t:pack /p:Configuration=Release /p:CdpxPostSigning=true /p:PackageVersion=%MAJOR%.%MINOR%.1 /p:PackageOutputPath=%~dp0..\pack\Clean
 
 set EX=%ERRORLEVEL%
 
