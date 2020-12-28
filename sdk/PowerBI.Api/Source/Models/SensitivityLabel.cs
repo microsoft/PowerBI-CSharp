@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Workspace info sensitivity label
+    /// Artifact sensitivity label info
     /// </summary>
     public partial class SensitivityLabel
     {
@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the SensitivityLabel class.
         /// </summary>
-        /// <param name="labelId">The datasource instance ID</param>
+        /// <param name="labelId">The sensitivity label ID</param>
         public SensitivityLabel(System.Guid labelId)
         {
             LabelId = labelId;
@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the datasource instance ID
+        /// Gets or sets the sensitivity label ID
         /// </summary>
         [JsonProperty(PropertyName = "labelId")]
         public System.Guid LabelId { get; set; }

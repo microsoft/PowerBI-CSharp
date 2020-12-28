@@ -36,7 +36,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="createdDateTime">The report created date time.</param>
         /// <param name="modifiedDateTime">The report modified date
         /// time.</param>
-        /// <param name="reportType">Report type. Possible values include:
+        /// <param name="endorsementDetails">The report endorsement
+        /// details</param>
+        /// <param name="sensitivityLabel">The report sensitivity label</param>
+        /// <param name="reportType">The report type. Possible values include:
         /// 'PaginatedReport'</param>
         public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string))
         {
@@ -122,17 +125,19 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? ModifiedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or sets the report endorsement details
         /// </summary>
         [JsonProperty(PropertyName = "endorsementDetails")]
         public EndorsementDetails EndorsementDetails { get; set; }
 
         /// <summary>
+        /// Gets or sets the report sensitivity label
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets report type. Possible values include:
+        /// Gets or sets the report type. Possible values include:
         /// 'PaginatedReport'
         /// </summary>
         [JsonProperty(PropertyName = "reportType")]
