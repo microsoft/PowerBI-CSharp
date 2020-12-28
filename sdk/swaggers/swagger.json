@@ -10718,7 +10718,7 @@
                 "deprecated": false
             }
         },
-        "/v1.0/myorg/admin/workspaces/scanStatus": {
+        "/v1.0/myorg/admin/workspaces/scanStatus/{scanId}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -10769,7 +10769,7 @@
                 "deprecated": false
             }
         },
-        "/v1.0/myorg/admin/workspaces/scanResult": {
+        "/v1.0/myorg/admin/workspaces/scanResult/{scanId}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -10808,116 +10808,116 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                        "workspaces": [
-                                            {
-                                                "id": "d507422c-8d6d-4361-ac7a-30074a8cd0a1",
-                                                "name": "V2 shared",
-                                                "type": "Workspace",
-                                                "state": "Active",
-                                                "isOnDedicatedCapacity": false,
-                                                "reports": [
-                                                    {
-                                                        "id": "c6d072d1-ed20-4b60-8329-16c4b934203b",
-                                                        "name": "CompositeModelParams-RLS",
-                                                        "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c",
-                                                        "createdDateTime": "2020-06-16T08:22:49.14",
-                                                        "modifiedDateTime": "2020-06-16T08:22:49.14",
-                                                        "modifiedBy": "john@contoso.com",
-                                                        "reportType": "PaginatedReport",
-                                                        "endorsementDetails": {
-                                                            "endorsement": "Certified",
-                                                            "certifiedBy": "john@contoso.com"
+                                    "workspaces": [
+                                        {
+                                            "id": "d507422c-8d6d-4361-ac7a-30074a8cd0a1",
+                                            "name": "V2 shared",
+                                            "type": "Workspace",
+                                            "state": "Active",
+                                            "isOnDedicatedCapacity": false,
+                                            "reports": [
+                                                {
+                                                    "id": "c6d072d1-ed20-4b60-8329-16c4b934203b",
+                                                    "name": "CompositeModelParams-RLS",
+                                                    "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c",
+                                                    "createdDateTime": "2020-06-16T08:22:49.14",
+                                                    "modifiedDateTime": "2020-06-16T08:22:49.14",
+                                                    "modifiedBy": "john@contoso.com",
+                                                    "reportType": "PaginatedReport",
+                                                    "endorsementDetails": {
+                                                        "endorsement": "Certified",
+                                                        "certifiedBy": "john@contoso.com"
+                                                    },
+                                                    "sensitivityLabel": {
+                                                        "labelId": "85b38049-4259-43a2-8feb-244e222d96c0"
+                                                    }
+                                                }
+                                            ],
+                                            "dashboards": [
+                                                {
+                                                    "id": "80814ece-9302-49e3-b6bc-bad2f7a86c1a",
+                                                    "displayName": "CompositeModelParamsDashboard",
+                                                    "isReadOnly": false,
+                                                    "tiles": [
+                                                        {
+                                                            "id": "e687cc21-5b32-48f5-8c5e-4b844f190579",
+                                                            "title": "CompositeModelParamsDashboard",
+                                                            "reportId": "c6d072d1-ed20-4b60-8329-16c4b934203b",
+                                                            "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c"
+                                                        }
+                                                    ],
+                                                    "sensitivityLabel": {
+                                                        "labelId": "d9b9581a-0594-4c39-81c5-91ddf40baeda"
+                                                    }
+                                                }
+                                            ],
+                                            "datasets": [
+                                                {
+                                                    "id": "e7e8a355-e77b-4418-a7b8-ae5972fdaa03",
+                                                    "name": "ExportB",
+                                                    "tables": [],
+                                                    "relationships": [],
+                                                    "configuredBy": "john@contoso.com",
+                                                    "targetStorageMode": "Abf",
+                                                    "endorsementDetails": {
+                                                        "endorsement": "Certified",
+                                                        "certifiedBy": "john@contoso.com"
+                                                    },
+                                                    "upstreamDataflows": [
+                                                        {
+                                                            "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
+                                                            "groupId": "b7416115-7421-42c0-b525-1505ce40d2f0"
                                                         },
-                                                        "sensitivityLabel": {
-                                                            "labelId": "85b38049-4259-43a2-8feb-244e222d96c0"
+                                                        {
+                                                            "targetDataflowId": "06898194-2eaf-4122-bacc-133db1f8585d",
+                                                            "groupId": "7263838d-80d7-4b8d-a1f6-50fc27e74a97"
                                                         }
-                                                    }
-                                                ],
-                                                "dashboards": [
-                                                    {
-                                                        "id": "80814ece-9302-49e3-b6bc-bad2f7a86c1a",
-                                                        "displayName": "CompositeModelParamsDashboard",
-                                                        "isReadOnly": false,
-                                                        "tiles": [
-                                                            {
-                                                                "id": "e687cc21-5b32-48f5-8c5e-4b844f190579",
-                                                                "title": "CompositeModelParamsDashboard",
-                                                                "reportId": "c6d072d1-ed20-4b60-8329-16c4b934203b",
-                                                                "datasetId": "132593c4-bf8d-4548-8f25-1ebb16a1613c"
-                                                            }
-                                                        ],
-                                                        "sensitivityLabel": {
-                                                            "labelId": "d9b9581a-0594-4c39-81c5-91ddf40baeda"
+                                                    ],
+                                                    "datasourceUsages": [
+                                                        {
+                                                            "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
                                                         }
+                                                    ],
+                                                    "sensitivityLabel": {
+                                                        "labelId": "bf3dc57d-d796-41c0-bbe9-a47f5ee3331e"
                                                     }
-                                                ],
-                                                "datasets": [
-                                                    {
-                                                        "id": "e7e8a355-e77b-4418-a7b8-ae5972fdaa03",
-                                                        "name": "ExportB",
-                                                        "tables": [],
-                                                        "relationships": [],
-                                                        "configuredBy": "john@contoso.com",
-                                                        "targetStorageMode": "Abf",
-                                                        "endorsementDetails": {
-                                                            "endorsement": "Certified",
-                                                            "certifiedBy": "john@contoso.com"
-                                                        },
-                                                        "upstreamDataflows": [
-                                                            {
-                                                                "targetDataflowId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
-                                                                "groupId": "b7416115-7421-42c0-b525-1505ce40d2f0"
-                                                            },
-                                                            {
-                                                                "targetDataflowId": "06898194-2eaf-4122-bacc-133db1f8585d",
-                                                                "groupId": "7263838d-80d7-4b8d-a1f6-50fc27e74a97"
-                                                            }
-                                                        ],
-                                                        "datasourceUsages": [
-                                                            {
-                                                                "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
-                                                            }
-                                                        ],
-                                                        "sensitivityLabel": {
-                                                            "labelId": "bf3dc57d-d796-41c0-bbe9-a47f5ee3331e"
+                                                }
+                                            ],
+                                            "dataflows": [
+                                                {
+                                                    "objectId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
+                                                    "name": "Azure SQL",
+                                                    "description": "Azure SQL dataflow",
+                                                    "configuredBy": "john@contoso.com",
+                                                    "modifiedBy": "john@contoso.com",
+                                                    "modifiedDateTime": "2020-06-16T08:27:47.783Z",
+                                                    "endorsementDetails": {
+                                                        "endorsement": "Certified",
+                                                        "certifiedBy": "john@contoso.com"
+                                                    },
+                                                    "datasourceUsages": [
+                                                        {
+                                                            "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
                                                         }
+                                                    ],
+                                                    "sensitivityLabel": {
+                                                        "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
                                                     }
-                                                ],
-                                                "dataflows": [
-                                                    {
-                                                        "objectId": "a842dbb1-32ca-46b0-9648-498b2c2d5e38",
-                                                        "name": "Azure SQL",
-                                                        "description": "Azure SQL dataflow",
-                                                        "configuredBy": "john@contoso.com",
-                                                        "modifiedBy": "john@contoso.com",
-                                                        "modifiedDateTime": "2020-06-16T08:27:47.783Z",
-                                                        "endorsementDetails": {
-                                                            "endorsement": "Certified",
-                                                            "certifiedBy": "john@contoso.com"
-                                                        },
-                                                        "datasourceUsages": [
-                                                            {
-                                                                "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
-                                                            }
-                                                        ],
-                                                        "sensitivityLabel": {
-                                                            "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        ],
-                                        "datasourceInstances": [
-                                            {
-                                                "datasourceType": "Sql",
-                                                "connectionDetails": {
-                                                    "server": "qlserver.database.windows.net",
-                                                    "database": "dbo.largest_table"
-                                                },
-                                                "datasourceId": "c79ad907-df19-43fe-a0f7-d9f365d67070",
-                                                "gatewayId": "e820592e-f8cf-4a6f-b1ed-566799d29565"
-                                            }
-                                        ]
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "datasourceInstances": [
+                                        {
+                                            "datasourceType": "Sql",
+                                            "connectionDetails": {
+                                                "server": "qlserver.database.windows.net",
+                                                "database": "dbo.largest_table"
+                                            },
+                                            "datasourceId": "c79ad907-df19-43fe-a0f7-d9f365d67070",
+                                            "gatewayId": "e820592e-f8cf-4a6f-b1ed-566799d29565"
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -14153,12 +14153,12 @@
             "required": [
                 "labelId"
             ],
-            "description": "Workspace info sensitivity label",
+            "description": "Artifact sensitivity label info",
             "properties": {
                 "labelId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The datasource instance ID"
+                    "description": "The sensitivity label ID"
                 }
             }
         },
@@ -14491,7 +14491,8 @@
                     "description": "The dataset description"
                 },
                 "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails"
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The dataset endorsement details"
                 },
                 "datasourceUsages": {
                     "type": "array",
@@ -14508,7 +14509,8 @@
                     }
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The dataset sensitivity label"
                 }
             }
         },
@@ -15237,14 +15239,17 @@
                     "description": "The report modified date time."
                 },
                 "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails"
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The report endorsement details"
+
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The report sensitivity label"
                 },
                 "reportType": {
                     "type": "string",
-                    "description": "Report type",
+                    "description": "The report type",
                     "enum": [
                         "PaginatedReport"
                     ]
@@ -15304,7 +15309,8 @@
                     "description": "The data classification tag of the dashboard"
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The dashboard sensitivity label"
                 }
             }
         },
@@ -17099,7 +17105,8 @@
                     "description": "The user that modified this dataflow"
                 },
                 "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails"
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The dataflow endorsement details"
                 },
                 "modifiedDateTime": {
                     "type": "string",
@@ -17121,7 +17128,9 @@
                     }
                 },
                 "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel"
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The dataflow sensitivity label"
+
                 }
             }
         },
