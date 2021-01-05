@@ -1,7 +1,7 @@
 ## Description
 A few sentences describing the overall goals of the pull request's commits.
 
-## Questison
+## Question
 please answer the following questions. put x inside [ ] (e.g. [x])
 
 ### What inside?
