@@ -16256,7 +16256,7 @@
                 },
                 "pages": {
                     "type": "array",
-                    "description": "List of pages to export and their properties",
+                    "description": "List of pages to export and their properties. The same page may appear more than once with different visuals",
                     "items": {
                         "$ref": "#/definitions/ExportReportPage"
                     }
@@ -16315,6 +16315,10 @@
                 "pageName": {
                     "type": "string",
                     "description": "The page name"
+                },
+                "visualName": {
+                    "type": "string",
+                    "description": "Visual name to be exported. Should be provided in case only a single visual from this page is exported"
                 },
                 "bookmark": {
                     "$ref": "#/definitions/PageBookmark",
