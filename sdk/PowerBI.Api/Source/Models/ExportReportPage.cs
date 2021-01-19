@@ -26,11 +26,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the ExportReportPage class.
         /// </summary>
         /// <param name="pageName">The page name</param>
+        /// <param name="visualName">Visual name to be exported. Should be
+        /// provided in case only a single visual from this page is
+        /// exported</param>
         /// <param name="bookmark">(Optional) The bookmark to be applied on the
         /// page</param>
-        public ExportReportPage(string pageName = default(string), PageBookmark bookmark = default(PageBookmark))
+        public ExportReportPage(string pageName = default(string), string visualName = default(string), PageBookmark bookmark = default(PageBookmark))
         {
             PageName = pageName;
+            VisualName = visualName;
             Bookmark = bookmark;
             CustomInit();
         }
@@ -45,6 +49,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "pageName")]
         public string PageName { get; set; }
+
+        /// <summary>
+        /// Gets or sets visual name to be exported. Should be provided in case
+        /// only a single visual from this page is exported
+        /// </summary>
+        [JsonProperty(PropertyName = "visualName")]
+        public string VisualName { get; set; }
 
         /// <summary>
         /// Gets or sets (Optional) The bookmark to be applied on the page
