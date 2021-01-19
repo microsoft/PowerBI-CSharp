@@ -35,8 +35,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// pages which don't have a specific bookmark</param>
         /// <param name="reportLevelFilters">List of report level filters to
         /// apply. Currently only one filter can be provided</param>
-        /// <param name="pages">List of pages to export and their
-        /// properties</param>
+        /// <param name="pages">List of pages to export and their properties.
+        /// The same page may appear more than once with different
+        /// visuals</param>
         /// <param name="identities">List of identities to use for RLS
         /// rules</param>
         public PowerBIReportExportConfiguration(ExportReportSettings settings = default(ExportReportSettings), PageBookmark defaultBookmark = default(PageBookmark), IList<ExportFilter> reportLevelFilters = default(IList<ExportFilter>), IList<ExportReportPage> pages = default(IList<ExportReportPage>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
@@ -75,7 +76,8 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<ExportFilter> ReportLevelFilters { get; set; }
 
         /// <summary>
-        /// Gets or sets list of pages to export and their properties
+        /// Gets or sets list of pages to export and their properties. The same
+        /// page may appear more than once with different visuals
         /// </summary>
         [JsonProperty(PropertyName = "pages")]
         public IList<ExportReportPage> Pages { get; set; }
