@@ -46,7 +46,9 @@ namespace Microsoft.PowerBI.Api
         /// the workload can consume.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+        /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+        /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
         /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -73,7 +75,9 @@ namespace Microsoft.PowerBI.Api
         /// workload can consume.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.Read.All or
+        /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+        /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+        /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
         /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -106,8 +110,10 @@ namespace Microsoft.PowerBI.Api
         /// workload can consume must be set.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+        /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+        /// capacities.&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All
+        /// &lt;br/&gt;To set the permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
