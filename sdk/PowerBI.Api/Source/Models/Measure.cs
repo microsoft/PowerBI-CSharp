@@ -28,10 +28,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The measure name</param>
         /// <param name="expression">A valid DAX expression</param>
-        public Measure(string name, string expression)
+        /// <param name="formatString">(Optional) A string describing how the
+        /// value should be formatted when it is displayed as specified in
+        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)</param>
+        /// <param name="description">(Optional) Measure description</param>
+        /// <param name="isHidden">(Optional) Is measure hidden</param>
+        public Measure(string name, string expression, string formatString = default(string), string description = default(string), bool? isHidden = default(bool?))
         {
             Name = name;
             Expression = expression;
+            FormatString = formatString;
+            Description = description;
+            IsHidden = isHidden;
             CustomInit();
         }
 
@@ -51,6 +59,26 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "expression")]
         public string Expression { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) A string describing how the value should be
+        /// formatted when it is displayed as specified in
+        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)
+        /// </summary>
+        [JsonProperty(PropertyName = "formatString")]
+        public string FormatString { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) Measure description
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) Is measure hidden
+        /// </summary>
+        [JsonProperty(PropertyName = "isHidden")]
+        public bool? IsHidden { get; set; }
 
         /// <summary>
         /// Validate the object.
