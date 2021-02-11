@@ -10,7 +10,10 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI report
+    /// A Power BI report. Below is a list of properties that may be returned
+    /// for a report. Only a subset of the properties will be returned
+    /// depending on the API called, the caller permissions and the
+    /// availability of the data in the Power BI database.
     /// </summary>
     public partial class Report
     {
