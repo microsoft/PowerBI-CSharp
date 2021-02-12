@@ -31,11 +31,24 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="formatString">(Optional) The format of the column as
         /// specified in
         /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)</param>
-        public Column(string name, string dataType, string formatString = default(string))
+        /// <param name="sortByColumn">(Optional) String name of a column in
+        /// the same table to be used to order the current column</param>
+        /// <param name="dataCategory">(Optional) String value to be used for
+        /// the data category which describes the data within this
+        /// column</param>
+        /// <param name="isHidden">(Optional) Property indicating if the column
+        /// is hidden from view. Default is false.</param>
+        /// <param name="summarizeBy">(Optional) Aggregate Function to use for
+        /// summarizing this column</param>
+        public Column(string name, string dataType, string formatString = default(string), string sortByColumn = default(string), string dataCategory = default(string), bool? isHidden = default(bool?), string summarizeBy = default(string))
         {
             Name = name;
             DataType = dataType;
             FormatString = formatString;
+            SortByColumn = sortByColumn;
+            DataCategory = dataCategory;
+            IsHidden = isHidden;
+            SummarizeBy = summarizeBy;
             CustomInit();
         }
 
@@ -62,6 +75,34 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "formatString")]
         public string FormatString { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) String name of a column in the same table
+        /// to be used to order the current column
+        /// </summary>
+        [JsonProperty(PropertyName = "sortByColumn")]
+        public string SortByColumn { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) String value to be used for the data
+        /// category which describes the data within this column
+        /// </summary>
+        [JsonProperty(PropertyName = "dataCategory")]
+        public string DataCategory { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) Property indicating if the column is hidden
+        /// from view. Default is false.
+        /// </summary>
+        [JsonProperty(PropertyName = "isHidden")]
+        public bool? IsHidden { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) Aggregate Function to use for summarizing
+        /// this column
+        /// </summary>
+        [JsonProperty(PropertyName = "summarizeBy")]
+        public string SummarizeBy { get; set; }
 
         /// <summary>
         /// Validate the object.

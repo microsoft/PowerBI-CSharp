@@ -33,7 +33,7 @@ namespace Microsoft.PowerBI.Api
         /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
         /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope,
         /// see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;/br&gt;&lt;/br&gt;When
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
         /// using service principal for authentication, refer to [Service
         /// Principal with Power
         /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)

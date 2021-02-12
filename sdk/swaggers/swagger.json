@@ -6441,7 +6441,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to allow report creation on the specified workspace based on the specified dataset.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Content.Create</li><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
                     "application/json"
@@ -6530,7 +6530,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li><li>Content.Create - required only if allowSaveAs specified in [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).<br/>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6754,7 +6754,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to [Embed Q&A](https://docs.microsoft.com/power-bi/developer/qanda) based on the specified dataset from the specified workspace.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Datasets_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6825,7 +6825,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified dashboard from the specified workspace.<br/><br/>This API is relevant only to the ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -6935,7 +6935,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified tile from the specified workspace.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). Generates an embed token to view the specified tile from the specified workspace.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
+                "description": "<br/>**Required scope**: (all of the below) <ul><li>Dashboard.ReadWrite.All or Dashboard.Read.All</li><li>Report.ReadWrite.All or Report.Read.All </li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section.",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8199,7 +8199,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns a list of gateways for which the user is an admin.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_GetGateways",
                 "consumes": [],
                 "produces": [
@@ -8245,7 +8245,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_GetGateway",
                 "consumes": [],
                 "produces": [
@@ -8298,7 +8298,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns a list of datasources from the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_GetDatasources",
                 "consumes": [],
                 "produces": [
@@ -8360,7 +8360,7 @@
                     "Gateways"
                 ],
                 "summary": "Creates a new datasource on the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"
@@ -8427,7 +8427,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns the specified datasource from the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_GetDatasource",
                 "consumes": [],
                 "produces": [
@@ -8486,7 +8486,7 @@
                     "Gateways"
                 ],
                 "summary": "Deletes the specified datasource from the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_DeleteDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8531,7 +8531,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified datasource from the specified gateway.",
-                "description": "<br/>**Note:** It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).<br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "description": "<br/>**Note:**<li>This API requires gateway admin permissions.</li><li>It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).</li><br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8669,7 +8669,7 @@
                     "Gateways"
                 ],
                 "summary": "Checks the connectivity status of the specified datasource from the specified gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_GetDatasourceStatus",
                 "consumes": [],
                 "produces": [
@@ -8730,7 +8730,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns a list of users who have access to the specified datasource.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_GetDatasourceUsers",
                 "consumes": [],
                 "produces": [
@@ -8796,7 +8796,7 @@
                     "Gateways"
                 ],
                 "summary": "Grants or updates the permissions required to use the specified datasource for the specified user.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_AddDatasourceUser",
                 "consumes": [
                     "application/json"
@@ -8872,7 +8872,7 @@
                     "Gateways"
                 ],
                 "summary": "Removes the specified user from the specified datasource.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Gateways_DeleteDatasourceUser",
                 "consumes": [
                     "application/json"
@@ -9449,7 +9449,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the current state of the specified capacity workloads, if a workload is enabled also returns the maximum memory percentage that the workload can consume.",
-                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** Workload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [
 
@@ -9506,7 +9506,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.",
-                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** Workload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_GetWorkload",
                 "consumes": [
 
@@ -9563,7 +9563,7 @@
                     "Capacities"
                 ],
                 "summary": "Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.",
-                "description": "<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** Workload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_PatchWorkload",
                 "consumes": [
                     "application/json"
@@ -13636,7 +13636,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets and target workspaces. Reports and datasets do not have to be related. The binding of a report to a dataset can be done during embedding. Creating a report can only be done in workspaces specified in *targetWrokspaces*.<br/><br/>This API is relevant only to ['App owns data' embed scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers). For more information about using this API, see [Considerations when generating an embed token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).",
-                "description": "<br/>**Required scope**: <ul><li>Content.Create - required only if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All or Report.Read.All - required only if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All - required if allowEdit flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).</br></br>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><ul><li>All the reports and datasets must reside in workspace V2. All the target workpaces must be workspace V2.</li><li>Maximum number of reports, datasets and target workspaces is 50 each.</li><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><li>Paginated reports are not supported.</li></ul><br/>",
+                "description": "<br/>**Required scope**: <ul><li>Content.Create - required only if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All or Report.Read.All - required only if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Report.ReadWrite.All - required if allowEdit flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/>When using service principal for authentication, refer to [Service Principal with Power BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal) document along with considerations and limitations section. <h2>Restrictions</h2><ul><li>All the reports and datasets must reside in workspace V2. All the target workpaces must be workspace V2.</li><li>Maximum number of reports, datasets and target workspaces is 50 each.</li><li>Generating Embed Token with RLS may not work for AS Azure or AS OnPrem live connection reports for several minutes after a [Rebind](/rest/api/power-bi/reports/RebindReport).</li><li>Paginated reports are not supported.</li></ul><br/>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -14427,7 +14427,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI dataset",
+            "description": "A Power BI dataset. Below is a list of properties that may be returned for a dataset. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -14862,6 +14862,22 @@
                 "formatString": {
                     "type": "string",
                     "description": "(Optional) The format of the column as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                },
+                "sortByColumn": {
+                    "type": "string",
+                    "description": "(Optional) String name of a column in the same table to be used to order the current column"
+                },
+                "dataCategory": {
+                    "type": "string",
+                    "description": "(Optional) String value to be used for the data category which describes the data within this column"
+                },
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "(Optional) Property indicating if the column is hidden from view. Default is false."
+                },
+                "summarizeBy": {
+                    "type": "string",
+                    "description": "(Optional) Aggregate Function to use for summarizing this column"
                 }
             }
         },
@@ -14889,6 +14905,18 @@
                 "expression": {
                     "type": "string",
                     "description": "A valid DAX expression"
+                },
+                "formatString": {
+                    "type": "string",
+                    "description": "(Optional) A string describing how the value should be formatted when it is displayed as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "(Optional) Measure description"
+                },
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "(Optional) Is measure hidden"
                 }
             }
         },
@@ -15193,7 +15221,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI report",
+            "description": "A Power BI report. Below is a list of properties that may be returned for a report. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -15278,7 +15306,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI dashboard",
+            "description": "A Power BI dashboard. Below is a list of properties that may be returned for a dashboard. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -17081,7 +17109,7 @@
             "required": [
                 "objectId"
             ],
-            "description": "The metadata of a dataflow",
+            "description": "The metadata of a dataflow. Below is a list of properties that may be returned for a dataflow. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
             "properties": {
                 "objectId": {
                     "type": "string",
