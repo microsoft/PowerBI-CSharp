@@ -6,6 +6,7 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -29,9 +30,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="visualName">Visual name to be exported. Should be
         /// provided in case only a single visual from this page is
         /// exported</param>
-        /// <param name="bookmark">(Optional) The bookmark to be applied on the
+        /// <param name="bookmark">The bookmark to be applied on the
         /// page</param>
-        public ExportReportPage(string pageName = default(string), string visualName = default(string), PageBookmark bookmark = default(PageBookmark))
+        public ExportReportPage(string pageName, string visualName = default(string), PageBookmark bookmark = default(PageBookmark))
         {
             PageName = pageName;
             VisualName = visualName;
@@ -58,10 +59,23 @@ namespace Microsoft.PowerBI.Api.Models
         public string VisualName { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The bookmark to be applied on the page
+        /// Gets or sets the bookmark to be applied on the page
         /// </summary>
         [JsonProperty(PropertyName = "bookmark")]
         public PageBookmark Bookmark { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (PageName == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "PageName");
+            }
+        }
     }
 }

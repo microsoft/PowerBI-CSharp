@@ -16339,6 +16339,9 @@
         },
         "ExportReportPage": {
             "description": "A single page configuration for the export request",
+            "required": [
+                "pageName"
+            ],
             "properties": {
                 "pageName": {
                     "type": "string",
@@ -16350,7 +16353,7 @@
                 },
                 "bookmark": {
                     "$ref": "#/definitions/PageBookmark",
-                    "description": "(Optional) The bookmark to be applied on the page"
+                    "description": "The bookmark to be applied on the page"
                 }
             }
         },
