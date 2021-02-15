@@ -13,7 +13,10 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI dataset
+    /// A Power BI dataset. Below is a list of properties that may be returned
+    /// for a dataset. Only a subset of the properties will be returned
+    /// depending on the API called, the caller permissions and the
+    /// availability of the data in the Power BI database.
     /// </summary>
     public partial class Dataset
     {

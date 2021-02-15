@@ -59,8 +59,11 @@ namespace Microsoft.PowerBI.Api
             /// workload can consume.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
+            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -80,8 +83,11 @@ namespace Microsoft.PowerBI.Api
             /// workload can consume.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
+            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -106,8 +112,11 @@ namespace Microsoft.PowerBI.Api
             /// returns the maximum memory percentage that the workload can consume.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
+            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -129,8 +138,11 @@ namespace Microsoft.PowerBI.Api
             /// returns the maximum memory percentage that the workload can consume.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
+            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
+            /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -159,8 +171,10 @@ namespace Microsoft.PowerBI.Api
             /// consume must be set.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// capacities.&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
@@ -186,8 +200,10 @@ namespace Microsoft.PowerBI.Api
             /// consume must be set.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
+            /// capacities.&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
