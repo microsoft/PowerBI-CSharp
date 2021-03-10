@@ -10649,7 +10649,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Initiate a call to receive metadata for the requested list of workspaces.(Preview)",
+                "summary": "Initiate a call to receive metadata for the requested list of workspaces. (Preview)",
                 "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_PostWorkspaceInfo",
                 "consumes": [

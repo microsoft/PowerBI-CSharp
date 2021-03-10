@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
     {
         /// <summary>
         /// Initiate a call to receive metadata for the requested list of
-        /// workspaces.(Preview)
+        /// workspaces. (Preview)
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as

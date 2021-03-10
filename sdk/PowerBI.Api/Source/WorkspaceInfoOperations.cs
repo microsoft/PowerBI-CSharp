@@ -47,8 +47,8 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Initiate a call to receive metadata for the requested list of
-        /// workspaces.(Preview)
+        /// Initiate a call to receive metadata for the requested list of workspaces.
+        /// (Preview)
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Microsoft 365
