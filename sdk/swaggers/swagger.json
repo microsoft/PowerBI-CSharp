@@ -1486,7 +1486,7 @@
                     "Datasets"
                 ],
                 "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
                     "application/json"
@@ -4607,7 +4607,7 @@
                     "Datasets"
                 ],
                 "summary": "Binds the specified dataset from the specified workspace to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
                     "application/json"
@@ -8396,12 +8396,33 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "SQL": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
                             "datasourceToGatewayRequest": {
                                 "dataSourceType": "SQL",
+                                "connectionDetails": "{\"server\":\"MyServer\",\"database\":\"MyDatabase\"}",
+                                "datasourceName": "Sample Datasource",
+                                "credentialDetails": {
+                                    "credentialType": "Windows",
+                                    "credentials": "AB....EF==",
+                                    "encryptedConnection": "Encrypted",
+                                    "encryptionAlgorithm": "RSA-OAEP",
+                                    "privacyLevel": "None"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Analysis Services": {
+                        "parameters": {
+                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                            "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
+                            "datasourceToGatewayRequest": {
+                                "dataSourceType": "AnalysisServices",
                                 "connectionDetails": "{\"server\":\"MyServer\",\"database\":\"MyDatabase\"}",
                                 "datasourceName": "Sample Datasource",
                                 "credentialDetails": {
@@ -16039,7 +16060,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "Identifier of the principal"
+                    "description": "Object Id of the principal"
                 },
                 "principalType": {
                     "type": "string",
@@ -16123,7 +16144,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "Identifier of the principal"
+                    "description": "Object Id of the principal"
                 },
                 "principalType": {
                     "type": "string",
