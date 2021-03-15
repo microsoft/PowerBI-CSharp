@@ -9177,7 +9177,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "<br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** User permissions are only refreshed when needed. As a result, the API might return a 401 error when a user has permission to a workspace. To refresh user permissions programmatically, use the [Refresh User Permissions](/rest/api/power-bi/users/refreshuserpermissions) API.<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupUsers",
                 "consumes": [],
                 "produces": [

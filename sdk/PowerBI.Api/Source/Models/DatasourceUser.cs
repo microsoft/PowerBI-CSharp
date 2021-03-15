@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'ReadOverrideEffectiveIdentity'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">Identifier of the principal</param>
+        /// <param name="identifier">Object Id of the principal</param>
         /// <param name="principalType">The principal type. Possible values
         /// include: 'User', 'Group', 'App'</param>
         public DatasourceUser(DatasourceUserAccessRight datasourceAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), PrincipalType? principalType = default(PrincipalType?))
@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets identifier of the principal
+        /// Gets or sets object Id of the principal
         /// </summary>
         [JsonProperty(PropertyName = "identifier")]
         public string Identifier { get; set; }

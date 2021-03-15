@@ -678,8 +678,10 @@ namespace Microsoft.PowerBI.Api
         /// only supports the On-Premises Data Gateway.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note:** API caller principal should be added as
+        /// datasource user on the gateway.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
@@ -1500,8 +1502,10 @@ namespace Microsoft.PowerBI.Api
         /// only supports the On-Premises Data Gateway.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note:** API caller principal should be added as
+        /// datasource user on the gateway.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Dataset.ReadWrite.All &lt;br/&gt;To set the permissions
+        /// scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
