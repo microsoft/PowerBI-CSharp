@@ -16060,7 +16060,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "Object Id of the principal"
+                    "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "principalType": {
                     "type": "string",
@@ -16144,7 +16144,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "Object Id of the principal"
+                    "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "principalType": {
                     "type": "string",
