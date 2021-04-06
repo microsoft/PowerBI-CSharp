@@ -11074,7 +11074,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API processes each request for 2 seconds, in the mean time other requests will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API processes each request for 2 seconds, in the mean time other requests will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [
 
@@ -11147,7 +11147,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasources for the specified dataset.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API processes each request for 0.5 seconds, in the mean time other requests  will be queued. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API processes each request for 0.5 seconds, in the mean time other requests  will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [
 
@@ -11207,7 +11207,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [
 
@@ -11788,7 +11788,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
                 "consumes": [
 
@@ -11856,7 +11856,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
                 "consumes": [
 
@@ -11935,7 +11935,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
                 "consumes": [
 
@@ -12015,7 +12015,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
                 "consumes": [
 
@@ -12133,7 +12133,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
                 "consumes": [
 
@@ -12188,7 +12188,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
                 "consumes": [
 
@@ -12269,7 +12269,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [
 
@@ -12340,7 +12340,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [
 
@@ -12416,7 +12416,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetTilesAsAdmin",
                 "consumes": [
 
@@ -12476,7 +12476,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of imports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_GetImportsAsAdmin",
                 "consumes": [
 
@@ -12628,7 +12628,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the encryption keys for the tenant.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetPowerBIEncryptionKeys",
                 "consumes": [
                 ],
@@ -12742,7 +12742,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of capacities for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetCapacitiesAsAdmin",
                 "consumes": [
                 ],
@@ -12885,7 +12885,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the organization within a capacity",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetRefreshables",
                 "consumes": [
                 ],
@@ -13105,7 +13105,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the specified capacity the user has access to",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetRefreshablesForCapacity",
                 "consumes": [
                 ],
@@ -13333,7 +13333,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the specified refreshable for the specified capacity the user has access to",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetRefreshableForCapacity",
                 "consumes": [
                 ],
@@ -13493,7 +13493,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowsAsAdmin",
                 "consumes": [
 
@@ -13563,7 +13563,7 @@
                     "Admin"
                 ],
                 "summary": "Exports the specified dataflow definition to a .json file.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_ExportDataflowAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -13596,7 +13596,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasources for the specified dataflow.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
                 "consumes": [
 
@@ -13764,7 +13764,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "**Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
+                "description": "**Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [
 
@@ -17839,15 +17839,15 @@
             }
         }
     },
-        "parameters": {
+    "parameters": {
 
-        },
-        "responses": {
+    },
+    "responses": {
 
-        },
-        "security": [
-        ],
-        "tags": [
+    },
+    "security": [
+    ],
+    "tags": [
 
-        ]
-    }
+    ]
+}

@@ -379,8 +379,9 @@ namespace Microsoft.PowerBI.Api
         /// this API or authenticate via service principal. &lt;br/&gt;This API
         /// allows 200 requests per hour at maximum.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='top'>
