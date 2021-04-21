@@ -14007,6 +14007,229 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/informationprotection/removeLabels": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Remove sensitivity labels from artifacts by artifact ID.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> The admin user must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All",
+                "operationId": "InformationProtection_RemoveLabelsAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "artifacts",
+                        "description": "Composite of artifact Id lists per Type.",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionArtifactsChangeLabel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionChangeLabelResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "artifacts": {
+                                "dashboards": [
+                                    {
+                                        "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a"
+                                    },
+                                    {
+                                        "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c"
+                                    }
+                                ],
+                                "datasets": [
+                                    {
+                                        "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e"
+                                    },
+                                    {
+                                        "id": "myDatabaseName"
+                                    }
+                                ],
+                                "dataflows": [
+                                    {
+                                        "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g"
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "dashboards": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a",
+                                            "status": "NotFound"
+                                        },
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b",
+                                            "status": "Failed"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c",
+                                            "status": "Succeeded"
+                                        }
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e",
+                                            "status": "InsufficientUsageRights"
+                                        },
+                                        {
+                                            "id": "myDatabaseName",
+                                            "status": "FailedToGetUsageRights"
+                                        }
+                                    ],
+                                    "dataflows": [
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g",
+                                            "status": "Succeeded"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/informationprotection/setLabels": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Set sensitivity labels on content in Power BI by artifact ID.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> To set a sensitivity label using this API, the admin user (or the delegated user, if provided) must have the label included in their [label policy](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). <br/> The admin user (and the delegated user, if provided) must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to set labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All",
+                "operationId": "InformationProtection_SetLabelsAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "informationProtectionChangeLabelDetails",
+                        "description": "Set label details.",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionChangeLabelDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionChangeLabelResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "informationProtectionChangeLabelDetails": {
+                                "artifacts": {
+                                    "dashboards": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a"
+                                        },
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c"
+                                        }
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e"
+                                        },
+                                        {
+                                            "id": "myDatabaseName"
+                                        }
+                                    ],
+                                    "dataflows": [
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g"
+                                        }
+                                    ]
+                                },
+                                "labelId" : "fe472f5e-636e-4c10-a1c6-7e9edc0b542p",
+                                "assignmentMethod" : "Standard",
+                                "delegatedUser": {
+                                    "emailAddress" : "john@contoso.com"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "dashboards": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a",
+                                            "status": "NotFound"
+                                        },
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b",
+                                            "status": "Failed"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c",
+                                            "status": "Succeeded"
+                                        }
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e",
+                                            "status": "InsufficientUsageRights"
+                                        },
+                                        {
+                                            "id": "myDatabaseName",
+                                            "status": "FailedToGetUsageRights"
+                                        }
+                                    ],
+                                    "dataflows": [
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g",
+                                            "status": "Succeeded"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/CreateTemplateAppInstallTicket": {
             "post": {
                 "tags": [
@@ -17835,6 +18058,203 @@
                     "type": "string",
                     "format": "date-time",
                     "description": "Expiration time of token. In UTC."
+                }
+            }
+        },   
+        "ArtifactId": {
+            "description": "Unique artifact ID: uuid format for dashboards/reports/dataflows.",
+            "required": [
+               "id"
+            ],
+            "properties": {
+                 "id": {
+               "type": "string",
+                "format": "uuid",
+                "description": "ID"
+                }
+            }
+        },
+        "ArtifactStringId": {
+            "description": "Unique artifact ID: string format (can be uuid) for datasets.",
+            "required": [
+                "id"
+             ],
+            "properties": {
+                "id": {
+                "type": "string",
+                "description": "ID"
+                }
+            }
+        },
+        "InformationProtectionArtifactsChangeLabel": {
+            "description": "Composite of artifact IDs that will be used to update the information protection labels of those artifacts.",
+            "properties": {
+                "dashboards": {
+                    "type": "array",
+                    "description": "List of unique dashboard IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactId"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "List of unique report IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactId"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "List of unique dataset IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactStringId"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "List of unique dataflow IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactId"
+                    }
+                }
+            }
+        },
+        "InformationProtectionChangeLabelResponse":{
+            "description": "Composite of artifact IDs and label change status.",
+            "properties": {
+                "dashboards": {
+                    "type": "array",
+                    "description": "List of unique dashboard IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "List of unique report IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "List of unique dataflow IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "List of unique dataset IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                }
+            }
+        },
+        "ChangeLabelStatus" :{
+            "description": "Artifact ID with information protection label status",
+            "required": [
+                "id",
+                "status"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique artifact Id, uuid format for dashboard/report/dataflow, and string format for dataset."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Indicates the result of the label change operation",
+                    "enum": [
+                        "Failed",
+                        "FailedToGetUsageRights",
+                        "InsufficientUsageRights",
+                        "NotFound",
+                        "Succeeded"
+                    ],
+                    "x-ms-enum": {
+                        "name": "status",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Failed",
+                                "description": "Label was not changed. Please retry."
+                            },
+                            {
+                                "value": "FailedToGetUsageRights",
+                                "description": "Failed to set new label. Artifact has a sensitivity label with protection settings. Power BI could not verify if user has sufficient usage rights to change label."
+                            },
+                            {
+                                "value": "InsufficientUsageRights",
+                                "description": "Failed to set new label. Artifact has a sensitivity label with protection settings that the admin, or both the admin and the delegated user, do not have sufficient usage rights to update label."
+                            },
+                            {
+                                "value": "NotFound",
+                                "description": "Artifact ID or label was not found."
+                            },
+                            {
+                                "value": "Succeeded",
+                                "description": "Label was changed on the given artifact."
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "InformationProtectionChangeLabelDetails" :{
+            "description": "Set label details.",
+            "required": [
+                "artifacts",
+                "labelId"
+            ],
+            "properties": {
+                "artifacts": {
+                    "description": "Composite of artifact ID lists per type.",
+                    "$ref": "#/definitions/InformationProtectionArtifactsChangeLabel"
+                },
+                "labelId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Label ID (must be in the user’s policy)."
+                },
+                "delegatedUser": {
+                    "description": "Delegated user details. A delegated user is a user in the admin’s organization on whose behalf the admin sets a label. Although the admin sets the label, the delegated user is marked as the label issuer.",
+                    "$ref": "#/definitions/DelegatedUser"
+                },
+                "assignmentMethod": {
+                    "type": "string",
+                    "enum": [
+                        "Standard",
+                        "Priviledged"
+                    ],
+                    "x-ms-enum": {
+                        "name": "assignmentMethod",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Standard",
+                                "description": "Specifies that the label was set as part of an automatic process."
+                            },
+                            {
+                                "value": "Priviledged",
+                                "description": "Specifies that the label was set manually."
+                            }
+                        ]
+                    },
+                    "description": "Specifies whether the assigned label is to be regarded as having been set manually or as the result of automatic labeling. (default value is Standard)."
+                }
+            }
+        },
+        "DelegatedUser" :{
+            "description": "Delegated user details. The user must be an existing user in Power BI and Azure AAD, who has signed in to Power BI during the last 3 months.",
+            "required": [
+                "emailAddress"
+            ],
+            "properties": {
+                "emailAddress": {
+                    "description": "Delegated user email address.",
+                    "type": "string"
                 }
             }
         }
