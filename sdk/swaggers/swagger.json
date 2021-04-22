@@ -1486,7 +1486,7 @@
                     "Datasets"
                 ],
                 "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
                     "application/json"
@@ -4607,7 +4607,7 @@
                     "Datasets"
                 ],
                 "summary": "Binds the specified dataset from the specified workspace to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
                     "application/json"
@@ -8396,12 +8396,33 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "SQL": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
                             "datasourceToGatewayRequest": {
                                 "dataSourceType": "SQL",
+                                "connectionDetails": "{\"server\":\"MyServer\",\"database\":\"MyDatabase\"}",
+                                "datasourceName": "Sample Datasource",
+                                "credentialDetails": {
+                                    "credentialType": "Windows",
+                                    "credentials": "AB....EF==",
+                                    "encryptedConnection": "Encrypted",
+                                    "encryptionAlgorithm": "RSA-OAEP",
+                                    "privacyLevel": "None"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Analysis Services": {
+                        "parameters": {
+                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
+                            "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
+                            "datasourceToGatewayRequest": {
+                                "dataSourceType": "AnalysisServices",
                                 "connectionDetails": "{\"server\":\"MyServer\",\"database\":\"MyDatabase\"}",
                                 "datasourceName": "Sample Datasource",
                                 "credentialDetails": {
@@ -9156,7 +9177,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "<br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Note:** User permissions are only refreshed when needed. As a result, the API might return a 401 error when a user has permission to a workspace. To refresh user permissions programmatically, use the [Refresh User Permissions](/rest/api/power-bi/users/refreshuserpermissions) API.<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupUsers",
                 "consumes": [],
                 "produces": [
@@ -10649,7 +10670,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Initiate a call to receive metadata for the requested list of workspaces",
+                "summary": "Initiate a call to receive metadata for the requested list of workspaces. (Preview)",
                 "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_PostWorkspaceInfo",
                 "consumes": [
@@ -10723,7 +10744,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets scan status for the specified scan",
+                "summary": "Gets scan status for the specified scan. (Preview)",
                 "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows a maximum of 10000 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_GetScanStatus",
                 "consumes": [
@@ -10774,7 +10795,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets scan result for the specified scan (should be called only after getting status Succeeded in the scan status API). Scan result will be available for up to 24 hours",
+                "summary": "Gets scan result for the specified scan (should be called only after getting status Succeeded in the scan status API). Scan result will be available for up to 24 hours. (Preview)",
                 "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows a maximum of 500 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_GetScanResult",
                 "consumes": [
@@ -10931,7 +10952,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets a list of workspace IDs in the organization. When using modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization. modifiedSince parameter should range from 30 minutes to 30 days ago. Notice changes can take up to 30 minutes to take effect.",
+                "summary": "Gets a list of workspace IDs in the organization. When using modifiedSince, returns only the IDs of workspaces that had changed since the time specified in the modifiedSince parameter. If not provided, returns a list of all workspace IDs in the organization. modifiedSince parameter should range from 30 minutes to 30 days ago. Notice changes can take up to 30 minutes to take effect. (Preview)",
                 "description": "**Note:** The user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows a maximum of 30 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [
@@ -11053,7 +11074,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API processes each request for 2 seconds, in the mean time other requests will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API processes each request for 2 seconds, in the mean time other requests will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
                 "consumes": [
 
@@ -11126,7 +11147,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasources for the specified dataset.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API processes each request for 0.5 seconds, in the mean time other requests  will be queued. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API processes each request for 0.5 seconds, in the mean time other requests  will be queued. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [
 
@@ -11186,7 +11207,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [
 
@@ -11767,7 +11788,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
                 "consumes": [
 
@@ -11835,7 +11856,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
                 "consumes": [
 
@@ -11914,7 +11935,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
                 "consumes": [
 
@@ -11994,7 +12015,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
                 "consumes": [
 
@@ -12112,7 +12133,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
                 "consumes": [
 
@@ -12167,7 +12188,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows from the specified workspace.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
                 "consumes": [
 
@@ -12248,7 +12269,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of reports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Reports_GetReportsAsAdmin",
                 "consumes": [
 
@@ -12319,7 +12340,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dashboards for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
                 "consumes": [
 
@@ -12395,7 +12416,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_GetTilesAsAdmin",
                 "consumes": [
 
@@ -12455,7 +12476,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of imports for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Imports_GetImportsAsAdmin",
                 "consumes": [
 
@@ -12607,7 +12628,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the encryption keys for the tenant.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetPowerBIEncryptionKeys",
                 "consumes": [
                 ],
@@ -12721,7 +12742,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of capacities for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetCapacitiesAsAdmin",
                 "consumes": [
                 ],
@@ -12864,7 +12885,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the organization within a capacity",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetRefreshables",
                 "consumes": [
                 ],
@@ -13084,7 +13105,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the specified capacity the user has access to",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetRefreshablesForCapacity",
                 "consumes": [
                 ],
@@ -13312,7 +13333,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the specified refreshable for the specified capacity the user has access to",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Admin_GetRefreshableForCapacity",
                 "consumes": [
                 ],
@@ -13472,7 +13493,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of dataflows for the organization.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowsAsAdmin",
                 "consumes": [
 
@@ -13542,7 +13563,7 @@
                     "Admin"
                 ],
                 "summary": "Exports the specified dataflow definition to a .json file.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_ExportDataflowAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -13575,7 +13596,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of datasources for the specified dataflow.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All<br/>Application only and delegated permissions are supported.<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
                 "consumes": [
 
@@ -13743,7 +13764,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "**Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
+                "description": "**Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [
 
@@ -13978,6 +13999,229 @@
                                     ],
                                     "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D'",
                                     "continuationToken": "%2BRID%$4Z244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/informationprotection/removeLabels": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Remove sensitivity labels from artifacts by artifact ID.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> The admin user must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All",
+                "operationId": "InformationProtection_RemoveLabelsAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "artifacts",
+                        "description": "Composite of artifact Id lists per Type.",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionArtifactsChangeLabel"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionChangeLabelResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "artifacts": {
+                                "dashboards": [
+                                    {
+                                        "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a"
+                                    },
+                                    {
+                                        "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c"
+                                    }
+                                ],
+                                "datasets": [
+                                    {
+                                        "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e"
+                                    },
+                                    {
+                                        "id": "myDatabaseName"
+                                    }
+                                ],
+                                "dataflows": [
+                                    {
+                                        "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g"
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "dashboards": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a",
+                                            "status": "NotFound"
+                                        },
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b",
+                                            "status": "Failed"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c",
+                                            "status": "Succeeded"
+                                        }
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e",
+                                            "status": "InsufficientUsageRights"
+                                        },
+                                        {
+                                            "id": "myDatabaseName",
+                                            "status": "FailedToGetUsageRights"
+                                        }
+                                    ],
+                                    "dataflows": [
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g",
+                                            "status": "Succeeded"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/informationprotection/setLabels": {
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Set sensitivity labels on content in Power BI by artifact ID.",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> To set a sensitivity label using this API, the admin user (or the delegated user, if provided) must have the label included in their [label policy](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). <br/> The admin user (and the delegated user, if provided) must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to set labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All",
+                "operationId": "InformationProtection_SetLabelsAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "informationProtectionChangeLabelDetails",
+                        "description": "Set label details.",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionChangeLabelDetails"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/InformationProtectionChangeLabelResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "informationProtectionChangeLabelDetails": {
+                                "artifacts": {
+                                    "dashboards": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a"
+                                        },
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c"
+                                        }
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e"
+                                        },
+                                        {
+                                            "id": "myDatabaseName"
+                                        }
+                                    ],
+                                    "dataflows": [
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g"
+                                        }
+                                    ]
+                                },
+                                "labelId" : "fe472f5e-636e-4c10-a1c6-7e9edc0b542p",
+                                "assignmentMethod" : "Standard",
+                                "delegatedUser": {
+                                    "emailAddress" : "john@contoso.com"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "dashboards": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542a",
+                                            "status": "NotFound"
+                                        },
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8b",
+                                            "status": "Failed"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542c",
+                                            "status": "Succeeded"
+                                        }
+                                    ],
+                                    "datasets": [
+                                        {
+                                            "id": "fe472f5e-636e-4c10-a1c6-7e9edc0b542e",
+                                            "status": "InsufficientUsageRights"
+                                        },
+                                        {
+                                            "id": "myDatabaseName",
+                                            "status": "FailedToGetUsageRights"
+                                        }
+                                    ],
+                                    "dataflows": [
+                                        {
+                                            "id": "476fcafe-b514-495d-b13f-ca9a4f0b1d8g",
+                                            "status": "Succeeded"
+                                        }
+                                    ]
                                 }
                             }
                         }
@@ -16039,7 +16283,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "Identifier of the principal"
+                    "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "principalType": {
                     "type": "string",
@@ -16123,7 +16367,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "Identifier of the principal"
+                    "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "principalType": {
                     "type": "string",
@@ -17816,17 +18060,214 @@
                     "description": "Expiration time of token. In UTC."
                 }
             }
+        },   
+        "ArtifactId": {
+            "description": "Unique artifact ID: uuid format for dashboards/reports/dataflows.",
+            "required": [
+               "id"
+            ],
+            "properties": {
+                 "id": {
+               "type": "string",
+                "format": "uuid",
+                "description": "ID"
+                }
+            }
+        },
+        "ArtifactStringId": {
+            "description": "Unique artifact ID: string format (can be uuid) for datasets.",
+            "required": [
+                "id"
+             ],
+            "properties": {
+                "id": {
+                "type": "string",
+                "description": "ID"
+                }
+            }
+        },
+        "InformationProtectionArtifactsChangeLabel": {
+            "description": "Composite of artifact IDs that will be used to update the information protection labels of those artifacts.",
+            "properties": {
+                "dashboards": {
+                    "type": "array",
+                    "description": "List of unique dashboard IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactId"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "List of unique report IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactId"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "List of unique dataset IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactStringId"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "List of unique dataflow IDs.",
+                    "items": {
+                        "$ref": "#/definitions/ArtifactId"
+                    }
+                }
+            }
+        },
+        "InformationProtectionChangeLabelResponse":{
+            "description": "Composite of artifact IDs and label change status.",
+            "properties": {
+                "dashboards": {
+                    "type": "array",
+                    "description": "List of unique dashboard IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "List of unique report IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "List of unique dataflow IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                },
+                "datasets": {
+                    "type": "array",
+                    "description": "List of unique dataset IDs with label change status.",
+                    "items": {
+                        "$ref": "#/definitions/ChangeLabelStatus"
+                    }
+                }
+            }
+        },
+        "ChangeLabelStatus" :{
+            "description": "Artifact ID with information protection label status",
+            "required": [
+                "id",
+                "status"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique artifact Id, uuid format for dashboard/report/dataflow, and string format for dataset."
+                },
+                "status": {
+                    "type": "string",
+                    "description": "Indicates the result of the label change operation",
+                    "enum": [
+                        "Failed",
+                        "FailedToGetUsageRights",
+                        "InsufficientUsageRights",
+                        "NotFound",
+                        "Succeeded"
+                    ],
+                    "x-ms-enum": {
+                        "name": "status",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Failed",
+                                "description": "Label was not changed. Please retry."
+                            },
+                            {
+                                "value": "FailedToGetUsageRights",
+                                "description": "Failed to set new label. Artifact has a sensitivity label with protection settings. Power BI could not verify if user has sufficient usage rights to change label."
+                            },
+                            {
+                                "value": "InsufficientUsageRights",
+                                "description": "Failed to set new label. Artifact has a sensitivity label with protection settings that the admin, or both the admin and the delegated user, do not have sufficient usage rights to update label."
+                            },
+                            {
+                                "value": "NotFound",
+                                "description": "Artifact ID or label was not found."
+                            },
+                            {
+                                "value": "Succeeded",
+                                "description": "Label was changed on the given artifact."
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "InformationProtectionChangeLabelDetails" :{
+            "description": "Set label details.",
+            "required": [
+                "artifacts",
+                "labelId"
+            ],
+            "properties": {
+                "artifacts": {
+                    "description": "Composite of artifact ID lists per type.",
+                    "$ref": "#/definitions/InformationProtectionArtifactsChangeLabel"
+                },
+                "labelId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Label ID (must be in the user’s policy)."
+                },
+                "delegatedUser": {
+                    "description": "Delegated user details. A delegated user is a user in the admin’s organization on whose behalf the admin sets a label. Although the admin sets the label, the delegated user is marked as the label issuer.",
+                    "$ref": "#/definitions/DelegatedUser"
+                },
+                "assignmentMethod": {
+                    "type": "string",
+                    "enum": [
+                        "Standard",
+                        "Priviledged"
+                    ],
+                    "x-ms-enum": {
+                        "name": "assignmentMethod",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Standard",
+                                "description": "Specifies that the label was set as part of an automatic process."
+                            },
+                            {
+                                "value": "Priviledged",
+                                "description": "Specifies that the label was set manually."
+                            }
+                        ]
+                    },
+                    "description": "Specifies whether the assigned label is to be regarded as having been set manually or as the result of automatic labeling. (default value is Standard)."
+                }
+            }
+        },
+        "DelegatedUser" :{
+            "description": "Delegated user details. The user must be an existing user in Power BI and Azure AAD, who has signed in to Power BI during the last 3 months.",
+            "required": [
+                "emailAddress"
+            ],
+            "properties": {
+                "emailAddress": {
+                    "description": "Delegated user email address.",
+                    "type": "string"
+                }
+            }
         }
     },
-        "parameters": {
+    "parameters": {
 
-        },
-        "responses": {
+    },
+    "responses": {
 
-        },
-        "security": [
-        ],
-        "tags": [
+    },
+    "security": [
+    ],
+    "tags": [
 
-        ]
-    }
+    ]
+}

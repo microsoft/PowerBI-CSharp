@@ -118,6 +118,11 @@ namespace Microsoft.PowerBI.Api
         public virtual IEmbedTokenOperations EmbedToken { get; private set; }
 
         /// <summary>
+        /// Gets the IInformationProtection.
+        /// </summary>
+        public virtual IInformationProtection InformationProtection { get; private set; }
+
+        /// <summary>
         /// Gets the ITemplateApps.
         /// </summary>
         public virtual ITemplateApps TemplateApps { get; private set; }
@@ -339,6 +344,7 @@ namespace Microsoft.PowerBI.Api
             WorkspaceInfo = new WorkspaceInfoOperations(this);
             Admin = new Admin(this);
             EmbedToken = new EmbedTokenOperations(this);
+            InformationProtection = new InformationProtection(this);
             TemplateApps = new TemplateApps(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings

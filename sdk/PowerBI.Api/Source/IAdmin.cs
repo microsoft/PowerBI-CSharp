@@ -56,9 +56,11 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office
         /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// this API or authenticate via service principal.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='customHeaders'>
@@ -117,8 +119,9 @@ namespace Microsoft.PowerBI.Api
         /// 365 Global Administrator or Power BI Service Administrator) to call
         /// this API or authenticate via service principal.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='expand'>
@@ -175,9 +178,11 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office
         /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// this API or authenticate via service principal.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='top'>
@@ -214,9 +219,11 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office
         /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// this API or authenticate via service principal.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
@@ -256,9 +263,11 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office
         /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// this API or authenticate via service principal.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
@@ -297,7 +306,8 @@ namespace Microsoft.PowerBI.Api
         /// to call this API or authenticate via service principal.
         /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;To call this API, provide either a
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To call this API, provide either a
         /// continuation token or both a start and end date time. StartDateTime
         /// and EndDateTime must be in the same UTC day.
         /// </remarks>

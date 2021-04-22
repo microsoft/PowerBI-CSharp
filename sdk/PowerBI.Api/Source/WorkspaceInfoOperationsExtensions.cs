@@ -16,7 +16,8 @@ namespace Microsoft.PowerBI.Api
     public static partial class WorkspaceInfoOperationsExtensions
     {
             /// <summary>
-            /// Initiate a call to receive metadata for the requested list of workspaces
+            /// Initiate a call to receive metadata for the requested list of workspaces.
+            /// (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -45,7 +46,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Initiate a call to receive metadata for the requested list of workspaces
+            /// Initiate a call to receive metadata for the requested list of workspaces.
+            /// (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -80,7 +82,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets scan status for the specified scan
+            /// Gets scan status for the specified scan. (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -102,7 +104,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets scan status for the specified scan
+            /// Gets scan status for the specified scan. (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -132,7 +134,7 @@ namespace Microsoft.PowerBI.Api
             /// <summary>
             /// Gets scan result for the specified scan (should be called only after
             /// getting status Succeeded in the scan status API). Scan result will be
-            /// available for up to 24 hours
+            /// available for up to 24 hours. (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -156,7 +158,7 @@ namespace Microsoft.PowerBI.Api
             /// <summary>
             /// Gets scan result for the specified scan (should be called only after
             /// getting status Succeeded in the scan status API). Scan result will be
-            /// available for up to 24 hours
+            /// available for up to 24 hours. (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -189,7 +191,7 @@ namespace Microsoft.PowerBI.Api
             /// specified in the modifiedSince parameter. If not provided, returns a list
             /// of all workspace IDs in the organization. modifiedSince parameter should
             /// range from 30 minutes to 30 days ago. Notice changes can take up to 30
-            /// minutes to take effect.
+            /// minutes to take effect. (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
@@ -217,7 +219,7 @@ namespace Microsoft.PowerBI.Api
             /// specified in the modifiedSince parameter. If not provided, returns a list
             /// of all workspace IDs in the organization. modifiedSince parameter should
             /// range from 30 minutes to 30 days ago. Notice changes can take up to 30
-            /// minutes to take effect.
+            /// minutes to take effect. (Preview)
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Microsoft 365
