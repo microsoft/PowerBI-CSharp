@@ -117,6 +117,11 @@ namespace Microsoft.PowerBI.Api
         IEmbedTokenOperations EmbedToken { get; }
 
         /// <summary>
+        /// Gets the IInformationProtection.
+        /// </summary>
+        IInformationProtection InformationProtection { get; }
+
+        /// <summary>
         /// Gets the ITemplateApps.
         /// </summary>
         ITemplateApps TemplateApps { get; }

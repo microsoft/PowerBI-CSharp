@@ -109,7 +109,12 @@ namespace Microsoft.PowerBI.Api
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Workspace.Read.All or
+        /// &lt;br/&gt;**Note:** User permissions are only refreshed when
+        /// needed. As a result, the API might return a 401 error when a user
+        /// has permission to a workspace. To refresh user permissions
+        /// programmatically, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refreshuserpermissions)
+        /// API.&lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All or
         /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -374,8 +379,9 @@ namespace Microsoft.PowerBI.Api
         /// this API or authenticate via service principal. &lt;br/&gt;This API
         /// allows 200 requests per hour at maximum.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='top'>

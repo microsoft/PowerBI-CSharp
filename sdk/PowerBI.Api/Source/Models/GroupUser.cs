@@ -30,7 +30,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'Contributor', 'Viewer'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">Identifier of the principal</param>
+        /// <param name="identifier">[Object
+        /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
+        /// of the principal</param>
         /// <param name="principalType">The principal type. Possible values
         /// include: 'User', 'Group', 'App'</param>
         public GroupUser(GroupUserAccessRight groupUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), PrincipalType? principalType = default(PrincipalType?))
@@ -68,7 +70,9 @@ namespace Microsoft.PowerBI.Api.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets identifier of the principal
+        /// Gets or sets [Object
+        /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
+        /// of the principal
         /// </summary>
         [JsonProperty(PropertyName = "identifier")]
         public string Identifier { get; set; }
