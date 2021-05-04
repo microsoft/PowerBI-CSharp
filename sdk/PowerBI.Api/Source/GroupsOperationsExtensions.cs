@@ -766,6 +766,56 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Returns a list of users that have access to the specified workspace
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// This API allows 200 requests per hour at maximum.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            public static GroupUsers GetGroupUsersAsAdmin(this IGroupsOperations operations, System.Guid groupId)
+            {
+                return operations.GetGroupUsersAsAdminAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// This API allows 200 requests per hour at maximum.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<GroupUsers> GetGroupUsersAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetGroupUsersAsAdminWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Grants user permissions to the specified workspace.
             /// </summary>
             /// <remarks>

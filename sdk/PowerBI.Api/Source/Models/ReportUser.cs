@@ -10,36 +10,34 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for workspace
+    /// A Power BI user access right entry for report
     /// </summary>
-    public partial class GroupUser
+    public partial class ReportUser
     {
         /// <summary>
-        /// Initializes a new instance of the GroupUser class.
+        /// Initializes a new instance of the ReportUser class.
         /// </summary>
-        public GroupUser()
+        public ReportUser()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the GroupUser class.
+        /// Initializes a new instance of the ReportUser class.
         /// </summary>
-        /// <param name="groupUserAccessRight">Access rights user has for the
-        /// workspace. Possible values include: 'None', 'Member', 'Admin',
-        /// 'Contributor', 'Viewer'</param>
+        /// <param name="reportUserAccessRight">Access rights user has for the
+        /// report. Possible values include: 'None', 'Read', 'ReadWrite',
+        /// 'ReadReshare', 'Owner'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">[Object
-        /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the principal</param>
+        /// <param name="identifier">Identifier of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        public GroupUser(GroupUserAccessRight groupUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string graphId = default(string), PrincipalType? principalType = default(PrincipalType?))
+        public ReportUser(ReportUserAccessRight reportUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string graphId = default(string), PrincipalType? principalType = default(PrincipalType?))
         {
-            GroupUserAccessRight = groupUserAccessRight;
+            ReportUserAccessRight = reportUserAccessRight;
             EmailAddress = emailAddress;
             DisplayName = displayName;
             Identifier = identifier;
@@ -54,11 +52,11 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the workspace. Possible
-        /// values include: 'None', 'Member', 'Admin', 'Contributor', 'Viewer'
+        /// Gets or sets access rights user has for the report. Possible values
+        /// include: 'None', 'Read', 'ReadWrite', 'ReadReshare', 'Owner'
         /// </summary>
-        [JsonProperty(PropertyName = "groupUserAccessRight")]
-        public GroupUserAccessRight GroupUserAccessRight { get; set; }
+        [JsonProperty(PropertyName = "reportUserAccessRight")]
+        public ReportUserAccessRight ReportUserAccessRight { get; set; }
 
         /// <summary>
         /// Gets or sets email address of the user
@@ -73,9 +71,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets [Object
-        /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the principal
+        /// Gets or sets identifier of the principal
         /// </summary>
         [JsonProperty(PropertyName = "identifier")]
         public string Identifier { get; set; }

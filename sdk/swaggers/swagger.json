@@ -8135,7 +8135,7 @@
                 "deprecated": false
             }
         },
-        "/v1.0/myorg/groups/{groupId}/dataflows//transactions/{transactionId}/cancel": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/transactions/{transactionId}/cancel": {
             "post": {
                 "tags": [
                     "Dataflows"
@@ -11200,6 +11200,62 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/datasets/{datasetId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified dataset (Preview).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Datasets_GetDatasetUsersAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "displayName": "John Nick",
+                                            "emailAddress": "john@contoso.com",
+                                            "datasetUserAccessRight": "ReadWriteReshareExplore",
+                                            "identifier": "john@contoso.com",
+                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                            "principalType": "User"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
 
         "/v1.0/myorg/admin/groups": {
             "get": {
@@ -11623,6 +11679,73 @@
             }
         },
         "/v1.0/myorg/admin/groups/{groupId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified workspace (Preview).",
+                "description": "This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Groups_GetGroupUsersAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/GroupUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "displayName": "John Nick",
+                                        "emailAddress": "john@contoso.com",
+                                        "groupUserAccessRight": "Admin",
+                                        "identifier": "john@contoso.com",
+                                        "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                        "principalType": "User"
+                                    },
+                                    {
+                                        "displayName": "Adam Wood",
+                                        "emailAddress": "Adam@contoso.com",
+                                        "groupUserAccessRight": "Member",
+                                        "identifier": "Adam@contoso.com",
+                                        "graphId": "785e192c-0f1f-41ca-ae7a-a85da28e565a",
+                                        "principalType": "User"
+                                    },
+                                    {
+                                        "displayName": "ContosoTestApp",
+                                        "groupUserAccessRight": "Admin",
+                                        "identifier": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                        "graphId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                        "principalType": "App"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
             "post": {
                 "tags": [
                     "Admin"
@@ -12333,6 +12456,62 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/reports/{reportId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified report (Preview).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Reports_GetReportUsersAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ReportUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "displayName": "John Nick",
+                                            "emailAddress": "john@contoso.com",
+                                            "reportUserAccessRight": "Owner",
+                                            "identifier": "john@contoso.com",
+                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                            "principalType": "User"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
 
         "/v1.0/myorg/admin/dashboards": {
             "get": {
@@ -12459,6 +12638,62 @@
                                             "colSpan": 0,
                                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
                                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/dashboards/{dashboardId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified dashboard (Preview).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dashboards_GetDashboardUsersAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dashboardId",
+                        "description": "The dashboard id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DashboardUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "displayName": "John Nick",
+                                            "emailAddress": "john@contoso.com",
+                                            "dashboardUserAccessRight": "Owner",
+                                            "identifier": "john@contoso.com",
+                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                            "principalType": "User"
                                         }
                                     ]
                                 }
@@ -12873,6 +13108,40 @@
                         "responses": {
                             "200": {
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/capacities/{capacityId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified workspace (Preview).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Capacities_GetCapacityUsersAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "capacityId",
+                        "description": "The capacity Id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Refreshables"
                         }
                     }
                 },
@@ -13651,6 +13920,63 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/dataflows/{dataflowId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified dataflow (Preview).",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Dataflows_GetDataflowUsersAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dataflowId",
+                        "description": "The dataflow id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DataflowUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "displayName": "John Nick",
+                                            "emailAddress": "john@contoso.com",
+                                            "dataflowUserAccessRight": "ReadWrite",
+                                            "identifier": "john@contoso.com",
+                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                            "principalType": "User"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/GenerateToken": {
             "post": {
                 "tags": [
@@ -13751,6 +14077,120 @@
                                     "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
                                     "expiration": "2018-07-29T17:58:19Z"
                                 }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/apps": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of apps in the orginization (Preview).",
+                "description": "This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetAppsAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "description": "The app id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Apps"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                                            "description": "The finance app",
+                                            "name": "Finance",
+                                            "publishedBy": "Bill",
+                                            "lastUpdate": "2019-01-13T09:46:53.094+02:00"
+                                        },
+                                        {
+                                            "id": "3d9b93c6-7b6d-4801-a491-1738910904fd",
+                                            "description": "The marketing app",
+                                            "name": "Marketing",
+                                            "publishedBy": "Ben",
+                                            "lastUpdate": "2018-11-13T09:46:53.094+02:00"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/apps/{appId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to the specified app (Preview).",
+                "description": "This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Apps_GetAppUsersAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "appId",
+                        "in": "path",
+                        "description": "The app id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/AppUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "displayName": "John Nick",
+                                        "emailAddress": "john@contoso.com",
+                                        "appUserAccessRight": "ReadExplore",
+                                        "identifier": "john@contoso.com",
+                                        "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                        "principalType": "User"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -15461,6 +15901,96 @@
                 }
             }
         },
+        "AppUsers": {
+            "description": "Odata response wrapper for a Power BI user access right for app List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user access right for app List",
+                    "items": {
+                        "$ref": "#/definitions/AppUser"
+                    }
+                }
+            }
+        },
+        "CapacityUsers": {
+            "description": "Odata response wrapper for a Power BI user access right for capacity List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user access right for capacity List",
+                    "items": {
+                        "$ref": "#/definitions/CapacityUser"
+                    }
+                }
+            }
+        },
+        "ReportUsers": {
+            "description": "Odata response wrapper for a Power BI user access right for report List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user access right for report List",
+                    "items": {
+                        "$ref": "#/definitions/ReportUser"
+                    }
+                }
+            }
+        },
+        "DashboardUsers": {
+            "description": "Odata response wrapper for a Power BI user access right for dashboard List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user access right for dashboard List",
+                    "items": {
+                        "$ref": "#/definitions/DashboardUser"
+                    }
+                }
+            }
+        },
+        "DatasetUsers": {
+            "description": "Odata response wrapper for a Power BI user access right for dataset List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user access right for dataset List",
+                    "items": {
+                        "$ref": "#/definitions/DatasetUser"
+                    }
+                }
+            }
+        },
+        "DataflowUsers": {
+            "description": "Odata response wrapper for a Power BI user access right for dataflow List",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The user access right for dataflow List",
+                    "items": {
+                        "$ref": "#/definitions/DataflowUser"
+                    }
+                }
+            }
+        },
         "Report": {
             "required": [
                 "id"
@@ -16286,31 +16816,7 @@
                     "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "principalType": {
-                    "type": "string",
-                    "description": "The principal type",
-                    "enum": [
-                        "User",
-                        "Group",
-                        "App"
-                    ],
-                    "x-ms-enum": {
-                        "name": "PrincipalType",
-                        "modelAsExtensible": true,
-                        "values": [
-                            {
-                                "value": "User",
-                                "description": "User principal type"
-                            },
-                            {
-                                "value": "Group",
-                                "description": "Group principal type"
-                            },
-                            {
-                                "value": "App",
-                                "description": "App principal type"
-                            }
-                        ]
-                    }
+                    "$ref": "#/definitions/PrincipalType"
                 }
             }
         },
@@ -16369,33 +16875,485 @@
                     "type": "string",
                     "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
-                "principalType": {
+                "graphId": {
                     "type": "string",
-                    "description": "The principal type",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "AppUser": {
+            "required": [
+                "appUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for app",
+            "properties": {
+                "appUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for the app",
                     "enum": [
-                        "User",
-                        "Group",
-                        "App"
+                        "None",
+                        "Read",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "ReadWriteReshare",
+                        "ReadExplore",
+                        "ReadCopy",
+                        "ReadExploreCopy",
+                        "ReadReshareExplore",
+                        "ReadReshareExploreCopy",
+                        "ReadWriteExplore",
+                        "ReadWriteReshareExplore",
+                        "ReadWriteExploreCopy",
+                        "All"
+
                     ],
                     "x-ms-enum": {
-                        "name": "PrincipalType",
+                        "name": "AppUserAccessRight",
                         "modelAsExtensible": true,
                         "values": [
                             {
-                                "value": "User",
-                                "description": "User principal type"
+                                "value": "None",
+                                "description": "No permission to content in app"
                             },
                             {
-                                "value": "Group",
-                                "description": "Group principal type"
+                                "value": "Read",
+                                "description": "Grants Read access to content in app"
                             },
                             {
-                                "value": "App",
-                                "description": "Service principal type"
+                                "value": "ReadWrite",
+                                "description": "Grants Read and Write access to content in app"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to content in app"
+                            },
+                            {
+                                "value": "ReadWriteReshare",
+                                "description": "Grants Read, Write and Reshare access to content in app"
+                            },
+                            {
+                                "value": "ReadExplore",
+                                "description": "Grants Read and Explore access to content in app"
+                            },
+                            {
+                                "value": "ReadCopy",
+                                "description": "Grants Read and Copy access to content in app"
+                            },
+                            {
+                                "value": "ReadExploreCopy",
+                                "description": "Grants Read, Explore and Copy access to content in app"
+                            },
+                            {
+                                "value": "ReadReshareExploreCopy",
+                                "description": "Grants Read, Reshare, Explore and Copy access to content in app"
+                            },
+                            {
+                                "value": "ReadReshareExplore",
+                                "description": "Grants Read, Reshare and Explore access to content in app"
+                            },
+                            {
+                                "value": "ReadWriteExplore",
+                                "description": "Grants Read, Write and Explore access to content in app"
+                            },
+                            {
+                                "value": "ReadWriteReshareExplore",
+                                "description": "Grants Read, Write, Reshare and Explore access to content in app"
+                            },
+                            {
+                                "value": "ReadWriteExploreCopy",
+                                "description": "Grants Read, Write, Explore and Copy access to content in app"
+                            },
+                            {
+                                "value": "All",
+                                "description": "Grants Read, Write, Explore, Reshare and Copy access to content in app"
                             }
                         ]
                     }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
                 }
+            }
+        },
+        "CapacityUser": {
+            "required": [
+                "capacityUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for capacity",
+            "properties": {
+                "capacityUserAccessRight": {
+                    "type": "string",
+                    "description": "Access right user has on the capacity",
+                    "enum": [
+                        "None",
+                        "Assign",
+                        "Admin"
+                    ],
+                    "x-ms-enum": {
+                        "name": "capacityUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "User doesn't have access to the capacity"
+                            },
+                            {
+                                "value": "Assign",
+                                "description": "User has contributor rights and can assign workspaces to the capacity"
+                            },
+                            {
+                                "value": "Admin",
+                                "description": "User has administrator rights on the capacity"
+                            }
+                        ]
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "ReportUser": {
+            "required": [
+                "reportUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for report",
+            "properties": {
+                "reportUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for the report",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "Owner"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ReportUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "No permission to content in report"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in report"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants Read and Write access to content in report"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to content in report"
+                            },
+                            {
+                                "value": "Owner",
+                                "description": "Grants Read, Write and Reshare access to content in report"
+                            }
+                        ]
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "DashboardUser": {
+            "required": [
+                "dashboardUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for dashboard",
+            "properties": {
+                "dashboardUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for the dashboard",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "Owner"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DashboardUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "No permission to content in dashboard"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in dashboard"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants Read and Write access to content in dashboard"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to content in dashboard"
+                            },
+                            {
+                                "value": "Owner",
+                                "description": "Grants Read, Write and Reshare access to content in report"
+                            }
+                        ]
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "DatasetUser": {
+            "required": [
+                "datasetUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for dataset",
+            "properties": {
+                "datasetUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for the dataset",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "ReadWriteReshare",
+                        "ReadExplore",
+                        "ReadReshareExplore",
+                        "ReadWriteExplore",
+                        "ReadWriteReshareExplore"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "Removes permission to content in dataset"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in dataset"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants Read and Write access to content in dataset"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to content in dataset"
+                            },
+                            {
+                                "value": "ReadWriteReshare",
+                                "description": "Grants Read, Write and Reshare access to content in dataset"
+                            },
+                            {
+                                "value": "ReadExplore",
+                                "description": "Grants Read and Explore access to content in dataset"
+                            },
+                            {
+                                "value": "ReadReshareExplore",
+                                "description": "Grants Read, Reshare and Explore access to content in dataset"
+                            },
+                            {
+                                "value": "ReadWriteExplore",
+                                "description": "Grants Read, Write and Explore access to content in dataset"
+                            },
+                            {
+                                "value": "ReadWriteReshareExplore",
+                                "description": "Grants Read, Write, Reshare and Explore access to content in dataset"
+                            }
+                        ]
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "DataflowUser": {
+            "required": [
+                "dataflowUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for dataflow",
+            "properties": {
+                "DataflowUserAccessRight": {
+                    "type": "string",
+                    "description": "Access rights user has for the dataflow",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "Owner"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DataflowUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "Removes permission to content in dataflow"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in dataflow"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants Read and Write access to content in dataflow"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to content in dataflow"
+                            },
+                            {
+                                "value": "Owner",
+                                "description": "Grants Read, Write and Reshare access to content in dataflow"
+                            }
+                        ]
+                    }
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "PrincipalType": {
+            "type": "string",
+            "description": "The principal type",
+            "enum": [
+                "None",
+                "User",
+                "Group",
+                "App"
+            ],
+            "x-ms-enum": {
+                "name": "PrincipalType",
+                "modelAsExtensible": true,
+                "values": [
+                    {
+                        "value": "None",
+                        "description": "None principal type, used for whole organization level access."
+                    },
+                    {
+                        "value": "User",
+                        "description": "User principal type"
+                    },
+                    {
+                        "value": "Group",
+                        "description": "Group principal type"
+                    },
+                    {
+                        "value": "App",
+                        "description": "Service principal type"
+                    }
+                ]
             }
         },
         "CloneReportRequest": {
@@ -17079,7 +18037,7 @@
                             },
                             {
                                 "value": "Assign",
-                                "description": "User can assign workspaces to the capacity"
+                                "description": "User has contributor rights and can assign workspaces to the capacity"
                             },
                             {
                                 "value": "Admin",

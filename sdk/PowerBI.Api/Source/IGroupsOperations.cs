@@ -448,6 +448,34 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, Group groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns a list of users that have access to the specified workspace
+        /// (Preview).
+        /// </summary>
+        /// <remarks>
+        /// This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<GroupUsers>> GetGroupUsersAsAdminWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Grants user permissions to the specified workspace.
         /// </summary>
         /// <remarks>

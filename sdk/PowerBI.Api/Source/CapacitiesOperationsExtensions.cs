@@ -518,5 +518,57 @@ namespace Microsoft.PowerBI.Api
                 (await operations.UnassignWorkspacesFromCapacityWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            public static Refreshables GetCapacityUsersAsAdmin(this ICapacitiesOperations operations, System.Guid capacityId)
+            {
+                return operations.GetCapacityUsersAsAdminAsync(capacityId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity Id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Refreshables> GetCapacityUsersAsAdminAsync(this ICapacitiesOperations operations, System.Guid capacityId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetCapacityUsersAsAdminWithHttpMessagesAsync(capacityId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

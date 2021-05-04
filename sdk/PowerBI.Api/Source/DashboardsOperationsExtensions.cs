@@ -937,5 +937,59 @@ namespace Microsoft.PowerBI.Api
                 }
             }
 
+            /// <summary>
+            /// Returns a list of users that have access to the specified dashboard
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
+            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard id
+            /// </param>
+            public static DashboardUsers GetDashboardUsersAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
+            {
+                return operations.GetDashboardUsersAsAdminAsync(dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified dashboard
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
+            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DashboardUsers> GetDashboardUsersAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardUsersAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

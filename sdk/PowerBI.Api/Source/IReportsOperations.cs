@@ -1080,6 +1080,37 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Reports>> GetReportsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns a list of users that have access to the specified report
+        /// (Preview).
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API or authenticate via service principal. &lt;br/&gt;This API
+        /// allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='reportId'>
+        /// The report id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<ReportUsers>> GetReportUsersAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Transfers ownership over the specified paginated report datasources
         /// to the current authorized user.
         /// </summary>

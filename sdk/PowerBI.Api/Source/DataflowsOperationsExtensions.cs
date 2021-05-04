@@ -820,5 +820,59 @@ namespace Microsoft.PowerBI.Api
                 }
             }
 
+            /// <summary>
+            /// Returns a list of users that have access to the specified dataflow
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
+            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            public static DataflowUsers GetDataflowUsersAsAdmin(this IDataflowsOperations operations, System.Guid dataflowId)
+            {
+                return operations.GetDataflowUsersAsAdminAsync(dataflowId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified dataflow
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
+            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dataflowId'>
+            /// The dataflow id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DataflowUsers> GetDataflowUsersAsAdminAsync(this IDataflowsOperations operations, System.Guid dataflowId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDataflowUsersAsAdminWithHttpMessagesAsync(dataflowId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

@@ -1741,6 +1741,37 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns a list of users that have access to the specified dataset
+        /// (Preview).
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API or authenticate via service principal. &lt;br/&gt;This API
+        /// allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset id
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DatasetUsers>> GetDatasetUsersAsAdminWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of datasets from the specified workspace.
         /// </summary>
         /// <remarks>
