@@ -19843,7 +19843,7 @@
                 }
             }
         },
-        "PipelineStageArtifatBase": {
+        "PipelineStageArtifactBase": {
             "required": [
                 "artifactId"
             ],
@@ -19877,15 +19877,15 @@
         },
         "PipelineStageDataset": {
             "description": "The deployment pipleine dataset metadata.",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifatBase" } ]
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageReport": {
             "description": "The deployment pipleine report metadata.",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifatBase" } ]
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageDashboard": {
             "description": "The deployment pipleine dashboard metadata.",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifatBase" } ]
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineOperations": {
             "description": "Odata response wrapper for a Power BI deployment pipeline operation collection",

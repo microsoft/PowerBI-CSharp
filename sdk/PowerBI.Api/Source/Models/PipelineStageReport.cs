@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     /// <summary>
     /// The deployment pipleine report metadata.
     /// </summary>
-    public partial class PipelineStageReport : PipelineStageArtifatBase
+    public partial class PipelineStageReport : PipelineStageArtifactBase
     {
         /// <summary>
         /// Initializes a new instance of the PipelineStageReport class.

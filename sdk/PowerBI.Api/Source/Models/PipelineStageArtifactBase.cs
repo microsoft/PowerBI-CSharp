@@ -12,18 +12,18 @@ namespace Microsoft.PowerBI.Api.Models
     /// <summary>
     /// The deployment pipleine stage artifact metadata.
     /// </summary>
-    public partial class PipelineStageArtifatBase
+    public partial class PipelineStageArtifactBase
     {
         /// <summary>
-        /// Initializes a new instance of the PipelineStageArtifatBase class.
+        /// Initializes a new instance of the PipelineStageArtifactBase class.
         /// </summary>
-        public PipelineStageArtifatBase()
+        public PipelineStageArtifactBase()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PipelineStageArtifatBase class.
+        /// Initializes a new instance of the PipelineStageArtifactBase class.
         /// </summary>
         /// <param name="artifactId">The artifact ID.</param>
         /// <param name="artifactDisplayName">The artifact dispaly
@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// contributor access to the target stage workspace.</param>
         /// <param name="lastDeploymentTime">The artifact's last deployment
         /// time.</param>
-        public PipelineStageArtifatBase(System.Guid artifactId, string artifactDisplayName = default(string), System.Guid? sourceArtifactId = default(System.Guid?), System.Guid? targetArtifactId = default(System.Guid?), System.DateTime? lastDeploymentTime = default(System.DateTime?))
+        public PipelineStageArtifactBase(System.Guid artifactId, string artifactDisplayName = default(string), System.Guid? sourceArtifactId = default(System.Guid?), System.Guid? targetArtifactId = default(System.Guid?), System.DateTime? lastDeploymentTime = default(System.DateTime?))
         {
             ArtifactId = artifactId;
             ArtifactDisplayName = artifactDisplayName;
