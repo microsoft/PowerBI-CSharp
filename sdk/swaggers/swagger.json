@@ -10569,6 +10569,542 @@
             }
         },
 
+        "/v1.0/myorg/pipelines": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns a list of deployment pipelines the user has access to.",
+                "description": "<br/>**Required scope**: Pipeline.Read.All or Pipeline.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Pipelines_GetPipelines",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Pipelines"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                        "displayName": "Marketing Deployment Pipeline",
+                                        "description": "Power BI deployment pipeline to manage marketing reports"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns the specified deployment pipeline.",
+                "description": "<br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Pipelines_GetPipeline",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "$expand",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: stages",
+                        "in": "query",
+                        "type": "string",
+                        "required": false,
+                        "default": "stages"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Pipeline"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get pipeline without using expand stages": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                    "displayName": "Marketing Deployment Pipeline",
+                                    "description": "Power BI deployment pipeline to manage marketing reports"
+                                }
+                            }
+                        }
+                    },
+                    "Get pipeline using expand stages": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "$expand": "stages"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                    "displayName": "My Deployment Pipeline",
+                                    "description": "My deployment pipeline",
+                                    "stages": [
+                                        {
+                                            "order": 0,
+                                            "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496",
+                                            "workspaceName": "Workpsace-Development"
+                                        },
+                                        {
+                                            "order": 1,
+                                            "workspaceId": "44b499cf-1eeb-45e2-9ada-63b6ec9d516e"
+                                        },
+                                        {
+                                            "order": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/stages/{stageOrder}/artifacts": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns the supported items from the workspace assigned to the specified deployment pipeline stage. To learn more about items that are not supported in deployment pipelines, see [unsupported items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)",
+                "description": "**Note**: To perform this operation, the user must be at least a contributor on the workspace assigned to the specified stage. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Pipelines_GetPipelineStageArtifacts",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "stageOrder",
+                        "in": "path",
+                        "description": "The deployment pipeline stage order. Development (0), Test (1), Production (2).",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineStageArtifacts"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get test stage artifacts": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "stageOrder": 1
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "datasets": [
+                                        {
+                                            "artifactId": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee",
+                                            "artifactName": "Sales Dataset",
+                                            "sourceArtifactId": "1a201f2a-d1d8-45c0-8c61-1676338517de",
+                                            "targetArtifactId": "a5cf347e-7b49-4198-8a2b-0aa92c37d8f8",
+                                            "lastDeploymentTime ": "2020-12-13T09:26:41.153Z"
+                                        }
+                                    ],
+                                    "reports": [
+                                        {
+                                            "artifactId": "9d5c1f0f-f85c-48f4-8a8e-4c77547116b3",
+                                            "artifactName": "Sales Report",
+                                            "sourceArtifactId": "2d225191-65f8-4ec3-b77d-06100602b1f7",
+                                            "lastDeploymentTime ": "2020-12-13T09:26:41.153Z"
+                                        }
+                                    ],
+                                    "dashboards": [
+                                        {
+                                            "artifactId": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82",
+                                            "artifactName": "Sales Dashboard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/operations": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns a list of up to 20 last deploy operations performed on the specified deployment pipeline.",
+                "description": "<br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Pipelines_GetPipelineOperations",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline Id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineOperations"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get pipeline Operations": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
+                                        "type": "Deploy",
+                                        "status ": "Succeeded",
+                                        "lastUpdatedTime": "2020-12-13T09:26:43.153",
+                                        "executionStartTime ": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime ": "2020-12-13T09:26:43.153Z",
+                                        "sourceStageOrder": 0,
+                                        "targetStageOrder": 1
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/operations/{operationId}": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns the details of the specified deploy operation performed on the specified deployment pipeline including the `executionPlan`. Use to track the status of the deploy operation.",
+                "description": "<br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "operationId": "Pipelines_GetPipelineOperation",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "operationId",
+                        "in": "path",
+                        "description": "The operation Id",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineOperation"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get pipeline operation": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "operationId": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
+                                    "type": "Deploy",
+                                    "status ": "Succeeded",
+                                    "lastUpdatedTime": "2020-12-13T09:26:43.153",
+                                    "executionStartTime ": "2020-12-13T09:25:43.153Z",
+                                    "executionEndTime ": "2020-12-13T09:26:43.153Z",
+
+                                    "sourceStageOrder": 0,
+                                    "targetStageOrder": 1,
+
+                                    "executionPlan": {
+                                        "Steps": [
+                                            {
+                                                "stepIndex": 0,
+                                                "stepType": "DatasetDeployment",
+                                                "status ": "Succeeded",
+                                                "sourceAndTarget": {
+                                                    "source": "1a201f2a-d1d8-45c0-8c61-1676338517de",
+                                                    "target": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee"
+                                                }
+                                            },
+                                            {
+                                                "stepIndex": 1,
+                                                "stepType": "ReportDeployment",
+                                                "status ": "Succeeded",
+                                                "sourceAndTarget": {
+                                                    "source": "2d225191-65f8-4ec3-b77d-06100602b1f7",
+                                                    "target": "9d5c1f0f-f85c-48f4-8a8e-4c77547116b3"
+                                                }
+                                            },
+                                            {
+                                                "stepIndex": 2,
+                                                "stepType": "DashboardDeployment",
+                                                "status ": "Succeeded",
+                                                "sourceAndTarget": {
+                                                    "source": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/deployAll": {
+            "post": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Deploy all supported items from the specified deployment pipeline source stage. To learn more about items that are not supported in deployment pipelines, see [unsupported items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)",
+                "description": "<br/>**Note**: To perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.Deploy <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><h4>Limitations</h4><ul><li>You can deploy up to 300 items per request</li></ul>",
+                "operationId": "Pipelines_DeployAll",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "deployRequest",
+                        "in": "body",
+                        "description": "The deploy request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DeployAllRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineOperation"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Deploy all artifacts from Development stage": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "deployRequest": {
+                                "sourceStageOrder": 0,
+                                "options": {
+                                    "allowOverwriteArtifact": true,
+                                    "allowCreateArtifact": true
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
+                                        "type": "Deploy",
+                                        "status ": "NotStarted",
+                                        "lastUpdatedTime": "2020-12-13T09:26:43.153",
+                                        "executionStartTime ": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime ": "2020-12-13T09:26:43.153Z",
+
+                                        "sourceStageOrder": 0,
+                                        "targetStageOrder": 1
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/deploy": {
+            "post": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Deploy the specified items from the specified deployment pipleine source stage.",
+                "description": "**Note**: To perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.Deploy <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><h4>Limitations</h4><ul><li>You can deploy up to 300 items per request</li></ul>",
+                "operationId": "Pipelines_SelectiveDeploy",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "deployRequest",
+                        "in": "body",
+                        "description": "The selective deploy request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SelectiveDeployRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Accepted",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineOperation"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Deploy specific artifacts from Development stage": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "deployRequest": {
+                                "sourceStageOrder": 0,
+                                "datasets": [
+                                    {
+                                        "sourceId": "1a201f2a-d1d8-45c0-8c61-1676338517de"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "sourceId": "2d225191-65f8-4ec3-b77d-06100602b1f7"
+                                    }
+                                ],
+                                "dashboards": [
+                                    {
+                                        "sourceId": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82"
+                                    },
+                                    {
+                                        "sourceId": "7f08923c-8f57-49d6-a010-8335bb9cbd1b"
+                                    }
+                                ],
+                                "options": {
+                                    "allowOverwriteArtifact": true,
+                                    "allowCreateArtifact": true
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
+                                        "type": "Deploy",
+                                        "status ": "NotStarted",
+                                        "lastUpdatedTime": "2020-12-13T09:26:43.153",
+                                        "executionStartTime ": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime ": "2020-12-13T09:26:43.153Z",
+
+                                        "sourceStageOrder": 0,
+                                        "targetStageOrder": 1
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+
         "/v1.0/myorg/dataflowStorageAccounts": {
             "get": {
                 "tags": [
@@ -14620,10 +15156,10 @@
                                         }
                                     ]
                                 },
-                                "labelId" : "fe472f5e-636e-4c10-a1c6-7e9edc0b542p",
-                                "assignmentMethod" : "Standard",
+                                "labelId": "fe472f5e-636e-4c10-a1c6-7e9edc0b542p",
+                                "assignmentMethod": "Standard",
                                 "delegatedUser": {
-                                    "emailAddress" : "john@contoso.com"
+                                    "emailAddress": "john@contoso.com"
                                 }
                             }
                         },
@@ -19018,17 +19554,17 @@
                     "description": "Expiration time of token. In UTC."
                 }
             }
-        },   
+        },
         "ArtifactId": {
             "description": "Unique artifact ID: uuid format for dashboards/reports/dataflows.",
             "required": [
-               "id"
+                "id"
             ],
             "properties": {
-                 "id": {
-               "type": "string",
-                "format": "uuid",
-                "description": "ID"
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "ID"
                 }
             }
         },
@@ -19036,11 +19572,11 @@
             "description": "Unique artifact ID: string format (can be uuid) for datasets.",
             "required": [
                 "id"
-             ],
+            ],
             "properties": {
                 "id": {
-                "type": "string",
-                "description": "ID"
+                    "type": "string",
+                    "description": "ID"
                 }
             }
         },
@@ -19077,7 +19613,7 @@
                 }
             }
         },
-        "InformationProtectionChangeLabelResponse":{
+        "InformationProtectionChangeLabelResponse": {
             "description": "Composite of artifact IDs and label change status.",
             "properties": {
                 "dashboards": {
@@ -19110,7 +19646,7 @@
                 }
             }
         },
-        "ChangeLabelStatus" :{
+        "ChangeLabelStatus": {
             "description": "Artifact ID with information protection label status",
             "required": [
                 "id",
@@ -19160,7 +19696,7 @@
                 }
             }
         },
-        "InformationProtectionChangeLabelDetails" :{
+        "InformationProtectionChangeLabelDetails": {
             "description": "Set label details.",
             "required": [
                 "artifacts",
@@ -19204,7 +19740,7 @@
                 }
             }
         },
-        "DelegatedUser" :{
+        "DelegatedUser": {
             "description": "Delegated user details. The user must be an existing user in Power BI and Azure AAD, who has signed in to Power BI during the last 3 months.",
             "required": [
                 "emailAddress"
@@ -19213,6 +19749,501 @@
                 "emailAddress": {
                     "description": "Delegated user email address.",
                     "type": "string"
+                }
+            }
+        },
+        "Pipelines": {
+            "description": "Odata response wrapper for a Power BI deployment pipeline collection.",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The deployment pipelines collection",
+                    "items": {
+                        "$ref": "#/definitions/Pipeline"
+                    }
+                }
+            }
+        },
+        "Pipeline": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI deployment pipeline.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The deployment pipeline ID"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The deployment pipeline display name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The deployment pipeline description"
+                },
+                "stages": {
+                    "type": "array",
+                    "description": "The deployment pipeline stages collection, only returned when $expand stages is specified",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStage"
+                    }
+                }
+            }
+        },
+        "PipelineStage": {
+            "required": [
+                "order"
+            ],
+            "description": "A Power BI deployment pipeline stage.",
+            "properties": {
+                "order": {
+                    "type": "integer",
+                    "description": "The stage order, starting from zero."
+                },
+                "workspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The assigned workspae ID, only applicable when there is an assigned workspace."
+                },
+                "workspaceName": {
+                    "type": "string",
+                    "description": "The assigned workspae name, only applicable when there is an assigned workspace and the user has access to the workspace."
+                }
+            }
+        },
+        "PipelineStageArtifacts": {
+            "description": "Supported items from a workspace assigned to a deployment pipeline stage.",
+            "properties": {
+                "datasets": {
+                    "type": "array",
+                    "description": "The datasets collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStageDataset"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "The reports collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStageReport"
+                    }
+                },
+                "dashboards": {
+                    "type": "array",
+                    "description": "The dashboards collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStageDashboard"
+                    }
+                }
+            }
+        },
+        "PipelineStageArtifatBase": {
+            "required": [
+                "artifactId"
+            ],
+            "description": "The deployment pipleine stage artifact metadata.",
+            "properties": {
+                "artifactId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The artifact ID."
+                },
+                "artifactDisplayName": {
+                    "type": "string",
+                    "description": "The artifact dispaly name."
+                },
+                "sourceArtifactId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The artifact ID from the workspace of the source stage, which will update the current artifact upon deployment. Applicable only when the user has at least contributor access to the source stage workspace."
+                },
+                "targetArtifactId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The artifact ID from the workspace of the target stage, which will be updated by the current artifact upon deployment. Applicable only when the user has at least contributor access to the target stage workspace."
+                },
+                "lastDeploymentTime ": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The artifact's last deployment time."
+                }
+            }
+        },
+        "PipelineStageDataset": {
+            "description": "The deployment pipleine dataset metadata.",
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifatBase" } ]
+        },
+        "PipelineStageReport": {
+            "description": "The deployment pipleine report metadata.",
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifatBase" } ]
+        },
+        "PipelineStageDashboard": {
+            "description": "The deployment pipleine dashboard metadata.",
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifatBase" } ]
+        },
+        "PipelineOperations": {
+            "description": "Odata response wrapper for a Power BI deployment pipeline operation collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The deployment pipeline operations collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineOperation"
+                    }
+                }
+            }
+        },
+        "PipelineOperation": {
+            "required": [
+                "id",
+                "status",
+                "lastUpdatedTime"
+            ],
+            "description": "A Power BI deployment pipeline operation.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The operation ID."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The operation type.",
+                    "enum": [
+                        "Deploy"
+                    ],
+                    "x-ms-enum": {
+                        "name": "PipelineOperationType",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Deploy",
+                                "description": "Deploy content between stages"
+                            }
+                        ]
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The pipeline operation status.",
+                    "enum": [
+                        "NotStarted",
+                        "Executing",
+                        "Succeeded",
+                        "Failed"
+                    ],
+                    "x-ms-enum": {
+                        "name": "PipelineOperationStatus",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "NotStarted",
+                                "description": "Operation not started"
+                            },
+                            {
+                                "value": "Executing",
+                                "description": "Operation executing"
+                            },
+                            {
+                                "value": "Succeeded",
+                                "description": "Operation succeeded"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "Operation failed"
+                            }
+                        ]
+                    }
+                },
+                "lastUpdatedTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The last time the operation was updated."
+                },
+                "executionStartTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The time the operation execution started."
+                },
+                "executionEndTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The time the operation execution ended."
+                },
+                "sourceStageOrder": {
+                    "type": "integer",
+                    "description": "The source stage order. Development (0), Test (1), Production (2)."
+                },
+                "targetStageOrder": {
+                    "type": "integer",
+                    "description": "The target stage order. Development (0), Test (1), Production (2)."
+                },
+                "executionPlan": {
+                    "description": "The deployment execution plan. Only applicable when getting a single operation.",
+                    "$ref": "#/definitions/DeploymentExecutionPlan"
+                }
+            }
+        },
+        "DeploymentExecutionPlan": {
+            "description": "The deployment execution plan",
+            "properties": {
+                "steps": {
+                    "type": "array",
+                    "description": "The execution plan steps collection",
+                    "items": {
+                        "$ref": "#/definitions/DeploymentExecutionStep"
+                    }
+                }
+            }
+        },
+        "DeploymentExecutionStep": {
+            "required": [
+                "index",
+                "type",
+                "status",
+                "lastUpdatedTime"
+            ],
+            "description": "The deployment execution step",
+            "properties": {
+                "index": {
+                    "type": "integer",
+                    "description": "The step index"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The deployment step type",
+                    "enum": [
+                        "DatasetDeployment",
+                        "ReportDeployment",
+                        "DashboardDeployment"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DeploymentStepType",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "DatasetDeployment",
+                                "description": "A step for deploying a single dataset"
+                            },
+                            {
+                                "value": "ReportDeployment",
+                                "description": "A step for deploying a single report"
+                            },
+                            {
+                                "value": "DashboardDeployment",
+                                "description": "A step for deploying a single dashboard"
+                            }
+                        ]
+                    }
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The status of the pipeline operation.",
+                    "enum": [
+                        "NotStarted",
+                        "Executing",
+                        "Succeeded",
+                        "Failed"
+                    ],
+                    "x-ms-enum": {
+                        "name": "PipelineOperationStatus",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "NotStarted",
+                                "description": "Operation didn't start"
+                            },
+                            {
+                                "value": "Executing",
+                                "description": "Operation executing"
+                            },
+                            {
+                                "value": "Succeeded",
+                                "description": "Operation succeeded"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "Operation failed"
+                            }
+                        ]
+                    }
+                },
+                "sourceAndTarget": {
+                    "description": "The source and target items of the step",
+                    "$ref": "#/definitions/DeploymentSourceAndTarget"
+                },
+                "error": {
+                    "description": "Error details of the step's failure",
+                    "$ref": "#/definitions/DeploymentError"
+                }
+            }
+        },
+        "DeploymentSourceAndTarget": {
+            "required": [
+                "source"
+            ],
+            "description": "Source and target items.",
+            "properties": {
+                "source": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the artifact being deployed from the source stage."
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the artifact being overwritten on the target stage. Only applicable when overwriting an artifact."
+                }
+            }
+        },
+        "DeploymentError": {
+            "description": "The deployment step error details",
+            "properties": {
+                "errorCode": {
+                    "type": "string",
+                    "description": "The error code"
+                },
+                "errorDetails": {
+                    "type": "string",
+                    "description": "Additional error details"
+                }
+            }
+        },
+        "DeployRequestBase": {
+            "required": [
+                "sourceStageOrder"
+            ],
+            "description": "Base request to deploy content from a deployment pipeline stage.",
+            "properties": {
+                "sourceStageOrder": {
+                    "type": "integer",
+                    "description": "The order of the pipeline stages that the content should be deployed from."
+                },
+                "isBackwardDeployment": {
+                    "type": "boolean",
+                    "description": "Whether the deployment should be done into the previous stage, if not provided treated as false."
+                },
+                "newWorkspace": {
+                    "description": "Required for creating a new workspace when deploying into a stage which has no assigned workspaces. If not provided when required, deployment will fail.",
+                    "$ref": "#/definitions/PipelineNewWorkspaceRequest"
+                },
+                "updateAppSettings": {
+                    "description": "Update org app in the target workspace settings.",
+                    "$ref": "#/definitions/PipelineUpdateAppSettings"
+                },
+                "options": {
+                    "description": "Options to control the behavior of the entire deployment.",
+                    "$ref": "#/definitions/DeploymentOptions"
+                }
+            }
+        },
+        "DeployAllRequest": {
+            "description": "Request to deploy all supported items from a deployment pipeline stage",
+            "allOf": [ { "$ref": "#/definitions/DeployRequestBase" } ]
+        },
+        "SelectiveDeployRequest": {
+            "description": "Request to selectively deploy items from a deployment pipeline stage",
+            "allOf": [ { "$ref": "#/definitions/DeployRequestBase" } ],
+            "properties": {
+                "datasets": {
+                    "type": "array",
+                    "description": "A list of datasets to be deployed",
+                    "items": {
+                        "$ref": "#/definitions/DeployArtifactRequest"
+                    }
+                },
+                "reports": {
+                    "type": "array",
+                    "description": "A list of reports to be deployed",
+                    "items": {
+                        "$ref": "#/definitions/DeployArtifactRequest"
+                    }
+                },
+                "dashboards": {
+                    "type": "array",
+                    "description": "A list of dashboards to be deployed",
+                    "items": {
+                        "$ref": "#/definitions/DeployArtifactRequest"
+                    }
+                }
+            }
+        },
+        "PipelineNewWorkspaceRequest": {
+            "description": "Configuration for creating a new workspace when deploying into a stage which has no assigned workspaces.",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the new workspace."
+                },
+                "capacityId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the capacity that the new workspace will be assigned to. When unspecified, if you have permissions for the source stage workspace capacity, this capacity will be used. Otherwise, a capacity that you have permissions for, will be selected."
+                }
+            }
+        },
+        "PipelineUpdateAppSettings": {
+            "description": "Configuration update org app after deployment",
+            "properties": {
+                "updateAppInTargetWorkspace": {
+                    "type": "boolean",
+                    "description": "Whether to update the app in the target workspace"
+                }
+            }
+        },
+        "DeploymentOptions": {
+            "description": "Options to control the behaviour of the deployment. can be specified either for the entire deployment or for a specific artifact. if both are specified, the artifact value is used.",
+            "properties": {
+                "allowCreateArtifact": {
+                    "type": "boolean",
+                    "description": " Specifies whether creating a new artifact on the target stage workspace is allowed. If required but not allowed, deployment will fail."
+                },
+                "allowOverwriteArtifact": {
+                    "type": "boolean",
+                    "description": "Specifies whether overwriting an artifact on the target stage workspace is allowed. If required but not allowed, deployment will fail."
+                },
+                "allowSkipTilesWithMissingPrerequisites": {
+                    "type": "boolean",
+                    "description": "Specifies whether skipping tiles that are missing their model or report in target stage workspace is allowed. If required but not allowed, deployment will fail."
+                },
+                "allowPurgeData": {
+                    "type": "boolean",
+                    "description": "Specify whether deleting all data from the target artifact is allowed in case of a schema mismatch. If required but not allowed, deployment will fail."
+                },
+                "allowTakeOver": {
+                    "type": "boolean",
+                    "description": "Specify whether taking ownership of the target artifact is allowed for paginated report. If required but not allowed, deployment will fail."
+                },
+                "allowOverwriteTargetArtifactLabel": {
+                    "type": "boolean",
+                    "description": "Specify whether changing the target artifact label is allowed. The label is changed when the source is protected but the target is not. If required but not allowed, deployment will fail."
+                }
+            }
+        },
+        "DeployArtifactRequest": {
+            "required": [
+                "sourceId"
+            ],
+            "description": "The artifact to be deployed",
+            "properties": {
+                "sourceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The artifact ID"
+                },
+                "options": {
+                    "description": "Options to control the behavior of the deployment of a specific artifact",
+                    "$ref": "#/definitions/DeploymentOptions"
                 }
             }
         }
