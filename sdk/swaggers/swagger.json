@@ -16040,7 +16040,7 @@
             "properties": {
                 "updateDetails": {
                     "type": "array",
-                    "description": "The connection server",
+                    "description": "An array of datasource connection update requests",
                     "items": {
                         "$ref": "#/definitions/UpdateDatasourceConnectionRequest"
                     }
@@ -16055,11 +16055,11 @@
             "properties": {
                 "connectionDetails": {
                     "$ref": "#/definitions/DatasourceConnectionDetails",
-                    "description": ""
+                    "description": "The target connection details of the updated datasource."
                 },
                 "datasourceSelector": {
                     "$ref": "#/definitions/Datasource",
-                    "description": ""
+                    "description": "The connection details of the datasource that need to be updated. This is mandataory when the dataset has more than one datasource."
                 }
             }
         },
