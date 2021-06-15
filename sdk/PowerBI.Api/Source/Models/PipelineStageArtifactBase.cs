@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment pipleine stage artifact metadata.
+    /// The deployment pipeline stage artifact metadata.
     /// </summary>
     public partial class PipelineStageArtifactBase
     {

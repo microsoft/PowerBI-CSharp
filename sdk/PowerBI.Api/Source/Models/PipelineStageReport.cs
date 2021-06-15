@@ -9,7 +9,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment pipleine report metadata.
+    /// The deployment pipeline report metadata.
     /// </summary>
     public partial class PipelineStageReport : PipelineStageArtifactBase
     {

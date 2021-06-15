@@ -10750,6 +10750,14 @@
                         "responses": {
                             "200": {
                                 "body": {
+                                    "dataflows": [
+                                        {
+                                            "artifactId": "527700ab-3cdb-4637-8402-912a129b2a92",
+                                            "artifactDisplayName": "Sales Dataflow",
+                                            "sourceArtifactId": "29efcfb0-0063-44af-a4ed-6c0bee3417d3",
+                                            "lastDeploymentTime ": "2021-06-06T11:55:59.057Z"
+                                        }
+                                    ],
                                     "datasets": [
                                         {
                                             "artifactId": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee",
@@ -10901,8 +10909,16 @@
                                     "executionPlan": {
                                         "Steps": [
                                             {
-                                                "stepIndex": 0,
-                                                "stepType": "DatasetDeployment",
+                                                "index": 0,
+                                                "type": "DataflowDeployment",
+                                                "status": "Succeeded",
+                                                "sourceAndTarget": {
+                                                    "source": "29efcfb0-0063-44af-a4ed-6c0bee3417d3"
+                                                }
+                                            },
+                                            {
+                                                "index": 1,
+                                                "type": "DatasetDeployment",
                                                 "status ": "Succeeded",
                                                 "sourceAndTarget": {
                                                     "source": "1a201f2a-d1d8-45c0-8c61-1676338517de",
@@ -10910,8 +10926,8 @@
                                                 }
                                             },
                                             {
-                                                "stepIndex": 1,
-                                                "stepType": "ReportDeployment",
+                                                "index": 2,
+                                                "type": "ReportDeployment",
                                                 "status ": "Succeeded",
                                                 "sourceAndTarget": {
                                                     "source": "2d225191-65f8-4ec3-b77d-06100602b1f7",
@@ -10919,8 +10935,8 @@
                                                 }
                                             },
                                             {
-                                                "stepIndex": 2,
-                                                "stepType": "DashboardDeployment",
+                                                "index": 3,
+                                                "type": "DashboardDeployment",
                                                 "status ": "Succeeded",
                                                 "sourceAndTarget": {
                                                     "source": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82"
@@ -11016,7 +11032,7 @@
                 "tags": [
                     "Pipelines"
                 ],
-                "summary": "Deploy the specified items from the specified deployment pipleine source stage.",
+                "summary": "Deploy the specified items from the specified deployment pipeline source stage.",
                 "description": "**Note**: To perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.Deploy <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><h4>Limitations</h4><ul><li>You can deploy up to 300 items per request</li></ul>",
                 "operationId": "Pipelines_SelectiveDeploy",
                 "consumes": [
@@ -11058,6 +11074,11 @@
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "deployRequest": {
                                 "sourceStageOrder": 0,
+                                "dataflows": [
+                                    {
+                                        "sourceId": "29efcfb0-0063-44af-a4ed-6c0bee3417d3"
+                                    }
+                                ],
                                 "datasets": [
                                     {
                                         "sourceId": "1a201f2a-d1d8-45c0-8c61-1676338517de"
@@ -19840,6 +19861,13 @@
                     "items": {
                         "$ref": "#/definitions/PipelineStageDashboard"
                     }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "The dataflows collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStageDataflow"
+                    }
                 }
             }
         },
@@ -19847,7 +19875,7 @@
             "required": [
                 "artifactId"
             ],
-            "description": "The deployment pipleine stage artifact metadata.",
+            "description": "The deployment pipeline stage artifact metadata.",
             "properties": {
                 "artifactId": {
                     "type": "string",
@@ -19875,16 +19903,20 @@
                 }
             }
         },
+        "PipelineStageDataflow": {
+            "description": "The deployment pipeline dataflow metadata.",
+            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
+        },
         "PipelineStageDataset": {
-            "description": "The deployment pipleine dataset metadata.",
+            "description": "The deployment pipeline dataset metadata.",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageReport": {
-            "description": "The deployment pipleine report metadata.",
+            "description": "The deployment pipeline report metadata.",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageDashboard": {
-            "description": "The deployment pipleine dashboard metadata.",
+            "description": "The deployment pipeline dashboard metadata.",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineOperations": {
@@ -20025,7 +20057,8 @@
                     "enum": [
                         "DatasetDeployment",
                         "ReportDeployment",
-                        "DashboardDeployment"
+                        "DashboardDeployment",
+                        "DataflowDeployment"
                     ],
                     "x-ms-enum": {
                         "name": "DeploymentStepType",
@@ -20042,6 +20075,10 @@
                             {
                                 "value": "DashboardDeployment",
                                 "description": "A step for deploying a single dashboard"
+                            },
+                            {
+                                "value": "DataflowDeployment",
+                                "description": "A step for deploying a single dataflow"
                             }
                         ]
                     }
@@ -20172,6 +20209,13 @@
                 "dashboards": {
                     "type": "array",
                     "description": "A list of dashboards to be deployed",
+                    "items": {
+                        "$ref": "#/definitions/DeployArtifactRequest"
+                    }
+                },
+                "dataflows": {
+                    "type": "array",
+                    "description": "A list of dataflows to be deployed",
                     "items": {
                         "$ref": "#/definitions/DeployArtifactRequest"
                     }

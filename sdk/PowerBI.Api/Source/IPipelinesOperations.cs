@@ -199,7 +199,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<PipelineOperation>> DeployAllWithHttpMessagesAsync(System.Guid pipelineId, DeployAllRequest deployRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deploy the specified items from the specified deployment pipleine
+        /// Deploy the specified items from the specified deployment pipeline
         /// source stage.
         /// </summary>
         /// <remarks>

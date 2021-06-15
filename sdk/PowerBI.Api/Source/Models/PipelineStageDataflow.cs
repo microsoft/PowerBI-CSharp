@@ -9,20 +9,20 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment pipeline dataset metadata.
+    /// The deployment pipeline dataflow metadata.
     /// </summary>
-    public partial class PipelineStageDataset : PipelineStageArtifactBase
+    public partial class PipelineStageDataflow : PipelineStageArtifactBase
     {
         /// <summary>
-        /// Initializes a new instance of the PipelineStageDataset class.
+        /// Initializes a new instance of the PipelineStageDataflow class.
         /// </summary>
-        public PipelineStageDataset()
+        public PipelineStageDataflow()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PipelineStageDataset class.
+        /// Initializes a new instance of the PipelineStageDataflow class.
         /// </summary>
         /// <param name="artifactId">The artifact ID.</param>
         /// <param name="artifactDisplayName">The artifact dispaly
@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// contributor access to the target stage workspace.</param>
         /// <param name="lastDeploymentTime">The artifact's last deployment
         /// time.</param>
-        public PipelineStageDataset(System.Guid artifactId, string artifactDisplayName = default(string), System.Guid? sourceArtifactId = default(System.Guid?), System.Guid? targetArtifactId = default(System.Guid?), System.DateTime? lastDeploymentTime = default(System.DateTime?))
+        public PipelineStageDataflow(System.Guid artifactId, string artifactDisplayName = default(string), System.Guid? sourceArtifactId = default(System.Guid?), System.Guid? targetArtifactId = default(System.Guid?), System.DateTime? lastDeploymentTime = default(System.DateTime?))
             : base(artifactId, artifactDisplayName, sourceArtifactId, targetArtifactId, lastDeploymentTime)
         {
             CustomInit();

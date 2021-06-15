@@ -924,7 +924,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Deploy the specified items from the specified deployment pipleine source
+        /// Deploy the specified items from the specified deployment pipeline source
         /// stage.
         /// </summary>
         /// <remarks>

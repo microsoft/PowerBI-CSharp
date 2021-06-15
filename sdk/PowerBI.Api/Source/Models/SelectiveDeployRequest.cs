@@ -43,12 +43,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="reports">A list of reports to be deployed</param>
         /// <param name="dashboards">A list of dashboards to be
         /// deployed</param>
-        public SelectiveDeployRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), IList<DeployArtifactRequest> datasets = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> reports = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dashboards = default(IList<DeployArtifactRequest>))
+        /// <param name="dataflows">A list of dataflows to be deployed</param>
+        public SelectiveDeployRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), IList<DeployArtifactRequest> datasets = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> reports = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dashboards = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dataflows = default(IList<DeployArtifactRequest>))
             : base(sourceStageOrder, isBackwardDeployment, newWorkspace, updateAppSettings, options)
         {
             Datasets = datasets;
             Reports = reports;
             Dashboards = dashboards;
+            Dataflows = dataflows;
             CustomInit();
         }
 
@@ -74,6 +76,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
         public IList<DeployArtifactRequest> Dashboards { get; set; }
+
+        /// <summary>
+        /// Gets or sets a list of dataflows to be deployed
+        /// </summary>
+        [JsonProperty(PropertyName = "dataflows")]
+        public IList<DeployArtifactRequest> Dataflows { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -111,6 +119,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element2 != null)
                     {
                         element2.Validate();
+                    }
+                }
+            }
+            if (Dataflows != null)
+            {
+                foreach (var element3 in Dataflows)
+                {
+                    if (element3 != null)
+                    {
+                        element3.Validate();
                     }
                 }
             }

@@ -31,11 +31,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasets">The datasets collection</param>
         /// <param name="reports">The reports collection</param>
         /// <param name="dashboards">The dashboards collection</param>
-        public PipelineStageArtifacts(IList<PipelineStageDataset> datasets = default(IList<PipelineStageDataset>), IList<PipelineStageReport> reports = default(IList<PipelineStageReport>), IList<PipelineStageDashboard> dashboards = default(IList<PipelineStageDashboard>))
+        /// <param name="dataflows">The dataflows collection</param>
+        public PipelineStageArtifacts(IList<PipelineStageDataset> datasets = default(IList<PipelineStageDataset>), IList<PipelineStageReport> reports = default(IList<PipelineStageReport>), IList<PipelineStageDashboard> dashboards = default(IList<PipelineStageDashboard>), IList<PipelineStageDataflow> dataflows = default(IList<PipelineStageDataflow>))
         {
             Datasets = datasets;
             Reports = reports;
             Dashboards = dashboards;
+            Dataflows = dataflows;
             CustomInit();
         }
 
@@ -61,6 +63,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
         public IList<PipelineStageDashboard> Dashboards { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataflows collection
+        /// </summary>
+        [JsonProperty(PropertyName = "dataflows")]
+        public IList<PipelineStageDataflow> Dataflows { get; set; }
 
     }
 }
