@@ -34,12 +34,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// description</param>
         /// <param name="stages">The deployment pipeline stages collection,
         /// only returned when $expand stages is specified</param>
-        public Pipeline(System.Guid id, string displayName = default(string), string description = default(string), IList<PipelineStage> stages = default(IList<PipelineStage>))
+        /// <param name="users">The deployment pipeline users collection, only
+        /// returned when $expand users is specified and only in admin
+        /// API</param>
+        public Pipeline(System.Guid id, string displayName = default(string), string description = default(string), IList<PipelineStage> stages = default(IList<PipelineStage>), IList<PipelineUser> users = default(IList<PipelineUser>))
         {
             Id = id;
             DisplayName = displayName;
             Description = description;
             Stages = stages;
+            Users = users;
             CustomInit();
         }
 
@@ -74,6 +78,13 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<PipelineStage> Stages { get; set; }
 
         /// <summary>
+        /// Gets or sets the deployment pipeline users collection, only
+        /// returned when $expand users is specified and only in admin API
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<PipelineUser> Users { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -88,6 +99,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Users != null)
+            {
+                foreach (var element1 in Users)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

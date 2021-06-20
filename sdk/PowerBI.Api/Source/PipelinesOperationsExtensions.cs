@@ -395,5 +395,233 @@ namespace Microsoft.PowerBI.Api
                 }
             }
 
+            /// <summary>
+            /// Returns a list of deployment pipelines for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// Alternatively, authenticate using a service principal. &lt;br/&gt;This API
+            /// allows a maximum of 200 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: users, stages.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results. This parameter must be in the range of
+            /// 1-5000.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 5000.
+            /// </param>
+            public static Pipelines GetPipelinesAsAdmin(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            {
+                return operations.GetPipelinesAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of deployment pipelines for the organization.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// Alternatively, authenticate using a service principal. &lt;br/&gt;This API
+            /// allows a maximum of 200 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: users, stages.
+            /// </param>
+            /// <param name='filter'>
+            /// Filters the results based on a boolean condition.
+            /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results. This parameter must be in the range of
+            /// 1-5000.
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results. Use with top to fetch results beyond the first
+            /// 5000.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Pipelines> GetPipelinesAsAdminAsync(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPipelinesAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to a specified deployment
+            /// pipeline.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// Alternatively, authenticate using a service principal. &lt;br/&gt;This API
+            /// allows a maximum of 200 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline id
+            /// </param>
+            public static PipelineUsers GetPipelineUsersAsAdmin(this IPipelinesOperations operations, System.Guid pipelineId)
+            {
+                return operations.GetPipelineUsersAsAdminAsync(pipelineId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to a specified deployment
+            /// pipeline.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// Alternatively, authenticate using a service principal. &lt;br/&gt;This API
+            /// allows a maximum of 200 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required
+            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline id
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PipelineUsers> GetPipelineUsersAsAdminAsync(this IPipelinesOperations operations, System.Guid pipelineId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPipelineUsersAsAdminWithHttpMessagesAsync(pipelineId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Grants user permissions to a specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// &lt;br/&gt;This API allows a maximum of 200 requests per hour.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All.&lt;br/&gt;&lt;br/&gt;**Limitations:** This API
+            /// doesn't support service principals. You cannot update service principal's
+            /// permissions.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='userDetails'>
+            /// Details of user access right
+            /// </param>
+            public static void UpdateUserAsAdmin(this IPipelinesOperations operations, System.Guid pipelineId, PipelineUser userDetails)
+            {
+                operations.UpdateUserAsAdminAsync(pipelineId, userDetails).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Grants user permissions to a specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// &lt;br/&gt;This API allows a maximum of 200 requests per hour.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All.&lt;br/&gt;&lt;br/&gt;**Limitations:** This API
+            /// doesn't support service principals. You cannot update service principal's
+            /// permissions.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='userDetails'>
+            /// Details of user access right
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdateUserAsAdminAsync(this IPipelinesOperations operations, System.Guid pipelineId, PipelineUser userDetails, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdateUserAsAdminWithHttpMessagesAsync(pipelineId, userDetails, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Remove user permissions from a specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// &lt;br/&gt;This API allows a maximum of 200 requests per hour.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All.&lt;br/&gt;&lt;br/&gt;**Limitations:** This API
+            /// doesn't support service principals. You cannot delete service principal's
+            /// permissions.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='identifier'>
+            /// For Principal type 'User' provide UPN , otherwise provide [Object
+            /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
+            /// of the principal
+            /// </param>
+            public static void DeleteUserAsAdmin(this IPipelinesOperations operations, System.Guid pipelineId, string identifier)
+            {
+                operations.DeleteUserAsAdminAsync(pipelineId, identifier).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Remove user permissions from a specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            /// **Note:** To call this API the user must have administrator rights.
+            /// &lt;br/&gt;This API allows a maximum of 200 requests per hour.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.ReadWrite.All.&lt;br/&gt;&lt;br/&gt;**Limitations:** This API
+            /// doesn't support service principals. You cannot delete service principal's
+            /// permissions.
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='identifier'>
+            /// For Principal type 'User' provide UPN , otherwise provide [Object
+            /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
+            /// of the principal
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteUserAsAdminAsync(this IPipelinesOperations operations, System.Guid pipelineId, string identifier, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteUserAsAdminWithHttpMessagesAsync(pipelineId, identifier, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
     }
 }

@@ -15227,6 +15227,371 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/pipelines": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of deployment pipelines for the organization.",
+                "description": "**Note:** To call this API the user must have administrator rights. Alternatively, authenticate using a service principal. <br/>This API allows a maximum of 200 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. ",
+                "operationId": "Pipelines_GetPipelinesAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, stages.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results. This parameter must be in the range of 1-5000.",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 5000,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 5000.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Pipelines"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get deployment pipelines": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                        "displayName": "Marketing Deployment Pipeline",
+                                        "description": "Power BI deployment pipeline to manage marketing reports"
+                                    },
+                                    {
+                                        "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
+                                        "displayName": "Financing Deployment Pipeline",
+                                        "description": "Power BI deployment pipeline to manage financing reports"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Get deployment pipelines with users expanded": {
+                        "parameters": {
+                            "$expand": "users",
+                            "$top": 100
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                            "displayName": "Marketing Deployment Pipeline",
+                                            "description": "Power BI deployment pipeline to manage marketing reports",
+                                            "users": [
+                                                {
+                                                    "identifier": "john@contoso.com",
+                                                    "accessRight": "Admin",
+                                                    "principalType": "User"
+                                                },
+                                                {
+                                                    "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                                    "accessRight": "Admin",
+                                                    "principalType": "Group"
+                                                },
+                                                {
+                                                    "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d",
+                                                    "accessRight": "Admin",
+                                                    "principalType": "App"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
+                                            "displayName": "Financing Deployment Pipeline",
+                                            "description": "Power BI deployment pipeline to manage financing reports",
+                                            "users": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get orphaned deployment pipelines": {
+                        "parameters": {
+                            "$expand": "users",
+                            "$top": 100,
+                            "$filter": "(not users/any())"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "183dcf10-47b8-48c4-84aa-f0bf9d5f8fcf",
+                                            "displayName": "Financing Deployment Pipeline",
+                                            "description": "Power BI deployment pipeline to manage financing reports",
+                                            "users": []
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get deployment pipelines with stages expanded": {
+                        "parameters": {
+                            "$expand": "stages",
+                            "$top": 100,
+                            "skip": 0
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                            "displayName": "Marketing Deployment Pipeline",
+                                            "description": "Power BI deployment pipeline to manage marketing reports",
+                                            "stages": [
+                                                {
+                                                    "order": "0",
+                                                    "workspaceId": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a",
+                                                    "workspaceName": "SQlAzure-Refresh"
+
+                                                },
+                                                {
+                                                    "order": "1",
+                                                    "workspaceId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                                                    "workspaceName": "SQlAzure-Refresh[Test]"
+                                                },
+                                                {
+                                                    "order": "2"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/pipelines/{pipelineId}/users": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of users that have access to a specified deployment pipeline.",
+                "description": "**Note:** To call this API the user must have administrator rights. Alternatively, authenticate using a service principal. <br/>This API allows a maximum of 200 requests per hour. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. ",
+                "operationId": "Pipelines_GetPipelineUsersAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The deployment pipeline id",
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get users of a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "identifier": "john@contoso.com",
+                                        "accessRight": "Admin",
+                                        "principalType": "User"
+                                    },
+                                    {
+                                        "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                        "accessRight": "Admin",
+                                        "principalType": "Group"
+                                    },
+                                    {
+                                        "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d",
+                                        "accessRight": "Admin",
+                                        "principalType": "App"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Grants user permissions to a specified deployment pipeline.",
+                "description": "**Note:** To call this API the user must have administrator rights. <br/>This API allows a maximum of 200 requests per hour. <br/><br/>**Required scope**: Tenant.ReadWrite.All.<br/><br/>**Limitations:** This API doesn't support service principals. You cannot update service principal's permissions.",
+                "operationId": "Pipelines_UpdateUserAsAdmin",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The deployment pipeline ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PipelineUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Add user to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "userDetails": {
+                                "identifier": "john@contoso.com",
+                                "accessRight": "Admin",
+                                "principalType": "User"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add group to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "userDetails": {
+                                "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                "accessRight": "Admin",
+                                "principalType": "Group"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/pipelines/{pipelineId}/users/{identifier}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Remove user permissions from a specified deployment pipeline.",
+                "description": "**Note:** To call this API the user must have administrator rights. <br/>This API allows a maximum of 200 requests per hour. <br/><br/>**Required scope**: Tenant.ReadWrite.All.<br/><br/>**Limitations:** This API doesn't support service principals. You cannot delete service principal's permissions.",
+                "operationId": "Pipelines_DeleteUserAsAdmin",
+                "consumes": [
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The deployment pipeline ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "required": true,
+                        "description": "For Principal type 'User' provide UPN , otherwise provide [Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Delete user access from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "identifier": "john@contoso.com"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete group access from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "identifier": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/CreateTemplateAppInstallTicket": {
             "post": {
                 "tags": [
@@ -16801,6 +17166,11 @@
                     "items": {
                         "$ref": "#/definitions/Workbook"
                     }
+                },
+                "pipelineId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The deployment pipeline id that the workspace is assigned to. Available only for workspaces in the new workspace experience and only for admin API calls."
                 }
             }
         },
@@ -19814,6 +20184,13 @@
                     "items": {
                         "$ref": "#/definitions/PipelineStage"
                     }
+                },
+                "users": {
+                    "type": "array",
+                    "description": "The deployment pipeline users collection, only returned when $expand users is specified and only in admin API",
+                    "items": {
+                        "$ref": "#/definitions/PipelineUser"
+                    }
                 }
             }
         },
@@ -20288,6 +20665,55 @@
                 "options": {
                     "description": "Options to control the behavior of the deployment of a specific artifact",
                     "$ref": "#/definitions/DeploymentOptions"
+                }
+            }
+        },
+        "PipelineUsers": {
+            "description": "Odata response wrapper for a Power BI deployment pipeline users collection.",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The deployment pipeline users collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineUser"
+                    }
+                }
+            }
+        },
+        "PipelineUser": {
+            "required": [
+                "identifier",
+                "principalType"
+            ],
+            "description": "A Power BI user access right entry for a deployment pipeline.",
+            "properties": {
+                "accessRight": {
+                    "type": "string",
+                    "description": "**Required ** - Access rights a user has for the deployment pipeline.",
+                    "enum": [
+                        "Admin"
+                    ],
+                    "x-ms-enum": {
+                        "name": "PipelineUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Admin",
+                                "description": "Grants administrator rights to a deployment pipeine"
+                            }
+                        ]
+                    }
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "For Principal type 'User' provide UPN , otherwise provide [Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
                 }
             }
         }
