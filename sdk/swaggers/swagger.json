@@ -20693,7 +20693,7 @@
             "properties": {
                 "accessRight": {
                     "type": "string",
-                    "description": "**Required ** - Access rights a user has for the deployment pipeline.",
+                    "description": "**Required** - Access rights a user has for the deployment pipeline.",
                     "enum": [
                         "Admin"
                     ],

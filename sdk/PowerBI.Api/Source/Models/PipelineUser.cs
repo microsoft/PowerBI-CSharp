@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="accessRight">**Required ** - Access rights a user has
+        /// <param name="accessRight">**Required** - Access rights a user has
         /// for the deployment pipeline. Possible values include:
         /// 'Admin'</param>
         public PipelineUser(string identifier, PrincipalType principalType, PipelineUserAccessRight? accessRight = default(PipelineUserAccessRight?))
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets **Required ** - Access rights a user has for the
+        /// Gets or sets **Required** - Access rights a user has for the
         /// deployment pipeline. Possible values include: 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "accessRight")]
