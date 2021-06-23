@@ -23,10 +23,10 @@ namespace Microsoft.PowerBI.Api
             /// **Note:** The user must have administrator rights (such as Microsoft 365
             /// Global Administrator or Power BI Service Administrator) to call this API or
             /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// 500 requests per hour, and not more than 16 simultaneously.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -53,10 +53,10 @@ namespace Microsoft.PowerBI.Api
             /// **Note:** The user must have administrator rights (such as Microsoft 365
             /// Global Administrator or Power BI Service Administrator) to call this API or
             /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// 500 requests per hour, and not more than 16 simultaneously.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -208,9 +208,12 @@ namespace Microsoft.PowerBI.Api
             /// <param name='modifiedSince'>
             /// Last modified date​ (must be in ISO 8601 compliant UTC format)
             /// </param>
-            public static ModifiedWorkspaces GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?))
+            /// <param name='excludePersonalWorkspaces'>
+            /// Whether to exclude personal workspaces​
+            /// </param>
+            public static ModifiedWorkspaces GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?))
             {
-                return operations.GetModifiedWorkspacesAsync(modifiedSince).GetAwaiter().GetResult();
+                return operations.GetModifiedWorkspacesAsync(modifiedSince, excludePersonalWorkspaces).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -236,12 +239,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='modifiedSince'>
             /// Last modified date​ (must be in ISO 8601 compliant UTC format)
             /// </param>
+            /// <param name='excludePersonalWorkspaces'>
+            /// Whether to exclude personal workspaces​
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ModifiedWorkspaces> GetModifiedWorkspacesAsync(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ModifiedWorkspaces> GetModifiedWorkspacesAsync(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetModifiedWorkspacesWithHttpMessagesAsync(modifiedSince, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetModifiedWorkspacesWithHttpMessagesAsync(modifiedSince, excludePersonalWorkspaces, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

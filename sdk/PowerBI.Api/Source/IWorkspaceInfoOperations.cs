@@ -27,7 +27,8 @@ namespace Microsoft.PowerBI.Api
         /// Microsoft 365 Global Administrator or Power BI Service
         /// Administrator) to call this API or authenticate via service
         /// principal. &lt;br/&gt;This API allows a maximum of 500 requests per
-        /// hour. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// hour, and not more than 16 simultaneously.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
         /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -138,6 +139,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='modifiedSince'>
         /// Last modified date​ (must be in ISO 8601 compliant UTC format)
         /// </param>
+        /// <param name='excludePersonalWorkspaces'>
+        /// Whether to exclude personal workspaces​
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -150,6 +154,6 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ModifiedWorkspaces>> GetModifiedWorkspacesWithHttpMessagesAsync(System.DateTime? modifiedSince = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ModifiedWorkspaces>> GetModifiedWorkspacesWithHttpMessagesAsync(System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
