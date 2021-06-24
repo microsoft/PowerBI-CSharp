@@ -68,6 +68,12 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasourceDetails'>
         /// Whether to return datasource details​
         /// </param>
+        /// <param name='datasetSchema'>
+        /// Whether to return dataset schema (Tables, Columns and Measures)​
+        /// </param>
+        /// <param name='datasetExpressions'>
+        /// Whether to return dataset expressions (Dax query and Mashup)​
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -89,7 +95,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (requiredWorkspaces == null)
             {
@@ -105,6 +111,8 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("requiredWorkspaces", requiredWorkspaces);
                 tracingParameters.Add("lineage", lineage);
                 tracingParameters.Add("datasourceDetails", datasourceDetails);
+                tracingParameters.Add("datasetSchema", datasetSchema);
+                tracingParameters.Add("datasetExpressions", datasetExpressions);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostWorkspaceInfo", tracingParameters);
             }
@@ -119,6 +127,14 @@ namespace Microsoft.PowerBI.Api
             if (datasourceDetails != null)
             {
                 _queryParameters.Add(string.Format("datasourceDetails={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceDetails, Client.SerializationSettings).Trim('"'))));
+            }
+            if (datasetSchema != null)
+            {
+                _queryParameters.Add(string.Format("datasetSchema={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetSchema, Client.SerializationSettings).Trim('"'))));
+            }
+            if (datasetExpressions != null)
+            {
+                _queryParameters.Add(string.Format("datasetExpressions={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetExpressions, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {

@@ -40,9 +40,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasourceDetails'>
             /// Whether to return datasource details​
             /// </param>
-            public static ScanRequest PostWorkspaceInfo(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?))
+            /// <param name='datasetSchema'>
+            /// Whether to return dataset schema (Tables, Columns and Measures)​
+            /// </param>
+            /// <param name='datasetExpressions'>
+            /// Whether to return dataset expressions (Dax query and Mashup)​
+            /// </param>
+            public static ScanRequest PostWorkspaceInfo(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?))
             {
-                return operations.PostWorkspaceInfoAsync(requiredWorkspaces, lineage, datasourceDetails).GetAwaiter().GetResult();
+                return operations.PostWorkspaceInfoAsync(requiredWorkspaces, lineage, datasourceDetails, datasetSchema, datasetExpressions).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -70,12 +76,18 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasourceDetails'>
             /// Whether to return datasource details​
             /// </param>
+            /// <param name='datasetSchema'>
+            /// Whether to return dataset schema (Tables, Columns and Measures)​
+            /// </param>
+            /// <param name='datasetExpressions'>
+            /// Whether to return dataset expressions (Dax query and Mashup)​
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ScanRequest> PostWorkspaceInfoAsync(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ScanRequest> PostWorkspaceInfoAsync(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWorkspaceInfoWithHttpMessagesAsync(requiredWorkspaces, lineage, datasourceDetails, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWorkspaceInfoWithHttpMessagesAsync(requiredWorkspaces, lineage, datasourceDetails, datasetSchema, datasetExpressions, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

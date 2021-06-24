@@ -11259,6 +11259,20 @@
                         "description": "Whether to return datasource details​",
                         "required": false,
                         "type": "boolean"
+                    },
+                    {
+                        "name": "datasetSchema",
+                        "in": "query",
+                        "description": "Whether to return dataset schema (Tables, Columns and Measures)​",
+                        "required": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "datasetExpressions",
+                        "in": "query",
+                        "description": "Whether to return dataset expressions (Dax query and Mashup)​",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -11274,6 +11288,8 @@
                         "parameters": {
                             "lineage": true,
                             "datasourceDetails": true,
+                            "datasetSchema": true,
+                            "datasetExpressions": true,
                             "requiredWorkspaces": {
                                 "workspaces": [
                                     "97d03602-4873-4760-b37e-1563ef5358e3",
@@ -11433,7 +11449,33 @@
                                                 {
                                                     "id": "e7e8a355-e77b-4418-a7b8-ae5972fdaa03",
                                                     "name": "ExportB",
-                                                    "tables": [],
+                                                    "tables": [
+                                                        {
+                                                            "name": "EIM",
+                                                            "columns": [
+                                                                {
+                                                                    "name": "RowNumber-2662979B-1795-4F74-8F37-6A1BA8059B61",
+                                                                    "dataType": "Int64",
+                                                                    "isHidden": true
+                                                                }
+                                                            ],
+                                                            "measures": [
+                                                                {
+                                                                    "name": "MyMeasure",
+                                                                    "expression": "CALCULATE(SELECTEDVALUE('EIM EIMTestToBeDeleted'[Numbers])*10)",
+                                                                    "description": "My measure",
+                                                                    "isHidden": false
+                                                                }
+                                                            ],
+                                                            "isHidden": false,
+                                                            "description": "My table",
+                                                            "source": [
+                                                                {
+                                                                    "expression": "let\n Source = Sql.Database(\"pbianalytics.database.windows.net\", \"PBIConnectDM\"),\n EIM = Source{[Schema=\"EIM\",Item=\"EIMTestToBeDeleted\"]}[Data]\nin\n EIM"
+                                                                }
+                                                            ]
+                                                        }
+                                                    ],
                                                     "relationships": [],
                                                     "configuredBy": "john@contoso.com",
                                                     "targetStorageMode": "Abf",
@@ -16122,9 +16164,24 @@
                         "$ref": "#/definitions/DependentDataflow"
                     }
                 },
+                "tables": {
+                    "type": "array",
+                    "description": "The dataset tables",
+                    "items": {
+                        "$ref": "#/definitions/Table"
+                    }
+                },
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
                     "description": "The dataset sensitivity label"
+                },
+                "schemaRetrievalError": {
+                    "type": "string",
+                    "description": "The dataset schema retrieval error"
+                },
+                "schemaMayNotBeUpToDate": {
+                    "type": "boolean",
+                    "description": "Whether dataset schema may not be up to date"
                 }
             }
         },
@@ -16268,6 +16325,33 @@
                     "items": {
                         "$ref": "#/definitions/Measure"
                     }
+                },
+                "isHidden": {
+                    "type": "boolean",
+                    "description": "(Optional) Whether dataset table is hidden"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The table description"
+                },
+                "source": {
+                    "type": "array",
+                    "description": "The table source",
+                    "items": {
+                        "$ref": "#/definitions/ASMashupExpression"
+                    }
+                }
+            }
+        },
+        "ASMashupExpression": {
+            "description": "A dataset table source",
+            "required": [
+                "expression"
+            ],
+            "properties": {
+                "expression": {
+                    "type": "string",
+                    "description": "The source expression"
                 }
             }
         },
