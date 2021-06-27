@@ -11329,6 +11329,7 @@
                 "parameters": [
                     {
                         "name": "scanId",
+                        "description": "The scan id to provide is the one from the response of workspaces/getInfo API which triggered the scan",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -11380,6 +11381,7 @@
                 "parameters": [
                     {
                         "name": "scanId",
+                        "description": "The scan id to provide is the one from the response of workspaces/getInfo API which triggered the scan",
                         "in": "path",
                         "required": true,
                         "type": "string",

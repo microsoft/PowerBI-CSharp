@@ -79,6 +79,8 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='scanId'>
+        /// The scan id to provide is the one from the response of
+        /// workspaces/getInfo API which triggered the scan
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -109,6 +111,8 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='scanId'>
+        /// The scan id to provide is the one from the response of
+        /// workspaces/getInfo API which triggered the scan
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
