@@ -14862,8 +14862,8 @@
                 "x-ms-examples": {
                     "Get audit activity events between a time window": {
                         "parameters": {
-                            "startDateTime": "2019-08-13T07:55:00.000Z",
-                            "endDateTime": "2019-08-13T08:55:00.000Z"
+                            "startDateTime": "'2019-08-13T07:55:00.000Z'",
+                            "endDateTime": "'2019-08-13T08:55:00.000Z'"
                         },
                         "responses": {
                             "200": {
@@ -14900,8 +14900,8 @@
                     },
                     "Get audit activity events between a time window and with a specific activity type": {
                         "parameters": {
-                            "startDateTime": "2019-08-13T07:55:00.000Z",
-                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "startDateTime": "'2019-08-13T07:55:00.000Z'",
+                            "endDateTime": "'2019-08-13T08:55:00.000Z'",
                             "$filter": "Activity eq 'ViewReport'"
                         },
                         "responses": {
@@ -14939,8 +14939,8 @@
                     },
                     "Get audit activity events between a time window and with a specific user id": {
                         "parameters": {
-                            "startDateTime": "2019-08-13T07:55:00.000Z",
-                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "startDateTime": "'2019-08-13T07:55:00.000Z'",
+                            "endDateTime": "'2019-08-13T08:55:00.000Z'",
                             "$filter": "UserId eq 'john@contoso.com'"
                         },
                         "responses": {
@@ -14978,8 +14978,8 @@
                     },
                     "Get audit activity events between a time window and with a specific activity type and user id": {
                         "parameters": {
-                            "startDateTime": "2019-08-13T07:55:00.000Z",
-                            "endDateTime": "2019-08-13T08:55:00.000Z",
+                            "startDateTime": "'2019-08-13T07:55:00.000Z'",
+                            "endDateTime": "'2019-08-13T08:55:00.000Z'",
                             "$filter": "Activity eq 'viewreport' and UserId eq 'john@contoso.com'"
                         },
                         "responses": {
