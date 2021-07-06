@@ -8255,7 +8255,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8308,7 +8308,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8372,7 +8372,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8458,7 +8458,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8515,7 +8515,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8560,7 +8560,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8700,7 +8700,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8761,7 +8761,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8828,7 +8828,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8904,7 +8904,7 @@
                     {
                         "name": "gatewayId",
                         "in": "path",
-                        "description": "The gateway id",
+                        "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID.",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -16486,7 +16486,7 @@
                 "gatewayId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The bound gateway id. Empty when not bound to a gateway."
+                    "description": "The bound gateway ID. Empty when not bound to a gateway. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
                 },
                 "datasourceId": {
                     "type": "string",
@@ -16668,7 +16668,7 @@
                 "gatewayId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The associated gateway id"
+                    "description": "The associated gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
                 },
                 "datasourceName": {
                     "type": "string",
@@ -17321,7 +17321,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The gateway id"
+                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
                 },
                 "name": {
                     "type": "string",
@@ -17468,7 +17468,7 @@
                 "gatewayObjectId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The gateway id"
+                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
                 },
                 "datasourceObjectIds": {
                     "type": "array",

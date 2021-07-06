@@ -25,7 +25,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Gateway class.
         /// </summary>
-        /// <param name="id">The gateway id</param>
+        /// <param name="id">The gateway ID. When using a gateway cluster, the
+        /// gateway ID refers to the primary (first) gateway in the cluster. In
+        /// such cases, gateway ID is similar to gateway cluster ID.</param>
         /// <param name="name">The gateway name</param>
         /// <param name="type">The gateway type</param>
         /// <param name="gatewayAnnotation">Gateway metadata in json
@@ -49,7 +51,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the gateway id
+        /// Gets or sets the gateway ID. When using a gateway cluster, the
+        /// gateway ID refers to the primary (first) gateway in the cluster. In
+        /// such cases, gateway ID is similar to gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

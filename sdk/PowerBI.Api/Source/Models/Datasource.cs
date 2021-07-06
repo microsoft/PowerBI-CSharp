@@ -32,8 +32,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasourceType">The datasource type</param>
         /// <param name="connectionDetails">The datasource connection
         /// details</param>
-        /// <param name="gatewayId">The bound gateway id. Empty when not bound
-        /// to a gateway.</param>
+        /// <param name="gatewayId">The bound gateway ID. Empty when not bound
+        /// to a gateway. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.</param>
         /// <param name="datasourceId">The bound datasource id. Empty when not
         /// bound to a gateway.</param>
         public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), System.Guid? gatewayId = default(System.Guid?), System.Guid? datasourceId = default(System.Guid?))
@@ -79,8 +81,10 @@ namespace Microsoft.PowerBI.Api.Models
         public DatasourceConnectionDetails ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the bound gateway id. Empty when not bound to a
-        /// gateway.
+        /// Gets or sets the bound gateway ID. Empty when not bound to a
+        /// gateway. When using a gateway cluster, the gateway ID refers to the
+        /// primary (first) gateway in the cluster. In such cases, gateway ID
+        /// is similar to gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
         public System.Guid? GatewayId { get; set; }

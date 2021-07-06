@@ -68,7 +68,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             public static Gateway GetGateway(this IGatewaysOperations operations, System.Guid gatewayId)
             {
@@ -88,7 +90,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -114,7 +118,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             public static GatewayDatasources GetDatasources(this IGatewaysOperations operations, System.Guid gatewayId)
             {
@@ -134,7 +140,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -163,7 +171,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceToGatewayRequest'>
             /// The datasource requested to create
@@ -189,7 +199,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceToGatewayRequest'>
             /// The datasource requested to create
@@ -218,7 +230,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -241,7 +255,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -270,7 +286,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -293,7 +311,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -326,7 +346,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -359,7 +381,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -389,7 +413,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -413,7 +439,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -439,7 +467,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -462,7 +492,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -492,7 +524,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -519,7 +553,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -548,7 +584,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id
@@ -574,7 +612,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='gatewayId'>
-            /// The gateway id
+            /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
+            /// primary (first) gateway in the cluster. In such cases, gateway ID is
+            /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
             /// The datasource id

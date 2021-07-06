@@ -26,7 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GatewayDatasource class.
         /// </summary>
         /// <param name="id">The unique id for this datasource</param>
-        /// <param name="gatewayId">The associated gateway id</param>
+        /// <param name="gatewayId">The associated gateway ID. When using a
+        /// gateway cluster, the gateway ID refers to the primary (first)
+        /// gateway in the cluster. In such cases, gateway ID is similar to
+        /// gateway cluster ID.</param>
         /// <param name="credentialType">Type of the datasource credentials.
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
@@ -57,7 +60,10 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the associated gateway id
+        /// Gets or sets the associated gateway ID. When using a gateway
+        /// cluster, the gateway ID refers to the primary (first) gateway in
+        /// the cluster. In such cases, gateway ID is similar to gateway
+        /// cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
         public System.Guid GatewayId { get; set; }
