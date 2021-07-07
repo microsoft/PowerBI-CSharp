@@ -17040,7 +17040,7 @@
                 },
                 "createdBy": {
                     "type": "string",
-                    "description": "The report owner"
+                    "description": "The report owner. Available only for reports created after June 2019."
                 },
                 "modifiedBy": {
                     "type": "string",

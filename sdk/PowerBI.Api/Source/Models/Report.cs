@@ -34,7 +34,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="embedUrl">The report embed url</param>
         /// <param name="datasetId">The dataset id</param>
         /// <param name="description">The report description</param>
-        /// <param name="createdBy">The report owner</param>
+        /// <param name="createdBy">The report owner. Available only for
+        /// reports created after June 2019.</param>
         /// <param name="modifiedBy">The user that modified this report</param>
         /// <param name="createdDateTime">The report created date time.</param>
         /// <param name="modifiedDateTime">The report modified date
@@ -104,7 +105,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the report owner
+        /// Gets or sets the report owner. Available only for reports created
+        /// after June 2019.
         /// </summary>
         [JsonProperty(PropertyName = "createdBy")]
         public string CreatedBy { get; set; }
