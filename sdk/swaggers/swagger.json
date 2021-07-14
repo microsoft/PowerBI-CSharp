@@ -11273,6 +11273,13 @@
                         "description": "Whether to return dataset expressions (Dax query and Mashup)​",
                         "required": false,
                         "type": "boolean"
+                    },
+                    {
+                        "name": "getArtifactUsers",
+                        "in": "query",
+                        "description": "Whether to return artifact user details​ (Preview)",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -11426,7 +11433,17 @@
                                                     },
                                                     "sensitivityLabel": {
                                                         "labelId": "85b38049-4259-43a2-8feb-244e222d96c0"
-                                                    }
+                                                    },
+                                                    "users": [
+                                                        {
+                                                            "displayName": "John Nick",
+                                                            "emailAddress": "john@contoso.com",
+                                                            "appUserAccessRight": "ReadExplore",
+                                                            "identifier": "john@contoso.com",
+                                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                            "principalType": "User"
+                                                        }
+                                                    ]
                                                 }
                                             ],
                                             "dashboards": [
@@ -11444,7 +11461,17 @@
                                                     ],
                                                     "sensitivityLabel": {
                                                         "labelId": "d9b9581a-0594-4c39-81c5-91ddf40baeda"
-                                                    }
+                                                    },
+                                                    "users": [
+                                                        {
+                                                            "displayName": "John Nick",
+                                                            "emailAddress": "john@contoso.com",
+                                                            "appUserAccessRight": "ReadExplore",
+                                                            "identifier": "john@contoso.com",
+                                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                            "principalType": "User"
+                                                        }
+                                                    ]
                                                 }
                                             ],
                                             "datasets": [
@@ -11502,7 +11529,17 @@
                                                     ],
                                                     "sensitivityLabel": {
                                                         "labelId": "bf3dc57d-d796-41c0-bbe9-a47f5ee3331e"
-                                                    }
+                                                    },              
+                                                    "users": [
+                                                        {
+                                                            "displayName": "John Nick",
+                                                            "emailAddress": "john@contoso.com",
+                                                            "appUserAccessRight": "ReadExplore",
+                                                            "identifier": "john@contoso.com",
+                                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                            "principalType": "User"
+                                                        }
+                                                    ]
                                                 }
                                             ],
                                             "dataflows": [
@@ -11524,7 +11561,27 @@
                                                     ],
                                                     "sensitivityLabel": {
                                                         "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
-                                                    }
+                                                    },                                                    
+                                                    "users": [
+                                                        {
+                                                            "displayName": "John Nick",
+                                                            "emailAddress": "john@contoso.com",
+                                                            "appUserAccessRight": "ReadExplore",
+                                                            "identifier": "john@contoso.com",
+                                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                            "principalType": "User"
+                                                        }
+                                                    ]
+                                                }
+                                            ],                                                    
+                                            "users": [
+                                                {
+                                                    "displayName": "John Nick",
+                                                    "emailAddress": "john@contoso.com",
+                                                    "appUserAccessRight": "ReadExplore",
+                                                    "identifier": "john@contoso.com",
+                                                    "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                    "principalType": "User"
                                                 }
                                             ]
                                         }
@@ -11616,7 +11673,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Assigns the provided workspaces to the specified capacity.",
+                "summary": "Assigns the provided workspaces to the specified premium capacity.",
                 "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Capacities_AssignWorkspacesToCapacity",
                 "consumes": [
@@ -11638,6 +11695,23 @@
                 "responses": {
                     "200": {
                         "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "AssignWorkspacesToCapacityRequest": {
+                                    "capacityMigrationAssignments": [
+                                    {
+                                        "targetCapacityObjectId": "FA5923C2-A23f-4C0B-8345-9BA8645F883E",
+                                        "workspacesToAssign": ["0ebb517c-c6f5-4aa8-9f1d-42bd547e6297"]
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -14699,7 +14773,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of apps in the orginization (Preview).",
-                "description": "This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). Query parameter $top is mandatory to access this API",
                 "operationId": "Apps_GetAppsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -14707,12 +14781,12 @@
                 ],
                 "parameters": [
                     {
-                        "name": "appId",
-                        "in": "path",
-                        "description": "The app id",
+                        "name": "$top",
+                        "description": "The requested number of entries in the refresh history. If not provided, the default is all available entries.",
+                        "in": "query",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "integer",
+                        "minimum": 1
                     }
                 ],
                 "responses": {
@@ -14725,7 +14799,9 @@
                 },
                 "x-ms-examples": {
                     "example": {
-                        "parameters": {},
+                        "parameters": {
+                            "$top": 10
+                                },
                         "responses": {
                             "200": {
                                 "body": {
@@ -14813,7 +14889,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "**Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day.",
+                "description": "**Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland. The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API or authenticate via service principal. <br/>This API allows 200 requests per hour at maximum. <br/><br/>**Required scope**: Tenant.Read.All or Tenant.ReadWrite.All. <br/>Delegated permissions are supported. <br/>To call this API, provide either a continuation token or both a start and end date time. StartDateTime and EndDateTime must be in the same UTC day and should be wrapped in ''.",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [
 
@@ -15987,6 +16063,13 @@
                     "items": {
                         "$ref": "#/definitions/Dataflow"
                     }
+                },
+                "users": {
+                    "type": "array",
+                    "description": "Users have access to the workspace, only apply when user information is requested explicitly. The list is retrieved for V2 workspaces but not for classic workspaces. To retirve the users for classic workspace, call AAD Graph APIs.",
+                    "items": {
+                        "$ref": "#/definitions/GroupUser"
+                    }
                 }
             }
         },
@@ -16176,6 +16259,13 @@
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
                     "description": "The dataset sensitivity label"
+                },                
+                "users": {
+                    "type": "array",
+                    "description": "The Dataset User Access Details, only apply when user information is requested explicitly.",
+                    "items": {
+                        "$ref": "#/definitions/DatasetUser"
+                    }
                 },
                 "schemaRetrievalError": {
                     "type": "string",
@@ -17071,6 +17161,13 @@
                     "enum": [
                         "PaginatedReport"
                     ]
+                },
+                "users": {
+                    "type": "array",
+                    "description": "The Report User Access Details, only apply when user information is requested explicitly.",
+                    "items": {
+                        "$ref": "#/definitions/ReportUser"
+                    }
                 }
             }
         },
@@ -17129,6 +17226,13 @@
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
                     "description": "The dashboard sensitivity label"
+                },
+                "users": {
+                    "type": "array",
+                    "description": "The Dashboard User Access Details, only apply when user information is requested explicitly.",
+                    "items": {
+                        "$ref": "#/definitions/DashboardUser"
+                    }
                 }
             }
         },
@@ -17216,7 +17320,7 @@
                 },
                 "users": {
                     "type": "array",
-                    "description": "The users that belong to the group, and their access rights. Available only for admin API calls.",
+                    "description": "The users that belong to the group, and their access rights, only apply when user information is requested explicitly.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
@@ -19389,6 +19493,13 @@
                     "$ref": "#/definitions/SensitivityLabel",
                     "description": "The dataflow sensitivity label"
 
+                },
+                "users": {
+                    "type": "array",
+                    "description": "The Dataflow User Access Details, only apply when user information is requested explicitly.",
+                    "items": {
+                        "$ref": "#/definitions/DataflowUser"
+                    }
                 }
             }
         },
@@ -19629,9 +19740,6 @@
             }
         },
         "AssignWorkspacesToCapacityRequest": {
-            "required": [
-                "capacityMigrationAssignments"
-            ],
             "description": "Request body for assigning workspaces to a premium capacity as tenant admin",
             "properties": {
                 "capacityMigrationAssignments": {
@@ -19647,11 +19755,11 @@
                 "workspacesToAssign",
                 "targetCapacityObjectId"
             ],
-            "description": "Assignment contract for migrating workspaces to shared capacity as tenant admin",
+            "description": "Assignment contract for migrating workspaces to premium capacity as tenant admin",
             "properties": {
                 "workspacesToAssign": {
                     "type": "array",
-                    "description": "Workspaces to be migrated to shared capacity",
+                    "description": "Workspace Ids to be migrated to premium capacity",
                     "items": {
                         "type": "string",
                         "description": "Workspace id"
@@ -19659,7 +19767,7 @@
                 },
                 "targetCapacityObjectId": {
                     "type": "string",
-                    "description": "Capacity id"
+                    "description": "premium Capacity id"
                 }
             }
         },
@@ -19800,7 +19908,7 @@
                 },
                 "refreshesPerDay": {
                     "type": "integer",
-                    "description": "The number of refreshes per day within the summary time window"
+                    "description": "The number of refreshes (schedule+onDemand) per day within the summary time window with at most 60"
                 },
                 "lastRefresh": {
                     "$ref": "#/definitions/Refresh",

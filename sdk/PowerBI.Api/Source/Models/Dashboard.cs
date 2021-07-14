@@ -39,7 +39,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// dashboard</param>
         /// <param name="sensitivityLabel">The dashboard sensitivity
         /// label</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
+        /// <param name="users">The Report User Access Details</param>
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>))
         {
             Id = id;
             DisplayName = displayName;
@@ -48,6 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
             Tiles = tiles;
             DataClassification = dataClassification;
             SensitivityLabel = sensitivityLabel;
+            Users = users;
             CustomInit();
         }
 
@@ -99,6 +101,12 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
+        /// Gets or sets the Report User Access Details
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<DashboardUser> Users { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -119,6 +127,16 @@ namespace Microsoft.PowerBI.Api.Models
             if (SensitivityLabel != null)
             {
                 SensitivityLabel.Validate();
+            }
+            if (Users != null)
+            {
+                foreach (var element1 in Users)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
             }
         }
     }

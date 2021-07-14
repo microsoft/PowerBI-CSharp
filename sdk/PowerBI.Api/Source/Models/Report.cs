@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -45,7 +47,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="sensitivityLabel">The report sensitivity label</param>
         /// <param name="reportType">The report type. Possible values include:
         /// 'PaginatedReport'</param>
-        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string))
+        /// <param name="users">The Report User Access Details</param>
+        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string), IList<ReportUser> users = default(IList<ReportUser>))
         {
             Id = id;
             Name = name;
@@ -60,6 +63,7 @@ namespace Microsoft.PowerBI.Api.Models
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
             ReportType = reportType;
+            Users = users;
             CustomInit();
         }
 
@@ -149,6 +153,12 @@ namespace Microsoft.PowerBI.Api.Models
         public string ReportType { get; set; }
 
         /// <summary>
+        /// Gets or sets the Report User Access Details
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<ReportUser> Users { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -159,6 +169,16 @@ namespace Microsoft.PowerBI.Api.Models
             if (SensitivityLabel != null)
             {
                 SensitivityLabel.Validate();
+            }
+            if (Users != null)
+            {
+                foreach (var element in Users)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }

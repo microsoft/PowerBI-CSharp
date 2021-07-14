@@ -63,11 +63,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="tables">The dataset tables</param>
         /// <param name="sensitivityLabel">The dataset sensitivity
         /// label</param>
+        /// <param name="users">The Report User Access Details</param>
         /// <param name="schemaRetrievalError">The dataset schema retrieval
         /// error</param>
         /// <param name="schemaMayNotBeUpToDate">Whether dataset schema may not
         /// be up to date</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?))
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<DatasetUser> users = default(IList<DatasetUser>))
         {
             Id = id;
             Name = name;
@@ -89,6 +90,7 @@ namespace Microsoft.PowerBI.Api.Models
             UpstreamDataflows = upstreamDataflows;
             Tables = tables;
             SensitivityLabel = sensitivityLabel;
+            Users = users;
             SchemaRetrievalError = schemaRetrievalError;
             SchemaMayNotBeUpToDate = schemaMayNotBeUpToDate;
             CustomInit();
@@ -224,6 +226,12 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
+        /// Gets or sets the Report User Access Details
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<DatasetUser> Users { get; set; }
+
+        /// <summary>
         /// Gets or sets the dataset schema retrieval error
         /// </summary>
         [JsonProperty(PropertyName = "schemaRetrievalError")]
@@ -270,6 +278,16 @@ namespace Microsoft.PowerBI.Api.Models
             if (SensitivityLabel != null)
             {
                 SensitivityLabel.Validate();
+            }
+            if (Users != null)
+            {
+                foreach (var element1 in Users)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
             }
         }
     }

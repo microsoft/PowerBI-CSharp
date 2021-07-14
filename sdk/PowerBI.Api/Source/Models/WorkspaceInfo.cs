@@ -49,7 +49,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dataflows">The dataflows associated with this
         /// workspace. The list of properties returned varies between APIs,
         /// thus you may not see them all as part of the API response.</param>
-        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>))
+        /// <param name="users">Users have access to the workspace. The list is
+        /// retrieved for V2 workspaces but not for classic workspaces. To
+        /// retirve the users for classic workspace, call AAD Graph
+        /// APIs.</param>
+        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), IList<GroupUser> users = default(IList<GroupUser>))
         {
             Id = id;
             Name = name;
@@ -63,6 +67,7 @@ namespace Microsoft.PowerBI.Api.Models
             Dashboards = dashboards;
             Datasets = datasets;
             Dataflows = dataflows;
+            Users = users;
             CustomInit();
         }
 
@@ -152,6 +157,14 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Dataflow> Dataflows { get; set; }
 
         /// <summary>
+        /// Gets or sets users have access to the workspace. The list is
+        /// retrieved for V2 workspaces but not for classic workspaces. To
+        /// retirve the users for classic workspace, call AAD Graph APIs.
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<GroupUser> Users { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -196,6 +209,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element3 != null)
                     {
                         element3.Validate();
+                    }
+                }
+            }
+            if (Users != null)
+            {
+                foreach (var element4 in Users)
+                {
+                    if (element4 != null)
+                    {
+                        element4.Validate();
                     }
                 }
             }

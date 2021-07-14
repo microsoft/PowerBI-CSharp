@@ -68,6 +68,8 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasourceDetails'>
         /// Whether to return datasource details​
         /// </param>
+        /// <param name='getArtifactUsers'>
+        /// Whether to return artifact user details​
         /// <param name='datasetSchema'>
         /// Whether to return dataset schema (Tables, Columns and Measures)​
         /// </param>
@@ -95,7 +97,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (requiredWorkspaces == null)
             {
@@ -111,6 +113,7 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("requiredWorkspaces", requiredWorkspaces);
                 tracingParameters.Add("lineage", lineage);
                 tracingParameters.Add("datasourceDetails", datasourceDetails);
+                tracingParameters.Add("getArtifactUsers", getArtifactUsers);
                 tracingParameters.Add("datasetSchema", datasetSchema);
                 tracingParameters.Add("datasetExpressions", datasetExpressions);
                 tracingParameters.Add("cancellationToken", cancellationToken);
@@ -127,6 +130,10 @@ namespace Microsoft.PowerBI.Api
             if (datasourceDetails != null)
             {
                 _queryParameters.Add(string.Format("datasourceDetails={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceDetails, Client.SerializationSettings).Trim('"'))));
+            }
+            if (getArtifactUsers != null)
+            {
+                _queryParameters.Add(string.Format("getArtifactUsers={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(getArtifactUsers, Client.SerializationSettings).Trim('"'))));
             }
             if (datasetSchema != null)
             {
@@ -150,7 +157,7 @@ namespace Microsoft.PowerBI.Api
 
             if (customHeaders != null)
             {
-                foreach(var _header in customHeaders)
+                foreach (var _header in customHeaders)
                 {
                     if (_httpRequest.Headers.Contains(_header.Key))
                     {
@@ -162,11 +169,11 @@ namespace Microsoft.PowerBI.Api
 
             // Serialize Request
             string _requestContent = null;
-            if(requiredWorkspaces != null)
+            if (requiredWorkspaces != null)
             {
                 _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(requiredWorkspaces, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
-                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+                _httpRequest.Content.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
             // Set Credentials
             if (Client.Credentials != null)
@@ -191,10 +198,12 @@ namespace Microsoft.PowerBI.Api
             if ((int)_statusCode != 202)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
+                if (_httpResponse.Content != null)
+                {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 }
-                else {
+                else
+                {
                     _responseContent = string.Empty;
                 }
                 ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
@@ -238,7 +247,6 @@ namespace Microsoft.PowerBI.Api
             }
             return _result;
         }
-
         /// <summary>
         /// Gets scan status for the specified scan. (Preview)
         /// </summary>
@@ -297,7 +305,7 @@ namespace Microsoft.PowerBI.Api
 
             if (customHeaders != null)
             {
-                foreach(var _header in customHeaders)
+                foreach (var _header in customHeaders)
                 {
                     if (_httpRequest.Headers.Contains(_header.Key))
                     {
@@ -332,10 +340,12 @@ namespace Microsoft.PowerBI.Api
             if ((int)_statusCode != 200)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
+                if (_httpResponse.Content != null)
+                {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 }
-                else {
+                else
+                {
                     _responseContent = string.Empty;
                 }
                 ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
@@ -440,7 +450,7 @@ namespace Microsoft.PowerBI.Api
 
             if (customHeaders != null)
             {
-                foreach(var _header in customHeaders)
+                foreach (var _header in customHeaders)
                 {
                     if (_httpRequest.Headers.Contains(_header.Key))
                     {
@@ -475,10 +485,12 @@ namespace Microsoft.PowerBI.Api
             if ((int)_statusCode != 200)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
+                if (_httpResponse.Content != null)
+                {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 }
-                else {
+                else
+                {
                     _responseContent = string.Empty;
                 }
                 ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
@@ -601,7 +613,7 @@ namespace Microsoft.PowerBI.Api
 
             if (customHeaders != null)
             {
-                foreach(var _header in customHeaders)
+                foreach (var _header in customHeaders)
                 {
                     if (_httpRequest.Headers.Contains(_header.Key))
                     {
@@ -636,10 +648,12 @@ namespace Microsoft.PowerBI.Api
             if ((int)_statusCode != 200)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
-                if (_httpResponse.Content != null) {
+                if (_httpResponse.Content != null)
+                {
                     _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 }
-                else {
+                else
+                {
                     _responseContent = string.Empty;
                 }
                 ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);

@@ -45,7 +45,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="upstreamDataflows">Upstream Dataflows</param>
         /// <param name="sensitivityLabel">The dataflow sensitivity
         /// label</param>
-        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
+        /// <param name="users">The Report User Access Details</param>
+        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DataflowUser> users = default(IList<DataflowUser>))
         {
             ObjectId = objectId;
             Name = name;
@@ -58,6 +59,7 @@ namespace Microsoft.PowerBI.Api.Models
             DatasourceUsages = datasourceUsages;
             UpstreamDataflows = upstreamDataflows;
             SensitivityLabel = sensitivityLabel;
+            Users = users;
             CustomInit();
         }
 
@@ -131,6 +133,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Report User Access Details
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<DataflowUser> Users { get; set; }
 
         /// <summary>
         /// Validate the object.
