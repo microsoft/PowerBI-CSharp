@@ -16090,7 +16090,12 @@
                 },
                 "importState": {
                     "type": "string",
-                    "description": "The import upload state"
+                    "description": "The import upload state",
+                    "enum": [
+                        "Publishing",
+                        "Succeeded",
+                        "Failed"
+                    ]
                 },
                 "reports": {
                     "type": "array",
@@ -16786,6 +16791,10 @@
                         "name": "credentialType",
                         "modelAsExtensible": true
                     }
+                },
+                "credentialDetails": {
+                    "$ref": "#/definitions/GatewayDatasourceCredentialDetails",
+                    "description": "The connection details of the datasource that need to be updated. This is mandataory when the dataset has more than one datasource."
                 }
             }
         },
@@ -17549,6 +17558,15 @@
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
                     "description": "Should the end-user OAuth2 credentials be used for connecting to the datasource in DirectQuery mode. Only supported for Direct Query to SQL Azure."
+                }
+            }
+        },
+        "GatewayDatasourceCredentialDetails": {
+            "description": "The datasource credential details",
+            "properties": {
+                "useEndUserOAuth2Credentials": {
+                    "type": "boolean",
+                    "description": "Indicates if the end-user OAuth2 credentials are used for connecting to the datasource in DirectQuery mode."
                 }
             }
         },

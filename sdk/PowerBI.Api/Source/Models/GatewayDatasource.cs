@@ -37,7 +37,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasourceType">The type of the datasource</param>
         /// <param name="connectionDetails">Connection details in json
         /// format</param>
-        public GatewayDatasource(System.Guid id, System.Guid gatewayId, CredentialType credentialType, string datasourceName = default(string), string datasourceType = default(string), string connectionDetails = default(string))
+        /// <param name="credentialDetails">The connection details of the
+        /// datasource that need to be updated. This is mandataory when the
+        /// dataset has more than one datasource.</param>
+        public GatewayDatasource(System.Guid id, System.Guid gatewayId, CredentialType credentialType, string datasourceName = default(string), string datasourceType = default(string), string connectionDetails = default(string), GatewayDatasourceCredentialDetails credentialDetails = default(GatewayDatasourceCredentialDetails))
         {
             Id = id;
             GatewayId = gatewayId;
@@ -45,6 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
             DatasourceType = datasourceType;
             ConnectionDetails = connectionDetails;
             CredentialType = credentialType;
+            CredentialDetails = credentialDetails;
             CustomInit();
         }
 
@@ -92,6 +96,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public CredentialType CredentialType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection details of the datasource that need to
+        /// be updated. This is mandataory when the dataset has more than one
+        /// datasource.
+        /// </summary>
+        [JsonProperty(PropertyName = "credentialDetails")]
+        public GatewayDatasourceCredentialDetails CredentialDetails { get; set; }
 
         /// <summary>
         /// Validate the object.

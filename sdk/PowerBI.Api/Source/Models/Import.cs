@@ -29,7 +29,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="id">The import id</param>
         /// <param name="name">The import name</param>
-        /// <param name="importState">The import upload state</param>
+        /// <param name="importState">The import upload state. Possible values
+        /// include: 'Publishing', 'Succeeded', 'Failed'</param>
         /// <param name="reports">The reports associated with this
         /// import</param>
         /// <param name="datasets">The datasets associated with this
@@ -66,7 +67,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the import upload state
+        /// Gets or sets the import upload state. Possible values include:
+        /// 'Publishing', 'Succeeded', 'Failed'
         /// </summary>
         [JsonProperty(PropertyName = "importState")]
         public string ImportState { get; set; }
