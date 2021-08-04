@@ -34,7 +34,35 @@ namespace Microsoft.PowerBI.Api.Models
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
         /// <param name="datasourceName">The name of the datasource</param>
-        /// <param name="datasourceType">The type of the datasource</param>
+        /// <param name="datasourceType">The type of the
+        /// datasource:&lt;ul&gt;&lt;li&gt;Sql
+        /// &lt;/li&gt;&lt;li&gt;AnalysisServices &lt;/li&gt;&lt;li&gt;SAPHana
+        /// &lt;/li&gt;&lt;li&gt;File &lt;/li&gt;&lt;li&gt;Folder
+        /// &lt;/li&gt;&lt;li&gt;Oracle &lt;/li&gt;&lt;li&gt;Teradata
+        /// &lt;/li&gt;&lt;li&gt;SharePointList &lt;/li&gt;&lt;li&gt;Web
+        /// &lt;/li&gt;&lt;li&gt;OData &lt;/li&gt;&lt;li&gt;DB2
+        /// &lt;/li&gt;&lt;li&gt;MySql &lt;/li&gt;&lt;li&gt;PostgreSql
+        /// &lt;/li&gt;&lt;li&gt;Sybase &lt;/li&gt;&lt;li&gt;Extension
+        /// &lt;/li&gt;&lt;li&gt;SAPBW &lt;/li&gt;&lt;li&gt;AzureTables
+        /// &lt;/li&gt;&lt;li&gt;AzureBlobs &lt;/li&gt;&lt;li&gt;Informix
+        /// &lt;/li&gt;&lt;li&gt;ODBC &lt;/li&gt;&lt;li&gt;Excel
+        /// &lt;/li&gt;&lt;li&gt;SharePoint &lt;/li&gt;&lt;li&gt;PubNub
+        /// &lt;/li&gt;&lt;li&gt;MQ &lt;/li&gt;&lt;li&gt;BizTalk
+        /// &lt;/li&gt;&lt;li&gt;GoogleAnalytics
+        /// &lt;/li&gt;&lt;li&gt;CustomHttpApi &lt;/li&gt;&lt;li&gt;Exchange
+        /// &lt;/li&gt;&lt;li&gt;Facebook &lt;/li&gt;&lt;li&gt;HDInsight
+        /// &lt;/li&gt;&lt;li&gt;AzureMarketplace
+        /// &lt;/li&gt;&lt;li&gt;ActiveDirectory &lt;/li&gt;&lt;li&gt;Hdfs
+        /// &lt;/li&gt;&lt;li&gt;SharePointDocLib
+        /// &lt;/li&gt;&lt;li&gt;PowerQueryMashup &lt;/li&gt;&lt;li&gt;OleDb
+        /// &lt;/li&gt;&lt;li&gt;AdoDotNet &lt;/li&gt;&lt;li&gt;Salesforce
+        /// &lt;/li&gt;&lt;li&gt;CustomConnector
+        /// &lt;/li&gt;&lt;li&gt;SAPBWMessageServer
+        /// &lt;/li&gt;&lt;li&gt;AdobeAnalytics &lt;/li&gt;&lt;li&gt;Essbase
+        /// &lt;/li&gt;&lt;li&gt;AzureDataLakeStorage
+        /// &lt;/li&gt;&lt;li&gt;SapErp &lt;/li&gt;&lt;li&gt;UIFlow
+        /// &lt;/li&gt;&lt;li&gt;CDPA &lt;/li&gt;&lt;li&gt;EventHub
+        /// &lt;/li&gt;&lt;/ul&gt;</param>
         /// <param name="connectionDetails">Connection details in json
         /// format</param>
         /// <param name="credentialDetails">The connection details of the
@@ -79,7 +107,55 @@ namespace Microsoft.PowerBI.Api.Models
         public string DatasourceName { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the datasource
+        /// Gets or sets the type of the
+        /// datasource:&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Sql
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AnalysisServices
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SAPHana
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;File
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Folder
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Oracle
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Teradata
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SharePointList
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Web
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;OData
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;DB2
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MySql
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PostgreSql
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Sybase
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Extension
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SAPBW
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureTables
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureBlobs
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Informix
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;ODBC
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Excel
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SharePoint
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PubNub
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MQ
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;BizTalk
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;GoogleAnalytics
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CustomHttpApi
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Exchange
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Facebook
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;HDInsight
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureMarketplace
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;ActiveDirectory
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Hdfs
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SharePointDocLib
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PowerQueryMashup
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;OleDb
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AdoDotNet
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Salesforce
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CustomConnector
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SAPBWMessageServer
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AdobeAnalytics
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Essbase
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureDataLakeStorage
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SapErp
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;UIFlow
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CDPA
+        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;EventHub
+        /// &amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;
         /// </summary>
         [JsonProperty(PropertyName = "datasourceType")]
         public string DatasourceType { get; set; }

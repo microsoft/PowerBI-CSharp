@@ -16771,7 +16771,7 @@
                 },
                 "datasourceType": {
                     "type": "string",
-                    "description": "The type of the datasource"
+                    "description": "The type of the datasource:<ul><li>Sql </li><li>AnalysisServices </li><li>SAPHana </li><li>File </li><li>Folder </li><li>Oracle </li><li>Teradata </li><li>SharePointList </li><li>Web </li><li>OData </li><li>DB2 </li><li>MySql </li><li>PostgreSql </li><li>Sybase </li><li>Extension </li><li>SAPBW </li><li>AzureTables </li><li>AzureBlobs </li><li>Informix </li><li>ODBC </li><li>Excel </li><li>SharePoint </li><li>PubNub </li><li>MQ </li><li>BizTalk </li><li>GoogleAnalytics </li><li>CustomHttpApi </li><li>Exchange </li><li>Facebook </li><li>HDInsight </li><li>AzureMarketplace </li><li>ActiveDirectory </li><li>Hdfs </li><li>SharePointDocLib </li><li>PowerQueryMashup </li><li>OleDb </li><li>AdoDotNet </li><li>Salesforce </li><li>CustomConnector </li><li>SAPBWMessageServer </li><li>AdobeAnalytics </li><li>Essbase </li><li>AzureDataLakeStorage </li><li>SapErp </li><li>UIFlow </li><li>CDPA </li><li>EventHub </li></ul>"
                 },
                 "connectionDetails": {
                     "type": "string",
