@@ -39,7 +39,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// dashboard</param>
         /// <param name="sensitivityLabel">The dashboard sensitivity
         /// label</param>
-        /// <param name="users">The Report User Access Details</param>
+        /// <param name="users">The Dashboard User Access Details, only apply
+        /// when user information is requested explicitly.</param>
         public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>))
         {
             Id = id;
@@ -101,7 +102,8 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets the Report User Access Details
+        /// Gets or sets the Dashboard User Access Details, only apply when
+        /// user information is requested explicitly.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DashboardUser> Users { get; set; }

@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Assignment contract for migrating workspaces to shared capacity as
+    /// Assignment contract for migrating workspaces to premium capacity as
     /// tenant admin
     /// </summary>
     public partial class CapacityMigrationAssignment
@@ -31,9 +31,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the CapacityMigrationAssignment
         /// class.
         /// </summary>
-        /// <param name="workspacesToAssign">Workspaces to be migrated to
-        /// shared capacity</param>
-        /// <param name="targetCapacityObjectId">Capacity id</param>
+        /// <param name="workspacesToAssign">Workspace Ids to be migrated to
+        /// premium capacity</param>
+        /// <param name="targetCapacityObjectId">premium Capacity id</param>
         public CapacityMigrationAssignment(IList<string> workspacesToAssign, string targetCapacityObjectId)
         {
             WorkspacesToAssign = workspacesToAssign;
@@ -47,13 +47,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets workspaces to be migrated to shared capacity
+        /// Gets or sets workspace Ids to be migrated to premium capacity
         /// </summary>
         [JsonProperty(PropertyName = "workspacesToAssign")]
         public IList<string> WorkspacesToAssign { get; set; }
 
         /// <summary>
-        /// Gets or sets capacity id
+        /// Gets or sets premium Capacity id
         /// </summary>
         [JsonProperty(PropertyName = "targetCapacityObjectId")]
         public string TargetCapacityObjectId { get; set; }

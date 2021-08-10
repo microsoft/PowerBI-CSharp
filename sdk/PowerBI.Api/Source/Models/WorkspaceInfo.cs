@@ -49,7 +49,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dataflows">The dataflows associated with this
         /// workspace. The list of properties returned varies between APIs,
         /// thus you may not see them all as part of the API response.</param>
-        /// <param name="users">Users have access to the workspace. The list is
+        /// <param name="users">Users have access to the workspace, only apply
+        /// when user information is requested explicitly. The list is
         /// retrieved for V2 workspaces but not for classic workspaces. To
         /// retirve the users for classic workspace, call AAD Graph
         /// APIs.</param>
@@ -157,9 +158,10 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Dataflow> Dataflows { get; set; }
 
         /// <summary>
-        /// Gets or sets users have access to the workspace. The list is
-        /// retrieved for V2 workspaces but not for classic workspaces. To
-        /// retirve the users for classic workspace, call AAD Graph APIs.
+        /// Gets or sets users have access to the workspace, only apply when
+        /// user information is requested explicitly. The list is retrieved for
+        /// V2 workspaces but not for classic workspaces. To retirve the users
+        /// for classic workspace, call AAD Graph APIs.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }

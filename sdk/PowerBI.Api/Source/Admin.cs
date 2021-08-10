@@ -1318,7 +1318,7 @@ namespace Microsoft.PowerBI.Api
         /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
         /// are supported. &lt;br/&gt;To call this API, provide either a continuation
         /// token or both a start and end date time. StartDateTime and EndDateTime must
-        /// be in the same UTC day.
+        /// be in the same UTC day and should be wrapped in ''.
         /// </remarks>
         /// <param name='startDateTime'>
         /// Start date and time of the window for audit event results. Must be in ISO

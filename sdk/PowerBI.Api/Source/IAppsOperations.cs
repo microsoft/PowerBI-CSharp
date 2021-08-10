@@ -250,9 +250,11 @@ namespace Microsoft.PowerBI.Api
         /// supported. &lt;br/&gt;To set the permissions scope, see [Register
         /// an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Query parameter $top is mandatory to access this API
         /// </remarks>
-        /// <param name='appId'>
-        /// The app id
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history. If not
+        /// provided, the default is all available entries.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -266,7 +268,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Apps>> GetAppsAsAdminWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Apps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified app
         /// (Preview).

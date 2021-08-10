@@ -429,17 +429,19 @@ namespace Microsoft.PowerBI.Api
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
             /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app). Query
+            /// parameter $top is mandatory to access this API
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='appId'>
-            /// The app id
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history. If not provided,
+            /// the default is all available entries.
             /// </param>
-            public static Apps GetAppsAsAdmin(this IAppsOperations operations, System.Guid appId)
+            public static Apps GetAppsAsAdmin(this IAppsOperations operations, int top)
             {
-                return operations.GetAppsAsAdminAsync(appId).GetAwaiter().GetResult();
+                return operations.GetAppsAsAdminAsync(top).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -450,20 +452,22 @@ namespace Microsoft.PowerBI.Api
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
             /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app). Query
+            /// parameter $top is mandatory to access this API
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='appId'>
-            /// The app id
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history. If not provided,
+            /// the default is all available entries.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Apps> GetAppsAsAdminAsync(this IAppsOperations operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Apps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

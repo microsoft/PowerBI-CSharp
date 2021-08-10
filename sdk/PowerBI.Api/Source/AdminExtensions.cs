@@ -508,7 +508,7 @@ namespace Microsoft.PowerBI.Api
             /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
             /// are supported. &lt;br/&gt;To call this API, provide either a continuation
             /// token or both a start and end date time. StartDateTime and EndDateTime must
-            /// be in the same UTC day.
+            /// be in the same UTC day and should be wrapped in ''.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -545,7 +545,7 @@ namespace Microsoft.PowerBI.Api
             /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
             /// are supported. &lt;br/&gt;To call this API, provide either a continuation
             /// token or both a start and end date time. StartDateTime and EndDateTime must
-            /// be in the same UTC day.
+            /// be in the same UTC day and should be wrapped in ''.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

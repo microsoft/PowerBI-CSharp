@@ -43,13 +43,14 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasourceDetails'>
         /// Whether to return datasource details​
         /// </param>
-        /// <param name='getArtifactUsers'>
-        /// Whether to return artifact user details​
         /// <param name='datasetSchema'>
         /// Whether to return dataset schema (Tables, Columns and Measures)​
         /// </param>
         /// <param name='datasetExpressions'>
         /// Whether to return dataset expressions (Dax query and Mashup)​
+        /// </param>
+        /// <param name='getArtifactUsers'>
+        /// Whether to return artifact user details​ (Preview)
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

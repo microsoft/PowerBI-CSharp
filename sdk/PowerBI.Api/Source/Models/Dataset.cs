@@ -63,12 +63,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="tables">The dataset tables</param>
         /// <param name="sensitivityLabel">The dataset sensitivity
         /// label</param>
-        /// <param name="users">The Report User Access Details</param>
+        /// <param name="users">The Dataset User Access Details, only apply
+        /// when user information is requested explicitly.</param>
         /// <param name="schemaRetrievalError">The dataset schema retrieval
         /// error</param>
         /// <param name="schemaMayNotBeUpToDate">Whether dataset schema may not
         /// be up to date</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), IList<DatasetUser> users = default(IList<DatasetUser>))
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DatasetUser> users = default(IList<DatasetUser>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?))
         {
             Id = id;
             Name = name;
@@ -226,7 +227,8 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets the Report User Access Details
+        /// Gets or sets the Dataset User Access Details, only apply when user
+        /// information is requested explicitly.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DatasetUser> Users { get; set; }
@@ -281,11 +283,11 @@ namespace Microsoft.PowerBI.Api.Models
             }
             if (Users != null)
             {
-                foreach (var element1 in Users)
+                foreach (var element2 in Users)
                 {
-                    if (element1 != null)
+                    if (element2 != null)
                     {
-                        element1.Validate();
+                        element2.Validate();
                     }
                 }
             }

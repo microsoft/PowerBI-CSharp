@@ -45,7 +45,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="upstreamDataflows">Upstream Dataflows</param>
         /// <param name="sensitivityLabel">The dataflow sensitivity
         /// label</param>
-        /// <param name="users">The Report User Access Details</param>
+        /// <param name="users">The Dataflow User Access Details, only apply
+        /// when user information is requested explicitly.</param>
         public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DataflowUser> users = default(IList<DataflowUser>))
         {
             ObjectId = objectId;
@@ -135,7 +136,8 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets the Report User Access Details
+        /// Gets or sets the Dataflow User Access Details, only apply when user
+        /// information is requested explicitly.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DataflowUser> Users { get; set; }

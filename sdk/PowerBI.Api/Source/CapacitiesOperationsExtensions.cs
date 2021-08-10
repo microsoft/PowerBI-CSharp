@@ -429,7 +429,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Assigns the provided workspaces to the specified capacity.
+            /// Assigns the provided workspaces to the specified premium capacity.
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Office 365
@@ -450,7 +450,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Assigns the provided workspaces to the specified capacity.
+            /// Assigns the provided workspaces to the specified premium capacity.
             /// </summary>
             /// <remarks>
             /// **Note:** The user must have administrator rights (such as Office 365

@@ -1137,7 +1137,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns the provided workspaces to the specified capacity.
+        /// Assigns the provided workspaces to the specified premium capacity.
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office 365
@@ -1172,10 +1172,6 @@ namespace Microsoft.PowerBI.Api
             if (requestParameters == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "requestParameters");
-            }
-            if (requestParameters != null)
-            {
-                requestParameters.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

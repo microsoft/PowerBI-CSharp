@@ -252,7 +252,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Refreshables>> GetRefreshableForCapacityWithHttpMessagesAsync(System.Guid capacityId, string refreshableId, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Assigns the provided workspaces to the specified capacity.
+        /// Assigns the provided workspaces to the specified premium capacity.
         /// </summary>
         /// <remarks>
         /// **Note:** The user must have administrator rights (such as Office
