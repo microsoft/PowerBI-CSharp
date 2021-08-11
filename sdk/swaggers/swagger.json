@@ -277,6 +277,92 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/datasets/{datasetId}/executeQueries": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Executes DAX queries against the provided dataset. The dataset may reside in **\"My Workspace\"** or any other [new workspace](/power-bi/collaborate-share/service-new-workspaces) (V2 workspace).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for datasets in a [new workspace](/power-bi/collaborate-share/service-new-workspaces) (V2 workspace)</li><li>The user issuing the request needs to have [Build permissions for the dataset](power-bi/connect-data/service-datasets-build-permissions).</li><li>The [Allow XMLA endpoints and Analyze in Excel with on-premises datasets](power-bi/admin/service-premium-connect-tools) tenant setting needs to be enabled.</li><li>Datasets hosted in AsAzure or live connected to an on premise Analysis Services model are not supported.</li><li>Only one query returning one table of maximum 100k rows is allowed. Specifying more than one query will return an error.</li></ul><h2>Notes</h2><ul><li>Issuing a query that returns more than one table or more than 100k rows will return limited data and an error in the response. The response HTTP status will be OK (200).</li><li>DAX query failures will be returned with a failure HTTP status (400).</li><li>Columns that are fully qualified in the query will be returned with the fully qualified name, for example, Table[Column]. Columns that are renamed or created in the query will be returned within square bracket, for example, [MyNewColumn].</li><li>The following errors may be contained in the response: DAX query failures, more than one result table in a query, more than 100k rows in a query result.</li></ul>",
+                "operationId": "Datasets_ExecuteQueries",
+                "consumes": [ ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "requestMessage",
+                        "description": "The request message",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DatasetExecuteQueriesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetExecuteQueriesResponse"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Execute queries example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "requestMessage": {
+                                "queries": [
+                                    {
+                                        "query": "EVALUATE VALUES(MyTable[Column])"
+                                    }
+                                ],
+                                "serializerSettings": {
+                                    "includeNulls": true
+                                }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "results": [
+                                        {
+                                            "tables": [
+                                                {
+                                                    "rows": [
+                                                        {
+                                                            "MyTable[Year]": 2010,
+                                                            "MyTable[Quarter]": "Q1"
+                                                        },
+                                                        {
+                                                            "MyTable[Year]": 2010,
+                                                            "MyTable[Quarter]": "Q2"
+                                                        },
+                                                        {
+                                                            "MyTable[Year]": 2011,
+                                                            "MyTable[Quarter]": "Q1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v1.0/myorg/datasets/{datasetId}/tables": {
             "get": {
                 "tags": [
@@ -20936,6 +21022,96 @@
                     "$ref": "#/definitions/PrincipalType"
                 }
             }
+        },
+        "DatasetExecuteQueriesRequest": {
+            "type": "object",
+            "required": [
+                "queries"
+            ],
+            "properties": {
+                "queries": {
+                    "type": "array",
+                    "description": "A list of queries to be executed.",
+                    "items": {
+                        "$ref": "#/definitions/DatasetExecuteQueriesQuery"
+                    }
+                },
+                "serializerSettings": {
+                    "description": "The serialization settings for the results.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesSerializationSettings"
+                }
+            },
+            "description": "Request to execute queries against a dataset."
+        },
+        "DatasetExecuteQueriesQuery": {
+            "type": "object",
+            "required": [
+                "query"
+            ],
+            "properties": {
+                "query": {
+                    "type": "string",
+                    "description": "The DAX query to be executed."
+                }
+            },
+            "description": "A dataset query."
+        },
+        "DatasetExecuteQueriesSerializationSettings": {
+            "type": "object",
+            "properties": {
+                "includeNulls": {
+                    "type": "boolean",
+                    "description": "1 indicates that null (blank) values should be included in the result. 0 indicates they should be omitted. 0 is the default in absence of the settings."
+                }
+            },
+            "description": "The serialization settings for the dataset query results."
+        },
+        "DatasetExecuteQueriesResponse": {
+            "type": "object",
+            "properties": {
+                "results": {
+                    "type": "array",
+                    "description": "A list of results, one per input query.",
+                    "items": {
+                        "$ref": "#/definitions/DatasetExecuteQueriesQueryResult"
+                    }
+                }
+            },
+            "description": "Response of a data set execute queries request."
+        },
+        "DatasetExecuteQueriesQueryResult": {
+            "type": "object",
+            "properties": {
+                "tables": {
+                    "type": "array",
+                    "description": "A list of tables data for a query.",
+                    "items": {
+                        "$ref": "#/definitions/DatasetExecuteQueriesTableResult"
+                    }
+                }
+            },
+            "description": "Result of a single data set query."
+        },
+        "DatasetExecuteQueriesTableResult": {
+            "type": "object",
+            "properties": {
+                "rows": {
+                    "type": "array",
+                    "description": "A list of rows.",
+                    "items": {
+                        "$ref": "#/definitions/DatasetExecuteQueriesRowResult"
+                    }
+                }
+            },
+            "description": "A table of data."
+        },
+        "DatasetExecuteQueriesRowResult": {
+            "type": "object",
+            "example": {
+                  "Country": "United States",
+                  "Sales": 100.5
+            },
+            "description": "A set of key value pairs representing the column name and value. The column name is the key of the pair."
         }
     },
     "parameters": {
