@@ -410,7 +410,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='importId'>
-        /// The import id
+        /// The import ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -687,7 +687,7 @@ namespace Microsoft.PowerBI.Api
         /// .pbix file from OneDrive is not supported.&lt;/li&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -840,7 +840,7 @@ namespace Microsoft.PowerBI.Api
         /// not supported for dataflows with service principal.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset should include file extension. Not
@@ -1054,10 +1054,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='importId'>
-        /// The import id
+        /// The import ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1204,7 +1204,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

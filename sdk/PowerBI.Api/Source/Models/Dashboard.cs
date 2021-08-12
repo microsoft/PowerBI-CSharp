@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Dashboard class.
         /// </summary>
-        /// <param name="id">The dashboard id</param>
+        /// <param name="id">The dashboard ID</param>
         /// <param name="displayName">The dashboard display name</param>
         /// <param name="isReadOnly">Is ReadOnly dashboard</param>
         /// <param name="embedUrl">The dashboard embed url</param>
@@ -60,7 +60,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dashboard id
+        /// Gets or sets the dashboard ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Refreshable class.
         /// </summary>
-        /// <param name="id">Object id of refreshable</param>
+        /// <param name="id">The object ID of the refreshable</param>
         /// <param name="name">Display name of refreshable</param>
         /// <param name="kind">The refreshable kind. Possible values include:
         /// 'Dataset'</param>
@@ -81,7 +81,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets object id of refreshable
+        /// Gets or sets the object ID of the refreshable
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

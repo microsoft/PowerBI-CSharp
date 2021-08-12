@@ -116,7 +116,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='pipelineId'>
-        /// The deployment pipeline Id
+        /// The deployment pipeline ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -146,7 +146,7 @@ namespace Microsoft.PowerBI.Api
         /// The deployment pipeline ID
         /// </param>
         /// <param name='operationId'>
-        /// The operation Id
+        /// The operation ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -283,7 +283,7 @@ namespace Microsoft.PowerBI.Api
         /// Tenant.ReadWrite.All.
         /// </remarks>
         /// <param name='pipelineId'>
-        /// The deployment pipeline id
+        /// The deployment pipeline ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -76,7 +76,7 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -102,10 +102,10 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -131,7 +131,7 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -157,10 +157,10 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -187,10 +187,10 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -219,13 +219,13 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -282,7 +282,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

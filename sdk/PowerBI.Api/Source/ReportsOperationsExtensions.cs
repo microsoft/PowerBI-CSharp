@@ -70,7 +70,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Report GetReport(this IReportsOperations operations, System.Guid reportId)
             {
@@ -89,7 +89,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -114,7 +114,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static void DeleteReport(this IReportsOperations operations, System.Guid reportId)
             {
@@ -133,7 +133,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -161,7 +161,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone report parameters
@@ -189,7 +189,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone report parameters
@@ -225,7 +225,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Stream ExportReport(this IReportsOperations operations, System.Guid reportId)
             {
@@ -252,7 +252,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -277,7 +277,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// UpdateReportContent parameters
@@ -300,7 +300,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// UpdateReportContent parameters
@@ -334,7 +334,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Rebind report parameters
@@ -362,7 +362,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Rebind report parameters
@@ -388,7 +388,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Pages GetPages(this IReportsOperations operations, System.Guid reportId)
             {
@@ -408,7 +408,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -434,7 +434,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='pageName'>
             /// The page name
@@ -457,7 +457,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='pageName'>
             /// The page name
@@ -486,7 +486,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Datasources GetDatasources(this IReportsOperations operations, System.Guid reportId)
             {
@@ -506,7 +506,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -538,7 +538,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='updateRdlDatasourcesRequest'>
             /// </param>
@@ -566,7 +566,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='updateRdlDatasourcesRequest'>
             /// </param>
@@ -595,7 +595,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Export to file request parameters
@@ -622,7 +622,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Export to file request parameters
@@ -650,10 +650,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             public static Export GetExportToFileStatus(this IReportsOperations operations, System.Guid reportId, string exportId)
             {
@@ -672,10 +672,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -701,10 +701,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             public static Stream GetFileOfExportToFile(this IReportsOperations operations, System.Guid reportId, string exportId)
             {
@@ -724,10 +724,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -753,7 +753,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Reports GetReportsInGroup(this IReportsOperations operations, System.Guid groupId)
             {
@@ -774,7 +774,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -799,10 +799,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Report GetReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
             {
@@ -821,10 +821,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -849,10 +849,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static void DeleteReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
             {
@@ -871,10 +871,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -902,10 +902,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone report parameters
@@ -933,10 +933,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone report parameters
@@ -972,10 +972,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Stream ExportReportInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
             {
@@ -1002,10 +1002,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1030,10 +1030,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// UpdateReportContent parameters
@@ -1056,10 +1056,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// UpdateReportContent parameters
@@ -1094,10 +1094,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Rebind report parameters
@@ -1126,10 +1126,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Rebind report parameters
@@ -1155,10 +1155,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Pages GetPagesInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
             {
@@ -1178,10 +1178,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1207,10 +1207,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='pageName'>
             /// The page name
@@ -1233,10 +1233,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='pageName'>
             /// The page name
@@ -1265,7 +1265,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
             /// </param>
@@ -1287,7 +1287,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
             /// </param>
@@ -1321,10 +1321,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='updateRdlDatasourcesRequest'>
             /// </param>
@@ -1352,10 +1352,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='updateRdlDatasourcesRequest'>
             /// </param>
@@ -1384,10 +1384,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Export to file request parameters
@@ -1414,10 +1414,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Export to file request parameters
@@ -1445,13 +1445,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             public static Export GetExportToFileStatusInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, string exportId)
             {
@@ -1470,13 +1470,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1502,13 +1502,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             public static Stream GetFileOfExportToFileInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId, string exportId)
             {
@@ -1528,13 +1528,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='exportId'>
-            /// The export id
+            /// The export ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1574,7 +1574,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -1612,7 +1612,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -1658,10 +1658,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -1701,10 +1701,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -1736,7 +1736,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -1768,7 +1768,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -1870,7 +1870,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static ReportUsers GetReportUsersAsAdmin(this IReportsOperations operations, System.Guid reportId)
             {
@@ -1893,7 +1893,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1920,10 +1920,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static void TakeOverInGroup(this IReportsOperations operations, System.Guid groupId, System.Guid reportId)
             {
@@ -1944,10 +1944,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

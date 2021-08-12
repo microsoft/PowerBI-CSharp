@@ -235,7 +235,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             public static GatewayDatasource GetDatasource(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -260,7 +260,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -291,7 +291,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             public static void DeleteDatasource(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -316,7 +316,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -351,7 +351,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='updateDatasourceRequest'>
             /// The update datasource request
@@ -386,7 +386,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='updateDatasourceRequest'>
             /// The update datasource request
@@ -418,7 +418,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             public static void GetDatasourceStatus(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -444,7 +444,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -472,7 +472,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             public static DatasourceUsers GetDatasourceUsers(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -497,7 +497,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -529,7 +529,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='addUserToDatasourceRequest'>
             /// The add user to datasource request
@@ -558,7 +558,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='addUserToDatasourceRequest'>
             /// The add user to datasource request
@@ -589,10 +589,10 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='emailAdress'>
-            /// The user's email address or the service principal object id
+            /// The user's email address or the object ID of the service principal
             /// </param>
             public static void DeleteDatasourceUser(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, string emailAdress)
             {
@@ -617,10 +617,10 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource id
+            /// The datasource ID
             /// </param>
             /// <param name='emailAdress'>
-            /// The user's email address or the service principal object id
+            /// The user's email address or the object ID of the service principal
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

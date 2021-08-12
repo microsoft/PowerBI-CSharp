@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the CapacityPatchRequest class.
         /// </summary>
-        /// <param name="tenantKeyId">The id of the encryption key</param>
+        /// <param name="tenantKeyId">The ID of the encryption key</param>
         public CapacityPatchRequest(System.Guid? tenantKeyId = default(System.Guid?))
         {
             TenantKeyId = tenantKeyId;
@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the id of the encryption key
+        /// Gets or sets the ID of the encryption key
         /// </summary>
         [JsonProperty(PropertyName = "tenantKeyId")]
         public System.Guid? TenantKeyId { get; set; }

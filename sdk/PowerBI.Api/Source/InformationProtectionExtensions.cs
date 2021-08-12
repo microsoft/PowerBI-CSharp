@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='artifacts'>
-            /// Composite of artifact Id lists per Type.
+            /// A composite of artifact ID lists for each type
             /// </param>
             public static InformationProtectionChangeLabelResponse RemoveLabelsAsAdmin(this IInformationProtection operations, InformationProtectionArtifactsChangeLabel artifacts)
             {
@@ -54,7 +54,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='artifacts'>
-            /// Composite of artifact Id lists per Type.
+            /// A composite of artifact ID lists for each type
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

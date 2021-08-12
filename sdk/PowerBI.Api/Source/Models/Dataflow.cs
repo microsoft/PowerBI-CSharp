@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Dataflow class.
         /// </summary>
-        /// <param name="objectId">The dataflow id</param>
+        /// <param name="objectId">The dataflow ID</param>
         /// <param name="name">The dataflow name</param>
         /// <param name="description">The dataflow description</param>
         /// <param name="modelUrl">A URL to the dataflow definition file
@@ -70,7 +70,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataflow id
+        /// Gets or sets the dataflow ID
         /// </summary>
         [JsonProperty(PropertyName = "objectId")]
         public System.Guid ObjectId { get; set; }

@@ -115,8 +115,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan id to provide is the one from the response of workspaces/getInfo
-            /// API which triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             public static ScanRequest GetScanStatus(this IWorkspaceInfoOperations operations, System.Guid scanId)
             {
@@ -139,8 +139,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan id to provide is the one from the response of workspaces/getInfo
-            /// API which triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -171,8 +171,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan id to provide is the one from the response of workspaces/getInfo
-            /// API which triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             public static WorkspaceInfoResponse GetScanResult(this IWorkspaceInfoOperations operations, System.Guid scanId)
             {
@@ -197,8 +197,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan id to provide is the one from the response of workspaces/getInfo
-            /// API which triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

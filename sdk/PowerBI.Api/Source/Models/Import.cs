@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Import class.
         /// </summary>
-        /// <param name="id">The import id</param>
+        /// <param name="id">The import ID</param>
         /// <param name="name">The import name</param>
         /// <param name="importState">The import upload state. Possible values
         /// include: 'Publishing', 'Succeeded', 'Failed'</param>
@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the import id
+        /// Gets or sets the import ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

@@ -30,11 +30,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Report class.
         /// </summary>
-        /// <param name="id">The report id</param>
+        /// <param name="id">The report ID</param>
         /// <param name="name">The report name</param>
         /// <param name="webUrl">The report web url</param>
         /// <param name="embedUrl">The report embed url</param>
-        /// <param name="datasetId">The dataset id</param>
+        /// <param name="datasetId">The dataset ID</param>
         /// <param name="description">The report description</param>
         /// <param name="createdBy">The report owner. Available only for
         /// reports created after June 2019.</param>
@@ -74,7 +74,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the report id
+        /// Gets or sets the report ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -98,7 +98,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset id
+        /// Gets or sets the dataset ID
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

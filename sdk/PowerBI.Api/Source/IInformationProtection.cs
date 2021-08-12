@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All
         /// </remarks>
         /// <param name='artifacts'>
-        /// Composite of artifact Id lists per Type.
+        /// A composite of artifact ID lists for each type
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

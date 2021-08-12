@@ -11,7 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Unique artifact ID: string format (can be uuid) for datasets.
+    /// The unique ID of an artifact, which is in string or UUID format for
+    /// datasets
     /// </summary>
     public partial class ArtifactStringId
     {

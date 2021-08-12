@@ -28,10 +28,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static Stream GetDataflow(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
@@ -50,10 +50,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -78,10 +78,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static void DeleteDataflow(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
@@ -101,10 +101,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -126,10 +126,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='dataflowUpdateRequest'>
             /// Patch dataflow properties, capabilities and settings
@@ -151,10 +151,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='dataflowUpdateRequest'>
             /// Patch dataflow properties, capabilities and settings
@@ -181,10 +181,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
@@ -210,10 +210,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
@@ -240,10 +240,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static Datasources GetDataflowDataSources(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
@@ -262,10 +262,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -290,7 +290,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Dataflows GetDataflows(this IDataflowsOperations operations, System.Guid groupId)
             {
@@ -309,7 +309,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -334,10 +334,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static DependentDataflows GetUpstreamDataflowsInGroup(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
@@ -356,10 +356,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -384,10 +384,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='refreshScheduleRequest'>
             /// The dataflow refresh schedule to create or update
@@ -409,10 +409,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='refreshScheduleRequest'>
             /// The dataflow refresh schedule to create or update
@@ -437,10 +437,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static DataflowTransactions GetDataflowTransactions(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
@@ -459,10 +459,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -487,10 +487,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='transactionId'>
-            /// The transaction id
+            /// The transaction ID
             /// </param>
             public static DataflowTransactionStatus CancelDataflowTransaction(this IDataflowsOperations operations, System.Guid groupId, System.Guid transactionId)
             {
@@ -509,10 +509,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='transactionId'>
-            /// The transaction id
+            /// The transaction ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -541,10 +541,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static DependentDataflows GetUpstreamDataflowsInGroupAsAdmin(this IDataflowsOperations operations, System.Guid groupId, System.Guid dataflowId)
             {
@@ -567,10 +567,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -599,7 +599,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -631,7 +631,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -733,7 +733,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static Stream ExportDataflowAsAdmin(this IDataflowsOperations operations, System.Guid dataflowId)
             {
@@ -756,7 +756,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -784,7 +784,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static Datasources GetDataflowDatasourcesAsAdmin(this IDataflowsOperations operations, System.Guid dataflowId)
             {
@@ -807,7 +807,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -837,7 +837,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             public static DataflowUsers GetDataflowUsersAsAdmin(this IDataflowsOperations operations, System.Guid dataflowId)
             {
@@ -861,7 +861,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dataflowId'>
-            /// The dataflow id
+            /// The dataflow ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

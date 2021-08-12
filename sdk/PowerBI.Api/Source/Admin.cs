@@ -347,7 +347,7 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='tenantKeyId'>
-        /// Tenant key id
+        /// The tenant key ID
         /// </param>
         /// <param name='tenantKeyRotationRequest'>
         /// Tenant key information
@@ -654,7 +654,7 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='capacityPatchRequest'>
         /// Patch capacity information
@@ -969,7 +969,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -1150,10 +1150,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='refreshableId'>
-        /// The refreshable id
+        /// The refreshable ID
         /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of data

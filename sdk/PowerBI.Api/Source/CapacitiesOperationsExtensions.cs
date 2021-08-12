@@ -70,7 +70,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             public static Workloads GetWorkloads(this ICapacitiesOperations operations, System.Guid capacityId)
             {
@@ -94,7 +94,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -123,7 +123,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -149,7 +149,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -181,7 +181,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -210,7 +210,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -307,7 +307,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results.
@@ -341,7 +341,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results.
@@ -381,10 +381,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='refreshableId'>
-            /// The refreshable id
+            /// The refreshable ID
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
@@ -408,10 +408,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='refreshableId'>
-            /// The refreshable id
+            /// The refreshable ID
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
@@ -534,7 +534,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             public static Refreshables GetCapacityUsersAsAdmin(this ICapacitiesOperations operations, System.Guid capacityId)
             {
@@ -557,7 +557,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DatasetToDataflowLinkResponse
         /// class.
         /// </summary>
-        /// <param name="datasetObjectId">The dataset object id</param>
-        /// <param name="dataflowObjectId">The dataflow object id</param>
-        /// <param name="workspaceObjectId">The workspace object id</param>
+        /// <param name="datasetObjectId">The dataset object ID</param>
+        /// <param name="dataflowObjectId">The dataflow object ID</param>
+        /// <param name="workspaceObjectId">The workspace object ID</param>
         public DatasetToDataflowLinkResponse(string datasetObjectId = default(string), string dataflowObjectId = default(string), string workspaceObjectId = default(string))
         {
             DatasetObjectId = datasetObjectId;
@@ -44,19 +44,19 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataset object id
+        /// Gets or sets the dataset object ID
         /// </summary>
         [JsonProperty(PropertyName = "datasetObjectId")]
         public string DatasetObjectId { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataflow object id
+        /// Gets or sets the dataflow object ID
         /// </summary>
         [JsonProperty(PropertyName = "dataflowObjectId")]
         public string DataflowObjectId { get; set; }
 
         /// <summary>
-        /// Gets or sets the workspace object id
+        /// Gets or sets the workspace object ID
         /// </summary>
         [JsonProperty(PropertyName = "workspaceObjectId")]
         public string WorkspaceObjectId { get; set; }

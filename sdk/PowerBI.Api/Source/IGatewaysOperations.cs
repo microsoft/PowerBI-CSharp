@@ -149,7 +149,7 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -180,7 +180,7 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -214,7 +214,7 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='updateDatasourceRequest'>
         /// The update datasource request
@@ -249,7 +249,7 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -278,7 +278,7 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -310,7 +310,7 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='addUserToDatasourceRequest'>
         /// The add user to datasource request
@@ -344,10 +344,10 @@ namespace Microsoft.PowerBI.Api
         /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='emailAdress'>
-        /// The user's email address or the service principal object id
+        /// The user's email address or the object ID of the service principal
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

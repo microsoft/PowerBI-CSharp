@@ -341,7 +341,7 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -480,7 +480,7 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -619,10 +619,10 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -755,7 +755,7 @@ namespace Microsoft.PowerBI.Api
         /// Clones the specified tile from **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If target report id and target dataset are not specified, the
+        /// &lt;br/&gt;If target report ID and target dataset are not specified, the
         /// following can occur:&lt;li&gt;When a tile clone is performed within the
         /// same workspace, the report and dataset links will be cloned from the source
         /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
@@ -768,10 +768,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone tile parameters
@@ -933,7 +933,7 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1069,7 +1069,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
@@ -1229,10 +1229,10 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1373,10 +1373,10 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1517,13 +1517,13 @@ namespace Microsoft.PowerBI.Api
         /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1658,7 +1658,7 @@ namespace Microsoft.PowerBI.Api
         /// Clones the specified tile from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If target report id and target dataset are missing, the
+        /// &lt;br/&gt;If target report ID and target dataset are missing, the
         /// following can occur:&lt;li&gt;When a tile clone is performed within the
         /// same workspace, the report and dataset links will be cloned from the source
         /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
@@ -1671,13 +1671,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone tile parameters
@@ -1855,10 +1855,10 @@ namespace Microsoft.PowerBI.Api
         /// document along with considerations and limitations section.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -2020,7 +2020,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -2362,7 +2362,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2503,7 +2503,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

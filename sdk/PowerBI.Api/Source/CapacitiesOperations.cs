@@ -191,7 +191,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -331,7 +331,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='workloadName'>
         /// The name of the workload
@@ -486,7 +486,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='workloadName'>
         /// The name of the workload
@@ -803,7 +803,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -980,10 +980,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='refreshableId'>
-        /// The refreshable id
+        /// The refreshable ID
         /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of data
@@ -1417,7 +1417,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

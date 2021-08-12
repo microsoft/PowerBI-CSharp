@@ -55,10 +55,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -184,10 +184,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -304,10 +304,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='dataflowUpdateRequest'>
         /// Patch dataflow properties, capabilities and settings
@@ -446,10 +446,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='refreshRequest'>
         /// </param>
@@ -592,10 +592,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -733,7 +733,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -869,10 +869,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1010,10 +1010,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='refreshScheduleRequest'>
         /// The dataflow refresh schedule to create or update
@@ -1150,10 +1150,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1291,10 +1291,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='transactionId'>
-        /// The transaction id
+        /// The transaction ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1436,10 +1436,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1581,7 +1581,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -1914,7 +1914,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2041,7 +2041,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2182,7 +2182,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

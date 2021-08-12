@@ -109,7 +109,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Dashboard GetDashboard(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -128,7 +128,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -156,7 +156,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTiles(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -178,7 +178,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -206,10 +206,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             public static Tile GetTile(this IDashboardsOperations operations, System.Guid dashboardId, System.Guid tileId)
             {
@@ -231,10 +231,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -251,7 +251,7 @@ namespace Microsoft.PowerBI.Api
             /// Clones the specified tile from **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are not specified, the
+            /// &lt;br/&gt;If target report ID and target dataset are not specified, the
             /// following can occur:&lt;li&gt;When a tile clone is performed within the
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
@@ -267,10 +267,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -284,7 +284,7 @@ namespace Microsoft.PowerBI.Api
             /// Clones the specified tile from **"My Workspace"**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are not specified, the
+            /// &lt;br/&gt;If target report ID and target dataset are not specified, the
             /// following can occur:&lt;li&gt;When a tile clone is performed within the
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
@@ -300,10 +300,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -331,7 +331,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Dashboards GetDashboardsInGroup(this IDashboardsOperations operations, System.Guid groupId)
             {
@@ -350,7 +350,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -375,7 +375,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Add dashboard parameters
@@ -397,7 +397,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Add dashboard parameters
@@ -425,10 +425,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Dashboard GetDashboardInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId)
             {
@@ -447,10 +447,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -478,10 +478,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTilesInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId)
             {
@@ -503,10 +503,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -534,13 +534,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             public static Tile GetTileInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId, System.Guid tileId)
             {
@@ -562,13 +562,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -585,7 +585,7 @@ namespace Microsoft.PowerBI.Api
             /// Clones the specified tile from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are missing, the
+            /// &lt;br/&gt;If target report ID and target dataset are missing, the
             /// following can occur:&lt;li&gt;When a tile clone is performed within the
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
@@ -601,13 +601,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -621,7 +621,7 @@ namespace Microsoft.PowerBI.Api
             /// Clones the specified tile from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are missing, the
+            /// &lt;br/&gt;If target report ID and target dataset are missing, the
             /// following can occur:&lt;li&gt;When a tile clone is performed within the
             /// same workspace, the report and dataset links will be cloned from the source
             /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
@@ -637,13 +637,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -685,10 +685,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -724,10 +724,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -759,7 +759,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -791,7 +791,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -901,7 +901,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTilesAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -924,7 +924,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -954,7 +954,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static DashboardUsers GetDashboardUsersAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -978,7 +978,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the SourceReport class.
         /// </summary>
-        /// <param name="sourceReportId">source report id</param>
-        /// <param name="sourceWorkspaceId">source worksapce id</param>
+        /// <param name="sourceReportId">The source report ID</param>
+        /// <param name="sourceWorkspaceId">The source workspace ID</param>
         public SourceReport(System.Guid sourceReportId, System.Guid? sourceWorkspaceId = default(System.Guid?))
         {
             SourceReportId = sourceReportId;
@@ -40,13 +40,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets source report id
+        /// Gets or sets the source report ID
         /// </summary>
         [JsonProperty(PropertyName = "sourceReportId")]
         public System.Guid SourceReportId { get; set; }
 
         /// <summary>
-        /// Gets or sets source worksapce id
+        /// Gets or sets the source workspace ID
         /// </summary>
         [JsonProperty(PropertyName = "sourceWorkspaceId")]
         public System.Guid? SourceWorkspaceId { get; set; }

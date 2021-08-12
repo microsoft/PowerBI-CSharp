@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Row class.
         /// </summary>
-        /// <param name="id">The unique row id</param>
+        /// <param name="id">The unique row ID</param>
         public Row(string id = default(string))
         {
             Id = id;
@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unique row id
+        /// Gets or sets the unique row ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

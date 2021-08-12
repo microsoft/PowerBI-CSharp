@@ -31,9 +31,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the CapacityMigrationAssignment
         /// class.
         /// </summary>
-        /// <param name="workspacesToAssign">Workspace Ids to be migrated to
-        /// premium capacity</param>
-        /// <param name="targetCapacityObjectId">premium Capacity id</param>
+        /// <param name="workspacesToAssign">The workspace IDs to be migrated
+        /// to premium capacity</param>
+        /// <param name="targetCapacityObjectId">The premium capacity
+        /// ID</param>
         public CapacityMigrationAssignment(IList<string> workspacesToAssign, string targetCapacityObjectId)
         {
             WorkspacesToAssign = workspacesToAssign;
@@ -47,13 +48,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets workspace Ids to be migrated to premium capacity
+        /// Gets or sets the workspace IDs to be migrated to premium capacity
         /// </summary>
         [JsonProperty(PropertyName = "workspacesToAssign")]
         public IList<string> WorkspacesToAssign { get; set; }
 
         /// <summary>
-        /// Gets or sets premium Capacity id
+        /// Gets or sets the premium capacity ID
         /// </summary>
         [JsonProperty(PropertyName = "targetCapacityObjectId")]
         public string TargetCapacityObjectId { get; set; }

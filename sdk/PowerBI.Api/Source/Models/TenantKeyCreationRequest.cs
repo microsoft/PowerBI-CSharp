@@ -26,11 +26,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the TenantKeyCreationRequest class.
         /// </summary>
         /// <param name="name">The name of the encryption key</param>
-        /// <param name="keyVaultKeyIdentifier">Uri to the version of the Azure
-        /// Key Vault key to be used</param>
-        /// <param name="isDefault">Indicates that this key is set as default
-        /// for the entire tenant. Any new capacity creation will inherit this
-        /// key upon creation</param>
+        /// <param name="keyVaultKeyIdentifier">The URI that uniquely specifies
+        /// an encryption key in Azure Key Vault.</param>
+        /// <param name="isDefault">Whether an encryption key is the default
+        /// key for the entire tenant. Any newly created capacity inherits the
+        /// default key.</param>
         /// <param name="activate">Indicates to activate any inactivated
         /// capacities to use this key for its encryption</param>
         public TenantKeyCreationRequest(string name = default(string), string keyVaultKeyIdentifier = default(string), bool? isDefault = default(bool?), bool? activate = default(bool?))
@@ -54,16 +54,15 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets uri to the version of the Azure Key Vault key to be
-        /// used
+        /// Gets or sets the URI that uniquely specifies an encryption key in
+        /// Azure Key Vault.
         /// </summary>
         [JsonProperty(PropertyName = "keyVaultKeyIdentifier")]
         public string KeyVaultKeyIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or sets indicates that this key is set as default for the
-        /// entire tenant. Any new capacity creation will inherit this key upon
-        /// creation
+        /// Gets or sets whether an encryption key is the default key for the
+        /// entire tenant. Any newly created capacity inherits the default key.
         /// </summary>
         [JsonProperty(PropertyName = "isDefault")]
         public bool? IsDefault { get; set; }

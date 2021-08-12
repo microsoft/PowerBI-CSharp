@@ -188,7 +188,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -324,7 +324,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -445,7 +445,7 @@ namespace Microsoft.PowerBI.Api
         /// dataset (if provided) - Build permissions.
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone report parameters
@@ -613,7 +613,7 @@ namespace Microsoft.PowerBI.Api
         /// not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -737,7 +737,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// UpdateReportContent parameters
@@ -903,7 +903,7 @@ namespace Microsoft.PowerBI.Api
         /// dataset - Build permissions.
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Rebind report parameters
@@ -1043,7 +1043,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1180,7 +1180,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='pageName'>
         /// The page name
@@ -1332,7 +1332,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1475,7 +1475,7 @@ namespace Microsoft.PowerBI.Api
         /// supported&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='updateRdlDatasourcesRequest'>
         /// </param>
@@ -1618,7 +1618,7 @@ namespace Microsoft.PowerBI.Api
         /// Premium Per User (PPU) is not supported.
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Export to file request parameters
@@ -1778,10 +1778,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1948,10 +1948,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2088,7 +2088,7 @@ namespace Microsoft.PowerBI.Api
         /// response for paginated reports, the dataset ID value isn’t displayed.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2224,10 +2224,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2365,10 +2365,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2491,10 +2491,10 @@ namespace Microsoft.PowerBI.Api
         /// dataset (if provided) - Build permissions
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone report parameters
@@ -2664,10 +2664,10 @@ namespace Microsoft.PowerBI.Api
         /// not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2793,10 +2793,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// UpdateReportContent parameters
@@ -2965,10 +2965,10 @@ namespace Microsoft.PowerBI.Api
         /// dataset - Build permissions
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Rebind report parameters
@@ -3110,10 +3110,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3252,10 +3252,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='pageName'>
         /// The page name
@@ -3409,7 +3409,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
         /// </param>
@@ -3556,10 +3556,10 @@ namespace Microsoft.PowerBI.Api
         /// supported&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='updateRdlDatasourcesRequest'>
         /// </param>
@@ -3704,10 +3704,10 @@ namespace Microsoft.PowerBI.Api
         /// Premium Per User (PPU) is not supported.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Export to file request parameters
@@ -3869,13 +3869,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4044,13 +4044,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4203,7 +4203,7 @@ namespace Microsoft.PowerBI.Api
         /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -4377,10 +4377,10 @@ namespace Microsoft.PowerBI.Api
         /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -4542,7 +4542,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -4875,7 +4875,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5013,10 +5013,10 @@ namespace Microsoft.PowerBI.Api
         /// report datasources supports only paginated reports&lt;/li&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

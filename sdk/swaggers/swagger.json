@@ -200,7 +200,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -253,7 +253,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -380,7 +380,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -415,7 +415,7 @@
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -510,7 +510,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "type": "string"
                     },
                     {
@@ -590,7 +590,7 @@
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -636,7 +636,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -740,7 +740,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -790,7 +790,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -839,7 +839,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -933,7 +933,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -995,7 +995,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1089,7 +1089,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1174,7 +1174,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1235,7 +1235,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1453,7 +1453,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1531,7 +1531,7 @@
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -1571,7 +1571,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
+                "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway, optionally with a given set of datasource IDs. This only supports the on-premises data gateway.",
                 "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
@@ -1584,7 +1584,7 @@
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -1648,7 +1648,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -1703,7 +1703,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -2016,7 +2016,7 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "description": "The import id",
+                        "description": "The import ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -2183,7 +2183,7 @@
                 "parameters": [
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2234,7 +2234,7 @@
                 "parameters": [
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2276,7 +2276,7 @@
                 "parameters": [
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2319,7 +2319,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2353,7 +2353,7 @@
                 "parameters": [
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2415,7 +2415,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2456,7 +2456,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2516,7 +2516,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2574,7 +2574,7 @@
                 "parameters": [
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2634,7 +2634,7 @@
                 "parameters": [
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2704,7 +2704,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2748,7 +2748,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2757,7 +2757,7 @@
                         "name": "exportId",
                         "in": "path",
                         "required": true,
-                        "description": "The export id",
+                        "description": "The export ID",
                         "type": "string"
                     }
                 ],
@@ -2800,7 +2800,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -2809,7 +2809,7 @@
                         "name": "exportId",
                         "in": "path",
                         "required": true,
-                        "description": "The export id",
+                        "description": "The export ID",
                         "type": "string"
                     }
                 ],
@@ -2941,7 +2941,7 @@
                 "parameters": [
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -2993,7 +2993,7 @@
                 "parameters": [
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -3052,7 +3052,7 @@
                 "parameters": [
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -3060,7 +3060,7 @@
                     },
                     {
                         "name": "tileId",
-                        "description": "The tile id",
+                        "description": "The tile ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -3105,7 +3105,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from **\"My Workspace\"**.",
-                "description": "<br/>If target report id and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If target report ID and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_CloneTile",
                 "consumes": [
                     "application/json"
@@ -3116,7 +3116,7 @@
                 "parameters": [
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -3124,7 +3124,7 @@
                     },
                     {
                         "name": "tileId",
-                        "description": "The tile id",
+                        "description": "The tile ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -3170,7 +3170,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -3228,7 +3228,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -3357,7 +3357,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -3392,13 +3392,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -3454,13 +3454,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -3504,13 +3504,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -3546,14 +3546,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -3649,7 +3649,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -3657,7 +3657,7 @@
                         "name": "datasetId",
                         "in": "path",
                         "required": true,
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "type": "string"
                     },
                     {
@@ -3739,14 +3739,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -3795,13 +3795,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -3909,13 +3909,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -3968,13 +3968,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -4026,13 +4026,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -4132,13 +4132,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -4204,13 +4204,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -4298,7 +4298,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -4391,7 +4391,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -4460,7 +4460,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -4559,7 +4559,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -4644,14 +4644,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -4692,7 +4692,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from the specified workspace to the specified gateway with (optional) given set of datasource Ids. This only supports the On-Premises Data Gateway.",
+                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of datasource IDs. This only supports the on-premises data gateway.",
                 "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
@@ -4706,14 +4706,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     },
@@ -4781,13 +4781,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -4845,13 +4845,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -4908,14 +4908,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
                         "in": "path",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "required": true,
                         "type": "string"
                     }
@@ -4959,7 +4959,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -5032,7 +5032,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -5199,7 +5199,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -5207,7 +5207,7 @@
                         "name": "importId",
                         "in": "path",
                         "required": true,
-                        "description": "The import id",
+                        "description": "The import ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -5304,7 +5304,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -5340,7 +5340,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -5394,13 +5394,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -5454,13 +5454,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -5505,13 +5505,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -5555,7 +5555,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -5563,7 +5563,7 @@
                         "name": "reportId",
                         "in": "path",
                         "required": true,
-                        "description": "The report id",
+                        "description": "The report ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -5598,13 +5598,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -5668,14 +5668,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -5717,14 +5717,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -5786,14 +5786,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -5854,7 +5854,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -5921,13 +5921,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -5998,14 +5998,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -6050,14 +6050,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -6066,7 +6066,7 @@
                         "name": "exportId",
                         "in": "path",
                         "required": true,
-                        "description": "The export id",
+                        "description": "The export ID",
                         "type": "string"
                     }
                 ],
@@ -6110,14 +6110,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -6126,7 +6126,7 @@
                         "name": "exportId",
                         "in": "path",
                         "required": true,
-                        "description": "The export id",
+                        "description": "The export ID",
                         "type": "string"
                     }
                 ],
@@ -6160,7 +6160,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -6214,7 +6214,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -6278,13 +6278,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6339,13 +6339,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6407,13 +6407,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6421,7 +6421,7 @@
                     },
                     {
                         "name": "tileId",
-                        "description": "The tile id",
+                        "description": "The tile ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6466,7 +6466,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from the specified workspace.",
-                "description": "<br/>If target report id and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>If target report ID and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
                 "operationId": "Dashboards_CloneTileInGroup",
                 "consumes": [
                     "application/json"
@@ -6479,13 +6479,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6493,7 +6493,7 @@
                     },
                     {
                         "name": "tileId",
-                        "description": "The tile id",
+                        "description": "The tile ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6540,7 +6540,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -6629,13 +6629,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -6853,13 +6853,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -6924,13 +6924,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7034,13 +7034,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7048,7 +7048,7 @@
                     },
                     {
                         "name": "tileId",
-                        "description": "The tile id",
+                        "description": "The tile ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7231,7 +7231,7 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -7284,7 +7284,7 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -7343,13 +7343,13 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7406,7 +7406,7 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -7464,13 +7464,13 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7527,13 +7527,13 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7596,13 +7596,13 @@
                         "name": "appId",
                         "in": "path",
                         "required": true,
-                        "description": "The app id",
+                        "description": "The app ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7610,7 +7610,7 @@
                     },
                     {
                         "name": "tileId",
-                        "description": "The tile id",
+                        "description": "The tile ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7668,13 +7668,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7705,13 +7705,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7752,13 +7752,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7818,13 +7818,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7891,13 +7891,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -7965,7 +7965,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -8021,13 +8021,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -8062,13 +8062,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -8173,13 +8173,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -8238,13 +8238,13 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "transactionId",
-                        "description": "The transaction id",
+                        "description": "The transaction ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -8552,7 +8552,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8609,7 +8609,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8654,7 +8654,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8794,7 +8794,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8855,7 +8855,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8922,7 +8922,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8998,7 +8998,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource id",
+                        "description": "The datasource ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9006,7 +9006,7 @@
                     {
                         "name": "emailAdress",
                         "in": "path",
-                        "description": "The user's email address or the service principal object id",
+                        "description": "The user's email address or the object ID of the service principal",
                         "required": true,
                         "type": "string"
                     }
@@ -9234,7 +9234,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id to delete",
+                        "description": "The workspace ID to delete",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -9273,7 +9273,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9338,7 +9338,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9403,7 +9403,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9470,7 +9470,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -9478,7 +9478,7 @@
                         "name": "user",
                         "in": "path",
                         "required": true,
-                        "description": "The email address of the user or the service principal object id to delete",
+                        "description": "The email address of the user or object ID of the service principal to delete",
                         "type": "string"
                     }
                 ],
@@ -9568,7 +9568,7 @@
                     {
                         "name": "capacityId",
                         "in": "path",
-                        "description": "The capacity Id",
+                        "description": "The capacity ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9625,7 +9625,7 @@
                     {
                         "name": "capacityId",
                         "in": "path",
-                        "description": "The capacity Id",
+                        "description": "The capacity ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9682,7 +9682,7 @@
                     {
                         "name": "capacityId",
                         "in": "path",
-                        "description": "The capacity Id",
+                        "description": "The capacity ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9964,7 +9964,7 @@
                 "parameters": [
                     {
                         "name": "capacityId",
-                        "description": "The capacity id",
+                        "description": "The capacity ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -10193,7 +10193,7 @@
                 "parameters": [
                     {
                         "name": "capacityId",
-                        "description": "The capacity id",
+                        "description": "The capacity ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -10201,7 +10201,7 @@
                     },
                     {
                         "name": "refreshableId",
-                        "description": "The refreshable id",
+                        "description": "The refreshable ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -10398,7 +10398,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -10505,7 +10505,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -10893,7 +10893,7 @@
                     {
                         "name": "pipelineId",
                         "in": "path",
-                        "description": "The deployment pipeline Id",
+                        "description": "The deployment pipeline ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -10959,7 +10959,7 @@
                     {
                         "name": "operationId",
                         "in": "path",
-                        "description": "The operation Id",
+                        "description": "The operation ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -11271,7 +11271,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -11422,7 +11422,7 @@
                 "parameters": [
                     {
                         "name": "scanId",
-                        "description": "The scan id to provide is the one from the response of workspaces/getInfo API which triggered the scan",
+                        "description": "The scan ID, which is included in the response from the workspaces or getInfo API that triggered the scan",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -11474,7 +11474,7 @@
                 "parameters": [
                     {
                         "name": "scanId",
-                        "description": "The scan id to provide is the one from the response of workspaces/getInfo API which triggered the scan",
+                        "description": "The scan ID, which is included in the response from the workspaces or getInfo API that triggered the scan",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -11986,7 +11986,7 @@
                 "parameters": [
                     {
                         "name": "datasetId",
-                        "description": "The dataset id",
+                        "description": "The dataset ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -12411,7 +12411,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -12463,7 +12463,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -12532,7 +12532,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -12588,7 +12588,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -12637,7 +12637,7 @@
                     {
                         "name": "groupId",
                         "in": "path",
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -12693,7 +12693,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -12701,7 +12701,7 @@
                         "name": "dataflowId",
                         "in": "path",
                         "required": true,
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -12761,7 +12761,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -12840,7 +12840,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -12920,7 +12920,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -13038,7 +13038,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -13093,7 +13093,7 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
@@ -13243,7 +13243,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -13375,7 +13375,7 @@
                 "parameters": [
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -13434,7 +13434,7 @@
                 "parameters": [
                     {
                         "name": "dashboardId",
-                        "description": "The dashboard id",
+                        "description": "The dashboard ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -13691,7 +13691,7 @@
                 "parameters": [
                     {
                         "name": "tenantKeyId",
-                        "description": "Tenant key id",
+                        "description": "The tenant key ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -13845,7 +13845,7 @@
                 "parameters": [
                     {
                         "name": "capacityId",
-                        "description": "The capacity Id",
+                        "description": "The capacity ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -13899,7 +13899,7 @@
                 "parameters": [
                     {
                         "name": "capacityId",
-                        "description": "The capacity Id",
+                        "description": "The capacity ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -14153,7 +14153,7 @@
                 "parameters": [
                     {
                         "name": "capacityId",
-                        "description": "The capacity id",
+                        "description": "The capacity ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -14381,7 +14381,7 @@
                 "parameters": [
                     {
                         "name": "capacityId",
-                        "description": "The capacity id",
+                        "description": "The capacity ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -14389,7 +14389,7 @@
                     },
                     {
                         "name": "refreshableId",
-                        "description": "The refreshable id",
+                        "description": "The refreshable ID",
                         "in": "path",
                         "required": true,
                         "type": "string"
@@ -14610,7 +14610,7 @@
                 "parameters": [
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -14645,7 +14645,7 @@
                 "parameters": [
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -14706,7 +14706,7 @@
                 "parameters": [
                     {
                         "name": "dataflowId",
-                        "description": "The dataflow id",
+                        "description": "The dataflow ID",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -14931,7 +14931,7 @@
                     {
                         "name": "appId",
                         "in": "path",
-                        "description": "The app id",
+                        "description": "The app ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -15099,7 +15099,7 @@
                             }
                         }
                     },
-                    "Get audit activity events between a time window and with a specific user id": {
+                    "Get audit activity events within a time window for a specific user ID": {
                         "parameters": {
                             "startDateTime": "'2019-08-13T07:55:00.000Z'",
                             "endDateTime": "'2019-08-13T08:55:00.000Z'",
@@ -15138,7 +15138,7 @@
                             }
                         }
                     },
-                    "Get audit activity events between a time window and with a specific activity type and user id": {
+                    "Get audit activity events within a time window for a specific activity type and user ID": {
                         "parameters": {
                             "startDateTime": "'2019-08-13T07:55:00.000Z'",
                             "endDateTime": "'2019-08-13T08:55:00.000Z'",
@@ -15235,7 +15235,7 @@
                 "parameters": [
                     {
                         "name": "artifacts",
-                        "description": "Composite of artifact Id lists per Type.",
+                        "description": "A composite of artifact ID lists for each type",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -15639,7 +15639,7 @@
                         "name": "pipelineId",
                         "in": "path",
                         "required": true,
-                        "description": "The deployment pipeline id",
+                        "description": "The deployment pipeline ID",
                         "type": "string",
                         "format": "uuid"
                     }
@@ -15909,14 +15909,14 @@
                         "name": "groupId",
                         "in": "path",
                         "required": true,
-                        "description": "The workspace id",
+                        "description": "The workspace ID",
                         "type": "string",
                         "format": "uuid"
                     },
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The report id",
+                        "description": "The report ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -16168,7 +16168,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The import id"
+                    "description": "The import ID"
                 },
                 "name": {
                     "type": "string",
@@ -16263,7 +16263,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The dataset id"
+                    "description": "The dataset ID"
                 },
                 "name": {
                     "type": "string",
@@ -16672,7 +16672,7 @@
                 "datasourceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The bound datasource id. Empty when not bound to a gateway."
+                    "description": "The bound datasource ID, which is empty when not bound to a gateway"
                 }
             }
         },
@@ -16767,7 +16767,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The unique row id"
+                    "description": "The unique row ID"
                 }
             }
         },
@@ -16844,7 +16844,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The unique id for this datasource"
+                    "description": "The unique ID for this datasource"
                 },
                 "gatewayId": {
                     "type": "string",
@@ -16889,11 +16889,11 @@
             "properties": {
                 "targetDataflowId": {
                     "type": "string",
-                    "description": "The target dataflow id"
+                    "description": "The target dataflow ID"
                 },
                 "groupId": {
                     "type": "string",
-                    "description": "The target group id"
+                    "description": "The target group ID"
                 }
             }
         },
@@ -16902,15 +16902,15 @@
             "properties": {
                 "datasetObjectId": {
                     "type": "string",
-                    "description": "The dataset object id"
+                    "description": "The dataset object ID"
                 },
                 "dataflowObjectId": {
                     "type": "string",
-                    "description": "The dataflow object id"
+                    "description": "The dataflow object ID"
                 },
                 "workspaceObjectId": {
                     "type": "string",
-                    "description": "The workspace object id"
+                    "description": "The workspace object ID"
                 }
             }
         },
@@ -17201,7 +17201,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The report id"
+                    "description": "The report ID"
                 },
                 "name": {
                     "type": "string",
@@ -17217,7 +17217,7 @@
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "The dataset id"
+                    "description": "The dataset ID"
                 },
                 "description": {
                     "type": "string",
@@ -17293,7 +17293,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The dashboard id"
+                    "description": "The dashboard ID"
                 },
                 "displayName": {
                     "type": "string",
@@ -17340,7 +17340,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The tile id"
+                    "description": "The tile ID"
                 },
                 "title": {
                     "type": "string",
@@ -17365,11 +17365,11 @@
                 "reportId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The report id. Available only for tiles created from a report."
+                    "description": "The report ID, which is available only for tiles created from a report"
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "The dataset id. Available only for tiles created from a report or using a dataset; for example, Q&A tiles."
+                    "description": "The dataset ID, which is available only for tiles created from a report or using a dataset, such as Q&A tiles"
                 }
             }
         },
@@ -17382,7 +17382,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The workspace id"
+                    "description": "The workspace ID"
                 },
                 "name": {
                     "type": "string",
@@ -17399,7 +17399,7 @@
                 "capacityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The capacity id"
+                    "description": "The capacity ID"
                 },
                 "description": {
                     "type": "string",
@@ -17451,7 +17451,7 @@
                 "dataflowStorageId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The Power BI dataflow storage account id"
+                    "description": "The Power BI dataflow storage account ID"
                 },
                 "workbooks": {
                     "type": "array",
@@ -17463,7 +17463,7 @@
                 "pipelineId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The deployment pipeline id that the workspace is assigned to. Available only for workspaces in the new workspace experience and only for admin API calls."
+                    "description": "The deployment pipeline ID that the workspace is assigned to. Available only for workspaces in the new workspace experience and only for admin API calls."
                 }
             }
         },
@@ -17476,7 +17476,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The app id"
+                    "description": "The app ID"
                 },
                 "name": {
                     "type": "string",
@@ -17684,7 +17684,7 @@
                     "items": {
                         "type": "string",
                         "format": "uuid",
-                        "description": "The datasource id"
+                        "description": "The datasource ID"
                     }
                 }
             }
@@ -17840,7 +17840,7 @@
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The Id of the Time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)."
+                    "description": "The ID of the time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)"
                 },
                 "NotifyOption": {
                     "type": "string",
@@ -17916,7 +17916,7 @@
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The Id of the Time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)."
+                    "description": "The ID of the time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)"
                 }
             }
         },
@@ -18598,11 +18598,11 @@
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Optional parameter for specifying the target workspace id. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'. <br/>If not provided, the new report will be cloned within the same workspace as the source report."
+                    "description": "Optional parameter for specifying the target workspace ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'. <br/>If not provided, the new report will be cloned within the same workspace as the source report."
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "Optional parameter for specifying the target associated dataset id. <br/>If not provided, the new report will be associated with the same dataset as the source report"
+                    "description": "Optional parameter for specifying the target associated dataset ID. <br/>If not provided, the new report will be associated with the same dataset as the source report"
                 }
             }
         },
@@ -18912,7 +18912,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Dataset Id"
+                    "description": "The dataset ID"
                 }
             }
         },
@@ -18925,7 +18925,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Workspace Id"
+                    "description": "The workspace ID"
                 }
             }
         },
@@ -18942,7 +18942,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Report Id"
+                    "description": "The report ID"
                 }
             }
         },
@@ -18978,7 +18978,7 @@
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "Dataset id for report creation. Only applies when generating EmbedToken for report creation."
+                    "description": "The dataset ID used for report creation. Only applies when generating an EmbedToken for report creation."
                 },
                 "allowSaveAs": {
                     "type": "boolean",
@@ -19041,7 +19041,7 @@
                 "tokenId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Unique token Id. Can be used to correlate operations that use this token with the generate operation through audit logs."
+                    "description": "The unique token ID, which can be used to correlate operations that use this token with the generate operation through audit logs"
                 },
                 "expiration": {
                     "type": "string",
@@ -19059,21 +19059,21 @@
                 "targetDashboardId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The target dashboard id"
+                    "description": "The target dashboard ID"
                 },
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Optional parameter for specifying the target workspace id. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'. <br/>If not provided, tile will be cloned within the same workspace as the source tile."
+                    "description": "Optional parameter for specifying the target workspace ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'. <br/>If not provided, tile will be cloned within the same workspace as the source tile."
                 },
                 "targetReportId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Optional parameter <br/>When cloning a tile linked to a report, pass the target report id to rebind the new tile to a different report."
+                    "description": "Optional parameter <br/>When cloning a tile linked to a report, pass the target report ID to rebind the new tile to a different report."
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "Optional parameter <br/>When cloning a tile linked to a dataset, pass the target model id to rebind the new tile to a different dataset."
+                    "description": "Optional parameter <br/>When cloning a tile linked to a dataset, pass the target model ID to rebind the new tile to a different dataset."
                 },
                 "positionConflictAction": {
                     "type": "string",
@@ -19120,12 +19120,12 @@
                 "sourceReportId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "source report id"
+                    "description": "The source report ID"
                 },
                 "sourceWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "source worksapce id"
+                    "description": "The source workspace ID"
                 }
             }
         },
@@ -19169,7 +19169,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The capacity id"
+                    "description": "The capacity ID"
                 },
                 "displayName": {
                     "type": "string",
@@ -19282,7 +19282,7 @@
                 "tenantKeyId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The id of the encryption key (Only applicable for admin route)"
+                    "description": "The ID of an encryption key (only applicable to the admin route)"
                 },
                 "tenantKey": {
                     "$ref": "#/definitions/TenantKey",
@@ -19381,7 +19381,7 @@
                 "capacityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The capacity id. To unassign from capacity, use Empty Guid (00000000-0000-0000-0000-000000000000)."
+                    "description": "The capacity ID. To unassign from capacity, use an Empty Guid (`00000000-0000-0000-0000-000000000000`)."
                 }
             }
         },
@@ -19436,12 +19436,12 @@
                 "capacityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The capacity id"
+                    "description": "The capacity ID"
                 },
                 "activityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The activity id of the acctual assignment operation, can be provided in case of assignment failures"
+                    "description": "The activity ID of the assignment operation, which can be provided in case of assignment failures"
                 }
             }
         },
@@ -19548,7 +19548,7 @@
                 "objectId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The dataflow id"
+                    "description": "The dataflow ID"
                 },
                 "name": {
                     "type": "string",
@@ -19632,7 +19632,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The Power BI dataflow storage account id"
+                    "description": "The Power BI dataflow storage account ID"
                 },
                 "name": {
                     "type": "string",
@@ -19668,7 +19668,7 @@
                 "dataflowStorageId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The Power BI dataflow storage account id. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId."
+                    "description": "The Power BI dataflow storage account ID. To unassign the specified workspace from a Power BI dataflow storage account, use an empty GUID (`00000000-0000-0000-0000-000000000000`)."
                 }
             }
         },
@@ -19765,11 +19765,11 @@
                 },
                 "keyVaultKeyIdentifier": {
                     "type": "string",
-                    "description": "Uri to the version of the Azure Key Vault key to be used"
+                    "description": "The URI that uniquely specifies an encryption key in Azure Key Vault."
                 },
                 "isDefault": {
                     "type": "boolean",
-                    "description": "Indicates that this key is set as default for the entire tenant. Any new capacity creation will inherit this key upon creation"
+                    "description": "Whether an encryption key is the default key for the entire tenant. Any newly created capacity inherits the default key."
                 },
                 "activate": {
                     "type": "boolean",
@@ -19798,7 +19798,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The id of the encryption key"
+                    "description": "The ID of the encryption key"
                 },
                 "name": {
                     "type": "string",
@@ -19806,30 +19806,30 @@
                 },
                 "keyVaultKeyIdentifier": {
                     "type": "string",
-                    "description": "Uri to the version of the Azure Key Vault key"
+                    "description": "The URI that uniquely specifies the encryption key in Azure Key Vault"
                 },
                 "isDefault": {
                     "type": "boolean",
-                    "description": "Indicates that this key is set as default for the entire tenant. Any new capacity creation will inherit this key upon creation"
+                    "description": "Whether the encryption key is the default key for the entire tenant. Any newly created capacity inherits the default key."
                 },
                 "createdAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Encryption key creation time"
+                    "description": "The creation time of the encryption key"
                 },
                 "updatedAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Encryption key last update time"
+                    "description": "The last update time of the encryption key"
                 }
             }
         },
         "TenantKeyRotationRequest": {
-            "description": "Rotate encryption key request",
+            "description": "Request to rotate an encryption key",
             "properties": {
                 "keyVaultKeyIdentifier": {
                     "type": "string",
-                    "description": "Uri to the version of the Azure Key Vault key to be used"
+                    "description": "The URI that uniquely specifies the encryption key in Azure Key Vault"
                 }
             }
         },
@@ -19839,7 +19839,7 @@
                 "tenantKeyId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The id of the encryption key"
+                    "description": "The ID of the encryption key"
                 }
             }
         },
@@ -19863,15 +19863,15 @@
             "properties": {
                 "workspacesToAssign": {
                     "type": "array",
-                    "description": "Workspace Ids to be migrated to premium capacity",
+                    "description": "The workspace IDs to be migrated to premium capacity",
                     "items": {
                         "type": "string",
-                        "description": "Workspace id"
+                        "description": "The workspace ID"
                     }
                 },
                 "targetCapacityObjectId": {
                     "type": "string",
-                    "description": "premium Capacity id"
+                    "description": "The premium capacity ID"
                 }
             }
         },
@@ -19886,7 +19886,7 @@
                     "description": "Workspaces to be migrated to shared capacity",
                     "items": {
                         "type": "string",
-                        "description": "Workspace id"
+                        "description": "The workspace ID"
                     }
                 }
             }
@@ -19903,7 +19903,7 @@
                 },
                 "continuationUri": {
                     "type": "string",
-                    "description": "Uri to get the next chunk of the result set"
+                    "description": "The URI for the next chunk in the result set"
                 },
                 "continuationToken": {
                     "type": "string",
@@ -19961,7 +19961,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Object id of refreshable"
+                    "description": "The object ID of the refreshable"
                 },
                 "name": {
                     "type": "string",
@@ -20108,7 +20108,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The transaction id"
+                    "description": "The transaction ID"
                 },
                 "refreshType": {
                     "type": "string",
@@ -20132,7 +20132,7 @@
             "description": "Status of dataflow refresh transaction",
             "properties": {
                 "transactionId": {
-                    "description": "Transaction id",
+                    "description": "The transaction ID",
                     "type": "string"
                 },
                 "status": {
@@ -20196,7 +20196,7 @@
                 "appId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Unique application Id."
+                    "description": "The unique ID of the application"
                 },
                 "packageKey": {
                     "type": "string",
@@ -20205,7 +20205,7 @@
                 "ownerTenantId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Application owner's tenant object Id"
+                    "description": "The object ID for the application owner's tenant"
                 },
                 "config": {
                     "$ref": "#/definitions/TemplateAppConfigurationRequest",
@@ -20243,7 +20243,7 @@
                 "ticketId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Unique ticket Id. Can be used to correlate operations that use this ticket with the generate operation through audit logs."
+                    "description": "The unique ID of a ticket, which can be used to correlate operations that use this ticket with the generate operation through audit logs"
                 },
                 "expiration": {
                     "type": "string",
@@ -20253,7 +20253,7 @@
             }
         },
         "ArtifactId": {
-            "description": "Unique artifact ID: uuid format for dashboards/reports/dataflows.",
+            "description": "The unique ID of an artifact, which is in UUID format for dashboards, reports, and dataflows",
             "required": [
                 "id"
             ],
@@ -20266,7 +20266,7 @@
             }
         },
         "ArtifactStringId": {
-            "description": "Unique artifact ID: string format (can be uuid) for datasets.",
+            "description": "The unique ID of an artifact, which is in string or UUID format for datasets",
             "required": [
                 "id"
             ],
@@ -20278,7 +20278,7 @@
             }
         },
         "InformationProtectionArtifactsChangeLabel": {
-            "description": "Composite of artifact IDs that will be used to update the information protection labels of those artifacts.",
+            "description": "A composite of artifact IDs that will be used to update the information protection labels of those artifacts",
             "properties": {
                 "dashboards": {
                     "type": "array",
@@ -20311,7 +20311,7 @@
             }
         },
         "InformationProtectionChangeLabelResponse": {
-            "description": "Composite of artifact IDs and label change status.",
+            "description": "A composite of artifact IDs and label change status",
             "properties": {
                 "dashboards": {
                     "type": "array",
@@ -20352,7 +20352,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "Unique artifact Id, uuid format for dashboard/report/dataflow, and string format for dataset."
+                    "description": "The unique ID of an artifact, which is in UUID format for dashboards, reports, and dataflows, and string format for datasets"
                 },
                 "status": {
                     "type": "string",
@@ -20401,7 +20401,7 @@
             ],
             "properties": {
                 "artifacts": {
-                    "description": "Composite of artifact ID lists per type.",
+                    "description": "A composite of artifact ID lists for each type",
                     "$ref": "#/definitions/InformationProtectionArtifactsChangeLabel"
                 },
                 "labelId": {

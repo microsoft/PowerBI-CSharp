@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static App GetApp(this IAppsOperations operations, System.Guid appId)
             {
@@ -88,7 +88,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -114,7 +114,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static Reports GetReports(this IAppsOperations operations, System.Guid appId)
             {
@@ -134,7 +134,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -160,10 +160,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Report GetReport(this IAppsOperations operations, System.Guid appId, System.Guid reportId)
             {
@@ -183,10 +183,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -213,7 +213,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static Dashboards GetDashboards(this IAppsOperations operations, System.Guid appId)
             {
@@ -234,7 +234,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -261,10 +261,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Dashboard GetDashboard(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId)
             {
@@ -285,10 +285,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -315,10 +315,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTiles(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId)
             {
@@ -339,10 +339,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -372,13 +372,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             public static Tile GetTile(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId, System.Guid tileId)
             {
@@ -402,13 +402,13 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -487,7 +487,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static AppUsers GetAppUsersAsAdmin(this IAppsOperations operations, System.Guid appId)
             {
@@ -508,7 +508,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

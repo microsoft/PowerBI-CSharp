@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Dataset class.
         /// </summary>
-        /// <param name="id">The dataset id</param>
+        /// <param name="id">The dataset ID</param>
         /// <param name="name">The dataset name</param>
         /// <param name="configuredBy">The dataset owner</param>
         /// <param name="addRowsAPIEnabled">Whether the dataset allows adding
@@ -103,7 +103,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataset id
+        /// Gets or sets the dataset ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

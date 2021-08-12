@@ -184,7 +184,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pipelineId'>
-            /// The deployment pipeline Id
+            /// The deployment pipeline ID
             /// </param>
             public static PipelineOperations GetPipelineOperations(this IPipelinesOperations operations, System.Guid pipelineId)
             {
@@ -204,7 +204,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pipelineId'>
-            /// The deployment pipeline Id
+            /// The deployment pipeline ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -234,7 +234,7 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='operationId'>
-            /// The operation Id
+            /// The operation ID
             /// </param>
             public static PipelineOperation GetPipelineOperation(this IPipelinesOperations operations, System.Guid pipelineId, System.Guid operationId)
             {
@@ -258,7 +258,7 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='operationId'>
-            /// The operation Id
+            /// The operation ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -479,7 +479,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pipelineId'>
-            /// The deployment pipeline id
+            /// The deployment pipeline ID
             /// </param>
             public static PipelineUsers GetPipelineUsersAsAdmin(this IPipelinesOperations operations, System.Guid pipelineId)
             {
@@ -500,7 +500,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='pipelineId'>
-            /// The deployment pipeline id
+            /// The deployment pipeline ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

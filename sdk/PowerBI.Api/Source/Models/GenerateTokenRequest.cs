@@ -30,8 +30,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="accessLevel">Required access level for EmbedToken
         /// generation. Possible values include: 'View', 'Edit',
         /// 'Create'</param>
-        /// <param name="datasetId">Dataset id for report creation. Only
-        /// applies when generating EmbedToken for report creation.</param>
+        /// <param name="datasetId">The dataset ID used for report creation.
+        /// Only applies when generating an EmbedToken for report
+        /// creation.</param>
         /// <param name="allowSaveAs">Indicates an embedded report can be saved
         /// as a new report. Default value is 'false'. Only applies when
         /// generating EmbedToken for report embedding.</param>
@@ -59,8 +60,8 @@ namespace Microsoft.PowerBI.Api.Models
         public TokenAccessLevel? AccessLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets dataset id for report creation. Only applies when
-        /// generating EmbedToken for report creation.
+        /// Gets or sets the dataset ID used for report creation. Only applies
+        /// when generating an EmbedToken for report creation.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

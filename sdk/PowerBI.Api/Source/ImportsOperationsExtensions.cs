@@ -171,7 +171,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             public static Import GetImport(this IImportsOperations operations, System.Guid importId)
             {
@@ -190,7 +190,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -272,7 +272,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Imports GetImportsInGroup(this IImportsOperations operations, System.Guid groupId)
             {
@@ -292,7 +292,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -334,7 +334,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset should include file extension. Not
@@ -389,7 +389,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset should include file extension. Not
@@ -433,10 +433,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             public static Import GetImportInGroup(this IImportsOperations operations, System.Guid groupId, System.Guid importId)
             {
@@ -455,10 +455,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -492,7 +492,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static TemporaryUploadLocation CreateTemporaryUploadLocationInGroup(this IImportsOperations operations, System.Guid groupId)
             {
@@ -520,7 +520,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
