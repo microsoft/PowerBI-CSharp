@@ -15224,7 +15224,7 @@
                     "Admin"
                 ],
                 "summary": "Remove sensitivity labels from artifacts by artifact ID.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> The admin user must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> The admin user must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All <br/><br/>**Usage sample**: [Set or remove sensitivity labels using Power BI REST admin APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)",
                 "operationId": "InformationProtection_RemoveLabelsAsAdmin",
                 "consumes": [
                     "application/json"
@@ -15332,7 +15332,7 @@
                     "Admin"
                 ],
                 "summary": "Set sensitivity labels on content in Power BI by artifact ID.",
-                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> To set a sensitivity label using this API, the admin user (or the delegated user, if provided) must have the label included in their [label policy](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). <br/> The admin user (and the delegated user, if provided) must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to set labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All",
+                "description": "**Note:** The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) to call this API. <br/> To set a sensitivity label using this API, the admin user (or the delegated user, if provided) must have the label included in their [label policy](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). <br/> The admin user (and the delegated user, if provided) must have sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685) to set labels.<br/>This API allows a maximum of 25 requests per hour. Each request can update up to 2000 artifacts. <br/><br/>**Required scope**: Tenant.ReadWrite.All <br/><br/>**Usage sample**: [Set or remove sensitivity labels using Power BI REST admin APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)",
                 "operationId": "InformationProtection_SetLabelsAsAdmin",
                 "consumes": [
                     "application/json"
