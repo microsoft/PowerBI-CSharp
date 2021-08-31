@@ -39,8 +39,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// dashboard</param>
         /// <param name="sensitivityLabel">The dashboard sensitivity
         /// label</param>
-        /// <param name="users">The Dashboard User Access Details, only apply
-        /// when user information is requested explicitly.</param>
+        /// <param name="users">The Dashboard User Access Details. This value
+        /// will be empty. It will be removed from the payload response in an
+        /// upcoming release. To retrieve user information on an artifact,
+        /// please consider using the Get Dashboard User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
         public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>))
         {
             Id = id;
@@ -102,8 +105,11 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets the Dashboard User Access Details, only apply when
-        /// user information is requested explicitly.
+        /// Gets or sets the Dashboard User Access Details. This value will be
+        /// empty. It will be removed from the payload response in an upcoming
+        /// release. To retrieve user information on an artifact, please
+        /// consider using the Get Dashboard User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DashboardUser> Users { get; set; }

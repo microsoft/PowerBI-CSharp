@@ -40,8 +40,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="state">The group state. Available only for admin API
         /// calls.</param>
         /// <param name="users">The users that belong to the group, and their
-        /// access rights, only apply when user information is requested
-        /// explicitly.</param>
+        /// access rights. This value will be empty. It will be removed from
+        /// the payload response in an upcoming release. To retrieve user
+        /// information on an artifact, please consider using the Get Group
+        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
+        /// parameter.</param>
         /// <param name="reports">The reports that belong to the group.
         /// Available only for admin API calls.</param>
         /// <param name="dashboards">The dashboards that belong to the group.
@@ -134,7 +137,11 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the users that belong to the group, and their access
-        /// rights, only apply when user information is requested explicitly.
+        /// rights. This value will be empty. It will be removed from the
+        /// payload response in an upcoming release. To retrieve user
+        /// information on an artifact, please consider using the Get Group
+        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
+        /// parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }

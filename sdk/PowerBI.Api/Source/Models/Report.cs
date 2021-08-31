@@ -47,8 +47,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="sensitivityLabel">The report sensitivity label</param>
         /// <param name="reportType">The report type. Possible values include:
         /// 'PaginatedReport'</param>
-        /// <param name="users">The Report User Access Details, only apply when
-        /// user information is requested explicitly.</param>
+        /// <param name="users">The Report User Access Details. This value will
+        /// be empty. It will be removed from the payload response in an
+        /// upcoming release. To retrieve user information on an artifact,
+        /// please consider using the Get Report User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
         public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string), IList<ReportUser> users = default(IList<ReportUser>))
         {
             Id = id;
@@ -154,8 +157,11 @@ namespace Microsoft.PowerBI.Api.Models
         public string ReportType { get; set; }
 
         /// <summary>
-        /// Gets or sets the Report User Access Details, only apply when user
-        /// information is requested explicitly.
+        /// Gets or sets the Report User Access Details. This value will be
+        /// empty. It will be removed from the payload response in an upcoming
+        /// release. To retrieve user information on an artifact, please
+        /// consider using the Get Report User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<ReportUser> Users { get; set; }

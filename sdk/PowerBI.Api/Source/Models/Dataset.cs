@@ -63,8 +63,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="tables">The dataset tables</param>
         /// <param name="sensitivityLabel">The dataset sensitivity
         /// label</param>
-        /// <param name="users">The Dataset User Access Details, only apply
-        /// when user information is requested explicitly.</param>
+        /// <param name="users">The Dataset User Access Details. This value
+        /// will be empty. It will be removed from the payload response in an
+        /// upcoming release. To retrieve user information on an artifact,
+        /// please consider using the Get Dataset User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
         /// <param name="schemaRetrievalError">The dataset schema retrieval
         /// error</param>
         /// <param name="schemaMayNotBeUpToDate">Whether dataset schema may not
@@ -227,8 +230,11 @@ namespace Microsoft.PowerBI.Api.Models
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets the Dataset User Access Details, only apply when user
-        /// information is requested explicitly.
+        /// Gets or sets the Dataset User Access Details. This value will be
+        /// empty. It will be removed from the payload response in an upcoming
+        /// release. To retrieve user information on an artifact, please
+        /// consider using the Get Dataset User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DatasetUser> Users { get; set; }
