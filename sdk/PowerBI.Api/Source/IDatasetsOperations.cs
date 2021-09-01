@@ -126,6 +126,66 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Executes DAX queries against the provided dataset. The dataset may
+        /// reside in **"My Workspace"** or any other [new
+        /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+        /// workspace).
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation
+        /// is only supported for datasets in a [new
+        /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+        /// workspace)&lt;/li&gt;&lt;li&gt;The user issuing the request needs
+        /// to have [Build permissions for the
+        /// dataset](power-bi/connect-data/service-datasets-build-permissions).&lt;/li&gt;&lt;li&gt;The
+        /// [Allow XMLA endpoints and Analyze in Excel with on-premises
+        /// datasets](power-bi/admin/service-premium-connect-tools) tenant
+        /// setting needs to be enabled.&lt;/li&gt;&lt;li&gt;Datasets hosted in
+        /// AsAzure or live connected to an on premise Analysis Services model
+        /// are not supported.&lt;/li&gt;&lt;li&gt;Only one query returning one
+        /// table of maximum 100k rows is allowed. Specifying more than one
+        /// query will return an
+        /// error.&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Notes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Issuing
+        /// a query that returns more than one table or more than 100k rows
+        /// will return limited data and an error in the response. The response
+        /// HTTP status will be OK (200).&lt;/li&gt;&lt;li&gt;DAX query
+        /// failures will be returned with a failure HTTP status
+        /// (400).&lt;/li&gt;&lt;li&gt;Columns that are fully qualified in the
+        /// query will be returned with the fully qualified name, for example,
+        /// Table[Column]. Columns that are renamed or created in the query
+        /// will be returned within square bracket, for example,
+        /// [MyNewColumn].&lt;/li&gt;&lt;li&gt;The following errors may be
+        /// contained in the response: DAX query failures, more than one result
+        /// table in a query, more than 100k rows in a query
+        /// result.&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='requestMessage'>
+        /// The request message
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetExecuteQueriesResponse>> ExecuteQueriesWithHttpMessagesAsync(string datasetId, DatasetExecuteQueriesRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tables tables within the specified dataset from
         /// **"My Workspace"**.
         /// </summary>

@@ -191,6 +191,108 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Executes DAX queries against the provided dataset. The dataset may reside
+            /// in **"My Workspace"** or any other [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace).
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation is only
+            /// supported for datasets in a [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace)&lt;/li&gt;&lt;li&gt;The user issuing the request needs to have
+            /// [Build permissions for the
+            /// dataset](power-bi/connect-data/service-datasets-build-permissions).&lt;/li&gt;&lt;li&gt;The
+            /// [Allow XMLA endpoints and Analyze in Excel with on-premises
+            /// datasets](power-bi/admin/service-premium-connect-tools) tenant setting
+            /// needs to be enabled.&lt;/li&gt;&lt;li&gt;Datasets hosted in AsAzure or live
+            /// connected to an on premise Analysis Services model are not
+            /// supported.&lt;/li&gt;&lt;li&gt;Only one query returning one table of
+            /// maximum 100k rows is allowed. Specifying more than one query will return an
+            /// error.&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Notes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Issuing
+            /// a query that returns more than one table or more than 100k rows will return
+            /// limited data and an error in the response. The response HTTP status will be
+            /// OK (200).&lt;/li&gt;&lt;li&gt;DAX query failures will be returned with a
+            /// failure HTTP status (400).&lt;/li&gt;&lt;li&gt;Columns that are fully
+            /// qualified in the query will be returned with the fully qualified name, for
+            /// example, Table[Column]. Columns that are renamed or created in the query
+            /// will be returned within square bracket, for example,
+            /// [MyNewColumn].&lt;/li&gt;&lt;li&gt;The following errors may be contained in
+            /// the response: DAX query failures, more than one result table in a query,
+            /// more than 100k rows in a query result.&lt;/li&gt;&lt;/ul&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='requestMessage'>
+            /// The request message
+            /// </param>
+            public static DatasetExecuteQueriesResponse ExecuteQueries(this IDatasetsOperations operations, string datasetId, DatasetExecuteQueriesRequest requestMessage)
+            {
+                return operations.ExecuteQueriesAsync(datasetId, requestMessage).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Executes DAX queries against the provided dataset. The dataset may reside
+            /// in **"My Workspace"** or any other [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace).
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation is only
+            /// supported for datasets in a [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace)&lt;/li&gt;&lt;li&gt;The user issuing the request needs to have
+            /// [Build permissions for the
+            /// dataset](power-bi/connect-data/service-datasets-build-permissions).&lt;/li&gt;&lt;li&gt;The
+            /// [Allow XMLA endpoints and Analyze in Excel with on-premises
+            /// datasets](power-bi/admin/service-premium-connect-tools) tenant setting
+            /// needs to be enabled.&lt;/li&gt;&lt;li&gt;Datasets hosted in AsAzure or live
+            /// connected to an on premise Analysis Services model are not
+            /// supported.&lt;/li&gt;&lt;li&gt;Only one query returning one table of
+            /// maximum 100k rows is allowed. Specifying more than one query will return an
+            /// error.&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Notes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Issuing
+            /// a query that returns more than one table or more than 100k rows will return
+            /// limited data and an error in the response. The response HTTP status will be
+            /// OK (200).&lt;/li&gt;&lt;li&gt;DAX query failures will be returned with a
+            /// failure HTTP status (400).&lt;/li&gt;&lt;li&gt;Columns that are fully
+            /// qualified in the query will be returned with the fully qualified name, for
+            /// example, Table[Column]. Columns that are renamed or created in the query
+            /// will be returned within square bracket, for example,
+            /// [MyNewColumn].&lt;/li&gt;&lt;li&gt;The following errors may be contained in
+            /// the response: DAX query failures, more than one result table in a query,
+            /// more than 100k rows in a query result.&lt;/li&gt;&lt;/ul&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='requestMessage'>
+            /// The request message
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DatasetExecuteQueriesResponse> ExecuteQueriesAsync(this IDatasetsOperations operations, string datasetId, DatasetExecuteQueriesRequest requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ExecuteQueriesWithHttpMessagesAsync(datasetId, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of tables tables within the specified dataset from **"My
             /// Workspace"**.
             /// </summary>

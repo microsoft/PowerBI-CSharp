@@ -29,6 +29,9 @@ namespace Microsoft.PowerBI.Api
         /// labels.&lt;br/&gt;This API allows a maximum of 25 requests per
         /// hour. Each request can update up to 2000 artifacts.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All
+        /// &lt;br/&gt;&lt;br/&gt;**Usage sample**: [Set or remove sensitivity
+        /// labels using Power BI REST admin
+        /// APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)
         /// </remarks>
         /// <param name='artifacts'>
         /// A composite of artifact ID lists for each type
@@ -65,6 +68,9 @@ namespace Microsoft.PowerBI.Api
         /// labels.&lt;br/&gt;This API allows a maximum of 25 requests per
         /// hour. Each request can update up to 2000 artifacts.
         /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All
+        /// &lt;br/&gt;&lt;br/&gt;**Usage sample**: [Set or remove sensitivity
+        /// labels using Power BI REST admin
+        /// APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)
         /// </remarks>
         /// <param name='informationProtectionChangeLabelDetails'>
         /// Set label details.

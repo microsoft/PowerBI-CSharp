@@ -25,7 +25,9 @@ namespace Microsoft.PowerBI.Api
             /// rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete
             /// labels.&lt;br/&gt;This API allows a maximum of 25 requests per hour. Each
             /// request can update up to 2000 artifacts. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.ReadWrite.All
+            /// scope**: Tenant.ReadWrite.All &lt;br/&gt;&lt;br/&gt;**Usage sample**: [Set
+            /// or remove sensitivity labels using Power BI REST admin
+            /// APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -48,7 +50,9 @@ namespace Microsoft.PowerBI.Api
             /// rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete
             /// labels.&lt;br/&gt;This API allows a maximum of 25 requests per hour. Each
             /// request can update up to 2000 artifacts. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.ReadWrite.All
+            /// scope**: Tenant.ReadWrite.All &lt;br/&gt;&lt;br/&gt;**Usage sample**: [Set
+            /// or remove sensitivity labels using Power BI REST admin
+            /// APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -82,6 +86,9 @@ namespace Microsoft.PowerBI.Api
             /// to set labels.&lt;br/&gt;This API allows a maximum of 25 requests per hour.
             /// Each request can update up to 2000 artifacts.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All
+            /// &lt;br/&gt;&lt;br/&gt;**Usage sample**: [Set or remove sensitivity labels
+            /// using Power BI REST admin
+            /// APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -109,6 +116,9 @@ namespace Microsoft.PowerBI.Api
             /// to set labels.&lt;br/&gt;This API allows a maximum of 25 requests per hour.
             /// Each request can update up to 2000 artifacts.
             /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All
+            /// &lt;br/&gt;&lt;br/&gt;**Usage sample**: [Set or remove sensitivity labels
+            /// using Power BI REST admin
+            /// APIs](https://docs.microsoft.com/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api)
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
