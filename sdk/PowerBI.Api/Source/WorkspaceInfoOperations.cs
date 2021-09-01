@@ -75,7 +75,7 @@ namespace Microsoft.PowerBI.Api
         /// Whether to return dataset expressions (Dax query and Mashup)​
         /// </param>
         /// <param name='getArtifactUsers'>
-        /// Whether to return artifact user details​ (Preview)
+        /// Whether to return artifact user details​ (Preview) (Permission level)
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

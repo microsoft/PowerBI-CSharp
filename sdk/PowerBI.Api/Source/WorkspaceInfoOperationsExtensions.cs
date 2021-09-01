@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api
             /// Whether to return dataset expressions (Dax query and Mashup)​
             /// </param>
             /// <param name='getArtifactUsers'>
-            /// Whether to return artifact user details​ (Preview)
+            /// Whether to return artifact user details​ (Preview) (Permission level)
             /// </param>
             public static ScanRequest PostWorkspaceInfo(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?))
             {
@@ -86,7 +86,7 @@ namespace Microsoft.PowerBI.Api
             /// Whether to return dataset expressions (Dax query and Mashup)​
             /// </param>
             /// <param name='getArtifactUsers'>
-            /// Whether to return artifact user details​ (Preview)
+            /// Whether to return artifact user details​ (Preview) (Permission level)
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

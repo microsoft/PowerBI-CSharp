@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GroupUser class.
         /// </summary>
         /// <param name="groupUserAccessRight">Access rights user has for the
-        /// workspace. Possible values include: 'None', 'Member', 'Admin',
-        /// 'Contributor', 'Viewer'</param>
+        /// workspace (Permission level). Possible values include: 'None',
+        /// 'Member', 'Admin', 'Contributor', 'Viewer'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">[Object
@@ -54,8 +54,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the workspace. Possible
-        /// values include: 'None', 'Member', 'Admin', 'Contributor', 'Viewer'
+        /// Gets or sets access rights user has for the workspace (Permission
+        /// level). Possible values include: 'None', 'Member', 'Admin',
+        /// 'Contributor', 'Viewer'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
         public GroupUserAccessRight GroupUserAccessRight { get; set; }

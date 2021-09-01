@@ -11363,7 +11363,7 @@
                     {
                         "name": "getArtifactUsers",
                         "in": "query",
-                        "description": "Whether to return artifact user details​ (Preview)",
+                        "description": "Whether to return artifact user details​ (Preview) (Permission level)",
                         "required": false,
                         "type": "boolean"
                     }
@@ -18143,7 +18143,7 @@
             "properties": {
                 "groupUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the workspace",
+                    "description": "Access rights user has for the workspace (Permission level)",
                     "enum": [
                         "None",
                         "Member",
@@ -18371,7 +18371,7 @@
             "properties": {
                 "reportUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the report",
+                    "description": "Access rights user has for the report (Permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -18435,7 +18435,7 @@
             "properties": {
                 "dashboardUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the dashboard",
+                    "description": "Access rights user has for the dashboard (Permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -18499,7 +18499,7 @@
             "properties": {
                 "datasetUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the dataset",
+                    "description": "Access rights user has for the dataset (Permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -18583,7 +18583,7 @@
             "properties": {
                 "DataflowUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the dataflow",
+                    "description": "Access rights user has for the dataflow (Permission level)",
                     "enum": [
                         "None",
                         "Read",

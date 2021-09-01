@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DashboardUser class.
         /// </summary>
         /// <param name="dashboardUserAccessRight">Access rights user has for
-        /// the dashboard. Possible values include: 'None', 'Read',
-        /// 'ReadWrite', 'ReadReshare', 'Owner'</param>
+        /// the dashboard (Permission level). Possible values include: 'None',
+        /// 'Read', 'ReadWrite', 'ReadReshare', 'Owner'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">Identifier of the principal</param>
@@ -52,8 +52,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the dashboard. Possible
-        /// values include: 'None', 'Read', 'ReadWrite', 'ReadReshare', 'Owner'
+        /// Gets or sets access rights user has for the dashboard (Permission
+        /// level). Possible values include: 'None', 'Read', 'ReadWrite',
+        /// 'ReadReshare', 'Owner'
         /// </summary>
         [JsonProperty(PropertyName = "dashboardUserAccessRight")]
         public DashboardUserAccessRight DashboardUserAccessRight { get; set; }
