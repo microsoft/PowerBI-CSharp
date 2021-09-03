@@ -1912,6 +1912,20 @@
                         "type": "boolean"
                     },
                     {
+                        "name": "overrideReportLabel",
+                        "in": "query",
+                        "required": false,
+                        "description": "Determines whether to override existing label on report during republish of PBIX file, service default value is true.",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "overrideModelLabel",
+                        "in": "query",
+                        "required": false,
+                        "description": "Determines whether to override existing label on model during republish of PBIX file, service default value is true.",
+                        "type": "boolean"
+                    },
+                    {
                         "name": "importInfo",
                         "in": "body",
                         "description": "The import to post",
@@ -1963,6 +1977,8 @@
                             "datasetDisplayName": "MyReport",
                             "nameConflict": "Ignore",
                             "skipReport": true,
+                            "overrideReportLabel": true,
+                            "overrideModelLabel": true,
                             "importInfo": {
                                 "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
                             }
@@ -5091,6 +5107,20 @@
                         "type": "boolean"
                     },
                     {
+                        "name": "overrideReportLabel",
+                        "in": "query",
+                        "required": false,
+                        "description": "Determines whether to override existing label on report during republish of PBIX file, service default value is true.",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "overrideModelLabel",
+                        "in": "query",
+                        "required": false,
+                        "description": "Determines whether to override existing label on model during republish of PBIX file, service default value is true.",
+                        "type": "boolean"
+                    },
+                    {
                         "name": "importInfo",
                         "in": "body",
                         "description": "The import to post",
@@ -5144,6 +5174,8 @@
                             "datasetDisplayName": "MyReport",
                             "nameConflict": "Ignore",
                             "skipReport": true,
+                            "overrideReportLabel": true,
+                            "overrideModelLabel": true,
                             "importInfo": {
                                 "value": "--f05e5244-f876-43b9-bc87-d71598f6b32a Content-Disposition: form-data AA...ZZ --f05e5244-f876-43b9-bc87-d71598f6b32a--"
                             }
