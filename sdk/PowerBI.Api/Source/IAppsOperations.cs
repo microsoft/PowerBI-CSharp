@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -76,7 +76,7 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -102,10 +102,10 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -131,7 +131,7 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -157,10 +157,10 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -187,10 +187,10 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -219,13 +219,13 @@ namespace Microsoft.PowerBI.Api
         /// Service principal authentication is not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -240,5 +240,62 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, System.Guid tileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of apps in the orginization (Preview).
+        /// </summary>
+        /// <remarks>
+        /// This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// Query parameter $top is mandatory to access this API
+        /// </remarks>
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history. If not
+        /// provided, the default is all available entries.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Apps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of users that have access to the specified app
+        /// (Preview).
+        /// </summary>
+        /// <remarks>
+        /// This API allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='appId'>
+        /// The app ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<AppUsers>> GetAppUsersAsAdminWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the App class.
         /// </summary>
-        /// <param name="id">The app id</param>
+        /// <param name="id">The app ID</param>
         /// <param name="name">The app name</param>
         /// <param name="description">The app description</param>
         /// <param name="lastUpdate">The last time the app was updated</param>
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the app id
+        /// Gets or sets the app ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

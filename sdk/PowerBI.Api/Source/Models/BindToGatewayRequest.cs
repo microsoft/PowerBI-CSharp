@@ -27,7 +27,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the BindToGatewayRequest class.
         /// </summary>
-        /// <param name="gatewayObjectId">The gateway id</param>
+        /// <param name="gatewayObjectId">The gateway ID. When using a gateway
+        /// cluster, the gateway ID refers to the primary (first) gateway in
+        /// the cluster. In such cases, gateway ID is similar to gateway
+        /// cluster ID.</param>
         /// <param name="datasourceObjectIds">datasourceObjectIds belonging to
         /// the gateway</param>
         public BindToGatewayRequest(System.Guid gatewayObjectId, IList<System.Guid?> datasourceObjectIds = default(IList<System.Guid?>))
@@ -43,7 +46,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the gateway id
+        /// Gets or sets the gateway ID. When using a gateway cluster, the
+        /// gateway ID refers to the primary (first) gateway in the cluster. In
+        /// such cases, gateway ID is similar to gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayObjectId")]
         public System.Guid GatewayObjectId { get; set; }

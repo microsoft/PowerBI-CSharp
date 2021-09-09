@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Composite of artifact IDs and label change status.
+    /// A composite of artifact IDs and label change status
     /// </summary>
     public partial class InformationProtectionChangeLabelResponse
     {

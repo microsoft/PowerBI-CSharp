@@ -33,8 +33,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="identifier">[Object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal</param>
-        /// <param name="principalType">The principal type. Possible values
-        /// include: 'User', 'Group', 'App'</param>
+        /// <param name="principalType">Possible values include: 'None',
+        /// 'User', 'Group', 'App'</param>
         public DatasourceUser(DatasourceUserAccessRight datasourceAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), PrincipalType? principalType = default(PrincipalType?))
         {
             DatasourceAccessRight = datasourceAccessRight;
@@ -78,8 +78,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets the principal type. Possible values include: 'User',
-        /// 'Group', 'App'
+        /// Gets or sets possible values include: 'None', 'User', 'Group',
+        /// 'App'
         /// </summary>
         [JsonProperty(PropertyName = "principalType")]
         public PrincipalType? PrincipalType { get; set; }

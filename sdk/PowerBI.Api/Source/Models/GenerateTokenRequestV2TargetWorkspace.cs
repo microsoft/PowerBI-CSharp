@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// GenerateTokenRequestV2TargetWorkspace class.
         /// </summary>
-        /// <param name="id">Workspace Id</param>
+        /// <param name="id">The workspace ID</param>
         public GenerateTokenRequestV2TargetWorkspace(System.Guid id)
         {
             Id = id;
@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets workspace Id
+        /// Gets or sets the workspace ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

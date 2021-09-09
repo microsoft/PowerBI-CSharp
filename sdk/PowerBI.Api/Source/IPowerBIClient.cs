@@ -97,6 +97,11 @@ namespace Microsoft.PowerBI.Api
         IAvailableFeaturesOperations AvailableFeatures { get; }
 
         /// <summary>
+        /// Gets the IPipelinesOperations.
+        /// </summary>
+        IPipelinesOperations Pipelines { get; }
+
+        /// <summary>
         /// Gets the IDataflowStorageAccountsOperations.
         /// </summary>
         IDataflowStorageAccountsOperations DataflowStorageAccounts { get; }

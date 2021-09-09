@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Rotate encryption key request
+    /// Request to rotate an encryption key
     /// </summary>
     public partial class TenantKeyRotationRequest
     {
@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the TenantKeyRotationRequest class.
         /// </summary>
-        /// <param name="keyVaultKeyIdentifier">Uri to the version of the Azure
-        /// Key Vault key to be used</param>
+        /// <param name="keyVaultKeyIdentifier">The URI that uniquely specifies
+        /// the encryption key in Azure Key Vault</param>
         public TenantKeyRotationRequest(string keyVaultKeyIdentifier = default(string))
         {
             KeyVaultKeyIdentifier = keyVaultKeyIdentifier;
@@ -39,8 +39,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets uri to the version of the Azure Key Vault key to be
-        /// used
+        /// Gets or sets the URI that uniquely specifies the encryption key in
+        /// Azure Key Vault
         /// </summary>
         [JsonProperty(PropertyName = "keyVaultKeyIdentifier")]
         public string KeyVaultKeyIdentifier { get; set; }

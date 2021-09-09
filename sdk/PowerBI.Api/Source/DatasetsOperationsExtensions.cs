@@ -117,7 +117,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Dataset GetDataset(this IDatasetsOperations operations, string datasetId)
             {
@@ -136,7 +136,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -161,7 +161,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static void DeleteDataset(this IDatasetsOperations operations, string datasetId)
             {
@@ -180,7 +180,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -188,6 +188,108 @@ namespace Microsoft.PowerBI.Api
             public static async Task DeleteDatasetAsync(this IDatasetsOperations operations, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.DeleteDatasetWithHttpMessagesAsync(datasetId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Executes DAX queries against the provided dataset. The dataset may reside
+            /// in **"My Workspace"** or any other [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace).
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation is only
+            /// supported for datasets in a [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace)&lt;/li&gt;&lt;li&gt;The user issuing the request needs to have
+            /// [Build permissions for the
+            /// dataset](power-bi/connect-data/service-datasets-build-permissions).&lt;/li&gt;&lt;li&gt;The
+            /// [Allow XMLA endpoints and Analyze in Excel with on-premises
+            /// datasets](power-bi/admin/service-premium-connect-tools) tenant setting
+            /// needs to be enabled.&lt;/li&gt;&lt;li&gt;Datasets hosted in AsAzure or live
+            /// connected to an on premise Analysis Services model are not
+            /// supported.&lt;/li&gt;&lt;li&gt;Only one query returning one table of
+            /// maximum 100k rows is allowed. Specifying more than one query will return an
+            /// error.&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Notes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Issuing
+            /// a query that returns more than one table or more than 100k rows will return
+            /// limited data and an error in the response. The response HTTP status will be
+            /// OK (200).&lt;/li&gt;&lt;li&gt;DAX query failures will be returned with a
+            /// failure HTTP status (400).&lt;/li&gt;&lt;li&gt;Columns that are fully
+            /// qualified in the query will be returned with the fully qualified name, for
+            /// example, Table[Column]. Columns that are renamed or created in the query
+            /// will be returned within square bracket, for example,
+            /// [MyNewColumn].&lt;/li&gt;&lt;li&gt;The following errors may be contained in
+            /// the response: DAX query failures, more than one result table in a query,
+            /// more than 100k rows in a query result.&lt;/li&gt;&lt;/ul&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='requestMessage'>
+            /// The request message
+            /// </param>
+            public static DatasetExecuteQueriesResponse ExecuteQueries(this IDatasetsOperations operations, string datasetId, DatasetExecuteQueriesRequest requestMessage)
+            {
+                return operations.ExecuteQueriesAsync(datasetId, requestMessage).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Executes DAX queries against the provided dataset. The dataset may reside
+            /// in **"My Workspace"** or any other [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace).
+            /// </summary>
+            /// <remarks>
+            /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation is only
+            /// supported for datasets in a [new
+            /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+            /// workspace)&lt;/li&gt;&lt;li&gt;The user issuing the request needs to have
+            /// [Build permissions for the
+            /// dataset](power-bi/connect-data/service-datasets-build-permissions).&lt;/li&gt;&lt;li&gt;The
+            /// [Allow XMLA endpoints and Analyze in Excel with on-premises
+            /// datasets](power-bi/admin/service-premium-connect-tools) tenant setting
+            /// needs to be enabled.&lt;/li&gt;&lt;li&gt;Datasets hosted in AsAzure or live
+            /// connected to an on premise Analysis Services model are not
+            /// supported.&lt;/li&gt;&lt;li&gt;Only one query returning one table of
+            /// maximum 100k rows is allowed. Specifying more than one query will return an
+            /// error.&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Notes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Issuing
+            /// a query that returns more than one table or more than 100k rows will return
+            /// limited data and an error in the response. The response HTTP status will be
+            /// OK (200).&lt;/li&gt;&lt;li&gt;DAX query failures will be returned with a
+            /// failure HTTP status (400).&lt;/li&gt;&lt;li&gt;Columns that are fully
+            /// qualified in the query will be returned with the fully qualified name, for
+            /// example, Table[Column]. Columns that are renamed or created in the query
+            /// will be returned within square bracket, for example,
+            /// [MyNewColumn].&lt;/li&gt;&lt;li&gt;The following errors may be contained in
+            /// the response: DAX query failures, more than one result table in a query,
+            /// more than 100k rows in a query result.&lt;/li&gt;&lt;/ul&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='requestMessage'>
+            /// The request message
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DatasetExecuteQueriesResponse> ExecuteQueriesAsync(this IDatasetsOperations operations, string datasetId, DatasetExecuteQueriesRequest requestMessage, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ExecuteQueriesWithHttpMessagesAsync(datasetId, requestMessage, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -204,7 +306,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Tables GetTables(this IDatasetsOperations operations, string datasetId)
             {
@@ -225,7 +327,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -252,7 +354,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -279,7 +381,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -314,7 +416,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -343,7 +445,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -373,7 +475,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -397,7 +499,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -423,7 +525,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
@@ -447,7 +549,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
@@ -482,7 +584,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
@@ -509,7 +611,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
@@ -534,7 +636,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static RefreshSchedule GetRefreshSchedule(this IDatasetsOperations operations, string datasetId)
             {
@@ -554,7 +656,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -588,7 +690,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetModelRefreshScheduleRequest'>
             /// Update Refresh Schedule parameters, by specifying all or some of the
@@ -620,7 +722,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetModelRefreshScheduleRequest'>
             /// Update Refresh Schedule parameters, by specifying all or some of the
@@ -647,7 +749,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static DirectQueryRefreshSchedule GetDirectQueryRefreshSchedule(this IDatasetsOperations operations, string datasetId)
             {
@@ -667,7 +769,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -698,7 +800,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetDQRefreshScheduleRequest'>
             /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
@@ -727,7 +829,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetDQRefreshScheduleRequest'>
             /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
@@ -756,7 +858,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static MashupParameters GetParameters(this IDatasetsOperations operations, string datasetId)
             {
@@ -778,7 +880,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -827,7 +929,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='updateMashupParametersRequest'>
             /// </param>
@@ -872,7 +974,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='updateMashupParametersRequest'>
             /// </param>
@@ -897,7 +999,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Datasources GetDatasources(this IDatasetsOperations operations, string datasetId)
             {
@@ -917,7 +1019,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -977,7 +1079,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='updateDatasourcesRequest'>
             /// </param>
@@ -1033,7 +1135,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='updateDatasourcesRequest'>
             /// </param>
@@ -1068,7 +1170,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='parameters'>
             /// The body
@@ -1102,7 +1204,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='parameters'>
             /// The body
@@ -1118,8 +1220,8 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Binds the specified dataset from **"My Workspace"** to the specified
-            /// gateway with (optional) given set of datasource Ids. This only supports the
-            /// On-Premises Data Gateway.
+            /// gateway, optionally with a given set of datasource IDs. This only supports
+            /// the on-premises data gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Note:** API caller principal should be added as datasource
@@ -1132,7 +1234,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='bindToGatewayRequest'>
             /// The bind to gateway request
@@ -1144,8 +1246,8 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Binds the specified dataset from **"My Workspace"** to the specified
-            /// gateway with (optional) given set of datasource Ids. This only supports the
-            /// On-Premises Data Gateway.
+            /// gateway, optionally with a given set of datasource IDs. This only supports
+            /// the on-premises data gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Note:** API caller principal should be added as datasource
@@ -1158,7 +1260,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='bindToGatewayRequest'>
             /// The bind to gateway request
@@ -1186,7 +1288,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static GatewayDatasources GetGatewayDatasources(this IDatasetsOperations operations, string datasetId)
             {
@@ -1208,7 +1310,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1236,7 +1338,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Gateways DiscoverGateways(this IDatasetsOperations operations, string datasetId)
             {
@@ -1258,7 +1360,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1283,7 +1385,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Datasets GetDatasetsInGroup(this IDatasetsOperations operations, System.Guid groupId)
             {
@@ -1302,7 +1404,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1328,7 +1430,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataset'>
             /// Create dataset parameters
@@ -1354,7 +1456,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dataset'>
             /// Create dataset parameters
@@ -1386,7 +1488,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static DatasetToDataflowLinksResponse GetDatasetToDataflowsLinksInGroup(this IDatasetsOperations operations, System.Guid groupId)
             {
@@ -1406,7 +1508,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1431,10 +1533,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Dataset GetDatasetInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -1453,10 +1555,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1481,10 +1583,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static void DeleteDatasetInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -1503,10 +1605,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1530,10 +1632,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Tables GetTablesInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -1554,10 +1656,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1584,10 +1686,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -1614,10 +1716,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -1652,10 +1754,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -1684,10 +1786,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -1717,10 +1819,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -1744,10 +1846,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='tableName'>
             /// The table name
@@ -1773,10 +1875,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
@@ -1800,10 +1902,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
@@ -1838,10 +1940,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
@@ -1868,10 +1970,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='refreshRequest'>
             /// </param>
@@ -1896,10 +1998,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static RefreshSchedule GetRefreshScheduleInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -1919,10 +2021,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1956,10 +2058,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetModelRefreshScheduleRequest'>
             /// Update Refresh Schedule parameters, by specifying all or some of the
@@ -1991,10 +2093,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetModelRefreshScheduleRequest'>
             /// Update Refresh Schedule parameters, by specifying all or some of the
@@ -2021,10 +2123,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static DirectQueryRefreshSchedule GetDirectQueryRefreshScheduleInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -2044,10 +2146,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2078,10 +2180,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetDQRefreshScheduleRequest'>
             /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
@@ -2110,10 +2212,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='datasetDQRefreshScheduleRequest'>
             /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
@@ -2142,7 +2244,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2166,7 +2268,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2218,7 +2320,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2266,7 +2368,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2293,7 +2395,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2315,7 +2417,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2377,7 +2479,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2435,7 +2537,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
             /// </param>
@@ -2472,10 +2574,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='parameters'>
             /// The body
@@ -2509,10 +2611,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='parameters'>
             /// The body
@@ -2528,8 +2630,8 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Binds the specified dataset from the specified workspace to the specified
-            /// gateway with (optional) given set of datasource Ids. This only supports the
-            /// On-Premises Data Gateway.
+            /// gateway, optionally with a given set of datasource IDs. This only supports
+            /// the on-premises data gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Note:** API caller principal should be added as datasource
@@ -2542,10 +2644,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='bindToGatewayRequest'>
             /// The bind to gateway request
@@ -2557,8 +2659,8 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Binds the specified dataset from the specified workspace to the specified
-            /// gateway with (optional) given set of datasource Ids. This only supports the
-            /// On-Premises Data Gateway.
+            /// gateway, optionally with a given set of datasource IDs. This only supports
+            /// the on-premises data gateway.
             /// </summary>
             /// <remarks>
             /// &lt;br/&gt;**Note:** API caller principal should be added as datasource
@@ -2571,10 +2673,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='bindToGatewayRequest'>
             /// The bind to gateway request
@@ -2602,10 +2704,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static GatewayDatasources GetGatewayDatasourcesInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -2627,10 +2729,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2658,10 +2760,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static Gateways DiscoverGatewaysInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -2683,10 +2785,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2712,10 +2814,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             public static void TakeOverInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId)
             {
@@ -2735,10 +2837,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -2771,10 +2873,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -2807,10 +2909,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetId'>
-            /// The dataset id
+            /// The dataset ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -2945,6 +3047,60 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Returns a list of users that have access to the specified dataset
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
+            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            public static DatasetUsers GetDatasetUsersAsAdmin(this IDatasetsOperations operations, System.Guid datasetId)
+            {
+                return operations.GetDatasetUsersAsAdminAsync(datasetId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified dataset
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// **Note:** The user must have administrator rights (such as Office 365
+            /// Global Administrator or Power BI Service Administrator) to call this API or
+            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
+            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
+            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DatasetUsers> GetDatasetUsersAsAdminAsync(this IDatasetsOperations operations, System.Guid datasetId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDatasetUsersAsAdminWithHttpMessagesAsync(datasetId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns a list of datasets from the specified workspace.
             /// </summary>
             /// <remarks>
@@ -2960,7 +3116,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -2995,7 +3151,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -3037,7 +3193,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static DatasetToDataflowLinksResponse GetDatasetToDataflowsLinksInGroupAsAdmin(this IDatasetsOperations operations, System.Guid groupId)
             {
@@ -3061,7 +3217,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

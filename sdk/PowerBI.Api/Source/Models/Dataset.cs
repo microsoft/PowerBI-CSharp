@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Dataset class.
         /// </summary>
-        /// <param name="id">The dataset id</param>
+        /// <param name="id">The dataset ID</param>
         /// <param name="name">The dataset name</param>
         /// <param name="configuredBy">The dataset owner</param>
         /// <param name="addRowsAPIEnabled">Whether the dataset allows adding
@@ -60,9 +60,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// details</param>
         /// <param name="datasourceUsages">Datasource usages</param>
         /// <param name="upstreamDataflows">Upstream Dataflows</param>
+        /// <param name="tables">The dataset tables</param>
         /// <param name="sensitivityLabel">The dataset sensitivity
         /// label</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
+        /// <param name="users">The Dataset User Access Details. This value
+        /// will be empty. It will be removed from the payload response in an
+        /// upcoming release. To retrieve user information on an artifact,
+        /// please consider using the Get Dataset User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
+        /// <param name="schemaRetrievalError">The dataset schema retrieval
+        /// error</param>
+        /// <param name="schemaMayNotBeUpToDate">Whether dataset schema may not
+        /// be up to date</param>
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), bool? addRowsAPIEnabled = default(bool?), string webUrl = default(string), bool? isRefreshable = default(bool?), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string description = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DatasetUser> users = default(IList<DatasetUser>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?))
         {
             Id = id;
             Name = name;
@@ -82,7 +92,11 @@ namespace Microsoft.PowerBI.Api.Models
             EndorsementDetails = endorsementDetails;
             DatasourceUsages = datasourceUsages;
             UpstreamDataflows = upstreamDataflows;
+            Tables = tables;
             SensitivityLabel = sensitivityLabel;
+            Users = users;
+            SchemaRetrievalError = schemaRetrievalError;
+            SchemaMayNotBeUpToDate = schemaMayNotBeUpToDate;
             CustomInit();
         }
 
@@ -92,7 +106,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataset id
+        /// Gets or sets the dataset ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -204,10 +218,38 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DependentDataflow> UpstreamDataflows { get; set; }
 
         /// <summary>
+        /// Gets or sets the dataset tables
+        /// </summary>
+        [JsonProperty(PropertyName = "tables")]
+        public IList<Table> Tables { get; set; }
+
+        /// <summary>
         /// Gets or sets the dataset sensitivity label
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Dataset User Access Details. This value will be
+        /// empty. It will be removed from the payload response in an upcoming
+        /// release. To retrieve user information on an artifact, please
+        /// consider using the Get Dataset User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<DatasetUser> Users { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset schema retrieval error
+        /// </summary>
+        [JsonProperty(PropertyName = "schemaRetrievalError")]
+        public string SchemaRetrievalError { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether dataset schema may not be up to date
+        /// </summary>
+        [JsonProperty(PropertyName = "schemaMayNotBeUpToDate")]
+        public bool? SchemaMayNotBeUpToDate { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -231,9 +273,29 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
+            if (Tables != null)
+            {
+                foreach (var element1 in Tables)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
+                    }
+                }
+            }
             if (SensitivityLabel != null)
             {
                 SensitivityLabel.Validate();
+            }
+            if (Users != null)
+            {
+                foreach (var element2 in Users)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
+                    }
+                }
             }
         }
     }

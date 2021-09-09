@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the InstallTicket class.
         /// </summary>
         /// <param name="ticket">Install ticket</param>
-        /// <param name="ticketId">Unique ticket Id. Can be used to correlate
-        /// operations that use this ticket with the generate operation through
-        /// audit logs.</param>
+        /// <param name="ticketId">The unique ID of a ticket, which can be used
+        /// to correlate operations that use this ticket with the generate
+        /// operation through audit logs</param>
         /// <param name="expiration">Expiration time of token. In UTC.</param>
         public InstallTicket(string ticket, System.Guid ticketId, System.DateTime expiration)
         {
@@ -51,9 +51,9 @@ namespace Microsoft.PowerBI.Api.Models
         public string Ticket { get; set; }
 
         /// <summary>
-        /// Gets or sets unique ticket Id. Can be used to correlate operations
-        /// that use this ticket with the generate operation through audit
-        /// logs.
+        /// Gets or sets the unique ID of a ticket, which can be used to
+        /// correlate operations that use this ticket with the generate
+        /// operation through audit logs
         /// </summary>
         [JsonProperty(PropertyName = "ticketId")]
         public System.Guid TicketId { get; set; }

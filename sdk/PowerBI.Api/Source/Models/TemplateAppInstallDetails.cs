@@ -26,10 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the TemplateAppInstallDetails class.
         /// </summary>
-        /// <param name="appId">Unique application Id.</param>
+        /// <param name="appId">The unique ID of the application</param>
         /// <param name="packageKey">Application version secure key</param>
-        /// <param name="ownerTenantId">Application owner's tenant object
-        /// Id</param>
+        /// <param name="ownerTenantId">The object ID for the application
+        /// owner's tenant</param>
         /// <param name="config">Automated install configuration.</param>
         public TemplateAppInstallDetails(System.Guid appId, string packageKey, System.Guid ownerTenantId, TemplateAppConfigurationRequest config = default(TemplateAppConfigurationRequest))
         {
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique application Id.
+        /// Gets or sets the unique ID of the application
         /// </summary>
         [JsonProperty(PropertyName = "appId")]
         public System.Guid AppId { get; set; }
@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string PackageKey { get; set; }
 
         /// <summary>
-        /// Gets or sets application owner's tenant object Id
+        /// Gets or sets the object ID for the application owner's tenant
         /// </summary>
         [JsonProperty(PropertyName = "ownerTenantId")]
         public System.Guid OwnerTenantId { get; set; }

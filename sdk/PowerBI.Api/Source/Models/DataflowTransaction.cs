@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DataflowTransaction class.
         /// </summary>
-        /// <param name="id">The transaction id</param>
+        /// <param name="id">The transaction ID</param>
         /// <param name="refreshType">The type of refresh transaction</param>
         /// <param name="startTime">Start time of the transaction</param>
         /// <param name="endTime">End time of the transaction</param>
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the transaction id
+        /// Gets or sets the transaction ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

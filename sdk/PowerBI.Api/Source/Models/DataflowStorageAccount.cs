@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DataflowStorageAccount class.
         /// </summary>
-        /// <param name="id">The Power BI dataflow storage account id</param>
+        /// <param name="id">The Power BI dataflow storage account ID</param>
         /// <param name="isEnabled">Indicates if workspaces can be assigned to
         /// this storage account</param>
         /// <param name="name">The Power BI dataflow storage account
@@ -44,7 +44,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the Power BI dataflow storage account id
+        /// Gets or sets the Power BI dataflow storage account ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

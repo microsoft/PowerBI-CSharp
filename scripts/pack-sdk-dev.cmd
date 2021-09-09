@@ -11,7 +11,7 @@ if "%VERSION%"=="" SET VERSION=0.0.1111
 echo ========================================
 echo "Pack PowerBI.Api.csproj Release - AnyCPU..."
 echo ========================================
-call msbuild %~dp0..\sdk\PowerBI.Api\PowerBI.Api.csproj /t:pack /p:Configuration=Release /p:PackageVersion=%VERSION% /p:PackageOutputPath=%~dp0..\pack\Dev
+call msbuild %~dp0..\sdk\PowerBI.Api\PowerBI.Api.csproj /t:pack /p:Configuration=Release /p:PackageVersion=%VERSION%-dev /p:PackageOutputPath=%~dp0..\pack\Dev
 
 set EX=%ERRORLEVEL%
 if "%EX%" neq "0" (

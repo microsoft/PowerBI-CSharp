@@ -23,10 +23,10 @@ namespace Microsoft.PowerBI.Api
             /// **Note:** The user must have administrator rights (such as Microsoft 365
             /// Global Administrator or Power BI Service Administrator) to call this API or
             /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// 500 requests per hour, and not more than 16 simultaneously.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -40,9 +40,18 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasourceDetails'>
             /// Whether to return datasource details​
             /// </param>
-            public static ScanRequest PostWorkspaceInfo(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?))
+            /// <param name='datasetSchema'>
+            /// Whether to return dataset schema (Tables, Columns and Measures)​
+            /// </param>
+            /// <param name='datasetExpressions'>
+            /// Whether to return dataset expressions (Dax query and Mashup)​
+            /// </param>
+            /// <param name='getArtifactUsers'>
+            /// Whether to return artifact user details​ (Preview) (Permission level)
+            /// </param>
+            public static ScanRequest PostWorkspaceInfo(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?))
             {
-                return operations.PostWorkspaceInfoAsync(requiredWorkspaces, lineage, datasourceDetails).GetAwaiter().GetResult();
+                return operations.PostWorkspaceInfoAsync(requiredWorkspaces, lineage, datasourceDetails, datasetSchema, datasetExpressions, getArtifactUsers).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -53,10 +62,10 @@ namespace Microsoft.PowerBI.Api
             /// **Note:** The user must have administrator rights (such as Microsoft 365
             /// Global Administrator or Power BI Service Administrator) to call this API or
             /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// 500 requests per hour, and not more than 16 simultaneously.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
+            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -70,12 +79,21 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasourceDetails'>
             /// Whether to return datasource details​
             /// </param>
+            /// <param name='datasetSchema'>
+            /// Whether to return dataset schema (Tables, Columns and Measures)​
+            /// </param>
+            /// <param name='datasetExpressions'>
+            /// Whether to return dataset expressions (Dax query and Mashup)​
+            /// </param>
+            /// <param name='getArtifactUsers'>
+            /// Whether to return artifact user details​ (Preview) (Permission level)
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ScanRequest> PostWorkspaceInfoAsync(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ScanRequest> PostWorkspaceInfoAsync(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostWorkspaceInfoWithHttpMessagesAsync(requiredWorkspaces, lineage, datasourceDetails, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostWorkspaceInfoWithHttpMessagesAsync(requiredWorkspaces, lineage, datasourceDetails, datasetSchema, datasetExpressions, getArtifactUsers, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -97,6 +115,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             public static ScanRequest GetScanStatus(this IWorkspaceInfoOperations operations, System.Guid scanId)
             {
@@ -119,6 +139,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -149,6 +171,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             public static WorkspaceInfoResponse GetScanResult(this IWorkspaceInfoOperations operations, System.Guid scanId)
             {
@@ -173,6 +197,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
+            /// The scan ID, which is included in the response from the workspaces or
+            /// getInfo API that triggered the scan
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -208,9 +234,12 @@ namespace Microsoft.PowerBI.Api
             /// <param name='modifiedSince'>
             /// Last modified date​ (must be in ISO 8601 compliant UTC format)
             /// </param>
-            public static ModifiedWorkspaces GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?))
+            /// <param name='excludePersonalWorkspaces'>
+            /// Whether to exclude personal workspaces​
+            /// </param>
+            public static ModifiedWorkspaces GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?))
             {
-                return operations.GetModifiedWorkspacesAsync(modifiedSince).GetAwaiter().GetResult();
+                return operations.GetModifiedWorkspacesAsync(modifiedSince, excludePersonalWorkspaces).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -236,12 +265,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='modifiedSince'>
             /// Last modified date​ (must be in ISO 8601 compliant UTC format)
             /// </param>
+            /// <param name='excludePersonalWorkspaces'>
+            /// Whether to exclude personal workspaces​
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ModifiedWorkspaces> GetModifiedWorkspacesAsync(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ModifiedWorkspaces> GetModifiedWorkspacesAsync(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetModifiedWorkspacesWithHttpMessagesAsync(modifiedSince, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetModifiedWorkspacesWithHttpMessagesAsync(modifiedSince, excludePersonalWorkspaces, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

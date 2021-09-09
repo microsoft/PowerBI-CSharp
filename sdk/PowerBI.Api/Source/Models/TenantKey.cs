@@ -25,15 +25,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the TenantKey class.
         /// </summary>
-        /// <param name="id">The id of the encryption key</param>
+        /// <param name="id">The ID of the encryption key</param>
         /// <param name="name">The name of the encryption key</param>
-        /// <param name="keyVaultKeyIdentifier">Uri to the version of the Azure
-        /// Key Vault key</param>
-        /// <param name="isDefault">Indicates that this key is set as default
-        /// for the entire tenant. Any new capacity creation will inherit this
-        /// key upon creation</param>
-        /// <param name="createdAt">Encryption key creation time</param>
-        /// <param name="updatedAt">Encryption key last update time</param>
+        /// <param name="keyVaultKeyIdentifier">The URI that uniquely specifies
+        /// the encryption key in Azure Key Vault</param>
+        /// <param name="isDefault">Whether the encryption key is the default
+        /// key for the entire tenant. Any newly created capacity inherits the
+        /// default key.</param>
+        /// <param name="createdAt">The creation time of the encryption
+        /// key</param>
+        /// <param name="updatedAt">The last update time of the encryption
+        /// key</param>
         public TenantKey(System.Guid? id = default(System.Guid?), string name = default(string), string keyVaultKeyIdentifier = default(string), bool? isDefault = default(bool?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
@@ -51,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the id of the encryption key
+        /// Gets or sets the ID of the encryption key
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid? Id { get; set; }
@@ -63,27 +65,27 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets uri to the version of the Azure Key Vault key
+        /// Gets or sets the URI that uniquely specifies the encryption key in
+        /// Azure Key Vault
         /// </summary>
         [JsonProperty(PropertyName = "keyVaultKeyIdentifier")]
         public string KeyVaultKeyIdentifier { get; set; }
 
         /// <summary>
-        /// Gets or sets indicates that this key is set as default for the
-        /// entire tenant. Any new capacity creation will inherit this key upon
-        /// creation
+        /// Gets or sets whether the encryption key is the default key for the
+        /// entire tenant. Any newly created capacity inherits the default key.
         /// </summary>
         [JsonProperty(PropertyName = "isDefault")]
         public bool? IsDefault { get; set; }
 
         /// <summary>
-        /// Gets or sets encryption key creation time
+        /// Gets or sets the creation time of the encryption key
         /// </summary>
         [JsonProperty(PropertyName = "createdAt")]
         public System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or sets encryption key last update time
+        /// Gets or sets the last update time of the encryption key
         /// </summary>
         [JsonProperty(PropertyName = "updatedAt")]
         public System.DateTime? UpdatedAt { get; set; }

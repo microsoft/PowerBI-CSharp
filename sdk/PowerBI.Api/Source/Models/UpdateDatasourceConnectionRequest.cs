@@ -25,6 +25,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the UpdateDatasourceConnectionRequest
         /// class.
         /// </summary>
+        /// <param name="connectionDetails">The target connection details of
+        /// the updated datasource.</param>
+        /// <param name="datasourceSelector">The connection details of the
+        /// datasource that need to be updated. This is mandataory when the
+        /// dataset has more than one datasource.</param>
         public UpdateDatasourceConnectionRequest(DatasourceConnectionDetails connectionDetails, Datasource datasourceSelector = default(Datasource))
         {
             ConnectionDetails = connectionDetails;
@@ -38,11 +43,16 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the target connection details of the updated
+        /// datasource.
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public DatasourceConnectionDetails ConnectionDetails { get; set; }
 
         /// <summary>
+        /// Gets or sets the connection details of the datasource that need to
+        /// be updated. This is mandataory when the dataset has more than one
+        /// datasource.
         /// </summary>
         [JsonProperty(PropertyName = "datasourceSelector")]
         public Datasource DatasourceSelector { get; set; }

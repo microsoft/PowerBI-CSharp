@@ -139,7 +139,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id to delete
+            /// The workspace ID to delete
             /// </param>
             public static void DeleteGroup(this IGroupsOperations operations, System.Guid groupId)
             {
@@ -158,7 +158,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id to delete
+            /// The workspace ID to delete
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -185,7 +185,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static GroupUsers GetGroupUsers(this IGroupsOperations operations, System.Guid groupId)
             {
@@ -209,7 +209,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -238,7 +238,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='userDetails'>
             /// Details of user access right
@@ -264,7 +264,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='userDetails'>
             /// Details of user access right
@@ -292,7 +292,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='userDetails'>
             /// Details of user access right
@@ -317,7 +317,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='userDetails'>
             /// Details of user access right
@@ -342,10 +342,11 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='user'>
-            /// The email address of the user or the service principal object id to delete
+            /// The email address of the user or object ID of the service principal to
+            /// delete
             /// </param>
             public static void DeleteUserInGroup(this IGroupsOperations operations, System.Guid groupId, string user)
             {
@@ -364,10 +365,11 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='user'>
-            /// The email address of the user or the service principal object id to delete
+            /// The email address of the user or object ID of the service principal to
+            /// delete
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -443,7 +445,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Assign to capacity parameters
@@ -470,7 +472,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Assign to capacity parameters
@@ -538,7 +540,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static WorkspaceCapacityAssignmentStatus CapacityAssignmentStatus(this IGroupsOperations operations, System.Guid groupId)
             {
@@ -560,7 +562,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -590,7 +592,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Assign to Power BI dataflow storage account parameters
@@ -617,7 +619,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Assign to Power BI dataflow storage account parameters
@@ -725,7 +727,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='groupProperties'>
             /// The properties to update
@@ -752,7 +754,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='groupProperties'>
             /// The properties to update
@@ -763,6 +765,56 @@ namespace Microsoft.PowerBI.Api
             public static async Task UpdateGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, Group groupProperties, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateGroupAsAdminWithHttpMessagesAsync(groupId, groupProperties, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// This API allows 200 requests per hour at maximum.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            public static GroupUsers GetGroupUsersAsAdmin(this IGroupsOperations operations, System.Guid groupId)
+            {
+                return operations.GetGroupUsersAsAdminAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            /// This API allows 200 requests per hour at maximum.
+            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+            /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
+            /// &lt;br/&gt;To set the permissions scope, see [Register an
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<GroupUsers> GetGroupUsersAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetGroupUsersAsAdminWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -781,7 +833,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='userDetails'>
             /// Details of user access right
@@ -807,7 +859,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='userDetails'>
             /// Details of user access right
@@ -836,7 +888,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='user'>
             /// The user principal name (UPN) of the user to remove (usually the user's
@@ -863,7 +915,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='user'>
             /// The user principal name (UPN) of the user to remove (usually the user's
@@ -894,7 +946,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='groupRestoreRequest'>
             /// Details of the group restore request
@@ -921,7 +973,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='groupRestoreRequest'>
             /// Details of the group restore request
