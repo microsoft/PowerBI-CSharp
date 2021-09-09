@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Refreshable class.
         /// </summary>
-        /// <param name="id">Object id of refreshable</param>
+        /// <param name="id">The object ID of the refreshable</param>
         /// <param name="name">Display name of refreshable</param>
         /// <param name="kind">The refreshable kind. Possible values include:
         /// 'Dataset'</param>
@@ -43,8 +43,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// refresh within the summary time window</param>
         /// <param name="medianDuration">The median duration in seconds of a
         /// refresh within the summary time window</param>
-        /// <param name="refreshesPerDay">The number of refreshes per day
-        /// within the summary time window</param>
+        /// <param name="refreshesPerDay">The number of refreshes
+        /// (schedule+onDemand) per day within the summary time window with at
+        /// most 60</param>
         /// <param name="lastRefresh">The last Power BI refresh history entry
         /// for the refreshable item</param>
         /// <param name="refreshSchedule">The refresh schedule for the
@@ -80,7 +81,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets object id of refreshable
+        /// Gets or sets the object ID of the refreshable
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
@@ -140,8 +141,8 @@ namespace Microsoft.PowerBI.Api.Models
         public double? MedianDuration { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of refreshes per day within the summary
-        /// time window
+        /// Gets or sets the number of refreshes (schedule+onDemand) per day
+        /// within the summary time window with at most 60
         /// </summary>
         [JsonProperty(PropertyName = "refreshesPerDay")]
         public int? RefreshesPerDay { get; set; }

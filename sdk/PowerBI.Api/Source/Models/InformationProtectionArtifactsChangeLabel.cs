@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Composite of artifact IDs that will be used to update the information
-    /// protection labels of those artifacts.
+    /// A composite of artifact IDs that will be used to update the information
+    /// protection labels of those artifacts
     /// </summary>
     public partial class InformationProtectionArtifactsChangeLabel
     {

@@ -126,7 +126,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='tenantKeyId'>
-            /// Tenant key id
+            /// The tenant key ID
             /// </param>
             /// <param name='tenantKeyRotationRequest'>
             /// Tenant key information
@@ -151,7 +151,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='tenantKeyId'>
-            /// Tenant key id
+            /// The tenant key ID
             /// </param>
             /// <param name='tenantKeyRotationRequest'>
             /// Tenant key information
@@ -234,7 +234,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='capacityPatchRequest'>
             /// Patch capacity information
@@ -259,7 +259,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='capacityPatchRequest'>
             /// Patch capacity information
@@ -363,7 +363,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results.
@@ -401,7 +401,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results.
@@ -445,10 +445,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='refreshableId'>
-            /// The refreshable id
+            /// The refreshable ID
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
@@ -476,10 +476,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='refreshableId'>
-            /// The refreshable id
+            /// The refreshable ID
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
@@ -508,7 +508,7 @@ namespace Microsoft.PowerBI.Api
             /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
             /// are supported. &lt;br/&gt;To call this API, provide either a continuation
             /// token or both a start and end date time. StartDateTime and EndDateTime must
-            /// be in the same UTC day.
+            /// be in the same UTC day and should be wrapped in ''.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -545,7 +545,7 @@ namespace Microsoft.PowerBI.Api
             /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
             /// are supported. &lt;br/&gt;To call this API, provide either a continuation
             /// token or both a start and end date time. StartDateTime and EndDateTime must
-            /// be in the same UTC day.
+            /// be in the same UTC day and should be wrapped in ''.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

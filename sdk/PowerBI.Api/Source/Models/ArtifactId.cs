@@ -10,7 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Unique artifact ID: uuid format for dashboards/reports/dataflows.
+    /// The unique ID of an artifact, which is in UUID format for dashboards,
+    /// reports, and dataflows
     /// </summary>
     public partial class ArtifactId
     {

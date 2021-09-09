@@ -83,7 +83,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -110,7 +110,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -126,6 +126,66 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Executes DAX queries against the provided dataset. The dataset may
+        /// reside in **"My Workspace"** or any other [new
+        /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+        /// workspace).
+        /// </summary>
+        /// <remarks>
+        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
+        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
+        /// [Register an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This operation
+        /// is only supported for datasets in a [new
+        /// workspace](/power-bi/collaborate-share/service-new-workspaces) (V2
+        /// workspace)&lt;/li&gt;&lt;li&gt;The user issuing the request needs
+        /// to have [Build permissions for the
+        /// dataset](power-bi/connect-data/service-datasets-build-permissions).&lt;/li&gt;&lt;li&gt;The
+        /// [Allow XMLA endpoints and Analyze in Excel with on-premises
+        /// datasets](power-bi/admin/service-premium-connect-tools) tenant
+        /// setting needs to be enabled.&lt;/li&gt;&lt;li&gt;Datasets hosted in
+        /// AsAzure or live connected to an on premise Analysis Services model
+        /// are not supported.&lt;/li&gt;&lt;li&gt;Only one query returning one
+        /// table of maximum 100k rows is allowed. Specifying more than one
+        /// query will return an
+        /// error.&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Notes&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Issuing
+        /// a query that returns more than one table or more than 100k rows
+        /// will return limited data and an error in the response. The response
+        /// HTTP status will be OK (200).&lt;/li&gt;&lt;li&gt;DAX query
+        /// failures will be returned with a failure HTTP status
+        /// (400).&lt;/li&gt;&lt;li&gt;Columns that are fully qualified in the
+        /// query will be returned with the fully qualified name, for example,
+        /// Table[Column]. Columns that are renamed or created in the query
+        /// will be returned within square bracket, for example,
+        /// [MyNewColumn].&lt;/li&gt;&lt;li&gt;The following errors may be
+        /// contained in the response: DAX query failures, more than one result
+        /// table in a query, more than 100k rows in a query
+        /// result.&lt;/li&gt;&lt;/ul&gt;
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='requestMessage'>
+        /// The request message
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetExecuteQueriesResponse>> ExecuteQueriesWithHttpMessagesAsync(string datasetId, DatasetExecuteQueriesRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tables tables within the specified dataset from
         /// **"My Workspace"**.
         /// </summary>
@@ -137,7 +197,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -166,7 +226,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='tableName'>
         /// The table name
@@ -203,7 +263,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='tableName'>
         /// The table name
@@ -235,7 +295,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='tableName'>
         /// The table name
@@ -264,7 +324,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not
@@ -303,7 +363,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='refreshRequest'>
         /// </param>
@@ -331,7 +391,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -368,7 +428,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='datasetModelRefreshScheduleRequest'>
         /// Update Refresh Schedule parameters, by specifying all or some of
@@ -398,7 +458,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -432,7 +492,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='datasetDQRefreshScheduleRequest'>
         /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
@@ -463,7 +523,7 @@ namespace Microsoft.PowerBI.Api
         /// are not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -517,7 +577,7 @@ namespace Microsoft.PowerBI.Api
         /// 'Binary' cannot be set.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='updateMashupParametersRequest'>
         /// </param>
@@ -545,7 +605,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -612,7 +672,7 @@ namespace Microsoft.PowerBI.Api
         /// Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='updateDatasourcesRequest'>
         /// </param>
@@ -653,7 +713,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='parameters'>
         /// The body
@@ -674,8 +734,8 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> SetAllDatasetConnectionsWithHttpMessagesAsync(string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Binds the specified dataset from **"My Workspace"** to the
-        /// specified gateway with (optional) given set of datasource Ids. This
-        /// only supports the On-Premises Data Gateway.
+        /// specified gateway, optionally with a given set of datasource IDs.
+        /// This only supports the on-premises data gateway.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Note:** API caller principal should be added as
@@ -685,7 +745,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='bindToGatewayRequest'>
         /// The bind to gateway request
@@ -716,7 +776,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -747,7 +807,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -775,7 +835,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -801,7 +861,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataset'>
         /// Create dataset parameters
@@ -837,7 +897,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -862,10 +922,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -892,10 +952,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -922,10 +982,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -954,10 +1014,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='tableName'>
         /// The table name
@@ -994,10 +1054,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='tableName'>
         /// The table name
@@ -1029,10 +1089,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='tableName'>
         /// The table name
@@ -1061,10 +1121,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not
@@ -1103,10 +1163,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='refreshRequest'>
         /// </param>
@@ -1134,10 +1194,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1174,10 +1234,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='datasetModelRefreshScheduleRequest'>
         /// Update Refresh Schedule parameters, by specifying all or some of
@@ -1207,10 +1267,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1244,10 +1304,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='datasetDQRefreshScheduleRequest'>
         /// Patch DirectQuery or LiveConnection Refresh Schedule parameters, by
@@ -1278,7 +1338,7 @@ namespace Microsoft.PowerBI.Api
         /// are not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
         /// </param>
@@ -1333,7 +1393,7 @@ namespace Microsoft.PowerBI.Api
         /// 'Binary' cannot be set.&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
         /// </param>
@@ -1363,7 +1423,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
         /// </param>
@@ -1431,7 +1491,7 @@ namespace Microsoft.PowerBI.Api
         /// Group](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/updateparametersingroup).&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
         /// </param>
@@ -1474,10 +1534,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='parameters'>
         /// The body
@@ -1498,8 +1558,8 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> SetAllDatasetConnectionsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, ConnectionDetails parameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Binds the specified dataset from the specified workspace to the
-        /// specified gateway with (optional) given set of datasource Ids. This
-        /// only supports the On-Premises Data Gateway.
+        /// specified gateway, optionally with a given set of datasource IDs.
+        /// This only supports the on-premises data gateway.
         /// </summary>
         /// <remarks>
         /// &lt;br/&gt;**Note:** API caller principal should be added as
@@ -1509,10 +1569,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='bindToGatewayRequest'>
         /// The bind to gateway request
@@ -1543,10 +1603,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1577,10 +1637,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1608,10 +1668,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1648,10 +1708,10 @@ namespace Microsoft.PowerBI.Api
         /// document along with considerations and limitations section.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -1741,6 +1801,37 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Returns a list of users that have access to the specified dataset
+        /// (Preview).
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API or authenticate via service principal. &lt;br/&gt;This API
+        /// allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DatasetUsers>> GetDatasetUsersAsAdminWithHttpMessagesAsync(System.Guid datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of datasets from the specified workspace.
         /// </summary>
         /// <remarks>
@@ -1755,7 +1846,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -1798,7 +1889,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

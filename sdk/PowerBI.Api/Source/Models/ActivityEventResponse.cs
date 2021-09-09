@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="activityEventEntities">The activity event
         /// entities</param>
-        /// <param name="continuationUri">Uri to get the next chunk of the
+        /// <param name="continuationUri">The URI for the next chunk in the
         /// result set</param>
         /// <param name="continuationToken">Token to get the next chunk of the
         /// result set</param>
@@ -53,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<object> ActivityEventEntities { get; set; }
 
         /// <summary>
-        /// Gets or sets uri to get the next chunk of the result set
+        /// Gets or sets the URI for the next chunk in the result set
         /// </summary>
         [JsonProperty(PropertyName = "continuationUri")]
         public string ContinuationUri { get; set; }

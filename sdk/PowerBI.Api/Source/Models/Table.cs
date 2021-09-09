@@ -32,12 +32,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="columns">The column schema for this table</param>
         /// <param name="rows">The data rows within this table</param>
         /// <param name="measures">The measures within this table</param>
-        public Table(string name, IList<Column> columns, IList<Row> rows = default(IList<Row>), IList<Measure> measures = default(IList<Measure>))
+        /// <param name="isHidden">(Optional) Whether dataset table is
+        /// hidden</param>
+        /// <param name="description">The table description</param>
+        /// <param name="source">The table source</param>
+        public Table(string name, IList<Column> columns, IList<Row> rows = default(IList<Row>), IList<Measure> measures = default(IList<Measure>), bool? isHidden = default(bool?), string description = default(string), IList<ASMashupExpression> source = default(IList<ASMashupExpression>))
         {
             Name = name;
             Columns = columns;
             Rows = rows;
             Measures = measures;
+            IsHidden = isHidden;
+            Description = description;
+            Source = source;
             CustomInit();
         }
 
@@ -69,6 +76,24 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "measures")]
         public IList<Measure> Measures { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Optional) Whether dataset table is hidden
+        /// </summary>
+        [JsonProperty(PropertyName = "isHidden")]
+        public bool? IsHidden { get; set; }
+
+        /// <summary>
+        /// Gets or sets the table description
+        /// </summary>
+        [JsonProperty(PropertyName = "description")]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the table source
+        /// </summary>
+        [JsonProperty(PropertyName = "source")]
+        public IList<ASMashupExpression> Source { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -110,6 +135,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element1 != null)
                     {
                         element1.Validate();
+                    }
+                }
+            }
+            if (Source != null)
+            {
+                foreach (var element2 in Source)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

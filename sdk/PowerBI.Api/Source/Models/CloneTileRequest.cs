@@ -25,17 +25,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the CloneTileRequest class.
         /// </summary>
-        /// <param name="targetDashboardId">The target dashboard id</param>
+        /// <param name="targetDashboardId">The target dashboard ID</param>
         /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace id. Empty Guid
+        /// the target workspace ID. Empty Guid
         /// (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'.
         /// &lt;br/&gt;If not provided, tile will be cloned within the same
         /// workspace as the source tile.</param>
         /// <param name="targetReportId">Optional parameter &lt;br/&gt;When
-        /// cloning a tile linked to a report, pass the target report id to
+        /// cloning a tile linked to a report, pass the target report ID to
         /// rebind the new tile to a different report.</param>
         /// <param name="targetModelId">Optional parameter &lt;br/&gt;When
-        /// cloning a tile linked to a dataset, pass the target model id to
+        /// cloning a tile linked to a dataset, pass the target model ID to
         /// rebind the new tile to a different dataset.</param>
         /// <param name="positionConflictAction">Optional parameter for
         /// specifying the action in case of position conflict. &lt;br/&gt;If
@@ -58,14 +58,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the target dashboard id
+        /// Gets or sets the target dashboard ID
         /// </summary>
         [JsonProperty(PropertyName = "targetDashboardId")]
         public System.Guid TargetDashboardId { get; set; }
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target workspace
-        /// id. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
+        /// ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
         /// Workspace'. &amp;lt;br/&amp;gt;If not provided, tile will be cloned
         /// within the same workspace as the source tile.
         /// </summary>
@@ -74,7 +74,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets optional parameter &amp;lt;br/&amp;gt;When cloning a
-        /// tile linked to a report, pass the target report id to rebind the
+        /// tile linked to a report, pass the target report ID to rebind the
         /// new tile to a different report.
         /// </summary>
         [JsonProperty(PropertyName = "targetReportId")]
@@ -82,7 +82,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets optional parameter &amp;lt;br/&amp;gt;When cloning a
-        /// tile linked to a dataset, pass the target model id to rebind the
+        /// tile linked to a dataset, pass the target model ID to rebind the
         /// new tile to a different dataset.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]

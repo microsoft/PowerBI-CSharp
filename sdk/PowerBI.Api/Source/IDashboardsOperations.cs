@@ -77,7 +77,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -105,7 +105,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -133,10 +133,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -155,7 +155,7 @@ namespace Microsoft.PowerBI.Api
         /// Clones the specified tile from **"My Workspace"**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If target report id and target dataset are not
+        /// &lt;br/&gt;If target report ID and target dataset are not
         /// specified, the following can occur:&lt;li&gt;When a tile clone is
         /// performed within the same workspace, the report and dataset links
         /// will be cloned from the source tile.&lt;/li&gt;&lt;li&gt;When
@@ -170,10 +170,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone tile parameters
@@ -204,7 +204,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -228,7 +228,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
@@ -259,10 +259,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -290,10 +290,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -321,13 +321,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -346,7 +346,7 @@ namespace Microsoft.PowerBI.Api
         /// Clones the specified tile from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If target report id and target dataset are missing, the
+        /// &lt;br/&gt;If target report ID and target dataset are missing, the
         /// following can occur:&lt;li&gt;When a tile clone is performed within
         /// the same workspace, the report and dataset links will be cloned
         /// from the source tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile
@@ -361,13 +361,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone tile parameters
@@ -411,10 +411,10 @@ namespace Microsoft.PowerBI.Api
         /// document along with considerations and limitations section.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -450,7 +450,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -529,7 +529,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -544,5 +544,36 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<Tiles>> GetTilesAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of users that have access to the specified dashboard
+        /// (Preview).
+        /// </summary>
+        /// <remarks>
+        /// **Note:** The user must have administrator rights (such as Office
+        /// 365 Global Administrator or Power BI Service Administrator) to call
+        /// this API or authenticate via service principal. &lt;br/&gt;This API
+        /// allows 200 requests per hour at maximum.
+        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
+        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
+        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
+        /// an
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// </remarks>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DashboardUsers>> GetDashboardUsersAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

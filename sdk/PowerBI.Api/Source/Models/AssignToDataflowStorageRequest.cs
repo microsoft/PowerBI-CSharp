@@ -28,10 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
-        /// account id. To unassign the specified workspace from a Power BI
-        /// dataflow storage account, an empty GUID
-        /// (00000000-0000-0000-0000-000000000000) should be provided as
-        /// dataflowStorageId.</param>
+        /// account ID. To unassign the specified workspace from a Power BI
+        /// dataflow storage account, use an empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`).</param>
         public AssignToDataflowStorageRequest(System.Guid dataflowStorageId)
         {
             DataflowStorageId = dataflowStorageId;
@@ -44,10 +43,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the Power BI dataflow storage account id. To unassign
+        /// Gets or sets the Power BI dataflow storage account ID. To unassign
         /// the specified workspace from a Power BI dataflow storage account,
-        /// an empty GUID (00000000-0000-0000-0000-000000000000) should be
-        /// provided as dataflowStorageId.
+        /// use an empty GUID (`00000000-0000-0000-0000-000000000000`).
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid DataflowStorageId { get; set; }

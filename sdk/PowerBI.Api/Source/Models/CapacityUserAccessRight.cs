@@ -29,7 +29,8 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly CapacityUserAccessRight None = "None";
 
         /// <summary>
-        /// User can assign workspaces to the capacity
+        /// User has contributor rights and can assign workspaces to the
+        /// capacity
         /// </summary>
         public static readonly CapacityUserAccessRight Assign = "Assign";
 

@@ -52,7 +52,9 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -78,7 +80,9 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -106,7 +110,9 @@ namespace Microsoft.PowerBI.Api
         /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceToGatewayRequest'>
         /// The datasource requested to create
@@ -138,10 +144,12 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -167,10 +175,12 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -199,10 +209,12 @@ namespace Microsoft.PowerBI.Api
         /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='updateDatasourceRequest'>
         /// The update datasource request
@@ -232,10 +244,12 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -259,10 +273,12 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -289,10 +305,12 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='addUserToDatasourceRequest'>
         /// The add user to datasource request
@@ -321,13 +339,15 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='gatewayId'>
-        /// The gateway id
+        /// The gateway ID. When using a gateway cluster, the gateway ID refers
+        /// to the primary (first) gateway in the cluster. In such cases,
+        /// gateway ID is similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource id
+        /// The datasource ID
         /// </param>
         /// <param name='emailAdress'>
-        /// The user's email address or the service principal object id
+        /// The user's email address or the object ID of the service principal
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

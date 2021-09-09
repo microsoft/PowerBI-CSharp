@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Dataflow class.
         /// </summary>
-        /// <param name="objectId">The dataflow id</param>
+        /// <param name="objectId">The dataflow ID</param>
         /// <param name="name">The dataflow name</param>
         /// <param name="description">The dataflow description</param>
         /// <param name="modelUrl">A URL to the dataflow definition file
@@ -45,7 +45,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="upstreamDataflows">Upstream Dataflows</param>
         /// <param name="sensitivityLabel">The dataflow sensitivity
         /// label</param>
-        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
+        /// <param name="users">The Dataflow User Access Details. This value
+        /// will be empty. It will be removed from the payload response in an
+        /// upcoming release. To retrieve user information on an artifact,
+        /// please consider using the Get Dataflow User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
+        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DataflowUser> users = default(IList<DataflowUser>))
         {
             ObjectId = objectId;
             Name = name;
@@ -58,6 +63,7 @@ namespace Microsoft.PowerBI.Api.Models
             DatasourceUsages = datasourceUsages;
             UpstreamDataflows = upstreamDataflows;
             SensitivityLabel = sensitivityLabel;
+            Users = users;
             CustomInit();
         }
 
@@ -67,7 +73,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataflow id
+        /// Gets or sets the dataflow ID
         /// </summary>
         [JsonProperty(PropertyName = "objectId")]
         public System.Guid ObjectId { get; set; }
@@ -131,6 +137,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Dataflow User Access Details. This value will be
+        /// empty. It will be removed from the payload response in an upcoming
+        /// release. To retrieve user information on an artifact, please
+        /// consider using the Get Dataflow User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<DataflowUser> Users { get; set; }
 
         /// <summary>
         /// Validate the object.

@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -28,13 +30,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Report class.
         /// </summary>
-        /// <param name="id">The report id</param>
+        /// <param name="id">The report ID</param>
         /// <param name="name">The report name</param>
         /// <param name="webUrl">The report web url</param>
         /// <param name="embedUrl">The report embed url</param>
-        /// <param name="datasetId">The dataset id</param>
+        /// <param name="datasetId">The dataset ID</param>
         /// <param name="description">The report description</param>
-        /// <param name="createdBy">The report owner</param>
+        /// <param name="createdBy">The report owner. Available only for
+        /// reports created after June 2019.</param>
         /// <param name="modifiedBy">The user that modified this report</param>
         /// <param name="createdDateTime">The report created date time.</param>
         /// <param name="modifiedDateTime">The report modified date
@@ -44,7 +47,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="sensitivityLabel">The report sensitivity label</param>
         /// <param name="reportType">The report type. Possible values include:
         /// 'PaginatedReport'</param>
-        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string))
+        /// <param name="users">The Report User Access Details. This value will
+        /// be empty. It will be removed from the payload response in an
+        /// upcoming release. To retrieve user information on an artifact,
+        /// please consider using the Get Report User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
+        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string), IList<ReportUser> users = default(IList<ReportUser>))
         {
             Id = id;
             Name = name;
@@ -59,6 +67,7 @@ namespace Microsoft.PowerBI.Api.Models
             EndorsementDetails = endorsementDetails;
             SensitivityLabel = sensitivityLabel;
             ReportType = reportType;
+            Users = users;
             CustomInit();
         }
 
@@ -68,7 +77,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the report id
+        /// Gets or sets the report ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -92,7 +101,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset id
+        /// Gets or sets the dataset ID
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
@@ -104,7 +113,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the report owner
+        /// Gets or sets the report owner. Available only for reports created
+        /// after June 2019.
         /// </summary>
         [JsonProperty(PropertyName = "createdBy")]
         public string CreatedBy { get; set; }
@@ -147,6 +157,16 @@ namespace Microsoft.PowerBI.Api.Models
         public string ReportType { get; set; }
 
         /// <summary>
+        /// Gets or sets the Report User Access Details. This value will be
+        /// empty. It will be removed from the payload response in an upcoming
+        /// release. To retrieve user information on an artifact, please
+        /// consider using the Get Report User as Admin APIs, or the
+        /// PostWorkspaceInfo API with the getArtifactUser parameter.
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<ReportUser> Users { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -157,6 +177,16 @@ namespace Microsoft.PowerBI.Api.Models
             if (SensitivityLabel != null)
             {
                 SensitivityLabel.Validate();
+            }
+            if (Users != null)
+            {
+                foreach (var element in Users)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
             }
         }
     }

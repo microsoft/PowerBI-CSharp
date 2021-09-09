@@ -219,6 +219,14 @@ namespace Microsoft.PowerBI.Api
         /// Determines whether to skip report import, if specified value must be
         /// 'true'. Only supported for PBIX files.
         /// </param>
+        /// <param name='overrideReportLabel'>
+        /// Determines whether to override existing label on report during republish of
+        /// PBIX file, service default value is true.
+        /// </param>
+        /// <param name='overrideModelLabel'>
+        /// Determines whether to override existing label on model during republish of
+        /// PBIX file, service default value is true.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -240,7 +248,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportWithHttpMessagesAsync(string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -260,6 +268,8 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("datasetDisplayName", datasetDisplayName);
                 tracingParameters.Add("nameConflict", nameConflict);
                 tracingParameters.Add("skipReport", skipReport);
+                tracingParameters.Add("overrideReportLabel", overrideReportLabel);
+                tracingParameters.Add("overrideModelLabel", overrideModelLabel);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImport", tracingParameters);
@@ -279,6 +289,14 @@ namespace Microsoft.PowerBI.Api
             if (skipReport != null)
             {
                 _queryParameters.Add(string.Format("skipReport={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skipReport, Client.SerializationSettings).Trim('"'))));
+            }
+            if (overrideReportLabel != null)
+            {
+                _queryParameters.Add(string.Format("overrideReportLabel={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(overrideReportLabel, Client.SerializationSettings).Trim('"'))));
+            }
+            if (overrideModelLabel != null)
+            {
+                _queryParameters.Add(string.Format("overrideModelLabel={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(overrideModelLabel, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -410,7 +428,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='importId'>
-        /// The import id
+        /// The import ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -687,7 +705,7 @@ namespace Microsoft.PowerBI.Api
         /// .pbix file from OneDrive is not supported.&lt;/li&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -840,7 +858,7 @@ namespace Microsoft.PowerBI.Api
         /// not supported for dataflows with service principal.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset should include file extension. Not
@@ -860,6 +878,14 @@ namespace Microsoft.PowerBI.Api
         /// <param name='skipReport'>
         /// Determines whether to skip report import, if specified value must be
         /// 'true'. Only supported for PBIX files.
+        /// </param>
+        /// <param name='overrideReportLabel'>
+        /// Determines whether to override existing label on report during republish of
+        /// PBIX file, service default value is true.
+        /// </param>
+        /// <param name='overrideModelLabel'>
+        /// Determines whether to override existing label on model during republish of
+        /// PBIX file, service default value is true.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -882,7 +908,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Import>> PostImportInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetDisplayName == null)
             {
@@ -903,6 +929,8 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("datasetDisplayName", datasetDisplayName);
                 tracingParameters.Add("nameConflict", nameConflict);
                 tracingParameters.Add("skipReport", skipReport);
+                tracingParameters.Add("overrideReportLabel", overrideReportLabel);
+                tracingParameters.Add("overrideModelLabel", overrideModelLabel);
                 tracingParameters.Add("importInfo", importInfo);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostImportInGroup", tracingParameters);
@@ -923,6 +951,14 @@ namespace Microsoft.PowerBI.Api
             if (skipReport != null)
             {
                 _queryParameters.Add(string.Format("skipReport={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skipReport, Client.SerializationSettings).Trim('"'))));
+            }
+            if (overrideReportLabel != null)
+            {
+                _queryParameters.Add(string.Format("overrideReportLabel={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(overrideReportLabel, Client.SerializationSettings).Trim('"'))));
+            }
+            if (overrideModelLabel != null)
+            {
+                _queryParameters.Add(string.Format("overrideModelLabel={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(overrideModelLabel, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -1054,10 +1090,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='importId'>
-        /// The import id
+        /// The import ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1204,7 +1240,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

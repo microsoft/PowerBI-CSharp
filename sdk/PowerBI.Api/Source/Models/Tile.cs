@@ -25,17 +25,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Tile class.
         /// </summary>
-        /// <param name="id">The tile id</param>
+        /// <param name="id">The tile ID</param>
         /// <param name="title">The dashboard display name</param>
         /// <param name="rowSpan">number of rows a tile should span</param>
         /// <param name="colSpan">number of columns a tile should span</param>
         /// <param name="embedUrl">The tile embed url</param>
         /// <param name="embedData">The tile embed data</param>
-        /// <param name="reportId">The report id. Available only for tiles
-        /// created from a report.</param>
-        /// <param name="datasetId">The dataset id. Available only for tiles
-        /// created from a report or using a dataset; for example, Q&amp;A
-        /// tiles.</param>
+        /// <param name="reportId">The report ID, which is available only for
+        /// tiles created from a report</param>
+        /// <param name="datasetId">The dataset ID, which is available only for
+        /// tiles created from a report or using a dataset, such as Q&amp;A
+        /// tiles</param>
         public Tile(System.Guid id, string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string), System.Guid? reportId = default(System.Guid?), string datasetId = default(string))
         {
             Id = id;
@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the tile id
+        /// Gets or sets the tile ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -91,15 +91,15 @@ namespace Microsoft.PowerBI.Api.Models
         public string EmbedData { get; set; }
 
         /// <summary>
-        /// Gets or sets the report id. Available only for tiles created from a
-        /// report.
+        /// Gets or sets the report ID, which is available only for tiles
+        /// created from a report
         /// </summary>
         [JsonProperty(PropertyName = "reportId")]
         public System.Guid? ReportId { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset id. Available only for tiles created from
-        /// a report or using a dataset; for example, Q&amp;amp;A tiles.
+        /// Gets or sets the dataset ID, which is available only for tiles
+        /// created from a report or using a dataset, such as Q&amp;amp;A tiles
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

@@ -90,7 +90,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='tenantKeyId'>
-        /// Tenant key id
+        /// The tenant key ID
         /// </param>
         /// <param name='tenantKeyRotationRequest'>
         /// Tenant key information
@@ -153,7 +153,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='capacityPatchRequest'>
         /// Patch capacity information
@@ -227,7 +227,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -271,10 +271,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='refreshableId'>
-        /// The refreshable id
+        /// The refreshable ID
         /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
@@ -309,7 +309,8 @@ namespace Microsoft.PowerBI.Api
         /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
         /// supported. &lt;br/&gt;To call this API, provide either a
         /// continuation token or both a start and end date time. StartDateTime
-        /// and EndDateTime must be in the same UTC day.
+        /// and EndDateTime must be in the same UTC day and should be wrapped
+        /// in ''.
         /// </remarks>
         /// <param name='startDateTime'>
         /// Start date and time of the window for audit event results. Must be

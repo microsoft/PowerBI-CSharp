@@ -34,9 +34,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// operation</param>
         /// <param name="endTime">End time of workspace assignment
         /// operation</param>
-        /// <param name="capacityId">The capacity id</param>
-        /// <param name="activityId">The activity id of the acctual assignment
-        /// operation, can be provided in case of assignment failures</param>
+        /// <param name="capacityId">The capacity ID</param>
+        /// <param name="activityId">The activity ID of the assignment
+        /// operation, which can be provided in case of assignment
+        /// failures</param>
         public WorkspaceCapacityAssignmentStatus(AssignmentStatus status, System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), System.Guid? capacityId = default(System.Guid?), System.Guid? activityId = default(System.Guid?))
         {
             Status = status;
@@ -73,14 +74,14 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity id
+        /// Gets or sets the capacity ID
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
         public System.Guid? CapacityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the activity id of the acctual assignment operation,
-        /// can be provided in case of assignment failures
+        /// Gets or sets the activity ID of the assignment operation, which can
+        /// be provided in case of assignment failures
         /// </summary>
         [JsonProperty(PropertyName = "activityId")]
         public System.Guid? ActivityId { get; set; }

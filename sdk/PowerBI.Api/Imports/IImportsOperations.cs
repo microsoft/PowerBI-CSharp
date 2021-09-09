@@ -28,10 +28,16 @@ namespace Microsoft.PowerBI.Api
         /// <param name='skipReport'>
         /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
         /// </param>
+        /// <param name='overrideReportLabel'>
+        /// Determines whether to override existing label on report during republish of PBIX file, service default value is true.
+        /// </param>
+        /// <param name='overrideModelLabel'>
+        /// Determines whether to override existing label on model during republish of PBIX file, service default value is true.
+        /// </param>
         /// <param name="customHeaders">Optional custom headers</param>
         /// <param name="cancellationToken">Optional cancellation token</param>
         /// <returns></returns>
-        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Stream file, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Uploads a PBIX file to the specified group
@@ -51,12 +57,18 @@ namespace Microsoft.PowerBI.Api
         /// <param name='skipReport'>
         /// Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.
         /// </param>
+        /// <param name='overrideReportLabel'>
+        /// Determines whether to override existing label on report during republish of PBIX file, service default value is true.
+        /// </param>
+        /// <param name='overrideModelLabel'>
+        /// Determines whether to override existing label on model during republish of PBIX file, service default value is true.
+        /// </param>
         /// <param name="customHeaders">
         /// Optional custom headers
         /// </param>
         /// <param name="cancellationToken">
         /// Optional cancellation token
         /// </param>
-        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Guid? groupId, Stream file, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Import>> PostImportFileWithHttpMessage(Guid? groupId, Stream file, string datasetDisplayName = default(string), ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
