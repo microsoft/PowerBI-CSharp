@@ -252,15 +252,21 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Refreshables>> GetRefreshableForCapacityWithHttpMessagesAsync(System.Guid capacityId, string refreshableId, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Assigns the provided workspaces to the specified premium capacity.
+        /// Assigns the specified workspaces to the specified premium capacity.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces capacity parameters
@@ -279,15 +285,21 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> AssignWorkspacesToCapacityWithHttpMessagesAsync(AssignWorkspacesToCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Unassigns the provided workspaces from capacity.
+        /// Unassigns the specified workspaces from capacity.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces to shared capacity parameters
@@ -306,17 +318,23 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UnassignWorkspacesFromCapacityWithHttpMessagesAsync(UnassignWorkspacesCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of users that have access to the specified workspace
-        /// (Preview).
+        /// Returns a list of users that have access to the specified
+        /// workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator).
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID

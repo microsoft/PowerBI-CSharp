@@ -374,15 +374,24 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of workspaces for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API or authenticate via service principal. &lt;br/&gt;This API
-        /// allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results. This parameter is mandatory and
@@ -414,19 +423,29 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Groups>> GetGroupsAsAdminWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the specified workspace properties.
+        /// Updates the properties of the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: This API is currently limited to updating workspaces in
-        /// the new workspace experience. Only name and description can be
-        /// updated, and name must be unique inside an organization. The user
-        /// must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// This API call call only updates workspaces in the new workspace
+        /// experience. Only the name and description can be updated. The name
+        /// must be unique inside an organization.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -448,16 +467,25 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, Group groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of users that have access to the specified workspace
-        /// (Preview).
+        /// Returns a list of users that have access to the specified
+        /// workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
-        /// This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -479,15 +507,25 @@ namespace Microsoft.PowerBI.Api
         /// Grants user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** This API is currently limited to updating workspaces in
-        /// the new workspace experience and adding user principle only. The
-        /// user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// This API call only supports updating workspaces in the new
+        /// workspace experience and adding a user principle.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -509,18 +547,28 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> AddUserAsAdminWithHttpMessagesAsync(System.Guid groupId, GroupUser userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Removes user permissions to the specified workspace.
+        /// Removes user permissions from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** This API is currently limited to updating workspaces in
-        /// the new workspace experience and adding user principle only. The
-        /// user must have administrator rights (such as Office 365 Global
-        /// Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// This API call only supports updating workspaces in the new
+        /// workspace experience and adding a user principle.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -546,15 +594,25 @@ namespace Microsoft.PowerBI.Api
         /// Restores a deleted workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: This API is currently limited to restoring workspaces in
-        /// the new workspace experience. The user must have administrator
-        /// rights (such as Office 365 Global Administrator or Power BI Service
-        /// Administrator) to call this API. &lt;br/&gt;This API allows 200
-        /// requests per hour at maximum. &lt;br/&gt;This API allows 200
-        /// requests per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// This API call only supports restoring workspaces in the new
+        /// workspace experience.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

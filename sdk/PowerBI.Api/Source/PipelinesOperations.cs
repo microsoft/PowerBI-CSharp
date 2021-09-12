@@ -1092,10 +1092,22 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of deployment pipelines for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** To call this API the user must have administrator rights.
-        /// Alternatively, authenticate using a service principal. &lt;br/&gt;This API
-        /// allows a maximum of 200 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights or authenticate using a service
+        /// principal.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of data
@@ -1273,10 +1285,22 @@ namespace Microsoft.PowerBI.Api
         /// pipeline.
         /// </summary>
         /// <remarks>
-        /// **Note:** To call this API the user must have administrator rights.
-        /// Alternatively, authenticate using a service principal. &lt;br/&gt;This API
-        /// allows a maximum of 200 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights or authenticate using a service
+        /// principal.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -1410,12 +1434,23 @@ namespace Microsoft.PowerBI.Api
         /// Grants user permissions to a specified deployment pipeline.
         /// </summary>
         /// <remarks>
-        /// **Note:** To call this API the user must have administrator rights.
-        /// &lt;br/&gt;This API allows a maximum of 200 requests per hour.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All.&lt;br/&gt;&lt;br/&gt;**Limitations:** This API
-        /// doesn't support service principals. You cannot update service principal's
-        /// permissions.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Maximum 200 requests per hour.
+        /// - Service principals are not supported.
+        /// - Service principal permissions cannot be deleted.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -1549,15 +1584,26 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Remove user permissions from a specified deployment pipeline.
+        /// Removes user permissions from a specified deployment pipeline.
         /// </summary>
         /// <remarks>
-        /// **Note:** To call this API the user must have administrator rights.
-        /// &lt;br/&gt;This API allows a maximum of 200 requests per hour.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.ReadWrite.All.&lt;br/&gt;&lt;br/&gt;**Limitations:** This API
-        /// doesn't support service principals. You cannot delete service principal's
-        /// permissions.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Maximum 200 requests per hour.
+        /// - Service principals are not supported.
+        /// - Service principal permissions cannot be deleted.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID

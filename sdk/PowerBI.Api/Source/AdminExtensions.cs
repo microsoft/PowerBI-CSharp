@@ -19,12 +19,22 @@ namespace Microsoft.PowerBI.Api
             /// Adds an encryption key for Power BI workspaces assigned to a capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;This API allows 600 requests per hour at maximum.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 600 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -41,12 +51,22 @@ namespace Microsoft.PowerBI.Api
             /// Adds an encryption key for Power BI workspaces assigned to a capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;This API allows 600 requests per hour at maximum.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 600 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -69,13 +89,20 @@ namespace Microsoft.PowerBI.Api
             /// Returns the encryption keys for the tenant.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -89,13 +116,20 @@ namespace Microsoft.PowerBI.Api
             /// Returns the encryption keys for the tenant.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -115,12 +149,22 @@ namespace Microsoft.PowerBI.Api
             /// Rotate the encryption key for Power BI workspaces assigned to a capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;This API allows 600 requests per hour at maximum.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 600 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -140,12 +184,22 @@ namespace Microsoft.PowerBI.Api
             /// Rotate the encryption key for Power BI workspaces assigned to a capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;This API allows 600 requests per hour at maximum.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 600 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -171,13 +225,20 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of capacities for the organization.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -194,13 +255,20 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of capacities for the organization.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -220,15 +288,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Changes the specific capacity information. Currently, only supports
-            /// changing the capacity encryption key
+            /// Changes specific capacity information. Currently, this API call only
+            /// supports changing the capacity's encryption key.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -245,15 +320,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Changes the specific capacity information. Currently, only supports
-            /// changing the capacity encryption key
+            /// Changes specific capacity information. Currently, this API call only
+            /// supports changing the capacity's encryption key.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -273,16 +355,23 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for the organization within a capacity
+            /// Returns a list of refreshables for the organization within a capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -307,16 +396,23 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for the organization within a capacity
+            /// Returns a list of refreshables for the organization within a capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -347,17 +443,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for the specified capacity the user has
-            /// access to
+            /// Returns a list of refreshables for the specified capacity that the user has
+            /// access to.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -385,17 +488,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for the specified capacity the user has
-            /// access to
+            /// Returns a list of refreshables for the specified capacity that the user has
+            /// access to.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -429,17 +539,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified refreshable for the specified capacity the user has
-            /// access to
+            /// Returns the specified refreshable for the specified capacity that the user
+            /// has access to.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -460,17 +577,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified refreshable for the specified capacity the user has
-            /// access to
+            /// Returns the specified refreshable for the specified capacity that the user
+            /// has access to.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-            /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -500,15 +624,29 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of audit activity events for a tenant.
             /// </summary>
             /// <remarks>
-            /// **Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland.
-            /// The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To call this API, provide either a continuation
-            /// token or both a start and end date time. StartDateTime and EndDateTime must
-            /// be in the same UTC day and should be wrapped in ''.
+            ///
+            /// Provide either a continuation token or both a start and end date time.
+            /// `StartDateTime` and `EndDateTime` must be in the same UTC day and should be
+            /// wrapped in single quotes.
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - Maximum 200 requests per hour.
+            /// - Activity logging isn’t supported for Microsoft Cloud Deutschland.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -537,15 +675,29 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of audit activity events for a tenant.
             /// </summary>
             /// <remarks>
-            /// **Note:** Activity logging isn’t supported for Microsoft Cloud Deutschland.
-            /// The user must have administrator rights (such as Office 365 Global
-            /// Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To call this API, provide either a continuation
-            /// token or both a start and end date time. StartDateTime and EndDateTime must
-            /// be in the same UTC day and should be wrapped in ''.
+            ///
+            /// Provide either a continuation token or both a start and end date time.
+            /// `StartDateTime` and `EndDateTime` must be in the same UTC day and should be
+            /// wrapped in single quotes.
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - Maximum 200 requests per hour.
+            /// - Activity logging isn’t supported for Microsoft Cloud Deutschland.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

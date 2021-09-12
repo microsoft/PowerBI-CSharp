@@ -1427,13 +1427,24 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of upstream dataflows for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1572,13 +1583,24 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of dataflows from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1741,13 +1763,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of dataflows for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-        /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -1902,16 +1931,23 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Exports the specified dataflow definition to a .json file.
+        /// Exports the definition for the specified dataflow to a JSON file.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-        /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID
@@ -2032,13 +2068,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of datasources for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-        /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID
@@ -2169,17 +2212,28 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of users that have access to the specified dataflow
-        /// (Preview).
+        /// Returns a list of users that have access to the specified dataflow. This is
+        /// a preview API call.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID

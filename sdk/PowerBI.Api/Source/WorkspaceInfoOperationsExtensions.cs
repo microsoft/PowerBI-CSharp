@@ -18,17 +18,28 @@ namespace Microsoft.PowerBI.Api
     public static partial class WorkspaceInfoOperationsExtensions
     {
             /// <summary>
-            /// Initiate a call to receive metadata for the requested list of workspaces.
-            /// (Preview)
+            /// Initiates a call to receive metadata for the requested list of workspaces.
+            /// This is a preview API call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour, and not more than 16 simultaneously.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - Maximum 500 requests per hour.
+            /// - Maximum 16 simultaneous requests.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -57,17 +68,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Initiate a call to receive metadata for the requested list of workspaces.
-            /// (Preview)
+            /// Initiates a call to receive metadata for the requested list of workspaces.
+            /// This is a preview API call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour, and not more than 16 simultaneously.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - Maximum 500 requests per hour.
+            /// - Maximum 16 simultaneous requests.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -102,16 +124,26 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets scan status for the specified scan. (Preview)
+            /// Gets the scan status for the specified scan. This is a preview API call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 10000 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 10,000 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -126,16 +158,26 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets scan status for the specified scan. (Preview)
+            /// Gets the scan status for the specified scan. This is a preview API call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 10000 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 10,000 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -156,18 +198,30 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets scan result for the specified scan (should be called only after
-            /// getting status Succeeded in the scan status API). Scan result will be
-            /// available for up to 24 hours. (Preview)
+            /// Gets the scan result for the specified scan. This is a preview API call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Only make this API call after a successful [scan
+            /// status](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call.
+            /// The scan result will remain available for 24 hours.
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 500 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -182,18 +236,30 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets scan result for the specified scan (should be called only after
-            /// getting status Succeeded in the scan status API). Scan result will be
-            /// available for up to 24 hours. (Preview)
+            /// Gets the scan result for the specified scan. This is a preview API call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Only make this API call after a successful [scan
+            /// status](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call.
+            /// The scan result will remain available for 24 hours.
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 500 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -214,21 +280,34 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets a list of workspace IDs in the organization. When using modifiedSince,
-            /// returns only the IDs of workspaces that had changed since the time
-            /// specified in the modifiedSince parameter. If not provided, returns a list
-            /// of all workspace IDs in the organization. modifiedSince parameter should
-            /// range from 30 minutes to 30 days ago. Notice changes can take up to 30
-            /// minutes to take effect. (Preview)
+            /// Gets a list of workspace IDs in the organization. This is a preview API
+            /// call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 30 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// If the optional `modifiedSince` parameter is set to a date-time, only the
+            /// IDs of workspaces that changed after that date-time are returned. If the
+            /// `modifiedSince` parameter is not used, the IDs of all workspaces in the
+            /// organization are returned. The date-time specified by the `modifiedSince`
+            /// parameter must be in the range of 30 minutes (to allow workspace changes to
+            /// take effect) to 30 days prior to the current time.
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 30 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -245,21 +324,34 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets a list of workspace IDs in the organization. When using modifiedSince,
-            /// returns only the IDs of workspaces that had changed since the time
-            /// specified in the modifiedSince parameter. If not provided, returns a list
-            /// of all workspace IDs in the organization. modifiedSince parameter should
-            /// range from 30 minutes to 30 days ago. Notice changes can take up to 30
-            /// minutes to take effect. (Preview)
+            /// Gets a list of workspace IDs in the organization. This is a preview API
+            /// call.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Microsoft 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-            /// 30 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-            /// scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// If the optional `modifiedSince` parameter is set to a date-time, only the
+            /// IDs of workspaces that changed after that date-time are returned. If the
+            /// `modifiedSince` parameter is not used, the IDs of all workspaces in the
+            /// organization are returned. The date-time specified by the `modifiedSince`
+            /// parameter must be in the range of 30 minutes (to allow workspace changes to
+            /// take effect) to 30 days prior to the current time.
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Microsoft 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 30 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

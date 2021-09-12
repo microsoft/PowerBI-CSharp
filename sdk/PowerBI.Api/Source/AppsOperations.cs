@@ -1170,15 +1170,26 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of apps in the orginization (Preview).
+        /// Returns a list of apps in the organization. This is a preview API call.
         /// </summary>
         /// <remarks>
-        /// This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app). Query
-        /// parameter $top is mandatory to access this API
+        ///
+        /// The query parameter $top is required.
+        ///
+        /// ## Permissions
+        ///
+        /// Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not provided,
@@ -1319,14 +1330,25 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of users that have access to the specified app (Preview).
+        /// Returns a list of users that have access to the specified app. This is a
+        /// preview API call.
         /// </summary>
         /// <remarks>
-        /// This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are supported.
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
