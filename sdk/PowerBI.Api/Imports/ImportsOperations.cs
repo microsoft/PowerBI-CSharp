@@ -149,7 +149,7 @@ namespace Microsoft.PowerBI.Api
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
 
-            var groupsPart = groupId.HasValue ? "v1.0/myorg/groups/{groupId}/imports" : "v1.0/myorg/imports";
+            var groupsPart = groupId.HasValue ? "groups/{groupId}/imports" : "imports";
             var _baseUrl = this.Client.BaseUri.AbsoluteUri;
             var _url = new Uri(new Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), groupsPart).ToString();
 

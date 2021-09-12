@@ -83,7 +83,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -223,7 +223,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines/{pipelineId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines/{pipelineId}").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (expand != null)
@@ -380,7 +380,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines/{pipelineId}/stages/{stageOrder}/artifacts").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines/{pipelineId}/stages/{stageOrder}/artifacts").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{stageOrder}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(stageOrder, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -518,7 +518,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines/{pipelineId}/operations").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines/{pipelineId}/operations").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -660,7 +660,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines/{pipelineId}/operations/{operationId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines/{pipelineId}/operations/{operationId}").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{operationId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(operationId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -822,7 +822,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines/{pipelineId}/deployAll").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines/{pipelineId}/deployAll").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -987,7 +987,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/pipelines/{pipelineId}/deploy").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "pipelines/{pipelineId}/deploy").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1165,7 +1165,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/pipelines").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/pipelines").ToString();
             List<string> _queryParameters = new List<string>();
             if (expand != null)
             {
@@ -1335,7 +1335,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/pipelines/{pipelineId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/pipelines/{pipelineId}/users").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1500,7 +1500,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/pipelines/{pipelineId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/pipelines/{pipelineId}/users").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1651,7 +1651,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/pipelines/{pipelineId}/users/{identifier}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/pipelines/{pipelineId}/users/{identifier}").ToString();
             _url = _url.Replace("{pipelineId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(pipelineId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{identifier}", System.Uri.EscapeDataString(identifier));
             // Create HTTP transport objects

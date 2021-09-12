@@ -352,7 +352,7 @@ namespace Microsoft.PowerBI.Api
             EmbedToken = new EmbedTokenOperations(this);
             InformationProtection = new InformationProtection(this);
             TemplateApps = new TemplateApps(this);
-            BaseUri = new System.Uri("https://api.powerbi.com");
+            BaseUri = new System.Uri("https://api.powerbi.com/v1.0/myorg");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Newtonsoft.Json.Formatting.Indented,
