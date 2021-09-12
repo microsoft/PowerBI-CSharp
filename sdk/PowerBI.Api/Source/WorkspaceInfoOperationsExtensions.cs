@@ -7,6 +7,8 @@
 namespace Microsoft.PowerBI.Api
 {
     using Models;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -237,7 +239,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='excludePersonalWorkspaces'>
             /// Whether to exclude personal workspaces​
             /// </param>
-            public static ModifiedWorkspaces GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?))
+            public static IList<ModifiedWorkspace> GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?))
             {
                 return operations.GetModifiedWorkspacesAsync(modifiedSince, excludePersonalWorkspaces).GetAwaiter().GetResult();
             }
@@ -271,7 +273,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ModifiedWorkspaces> GetModifiedWorkspacesAsync(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<ModifiedWorkspace>> GetModifiedWorkspacesAsync(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetModifiedWorkspacesWithHttpMessagesAsync(modifiedSince, excludePersonalWorkspaces, null, cancellationToken).ConfigureAwait(false))
                 {

@@ -11758,7 +11758,11 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/ModifiedWorkspaces"
+                            "type": "array",
+                            "description": "The modified workspaces list",
+                            "items": {
+                                "$ref": "#/definitions/ModifiedWorkspace"
+                            }
                         }
                     }
                 },
@@ -16074,21 +16078,6 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The sensitivity label ID"
-                }
-            }
-        },
-        "ModifiedWorkspaces": {
-            "description": "Odata response wrapper for modified workspaces list",
-            "properties": {
-                "odata.context": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "array",
-                    "description": "The modified workspaces list",
-                    "items": {
-                        "$ref": "#/definitions/ModifiedWorkspace"
-                    }
                 }
             }
         },
