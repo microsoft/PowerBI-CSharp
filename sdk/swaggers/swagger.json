@@ -9540,8 +9540,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns a list of capacities the user has access to.",
-                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of capacities that the user has access to.",
+                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetCapacities",
                 "consumes": [
 
@@ -9588,8 +9588,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns the current state of the specified capacity workloads, if a workload is enabled also returns the maximum memory percentage that the workload can consume.",
-                "description": "<br/>**Note:** Workload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the current state of the specified capacity workloads. If the workload is enabled, the percentage of maximum memory that the workloads can consume is also returned.",
+                "description": "\nWorkload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [
 
@@ -9645,8 +9645,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns the current state of a workload and if the workload is enabled also returns the maximum memory percentage that the workload can consume.",
-                "description": "<br/>**Note:** Workload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the current state of a workload. If the workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
+                "description": "\nWorkload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetWorkload",
                 "consumes": [
 
@@ -9702,8 +9702,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Changes the state of a specific workload to Enabled or Disabled. When enabling a workload the maximum memory percentage that the workload can consume must be set.",
-                "description": "<br/>**Note:** Workload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.<br/>**Required scope**: Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Changes the state of a specific workload to *Enabled* or *Disabled*. When enabling a workload, specify the percentage of maximum memory that the workload can consume.",
+                "description": "\nWorkload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_PatchWorkload",
                 "consumes": [
                     "application/json"
@@ -9765,8 +9765,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns a list of refreshables for all capacities of which the user has access to.",
-                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of refreshables for all capacities that the user has access to.",
+                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetRefreshables",
                 "consumes": [
                 ],
@@ -9986,8 +9986,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns a list of refreshables for the specified capacity the user has access to",
-                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
+                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetRefreshablesForCapacity",
                 "consumes": [
                 ],
@@ -10215,8 +10215,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns the specified refreshable for the specified capacity the user has access to",
-                "description": "<br/>**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
+                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetRefreshableForCapacity",
                 "consumes": [
                 ],
@@ -10375,8 +10375,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Assigns **\"My Workspace\"** to the specified capacity.",
-                "description": "**Note**: To perform this operation, the user must have admin or assign permissions on the capacity. To unassign **\"My Workspace\"** from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  <br/><br/>**Required scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Assigns **My Workspace** to the specified capacity.",
+                "description": "\nTo unassign **My Workspace** from a capacity, provide an empty Guid (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_AssignMyWorkspaceToCapacity",
                 "consumes": [
                     "application/json"
@@ -10420,7 +10420,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns the specified workspace to the specified capacity.",
-                "description": "**Note**: To perform this operation, the user must be admin on the specified workspace and have admin or assign permissions on the capacity. To unassign the specified workspace from a capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be provided as capacityId.  <br/><br/>**Required scope**: Capacity.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nTo unassign **My Workspace** from a capacity, provide an empty Guid (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_AssignToCapacity",
                 "consumes": [
                     "application/json"
@@ -10472,8 +10472,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Gets the status of **\"My Workspace\"** assignment to capacity operation.",
-                "description": "**Note**: <br/><br/>**Required scope**: Workspace.Read.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Gets the status of the **My Workspace** assignment-to-capacity operation.",
+                "description": "\n## Required scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_CapacityAssignmentStatusMyWorkspace",
                 "consumes": [
                 ],
@@ -10526,8 +10526,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Gets the status of the assignment to capacity operation of the specified workspace.",
-                "description": "**Note**: To perform this operation, the user must be admin on the specified workspace. <br/><br/>**Required scope**: Workspace.Read.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Gets the status of the assignment-to-capacity operation for the specified workspace.",
+                "description": "\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_CapacityAssignmentStatus",
                 "consumes": [
                 ],

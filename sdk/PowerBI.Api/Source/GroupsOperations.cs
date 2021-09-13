@@ -1050,16 +1050,24 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns **"My Workspace"** to the specified capacity.
+        /// Assigns **My Workspace** to the specified capacity.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must have admin or assign
-        /// permissions on the capacity. To unassign **"My Workspace"** from a
-        /// capacity, Empty Guid (00000000-0000-0000-0000-000000000000) should be
-        /// provided as capacityId.  &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// To unassign **My Workspace** from a capacity, provide an empty Guid
+        /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights or assign permissions on the
+        /// capacity.
+        ///
+        /// ## Required scope
+        ///
+        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='requestParameters'>
         /// Assign to capacity parameters
@@ -1191,14 +1199,21 @@ namespace Microsoft.PowerBI.Api
         /// Assigns the specified workspace to the specified capacity.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must be admin on the
-        /// specified workspace and have admin or assign permissions on the capacity.
-        /// To unassign the specified workspace from a capacity, Empty Guid
-        /// (00000000-0000-0000-0000-000000000000) should be provided as capacityId.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All and
-        /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// To unassign **My Workspace** from a capacity, provide an empty Guid
+        /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights or assign permissions on the
+        /// capacity.
+        ///
+        /// ## Required scope
+        ///
+        /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1332,13 +1347,16 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the status of **"My Workspace"** assignment to capacity operation.
+        /// Gets the status of the **My Workspace** assignment-to-capacity operation.
         /// </summary>
         /// <remarks>
-        /// **Note**: &lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All and
-        /// Workspace.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.Read.All and Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1464,15 +1482,22 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the status of the assignment to capacity operation of the specified
+        /// Gets the status of the assignment-to-capacity operation for the specified
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must be admin on the
-        /// specified workspace. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Workspace.Read.All and Workspace.ReadWrite.All &lt;br/&gt;To set the
-        /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights or assign permissions on the
+        /// capacity.
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.Read.All and Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
