@@ -10593,8 +10593,8 @@
                 "tags": [
                     "AvailableFeatures"
                 ],
-                "summary": "Returns a list of available features for the user",
-                "description": "<br/>**Required scope**: None",
+                "summary": "Returns a list of available features for the user.",
+                "description": "\nThis API doesn't require any scopes.\n\n######\n",
                 "operationId": "AvailableFeatures_GetAvailableFeatures",
                 "consumes": [
 
@@ -10639,8 +10639,8 @@
                 "tags": [
                     "AvailableFeatures"
                 ],
-                "summary": "Returns the specified available feature for user by name.",
-                "description": "<br/>**Required scope**: None",
+                "summary": "Returns the specified available feature for the user by name.",
+                "description": "\nThis API doesn't require any scopes.\n\n######\n",
                 "operationId": "AvailableFeatures_GetAvailableFeatureByName",
                 "consumes": [
 
