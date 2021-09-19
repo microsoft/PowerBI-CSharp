@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PipelineStageArtifactBase class.
         /// </summary>
         /// <param name="artifactId">The artifact ID.</param>
-        /// <param name="artifactDisplayName">The artifact dispaly
+        /// <param name="artifactDisplayName">The artifact display
         /// name.</param>
         /// <param name="sourceArtifactId">The artifact ID from the workspace
         /// of the source stage, which will update the current artifact upon
@@ -60,7 +60,7 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid ArtifactId { get; set; }
 
         /// <summary>
-        /// Gets or sets the artifact dispaly name.
+        /// Gets or sets the artifact display name.
         /// </summary>
         [JsonProperty(PropertyName = "artifactDisplayName")]
         public string ArtifactDisplayName { get; set; }

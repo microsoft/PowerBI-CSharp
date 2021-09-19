@@ -20702,7 +20702,7 @@
                 },
                 "artifactDisplayName": {
                     "type": "string",
-                    "description": "The artifact dispaly name."
+                    "description": "The artifact display name."
                 },
                 "sourceArtifactId": {
                     "type": "string",

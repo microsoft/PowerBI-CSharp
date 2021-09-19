@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PipelineStageDataset class.
         /// </summary>
         /// <param name="artifactId">The artifact ID.</param>
-        /// <param name="artifactDisplayName">The artifact dispaly
+        /// <param name="artifactDisplayName">The artifact display
         /// name.</param>
         /// <param name="sourceArtifactId">The artifact ID from the workspace
         /// of the source stage, which will update the current artifact upon
