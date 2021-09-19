@@ -61,8 +61,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasourceUsages">Datasource usages</param>
         /// <param name="upstreamDataflows">Upstream Dataflows</param>
         /// <param name="tables">The dataset tables</param>
-        /// <param name="sensitivityLabel">The dataset sensitivity
-        /// label</param>
+        /// <param name="sensitivityLabel">The dataset sensitivity label. Only
+        /// available for admin APIs.</param>
         /// <param name="users">The Dataset User Access Details. This value
         /// will be empty. It will be removed from the payload response in an
         /// upcoming release. To retrieve user information on an artifact,
@@ -224,7 +224,8 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Table> Tables { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset sensitivity label
+        /// Gets or sets the dataset sensitivity label. Only available for
+        /// admin APIs.
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }

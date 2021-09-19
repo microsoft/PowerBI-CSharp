@@ -16434,7 +16434,7 @@
                 },
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The dataset sensitivity label"
+                    "description": "The dataset sensitivity label. Only available for admin APIs."
                 },
                 "users": {
                     "type": "array",
