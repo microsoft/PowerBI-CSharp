@@ -2846,8 +2846,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns a list of dashboards from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of dashboards from **My Workspace**.",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetDashboards",
                 "consumes": [
 
@@ -2891,8 +2891,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Creates a new empty dashboard on **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Creates a new empty dashboard in **My Workspace**.",
+                "description": "\n## Required scope\n\nContent.Create\n\n######\n",
                 "operationId": "Dashboards_AddDashboard",
                 "consumes": [
                     "application/json"
@@ -2946,8 +2946,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns the specified dashboard from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified dashboard from **My Workspace**.",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetDashboard",
                 "consumes": [
                     "application/json"
@@ -2998,8 +2998,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns a list of tiles within the specified dashboard from **\"My Workspace\"**.",
-                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of tiles within the specified dashboard from **My Workspace**.",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetTiles",
                 "consumes": [
                     "application/json"
@@ -3057,8 +3057,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns the specified tile within the specified dashboard from **\"My Workspace\"**.",
-                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified tile within the specified dashboard from **My Workspace**.",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetTile",
                 "consumes": [
                     "application/json"
@@ -3121,8 +3121,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Clones the specified tile from **\"My Workspace\"**.",
-                "description": "<br/>If target report ID and target dataset are not specified, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>When cloning a tile within a different workspace, report and dataset links will be rested, and the tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Clones the specified tile from **My Workspace**.",
+                "description": "\nWhen a tile is cloned to another workspace and bound to another report and dataset, it's cloned as is with its underlying query containing the original report filters.\n\nIf the target report ID and target dataset are missing, the following can occur:\n- If you're cloning a tile within the same workspace, the report and dataset links will be cloned from the source tile.\n- If you're cloning a tile within a different workspace, report and dataset links will be removed, and the tile will be broken.\n\n## Required scope\n\nDashboard.ReadWrite.All\n\n######\n",
                 "operationId": "Dashboards_CloneTile",
                 "consumes": [
                     "application/json"
@@ -6180,7 +6180,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetDashboardsInGroup",
                 "consumes": [
 
@@ -6233,8 +6233,8 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Creates a new empty dashboard on the specified workspace.",
-                "description": "<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Creates a new empty dashboard in the specified workspace.",
+                "description": "\n## Required scope\n\nContent.Create\n\n######\n",
                 "operationId": "Dashboards_AddDashboardInGroup",
                 "consumes": [
                     "application/json"
@@ -6298,7 +6298,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified dashboard from the specified workspace.",
-                "description": "<br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetDashboardInGroup",
                 "consumes": [
                     "application/json"
@@ -6359,7 +6359,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified workspace.",
-                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetTilesInGroup",
                 "consumes": [
                     "application/json"
@@ -6427,7 +6427,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified workspace.",
-                "description": "**Note**: All tile types are supported except for \"model tiles\", which include datasets and live tiles that contain an entire report page. <br/><br/>**Required scope**: Dashboard.ReadWrite.All or Dashboard.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetTileInGroup",
                 "consumes": [
                     "application/json"
@@ -6499,7 +6499,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from the specified workspace.",
-                "description": "<br/>If target report ID and target dataset are missing, the following can occur:<li>When a tile clone is performed within the same workspace, the report and dataset links will be cloned from the source tile.</li><li>If you are cloning a tile within a different workspace, report and dataset links will be rested. The tile will be broken.</li><br/>**Note:** When a tile is cloned to another workspace and bound to another report and dataset, it is cloned as is with its underlying query containing the original report filters.<br/><br/>**Required scope**: Dashboard.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nWhen a tile is cloned to another workspace and bound to another report and dataset, it's cloned as is with its underlying query containing the original report filters.\n\nIf the target report ID and target dataset are missing, the following can occur:\n- If you're cloning a tile within the same workspace, the report and dataset links will be cloned from the source tile.\n- If you're cloning a tile within a different workspace, report and dataset links will be removed, and the tile will be broken.\n\n## Required scope\n\nDashboard.ReadWrite.All\n\n######\n",
                 "operationId": "Dashboards_CloneTileInGroup",
                 "consumes": [
                     "application/json"
