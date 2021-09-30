@@ -14884,6 +14884,39 @@
                                 }
                             }
                         }
+                    },
+                    "Generate an Embed Token expiring in 10 minutes": {
+                        "parameters": {
+                            "requestParameters": {
+                                "datasets": [
+                                    {
+                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "identities": [
+                                    {
+                                        "username": "john@contoso.com",
+                                        "roles": [ "sales" ],
+                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                    }
+                                ],
+                                "lifetimeInMinutes": 10
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -19124,6 +19157,10 @@
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
+                },
+                "lifetimeInMinutes": {
+                    "type": "integer",
+                    "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token’s expiration time, but not to extend it. The value must be a positive integer. Zero (0) is equivalent to null and will be ignored, resulting in the default expiration time."
                 }
             }
         },
@@ -19157,6 +19194,10 @@
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
+                },
+                "lifetimeInMinutes": {
+                    "type": "integer",
+                    "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token’s expiration time, but not to extend it. The value must be a positive integer. Zero (0) is equivalent to null and will be ignored, resulting in the default expiration time."
                 }
             }
         },

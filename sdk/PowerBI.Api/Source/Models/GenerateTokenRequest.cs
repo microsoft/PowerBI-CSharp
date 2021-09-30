@@ -38,12 +38,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// generating EmbedToken for report embedding.</param>
         /// <param name="identities">List of identities to use for RLS
         /// rules.</param>
-        public GenerateTokenRequest(TokenAccessLevel? accessLevel = default(TokenAccessLevel?), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
+        /// <param name="lifetimeInMinutes">The maximum lifetime of the token
+        /// in minutes, starting from the time it was generated. Can be used to
+        /// shorten the token’s expiration time, but not to extend it. The
+        /// value must be a positive integer. Zero (0) is equivalent to null
+        /// and will be ignored, resulting in the default expiration
+        /// time.</param>
+        public GenerateTokenRequest(TokenAccessLevel? accessLevel = default(TokenAccessLevel?), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), int? lifetimeInMinutes = default(int?))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
             AllowSaveAs = allowSaveAs;
             Identities = identities;
+            LifetimeInMinutes = lifetimeInMinutes;
             CustomInit();
         }
 
@@ -79,6 +86,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the maximum lifetime of the token in minutes, starting
+        /// from the time it was generated. Can be used to shorten the token’s
+        /// expiration time, but not to extend it. The value must be a positive
+        /// integer. Zero (0) is equivalent to null and will be ignored,
+        /// resulting in the default expiration time.
+        /// </summary>
+        [JsonProperty(PropertyName = "lifetimeInMinutes")]
+        public int? LifetimeInMinutes { get; set; }
 
     }
 }
