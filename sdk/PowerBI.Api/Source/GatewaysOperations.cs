@@ -84,7 +84,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -222,7 +222,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -361,7 +361,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -521,7 +521,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -670,7 +670,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -811,7 +811,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -955,7 +955,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1085,7 +1085,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}/status").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/status").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1211,7 +1211,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1371,7 +1371,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1514,7 +1514,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "gateways/{gatewayId}/datasources/{datasourceId}/users/{emailAdress}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users/{emailAdress}").ToString();
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{emailAdress}", System.Uri.EscapeDataString(emailAdress));

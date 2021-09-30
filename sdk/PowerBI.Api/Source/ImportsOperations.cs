@@ -83,7 +83,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -276,7 +276,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports").ToString();
             List<string> _queryParameters = new List<string>();
             if (datasetDisplayName != null)
             {
@@ -460,7 +460,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "imports/{importId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports/{importId}").ToString();
             _url = _url.Replace("{importId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(importId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -601,7 +601,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "imports/createTemporaryUploadLocation").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/imports/createTemporaryUploadLocation").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -737,7 +737,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -937,7 +937,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (datasetDisplayName != null)
@@ -1126,7 +1126,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/imports/{importId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports/{importId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{importId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(importId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1272,7 +1272,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/imports/createTemporaryUploadLocation").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/imports/createTemporaryUploadLocation").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1435,7 +1435,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/imports").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/imports").ToString();
             List<string> _queryParameters = new List<string>();
             if (expand != null)
             {

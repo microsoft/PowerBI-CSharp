@@ -122,7 +122,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/GenerateToken").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/GenerateToken").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{tileId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(tileId, Client.SerializationSettings).Trim('"')));

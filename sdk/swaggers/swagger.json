@@ -5,7 +5,6 @@
         "title": "Power BI Client"
     },
     "host": "api.powerbi.com",
-    "basePath": "/v1.0/myorg",
     "schemes": [
         "https"
     ],
@@ -16,7 +15,7 @@
 
     ],
     "paths": {
-        "/datasets": {
+        "/v1.0/myorg/datasets": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -184,7 +183,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}": {
+        "/v1.0/myorg/datasets/{datasetId}": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -278,7 +277,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/executeQueries": {
+        "/v1.0/myorg/datasets/{datasetId}/executeQueries": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -364,7 +363,7 @@
                 }
             }
         },
-        "/datasets/{datasetId}/tables": {
+        "/v1.0/myorg/datasets/{datasetId}/tables": {
             "get": {
                 "tags": [
                     "PushDatasets"
@@ -398,7 +397,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/tables/{tableName}": {
+        "/v1.0/myorg/datasets/{datasetId}/tables/{tableName}": {
             "put": {
                 "tags": [
                     "PushDatasets"
@@ -492,7 +491,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/tables/{tableName}/rows": {
+        "/v1.0/myorg/datasets/{datasetId}/tables/{tableName}/rows": {
             "post": {
                 "tags": [
                     "PushDatasets"
@@ -622,7 +621,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/refreshes": {
+        "/v1.0/myorg/datasets/{datasetId}/refreshes": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -776,7 +775,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/refreshSchedule": {
+        "/v1.0/myorg/datasets/{datasetId}/refreshSchedule": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -919,7 +918,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/directQueryRefreshSchedule": {
+        "/v1.0/myorg/datasets/{datasetId}/directQueryRefreshSchedule": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -1075,7 +1074,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/parameters": {
+        "/v1.0/myorg/datasets/{datasetId}/parameters": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -1158,7 +1157,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/Default.UpdateParameters": {
+        "/v1.0/myorg/datasets/{datasetId}/Default.UpdateParameters": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -1219,7 +1218,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/datasources": {
+        "/v1.0/myorg/datasets/{datasetId}/datasources": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -1437,7 +1436,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/Default.UpdateDatasources": {
+        "/v1.0/myorg/datasets/{datasetId}/Default.UpdateDatasources": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -1514,7 +1513,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/Default.SetAllConnections": {
+        "/v1.0/myorg/datasets/{datasetId}/Default.SetAllConnections": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -1567,7 +1566,7 @@
                 "deprecated": true
             }
         },
-        "/datasets/{datasetId}/Default.BindToGateway": {
+        "/v1.0/myorg/datasets/{datasetId}/Default.BindToGateway": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -1632,7 +1631,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/Default.GetBoundGatewayDatasources": {
+        "/v1.0/myorg/datasets/{datasetId}/Default.GetBoundGatewayDatasources": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -1687,7 +1686,7 @@
                 "deprecated": false
             }
         },
-        "/datasets/{datasetId}/Default.DiscoverGateways": {
+        "/v1.0/myorg/datasets/{datasetId}/Default.DiscoverGateways": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -1746,7 +1745,7 @@
                 "deprecated": false
             }
         },
-        "/RefreshUserPermissions": {
+        "/v1.0/myorg/RefreshUserPermissions": {
             "post": {
                 "tags": [
                     "Users"
@@ -1779,7 +1778,7 @@
             }
         },
 
-        "/imports": {
+        "/v1.0/myorg/imports": {
             "get": {
                 "tags": [
                     "Imports"
@@ -2014,7 +2013,7 @@
                 }
             }
         },
-        "/imports/{importId}": {
+        "/v1.0/myorg/imports/{importId}": {
             "get": {
                 "tags": [
                     "Imports"
@@ -2109,7 +2108,7 @@
                 "deprecated": false
             }
         },
-        "/imports/createTemporaryUploadLocation": {
+        "/v1.0/myorg/imports/createTemporaryUploadLocation": {
             "post": {
                 "tags": [
                     "Imports"
@@ -2138,7 +2137,7 @@
             }
         },
 
-        "/reports": {
+        "/v1.0/myorg/reports": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2186,7 +2185,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}": {
+        "/v1.0/myorg/reports/{reportId}": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2276,7 +2275,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/Clone": {
+        "/v1.0/myorg/reports/{reportId}/Clone": {
             "post": {
                 "tags": [
                     "Reports"
@@ -2320,7 +2319,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/Export": {
+        "/v1.0/myorg/reports/{reportId}/Export": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2353,7 +2352,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/UpdateReportContent": {
+        "/v1.0/myorg/reports/{reportId}/UpdateReportContent": {
             "post": {
                 "tags": [
                     "Reports"
@@ -2414,7 +2413,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/Rebind": {
+        "/v1.0/myorg/reports/{reportId}/Rebind": {
             "post": {
                 "tags": [
                     "Reports"
@@ -2455,7 +2454,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/pages": {
+        "/v1.0/myorg/reports/{reportId}/pages": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2515,7 +2514,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/pages/{pageName}": {
+        "/v1.0/myorg/reports/{reportId}/pages/{pageName}": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2574,7 +2573,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/datasources": {
+        "/v1.0/myorg/reports/{reportId}/datasources": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2634,7 +2633,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/Default.UpdateDatasources": {
+        "/v1.0/myorg/reports/{reportId}/Default.UpdateDatasources": {
             "post": {
                 "tags": [
                     "Reports"
@@ -2703,7 +2702,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/ExportTo": {
+        "/v1.0/myorg/reports/{reportId}/ExportTo": {
             "post": {
                 "tags": [
                     "Reports"
@@ -2747,7 +2746,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/exports/{exportId}": {
+        "/v1.0/myorg/reports/{reportId}/exports/{exportId}": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2795,7 +2794,7 @@
                 "deprecated": false
             }
         },
-        "/reports/{reportId}/exports/{exportId}/file": {
+        "/v1.0/myorg/reports/{reportId}/exports/{exportId}/file": {
             "get": {
                 "tags": [
                     "Reports"
@@ -2841,7 +2840,7 @@
                 "deprecated": false
             }
         },
-        "/dashboards": {
+        "/v1.0/myorg/dashboards": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -2941,7 +2940,7 @@
                 "deprecated": false
             }
         },
-        "/dashboards/{dashboardId}": {
+        "/v1.0/myorg/dashboards/{dashboardId}": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -2993,7 +2992,7 @@
                 "deprecated": false
             }
         },
-        "/dashboards/{dashboardId}/tiles": {
+        "/v1.0/myorg/dashboards/{dashboardId}/tiles": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -3052,7 +3051,7 @@
                 "deprecated": false
             }
         },
-        "/dashboards/{dashboardId}/tiles/{tileId}": {
+        "/v1.0/myorg/dashboards/{dashboardId}/tiles/{tileId}": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -3116,7 +3115,7 @@
                 "deprecated": false
             }
         },
-        "/dashboards/{dashboardId}/tiles/{tileId}/Clone": {
+        "/v1.0/myorg/dashboards/{dashboardId}/tiles/{tileId}/Clone": {
             "post": {
                 "tags": [
                     "Dashboards"
@@ -3169,7 +3168,7 @@
             }
         },
 
-        "/groups/{groupId}/datasets": {
+        "/v1.0/myorg/groups/{groupId}/datasets": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -3355,7 +3354,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/upstreamDataflows": {
+        "/v1.0/myorg/groups/{groupId}/datasets/upstreamDataflows": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -3390,7 +3389,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -3502,7 +3501,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/tables": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables": {
             "get": {
                 "tags": [
                     "PushDatasets"
@@ -3544,7 +3543,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/tables/{tableName}": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}": {
             "put": {
                 "tags": [
                     "PushDatasets"
@@ -3647,7 +3646,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/tables/{tableName}/rows": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/tables/{tableName}/rows": {
             "post": {
                 "tags": [
                     "PushDatasets"
@@ -3795,7 +3794,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/refreshes": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshes": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -3968,7 +3967,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/refreshSchedule": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshSchedule": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -4132,7 +4131,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/directQueryRefreshSchedule": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/directQueryRefreshSchedule": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -4296,7 +4295,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/parameters": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/parameters": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -4389,7 +4388,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.UpdateParameters": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.UpdateParameters": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -4458,7 +4457,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/datasources": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/datasources": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -4557,7 +4556,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.UpdateDatasources": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.UpdateDatasources": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -4642,7 +4641,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.SetAllConnections": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.SetAllConnections": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -4704,7 +4703,7 @@
                 "deprecated": true
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.BindToGateway": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.BindToGateway": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -4779,7 +4778,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.GetBoundGatewayDatasources": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.GetBoundGatewayDatasources": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -4843,7 +4842,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.DiscoverGateways": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.DiscoverGateways": {
             "get": {
                 "tags": [
                     "Datasets"
@@ -4910,7 +4909,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/Default.TakeOver": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/Default.TakeOver": {
             "post": {
                 "tags": [
                     "Datasets"
@@ -4957,7 +4956,7 @@
             }
         },
 
-        "/groups/{groupId}/imports": {
+        "/v1.0/myorg/groups/{groupId}/imports": {
             "get": {
                 "tags": [
                     "Imports"
@@ -5213,7 +5212,7 @@
                 }
             }
         },
-        "/groups/{groupId}/imports/{importId}": {
+        "/v1.0/myorg/groups/{groupId}/imports/{importId}": {
             "get": {
                 "tags": [
                     "Imports"
@@ -5318,7 +5317,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/imports/createTemporaryUploadLocation": {
+        "/v1.0/myorg/groups/{groupId}/imports/createTemporaryUploadLocation": {
             "post": {
                 "tags": [
                     "Imports"
@@ -5354,7 +5353,7 @@
             }
         },
 
-        "/groups/{groupId}/reports": {
+        "/v1.0/myorg/groups/{groupId}/reports": {
             "get": {
                 "tags": [
                     "Reports"
@@ -5411,7 +5410,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}": {
             "get": {
                 "tags": [
                     "Reports"
@@ -5519,7 +5518,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/Clone": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Clone": {
             "post": {
                 "tags": [
                     "Reports"
@@ -5571,7 +5570,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/Export": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Export": {
             "get": {
                 "tags": [
                     "Reports"
@@ -5612,7 +5611,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/UpdateReportContent": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/UpdateReportContent": {
             "post": {
                 "tags": [
                     "Reports"
@@ -5682,7 +5681,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/Rebind": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Rebind": {
             "post": {
                 "tags": [
                     "Reports"
@@ -5731,7 +5730,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/pages": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/pages": {
             "get": {
                 "tags": [
                     "Reports"
@@ -5800,7 +5799,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/pages/{pageName}": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/pages/{pageName}": {
             "get": {
                 "tags": [
                     "Reports"
@@ -5868,7 +5867,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/datasources": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/datasources": {
             "get": {
                 "tags": [
                     "Reports"
@@ -5935,7 +5934,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/Default.UpdateDatasources": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Default.UpdateDatasources": {
             "post": {
                 "tags": [
                     "Reports"
@@ -6012,7 +6011,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/ExportTo": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/ExportTo": {
             "post": {
                 "tags": [
                     "Reports"
@@ -6064,7 +6063,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/exports/{exportId}": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/exports/{exportId}": {
             "get": {
                 "tags": [
                     "Reports"
@@ -6120,7 +6119,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/exports/{exportId}/file": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/exports/{exportId}/file": {
             "get": {
                 "tags": [
                     "Reports"
@@ -6174,7 +6173,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards": {
+        "/v1.0/myorg/groups/{groupId}/dashboards": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -6292,7 +6291,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards/{dashboardId}": {
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -6353,7 +6352,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards/{dashboardId}/tiles": {
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -6421,7 +6420,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}": {
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}": {
             "get": {
                 "tags": [
                     "Dashboards"
@@ -6493,7 +6492,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/Clone": {
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/Clone": {
             "post": {
                 "tags": [
                     "Dashboards"
@@ -6554,7 +6553,7 @@
             }
         },
 
-        "/groups/{groupId}/reports/GenerateToken": {
+        "/v1.0/myorg/groups/{groupId}/reports/GenerateToken": {
             "post": {
                 "tags": [
                     "EmbedToken"
@@ -6643,7 +6642,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/GenerateToken": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/GenerateToken": {
             "post": {
                 "tags": [
                     "EmbedToken"
@@ -6867,7 +6866,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/datasets/{datasetId}/GenerateToken": {
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/GenerateToken": {
             "post": {
                 "tags": [
                     "EmbedToken"
@@ -6938,7 +6937,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards/{dashboardId}/GenerateToken": {
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/GenerateToken": {
             "post": {
                 "tags": [
                     "EmbedToken"
@@ -7048,7 +7047,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/GenerateToken": {
+        "/v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/GenerateToken": {
             "post": {
                 "tags": [
                     "EmbedToken"
@@ -7191,7 +7190,7 @@
             }
         },
 
-        "/apps": {
+        "/v1.0/myorg/apps": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7245,7 +7244,7 @@
                 "deprecated": false
             }
         },
-        "/apps/{appId}": {
+        "/v1.0/myorg/apps/{appId}": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7298,7 +7297,7 @@
                 "deprecated": false
             }
         },
-        "/apps/{appId}/reports": {
+        "/v1.0/myorg/apps/{appId}/reports": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7357,7 +7356,7 @@
             }
         },
 
-        "/apps/{appId}/reports/{reportId}": {
+        "/v1.0/myorg/apps/{appId}/reports/{reportId}": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7420,7 +7419,7 @@
             }
         },
 
-        "/apps/{appId}/dashboards": {
+        "/v1.0/myorg/apps/{appId}/dashboards": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7478,7 +7477,7 @@
             }
         },
 
-        "/apps/{appId}/dashboards/{dashboardId}": {
+        "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7541,7 +7540,7 @@
             }
         },
 
-        "/apps/{appId}/dashboards/{dashboardId}/tiles": {
+        "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7610,7 +7609,7 @@
             }
         },
 
-        "/apps/{appId}/dashboards/{dashboardId}/tiles/{tileId}": {
+        "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles/{tileId}": {
             "get": {
                 "tags": [
                     "Apps"
@@ -7684,7 +7683,7 @@
             }
         },
 
-        "/groups/{groupId}/dataflows/{dataflowId}": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}": {
             "get": {
                 "tags": [
                     "Dataflows"
@@ -7834,7 +7833,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows/{dataflowId}/refreshes": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes": {
             "post": {
                 "tags": [
                     "Dataflows"
@@ -7907,7 +7906,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows/{dataflowId}/datasources": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/datasources": {
             "get": {
                 "tags": [
                     "Dataflows"
@@ -7981,7 +7980,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows": {
+        "/v1.0/myorg/groups/{groupId}/dataflows": {
             "get": {
                 "tags": [
                     "Dataflows"
@@ -8035,7 +8034,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows": {
             "get": {
                 "tags": [
                     "Dataflows"
@@ -8078,7 +8077,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule": {
             "patch": {
                 "tags": [
                     "Dataflows"
@@ -8189,7 +8188,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows/{dataflowId}/transactions": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/transactions": {
             "get": {
                 "tags": [
                     "Dataflows"
@@ -8254,7 +8253,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/dataflows/transactions/{transactionId}/cancel": {
+        "/v1.0/myorg/groups/{groupId}/dataflows/transactions/{transactionId}/cancel": {
             "post": {
                 "tags": [
                     "Dataflows"
@@ -8312,7 +8311,7 @@
             }
         },
 
-        "/gateways": {
+        "/v1.0/myorg/gateways": {
             "get": {
                 "tags": [
                     "Gateways"
@@ -8358,7 +8357,7 @@
                 "deprecated": false
             }
         },
-        "/gateways/{gatewayId}": {
+        "/v1.0/myorg/gateways/{gatewayId}": {
             "get": {
                 "tags": [
                     "Gateways"
@@ -8411,7 +8410,7 @@
                 "deprecated": false
             }
         },
-        "/gateways/{gatewayId}/datasources": {
+        "/v1.0/myorg/gateways/{gatewayId}/datasources": {
             "get": {
                 "tags": [
                     "Gateways"
@@ -8561,7 +8560,7 @@
                 "deprecated": false
             }
         },
-        "/gateways/{gatewayId}/datasources/{datasourceId}": {
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}": {
             "get": {
                 "tags": [
                     "Gateways"
@@ -8803,7 +8802,7 @@
                 "deprecated": false
             }
         },
-        "/gateways/{gatewayId}/datasources/{datasourceId}/status": {
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/status": {
             "get": {
                 "tags": [
                     "Gateways"
@@ -8864,7 +8863,7 @@
                 "deprecated": false
             }
         },
-        "/gateways/{gatewayId}/datasources/{datasourceId}/users": {
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users": {
             "get": {
                 "tags": [
                     "Gateways"
@@ -9006,7 +9005,7 @@
                 "deprecated": false
             }
         },
-        "/gateways/{gatewayId}/datasources/{datasourceId}/users/{emailAdress}": {
+        "/v1.0/myorg/gateways/{gatewayId}/datasources/{datasourceId}/users/{emailAdress}": {
             "delete": {
                 "tags": [
                     "Gateways"
@@ -9065,7 +9064,7 @@
             }
         },
 
-        "/groups": {
+        "/v1.0/myorg/groups": {
             "get": {
                 "tags": [
                     "Groups"
@@ -9250,7 +9249,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}": {
+        "/v1.0/myorg/groups/{groupId}": {
             "delete": {
                 "tags": [
                     "Groups"
@@ -9290,7 +9289,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/users": {
+        "/v1.0/myorg/groups/{groupId}/users": {
             "get": {
                 "tags": [
                     "Groups"
@@ -9486,7 +9485,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/users/{user}": {
+        "/v1.0/myorg/groups/{groupId}/users/{user}": {
             "delete": {
                 "tags": [
                     "Groups"
@@ -9535,7 +9534,7 @@
             }
         },
 
-        "/capacities": {
+        "/v1.0/myorg/capacities": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -9583,7 +9582,7 @@
                 "deprecated": false
             }
         },
-        "/capacities/{capacityId}/Workloads": {
+        "/v1.0/myorg/capacities/{capacityId}/Workloads": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -9640,7 +9639,7 @@
                 "deprecated": false
             }
         },
-        "/capacities/{capacityId}/Workloads/{workloadName}": {
+        "/v1.0/myorg/capacities/{capacityId}/Workloads/{workloadName}": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -9760,7 +9759,7 @@
                 "deprecated": false
             }
         },
-        "/capacities/refreshables": {
+        "/v1.0/myorg/capacities/refreshables": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -9981,7 +9980,7 @@
                 "deprecated": false
             }
         },
-        "/capacities/{capacityId}/refreshables": {
+        "/v1.0/myorg/capacities/{capacityId}/refreshables": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -10210,7 +10209,7 @@
                 "deprecated": false
             }
         },
-        "/capacities/{capacityId}/refreshables/{refreshableId}": {
+        "/v1.0/myorg/capacities/{capacityId}/refreshables/{refreshableId}": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -10370,7 +10369,7 @@
                 "deprecated": false
             }
         },
-        "/AssignToCapacity": {
+        "/v1.0/myorg/AssignToCapacity": {
             "post": {
                 "tags": [
                     "Capacities"
@@ -10414,7 +10413,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/AssignToCapacity": {
+        "/v1.0/myorg/groups/{groupId}/AssignToCapacity": {
             "post": {
                 "tags": [
                     "Capacities"
@@ -10467,7 +10466,7 @@
                 "deprecated": false
             }
         },
-        "/CapacityAssignmentStatus": {
+        "/v1.0/myorg/CapacityAssignmentStatus": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -10521,7 +10520,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/CapacityAssignmentStatus": {
+        "/v1.0/myorg/groups/{groupId}/CapacityAssignmentStatus": {
             "get": {
                 "tags": [
                     "Capacities"
@@ -10588,7 +10587,7 @@
             }
         },
 
-        "/availableFeatures": {
+        "/v1.0/myorg/availableFeatures": {
             "get": {
                 "tags": [
                     "AvailableFeatures"
@@ -10634,7 +10633,7 @@
                 "deprecated": false
             }
         },
-        "/availableFeatures(featureName='{featureName}')": {
+        "/v1.0/myorg/availableFeatures(featureName='{featureName}')": {
             "get": {
                 "tags": [
                     "AvailableFeatures"
@@ -10688,7 +10687,7 @@
             }
         },
 
-        "/pipelines": {
+        "/v1.0/myorg/pipelines": {
             "get": {
                 "tags": [
                     "Pipelines"
@@ -10732,7 +10731,7 @@
                 "deprecated": false
             }
         },
-        "/pipelines/{pipelineId}": {
+        "/v1.0/myorg/pipelines/{pipelineId}": {
             "get": {
                 "tags": [
                     "Pipelines"
@@ -10820,7 +10819,7 @@
                 "deprecated": false
             }
         },
-        "/pipelines/{pipelineId}/stages/{stageOrder}/artifacts": {
+        "/v1.0/myorg/pipelines/{pipelineId}/stages/{stageOrder}/artifacts": {
             "get": {
                 "tags": [
                     "Pipelines"
@@ -10908,7 +10907,7 @@
                 "deprecated": false
             }
         },
-        "/pipelines/{pipelineId}/operations": {
+        "/v1.0/myorg/pipelines/{pipelineId}/operations": {
             "get": {
                 "tags": [
                     "Pipelines"
@@ -10966,7 +10965,7 @@
                 "deprecated": false
             }
         },
-        "/pipelines/{pipelineId}/operations/{operationId}": {
+        "/v1.0/myorg/pipelines/{pipelineId}/operations/{operationId}": {
             "get": {
                 "tags": [
                     "Pipelines"
@@ -11071,7 +11070,7 @@
                 "deprecated": false
             }
         },
-        "/pipelines/{pipelineId}/deployAll": {
+        "/v1.0/myorg/pipelines/{pipelineId}/deployAll": {
             "post": {
                 "tags": [
                     "Pipelines"
@@ -11146,7 +11145,7 @@
                 "deprecated": false
             }
         },
-        "/pipelines/{pipelineId}/deploy": {
+        "/v1.0/myorg/pipelines/{pipelineId}/deploy": {
             "post": {
                 "tags": [
                     "Pipelines"
@@ -11245,7 +11244,7 @@
             }
         },
 
-        "/dataflowStorageAccounts": {
+        "/v1.0/myorg/dataflowStorageAccounts": {
             "get": {
                 "tags": [
                     "DataflowStorageAccounts"
@@ -11287,7 +11286,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/AssignToDataflowStorage": {
+        "/v1.0/myorg/groups/{groupId}/AssignToDataflowStorage": {
             "post": {
                 "tags": [
                     "DataflowStorageAccounts"
@@ -11341,7 +11340,7 @@
             }
         },
 
-        "/admin/workspaces/getInfo": {
+        "/v1.0/myorg/admin/workspaces/getInfo": {
             "post": {
                 "tags": [
                     "Admin"
@@ -11438,7 +11437,7 @@
                 "deprecated": false
             }
         },
-        "/admin/workspaces/scanStatus/{scanId}": {
+        "/v1.0/myorg/admin/workspaces/scanStatus/{scanId}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -11490,7 +11489,7 @@
                 "deprecated": false
             }
         },
-        "/admin/workspaces/scanResult/{scanId}": {
+        "/v1.0/myorg/admin/workspaces/scanResult/{scanId}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -11724,7 +11723,7 @@
                 "deprecated": false
             }
         },
-        "/admin/workspaces/modified": {
+        "/v1.0/myorg/admin/workspaces/modified": {
             "get": {
                 "tags": [
                     "Admin"
@@ -11791,7 +11790,7 @@
             }
         },
 
-        "/admin/capacities/AssignWorkspaces": {
+        "/v1.0/myorg/admin/capacities/AssignWorkspaces": {
             "post": {
                 "tags": [
                     "Admin"
@@ -11841,7 +11840,7 @@
             }
         },
 
-        "/admin/capacities/UnassignWorkspaces": {
+        "/v1.0/myorg/admin/capacities/UnassignWorkspaces": {
             "post": {
                 "tags": [
                     "Admin"
@@ -11874,7 +11873,7 @@
             }
         },
 
-        "/admin/datasets": {
+        "/v1.0/myorg/admin/datasets": {
             "get": {
                 "tags": [
                     "Admin"
@@ -11947,7 +11946,7 @@
                 "deprecated": false
             }
         },
-        "/admin/datasets/{datasetId}/datasources": {
+        "/v1.0/myorg/admin/datasets/{datasetId}/datasources": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12006,7 +12005,7 @@
                 "deprecated": false
             }
         },
-        "/admin/datasets/{datasetId}/users": {
+        "/v1.0/myorg/admin/datasets/{datasetId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12063,7 +12062,7 @@
             }
         },
 
-        "/admin/groups": {
+        "/v1.0/myorg/admin/groups": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12429,7 +12428,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}": {
+        "/v1.0/myorg/admin/groups/{groupId}": {
             "patch": {
                 "tags": [
                     "Admin"
@@ -12484,7 +12483,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/users": {
+        "/v1.0/myorg/admin/groups/{groupId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12606,7 +12605,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/users/{user}": {
+        "/v1.0/myorg/admin/groups/{groupId}/users/{user}": {
             "delete": {
                 "tags": [
                     "Admin"
@@ -12656,7 +12655,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/restore": {
+        "/v1.0/myorg/admin/groups/{groupId}/restore": {
             "post": {
                 "tags": [
                     "Admin"
@@ -12711,7 +12710,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows": {
+        "/v1.0/myorg/admin/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12779,7 +12778,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/dashboards": {
+        "/v1.0/myorg/admin/groups/{groupId}/dashboards": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12858,7 +12857,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/reports": {
+        "/v1.0/myorg/admin/groups/{groupId}/reports": {
             "get": {
                 "tags": [
                     "Admin"
@@ -12938,7 +12937,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/datasets": {
+        "/v1.0/myorg/admin/groups/{groupId}/datasets": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13056,7 +13055,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/datasets/upstreamDataflows": {
+        "/v1.0/myorg/admin/groups/{groupId}/datasets/upstreamDataflows": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13111,7 +13110,7 @@
                 "deprecated": false
             }
         },
-        "/admin/groups/{groupId}/dataflows": {
+        "/v1.0/myorg/admin/groups/{groupId}/dataflows": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13192,7 +13191,7 @@
             }
         },
 
-        "/admin/reports": {
+        "/v1.0/myorg/admin/reports": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13262,7 +13261,7 @@
                 "deprecated": false
             }
         },
-        "/admin/reports/{reportId}/users": {
+        "/v1.0/myorg/admin/reports/{reportId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13319,7 +13318,7 @@
             }
         },
 
-        "/admin/dashboards": {
+        "/v1.0/myorg/admin/dashboards": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13395,7 +13394,7 @@
                 "deprecated": false
             }
         },
-        "/admin/dashboards/{dashboardId}/tiles": {
+        "/v1.0/myorg/admin/dashboards/{dashboardId}/tiles": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13454,7 +13453,7 @@
                 "deprecated": false
             }
         },
-        "/admin/dashboards/{dashboardId}/users": {
+        "/v1.0/myorg/admin/dashboards/{dashboardId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13511,7 +13510,7 @@
             }
         },
 
-        "/admin/imports": {
+        "/v1.0/myorg/admin/imports": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13605,7 +13604,7 @@
                 "deprecated": false
             }
         },
-        "/admin/tenantKeys": {
+        "/v1.0/myorg/admin/tenantKeys": {
             "post": {
                 "tags": [
                     "Admin"
@@ -13711,7 +13710,7 @@
                 "deprecated": false
             }
         },
-        "/admin/tenantKeys/{tenantKeyId}/Default.Rotate": {
+        "/v1.0/myorg/admin/tenantKeys/{tenantKeyId}/Default.Rotate": {
             "post": {
                 "tags": [
                     "Admin"
@@ -13777,7 +13776,7 @@
                 "deprecated": false
             }
         },
-        "/admin/capacities": {
+        "/v1.0/myorg/admin/capacities": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13865,7 +13864,7 @@
                 "deprecated": false
             }
         },
-        "/admin/capacities/{capacityId}": {
+        "/v1.0/myorg/admin/capacities/{capacityId}": {
             "patch": {
                 "tags": [
                     "Admin"
@@ -13920,7 +13919,7 @@
                 "deprecated": false
             }
         },
-        "/admin/capacities/{capacityId}/users": {
+        "/v1.0/myorg/admin/capacities/{capacityId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -13954,7 +13953,7 @@
                 "deprecated": false
             }
         },
-        "/admin/capacities/refreshables": {
+        "/v1.0/myorg/admin/capacities/refreshables": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14174,7 +14173,7 @@
                 "deprecated": false
             }
         },
-        "/admin/capacities/{capacityId}/refreshables": {
+        "/v1.0/myorg/admin/capacities/{capacityId}/refreshables": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14402,7 +14401,7 @@
                 "deprecated": false
             }
         },
-        "/admin/capacities/{capacityId}/refreshables/{refreshableId}": {
+        "/v1.0/myorg/admin/capacities/{capacityId}/refreshables/{refreshableId}": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14562,7 +14561,7 @@
                 "deprecated": false
             }
         },
-        "/admin/dataflows": {
+        "/v1.0/myorg/admin/dataflows": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14632,7 +14631,7 @@
                 "deprecated": false
             }
         },
-        "/admin/dataflows/{dataflowId}/export": {
+        "/v1.0/myorg/admin/dataflows/{dataflowId}/export": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14665,7 +14664,7 @@
                 "deprecated": false
             }
         },
-        "/admin/dataflows/{dataflowId}/datasources": {
+        "/v1.0/myorg/admin/dataflows/{dataflowId}/datasources": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14726,7 +14725,7 @@
                 "deprecated": false
             }
         },
-        "/admin/dataflows/{dataflowId}/users": {
+        "/v1.0/myorg/admin/dataflows/{dataflowId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14783,7 +14782,7 @@
             }
         },
 
-        "/GenerateToken": {
+        "/v1.0/myorg/GenerateToken": {
             "post": {
                 "tags": [
                     "EmbedToken"
@@ -14890,7 +14889,7 @@
                 "deprecated": false
             }
         },
-        "/admin/apps": {
+        "/v1.0/myorg/admin/apps": {
             "get": {
                 "tags": [
                     "Admin"
@@ -14952,7 +14951,7 @@
                 "deprecated": false
             }
         },
-        "/admin/apps/{appId}/users": {
+        "/v1.0/myorg/admin/apps/{appId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15006,7 +15005,7 @@
                 "deprecated": false
             }
         },
-        "/admin/users/{userGraphId}/artifactAccess": {
+        "/v1.0/myorg/admin/users/{userGraphId}/artifactAccess": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15069,7 +15068,7 @@
                 "deprecated": false
             }
         },
-        "/admin/activityevents": {
+        "/v1.0/myorg/admin/activityevents": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15318,7 +15317,7 @@
                 "deprecated": false
             }
         },
-        "/admin/informationprotection/removeLabels": {
+        "/v1.0/myorg/admin/informationprotection/removeLabels": {
             "post": {
                 "tags": [
                     "Admin"
@@ -15426,7 +15425,7 @@
                 "deprecated": false
             }
         },
-        "/admin/informationprotection/setLabels": {
+        "/v1.0/myorg/admin/informationprotection/setLabels": {
             "post": {
                 "tags": [
                     "Admin"
@@ -15541,7 +15540,7 @@
                 "deprecated": false
             }
         },
-        "/admin/pipelines": {
+        "/v1.0/myorg/admin/pipelines": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15720,7 +15719,7 @@
                 "deprecated": false
             }
         },
-        "/admin/pipelines/{pipelineId}/users": {
+        "/v1.0/myorg/admin/pipelines/{pipelineId}/users": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15849,7 +15848,7 @@
                 "deprecated": false
             }
         },
-        "/admin/pipelines/{pipelineId}/users/{identifier}": {
+        "/v1.0/myorg/admin/pipelines/{pipelineId}/users/{identifier}": {
             "delete": {
                 "tags": [
                     "Admin"
@@ -15906,7 +15905,7 @@
                 "deprecated": false
             }
         },
-        "/CreateTemplateAppInstallTicket": {
+        "/v1.0/myorg/CreateTemplateAppInstallTicket": {
             "post": {
                 "tags": [
                     "TemplateApps"
@@ -15994,7 +15993,7 @@
                 "deprecated": false
             }
         },
-        "/groups/{groupId}/reports/{reportId}/Default.TakeOver": {
+        "/v1.0/myorg/groups/{groupId}/reports/{reportId}/Default.TakeOver": {
             "post": {
                 "tags": [
                     "Reports"

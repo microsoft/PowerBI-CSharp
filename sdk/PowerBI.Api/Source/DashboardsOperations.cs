@@ -87,7 +87,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "dashboards").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/dashboards").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -240,7 +240,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "dashboards").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/dashboards").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -385,7 +385,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "dashboards/{dashboardId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/dashboards/{dashboardId}").ToString();
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -529,7 +529,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "dashboards/{dashboardId}/tiles").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/dashboards/{dashboardId}/tiles").ToString();
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -677,7 +677,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "dashboards/{dashboardId}/tiles/{tileId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/dashboards/{dashboardId}/tiles/{tileId}").ToString();
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{tileId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(tileId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -851,7 +851,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "dashboards/{dashboardId}/tiles/{tileId}/Clone").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/dashboards/{dashboardId}/tiles/{tileId}/Clone").ToString();
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{tileId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(tileId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -998,7 +998,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1156,7 +1156,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -1306,7 +1306,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards/{dashboardId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1455,7 +1455,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards/{dashboardId}/tiles").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1608,7 +1608,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{tileId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(tileId, Client.SerializationSettings).Trim('"')));
@@ -1787,7 +1787,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/Clone").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/tiles/{tileId}/Clone").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{tileId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(tileId, Client.SerializationSettings).Trim('"')));
@@ -1963,7 +1963,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dashboards/{dashboardId}/GenerateToken").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dashboards/{dashboardId}/GenerateToken").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -2133,7 +2133,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/groups/{groupId}/dashboards").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/dashboards").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (filter != null)
@@ -2314,7 +2314,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dashboards").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dashboards").ToString();
             List<string> _queryParameters = new List<string>();
             if (expand != null)
             {
@@ -2485,7 +2485,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dashboards/{dashboardId}/tiles").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dashboards/{dashboardId}/tiles").ToString();
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2637,7 +2637,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dashboards/{dashboardId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dashboards/{dashboardId}/users").ToString();
             _url = _url.Replace("{dashboardId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dashboardId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();

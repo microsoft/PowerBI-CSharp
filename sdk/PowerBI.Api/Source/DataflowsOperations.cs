@@ -91,7 +91,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -217,7 +217,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -351,7 +351,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -490,7 +490,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}/refreshes").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshes").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
@@ -628,7 +628,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}/datasources").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/datasources").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -765,7 +765,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -905,7 +905,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1057,7 +1057,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}/refreshSchedule").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/refreshSchedule").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1186,7 +1186,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/{dataflowId}/transactions").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}/transactions").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1327,7 +1327,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "groups/{groupId}/dataflows/transactions/{transactionId}/cancel").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/transactions/{transactionId}/cancel").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{transactionId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(transactionId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1483,7 +1483,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/dataflows/{dataflowId}/upstreamDataflows").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1647,7 +1647,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/groups/{groupId}/dataflows").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/dataflows").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (filter != null)
@@ -1819,7 +1819,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dataflows").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dataflows").ToString();
             List<string> _queryParameters = new List<string>();
             if (filter != null)
             {
@@ -1982,7 +1982,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dataflows/{dataflowId}/export").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dataflows/{dataflowId}/export").ToString();
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2116,7 +2116,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dataflows/{dataflowId}/datasources").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dataflows/{dataflowId}/datasources").ToString();
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -2268,7 +2268,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/dataflows/{dataflowId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dataflows/{dataflowId}/users").ToString();
             _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();

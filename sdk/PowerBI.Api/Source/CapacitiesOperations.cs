@@ -87,7 +87,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -232,7 +232,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities/{capacityId}/Workloads").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities/{capacityId}/Workloads").ToString();
             _url = _url.Replace("{capacityId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(capacityId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
@@ -392,7 +392,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities/{capacityId}/Workloads/{workloadName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities/{capacityId}/Workloads/{workloadName}").ToString();
             _url = _url.Replace("{capacityId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(capacityId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{workloadName}", System.Uri.EscapeDataString(workloadName));
             // Create HTTP transport objects
@@ -558,7 +558,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities/{capacityId}/Workloads/{workloadName}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities/{capacityId}/Workloads/{workloadName}").ToString();
             _url = _url.Replace("{capacityId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(capacityId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{workloadName}", System.Uri.EscapeDataString(workloadName));
             // Create HTTP transport objects
@@ -706,7 +706,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities/refreshables").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities/refreshables").ToString();
             List<string> _queryParameters = new List<string>();
             if (expand != null)
             {
@@ -886,7 +886,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities/{capacityId}/refreshables").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities/{capacityId}/refreshables").ToString();
             _url = _url.Replace("{capacityId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(capacityId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (expand != null)
@@ -1064,7 +1064,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "capacities/{capacityId}/refreshables/{refreshableId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/capacities/{capacityId}/refreshables/{refreshableId}").ToString();
             _url = _url.Replace("{capacityId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(capacityId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{refreshableId}", System.Uri.EscapeDataString(refreshableId));
             List<string> _queryParameters = new List<string>();
@@ -1226,7 +1226,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/capacities/AssignWorkspaces").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/capacities/AssignWorkspaces").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1369,7 +1369,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/capacities/UnassignWorkspaces").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/capacities/UnassignWorkspaces").ToString();
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1503,7 +1503,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/capacities/{capacityId}/users").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/capacities/{capacityId}/users").ToString();
             _url = _url.Replace("{capacityId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(capacityId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
