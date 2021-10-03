@@ -519,7 +519,8 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h3&gt;Limitations&lt;/h3&gt;OneDrive
+            /// refreshes are not returned.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -543,7 +544,8 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h3&gt;Limitations&lt;/h3&gt;OneDrive
+            /// refreshes are not returned.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1869,7 +1871,8 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h3&gt;Limitations&lt;/h3&gt;OneDrive
+            /// refreshes are not returned.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1896,7 +1899,8 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
             /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h3&gt;Limitations&lt;/h3&gt;OneDrive
+            /// refreshes are not returned.
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

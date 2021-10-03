@@ -1443,7 +1443,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h3&gt;Limitations&lt;/h3&gt;OneDrive
+        /// refreshes are not returned.
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -4957,7 +4958,8 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
         /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h3&gt;Limitations&lt;/h3&gt;OneDrive
+        /// refreshes are not returned.
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

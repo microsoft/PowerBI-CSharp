@@ -627,7 +627,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh history of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h3>Limitations</h3>OneDrive refreshes are not returned.",
                 "operationId": "Datasets_GetRefreshHistory",
                 "consumes": [],
                 "produces": [
@@ -3800,7 +3800,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh history of the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h3>Limitations</h3>OneDrive refreshes are not returned.",
                 "operationId": "Datasets_GetRefreshHistoryInGroup",
                 "consumes": [],
                 "produces": [
