@@ -1,7 +1,7 @@
 version:
   name: 'sdk version'
   major: 3
-  minor: 28
+  minor: 29
   system: 'Buildrevision'
   exclude_commit: true
   assembly_version: 'majorminoronly'
