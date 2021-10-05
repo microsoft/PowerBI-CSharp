@@ -41,6 +41,37 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Pipelines>> GetPipelinesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Creates a new deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='createPipelineRequest'>
+        /// The create pipeline request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Pipeline>> CreatePipelineWithHttpMessagesAsync(CreatePipelineRequest createPipelineRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns the specified deployment pipeline.
         /// </summary>
         /// <remarks>
@@ -69,6 +100,270 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<Pipeline>> GetPipelineWithHttpMessagesAsync(System.Guid pipelineId, string expand = "stages", Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Updates the specified deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='updatePipelineRequest'>
+        /// The update pipeline request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<Pipeline>> UpdatePipelineWithHttpMessagesAsync(System.Guid pipelineId, UpdatePipelineRequest updatePipelineRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes the specified deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This operation will fail if there's an active deployment operation.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeletePipelineWithHttpMessagesAsync(System.Guid pipelineId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of users that have access to the specified
+        /// deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<PipelineUsers>> GetPipelineUsersWithHttpMessagesAsync(System.Guid pipelineId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Grants user permissions to the specified deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='userDetails'>
+        /// Details of user access right
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> UpdatePipelineUserWithHttpMessagesAsync(System.Guid pipelineId, PipelineUser userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Removes user permissions from the specified deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='identifier'>
+        /// To delete user pipeline permissions, provide the user's User
+        /// Principal Name (UPN). To delete a service principal or a security
+        /// group's pipeline permissions, provide the Object ID of the service
+        /// principal or security group.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> DeletePipelineUserWithHttpMessagesAsync(System.Guid pipelineId, string identifier, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns the stages of the specified deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<PipelineStages>> GetPipelineStagesWithHttpMessagesAsync(System.Guid pipelineId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Assigns the specified workspace to the specified deployment
+        /// pipeline stage.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - The specified deployment pipeline stage is not already assigned.
+        /// - You must be an admin of the specified workspace.
+        /// - The specified workspace is not assigned to any other deployment
+        /// pipeline.
+        /// - This operation will fail if there's an active deployment
+        /// operation.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='stageOrder'>
+        /// The deployment pipeline stage order. Development (0), Test (1),
+        /// Production (2).
+        /// </param>
+        /// <param name='assignWorkspaceRequest'>
+        /// The assign workspace request
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> AssignWorkspaceWithHttpMessagesAsync(System.Guid pipelineId, int stageOrder, AssignWorkspaceRequest assignWorkspaceRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Unassigns the workspace from the specified stage in the specified
+        /// deployment pipeline.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This operation will fail if there's an active deployment operation.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='pipelineId'>
+        /// The deployment pipeline ID
+        /// </param>
+        /// <param name='stageOrder'>
+        /// The deployment pipeline stage order. Development (0), Test (1),
+        /// Production (2).
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> UnassignWorkspaceWithHttpMessagesAsync(System.Guid pipelineId, int stageOrder, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the supported items from the workspace assigned to the
         /// specified deployment pipeline stage. To learn more about items that
@@ -335,9 +630,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - Maximum 200 requests per hour.
-        /// - Service principals are not supported.
-        /// - Service principal permissions cannot be deleted.
+        /// Maximum 200 requests per hour.
         ///
         /// ######
         ///
@@ -376,9 +669,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - Maximum 200 requests per hour.
-        /// - Service principals are not supported.
-        /// - Service principal permissions cannot be deleted.
+        /// Maximum 200 requests per hour.
         ///
         /// ######
         ///

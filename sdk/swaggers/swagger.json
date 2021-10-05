@@ -10729,6 +10729,59 @@
                     }
                 },
                 "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Creates a new deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All\n\n######\n",
+                "operationId": "Pipelines_CreatePipeline",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "createPipelineRequest",
+                        "in": "body",
+                        "description": "The create pipeline request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreatePipelineRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/Pipeline"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Create a deployment pipeline": {
+                        "parameters": {
+                            "createPipelineRequest": {
+                                "displayName": "My Deployment Pipeline Name",
+                                "description": "My deployment pipeline description"
+                            }
+                        },
+                        "responses": {
+                            "201": {
+                                "body": {
+                                    "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                    "displayName": "My Deployment Pipeline Name",
+                                    "description": "My deployment pipeline description"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/v1.0/myorg/pipelines/{pipelineId}": {
@@ -10813,6 +10866,490 @@
                                     ]
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Updates the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All\n\n######\n",
+                "operationId": "Pipelines_UpdatePipeline",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updatePipelineRequest",
+                        "in": "body",
+                        "description": "The update pipeline request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdatePipelineRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Pipeline"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Updates a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "updatePipelineRequest": {
+                                "displayName": "Updated Deployment Pipeline Name",
+                                "description": "Updated deployment pipeline description"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                                    "displayName": "Updated Deployment Pipeline Name",
+                                    "description": "Updated deployment pipeline description"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Deletes the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All\n\n## Limitations\n\nThis operation will fail if there's an active deployment operation.\n\n######\n",
+                "operationId": "Pipelines_DeletePipeline",
+                "consumes": [
+
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Delete a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/users": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns a list of users that have access to the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
+                "operationId": "Pipelines_GetPipelineUsers",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineUsers"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get users of a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "identifier": "john@contoso.com",
+                                        "accessRight": "Admin",
+                                        "principalType": "User"
+                                    },
+                                    {
+                                        "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                        "accessRight": "Admin",
+                                        "principalType": "Group"
+                                    },
+                                    {
+                                        "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d",
+                                        "accessRight": "Admin",
+                                        "principalType": "App"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Grants user permissions to the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All\n\n######\n",
+                "operationId": "Pipelines_UpdatePipelineUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The deployment pipeline ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PipelineUser"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Add user to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "userDetails": {
+                                "identifier": "john@contoso.com",
+                                "accessRight": "Admin",
+                                "principalType": "User"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add group to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "userDetails": {
+                                "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                "accessRight": "Admin",
+                                "principalType": "Group"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Add service principal to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "userDetails": {
+                                "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d",
+                                "accessRight": "Admin",
+                                "principalType": "App"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/users/{identifier}": {
+            "delete": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Removes user permissions from the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All\n\n######\n",
+                "operationId": "Pipelines_DeletePipelineUser",
+                "consumes": [
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The deployment pipeline ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "identifier",
+                        "in": "path",
+                        "required": true,
+                        "description": "To delete user pipeline permissions, provide the user's User Principal Name (UPN). To delete a service principal or a security group's pipeline permissions, provide the Object ID of the service principal or security group.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Delete user access from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "identifier": "john@contoso.com"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete group access from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "identifier": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete service principal access from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/stages": {
+            "get": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Returns the stages of the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
+                "operationId": "Pipelines_GetPipelineStages",
+                "consumes": [
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/PipelineStages"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get stages of a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "order": 0,
+                                            "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496",
+                                            "workspaceName": "Workpsace-Development"
+                                        },
+                                        {
+                                            "order": 1,
+                                            "workspaceId": "44b499cf-1eeb-45e2-9ada-63b6ec9d516e"
+                                        },
+                                        {
+                                            "order": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+            },
+        "/v1.0/myorg/pipelines/{pipelineId}/stages/{stageOrder}/assignWorkspace": {
+            "post": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Assigns the specified workspace to the specified deployment pipeline stage.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All and Workspace.ReadWrite.All\n\n## Limitations\n\n- The specified deployment pipeline stage is not already assigned.\n- You must be an admin of the specified workspace.\n- The specified workspace is not assigned to any other deployment pipeline.\n- This operation will fail if there's an active deployment operation.\n\n######\n",
+                "operationId": "Pipelines_AssignWorkspace",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "stageOrder",
+                        "in": "path",
+                        "description": "The deployment pipeline stage order. Development (0), Test (1), Production (2).",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "assignWorkspaceRequest",
+                        "in": "body",
+                        "description": "The assign workspace request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/AssignWorkspaceRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Assign a workspace to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "stageOrder": 0,
+                            "assignWorkspaceRequest": {
+                                "workspaceId": "4de5bcc4-2c88-4efe-b827-4ee7b289b496"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/pipelines/{pipelineId}/stages/{stageOrder}/unassignWorkspace": {
+            "post": {
+                "tags": [
+                    "Pipelines"
+                ],
+                "summary": "Unassigns the workspace from the specified stage in the specified deployment pipeline.",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All\n\n## Limitations\n\nThis operation will fail if there's an active deployment operation.\n\n######\n",
+                "operationId": "Pipelines_UnassignWorkspace",
+                "consumes": [
+
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "pipelineId",
+                        "in": "path",
+                        "description": "The deployment pipeline ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "stageOrder",
+                        "in": "path",
+                        "description": "The deployment pipeline stage order. Development (0), Test (1), Production (2).",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Unassign a workspace from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "stageOrder": 0
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -15819,7 +16356,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to a specified deployment pipeline.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Service principals are not supported.\n- Service principal permissions cannot be deleted.\n\n######\n",
+                "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Pipelines_UpdateUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -15876,6 +16413,19 @@
                         "responses": {
                             "200": {}
                         }
+                    },
+                    "Add service principal to a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "userDetails": {
+                                "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d",
+                                "accessRight": "Admin",
+                                "principalType": "App"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
                     }
                 },
                 "deprecated": false
@@ -15887,7 +16437,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions from a specified deployment pipeline.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Service principals are not supported.\n- Service principal permissions cannot be deleted.\n\n######\n",
+                "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Pipelines_DeleteUserAsAdmin",
                 "consumes": [
                 ],
@@ -15929,6 +16479,15 @@
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Delete service principal access from a deployment pipeline": {
+                        "parameters": {
+                            "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
+                            "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d"
                         },
                         "responses": {
                             "200": {}
@@ -20675,6 +21234,22 @@
                 }
             }
         },
+        "PipelineStages": {
+            "description": "Odata response wrapper for Power BI deployment pipeline stages collection.",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The deployment pipeline stages collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStage"
+                    }
+                }
+            }
+        },
         "PipelineStage": {
             "required": [
                 "order"
@@ -20688,11 +21263,11 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The assigned workspae ID, only applicable when there is an assigned workspace."
+                    "description": "The assigned workspace ID, only applicable when there is an assigned workspace."
                 },
                 "workspaceName": {
                     "type": "string",
-                    "description": "The assigned workspae name, only applicable when there is an assigned workspace and the user has access to the workspace."
+                    "description": "The assigned workspace name, only applicable when there is an assigned workspace and the user has access to the workspace."
                 }
             }
         },
@@ -21146,6 +21721,52 @@
                 "options": {
                     "description": "Options to control the behavior of the deployment of a specific artifact",
                     "$ref": "#/definitions/DeploymentOptions"
+                }
+            }
+        },
+        "CreatePipelineRequest": {
+            "required": [
+                "displayName"
+            ],
+            "description": "Request to create a new deployment pipeline",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name of the newly created deployment pipeline",
+                    "maxLength": 256
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The description of the newly created deployment pipeline",
+                    "maxLength": 1024
+                }
+            }
+        },
+        "UpdatePipelineRequest": {
+            "description": "Request to update an exisiting deployment pipeline. At least one of the following properties must be provided",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "New display name for the deployment pipeline",
+                    "maxLength": 256
+                },
+                "description": {
+                    "type": "string",
+                    "description": "New description for the deployment pipeline",
+                    "maxLength": 1024
+                }
+            }
+        },
+        "AssignWorkspaceRequest": {
+            "required": [
+                "workspaceId"
+            ],
+            "description": "Request to assign a workspace to a deployment pipeline stage",
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The workspace ID."
                 }
             }
         },

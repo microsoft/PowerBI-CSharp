@@ -54,6 +54,58 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Creates a new deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='createPipelineRequest'>
+            /// The create pipeline request
+            /// </param>
+            public static Pipeline CreatePipeline(this IPipelinesOperations operations, CreatePipelineRequest createPipelineRequest)
+            {
+                return operations.CreatePipelineAsync(createPipelineRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates a new deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='createPipelineRequest'>
+            /// The create pipeline request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Pipeline> CreatePipelineAsync(this IPipelinesOperations operations, CreatePipelineRequest createPipelineRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreatePipelineWithHttpMessagesAsync(createPipelineRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Returns the specified deployment pipeline.
             /// </summary>
             /// <remarks>
@@ -103,6 +155,487 @@ namespace Microsoft.PowerBI.Api
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Updates the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='updatePipelineRequest'>
+            /// The update pipeline request
+            /// </param>
+            public static Pipeline UpdatePipeline(this IPipelinesOperations operations, System.Guid pipelineId, UpdatePipelineRequest updatePipelineRequest)
+            {
+                return operations.UpdatePipelineAsync(pipelineId, updatePipelineRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='updatePipelineRequest'>
+            /// The update pipeline request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Pipeline> UpdatePipelineAsync(this IPipelinesOperations operations, System.Guid pipelineId, UpdatePipelineRequest updatePipelineRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.UpdatePipelineWithHttpMessagesAsync(pipelineId, updatePipelineRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Deletes the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This operation will fail if there's an active deployment operation.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            public static void DeletePipeline(this IPipelinesOperations operations, System.Guid pipelineId)
+            {
+                operations.DeletePipelineAsync(pipelineId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This operation will fail if there's an active deployment operation.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeletePipelineAsync(this IPipelinesOperations operations, System.Guid pipelineId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeletePipelineWithHttpMessagesAsync(pipelineId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified deployment
+            /// pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All or Pipeline.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            public static PipelineUsers GetPipelineUsers(this IPipelinesOperations operations, System.Guid pipelineId)
+            {
+                return operations.GetPipelineUsersAsync(pipelineId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified deployment
+            /// pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All or Pipeline.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PipelineUsers> GetPipelineUsersAsync(this IPipelinesOperations operations, System.Guid pipelineId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPipelineUsersWithHttpMessagesAsync(pipelineId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Grants user permissions to the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='userDetails'>
+            /// Details of user access right
+            /// </param>
+            public static void UpdatePipelineUser(this IPipelinesOperations operations, System.Guid pipelineId, PipelineUser userDetails)
+            {
+                operations.UpdatePipelineUserAsync(pipelineId, userDetails).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Grants user permissions to the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='userDetails'>
+            /// Details of user access right
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdatePipelineUserAsync(this IPipelinesOperations operations, System.Guid pipelineId, PipelineUser userDetails, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdatePipelineUserWithHttpMessagesAsync(pipelineId, userDetails, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Removes user permissions from the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='identifier'>
+            /// To delete user pipeline permissions, provide the user's User Principal Name
+            /// (UPN). To delete a service principal or a security group's pipeline
+            /// permissions, provide the Object ID of the service principal or security
+            /// group.
+            /// </param>
+            public static void DeletePipelineUser(this IPipelinesOperations operations, System.Guid pipelineId, string identifier)
+            {
+                operations.DeletePipelineUserAsync(pipelineId, identifier).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Removes user permissions from the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='identifier'>
+            /// To delete user pipeline permissions, provide the user's User Principal Name
+            /// (UPN). To delete a service principal or a security group's pipeline
+            /// permissions, provide the Object ID of the service principal or security
+            /// group.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeletePipelineUserAsync(this IPipelinesOperations operations, System.Guid pipelineId, string identifier, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeletePipelineUserWithHttpMessagesAsync(pipelineId, identifier, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns the stages of the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All or Pipeline.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            public static PipelineStages GetPipelineStages(this IPipelinesOperations operations, System.Guid pipelineId)
+            {
+                return operations.GetPipelineStagesAsync(pipelineId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the stages of the specified deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All or Pipeline.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<PipelineStages> GetPipelineStagesAsync(this IPipelinesOperations operations, System.Guid pipelineId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetPipelineStagesWithHttpMessagesAsync(pipelineId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Assigns the specified workspace to the specified deployment pipeline stage.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - The specified deployment pipeline stage is not already assigned.
+            /// - You must be an admin of the specified workspace.
+            /// - The specified workspace is not assigned to any other deployment pipeline.
+            /// - This operation will fail if there's an active deployment operation.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='stageOrder'>
+            /// The deployment pipeline stage order. Development (0), Test (1), Production
+            /// (2).
+            /// </param>
+            /// <param name='assignWorkspaceRequest'>
+            /// The assign workspace request
+            /// </param>
+            public static void AssignWorkspace(this IPipelinesOperations operations, System.Guid pipelineId, int stageOrder, AssignWorkspaceRequest assignWorkspaceRequest)
+            {
+                operations.AssignWorkspaceAsync(pipelineId, stageOrder, assignWorkspaceRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Assigns the specified workspace to the specified deployment pipeline stage.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - The specified deployment pipeline stage is not already assigned.
+            /// - You must be an admin of the specified workspace.
+            /// - The specified workspace is not assigned to any other deployment pipeline.
+            /// - This operation will fail if there's an active deployment operation.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='stageOrder'>
+            /// The deployment pipeline stage order. Development (0), Test (1), Production
+            /// (2).
+            /// </param>
+            /// <param name='assignWorkspaceRequest'>
+            /// The assign workspace request
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task AssignWorkspaceAsync(this IPipelinesOperations operations, System.Guid pipelineId, int stageOrder, AssignWorkspaceRequest assignWorkspaceRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.AssignWorkspaceWithHttpMessagesAsync(pipelineId, stageOrder, assignWorkspaceRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Unassigns the workspace from the specified stage in the specified
+            /// deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This operation will fail if there's an active deployment operation.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='stageOrder'>
+            /// The deployment pipeline stage order. Development (0), Test (1), Production
+            /// (2).
+            /// </param>
+            public static void UnassignWorkspace(this IPipelinesOperations operations, System.Guid pipelineId, int stageOrder)
+            {
+                operations.UnassignWorkspaceAsync(pipelineId, stageOrder).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Unassigns the workspace from the specified stage in the specified
+            /// deployment pipeline.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Pipeline.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This operation will fail if there's an active deployment operation.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='pipelineId'>
+            /// The deployment pipeline ID
+            /// </param>
+            /// <param name='stageOrder'>
+            /// The deployment pipeline stage order. Development (0), Test (1), Production
+            /// (2).
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UnassignWorkspaceAsync(this IPipelinesOperations operations, System.Guid pipelineId, int stageOrder, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UnassignWorkspaceWithHttpMessagesAsync(pipelineId, stageOrder, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -576,9 +1109,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Maximum 200 requests per hour.
-            /// - Service principals are not supported.
-            /// - Service principal permissions cannot be deleted.
+            /// Maximum 200 requests per hour.
             ///
             /// ######
             ///
@@ -612,9 +1143,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Maximum 200 requests per hour.
-            /// - Service principals are not supported.
-            /// - Service principal permissions cannot be deleted.
+            /// Maximum 200 requests per hour.
             ///
             /// ######
             ///
@@ -651,9 +1180,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Maximum 200 requests per hour.
-            /// - Service principals are not supported.
-            /// - Service principal permissions cannot be deleted.
+            /// Maximum 200 requests per hour.
             ///
             /// ######
             ///
@@ -689,9 +1216,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Maximum 200 requests per hour.
-            /// - Service principals are not supported.
-            /// - Service principal permissions cannot be deleted.
+            /// Maximum 200 requests per hour.
             ///
             /// ######
             ///
