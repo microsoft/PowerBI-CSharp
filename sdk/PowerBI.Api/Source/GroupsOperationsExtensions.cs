@@ -783,6 +783,84 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Returns a workspace for the organization.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: users, reports, dashboards, datasets, dataflows,
+            /// workbooks
+            /// </param>
+            public static Group GetGroupAsAdmin(this IGroupsOperations operations, string expand = default(string))
+            {
+                return operations.GetGroupAsAdminAsync(expand).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a workspace for the organization.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='expand'>
+            /// Expands related entities inline, receives a comma-separated list of data
+            /// types. Supported: users, reports, dashboards, datasets, dataflows,
+            /// workbooks
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Group> GetGroupAsAdminAsync(this IGroupsOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetGroupAsAdminWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Updates the properties of the specified workspace.
             /// </summary>
             /// <remarks>
@@ -871,7 +949,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// Delegated permissions are supported.
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
             ///
             /// ## Required scope
             ///
@@ -903,7 +984,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// Delegated permissions are supported.
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
             ///
             /// ## Required scope
             ///
@@ -1170,6 +1254,82 @@ namespace Microsoft.PowerBI.Api
             public static async Task RestoreDeletedGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, GroupRestoreRequest groupRestoreRequest, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.RestoreDeletedGroupAsAdminWithHttpMessagesAsync(groupId, groupRestoreRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of datasets that have not been used within 30 days for the
+            /// specified workspace (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            public static UnusedArtifactsResponse GetUnusedArtifactsAsAdmin(this IGroupsOperations operations, System.Guid groupId)
+            {
+                return operations.GetUnusedArtifactsAsAdminAsync(groupId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of datasets that have not been used within 30 days for the
+            /// specified workspace (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<UnusedArtifactsResponse> GetUnusedArtifactsAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUnusedArtifactsAsAdminWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

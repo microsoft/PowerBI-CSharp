@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="dashboardUserAccessRight">Access rights user has for
         /// the dashboard (Permission level). Possible values include: 'None',
-        /// 'Read', 'ReadWrite', 'ReadReshare', 'Owner'</param>
+        /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadCopy', 'Owner'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">Identifier of the principal</param>
@@ -54,7 +54,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets access rights user has for the dashboard (Permission
         /// level). Possible values include: 'None', 'Read', 'ReadWrite',
-        /// 'ReadReshare', 'Owner'
+        /// 'ReadReshare', 'ReadCopy', 'Owner'
         /// </summary>
         [JsonProperty(PropertyName = "dashboardUserAccessRight")]
         public DashboardUserAccessRight DashboardUserAccessRight { get; set; }

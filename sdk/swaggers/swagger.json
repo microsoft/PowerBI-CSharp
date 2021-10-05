@@ -12966,6 +12966,62 @@
             }
         },
         "/v1.0/myorg/admin/groups/{groupId}": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a workspace for the organization.",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "Groups_GetGroupAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Group"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get workspaces with users expanded (only applicable for workspaces in the new workspace experience)": {
+                        "parameters": {
+                            "$expand": "users"
+                        },
+                        "responses": {
+                            "200": {
+                                        "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
+                                        "isReadOnly": false,
+                                        "isOnDedicatedCapacity": false,
+                                        "name": "Sample Group 1",
+                                        "description": "Sample group",
+                                        "type": "Workspace",
+                                        "state": "Active",
+                                        "users": [
+                                            {
+                                                "emailAddress": "john@contoso.com",
+                                                "groupUserAccessRight": "Admin"
+                                            }
+                                        ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
             "patch": {
                 "tags": [
                     "Admin"
@@ -13026,7 +13082,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace. This is a preview API call.",
-                "description": "\n## Permissions\n\nDelegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Groups_GetGroupUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -13727,7 +13783,60 @@
                 "deprecated": false
             }
         },
-
+        "/v1.0/myorg/admin/groups/{groupId}/unused": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of datasets that have not been used within 30 days for the specified workspace (Preview).",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "Groups_GetUnusedArtifactsAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/UnusedArtifactsResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "unusedArtifactEntities": [
+                                    {
+                                        "artifactId": "a987f160-96aa-43cf-b9db-a4ca0fc6b7c4",
+                                        "displayName": "Sample",
+                                        "artifactType": "Dataset",
+                                        "artifactSizeInMB": 9,
+                                        "createdDateTime": "2020-09-01T22:40:52.197Z",
+                                        "lastAccessedDateTime": "2021-07-01T22:40:52.953Z"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/admin/reports": {
             "get": {
                 "tags": [
@@ -15527,7 +15636,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of users that have access to the specified app. This is a preview API call.",
-                "description": "\n## Permissions\n\nDelegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Apps_GetAppUsersAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15581,7 +15690,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of artifacts that the given user have access to (Preview).",
-                "description": "\n## Permissions\n\nDelegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n\n######\n",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Users_GetUserArtifactAccessAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -18835,6 +18944,7 @@
                         "ReadWriteExplore",
                         "ReadWriteReshareExplore",
                         "ReadWriteExploreCopy",
+                        "ReadReshareCopy",
                         "All"
 
                     ],
@@ -18893,6 +19003,10 @@
                             {
                                 "value": "ReadWriteExploreCopy",
                                 "description": "Grants Read, Write, Explore and Copy access to content in app"
+                            },
+                            {
+                                "value": "ReadReshareCopy",
+                                "description": "Grants Read, Reshare, and Copy access to content in app"
                             },
                             {
                                 "value": "All",
@@ -18990,6 +19104,7 @@
                         "Read",
                         "ReadWrite",
                         "ReadReshare",
+                        "ReadCopy",
                         "Owner"
                     ],
                     "x-ms-enum": {
@@ -19011,6 +19126,10 @@
                             {
                                 "value": "ReadReshare",
                                 "description": "Grants Read and Reshare access to content in report"
+                            },
+                            {
+                                "value": "ReadCopy",
+                                "description": "Grants Read and Copy access to content in report"
                             },
                             {
                                 "value": "Owner",
@@ -19054,6 +19173,7 @@
                         "Read",
                         "ReadWrite",
                         "ReadReshare",
+                        "ReadCopy",
                         "Owner"
                     ],
                     "x-ms-enum": {
@@ -19075,6 +19195,10 @@
                             {
                                 "value": "ReadReshare",
                                 "description": "Grants Read and Reshare access to content in dashboard"
+                            },
+                            {
+                                "value": "ReadCopy",
+                                "description": "Grants Read and Copy access to content in dashboard"
                             },
                             {
                                 "value": "Owner",
@@ -20642,6 +20766,54 @@
                 "continuationToken": {
                     "type": "string",
                     "description": "Token to get the next chunk of the result set"
+                }
+            }
+        },
+        "UnusedArtifactsResponse": {
+            "description": "Odata response wrapper for unused artifact entities",
+            "properties": {
+                "unusedArtifactEntities": {
+                    "type": "array",
+                    "description": "The unused artifact entities",
+                    "items": {
+                        "$ref": "#/definitions/UnusedArtifactEntity"
+                    }
+                }
+            }
+        },
+        "UnusedArtifactEntity": {
+            "required": [
+                "artifactId",
+                "displayName",
+                "artifactType"
+            ],
+            "description": "Unused artifact entity",
+            "properties": {
+                "artifactId": {
+                    "type": "string",
+                    "description": "Artifact ID"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the artifact"
+                },
+                "artifactType": {
+                    "type": "string",
+                    "description": "Type of the artifact"
+                },
+                "artifactSizeInMB": {
+                    "type": "integer",
+                    "description": "Artifact size in MB if applicable"
+                },
+                "createdDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Artifact created time if applicable"
+                },
+                "lastAccessedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Artifact last accessed time if applicable"
                 }
             }
         },

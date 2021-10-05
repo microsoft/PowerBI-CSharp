@@ -44,6 +44,11 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly ReportUserAccessRight ReadReshare = "ReadReshare";
 
         /// <summary>
+        /// Grants Read and Copy access to content in report
+        /// </summary>
+        public static readonly ReportUserAccessRight ReadCopy = "ReadCopy";
+
+        /// <summary>
         /// Grants Read, Write and Reshare access to content in report
         /// </summary>
         public static readonly ReportUserAccessRight Owner = "Owner";

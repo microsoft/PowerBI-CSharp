@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'ReadReshare', 'ReadWriteReshare', 'ReadExplore', 'ReadCopy',
         /// 'ReadExploreCopy', 'ReadReshareExploreCopy', 'ReadReshareExplore',
         /// 'ReadWriteExplore', 'ReadWriteReshareExplore',
-        /// 'ReadWriteExploreCopy', 'All'</param>
+        /// 'ReadWriteExploreCopy', 'ReadReshareCopy', 'All'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">Identifier of the principal</param>
@@ -59,7 +59,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// include: 'None', 'Read', 'ReadWrite', 'ReadReshare',
         /// 'ReadWriteReshare', 'ReadExplore', 'ReadCopy', 'ReadExploreCopy',
         /// 'ReadReshareExploreCopy', 'ReadReshareExplore', 'ReadWriteExplore',
-        /// 'ReadWriteReshareExplore', 'ReadWriteExploreCopy', 'All'
+        /// 'ReadWriteReshareExplore', 'ReadWriteExploreCopy',
+        /// 'ReadReshareCopy', 'All'
         /// </summary>
         [JsonProperty(PropertyName = "appUserAccessRight")]
         public AppUserAccessRight AppUserAccessRight { get; set; }

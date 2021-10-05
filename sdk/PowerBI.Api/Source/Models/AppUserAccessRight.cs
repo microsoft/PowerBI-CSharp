@@ -89,6 +89,11 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly AppUserAccessRight ReadWriteExploreCopy = "ReadWriteExploreCopy";
 
         /// <summary>
+        /// Grants Read, Reshare, and Copy access to content in app
+        /// </summary>
+        public static readonly AppUserAccessRight ReadReshareCopy = "ReadReshareCopy";
+
+        /// <summary>
         /// Grants Read, Write, Explore, Reshare and Copy access to content in
         /// app
         /// </summary>

@@ -77,7 +77,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// Delegated permissions are supported.
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
             ///
             /// ## Required scope
             ///
@@ -85,7 +88,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Maximum 200 requests per hour.
+            /// Maximum 200 requests per hour.
             ///
             /// ######
             ///
@@ -111,7 +114,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// Delegated permissions are supported.
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
             ///
             /// ## Required scope
             ///
@@ -119,7 +125,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - Maximum 200 requests per hour.
+            /// Maximum 200 requests per hour.
             ///
             /// ######
             ///
