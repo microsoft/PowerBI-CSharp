@@ -50,9 +50,13 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of deployment pipelines the user has access to.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Pipeline.Read.All or Pipeline.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -340,9 +344,13 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified deployment pipeline.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -1623,13 +1631,19 @@ namespace Microsoft.PowerBI.Api
         /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must be at least a
-        /// contributor on the workspace assigned to the specified stage. For more
-        /// information, see
+        ///
+        /// ## Permissions
+        ///
+        /// To perform this operation, the user must be at least a contributor on the
+        /// workspace assigned to the specified stage. For more information, see
         /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Pipeline.ReadWrite.All or
-        /// Pipeline.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -1770,9 +1784,14 @@ namespace Microsoft.PowerBI.Api
         /// specified deployment pipeline.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -1908,9 +1927,14 @@ namespace Microsoft.PowerBI.Api
         /// the status of the deploy operation.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -2052,13 +2076,23 @@ namespace Microsoft.PowerBI.Api
         /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: To perform this operation, the user must be at least a
-        /// member on both workpsaces. For more information, see
+        ///
+        /// ## Permissions
+        ///
+        /// To perform this operation, the user must be at least a member on both
+        /// workpsaces. For more information, see
         /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Pipeline.Deploy &lt;br/&gt;To set
-        /// the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;h4&gt;Limitations&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;You
-        /// can deploy up to 300 items per request&lt;/li&gt;&lt;/ul&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.Deploy
+        ///
+        /// ## Limitations
+        ///
+        /// You can deploy up to 300 items per request
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -2217,13 +2251,23 @@ namespace Microsoft.PowerBI.Api
         /// stage.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must be at least a member on
-        /// both workpsaces. For more information, see
+        ///
+        /// ## Permissions
+        ///
+        /// To perform this operation, the user must be at least a member on both
+        /// workpsaces. For more information, see
         /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Pipeline.Deploy &lt;br/&gt;To set
-        /// the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;h4&gt;Limitations&lt;/h4&gt;&lt;ul&gt;&lt;li&gt;You
-        /// can deploy up to 300 items per request&lt;/li&gt;&lt;/ul&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Pipeline.Deploy
+        ///
+        /// ## Limitations
+        ///
+        /// You can deploy up to 300 items per request
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID

@@ -10693,7 +10693,7 @@
                     "Pipelines"
                 ],
                 "summary": "Returns a list of deployment pipelines the user has access to.",
-                "description": "<br/>**Required scope**: Pipeline.Read.All or Pipeline.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
                 "operationId": "Pipelines_GetPipelines",
                 "consumes": [
 
@@ -10790,7 +10790,7 @@
                     "Pipelines"
                 ],
                 "summary": "Returns the specified deployment pipeline.",
-                "description": "<br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
                 "operationId": "Pipelines_GetPipeline",
                 "consumes": [
 
@@ -11362,7 +11362,7 @@
                     "Pipelines"
                 ],
                 "summary": "Returns the supported items from the workspace assigned to the specified deployment pipeline stage. To learn more about items that are not supported in deployment pipelines, see [unsupported items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)",
-                "description": "**Note**: To perform this operation, the user must be at least a contributor on the workspace assigned to the specified stage. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Permissions\n\nTo perform this operation, the user must be at least a contributor on the workspace assigned to the specified stage. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) \n\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
                 "operationId": "Pipelines_GetPipelineStageArtifacts",
                 "consumes": [
 
@@ -11450,7 +11450,7 @@
                     "Pipelines"
                 ],
                 "summary": "Returns a list of up to 20 last deploy operations performed on the specified deployment pipeline.",
-                "description": "<br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
                 "operationId": "Pipelines_GetPipelineOperations",
                 "consumes": [
 
@@ -11508,7 +11508,7 @@
                     "Pipelines"
                 ],
                 "summary": "Returns the details of the specified deploy operation performed on the specified deployment pipeline including the `executionPlan`. Use to track the status of the deploy operation.",
-                "description": "<br/>**Required scope**: Pipeline.ReadWrite.All or Pipeline.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n\n## Required scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n\n######\n",
                 "operationId": "Pipelines_GetPipelineOperation",
                 "consumes": [
 
@@ -11613,7 +11613,7 @@
                     "Pipelines"
                 ],
                 "summary": "Deploy all supported items from the specified deployment pipeline source stage. To learn more about items that are not supported in deployment pipelines, see [unsupported items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)",
-                "description": "<br/>**Note**: To perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.Deploy <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><h4>Limitations</h4><ul><li>You can deploy up to 300 items per request</li></ul>",
+                "description": "\n## Permissions\n\nTo perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) \n\n## Required scope\n\nPipeline.Deploy\n\n## Limitations\n\nYou can deploy up to 300 items per request\n\n######\n",
                 "operationId": "Pipelines_DeployAll",
                 "consumes": [
                     "application/json"
@@ -11688,7 +11688,7 @@
                     "Pipelines"
                 ],
                 "summary": "Deploy the specified items from the specified deployment pipeline source stage.",
-                "description": "**Note**: To perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) <br/><br/>**Required scope**: Pipeline.Deploy <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><h4>Limitations</h4><ul><li>You can deploy up to 300 items per request</li></ul>",
+                "description": "\n## Permissions\n\nTo perform this operation, the user must be at least a member on both workpsaces. For more information, see [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions) \n\n## Required scope\n\nPipeline.Deploy\n\n## Limitations\n\nYou can deploy up to 300 items per request\n\n######\n",
                 "operationId": "Pipelines_SelectiveDeploy",
                 "consumes": [
                     "application/json"
