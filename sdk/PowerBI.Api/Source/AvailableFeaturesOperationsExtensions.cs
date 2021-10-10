@@ -16,10 +16,14 @@ namespace Microsoft.PowerBI.Api
     public static partial class AvailableFeaturesOperationsExtensions
     {
             /// <summary>
-            /// Returns a list of available features for the user
+            /// Returns a list of available features for the user.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: None
+            ///
+            /// This API doesn't require any scopes.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -30,10 +34,14 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of available features for the user
+            /// Returns a list of available features for the user.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: None
+            ///
+            /// This API doesn't require any scopes.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -50,10 +58,14 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified available feature for user by name.
+            /// Returns the specified available feature for the user by name.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: None
+            ///
+            /// This API doesn't require any scopes.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -67,10 +79,14 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified available feature for user by name.
+            /// Returns the specified available feature for the user by name.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: None
+            ///
+            /// This API doesn't require any scopes.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

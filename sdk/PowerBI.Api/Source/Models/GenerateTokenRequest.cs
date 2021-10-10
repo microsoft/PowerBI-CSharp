@@ -30,19 +30,27 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="accessLevel">Required access level for EmbedToken
         /// generation. Possible values include: 'View', 'Edit',
         /// 'Create'</param>
-        /// <param name="datasetId">Dataset id for report creation. Only
-        /// applies when generating EmbedToken for report creation.</param>
+        /// <param name="datasetId">The dataset ID used for report creation.
+        /// Only applies when generating an EmbedToken for report
+        /// creation.</param>
         /// <param name="allowSaveAs">Indicates an embedded report can be saved
         /// as a new report. Default value is 'false'. Only applies when
         /// generating EmbedToken for report embedding.</param>
         /// <param name="identities">List of identities to use for RLS
         /// rules.</param>
-        public GenerateTokenRequest(TokenAccessLevel? accessLevel = default(TokenAccessLevel?), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
+        /// <param name="lifetimeInMinutes">The maximum lifetime of the token
+        /// in minutes, starting from the time it was generated. Can be used to
+        /// shorten the token’s expiration time, but not to extend it. The
+        /// value must be a positive integer. Zero (0) is equivalent to null
+        /// and will be ignored, resulting in the default expiration
+        /// time.</param>
+        public GenerateTokenRequest(TokenAccessLevel? accessLevel = default(TokenAccessLevel?), string datasetId = default(string), bool? allowSaveAs = default(bool?), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), int? lifetimeInMinutes = default(int?))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
             AllowSaveAs = allowSaveAs;
             Identities = identities;
+            LifetimeInMinutes = lifetimeInMinutes;
             CustomInit();
         }
 
@@ -59,8 +67,8 @@ namespace Microsoft.PowerBI.Api.Models
         public TokenAccessLevel? AccessLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets dataset id for report creation. Only applies when
-        /// generating EmbedToken for report creation.
+        /// Gets or sets the dataset ID used for report creation. Only applies
+        /// when generating an EmbedToken for report creation.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
@@ -78,6 +86,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the maximum lifetime of the token in minutes, starting
+        /// from the time it was generated. Can be used to shorten the token’s
+        /// expiration time, but not to extend it. The value must be a positive
+        /// integer. Zero (0) is equivalent to null and will be ignored,
+        /// resulting in the default expiration time.
+        /// </summary>
+        [JsonProperty(PropertyName = "lifetimeInMinutes")]
+        public int? LifetimeInMinutes { get; set; }
 
     }
 }

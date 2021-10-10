@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Capacity class.
         /// </summary>
-        /// <param name="id">The capacity id</param>
+        /// <param name="id">The capacity ID</param>
         /// <param name="state">The capacity state. Possible values include:
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
         /// 'Suspended', 'PreSuspended', 'Deleting', 'Deleted', 'Invalid',
@@ -40,8 +40,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="sku">The capacity SKU.</param>
         /// <param name="region">The Azure region where the capacity is
         /// provisioned</param>
-        /// <param name="tenantKeyId">The id of the encryption key (Only
-        /// applicable for admin route)</param>
+        /// <param name="tenantKeyId">The ID of an encryption key (only
+        /// applicable to the admin route)</param>
         /// <param name="tenantKey">Encryption key information (Only applicable
         /// for admin route)</param>
         public Capacity(System.Guid id, CapacityState state, CapacityUserAccessRight capacityUserAccessRight, string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string region = default(string), System.Guid? tenantKeyId = default(System.Guid?), TenantKey tenantKey = default(TenantKey))
@@ -64,7 +64,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the capacity id
+        /// Gets or sets the capacity ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -110,7 +110,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Region { get; set; }
 
         /// <summary>
-        /// Gets or sets the id of the encryption key (Only applicable for
+        /// Gets or sets the ID of an encryption key (only applicable to the
         /// admin route)
         /// </summary>
         [JsonProperty(PropertyName = "tenantKeyId")]

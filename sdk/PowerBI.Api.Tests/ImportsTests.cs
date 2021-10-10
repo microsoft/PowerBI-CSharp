@@ -108,6 +108,76 @@ namespace PowerBI.Api.Tests
         }
 
         [TestMethod]
+        public async Task PostImportFileWithNameAndNotOverrideReport()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+            var overrideReportLabel = false;
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, overrideReportLabel: overrideReportLabel);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&overrideReportLabel={overrideReportLabel}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task PostImportFileWithNameAndNotOverrideModel()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+            var overrideModelLabel = false;
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, overrideModelLabel: overrideModelLabel);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&overrideModelLabel={overrideModelLabel}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task PostImportFileWithNameAndNotOverrideLabels()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+            var overrideReportLabel = false;
+            var overrideModelLabel = false;
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, overrideReportLabel: overrideReportLabel, overrideModelLabel: overrideModelLabel);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&overrideReportLabel={overrideReportLabel}&overrideModelLabel={overrideModelLabel}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task PostImportFileWithNameAndOverrideLabels()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+            var overrideReportLabel = true;
+            var overrideModelLabel = true;
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, overrideReportLabel: overrideReportLabel, overrideModelLabel: overrideModelLabel);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&overrideReportLabel={overrideReportLabel}&overrideModelLabel={overrideModelLabel}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
         public async Task PostImportWithFileWithNameAndConflictAndSkipReport()
         {
             var datasetDisplayName = "TestDataset";

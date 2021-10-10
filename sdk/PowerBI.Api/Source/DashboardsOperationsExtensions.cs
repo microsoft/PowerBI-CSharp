@@ -16,12 +16,16 @@ namespace Microsoft.PowerBI.Api
     public static partial class DashboardsOperationsExtensions
     {
             /// <summary>
-            /// Returns a list of dashboards from **"My Workspace"**.
+            /// Returns a list of dashboards from **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -32,12 +36,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of dashboards from **"My Workspace"**.
+            /// Returns a list of dashboards from **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -54,12 +62,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new empty dashboard on **"My Workspace"**.
+            /// Creates a new empty dashboard in **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Content.Create
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -73,12 +85,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new empty dashboard on **"My Workspace"**.
+            /// Creates a new empty dashboard in **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Content.Create
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -98,18 +114,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified dashboard from **"My Workspace"**.
+            /// Returns the specified dashboard from **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Dashboard GetDashboard(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -117,18 +137,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified dashboard from **"My Workspace"**.
+            /// Returns the specified dashboard from **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -142,21 +166,26 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of tiles within the specified dashboard from **"My
-            /// Workspace"**.
+            /// Returns a list of tiles within the specified dashboard from **My
+            /// Workspace**.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTiles(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -164,21 +193,26 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of tiles within the specified dashboard from **"My
-            /// Workspace"**.
+            /// Returns a list of tiles within the specified dashboard from **My
+            /// Workspace**.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -192,24 +226,29 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified tile within the specified dashboard from **"My
-            /// Workspace"**.
+            /// Returns the specified tile within the specified dashboard from **My
+            /// Workspace**.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             public static Tile GetTile(this IDashboardsOperations operations, System.Guid dashboardId, System.Guid tileId)
             {
@@ -217,24 +256,29 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified tile within the specified dashboard from **"My
-            /// Workspace"**.
+            /// Returns the specified tile within the specified dashboard from **My
+            /// Workspace**.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -248,29 +292,36 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Clones the specified tile from **"My Workspace"**.
+            /// Clones the specified tile from **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are not specified, the
-            /// following can occur:&lt;li&gt;When a tile clone is performed within the
-            /// same workspace, the report and dataset links will be cloned from the source
-            /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
-            /// report and dataset links will be rested, and the tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
-            /// workspace and bound to another report and dataset, it is cloned as is with
-            /// its underlying query containing the original report
-            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When a tile is cloned to another workspace and bound to another report and
+            /// dataset, it's cloned as is with its underlying query containing the
+            /// original report filters.
+            ///
+            /// If the target report ID and target dataset are missing, the following can
+            /// occur:
+            /// - If you're cloning a tile within the same workspace, the report and
+            /// dataset links will be cloned from the source tile.
+            /// - If you're cloning a tile within a different workspace, report and dataset
+            /// links will be removed, and the tile will be broken.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -281,29 +332,36 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Clones the specified tile from **"My Workspace"**.
+            /// Clones the specified tile from **My Workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are not specified, the
-            /// following can occur:&lt;li&gt;When a tile clone is performed within the
-            /// same workspace, the report and dataset links will be cloned from the source
-            /// tile.&lt;/li&gt;&lt;li&gt;When cloning a tile within a different workspace,
-            /// report and dataset links will be rested, and the tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
-            /// workspace and bound to another report and dataset, it is cloned as is with
-            /// its underlying query containing the original report
-            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When a tile is cloned to another workspace and bound to another report and
+            /// dataset, it's cloned as is with its underlying query containing the
+            /// original report filters.
+            ///
+            /// If the target report ID and target dataset are missing, the following can
+            /// occur:
+            /// - If you're cloning a tile within the same workspace, the report and
+            /// dataset links will be cloned from the source tile.
+            /// - If you're cloning a tile within a different workspace, report and dataset
+            /// links will be removed, and the tile will be broken.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -323,15 +381,19 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Dashboards GetDashboardsInGroup(this IDashboardsOperations operations, System.Guid groupId)
             {
@@ -342,15 +404,19 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -364,18 +430,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new empty dashboard on the specified workspace.
+            /// Creates a new empty dashboard in the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Content.Create
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Add dashboard parameters
@@ -386,18 +456,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new empty dashboard on the specified workspace.
+            /// Creates a new empty dashboard in the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Content.Create &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Content.Create
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='requestParameters'>
             /// Add dashboard parameters
@@ -417,18 +491,22 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified dashboard from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Dashboard GetDashboardInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId)
             {
@@ -439,18 +517,22 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified dashboard from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -468,20 +550,25 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTilesInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId)
             {
@@ -493,20 +580,25 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -524,23 +616,28 @@ namespace Microsoft.PowerBI.Api
             /// specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             public static Tile GetTileInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId, System.Guid tileId)
             {
@@ -552,23 +649,28 @@ namespace Microsoft.PowerBI.Api
             /// specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note**: All tile types are supported except for "model tiles", which
-            /// include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -585,29 +687,36 @@ namespace Microsoft.PowerBI.Api
             /// Clones the specified tile from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are missing, the
-            /// following can occur:&lt;li&gt;When a tile clone is performed within the
-            /// same workspace, the report and dataset links will be cloned from the source
-            /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
-            /// workspace, report and dataset links will be rested. The tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
-            /// workspace and bound to another report and dataset, it is cloned as is with
-            /// its underlying query containing the original report
-            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When a tile is cloned to another workspace and bound to another report and
+            /// dataset, it's cloned as is with its underlying query containing the
+            /// original report filters.
+            ///
+            /// If the target report ID and target dataset are missing, the following can
+            /// occur:
+            /// - If you're cloning a tile within the same workspace, the report and
+            /// dataset links will be cloned from the source tile.
+            /// - If you're cloning a tile within a different workspace, report and dataset
+            /// links will be removed, and the tile will be broken.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -621,29 +730,36 @@ namespace Microsoft.PowerBI.Api
             /// Clones the specified tile from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;If target report id and target dataset are missing, the
-            /// following can occur:&lt;li&gt;When a tile clone is performed within the
-            /// same workspace, the report and dataset links will be cloned from the source
-            /// tile.&lt;/li&gt;&lt;li&gt;If you are cloning a tile within a different
-            /// workspace, report and dataset links will be rested. The tile will be
-            /// broken.&lt;/li&gt;&lt;br/&gt;**Note:** When a tile is cloned to another
-            /// workspace and bound to another report and dataset, it is cloned as is with
-            /// its underlying query containing the original report
-            /// filters.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When a tile is cloned to another workspace and bound to another report and
+            /// dataset, it's cloned as is with its underlying query containing the
+            /// original report filters.
+            ///
+            /// If the target report ID and target dataset are missing, the following can
+            /// occur:
+            /// - If you're cloning a tile within the same workspace, the report and
+            /// dataset links will be cloned from the source tile.
+            /// - If you're cloning a tile within a different workspace, report and dataset
+            /// links will be removed, and the tile will be broken.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='requestParameters'>
             /// Clone tile parameters
@@ -685,10 +801,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -724,10 +840,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='requestParameters'>
             /// Generate token parameters
@@ -747,19 +863,30 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -779,19 +906,30 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -817,13 +955,24 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards for the organization.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -850,13 +999,24 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards for the organization.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -889,19 +1049,30 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of tiles within the specified dashboard.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTilesAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
             {
@@ -912,19 +1083,30 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of tiles within the specified dashboard.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -932,6 +1114,82 @@ namespace Microsoft.PowerBI.Api
             public static async Task<Tiles> GetTilesAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTilesAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified dashboard. This
+            /// is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static DashboardUsers GetDashboardUsersAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
+            {
+                return operations.GetDashboardUsersAsAdminAsync(dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified dashboard. This
+            /// is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DashboardUsers> GetDashboardUsersAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardUsersAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

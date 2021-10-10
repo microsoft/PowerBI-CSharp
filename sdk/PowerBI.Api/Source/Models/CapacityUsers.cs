@@ -12,23 +12,24 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for modified workspaces list
+    /// Odata response wrapper for a Power BI user access right for capacity
+    /// List
     /// </summary>
-    public partial class ModifiedWorkspaces
+    public partial class CapacityUsers
     {
         /// <summary>
-        /// Initializes a new instance of the ModifiedWorkspaces class.
+        /// Initializes a new instance of the CapacityUsers class.
         /// </summary>
-        public ModifiedWorkspaces()
+        public CapacityUsers()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ModifiedWorkspaces class.
+        /// Initializes a new instance of the CapacityUsers class.
         /// </summary>
-        /// <param name="value">The modified workspaces list</param>
-        public ModifiedWorkspaces(string odatacontext = default(string), IList<ModifiedWorkspace> value = default(IList<ModifiedWorkspace>))
+        /// <param name="value">The user access right for capacity List</param>
+        public CapacityUsers(string odatacontext = default(string), IList<CapacityUser> value = default(IList<CapacityUser>))
         {
             Odatacontext = odatacontext;
             Value = value;
@@ -46,10 +47,10 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the modified workspaces list
+        /// Gets or sets the user access right for capacity List
         /// </summary>
         [JsonProperty(PropertyName = "value")]
-        public IList<ModifiedWorkspace> Value { get; set; }
+        public IList<CapacityUser> Value { get; set; }
 
     }
 }

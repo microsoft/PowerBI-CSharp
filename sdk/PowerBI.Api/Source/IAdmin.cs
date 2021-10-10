@@ -23,13 +23,22 @@ namespace Microsoft.PowerBI.Api
         /// capacity.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;This API allows 600 requests per hour at
-        /// maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 600 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='tenantKeyCreationRequest'>
         /// Tenant key information
@@ -54,14 +63,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns the encryption keys for the tenant.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API or authenticate via service principal.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -81,16 +96,25 @@ namespace Microsoft.PowerBI.Api
         /// capacity.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;This API allows 600 requests per hour at
-        /// maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 600 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='tenantKeyId'>
-        /// Tenant key id
+        /// The tenant key ID
         /// </param>
         /// <param name='tenantKeyRotationRequest'>
         /// Tenant key information
@@ -115,14 +139,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of capacities for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API or authenticate via service principal.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline
@@ -141,19 +171,25 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Capacities>> GetCapacitiesAsAdminWithHttpMessagesAsync(string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Changes the specific capacity information. Currently, only supports
-        /// changing the capacity encryption key
+        /// Changes specific capacity information. Currently, this API call
+        /// only supports changing the capacity's encryption key.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API. &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All
-        /// or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity Id
+        /// The capacity ID
         /// </param>
         /// <param name='capacityPatchRequest'>
         /// Patch capacity information
@@ -173,17 +209,23 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> PatchCapacityAsAdminWithHttpMessagesAsync(System.Guid capacityId, CapacityPatchRequest capacityPatchRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of refreshables for the organization within a
-        /// capacity
+        /// capacity.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API or authenticate via service principal.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -213,21 +255,27 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Refreshables>> GetRefreshablesWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of refreshables for the specified capacity the user
-        /// has access to
+        /// Returns a list of refreshables for the specified capacity that the
+        /// user has access to.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API or authenticate via service principal.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -257,24 +305,30 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Refreshables>> GetRefreshablesForCapacityWithHttpMessagesAsync(System.Guid capacityId, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified refreshable for the specified capacity the
-        /// user has access to
+        /// Returns the specified refreshable for the specified capacity that
+        /// the user has access to.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office
-        /// 365 Global Administrator or Power BI Service Administrator) to call
-        /// this API or authenticate via service principal.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='capacityId'>
-        /// The capacity id
+        /// The capacity ID
         /// </param>
         /// <param name='refreshableId'>
-        /// The refreshable id
+        /// The refreshable ID
         /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
@@ -300,16 +354,29 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of audit activity events for a tenant.
         /// </summary>
         /// <remarks>
-        /// **Note:** Activity logging isn’t supported for Microsoft Cloud
-        /// Deutschland. The user must have administrator rights (such as
-        /// Office 365 Global Administrator or Power BI Service Administrator)
-        /// to call this API or authenticate via service principal.
-        /// &lt;br/&gt;This API allows 200 requests per hour at maximum.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-        /// Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions are
-        /// supported. &lt;br/&gt;To call this API, provide either a
-        /// continuation token or both a start and end date time. StartDateTime
-        /// and EndDateTime must be in the same UTC day.
+        ///
+        /// Provide either a continuation token or both a start and end date
+        /// time. `StartDateTime` and `EndDateTime` must be in the same UTC day
+        /// and should be wrapped in single quotes.
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Maximum 200 requests per hour.
+        /// - Activity logging isn’t supported for Microsoft Cloud Deutschland.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='startDateTime'>
         /// Start date and time of the window for audit event results. Must be

@@ -70,5 +70,85 @@ namespace Microsoft.PowerBI.Api
                 (await operations.RefreshUserPermissionsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
+            /// <summary>
+            /// Returns a list of artifacts that the given user have access to (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='userGraphId'>
+            /// The graph ID of user
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            public static ArtifactAccessResponse GetUserArtifactAccessAsAdmin(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string))
+            {
+                return operations.GetUserArtifactAccessAsAdminAsync(userGraphId, continuationToken).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of artifacts that the given user have access to (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='userGraphId'>
+            /// The graph ID of user
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ArtifactAccessResponse> GetUserArtifactAccessAsAdminAsync(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUserArtifactAccessAsAdminWithHttpMessagesAsync(userGraphId, continuationToken, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

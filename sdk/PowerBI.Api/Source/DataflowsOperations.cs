@@ -55,10 +55,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -184,10 +184,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -304,10 +304,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='dataflowUpdateRequest'>
         /// Patch dataflow properties, capabilities and settings
@@ -446,10 +446,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='refreshRequest'>
         /// </param>
@@ -592,10 +592,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -733,7 +733,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -869,10 +869,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1010,10 +1010,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='refreshScheduleRequest'>
         /// The dataflow refresh schedule to create or update
@@ -1150,10 +1150,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1291,10 +1291,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='transactionId'>
-        /// The transaction id
+        /// The transaction ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1327,7 +1327,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows//transactions/{transactionId}/cancel").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/dataflows/transactions/{transactionId}/cancel").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{transactionId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(transactionId, Client.SerializationSettings).Trim('"')));
             // Create HTTP transport objects
@@ -1427,19 +1427,30 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of upstream dataflows for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1572,16 +1583,27 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of dataflows from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -1741,13 +1763,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of dataflows for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-        /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -1902,19 +1931,26 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Exports the specified dataflow definition to a .json file.
+        /// Exports the definition for the specified dataflow to a JSON file.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-        /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2032,16 +2068,23 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of datasources for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated
-        /// permissions are supported. &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='dataflowId'>
-        /// The dataflow id
+        /// The dataflow ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2150,6 +2193,158 @@ namespace Microsoft.PowerBI.Api
                 try
                 {
                     _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Datasources>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of users that have access to the specified dataflow. This is
+        /// a preview API call.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='dataflowId'>
+        /// The dataflow ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<DataflowUsers>> GetDataflowUsersAsAdminWithHttpMessagesAsync(System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("dataflowId", dataflowId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetDataflowUsersAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/dataflows/{dataflowId}/users").ToString();
+            _url = _url.Replace("{dataflowId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(dataflowId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<DataflowUsers>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DataflowUsers>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

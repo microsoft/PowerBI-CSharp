@@ -28,12 +28,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The new report name</param>
         /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace id. Empty Guid
+        /// the target workspace ID. Empty Guid
         /// (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'.
         /// &lt;br/&gt;If not provided, the new report will be cloned within
         /// the same workspace as the source report.</param>
         /// <param name="targetModelId">Optional parameter for specifying the
-        /// target associated dataset id. &lt;br/&gt;If not provided, the new
+        /// target associated dataset ID. &lt;br/&gt;If not provided, the new
         /// report will be associated with the same dataset as the source
         /// report</param>
         public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), string targetModelId = default(string))
@@ -57,7 +57,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target workspace
-        /// id. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
+        /// ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
         /// Workspace'. &amp;lt;br/&amp;gt;If not provided, the new report will
         /// be cloned within the same workspace as the source report.
         /// </summary>
@@ -66,7 +66,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets optional parameter for specifying the target
-        /// associated dataset id. &amp;lt;br/&amp;gt;If not provided, the new
+        /// associated dataset ID. &amp;lt;br/&amp;gt;If not provided, the new
         /// report will be associated with the same dataset as the source
         /// report
         /// </summary>

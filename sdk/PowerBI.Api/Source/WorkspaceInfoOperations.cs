@@ -47,17 +47,28 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Initiate a call to receive metadata for the requested list of workspaces.
-        /// (Preview)
+        /// Initiates a call to receive metadata for the requested list of workspaces.
+        /// This is a preview API call.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-        /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Microsoft 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Maximum 500 requests per hour.
+        /// - Maximum 16 simultaneous requests.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='requiredWorkspaces'>
         /// Required workspace IDs to get info for
@@ -67,6 +78,15 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='datasourceDetails'>
         /// Whether to return datasource details​
+        /// </param>
+        /// <param name='datasetSchema'>
+        /// Whether to return dataset schema (Tables, Columns and Measures)​
+        /// </param>
+        /// <param name='datasetExpressions'>
+        /// Whether to return dataset expressions (Dax query and Mashup)​
+        /// </param>
+        /// <param name='getArtifactUsers'>
+        /// Whether to return artifact user details​ (Preview) (Permission level)
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -89,7 +109,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (requiredWorkspaces == null)
             {
@@ -105,6 +125,9 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("requiredWorkspaces", requiredWorkspaces);
                 tracingParameters.Add("lineage", lineage);
                 tracingParameters.Add("datasourceDetails", datasourceDetails);
+                tracingParameters.Add("datasetSchema", datasetSchema);
+                tracingParameters.Add("datasetExpressions", datasetExpressions);
+                tracingParameters.Add("getArtifactUsers", getArtifactUsers);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostWorkspaceInfo", tracingParameters);
             }
@@ -119,6 +142,18 @@ namespace Microsoft.PowerBI.Api
             if (datasourceDetails != null)
             {
                 _queryParameters.Add(string.Format("datasourceDetails={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceDetails, Client.SerializationSettings).Trim('"'))));
+            }
+            if (datasetSchema != null)
+            {
+                _queryParameters.Add(string.Format("datasetSchema={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetSchema, Client.SerializationSettings).Trim('"'))));
+            }
+            if (datasetExpressions != null)
+            {
+                _queryParameters.Add(string.Format("datasetExpressions={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetExpressions, Client.SerializationSettings).Trim('"'))));
+            }
+            if (getArtifactUsers != null)
+            {
+                _queryParameters.Add(string.Format("getArtifactUsers={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(getArtifactUsers, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -224,18 +259,30 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets scan status for the specified scan. (Preview)
+        /// Gets the scan status for the specified scan. This is a preview API call.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-        /// 10000 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Microsoft 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 10,000 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='scanId'>
+        /// The scan ID, which is included in the response from the workspaces or
+        /// getInfo API that triggered the scan
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -363,20 +410,34 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets scan result for the specified scan (should be called only after
-        /// getting status Succeeded in the scan status API). Scan result will be
-        /// available for up to 24 hours. (Preview)
+        /// Gets the scan result for the specified scan. This is a preview API call.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-        /// 500 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// Only make this API call after a successful [scan
+        /// status](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call.
+        /// The scan result will remain available for 24 hours.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Microsoft 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 500 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='scanId'>
+        /// The scan ID, which is included in the response from the workspaces or
+        /// getInfo API that triggered the scan
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -504,24 +565,40 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets a list of workspace IDs in the organization. When using modifiedSince,
-        /// returns only the IDs of workspaces that had changed since the time
-        /// specified in the modifiedSince parameter. If not provided, returns a list
-        /// of all workspace IDs in the organization. modifiedSince parameter should
-        /// range from 30 minutes to 30 days ago. Notice changes can take up to 30
-        /// minutes to take effect. (Preview)
+        /// Gets a list of workspace IDs in the organization. This is a preview API
+        /// call.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Microsoft 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows a maximum of
-        /// 30 requests per hour. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// If the optional `modifiedSince` parameter is set to a date-time, only the
+        /// IDs of workspaces that changed after that date-time are returned. If the
+        /// `modifiedSince` parameter is not used, the IDs of all workspaces in the
+        /// organization are returned. The date-time specified by the `modifiedSince`
+        /// parameter must be in the range of 30 minutes (to allow workspace changes to
+        /// take effect) to 30 days prior to the current time.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have administrator rights (such as Microsoft 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 30 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='modifiedSince'>
         /// Last modified date​ (must be in ISO 8601 compliant UTC format)
+        /// </param>
+        /// <param name='excludePersonalWorkspaces'>
+        /// Whether to exclude personal workspaces​
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -538,7 +615,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ModifiedWorkspaces>> GetModifiedWorkspacesWithHttpMessagesAsync(System.DateTime? modifiedSince = default(System.DateTime?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<ModifiedWorkspace>>> GetModifiedWorkspacesWithHttpMessagesAsync(System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -548,6 +625,7 @@ namespace Microsoft.PowerBI.Api
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("modifiedSince", modifiedSince);
+                tracingParameters.Add("excludePersonalWorkspaces", excludePersonalWorkspaces);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetModifiedWorkspaces", tracingParameters);
             }
@@ -558,6 +636,10 @@ namespace Microsoft.PowerBI.Api
             if (modifiedSince != null)
             {
                 _queryParameters.Add(string.Format("modifiedSince={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(modifiedSince, Client.SerializationSettings).Trim('"'))));
+            }
+            if (excludePersonalWorkspaces != null)
+            {
+                _queryParameters.Add(string.Format("excludePersonalWorkspaces={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(excludePersonalWorkspaces, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
@@ -628,7 +710,7 @@ namespace Microsoft.PowerBI.Api
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ModifiedWorkspaces>();
+            var _result = new HttpOperationResponse<IList<ModifiedWorkspace>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -637,7 +719,7 @@ namespace Microsoft.PowerBI.Api
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ModifiedWorkspaces>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<ModifiedWorkspace>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

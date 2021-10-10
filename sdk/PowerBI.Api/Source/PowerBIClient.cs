@@ -98,6 +98,11 @@ namespace Microsoft.PowerBI.Api
         public virtual IAvailableFeaturesOperations AvailableFeatures { get; private set; }
 
         /// <summary>
+        /// Gets the IPipelinesOperations.
+        /// </summary>
+        public virtual IPipelinesOperations Pipelines { get; private set; }
+
+        /// <summary>
         /// Gets the IDataflowStorageAccountsOperations.
         /// </summary>
         public virtual IDataflowStorageAccountsOperations DataflowStorageAccounts { get; private set; }
@@ -340,6 +345,7 @@ namespace Microsoft.PowerBI.Api
             Groups = new GroupsOperations(this);
             Capacities = new CapacitiesOperations(this);
             AvailableFeatures = new AvailableFeaturesOperations(this);
+            Pipelines = new PipelinesOperations(this);
             DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
             WorkspaceInfo = new WorkspaceInfoOperations(this);
             Admin = new Admin(this);

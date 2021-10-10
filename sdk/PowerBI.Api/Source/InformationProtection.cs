@@ -50,16 +50,33 @@ namespace Microsoft.PowerBI.Api
         /// Remove sensitivity labels from artifacts by artifact ID.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt; The admin user must have sufficient [usage
-        /// rights](https://go.microsoft.com/fwlink/?linkid=2157685) to delete
-        /// labels.&lt;br/&gt;This API allows a maximum of 25 requests per hour. Each
-        /// request can update up to 2000 artifacts. &lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Tenant.ReadWrite.All
+        ///
+        /// For a usage example, see [Set or remove sensitivity labels using Power BI
+        /// REST admin
+        /// APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        /// - The admin user must have sufficient [usage
+        /// rights](/azure/information-protection/configure-usage-rights) to delete
+        /// labels.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Maximum 25 requests per hour.
+        /// - Each request can update up to 2000 artifacts.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='artifacts'>
-        /// Composite of artifact Id lists per Type.
+        /// A composite of artifact ID lists for each type
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -205,17 +222,33 @@ namespace Microsoft.PowerBI.Api
         /// Set sensitivity labels on content in Power BI by artifact ID.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API.
-        /// &lt;br/&gt; To set a sensitivity label using this API, the admin user (or
-        /// the delegated user, if provided) must have the label included in their
-        /// [label
-        /// policy](https://docs.microsoft.com/en-us/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide).
-        /// &lt;br/&gt; The admin user (and the delegated user, if provided) must have
-        /// sufficient [usage rights](https://go.microsoft.com/fwlink/?linkid=2157685)
-        /// to set labels.&lt;br/&gt;This API allows a maximum of 25 requests per hour.
-        /// Each request can update up to 2000 artifacts.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.ReadWrite.All
+        ///
+        /// To set a sensitivity label using this API, the admin user or the delegated
+        /// user (if provided) must have the label included in their [label
+        /// policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide).
+        /// For a usage example, see [Set or remove sensitivity labels using Power BI
+        /// REST admin
+        /// APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator).
+        /// - The admin user and the delegated user (if provided) must have sufficient
+        /// [usage rights](/azure/information-protection/configure-usage-rights) to set
+        /// labels.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Maximum 25 requests per hour.
+        /// - Each request can update up to 2000 artifacts.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='informationProtectionChangeLabelDetails'>
         /// Set label details.

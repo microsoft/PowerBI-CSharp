@@ -40,13 +40,13 @@ namespace Microsoft.PowerBI.Api
         /// document along with considerations and limitations section.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters

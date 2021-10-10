@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the EmbedToken class.
         /// </summary>
         /// <param name="token">Embed token</param>
-        /// <param name="tokenId">Unique token Id. Can be used to correlate
-        /// operations that use this token with the generate operation through
-        /// audit logs.</param>
+        /// <param name="tokenId">The unique token ID, which can be used to
+        /// correlate operations that use this token with the generate
+        /// operation through audit logs</param>
         /// <param name="expiration">Expiration time of token. In UTC.</param>
         public EmbedToken(string token, System.Guid tokenId, System.DateTime expiration)
         {
@@ -51,8 +51,9 @@ namespace Microsoft.PowerBI.Api.Models
         public string Token { get; set; }
 
         /// <summary>
-        /// Gets or sets unique token Id. Can be used to correlate operations
-        /// that use this token with the generate operation through audit logs.
+        /// Gets or sets the unique token ID, which can be used to correlate
+        /// operations that use this token with the generate operation through
+        /// audit logs
         /// </summary>
         [JsonProperty(PropertyName = "tokenId")]
         public System.Guid TokenId { get; set; }

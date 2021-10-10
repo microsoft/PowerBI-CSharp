@@ -19,10 +19,17 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of installed apps.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// App.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -36,10 +43,17 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of installed apps.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// App.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -59,16 +73,23 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified installed app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// App.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static App GetApp(this IAppsOperations operations, System.Guid appId)
             {
@@ -79,16 +100,23 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified installed app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// App.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -105,16 +133,23 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of reports from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Report.ReadWrite.All or Report.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static Reports GetReports(this IAppsOperations operations, System.Guid appId)
             {
@@ -125,16 +160,23 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of reports from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Report.ReadWrite.All or Report.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -151,19 +193,26 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified report from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Report.ReadWrite.All or Report.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             public static Report GetReport(this IAppsOperations operations, System.Guid appId, System.Guid reportId)
             {
@@ -174,19 +223,26 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified report from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Report.ReadWrite.All or Report.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='reportId'>
-            /// The report id
+            /// The report ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -203,17 +259,23 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             public static Dashboards GetDashboards(this IAppsOperations operations, System.Guid appId)
             {
@@ -224,17 +286,23 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of dashboards from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -251,20 +319,26 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified dashboard from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Dashboard GetDashboard(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId)
             {
@@ -275,20 +349,26 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified dashboard from the specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -306,19 +386,26 @@ namespace Microsoft.PowerBI.Api
             /// app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             public static Tiles GetTiles(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId)
             {
@@ -330,19 +417,26 @@ namespace Microsoft.PowerBI.Api
             /// app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -360,25 +454,32 @@ namespace Microsoft.PowerBI.Api
             /// specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: All tile types are supported except for "model tiles",
-            /// which include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// All tile types, except *model tiles*, are supported. Supported tiles
+            /// include datasets and live tiles that contain an entire report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             public static Tile GetTile(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId, System.Guid tileId)
             {
@@ -390,25 +491,32 @@ namespace Microsoft.PowerBI.Api
             /// specified app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: All tile types are supported except for "model tiles",
-            /// which include datasets and live tiles that contain an entire report page.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Service principal authentication is not supported.&lt;br/&gt;
+            ///
+            /// All tile types, except *model tiles*, are supported. Supported tiles
+            /// include datasets and live tiles that contain an entire report page.
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All or Dashboard.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Service principal authentication is not supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// The app id
+            /// The app ID
             /// </param>
             /// <param name='dashboardId'>
-            /// The dashboard id
+            /// The dashboard ID
             /// </param>
             /// <param name='tileId'>
-            /// The tile id
+            /// The tile ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -416,6 +524,156 @@ namespace Microsoft.PowerBI.Api
             public static async Task<Tile> GetTileAsync(this IAppsOperations operations, System.Guid appId, System.Guid dashboardId, System.Guid tileId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTileWithHttpMessagesAsync(appId, dashboardId, tileId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of apps in the organization. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// The query parameter $top is required.
+            ///
+            /// ## Permissions
+            ///
+            /// Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history. If not provided,
+            /// the default is all available entries.
+            /// </param>
+            public static Apps GetAppsAsAdmin(this IAppsOperations operations, int top)
+            {
+                return operations.GetAppsAsAdminAsync(top).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of apps in the organization. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// The query parameter $top is required.
+            ///
+            /// ## Permissions
+            ///
+            /// Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='top'>
+            /// The requested number of entries in the refresh history. If not provided,
+            /// the default is all available entries.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Apps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified app. This is a
+            /// preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app ID
+            /// </param>
+            public static AppUsers GetAppUsersAsAdmin(this IAppsOperations operations, System.Guid appId)
+            {
+                return operations.GetAppUsersAsAdminAsync(appId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified app. This is a
+            /// preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// The app ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<AppUsers> GetAppUsersAsAdminAsync(this IAppsOperations operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetAppUsersAsAdminWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

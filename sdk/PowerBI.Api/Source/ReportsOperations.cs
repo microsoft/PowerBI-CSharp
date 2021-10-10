@@ -188,7 +188,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -324,7 +324,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -445,7 +445,7 @@ namespace Microsoft.PowerBI.Api
         /// dataset (if provided) - Build permissions.
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone report parameters
@@ -600,8 +600,11 @@ namespace Microsoft.PowerBI.Api
         /// Exports the specified report from **"My Workspace"** to a .pbix file.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
+        /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
+        /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
         /// live
@@ -610,7 +613,7 @@ namespace Microsoft.PowerBI.Api
         /// not supported.&lt;br/&gt;
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -734,7 +737,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// UpdateReportContent parameters
@@ -900,7 +903,7 @@ namespace Microsoft.PowerBI.Api
         /// dataset - Build permissions.
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Rebind report parameters
@@ -1040,7 +1043,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1177,7 +1180,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='pageName'>
         /// The page name
@@ -1329,7 +1332,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1472,7 +1475,7 @@ namespace Microsoft.PowerBI.Api
         /// supported&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='updateRdlDatasourcesRequest'>
         /// </param>
@@ -1615,7 +1618,7 @@ namespace Microsoft.PowerBI.Api
         /// Premium Per User (PPU) is not supported.
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Export to file request parameters
@@ -1775,10 +1778,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1945,10 +1948,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2085,7 +2088,7 @@ namespace Microsoft.PowerBI.Api
         /// response for paginated reports, the dataset ID value isn’t displayed.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2221,10 +2224,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2362,10 +2365,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2488,10 +2491,10 @@ namespace Microsoft.PowerBI.Api
         /// dataset (if provided) - Build permissions
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Clone report parameters
@@ -2648,20 +2651,26 @@ namespace Microsoft.PowerBI.Api
         /// Exports the specified report from the specified workspace to a .pbix file.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
+        /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
+        /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
+        /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
+        /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
+        /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
         /// live
-        /// connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets)
+        /// connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets)
         /// after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is
-        /// not supported.&lt;br/&gt;
+        /// not supported. Refer to [Download a report from the Power BI service to
+        /// Power BI
+        /// Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix)
+        /// for requirements and limitations.&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2787,10 +2796,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// UpdateReportContent parameters
@@ -2959,10 +2968,10 @@ namespace Microsoft.PowerBI.Api
         /// dataset - Build permissions
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Rebind report parameters
@@ -3104,10 +3113,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -3246,10 +3255,10 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='pageName'>
         /// The page name
@@ -3403,7 +3412,7 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
         /// </param>
@@ -3550,10 +3559,10 @@ namespace Microsoft.PowerBI.Api
         /// supported&lt;/li&gt;&lt;/ul&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='updateRdlDatasourcesRequest'>
         /// </param>
@@ -3698,10 +3707,10 @@ namespace Microsoft.PowerBI.Api
         /// Premium Per User (PPU) is not supported.
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Export to file request parameters
@@ -3863,13 +3872,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4038,13 +4047,13 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='exportId'>
-        /// The export id
+        /// The export ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -4197,7 +4206,7 @@ namespace Microsoft.PowerBI.Api
         /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -4371,10 +4380,10 @@ namespace Microsoft.PowerBI.Api
         /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='requestParameters'>
         /// Generate token parameters
@@ -4527,16 +4536,27 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of reports from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -4696,13 +4716,24 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of reports for the organization.
         /// </summary>
         /// <remarks>
-        /// **Note:** The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) to call this API or
-        /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-        /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-        /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -4857,6 +4888,158 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Returns a list of users that have access to the specified report. This is a
+        /// preview API call.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='reportId'>
+        /// The report ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<ReportUsers>> GetReportUsersAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("reportId", reportId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetReportUsersAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/reports/{reportId}/users").ToString();
+            _url = _url.Replace("{reportId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(reportId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<ReportUsers>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ReportUsers>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
         /// Transfers ownership over the specified paginated report datasources to the
         /// current authorized user.
         /// </summary>
@@ -4867,10 +5050,10 @@ namespace Microsoft.PowerBI.Api
         /// report datasources supports only paginated reports&lt;/li&gt;
         /// </remarks>
         /// <param name='groupId'>
-        /// The workspace id
+        /// The workspace ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

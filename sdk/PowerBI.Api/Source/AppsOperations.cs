@@ -50,10 +50,17 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of installed apps.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
-        /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// App.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -182,13 +189,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified installed app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: App.Read.All&lt;br/&gt;To set the
-        /// permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// App.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -319,13 +333,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of reports from the specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -456,16 +477,23 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified report from the specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or Report.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='reportId'>
-        /// The report id
+        /// The report ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -598,14 +626,20 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of dashboards from the specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -736,17 +770,23 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified dashboard from the specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -880,16 +920,23 @@ namespace Microsoft.PowerBI.Api
         /// app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-        /// Dashboard.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1023,22 +1070,29 @@ namespace Microsoft.PowerBI.Api
         /// specified app.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: All tile types are supported except for "model tiles",
-        /// which include datasets and live tiles that contain an entire report page.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dashboard.ReadWrite.All or
-        /// Dashboard.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-        /// an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Service principal authentication is not supported.&lt;br/&gt;
+        ///
+        /// All tile types, except *model tiles*, are supported. Supported tiles
+        /// include datasets and live tiles that contain an entire report page.
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All or Dashboard.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Service principal authentication is not supported.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='appId'>
-        /// The app id
+        /// The app ID
         /// </param>
         /// <param name='dashboardId'>
-        /// The dashboard id
+        /// The dashboard ID
         /// </param>
         /// <param name='tileId'>
-        /// The tile id
+        /// The tile ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1151,6 +1205,318 @@ namespace Microsoft.PowerBI.Api
                 try
                 {
                     _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Tile>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of apps in the organization. This is a preview API call.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// The query parameter $top is required.
+        ///
+        /// ## Permissions
+        ///
+        /// Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='top'>
+        /// The requested number of entries in the refresh history. If not provided,
+        /// the default is all available entries.
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<Apps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (top < 1)
+            {
+                throw new ValidationException(ValidationRules.InclusiveMinimum, "top", 1);
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetAppsAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/apps").ToString();
+            List<string> _queryParameters = new List<string>();
+            _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<Apps>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Apps>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of users that have access to the specified app. This is a
+        /// preview API call.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='appId'>
+        /// The app ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<AppUsers>> GetAppUsersAsAdminWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("appId", appId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetAppUsersAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/apps/{appId}/users").ToString();
+            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(appId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<AppUsers>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<AppUsers>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
