@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DependentDataflow class.
         /// </summary>
-        /// <param name="targetDataflowId">The target dataflow id</param>
-        /// <param name="groupId">The target group id</param>
+        /// <param name="targetDataflowId">The target dataflow ID</param>
+        /// <param name="groupId">The target group ID</param>
         public DependentDataflow(string targetDataflowId = default(string), string groupId = default(string))
         {
             TargetDataflowId = targetDataflowId;
@@ -40,13 +40,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the target dataflow id
+        /// Gets or sets the target dataflow ID
         /// </summary>
         [JsonProperty(PropertyName = "targetDataflowId")]
         public string TargetDataflowId { get; set; }
 
         /// <summary>
-        /// Gets or sets the target group id
+        /// Gets or sets the target group ID
         /// </summary>
         [JsonProperty(PropertyName = "groupId")]
         public string GroupId { get; set; }

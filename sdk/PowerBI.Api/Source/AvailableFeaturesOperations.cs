@@ -47,10 +47,14 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Returns a list of available features for the user
+        /// Returns a list of available features for the user.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: None
+        ///
+        /// This API doesn't require any scopes.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -176,10 +180,14 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns the specified available feature for user by name.
+        /// Returns the specified available feature for the user by name.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: None
+        ///
+        /// This API doesn't require any scopes.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='featureName'>
         /// The feature name

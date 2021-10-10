@@ -26,8 +26,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ChangeLabelStatus class.
         /// </summary>
-        /// <param name="id">Unique artifact Id, uuid format for
-        /// dashboard/report/dataflow, and string format for dataset.</param>
+        /// <param name="id">The unique ID of an artifact, which is in UUID
+        /// format for dashboards, reports, and dataflows, and string format
+        /// for datasets</param>
         /// <param name="status">Indicates the result of the label change
         /// operation. Possible values include: 'Failed',
         /// 'FailedToGetUsageRights', 'InsufficientUsageRights', 'NotFound',
@@ -45,8 +46,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets unique artifact Id, uuid format for
-        /// dashboard/report/dataflow, and string format for dataset.
+        /// Gets or sets the unique ID of an artifact, which is in UUID format
+        /// for dashboards, reports, and dataflows, and string format for
+        /// datasets
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

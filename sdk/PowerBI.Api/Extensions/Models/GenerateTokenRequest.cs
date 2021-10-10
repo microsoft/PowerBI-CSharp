@@ -17,12 +17,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// token.</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(TokenAccessLevel accessLevel, string datasetId, bool? allowSaveAs, EffectiveIdentity identity)
+        /// <param name="lifetimeInMinutes">The maximum lifetime of the token
+        /// in minutes, starting from the time it was generated. Can be used to
+        /// shorten the token’s expiration time, but not to extend it. The
+        /// value must be a positive integer. Zero (0) is equivalent to null
+        /// and will be ignored, resulting in the default expiration
+        /// time.</param>
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, string datasetId, bool? allowSaveAs, EffectiveIdentity identity, int? lifetimeInMinutes = default(int?))
         {
             AccessLevel = accessLevel;
             DatasetId = datasetId;
             AllowSaveAs = allowSaveAs;
             Identities = new[] { identity };
+            LifetimeInMinutes = lifetimeInMinutes;
             CustomInit();
         }
 
@@ -35,12 +42,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// token.</param>
         /// <param name="identity">The effective identity to use for RLS
         /// rules</param>
-        public GenerateTokenRequest(TokenAccessLevel accessLevel, bool? allowSaveAs, EffectiveIdentity identity)
+        /// <param name="lifetimeInMinutes">The maximum lifetime of the token
+        /// in minutes, starting from the time it was generated. Can be used to
+        /// shorten the token’s expiration time, but not to extend it. The
+        /// value must be a positive integer. Zero (0) is equivalent to null
+        /// and will be ignored, resulting in the default expiration
+        /// time.</param>
+        public GenerateTokenRequest(TokenAccessLevel accessLevel, bool? allowSaveAs, EffectiveIdentity identity, int? lifetimeInMinutes = default(int?))
         {
             AccessLevel = accessLevel;
             DatasetId = null;
             AllowSaveAs = allowSaveAs;
             Identities = new[] { identity };
+            LifetimeInMinutes = lifetimeInMinutes;
             CustomInit();
         }
 

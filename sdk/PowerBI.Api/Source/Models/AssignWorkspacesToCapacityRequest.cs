@@ -6,7 +6,6 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
@@ -31,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the AssignWorkspacesToCapacityRequest
         /// class.
         /// </summary>
-        public AssignWorkspacesToCapacityRequest(IList<CapacityMigrationAssignment> capacityMigrationAssignments)
+        public AssignWorkspacesToCapacityRequest(IList<CapacityMigrationAssignment> capacityMigrationAssignments = default(IList<CapacityMigrationAssignment>))
         {
             CapacityMigrationAssignments = capacityMigrationAssignments;
             CustomInit();
@@ -47,28 +46,5 @@ namespace Microsoft.PowerBI.Api.Models
         [JsonProperty(PropertyName = "capacityMigrationAssignments")]
         public IList<CapacityMigrationAssignment> CapacityMigrationAssignments { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            if (CapacityMigrationAssignments == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "CapacityMigrationAssignments");
-            }
-            if (CapacityMigrationAssignments != null)
-            {
-                foreach (var element in CapacityMigrationAssignments)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-        }
     }
 }

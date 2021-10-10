@@ -28,8 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// InformationProtectionChangeLabelDetails class.
         /// </summary>
-        /// <param name="artifacts">Composite of artifact ID lists per
-        /// type.</param>
+        /// <param name="artifacts">A composite of artifact ID lists for each
+        /// type</param>
         /// <param name="labelId">Label ID (must be in the user’s
         /// policy).</param>
         /// <param name="delegatedUser">Delegated user details. A delegated
@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets composite of artifact ID lists per type.
+        /// Gets or sets a composite of artifact ID lists for each type
         /// </summary>
         [JsonProperty(PropertyName = "artifacts")]
         public InformationProtectionArtifactsChangeLabel Artifacts { get; set; }

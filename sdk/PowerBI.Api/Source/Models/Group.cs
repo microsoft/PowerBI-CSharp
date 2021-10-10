@@ -27,12 +27,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Group class.
         /// </summary>
-        /// <param name="id">The workspace id</param>
+        /// <param name="id">The workspace ID</param>
         /// <param name="name">The group name</param>
         /// <param name="isReadOnly">Is the group read only</param>
         /// <param name="isOnDedicatedCapacity">Is the group on dedicated
         /// capacity</param>
-        /// <param name="capacityId">The capacity id</param>
+        /// <param name="capacityId">The capacity ID</param>
         /// <param name="description">The group description. Available only for
         /// admin API calls.</param>
         /// <param name="type">The type of group. Available only for admin API
@@ -40,7 +40,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="state">The group state. Available only for admin API
         /// calls.</param>
         /// <param name="users">The users that belong to the group, and their
-        /// access rights. Available only for admin API calls.</param>
+        /// access rights. This value will be empty. It will be removed from
+        /// the payload response in an upcoming release. To retrieve user
+        /// information on an artifact, please consider using the Get Group
+        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
+        /// parameter.</param>
         /// <param name="reports">The reports that belong to the group.
         /// Available only for admin API calls.</param>
         /// <param name="dashboards">The dashboards that belong to the group.
@@ -50,10 +54,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dataflows">The dataflows that belong to the group.
         /// Available only for admin API calls.</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
-        /// account id</param>
+        /// account ID</param>
         /// <param name="workbooks">The workbooks that belong to the group.
         /// Available only for admin API calls.</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?), IList<Workbook> workbooks = default(IList<Workbook>))
+        /// <param name="pipelineId">The deployment pipeline ID that the
+        /// workspace is assigned to. Available only for workspaces in the new
+        /// workspace experience and only for admin API calls.</param>
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -70,6 +77,7 @@ namespace Microsoft.PowerBI.Api.Models
             Dataflows = dataflows;
             DataflowStorageId = dataflowStorageId;
             Workbooks = workbooks;
+            PipelineId = pipelineId;
             CustomInit();
         }
 
@@ -79,7 +87,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the workspace id
+        /// Gets or sets the workspace ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -103,7 +111,7 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? IsOnDedicatedCapacity { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity id
+        /// Gets or sets the capacity ID
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
         public System.Guid? CapacityId { get; set; }
@@ -129,7 +137,11 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the users that belong to the group, and their access
-        /// rights. Available only for admin API calls.
+        /// rights. This value will be empty. It will be removed from the
+        /// payload response in an upcoming release. To retrieve user
+        /// information on an artifact, please consider using the Get Group
+        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
+        /// parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }
@@ -163,7 +175,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Dataflow> Dataflows { get; set; }
 
         /// <summary>
-        /// Gets or sets the Power BI dataflow storage account id
+        /// Gets or sets the Power BI dataflow storage account ID
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
@@ -174,6 +186,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "workbooks")]
         public IList<Workbook> Workbooks { get; set; }
+
+        /// <summary>
+        /// Gets or sets the deployment pipeline ID that the workspace is
+        /// assigned to. Available only for workspaces in the new workspace
+        /// experience and only for admin API calls.
+        /// </summary>
+        [JsonProperty(PropertyName = "pipelineId")]
+        public System.Guid? PipelineId { get; set; }
 
         /// <summary>
         /// Validate the object.

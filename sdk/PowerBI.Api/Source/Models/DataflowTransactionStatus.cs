@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DataflowTransactionStatus class.
         /// </summary>
-        /// <param name="transactionId">Transaction id</param>
+        /// <param name="transactionId">The transaction ID</param>
         /// <param name="status">Status of transaction. Possible values
         /// include: 'invalid', 'successfullyMarked', 'alreadyConcluded',
         /// 'notFound'</param>
@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets transaction id
+        /// Gets or sets the transaction ID
         /// </summary>
         [JsonProperty(PropertyName = "transactionId")]
         public string TransactionId { get; set; }

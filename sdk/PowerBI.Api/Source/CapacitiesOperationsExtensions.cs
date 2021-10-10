@@ -16,12 +16,16 @@ namespace Microsoft.PowerBI.Api
     public static partial class CapacitiesOperationsExtensions
     {
             /// <summary>
-            /// Returns a list of capacities the user has access to.
+            /// Returns a list of capacities that the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -32,12 +36,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of capacities the user has access to.
+            /// Returns a list of capacities that the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -54,23 +62,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the current state of the specified capacity workloads, if a
-            /// workload is enabled also returns the maximum memory percentage that the
-            /// workload can consume.
+            /// Returns the current state of the specified capacity workloads. If the
+            /// workload is enabled, the percentage of maximum memory that the workloads
+            /// can consume is also returned.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            ///
+            /// Workload APIs are not relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
-            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
-            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// capacities.
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             public static Workloads GetWorkloads(this ICapacitiesOperations operations, System.Guid capacityId)
             {
@@ -78,23 +91,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the current state of the specified capacity workloads, if a
-            /// workload is enabled also returns the maximum memory percentage that the
-            /// workload can consume.
+            /// Returns the current state of the specified capacity workloads. If the
+            /// workload is enabled, the percentage of maximum memory that the workloads
+            /// can consume is also returned.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            ///
+            /// Workload APIs are not relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
-            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
-            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// capacities.
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -108,22 +126,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the current state of a workload and if the workload is enabled also
-            /// returns the maximum memory percentage that the workload can consume.
+            /// Returns the current state of a workload. If the workload is enabled, the
+            /// percentage of maximum memory that the workload can consume is also
+            /// returned.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            ///
+            /// Workload APIs are not relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
-            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
-            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// capacities.
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -134,22 +158,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the current state of a workload and if the workload is enabled also
-            /// returns the maximum memory percentage that the workload can consume.
+            /// Returns the current state of a workload. If the workload is enabled, the
+            /// percentage of maximum memory that the workload can consume is also
+            /// returned.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            ///
+            /// Workload APIs are not relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
-            /// capacities.&lt;br/&gt;**Required scope**: Capacity.Read.All or
-            /// Capacity.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// capacities.
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -166,22 +196,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Changes the state of a specific workload to Enabled or Disabled. When
-            /// enabling a workload the maximum memory percentage that the workload can
-            /// consume must be set.
+            /// Changes the state of a specific workload to *Enabled* or *Disabled*. When
+            /// enabling a workload, specify the percentage of maximum memory that the
+            /// workload can consume.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            ///
+            /// Workload APIs are not relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
-            /// capacities.&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// capacities.
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -195,22 +231,28 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Changes the state of a specific workload to Enabled or Disabled. When
-            /// enabling a workload the maximum memory percentage that the workload can
-            /// consume must be set.
+            /// Changes the state of a specific workload to *Enabled* or *Disabled*. When
+            /// enabling a workload, specify the percentage of maximum memory that the
+            /// workload can consume.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** Workload APIs are not relevant for [Embedded
+            ///
+            /// Workload APIs are not relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
-            /// capacities.&lt;br/&gt;**Required scope**: Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            /// capacities.
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity Id
+            /// The capacity ID
             /// </param>
             /// <param name='workloadName'>
             /// The name of the workload
@@ -227,13 +269,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for all capacities of which the user has
-            /// access to.
+            /// Returns a list of refreshables for all capacities that the user has access
+            /// to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -258,13 +304,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for all capacities of which the user has
-            /// access to.
+            /// Returns a list of refreshables for all capacities that the user has access
+            /// to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -295,19 +345,23 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for the specified capacity the user has
-            /// access to
+            /// Returns a list of refreshables for the specified capacity that the user has
+            /// access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results.
@@ -329,19 +383,23 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of refreshables for the specified capacity the user has
-            /// access to
+            /// Returns a list of refreshables for the specified capacity that the user has
+            /// access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='top'>
             /// Returns only the first n results.
@@ -369,22 +427,26 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified refreshable for the specified capacity the user has
-            /// access to
+            /// Returns the specified refreshable for the specified capacity that the user
+            /// has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='refreshableId'>
-            /// The refreshable id
+            /// The refreshable ID
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
@@ -396,22 +458,26 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified refreshable for the specified capacity the user has
-            /// access to
+            /// Returns the specified refreshable for the specified capacity that the user
+            /// has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Capacity.Read.All or Capacity.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Capacity.Read.All or Capacity.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='capacityId'>
-            /// The capacity id
+            /// The capacity ID
             /// </param>
             /// <param name='refreshableId'>
-            /// The refreshable id
+            /// The refreshable ID
             /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
@@ -429,14 +495,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Assigns the provided workspaces to the specified capacity.
+            /// Assigns the specified workspaces to the specified premium capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -450,14 +523,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Assigns the provided workspaces to the specified capacity.
+            /// Assigns the specified workspaces to the specified premium capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -474,14 +554,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Unassigns the provided workspaces from capacity.
+            /// Unassigns the specified workspaces from capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -495,14 +582,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Unassigns the provided workspaces from capacity.
+            /// Unassigns the specified workspaces from capacity.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Tenant.Read.All or
-            /// Tenant.ReadWrite.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -516,6 +610,72 @@ namespace Microsoft.PowerBI.Api
             public static async Task UnassignWorkspacesFromCapacityAsync(this ICapacitiesOperations operations, UnassignWorkspacesCapacityRequest requestParameters, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UnassignWorkspacesFromCapacityWithHttpMessagesAsync(requestParameters, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace. This
+            /// is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity ID
+            /// </param>
+            public static Refreshables GetCapacityUsersAsAdmin(this ICapacitiesOperations operations, System.Guid capacityId)
+            {
+                return operations.GetCapacityUsersAsAdminAsync(capacityId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of users that have access to the specified workspace. This
+            /// is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator).
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='capacityId'>
+            /// The capacity ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Refreshables> GetCapacityUsersAsAdminAsync(this ICapacitiesOperations operations, System.Guid capacityId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetCapacityUsersAsAdminWithHttpMessagesAsync(capacityId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }

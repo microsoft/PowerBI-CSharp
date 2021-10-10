@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GenerateTokenRequestV2Dataset
         /// class.
         /// </summary>
-        /// <param name="id">Dataset Id</param>
+        /// <param name="id">The dataset ID</param>
         public GenerateTokenRequestV2Dataset(string id)
         {
             Id = id;
@@ -41,7 +41,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets dataset Id
+        /// Gets or sets the dataset ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

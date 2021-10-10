@@ -98,9 +98,17 @@ namespace Microsoft.PowerBI.Api
             /// Determines whether to skip report import, if specified value must be
             /// 'true'. Only supported for PBIX files.
             /// </param>
-            public static Import PostImport(this IImportsOperations operations, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?))
+            /// <param name='overrideReportLabel'>
+            /// Determines whether to override existing label on report during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
+            /// <param name='overrideModelLabel'>
+            /// Determines whether to override existing label on model during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
+            public static Import PostImport(this IImportsOperations operations, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?))
             {
-                return operations.PostImportAsync(datasetDisplayName, importInfo, nameConflict, skipReport).GetAwaiter().GetResult();
+                return operations.PostImportAsync(datasetDisplayName, importInfo, nameConflict, skipReport, overrideReportLabel, overrideModelLabel).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -148,12 +156,20 @@ namespace Microsoft.PowerBI.Api
             /// Determines whether to skip report import, if specified value must be
             /// 'true'. Only supported for PBIX files.
             /// </param>
+            /// <param name='overrideReportLabel'>
+            /// Determines whether to override existing label on report during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
+            /// <param name='overrideModelLabel'>
+            /// Determines whether to override existing label on model during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportAsync(this IImportsOperations operations, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportAsync(this IImportsOperations operations, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportWithHttpMessagesAsync(datasetDisplayName, importInfo, nameConflict, skipReport, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportWithHttpMessagesAsync(datasetDisplayName, importInfo, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -171,7 +187,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             public static Import GetImport(this IImportsOperations operations, System.Guid importId)
             {
@@ -190,7 +206,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -272,7 +288,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static Imports GetImportsInGroup(this IImportsOperations operations, System.Guid groupId)
             {
@@ -292,7 +308,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -334,7 +350,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset should include file extension. Not
@@ -355,9 +371,17 @@ namespace Microsoft.PowerBI.Api
             /// Determines whether to skip report import, if specified value must be
             /// 'true'. Only supported for PBIX files.
             /// </param>
-            public static Import PostImportInGroup(this IImportsOperations operations, System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?))
+            /// <param name='overrideReportLabel'>
+            /// Determines whether to override existing label on report during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
+            /// <param name='overrideModelLabel'>
+            /// Determines whether to override existing label on model during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
+            public static Import PostImportInGroup(this IImportsOperations operations, System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?))
             {
-                return operations.PostImportInGroupAsync(groupId, datasetDisplayName, importInfo, nameConflict, skipReport).GetAwaiter().GetResult();
+                return operations.PostImportInGroupAsync(groupId, datasetDisplayName, importInfo, nameConflict, skipReport, overrideReportLabel, overrideModelLabel).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -389,7 +413,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='datasetDisplayName'>
             /// The display name of the dataset should include file extension. Not
@@ -410,12 +434,20 @@ namespace Microsoft.PowerBI.Api
             /// Determines whether to skip report import, if specified value must be
             /// 'true'. Only supported for PBIX files.
             /// </param>
+            /// <param name='overrideReportLabel'>
+            /// Determines whether to override existing label on report during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
+            /// <param name='overrideModelLabel'>
+            /// Determines whether to override existing label on model during republish of
+            /// PBIX file, service default value is true.
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Import> PostImportInGroupAsync(this IImportsOperations operations, System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Import> PostImportInGroupAsync(this IImportsOperations operations, System.Guid groupId, string datasetDisplayName, ImportInfo importInfo, ImportConflictHandlerMode? nameConflict = default(ImportConflictHandlerMode?), bool? skipReport = default(bool?), bool? overrideReportLabel = default(bool?), bool? overrideModelLabel = default(bool?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PostImportInGroupWithHttpMessagesAsync(groupId, datasetDisplayName, importInfo, nameConflict, skipReport, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PostImportInGroupWithHttpMessagesAsync(groupId, datasetDisplayName, importInfo, nameConflict, skipReport, overrideReportLabel, overrideModelLabel, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -433,10 +465,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             public static Import GetImportInGroup(this IImportsOperations operations, System.Guid groupId, System.Guid importId)
             {
@@ -455,10 +487,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='importId'>
-            /// The import id
+            /// The import ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -492,7 +524,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             public static TemporaryUploadLocation CreateTemporaryUploadLocationInGroup(this IImportsOperations operations, System.Guid groupId)
             {
@@ -520,7 +552,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='groupId'>
-            /// The workspace id
+            /// The workspace ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -537,13 +569,24 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of imports for the organization.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -569,13 +612,24 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of imports for the organization.
             /// </summary>
             /// <remarks>
-            /// **Note:** The user must have administrator rights (such as Office 365
-            /// Global Administrator or Power BI Service Administrator) to call this API or
-            /// authenticate via service principal. &lt;br/&gt;This API allows 200 requests
-            /// per hour at maximum. &lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Tenant.Read.All or Tenant.ReadWrite.All. &lt;br/&gt;Delegated permissions
-            /// are supported. &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

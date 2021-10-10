@@ -30,11 +30,11 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: &lt;ul&gt;&lt;li&gt;Content.Create -
             /// required only if a target workspace is specified in
-            /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+            /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// or Report.Read.All - required only if a report is specified in
-            /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+            /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// - required if allowEdit flag is specified for at least one report in
-            /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
+            /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
             /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
@@ -77,11 +77,11 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Required scope**: &lt;ul&gt;&lt;li&gt;Content.Create -
             /// required only if a target workspace is specified in
-            /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+            /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// or Report.Read.All - required only if a report is specified in
-            /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
+            /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
             /// - required if allowEdit flag is specified for at least one report in
-            /// [GenerateTokenRequestV2](/rest/api/power-bi/embedtoken/generatetoken#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
+            /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
             /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When

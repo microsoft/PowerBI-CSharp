@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GenerateTokenRequestV2Report
         /// class.
         /// </summary>
-        /// <param name="id">Report Id</param>
+        /// <param name="id">The report ID</param>
         /// <param name="allowEdit">Indicates that the generated EmbedToken
         /// grand editing for this report</param>
         public GenerateTokenRequestV2Report(System.Guid id, bool? allowEdit = default(bool?))
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? AllowEdit { get; set; }
 
         /// <summary>
-        /// Gets or sets report Id
+        /// Gets or sets the report ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

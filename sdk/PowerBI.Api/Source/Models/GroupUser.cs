@@ -26,21 +26,24 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GroupUser class.
         /// </summary>
         /// <param name="groupUserAccessRight">Access rights user has for the
-        /// workspace. Possible values include: 'None', 'Member', 'Admin',
-        /// 'Contributor', 'Viewer'</param>
+        /// workspace (Permission level). Possible values include: 'None',
+        /// 'Member', 'Admin', 'Contributor', 'Viewer'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">[Object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal</param>
-        /// <param name="principalType">The principal type. Possible values
-        /// include: 'User', 'Group', 'App'</param>
-        public GroupUser(GroupUserAccessRight groupUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), PrincipalType? principalType = default(PrincipalType?))
+        /// <param name="graphId">Identifier of the principal in Microsoft
+        /// Graph. Only available for admin APIs.</param>
+        /// <param name="principalType">Possible values include: 'None',
+        /// 'User', 'Group', 'App'</param>
+        public GroupUser(GroupUserAccessRight groupUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string graphId = default(string), PrincipalType? principalType = default(PrincipalType?))
         {
             GroupUserAccessRight = groupUserAccessRight;
             EmailAddress = emailAddress;
             DisplayName = displayName;
             Identifier = identifier;
+            GraphId = graphId;
             PrincipalType = principalType;
             CustomInit();
         }
@@ -51,8 +54,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the workspace. Possible
-        /// values include: 'None', 'Member', 'Admin', 'Contributor', 'Viewer'
+        /// Gets or sets access rights user has for the workspace (Permission
+        /// level). Possible values include: 'None', 'Member', 'Admin',
+        /// 'Contributor', 'Viewer'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
         public GroupUserAccessRight GroupUserAccessRight { get; set; }
@@ -78,8 +82,15 @@ namespace Microsoft.PowerBI.Api.Models
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets the principal type. Possible values include: 'User',
-        /// 'Group', 'App'
+        /// Gets or sets identifier of the principal in Microsoft Graph. Only
+        /// available for admin APIs.
+        /// </summary>
+        [JsonProperty(PropertyName = "graphId")]
+        public string GraphId { get; set; }
+
+        /// <summary>
+        /// Gets or sets possible values include: 'None', 'User', 'Group',
+        /// 'App'
         /// </summary>
         [JsonProperty(PropertyName = "principalType")]
         public PrincipalType? PrincipalType { get; set; }
