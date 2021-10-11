@@ -2021,7 +2021,7 @@ namespace Microsoft.PowerBI.Api
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "admin/groups/{groupId}").ToString();
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}").ToString();
             List<string> _queryParameters = new List<string>();
             if (expand != null)
             {
