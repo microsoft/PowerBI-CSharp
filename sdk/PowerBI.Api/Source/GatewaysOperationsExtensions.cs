@@ -335,9 +335,12 @@ namespace Microsoft.PowerBI.Api
             /// permissions.&lt;/li&gt;&lt;li&gt;It is required to set
             /// *useEndUserOAuth2Credentials* to *False* when changing from SSO to other
             /// types, such as basic or OAuth2. See the [Basic credentials
-            /// example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).&lt;/li&gt;&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see
-            /// [Register an
+            /// example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).&lt;/li&gt;&lt;li&gt;With
+            /// OAuth2 token credentials, make sure the generated OAuth2 token audience was
+            /// set correctly according to the datasource
+            /// type.&lt;/li&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see [Register
+            /// an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
             /// encrypt credentials, see [Encrypt
             /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
@@ -370,9 +373,12 @@ namespace Microsoft.PowerBI.Api
             /// permissions.&lt;/li&gt;&lt;li&gt;It is required to set
             /// *useEndUserOAuth2Credentials* to *False* when changing from SSO to other
             /// types, such as basic or OAuth2. See the [Basic credentials
-            /// example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).&lt;/li&gt;&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see
-            /// [Register an
+            /// example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).&lt;/li&gt;&lt;li&gt;With
+            /// OAuth2 token credentials, make sure the generated OAuth2 token audience was
+            /// set correctly according to the datasource
+            /// type.&lt;/li&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
+            /// Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see [Register
+            /// an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
             /// encrypt credentials, see [Encrypt
             /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;

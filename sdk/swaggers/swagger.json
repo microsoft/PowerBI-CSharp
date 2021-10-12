@@ -8670,7 +8670,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified datasource from the specified gateway.",
-                "description": "<br/>**Note:**<li>This API requires gateway admin permissions.</li><li>It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).</li><br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "description": "<br/>**Note:**<li>This API requires gateway admin permissions.</li><li>It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).</li><li>With OAuth2 token credentials, make sure the generated OAuth2 token audience was set correctly according to the datasource type.</li><br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
