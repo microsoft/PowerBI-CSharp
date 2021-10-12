@@ -211,9 +211,11 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
             /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-            /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files are
+            /// downloaded to a temporary blob and it's URL will be returned in the
+            /// response and stored in the locally downloaded pbix
+            /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+            /// Report.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
             /// live
@@ -238,9 +240,11 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
             /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-            /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files are
+            /// downloaded to a temporary blob and it's URL will be returned in the
+            /// response and stored in the locally downloaded pbix
+            /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+            /// Report.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
             /// live
@@ -958,9 +962,11 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
             /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-            /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files are
+            /// downloaded to a temporary blob and it's URL will be returned in the
+            /// response and stored in the locally downloaded pbix
+            /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+            /// Report.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
             /// live
@@ -991,9 +997,11 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
             /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-            /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
+            /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files are
+            /// downloaded to a temporary blob and it's URL will be returned in the
+            /// response and stored in the locally downloaded pbix
+            /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All or
+            /// Report.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).
             /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
             /// live

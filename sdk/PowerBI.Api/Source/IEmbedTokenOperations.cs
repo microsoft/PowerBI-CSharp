@@ -45,16 +45,18 @@ namespace Microsoft.PowerBI.Api
         /// using service principal for authentication, refer to [Service
         /// Principal with Power
         /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All the
-        /// reports and datasets must reside in workspace V2. All the target
-        /// workpaces must be workspace V2.&lt;/li&gt;&lt;li&gt;Maximum number
-        /// of reports, datasets and target workspaces is 50
+        /// document along with considerations and limitations
+        /// section.&lt;li&gt;For PowerBI reports with a Paginated visual the
+        /// Paginated report Id should be included in the GenerateToken request
+        /// (see
+        /// example).&lt;/li&gt;&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All
+        /// the reports and datasets must reside in workspace V2. All the
+        /// target workpaces must be workspace V2.&lt;/li&gt;&lt;li&gt;Maximum
+        /// number of reports, datasets and target workspaces is 50
         /// each.&lt;/li&gt;&lt;li&gt;Generating Embed Token with RLS may not
         /// work for AS Azure or AS OnPrem live connection reports for several
         /// minutes after a
-        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
-        /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Generate token parameters
