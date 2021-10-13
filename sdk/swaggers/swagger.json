@@ -7196,7 +7196,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of installed apps.",
-                "description": "\n## Required scope\n\nApp.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nApp.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetApps",
                 "consumes": [
 
@@ -7250,7 +7250,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified installed app.",
-                "description": "\n## Required scope\n\nApp.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nApp.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetApp",
                 "consumes": [
 
@@ -7303,7 +7303,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of reports from the specified app.",
-                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetReports",
                 "consumes": [
 
@@ -7362,7 +7362,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified report from the specified app.",
-                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetReport",
                 "consumes": [
 
@@ -7425,7 +7425,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of dashboards from the specified app.",
-                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetDashboards",
                 "consumes": [
 
@@ -7483,7 +7483,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified dashboard from the specified app.",
-                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetDashboard",
                 "consumes": [
 
@@ -7546,7 +7546,7 @@
                     "Apps"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified app.",
-                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetTiles",
                 "consumes": [
                     "application/json"
@@ -7615,7 +7615,7 @@
                     "Apps"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified app.",
-                "description": "\nAll tile types, except *model tiles*, are supported. Supported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication is not supported.\n\n######\n",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n\n######\n",
                 "operationId": "Apps_GetTile",
                 "consumes": [
                     "application/json"
