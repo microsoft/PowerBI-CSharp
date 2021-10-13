@@ -41,14 +41,20 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasets>> GetDatasetsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new dataset on **"My Workspace"**.
+        /// Creates a new dataset on **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push
-        /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='dataset'>
         /// Dataset definition to create
@@ -186,15 +192,21 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DatasetExecuteQueriesResponse>> ExecuteQueriesWithHttpMessagesAsync(string datasetId, DatasetExecuteQueriesRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of tables tables within the specified dataset from
-        /// **"My Workspace"**.
+        /// Returns a list of tables within the specified dataset from **My
+        /// workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
-        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -217,13 +229,20 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Tables>> GetTablesWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the metadata and schema for the specified table within the
-        /// specified dataset from **"My Workspace"**.
+        /// specified dataset from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -252,15 +271,22 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Table>> PutTableWithHttpMessagesAsync(string datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds new data rows to the specified table within the specified
-        /// dataset from **"My Workspace"**.
+        /// dataset from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST
-        /// API limitations](https://msdn.microsoft.com/library/dn950053.aspx).
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - This API only supports **push datasets**.
+        /// - See [Power BI REST API
+        /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -286,13 +312,20 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> PostRowsWithHttpMessagesAsync(string datasetId, string tableName, PostRowsRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes all rows from the specified table within the specified
-        /// dataset from **"My Workspace"**.
+        /// dataset from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: this API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -855,11 +888,17 @@ namespace Microsoft.PowerBI.Api
         /// Creates a new dataset in the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push
-        /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**:
-        /// Dataset.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -976,11 +1015,15 @@ namespace Microsoft.PowerBI.Api
         /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
-        /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1005,14 +1048,21 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Tables>> GetTablesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the metadata and schema for the specified table, within the
-        /// specified dataset, from the specified workspace.
+        /// Updates the metadata and schema for the specified table within the
+        /// specified dataset from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1043,16 +1093,23 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Table>> PutTableInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, Table requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Adds new data rows to the specified table, within the specified
-        /// dataset, from the specified workspace.
+        /// Adds new data rows to the specified table within the specified
+        /// dataset from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST
-        /// API limitations](https://msdn.microsoft.com/library/dn950053.aspx).
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - This API only supports **push datasets**.
+        /// - See [Power BI REST API
+        /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1080,14 +1137,21 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> PostRowsInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, string tableName, PostRowsRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes all rows from the specified table, within the specified
-        /// dataset, from the specified workspace.
+        /// Deletes all rows from the specified table within the specified
+        /// dataset from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-        /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

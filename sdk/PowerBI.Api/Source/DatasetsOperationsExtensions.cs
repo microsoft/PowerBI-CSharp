@@ -54,13 +54,20 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new dataset on **"My Workspace"**.
+            /// Creates a new dataset on **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push
-            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -77,13 +84,20 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new dataset on **"My Workspace"**.
+            /// Creates a new dataset on **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push
-            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -293,14 +307,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of tables tables within the specified dataset from **"My
-            /// Workspace"**.
+            /// Returns a list of tables within the specified dataset from **My
+            /// workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
-            /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -314,14 +335,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of tables tables within the specified dataset from **"My
-            /// Workspace"**.
+            /// Returns a list of tables within the specified dataset from **My
+            /// workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
-            /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -342,13 +370,20 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Updates the metadata and schema for the specified table within the
-            /// specified dataset from **"My Workspace"**.
+            /// specified dataset from **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -369,13 +404,20 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Updates the metadata and schema for the specified table within the
-            /// specified dataset from **"My Workspace"**.
+            /// specified dataset from **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -402,15 +444,22 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Adds new data rows to the specified table within the specified dataset from
-            /// **"My Workspace"**.
+            /// **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST API
-            /// limitations](https://msdn.microsoft.com/library/dn950053.aspx).
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - This API only supports **push datasets**.
+            /// - See [Power BI REST API
+            /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -431,15 +480,22 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Adds new data rows to the specified table within the specified dataset from
-            /// **"My Workspace"**.
+            /// **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST API
-            /// limitations](https://msdn.microsoft.com/library/dn950053.aspx).
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - This API only supports **push datasets**.
+            /// - See [Power BI REST API
+            /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -463,13 +519,20 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Deletes all rows from the specified table within the specified dataset from
-            /// **"My Workspace"**.
+            /// **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: this API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -487,13 +550,20 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Deletes all rows from the specified table within the specified dataset from
-            /// **"My Workspace"**.
+            /// **My workspace**.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: this API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1423,10 +1493,17 @@ namespace Microsoft.PowerBI.Api
             /// Creates a new dataset in the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push
-            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1449,10 +1526,17 @@ namespace Microsoft.PowerBI.Api
             /// Creates a new dataset in the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push
-            /// datasets.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1625,10 +1709,15 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
-            /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1649,10 +1738,15 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or
-            /// Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1675,14 +1769,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates the metadata and schema for the specified table, within the
-            /// specified dataset, from the specified workspace.
+            /// Updates the metadata and schema for the specified table within the
+            /// specified dataset from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1705,14 +1806,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates the metadata and schema for the specified table, within the
-            /// specified dataset, from the specified workspace.
+            /// Updates the metadata and schema for the specified table within the
+            /// specified dataset from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1741,16 +1849,23 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Adds new data rows to the specified table, within the specified dataset,
-            /// from the specified workspace.
+            /// Adds new data rows to the specified table within the specified dataset from
+            /// the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST API
-            /// limitations](https://msdn.microsoft.com/library/dn950053.aspx).
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - This API only supports **push datasets**.
+            /// - See [Power BI REST API
+            /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1773,16 +1888,23 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Adds new data rows to the specified table, within the specified dataset,
-            /// from the specified workspace.
+            /// Adds new data rows to the specified table within the specified dataset from
+            /// the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**REST API Limitations:** See [Power BI REST API
-            /// limitations](https://msdn.microsoft.com/library/dn950053.aspx).
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// - This API only supports **push datasets**.
+            /// - See [Power BI REST API
+            /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1808,14 +1930,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deletes all rows from the specified table, within the specified dataset,
-            /// from the specified workspace.
+            /// Deletes all rows from the specified table within the specified dataset from
+            /// the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1835,14 +1964,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deletes all rows from the specified table, within the specified dataset,
-            /// from the specified workspace.
+            /// Deletes all rows from the specified table within the specified dataset from
+            /// the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: This API supports only Push datasets.
-            /// &lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// This API only supports **push datasets**.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

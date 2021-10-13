@@ -69,8 +69,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Creates a new dataset on **\"My Workspace\"**.",
-                "description": "<br/>**Note**: This API supports only Push datasets.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Creates a new dataset on **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_PostDataset",
                 "consumes": [
                     "application/json"
@@ -368,8 +368,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Returns a list of tables tables within the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of tables within the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_GetTables",
                 "consumes": [
 
@@ -402,8 +402,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Updates the metadata and schema for the specified table within the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the metadata and schema for the specified table within the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_PutTable",
                 "consumes": [
                     "application/json"
@@ -496,8 +496,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Adds new data rows to the specified table within the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**REST API Limitations:** See [Power BI REST API limitations](https://msdn.microsoft.com/library/dn950053.aspx). <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Adds new data rows to the specified table within the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n\n######\n",
                 "operationId": "Datasets_PostRows",
                 "consumes": [
                     "application/json"
@@ -577,8 +577,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Deletes all rows from the specified table within the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note**: this API supports only Push datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Deletes all rows from the specified table within the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_DeleteRows",
                 "consumes": [
 
@@ -3232,7 +3232,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset in the specified workspace.",
-                "description": "<br/>**Note**: This API supports only Push datasets.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_PostDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -3507,7 +3507,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Returns a list of tables within the specified dataset from the specified workspace.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_GetTablesInGroup",
                 "consumes": [
 
@@ -3548,8 +3548,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Updates the metadata and schema for the specified table, within the specified dataset, from the specified workspace.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the metadata and schema for the specified table within the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_PutTableInGroup",
                 "consumes": [
 
@@ -3651,8 +3651,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Adds new data rows to the specified table, within the specified dataset, from the specified workspace.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**REST API Limitations:** See [Power BI REST API limitations](https://msdn.microsoft.com/library/dn950053.aspx). <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Adds new data rows to the specified table within the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n\n######\n",
                 "operationId": "Datasets_PostRowsInGroup",
                 "consumes": [
 
@@ -3741,8 +3741,8 @@
                 "tags": [
                     "PushDatasets"
                 ],
-                "summary": "Deletes all rows from the specified table, within the specified dataset, from the specified workspace.",
-                "description": "<br/>**Note**: This API supports only Push datasets. <br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Deletes all rows from the specified table within the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n\n######\n",
                 "operationId": "Datasets_DeleteRowsInGroup",
                 "consumes": [
 
