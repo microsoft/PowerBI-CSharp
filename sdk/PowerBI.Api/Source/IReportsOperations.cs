@@ -136,8 +136,8 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
         /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
         /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files
-        /// are downloaded to a temporary blob and it's URL will be returned in
-        /// the response and stored in the locally downloaded pbix
+        /// are downloaded to a temporary blob. Their URL is returned in the
+        /// response and stored in the locally downloaded PBIX
         /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All
         /// or Report.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
@@ -575,8 +575,8 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
         /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
         /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files
-        /// are downloaded to a temporary blob and it's URL will be returned in
-        /// the response and stored in the locally downloaded pbix
+        /// are downloaded to a temporary blob. Their URL is returned in the
+        /// response and stored in the locally downloaded PBIX
         /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All
         /// or Report.Read.All &lt;br/&gt;To set the permissions scope, see
         /// [Register an
