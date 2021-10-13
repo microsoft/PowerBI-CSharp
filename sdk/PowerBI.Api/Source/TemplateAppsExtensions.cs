@@ -16,18 +16,30 @@ namespace Microsoft.PowerBI.Api
     public static partial class TemplateAppsExtensions
     {
             /// <summary>
-            /// Generates an installation ticket for Template Apps automated install flow.
+            /// Generates an installation ticket for the [automated install
+            /// flow](/power-bi/developer/template-apps/template-apps-auto-install) of the
+            /// specified template app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;This API is only available when using service principal for
-            /// authentication, see [Service Principal with Power
-            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-            /// document along with considerations and limitations section.
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;li&gt;Target App MUST be owned by the
-            /// tenant calling this API.&lt;/li&gt;&lt;li&gt;Application must either be
-            /// published to AppSource or have explicit access for both ticket creator
-            /// &amp; end-user installing with ticket.&lt;/li&gt;&lt;li&gt;All query
-            /// parameters MUST be configured in ticket.&lt;/li&gt;&lt;br/&gt;
+            ///
+            /// ## Permissions
+            ///
+            /// The caller must use service principal for authentication. For more
+            /// information, see [Embed Power BI content with service
+            /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+            /// and
+            /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            ///
+            /// ## Limitations
+            ///
+            /// - The tenant making this API call *must* own the specified template app.
+            /// - The template app must either be published to Microsoft AppSource, or,
+            /// both the ticket creator and the end-user installing with the ticket must
+            /// have explicit access to the app.
+            /// - All query parameters in the install ticket *must* be configured.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -41,18 +53,30 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Generates an installation ticket for Template Apps automated install flow.
+            /// Generates an installation ticket for the [automated install
+            /// flow](/power-bi/developer/template-apps/template-apps-auto-install) of the
+            /// specified template app.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;This API is only available when using service principal for
-            /// authentication, see [Service Principal with Power
-            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-            /// document along with considerations and limitations section.
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;li&gt;Target App MUST be owned by the
-            /// tenant calling this API.&lt;/li&gt;&lt;li&gt;Application must either be
-            /// published to AppSource or have explicit access for both ticket creator
-            /// &amp; end-user installing with ticket.&lt;/li&gt;&lt;li&gt;All query
-            /// parameters MUST be configured in ticket.&lt;/li&gt;&lt;br/&gt;
+            ///
+            /// ## Permissions
+            ///
+            /// The caller must use service principal for authentication. For more
+            /// information, see [Embed Power BI content with service
+            /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+            /// and
+            /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            ///
+            /// ## Limitations
+            ///
+            /// - The tenant making this API call *must* own the specified template app.
+            /// - The template app must either be published to Microsoft AppSource, or,
+            /// both the ticket creator and the end-user installing with the ticket must
+            /// have explicit access to the app.
+            /// - All query parameters in the install ticket *must* be configured.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
