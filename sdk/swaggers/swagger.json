@@ -9070,7 +9070,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of workspaces the user has access to.",
-                "description": "<br/>**Note**: Users that have been recently added to a group may not have their new group immediately available, see [Refresh user permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_GetGroups",
                 "consumes": [
 
@@ -9171,8 +9171,8 @@
                 "tags": [
                     "Groups"
                 ],
-                "summary": "Creates new workspace.",
-                "description": "<br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Creates a new workspace.",
+                "description": "\n## Required scope\n\nWorkspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_CreateGroup",
                 "consumes": [
                     "application/json"
@@ -9255,7 +9255,7 @@
                     "Groups"
                 ],
                 "summary": "Deletes the specified workspace.",
-                "description": "<br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nWorkspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_DeleteGroup",
                 "consumes": [
                 ],
@@ -9295,7 +9295,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "<br/>**Note:** User permissions are only refreshed when needed. As a result, the API might return a 401 error when a user has permission to a workspace. To refresh user permissions programmatically, use the [Refresh User Permissions](/rest/api/power-bi/users/refreshuserpermissions) API.<br/><br/>**Required scope**: Workspace.Read.All or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. As a result, this API call might return an HTTP 401 error when a user has permissions to a workspace. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_GetGroupUsers",
                 "consumes": [],
                 "produces": [
@@ -9358,8 +9358,8 @@
                 "tags": [
                     "Groups"
                 ],
-                "summary": "Grants the specified user permissions to the specified workspace.",
-                "description": "<br/>**Notes**: <li> Users that have been recently added to a group may not have their new group immediately available, see [Refresh user permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions). </li><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Grants the specified user the specified permissions to the specified workspace.",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required scope\n\nWorkspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
@@ -9423,8 +9423,8 @@
                 "tags": [
                     "Groups"
                 ],
-                "summary": "Update the specified user permissions to the specified workspace.",
-                "description": "<br/>**Notes**: <li> Users permissions that have been recently updated may not have their new permissions immediately updated. </li><br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the specified user permissions to the specified workspace.",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required scope\n\nWorkspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_UpdateGroupUser",
                 "consumes": [
                     "application/json"
@@ -9491,7 +9491,7 @@
                     "Groups"
                 ],
                 "summary": "Deletes the specified user permissions from the specified workspace.",
-                "description": "<br/>**Required scope**: Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nWorkspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_DeleteUserInGroup",
                 "consumes": [
                 ],
