@@ -777,25 +777,34 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified dashboard from the specified
-            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to the ['App owns
-            /// data' embed
-            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-            /// For more information about using this API, see [Considerations when
-            /// generating an embed
-            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+            /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: (all of the below)
-            /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
-            /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-            /// using service principal for authentication, refer to [Service Principal
-            /// with Power
-            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-            /// document along with considerations and limitations section.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt; This API is only relevant to the [embed for your
+            /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+            /// learn more about using this API, see [Considerations when generating an
+            /// embed token](/power-bi/developer/embedded/generate-embed-token).
+            ///
+            /// ## Permissions
+            ///
+            /// When using a service principal for authentication, refer to [Embed Power BI
+            /// content with service
+            /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+            /// and
+            /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            ///
+            /// ## Required scope
+            ///
+            /// All of the following:
+            ///
+            /// - Dashboard.ReadWrite.All or Dashboard.Read.All
+            /// - Report.ReadWrite.All or Report.Read.All
+            /// - Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -816,25 +825,34 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified dashboard from the specified
-            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to the ['App owns
-            /// data' embed
-            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-            /// For more information about using this API, see [Considerations when
-            /// generating an embed
-            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+            /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: (all of the below)
-            /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
-            /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-            /// using service principal for authentication, refer to [Service Principal
-            /// with Power
-            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-            /// document along with considerations and limitations section.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt; This API is only relevant to the [embed for your
+            /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+            /// learn more about using this API, see [Considerations when generating an
+            /// embed token](/power-bi/developer/embedded/generate-embed-token).
+            ///
+            /// ## Permissions
+            ///
+            /// When using a service principal for authentication, refer to [Embed Power BI
+            /// content with service
+            /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+            /// and
+            /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            ///
+            /// ## Required scope
+            ///
+            /// All of the following:
+            ///
+            /// - Dashboard.ReadWrite.All or Dashboard.Read.All
+            /// - Report.ReadWrite.All or Report.Read.All
+            /// - Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

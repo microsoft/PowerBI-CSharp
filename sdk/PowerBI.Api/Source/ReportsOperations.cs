@@ -4186,28 +4186,42 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Generates an embed token to allow report creation on the specified
-        /// workspace based on the specified dataset.&lt;br/&gt;&lt;br/&gt;This API is
-        /// relevant only to ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// Generates an embed token to allow report creation in the specified
+        /// workspace based on the specified dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
-        /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service Principal
-        /// with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
-        /// work for AS Azure or AS OnPrem live connection reports for several minutes
-        /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+        /// learn more about using this API, see [Considerations when generating an
+        /// embed token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// When using a service principal for authentication, refer to [Embed Power BI
+        /// content with service
+        /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+        /// and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        ///
+        /// ## Required scope
+        ///
+        /// All of the following:
+        ///
+        /// - Content.Create
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// For Azure Analysis Services or Analysis Services on-premises live
+        /// connection reports, generating an embed token with row-level security may
+        /// not work for several minutes after a [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report) api call.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -4359,29 +4373,42 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Generates an embed token to view or edit the specified report from the
-        /// specified workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to
-        /// ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
-        /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
-        /// allowSaveAs specified in
-        /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service Principal
-        /// with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
-        /// work for AS Azure or AS OnPrem live connection reports for several minutes
-        /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+        /// learn more about using this API, see [Considerations when generating an
+        /// embed token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// When using a service principal for authentication, refer to [Embed Power BI
+        /// content with service
+        /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+        /// and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        ///
+        /// ## Required scope
+        ///
+        /// All of the following, unless a requirement doesn't apply:
+        ///
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        /// - Content.Create, required if the `allowSaveAs` flag is specified in
+        /// [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)
+        ///
+        /// ## Limitations
+        ///
+        /// For Azure Analysis Services or Analysis Services on-premises live
+        /// connection reports, generating an embed token with row-level security may
+        /// not work for several minutes after a [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

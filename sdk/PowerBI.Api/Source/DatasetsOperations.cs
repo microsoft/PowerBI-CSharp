@@ -7356,23 +7356,35 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Generates an embed token to [Embed
-        /// Q&amp;A](https://docs.microsoft.com/power-bi/developer/qanda) based on the
-        /// specified dataset from the specified workspace.&lt;br/&gt;&lt;br/&gt;This
-        /// API is relevant only to ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// Generates an embed token based on the specified dataset from the specified
+        /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service Principal
-        /// with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
+        ///
+        /// &gt; [!NOTE]
+        /// &gt; An embed token can be used to [embed
+        /// Q&amp;A](/power-bi/developer/qanda) within your application.
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+        /// learn more about using this API, see [Considerations when generating an
+        /// embed token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// When using a service principal for authentication, refer to [Embed Power BI
+        /// content with service
+        /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+        /// and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
