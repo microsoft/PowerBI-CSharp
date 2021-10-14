@@ -841,7 +841,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataflow.
+            /// Returns a list of data sources for the specified dataflow.
             /// </summary>
             /// <remarks>
             ///
@@ -871,7 +871,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataflow.
+            /// Returns a list of data sources for the specified dataflow.
             /// </summary>
             /// <remarks>
             ///

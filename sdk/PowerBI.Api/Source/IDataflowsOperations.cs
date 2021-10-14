@@ -467,7 +467,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Stream>> ExportDataflowAsAdminWithHttpMessagesAsync(System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasources for the specified dataflow.
+        /// Returns a list of data sources for the specified dataflow.
         /// </summary>
         /// <remarks>
         ///

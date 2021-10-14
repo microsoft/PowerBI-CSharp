@@ -2107,7 +2107,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasets>> GetDatasetsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasources for the specified dataset.
+        /// Returns a list of data sources for the specified dataset.
         /// </summary>
         /// <remarks>
         ///

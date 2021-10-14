@@ -12032,7 +12032,7 @@
                     "Admin"
                 ],
                 "summary": "Gets the scan result for the specified scan. This is a preview API call.",
-                "description": "\nOnly make this API call after a successful [scan status](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 500 requests per hour.\n\n######\n",
+                "description": "\nOnly make this API call after a successful [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 500 requests per hour.\n\n######\n",
                 "operationId": "WorkspaceInfo_GetScanResult",
                 "consumes": [
                     "application/json"
@@ -12266,7 +12266,7 @@
                     "Admin"
                 ],
                 "summary": "Gets a list of workspace IDs in the organization. This is a preview API call.",
-                "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter is not used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 30 requests per hour.\n\n######\n",
+                "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter isn't used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 30 requests per hour.\n\n######\n",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [
                     "application/json"
@@ -12332,7 +12332,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Assigns the specified workspaces to the specified premium capacity.",
+                "summary": "Assigns the specified workspaces to the specified Premium capacity.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_AssignWorkspacesToCapacity",
                 "consumes": [
@@ -12488,7 +12488,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of datasources for the specified dataset.",
+                "summary": "Returns a list of data sources for the specified dataset.",
                 "description": "\nEach request takes 0.5 seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. \n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
                 "consumes": [
@@ -15315,7 +15315,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of datasources for the specified dataflow.",
+                "summary": "Returns a list of data sources for the specified dataflow.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
                 "consumes": [
@@ -15781,7 +15781,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of audit activity events for a tenant.",
-                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn’t supported for Microsoft Cloud Deutschland.\n\n######\n",
+                "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n\n######\n",
                 "operationId": "Admin_GetActivityEvents",
                 "consumes": [
 
@@ -16030,7 +16030,7 @@
                     "Admin"
                 ],
                 "summary": "Remove sensitivity labels from artifacts by artifact ID.",
-                "description": "\nFor a usage example, see [Set or remove sensitivity labels using Power BI REST admin APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to delete labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2000 artifacts.\n\n######\n",
+                "description": "\nFor a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to delete labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2000 artifacts.\n\n######\n",
                 "operationId": "InformationProtection_RemoveLabelsAsAdmin",
                 "consumes": [
                     "application/json"
@@ -16138,7 +16138,7 @@
                     "Admin"
                 ],
                 "summary": "Set sensitivity labels on content in Power BI by artifact ID.",
-                "description": "\nTo set a sensitivity label using this API, the admin user or the delegated user (if provided) must have the label included in their [label policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). For a usage example, see [Set or remove sensitivity labels using Power BI REST admin APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user and the delegated user (if provided) must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to set labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2000 artifacts.\n\n######\n",
+                "description": "\nTo set a sensitivity label using this API, the admin user or the delegated user (if provided) must have the label included in their [label policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). For a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user and the delegated user (if provided) must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to set labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2000 artifacts.\n\n######\n",
                 "operationId": "InformationProtection_SetLabelsAsAdmin",
                 "consumes": [
                     "application/json"

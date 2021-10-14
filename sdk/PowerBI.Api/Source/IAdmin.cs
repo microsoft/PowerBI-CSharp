@@ -373,7 +373,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Maximum 200 requests per hour.
-        /// - Activity logging isn’t supported for Microsoft Cloud Deutschland.
+        /// - Activity logging isn't supported for Microsoft Cloud Deutschland.
         ///
         /// ######
         ///

@@ -3729,7 +3729,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataset.
+            /// Returns a list of data sources for the specified dataset.
             /// </summary>
             /// <remarks>
             ///
@@ -3761,7 +3761,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataset.
+            /// Returns a list of data sources for the specified dataset.
             /// </summary>
             /// <remarks>
             ///

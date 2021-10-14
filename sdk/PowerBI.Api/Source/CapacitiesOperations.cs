@@ -1170,7 +1170,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns the specified workspaces to the specified premium capacity.
+        /// Assigns the specified workspaces to the specified Premium capacity.
         /// </summary>
         /// <remarks>
         ///
