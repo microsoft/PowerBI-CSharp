@@ -20,8 +20,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of datasets from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of datasets from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDatasets",
                 "consumes": [
 
@@ -188,8 +188,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDataset",
                 "consumes": [
 
@@ -241,8 +241,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Deletes the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Deletes the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_DeleteDataset",
                 "consumes": [
 
@@ -282,8 +282,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Executes DAX queries against the provided dataset. The dataset may reside in **\"My Workspace\"** or any other [new workspace](/power-bi/collaborate-share/service-new-workspaces) (V2 workspace).",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for datasets in a [new workspace](/power-bi/collaborate-share/service-new-workspaces) (V2 workspace)</li><li>The user issuing the request needs to have [Build permissions for the dataset](power-bi/connect-data/service-datasets-build-permissions).</li><li>The [Allow XMLA endpoints and Analyze in Excel with on-premises datasets](power-bi/admin/service-premium-connect-tools) tenant setting needs to be enabled.</li><li>Datasets hosted in AsAzure or live connected to an on premise Analysis Services model are not supported.</li><li>Only one query returning one table of maximum 100k rows is allowed. Specifying more than one query will return an error.</li></ul><h2>Notes</h2><ul><li>Issuing a query that returns more than one table or more than 100k rows will return limited data and an error in the response. The response HTTP status will be OK (200).</li><li>DAX query failures will be returned with a failure HTTP status (400).</li><li>Columns that are fully qualified in the query will be returned with the fully qualified name, for example, Table[Column]. Columns that are renamed or created in the query will be returned within square bracket, for example, [MyNewColumn].</li><li>The following errors may be contained in the response: DAX query failures, more than one result table in a query, more than 100k rows in a query result.</li></ul>",
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 table rows per query.\n\n######\n",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -626,8 +626,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the refresh history of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h3>Limitations</h3>OneDrive refreshes are not returned.",
+                "summary": "Returns the refresh history for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n\n######\n",
                 "operationId": "Datasets_GetRefreshHistory",
                 "consumes": [],
                 "produces": [
@@ -729,8 +729,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)<br/>In Premium capacities this call is not limited in number of times per day, but only by the available resources in the capacity, hence if overloaded, the refresh execution may be throttled until the load is reduced. If this throttling exceeds 1 hour, the refresh will fail.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Triggers a refresh for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n\n######\n",
                 "operationId": "Datasets_RefreshDataset",
                 "consumes": [
                     "application/json"
@@ -780,8 +780,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the refresh schedule of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the refresh schedule for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetRefreshSchedule",
                 "consumes": [],
                 "produces": [
@@ -828,8 +828,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates the refresh schedule for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request that disables the refresh schedule should contain no other changes.<br/>The days array should not be set to empty array.<br/>The times may be set to empty array (in which case Power BI will use a default single time per day).<br/>The limit on number of time slots per day depends on the type of capacity used (Premium or Shared), see [What is Microsoft Power BI Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the refresh schedule for the specified dataset from **My workspace**.",
+                "description": "\nA request that disables the refresh schedule should contain no other changes.\n\nAt least one day must be specified. If no times are specified, then Power BI will use a default single time per day.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThe limit on the number of time slots per day depends on whether a [Premium](/power-bi/admin/service-premium-what-is) or Shared capacity is used.\n\n######\n",
                 "operationId": "Datasets_UpdateRefreshSchedule",
                 "consumes": [
                     "application/json"
@@ -923,8 +923,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the refresh schedule of a specified DirectQuery or LiveConnection dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the refresh schedule for a specified [DirectQuery](/power-bi/connect-data/desktop-directquery-about) or [LiveConnection](/power-bi/connect-data/desktop-directquery-about#live-connections) dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDirectQueryRefreshSchedule",
                 "consumes": [],
                 "produces": [
@@ -984,8 +984,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates the refresh schedule for the specified DirectQuery or LiveConnection dataset from **\"My Workspace\"**.",
-                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request should contain either a combination of days and times  (setting times is optional, otherwise a default single time per day is used) or a valid frequency, but not both.<br/>Setting frequency will automatically truncate the days and times arrays.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the refresh schedule for a specified [DirectQuery](/power-bi/connect-data/desktop-directquery-about) or [LiveConnection](/power-bi/connect-data/desktop-directquery-about#live-connections) dataset from **My workspace**.",
+                "description": "\nA request should contain either a set of days and times *or* a valid frequency, but not both. If you choose a set of days without specifying any times, then Power BI will use a default single time per day. Setting the frequency will automatically overwrite the days and times setting.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_UpdateDirectQueryRefreshSchedule",
                 "consumes": [
                     "application/json"
@@ -1079,8 +1079,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of parameters for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2>Datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.<br/>",
+                "summary": "Returns a list of parameters for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n\n######\n",
                 "operationId": "Datasets_GetParameters",
                 "consumes": [],
                 "produces": [
@@ -1162,8 +1162,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates the parameters values for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**: The dataset must be refreshed for new parameters values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "summary": "Updates the parameters values for the specified dataset from **My workspace**.",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list cannot be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` cannot be updated.\n\n######\n",
                 "operationId": "Datasets_UpdateParameters",
                 "consumes": [
                     "application/json"
@@ -1223,8 +1223,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of datasources for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of data sources for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDatasources",
                 "consumes": [
 
@@ -1441,8 +1441,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates the datasources of the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new data sources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types:<ul><li>SQL Server</li><li>Azure SQL Server</li><li>Analysis Services</li><li>Azure Analysis Services</li><li>Azure Synapse</li><li>OData Feed</li><li>SharePoint</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters](/rest/api/power-bi/datasets/updateparameters)</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters](https://docs.microsoft.com/rest/api/power-bi/datasets/updateparameters).</li></ul>",
+                "summary": "Updates the data sources of the specified dataset from **My workspace**.",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters](/rest/api/power-bi/datasets/update-parameters) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that references multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters](/rest/api/power-bi/datasets/update-parameters) API call.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -1518,8 +1518,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates all connections for the specified dataset from **\"My Workspace\"**. This API only supports SQL DirectQuery datasets.<h3>Note: This API is deprecated and no longer supported</h3>",
-                "description": "Following the 2020 Power BI Desktop release, the Power BI dataset was updated. This API no longer works with the new dataset ([enhanced metadata dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)). Instead of this API, use the following APIs:<ul><li>[Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup) - To update connection details for SQL, AS, OData Feed, and SharePoint.</li><li>[Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update connection details for other datasource types.</li></ul>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates all connections for the specified dataset from **My workspace**. This API only supports SQL DirectQuery datasets.",
+                "description": "\n> [!IMPORTANT]\n> This API call is deprecated and no longer supported. This API call isn't compatible with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n>\n> Instead use:\n>\n> - [Update Parameters](/rest/api/power-bi/datasets/update-parameters) to update connections for SQL, Azure Synapse, OData, and SharePoint data sources.\n> - [Update Datasources](/rest/api/power-bi/datasets/update-datasources) to connections for other data sources.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_SetAllDatasetConnections",
                 "consumes": [
                     "application/json"
@@ -1571,8 +1571,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from **\"My Workspace\"** to the specified gateway, optionally with a given set of datasource IDs. This only supports the on-premises data gateway.",
-                "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Binds the specified dataset from **My workspace** to the specified gateway, optionally with a given set of data source IDs.",
+                "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n\n######\n",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
                     "application/json"
@@ -1636,8 +1636,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of gateway datasources for the specified dataset from **\"My Workspace\"**.",
-                "description": "<br/>**Note**: Use the new [Dataset - Get Datasources](/rest/api/power-bi/datasets/getdatasources) API instead.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of gateway data sources for the specified dataset from **My workspace**.",
+                "description": "\n> [!IMPORTANT]\n> This API is deprecated, use [Get Datasources](/rest/api/power-bi/datasets/get-datasources) instead.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetGatewayDatasources",
                 "consumes": [
 
@@ -1691,8 +1691,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of gateways which the specified dataset from **\"My Workspace\"** can be bound to.",
-                "description": "This API is relevant only for datasets that have at least one on-premises connection. <br/>For datasets with cloud-only connections, it will return an empty list. <br/><br/>**Required scope**: Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of gateways that the specified dataset from **My workspace** can be bound to.",
+                "description": "\nThis API call is only relevant to datasets that have at least one on-premises connection. For datasets with cloud-only connections, this API call returns an empty list.\n\n## Required scope\n\nDataset.Read.All\n\n######\n",
                 "operationId": "Datasets_DiscoverGateways",
                 "consumes": [
 
@@ -3174,7 +3174,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDatasetsInGroup",
                 "consumes": [
 
@@ -3360,7 +3360,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroup",
                 "consumes": [
 
@@ -3395,7 +3395,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDatasetInGroup",
                 "consumes": [
 
@@ -3457,7 +3457,7 @@
                     "Datasets"
                 ],
                 "summary": "Deletes the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_DeleteDatasetInGroup",
                 "consumes": [
 
@@ -3799,8 +3799,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the refresh history of the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h3>Limitations</h3>OneDrive refreshes are not returned.",
+                "summary": "Returns the refresh history for the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n\n######\n",
                 "operationId": "Datasets_GetRefreshHistoryInGroup",
                 "consumes": [],
                 "produces": [
@@ -3913,7 +3913,7 @@
                     "Datasets"
                 ],
                 "summary": "Triggers a refresh for the specified dataset from the specified workspace.",
-                "description": "<br/>In Shared capacities this call is limited to eight times per day (including refreshes executed via Scheduled Refresh)<br/>In Premium capacities this call is not limited in number of times per day, but only by the available resources in the capacity, hence if overloaded, the refresh execution may be throttled until the load is reduced. If this throttling exceeds 1 hour, the refresh will fail.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n\n######\n",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -3972,8 +3972,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the refresh schedule of the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the refresh schedule for the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetRefreshScheduleInGroup",
                 "consumes": [],
                 "produces": [
@@ -4030,7 +4030,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the refresh schedule for the specified dataset from the specified workspace.",
-                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request that disables the refresh schedule should contain no other changes.<br/>The days array should not be set to empty array.<br/>The times may be set to empty array (in which case Power BI will use a default single time per day).<br/>The limit on number of time slots per day depends on the type of capacity used (Premium or Shared), see [What is Microsoft Power BI Premium](https://docs.microsoft.com/en-us/power-bi/service-premium).<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nA request that disables the refresh schedule should contain no other changes.\n\nAt least one day must be specified. If no times are specified, then Power BI will use a default single time per day.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThe limit on the number of time slots per day depends on whether a [Premium](/power-bi/admin/service-premium-what-is) or Shared capacity is used.\n\n######\n",
                 "operationId": "Datasets_UpdateRefreshScheduleInGroup",
                 "consumes": [
                     "application/json"
@@ -4136,8 +4136,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns the refresh schedule of a specified DirectQuery or LiveConnection dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the refresh schedule for a specified [DirectQuery](/power-bi/connect-data/desktop-directquery-about) or [LiveConnection](/power-bi/connect-data/desktop-directquery-about#live-connections) dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDirectQueryRefreshScheduleInGroup",
                 "consumes": [],
                 "produces": [
@@ -4207,8 +4207,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates the refresh schedule for the specified DirectQuery or LiveConnection dataset from the specified workspace.",
-                "description": "<br/>This operation is only supported for the dataset owner.<br/>A request should contain either a combination of days and times  (setting times is optional, otherwise a default single time per day is used) or a valid frequency, but not both.<br/>Setting frequency will automatically truncate the days and times arrays.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the refresh schedule for a specified [DirectQuery](/power-bi/connect-data/desktop-directquery-about) or [LiveConnection](/power-bi/connect-data/desktop-directquery-about#live-connections) dataset from the specified workspace.",
+                "description": "\nA request should contain either a set of days and times *or* a valid frequency, but not both. If you choose a set of days without specifying any times, then Power BI will use a default single time per day. Setting the frequency will automatically overwrite the days and times setting.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_UpdateDirectQueryRefreshScheduleInGroup",
                 "consumes": [
                     "application/json"
@@ -4301,7 +4301,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2>Datasets with SQL, Oracle, Teradata & SapHana Direct Query connections are not supported.<br/>",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n\n######\n",
                 "operationId": "Datasets_GetParametersInGroup",
                 "consumes": [
 
@@ -4394,7 +4394,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**: The dataset must be refreshed for the new parameter values to be applied. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update parameters operation to complete before refreshing.<br/><br/>**Required scope**: Dataset.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>All parameters must exist in the dataset. Names are case-sensitive.</li><li>Direct Query connections are supported only with [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>Datasets with Analysis Services Live connections are not supported.</li><li>Maximum of 100 parameters in a request is allowed.</li><li>Values should be of expected type.</li><li>An empty value is not permitted for the IsRequired parameter.</li><li>List cannot be empty or include multiple occurrences of same parameter.</li><li>Parameters of types 'Any' or 'Binary' cannot be set.</li></ul>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list cannot be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` cannot be updated.\n\n######\n",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -4462,8 +4462,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of datasources for the specified dataset from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of data sources for the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetDatasourcesInGroup",
                 "consumes": [
 
@@ -4561,8 +4561,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates the datasources of the specified dataset from the specified workspace.",
-                "description": "<br/>**Note:**<ul><li>When using this API, it's recommended to use [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata).</li><li>This API doesn't support datasets created using the public XML/A endpoint. To make changes to these datasources, the admin must use the Analysis Services Client Library for Tabular Object Model (TOM).</li></ul><br/>**Important**:<ul><li>The original datasource and the new datasource must have the exact same schema.</li><li>For cached models, the dataset must be refreshed to get the data from the new datasources. If you're not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), wait 30 minutes for the update datasources operation to complete before refreshing.</li></ul>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the dataset owner</li><li>Update datasources supports the following datasource types: <ul><li>SQL Server </li><li>Azure SQL Server </li><li>Analysis Services </li><li>Azure Analysis Services</li><li>Azure Synapse</li><li>OData Feed</li><li>SharePoint</li><li>Oracle</li><li>Teradata</li><li>SapHana</li></ul>For other datasource types, use [Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup).</li><li>Changing datasource type is not supported.</li><li>Datasources that contain parameters on the connection string are not supported.</li><li>If you are not using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables are not supported. If you are using [enhanced dataset metadata](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata), updating datasources which are part of merged or joined tables is supported. However, in an Advanced Query referencing multiple datasources, only the first datasource can be updated. To overcome this limitation, define the datasource as a parameter and then use [Update Parameters In Group](https://docs.microsoft.com/en-us/rest/api/power-bi/datasets/updateparametersingroup).</li></ul>",
+                "summary": "Updates the data sources of the specified dataset from the specified workspace.",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that reference multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -4646,8 +4646,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates all connections for the specified dataset from the specified workspace. This API only supports SQL DirectQuery datasets.<h3>Note: This API is deprecated and no longer supported</h3>",
-                "description": "Following the 2020 Power BI Desktop release, the Power BI dataset was updated. This API no longer works with the new dataset ([enhanced metadata dataset](https://docs.microsoft.com/power-bi/connect-data/desktop-enhanced-dataset-metadata)). Instead of this API, use the following APIs:<ul><li>[Update Datasources In Group](/rest/api/power-bi/datasets/updatedatasourcesingroup) - To update connection details for SQL, AS, OData Feed, and SharePoint.</li><li>[Update Parameters In Group](/rest/api/power-bi/datasets/updateparametersingroup) - To update connection details for other datasource types.</li></ul>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates all connections for the specified dataset from the specified workspace. This API only supports SQL DirectQuery datasets.",
+                "description": "\n> [!IMPORTANT]\n> This API call is deprecated and no longer supported. This API call isn't compatible with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n>\n> Instead use:\n>\n> - [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) to update connections for SQL, Azure Synapse, OData, and SharePoint data sources.\n> - [Update Datasources In Group](/rest/api/power-bi/datasets/update-datasources-in-group) to connections for other data sources.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nSupports SQL DirectQuery datasets.\n\n######\n",
                 "operationId": "Datasets_SetAllDatasetConnectionsInGroup",
                 "consumes": [
                     "application/json"
@@ -4708,8 +4708,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of datasource IDs. This only supports the on-premises data gateway.",
-                "description": "<br/>**Note:** API caller principal should be added as datasource user on the gateway.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of data source IDs.",
+                "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n\n######\n",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
                     "application/json"
@@ -4783,8 +4783,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns a list of gateway datasources for the specified dataset from the specified workspace.",
-                "description": "<br/>**Note**: Use the [Dataset - Get Datasources In Group](/rest/api/power-bi/datasets/getdatasourcesingroup) API instead.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of gateway data sources for the specified dataset from the specified workspace.",
+                "description": "\n> [!IMPORTANT]\n> This API is deprecated, use [Get Datasources In Group](/rest/api/power-bi/datasets/get-datasources-in-group) instead.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
                 "operationId": "Datasets_GetGatewayDatasourcesInGroup",
                 "consumes": [
 
@@ -4848,7 +4848,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of gateways that the specified dataset from the specified workspace can be bound to.",
-                "description": "This API is relevant only for datasets that have at least one on-premises connection. <br/>For datasets with cloud-only connections, it will return an empty list. <br/><br/>**Required scope**: Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nThis API call is only relevant to datasets that have at least one on-premises connection. For datasets with cloud-only connections, this API call returns an empty list.\n\n## Required scope\n\nDataset.Read.All\n\n######\n",
                 "operationId": "Datasets_DiscoverGatewaysInGroup",
                 "consumes": [
 
@@ -4915,7 +4915,7 @@
                     "Datasets"
                 ],
                 "summary": "Transfers ownership over the specified dataset to the current authorized user.",
-                "description": "<br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
                 "operationId": "Datasets_TakeOverInGroup",
                 "consumes": [],
                 "produces": [],
