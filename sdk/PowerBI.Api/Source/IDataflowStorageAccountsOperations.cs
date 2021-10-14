@@ -19,13 +19,17 @@ namespace Microsoft.PowerBI.Api
     public partial interface IDataflowStorageAccountsOperations
     {
         /// <summary>
-        /// Returns a list of dataflow storage accounts the user has access to.
+        /// Returns a list of dataflow storage accounts that the user has
+        /// access to.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: StorageAccount.Read.All or
-        /// StorageAccount.ReadWrite.All &lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// StorageAccount.Read.All or StorageAccount.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

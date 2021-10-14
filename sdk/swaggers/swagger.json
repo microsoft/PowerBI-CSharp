@@ -11786,8 +11786,8 @@
                 "tags": [
                     "DataflowStorageAccounts"
                 ],
-                "summary": "Returns a list of dataflow storage accounts the user has access to.",
-                "description": "<br/>**Required scope**: StorageAccount.Read.All or StorageAccount.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of dataflow storage accounts that the user has access to.",
+                "description": "\n## Required scope\n\nStorageAccount.Read.All or StorageAccount.ReadWrite.All\n\n######\n",
                 "operationId": "DataflowStorageAccounts_GetDataflowStorageAccounts",
                 "consumes": [
                 ],
@@ -11829,7 +11829,7 @@
                     "DataflowStorageAccounts"
                 ],
                 "summary": "Assigns the specified workspace to the specified dataflow storage account.",
-                "description": "**Note**: To perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled. To unassign the specified workspace from a Power BI dataflow storage account, an empty GUID (00000000-0000-0000-0000-000000000000) should be provided as dataflowStorageId.<br/><br/>**Required scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\nTo perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled.\n\nTo unassign the specified workspace from a Power BI dataflow storage account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `dataflowStorageId`.\n\n## Required scope\n\nStorageAccount.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_AssignToDataflowStorage",
                 "consumes": [
                     "application/json"

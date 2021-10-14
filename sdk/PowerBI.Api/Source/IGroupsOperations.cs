@@ -366,15 +366,21 @@ namespace Microsoft.PowerBI.Api
         /// account.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must be an admin on
-        /// the specified workspace and the Power BI dataflow storage account
-        /// must be enabled. To unassign the specified workspace from a Power
-        /// BI dataflow storage account, an empty GUID
-        /// (00000000-0000-0000-0000-000000000000) should be provided as
-        /// dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        ///
+        /// To perform this operation, the user must be an admin on the
+        /// specified workspace and the Power BI dataflow storage account must
+        /// be enabled.
+        ///
+        /// To unassign the specified workspace from a Power BI dataflow
+        /// storage account, provide an empty GUID
+        /// (00000000-0000-0000-0000-000000000000) as the `dataflowStorageId`.
+        ///
+        /// ## Required scope
+        ///
         /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
