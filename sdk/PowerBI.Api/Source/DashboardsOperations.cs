@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Returns a list of dashboards from **My Workspace**.
+        /// Returns a list of dashboards from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -182,7 +182,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Creates a new empty dashboard in **My Workspace**.
+        /// Creates a new empty dashboard in **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -341,7 +341,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns the specified dashboard from **My Workspace**.
+        /// Returns the specified dashboard from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -482,7 +482,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from **My
-        /// Workspace**.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -626,7 +626,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Returns the specified tile within the specified dashboard from **My
-        /// Workspace**.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -774,7 +774,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Clones the specified tile from **My Workspace**.
+        /// Clones the specified tile from **My workspace**.
         /// </summary>
         /// <remarks>
         ///

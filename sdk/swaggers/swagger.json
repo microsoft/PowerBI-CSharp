@@ -2845,7 +2845,7 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns a list of dashboards from **My Workspace**.",
+                "summary": "Returns a list of dashboards from **My workspace**.",
                 "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetDashboards",
                 "consumes": [
@@ -2890,7 +2890,7 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Creates a new empty dashboard in **My Workspace**.",
+                "summary": "Creates a new empty dashboard in **My workspace**.",
                 "description": "\n## Required scope\n\nContent.Create\n\n######\n",
                 "operationId": "Dashboards_AddDashboard",
                 "consumes": [
@@ -2945,7 +2945,7 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns the specified dashboard from **My Workspace**.",
+                "summary": "Returns the specified dashboard from **My workspace**.",
                 "description": "\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetDashboard",
                 "consumes": [
@@ -2997,7 +2997,7 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns a list of tiles within the specified dashboard from **My Workspace**.",
+                "summary": "Returns a list of tiles within the specified dashboard from **My workspace**.",
                 "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetTiles",
                 "consumes": [
@@ -3056,7 +3056,7 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Returns the specified tile within the specified dashboard from **My Workspace**.",
+                "summary": "Returns the specified tile within the specified dashboard from **My workspace**.",
                 "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n######\n",
                 "operationId": "Dashboards_GetTile",
                 "consumes": [
@@ -3120,7 +3120,7 @@
                 "tags": [
                     "Dashboards"
                 ],
-                "summary": "Clones the specified tile from **My Workspace**.",
+                "summary": "Clones the specified tile from **My workspace**.",
                 "description": "\nWhen a tile is cloned to another workspace and bound to another report and dataset, it's cloned as is with its underlying query containing the original report filters.\n\nIf the target report ID and target dataset are missing, the following can occur:\n- If you're cloning a tile within the same workspace, the report and dataset links will be cloned from the source tile.\n- If you're cloning a tile within a different workspace, report and dataset links will be removed, and the tile will be broken.\n\n## Required scope\n\nDashboard.ReadWrite.All\n\n######\n",
                 "operationId": "Dashboards_CloneTile",
                 "consumes": [

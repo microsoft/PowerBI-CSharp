@@ -19,7 +19,7 @@ namespace Microsoft.PowerBI.Api
     public partial interface IDashboardsOperations
     {
         /// <summary>
-        /// Returns a list of dashboards from **My Workspace**.
+        /// Returns a list of dashboards from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -44,7 +44,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboards>> GetDashboardsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new empty dashboard in **My Workspace**.
+        /// Creates a new empty dashboard in **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -75,7 +75,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> AddDashboardWithHttpMessagesAsync(AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified dashboard from **My Workspace**.
+        /// Returns the specified dashboard from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -104,7 +104,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from **My
-        /// Workspace**.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -136,7 +136,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Tiles>> GetTilesWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified tile within the specified dashboard from **My
-        /// Workspace**.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -170,7 +170,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(System.Guid dashboardId, System.Guid tileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified tile from **My Workspace**.
+        /// Clones the specified tile from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
