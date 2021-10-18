@@ -593,7 +593,8 @@ namespace Microsoft.PowerBI.Api
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Premium Per User (PPU) is not supported.
+            /// Check the limitations in the [Export to File API
+            /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -620,7 +621,8 @@ namespace Microsoft.PowerBI.Api
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Premium Per User (PPU) is not supported.
+            /// Check the limitations in the [Export to File API
+            /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1392,7 +1394,8 @@ namespace Microsoft.PowerBI.Api
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Premium Per User (PPU) is not supported.
+            /// Check the limitations in the [Export to File API
+            /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1422,7 +1425,8 @@ namespace Microsoft.PowerBI.Api
             /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
             /// [Register an
             /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-            /// Premium Per User (PPU) is not supported.
+            /// Check the limitations in the [Export to File API
+            /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
