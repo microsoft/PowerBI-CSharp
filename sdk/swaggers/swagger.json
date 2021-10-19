@@ -1751,7 +1751,7 @@
                     "Users"
                 ],
                 "summary": "Refreshes user permissions in Power BI.",
-                "description": "When a user is granted permissions to a workspace, app, or artifact, it might not be immediately available through API calls.<br/>This operation refreshes user permissions and makes sure the user permissions are fully updated.<br/><br/>**Important:**<ul><li>Make the *refresh user permissions* call, before any other API calls.</li><li>It takes about two minutes for the permissions to get refreshed. Before calling other APIs, wait for two minutes.</li></ul>**Required scope:** Workspace.Read.All  or Workspace.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2> User can call this API once per hour.",
+                "description": "\nWhen a user is granted permissions to a workspace, app, or Power BI item (such as a report or a dashboard), the new permissions might not be immediately available through API calls. This operation refreshes user permissions to ensure they're fully updated.\n\n> [!IMPORTANT]\n>\n> - Call **Refresh User Permissions** before making other API calls.\n> - Since it takes about two minutes for the permissions to get refreshed, wait for two minutes before making other API calls.\n\n## Required scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\nMaximum one call per hour.\n\n######\n",
                 "operationId": "Users_RefreshUserPermissions",
                 "consumes": [
                 ],

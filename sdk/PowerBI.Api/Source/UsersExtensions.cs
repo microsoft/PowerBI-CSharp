@@ -19,19 +19,28 @@ namespace Microsoft.PowerBI.Api
             /// Refreshes user permissions in Power BI.
             /// </summary>
             /// <remarks>
-            /// When a user is granted permissions to a workspace, app, or artifact, it
-            /// might not be immediately available through API calls.&lt;br/&gt;This
-            /// operation refreshes user permissions and makes sure the user permissions
-            /// are fully
-            /// updated.&lt;br/&gt;&lt;br/&gt;**Important:**&lt;ul&gt;&lt;li&gt;Make the
-            /// *refresh user permissions* call, before any other API
-            /// calls.&lt;/li&gt;&lt;li&gt;It takes about two minutes for the permissions
-            /// to get refreshed. Before calling other APIs, wait for two
-            /// minutes.&lt;/li&gt;&lt;/ul&gt;**Required scope:** Workspace.Read.All  or
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt; User can call this API once per hour.
+            ///
+            /// When a user is granted permissions to a workspace, app, or Power BI item
+            /// (such as a report or a dashboard), the new permissions might not be
+            /// immediately available through API calls. This operation refreshes user
+            /// permissions to ensure they're fully updated.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt;
+            /// &gt; - Call **Refresh User Permissions** before making other API calls.
+            /// &gt; - Since it takes about two minutes for the permissions to get
+            /// refreshed, wait for two minutes before making other API calls.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum one call per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -45,19 +54,28 @@ namespace Microsoft.PowerBI.Api
             /// Refreshes user permissions in Power BI.
             /// </summary>
             /// <remarks>
-            /// When a user is granted permissions to a workspace, app, or artifact, it
-            /// might not be immediately available through API calls.&lt;br/&gt;This
-            /// operation refreshes user permissions and makes sure the user permissions
-            /// are fully
-            /// updated.&lt;br/&gt;&lt;br/&gt;**Important:**&lt;ul&gt;&lt;li&gt;Make the
-            /// *refresh user permissions* call, before any other API
-            /// calls.&lt;/li&gt;&lt;li&gt;It takes about two minutes for the permissions
-            /// to get refreshed. Before calling other APIs, wait for two
-            /// minutes.&lt;/li&gt;&lt;/ul&gt;**Required scope:** Workspace.Read.All  or
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt; User can call this API once per hour.
+            ///
+            /// When a user is granted permissions to a workspace, app, or Power BI item
+            /// (such as a report or a dashboard), the new permissions might not be
+            /// immediately available through API calls. This operation refreshes user
+            /// permissions to ensure they're fully updated.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt;
+            /// &gt; - Call **Refresh User Permissions** before making other API calls.
+            /// &gt; - Since it takes about two minutes for the permissions to get
+            /// refreshed, wait for two minutes before making other API calls.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum one call per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
