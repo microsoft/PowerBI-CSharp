@@ -24,19 +24,18 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// For filtering purposes, filter will be applied on the table where
-        /// values are being aggregated
+        /// For filtering purposes, the filter will be applied on the table
+        /// where values are being aggregated.
         /// </summary>
         public static readonly CrossFilteringBehavior OneDirection = "OneDirection";
 
         /// <summary>
-        /// For filtering purposes, both tables are treated as if they're a
-        /// single table
+        /// For filtering purposes, both tables are treated as a single table.
         /// </summary>
         public static readonly CrossFilteringBehavior BothDirections = "BothDirections";
 
         /// <summary>
-        /// Cross filtering behavior defined automatically
+        /// Cross filtering behavior is automatically defined
         /// </summary>
         public static readonly CrossFilteringBehavior Automatic = "Automatic";
 

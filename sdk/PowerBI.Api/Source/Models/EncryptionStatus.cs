@@ -24,7 +24,7 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Unable to determine state due to dataset corruption
+        /// The encryption status is unknown due to dataset corruption
         /// </summary>
         public static readonly EncryptionStatus Unknown = "Unknown";
 
@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly EncryptionStatus InSyncWithWorkspace = "InSyncWithWorkspace";
 
         /// <summary>
-        /// Encryption is supported and not in sync with the encryption
+        /// Encryption is supported but isn't in sync with the encryption
         /// settings
         /// </summary>
         public static readonly EncryptionStatus NotInSyncWithWorkspace = "NotInSyncWithWorkspace";

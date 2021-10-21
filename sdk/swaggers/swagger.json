@@ -16788,12 +16788,12 @@
             "required": [
                 "datasourceInstanceId"
             ],
-            "description": "Datasource usage",
+            "description": "Data source usage",
             "properties": {
                 "datasourceInstanceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The datasource instance ID"
+                    "description": "The data source instance ID"
                 }
             }
         },
@@ -16819,7 +16819,7 @@
                 "Id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The workspace object ID."
+                    "description": "The workspace object ID"
                 }
             }
         },
@@ -16829,37 +16829,37 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The scan ID."
+                    "description": "The scan ID"
                 },
                 "createdDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The scan created date time."
+                    "description": "The scan creation date and time"
                 },
                 "status": {
                     "type": "string",
-                    "description": "The scan state."
+                    "description": "The scan state"
                 },
                 "error": {
                     "$ref": "#/definitions/PowerBIApiErrorResponseDetail",
-                    "description": "The scan error (if such exists)"
+                    "description": "The scan error (if any)"
                 }
             }
         },
         "PowerBIApiErrorResponseDetail": {
-            "description": "A Power BI error response details",
+            "description": "Detailed information about a Power BI error response",
             "properties": {
                 "code": {
                     "type": "string",
-                    "description": "The error code."
+                    "description": "The error code"
                 },
                 "message": {
                     "type": "string",
-                    "description": "The error message."
+                    "description": "The error message"
                 },
                 "target": {
                     "type": "string",
-                    "description": "The error target."
+                    "description": "The error target"
                 }
             }
         },
@@ -16868,7 +16868,7 @@
             "properties": {
                 "workspaces": {
                     "type": "array",
-                    "description": "Required workspace IDs to be scaned. It should contain 1-100 workspaces.",
+                    "description": "The required workspace IDs to be scanned (supports 1 to 100 workspace IDs)",
                     "items": {
                         "type": "string",
                         "format": "uuid",
@@ -16889,7 +16889,7 @@
                 },
                 "datasourceInstances": {
                     "type": "array",
-                    "description": "The datasources' instances associated with this scan",
+                    "description": "The data source instances associated with this scan",
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
@@ -16937,35 +16937,35 @@
                 },
                 "reports": {
                     "type": "array",
-                    "description": "The reports associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
+                    "description": "The reports associated with this workspace. The list of report properties returned varies for different API calls, so you might not see all report properties in an API response.",
                     "items": {
                         "$ref": "#/definitions/Report"
                     }
                 },
                 "dashboards": {
                     "type": "array",
-                    "description": "The dashboards associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
+                    "description": "The dashboards associated with this workspace. The list of dashboard properties returned varies for different API calls, so you might not see all dashboard properties in an API response.",
                     "items": {
                         "$ref": "#/definitions/Dashboard"
                     }
                 },
                 "datasets": {
                     "type": "array",
-                    "description": "The datasets associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
+                    "description": "The datasets associated with this workspace. The list of dataset properties returned varies for different API calls, so you might not see all dataset properties in an API response.",
                     "items": {
                         "$ref": "#/definitions/Dataset"
                     }
                 },
                 "dataflows": {
                     "type": "array",
-                    "description": "The dataflows associated with this workspace. The list of properties returned varies between APIs, thus you may not see them all as part of the API response.",
+                    "description": "The dataflows associated with this workspace. The list of dataflow properties returned varies for different API calls, so you might not see all dataflow properties in an API response.",
                     "items": {
                         "$ref": "#/definitions/Dataflow"
                     }
                 },
                 "users": {
                     "type": "array",
-                    "description": "Users have access to the workspace, only apply when user information is requested explicitly. The list is retrieved for V2 workspaces but not for classic workspaces. To retirve the users for classic workspace, call AAD Graph APIs.",
+                    "description": "The users with access to the workspace. The list is returned only when explicitly requested, and is only retrieved for workspaces in the new workspace experience. To retrieve a list of users for a classic workspace, use the Azure Active Directory Graph API.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
@@ -17013,12 +17013,12 @@
                 "createdDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Import creation time"
+                    "description": "Import creation date and time"
                 },
                 "updatedDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Import last update time"
+                    "description": "Import last update date and time"
                 }
             }
         },
@@ -17027,11 +17027,11 @@
             "properties": {
                 "filePath": {
                     "type": "string",
-                    "description": "The OneDrive for Business .xlsx file path to import, can be absolute or relative. .pbix files are not supported."
+                    "description": "The path of the OneDrive for Business Excel (.xlsx) file to import, which can be absolute or relative. Power BI Desktop report (.pbix) files aren't supported."
                 },
                 "connectionType": {
                     "type": "string",
-                    "description": "The import connection type for OneDrive for Business file",
+                    "description": "The import connection type for a OneDrive for Business file",
                     "enum": [
                         "import",
                         "connect"
@@ -17043,7 +17043,7 @@
                 },
                 "fileUrl": {
                     "type": "string",
-                    "description": "The shared access signature (SAS) url of the temporary blob storage, used to import large .pbix files between 1 GB and 10 GB"
+                    "description": "The shared access signature URL of the temporary blob storage used to import large Power BI Desktop report (.pbix) files between 1 GB and 10 GB in size."
                 }
             }
         },
@@ -17053,7 +17053,7 @@
             }
         },
         "Datasets": {
-            "description": "A dataset odata list wrapper",
+            "description": "A dataset OData list wrapper",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17072,7 +17072,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI dataset. Below is a list of properties that may be returned for a dataset. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "description": "A Power BI dataset. The API returns a subset of the following list of dataset properties. The subset depends on the API called, caller permissions, and the availability of the data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -17092,32 +17092,32 @@
                 },
                 "webUrl": {
                     "type": "string",
-                    "description": "The dataset web url"
+                    "description": "The dataset web URL"
                 },
                 "IsRefreshable": {
                     "type": "boolean",
-                    "description": "Can this dataset be refreshed"
+                    "description": "Whether the dataset can be refreshed"
                 },
                 "IsEffectiveIdentityRequired": {
                     "type": "boolean",
-                    "description": "Whether the dataset requires an effective identity. This indicates that you must send an effective identity using the GenerateToken API."
+                    "description": "Whether the dataset requires an effective identity, which you must send in a [GenerateToken](/rest/api/power-bi/embed-token/generate-token) API call."
                 },
                 "IsEffectiveIdentityRolesRequired": {
                     "type": "boolean",
-                    "description": "Whether RLS is defined inside the PBIX file. This indicates that you must specify a role."
+                    "description": "Whether row-level security is defined inside the Power BI Desktop report (.pbix) file. If so, you must specify a role."
                 },
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
-                    "description": "Dataset requires an On-premises Data Gateway"
+                    "description": "The dataset requires an on-premises data gateway"
                 },
                 "Encryption": {
                     "$ref": "#/definitions/Encryption",
-                    "description": "The dataset encryption information (Only applicable when $expand is specified)"
+                    "description": "Dataset encryption information. Only applicable when `$expand` is specified."
                 },
                 "CreatedDate": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "DateTime of creation of this dataset"
+                    "description": "The dataset creation date and time"
                 },
                 "ContentProviderType": {
                     "type": "string",
@@ -17125,11 +17125,11 @@
                 },
                 "CreateReportEmbedURL": {
                     "type": "string",
-                    "description": "The dataset create report embed url"
+                    "description": "The dataset create report embed URL"
                 },
                 "QnaEmbedURL": {
                     "type": "string",
-                    "description": "The dataset qna embed url"
+                    "description": "The dataset Q&A embed URL"
                 },
                 "description": {
                     "type": "string",
@@ -17137,18 +17137,18 @@
                 },
                 "endorsementDetails": {
                     "$ref": "#/definitions/EndorsementDetails",
-                    "description": "The dataset endorsement details"
+                    "description": "The endorsement details for the dataset"
                 },
                 "datasourceUsages": {
                     "type": "array",
-                    "description": "Datasource usages",
+                    "description": "The data source usages",
                     "items": {
                         "$ref": "#/definitions/DatasourceUsage"
                     }
                 },
                 "upstreamDataflows": {
                     "type": "array",
-                    "description": "Upstream Dataflows",
+                    "description": "The upstream dataflows",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
                     }
@@ -17162,11 +17162,11 @@
                 },
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The dataset sensitivity label. Only available for admin APIs."
+                    "description": "The dataset sensitivity label. Only available for [Admin](/rest/api/power-bi/admin) APIs."
                 },
                 "users": {
                     "type": "array",
-                    "description": "The Dataset User Access Details. This value will be empty. It will be removed from the payload response in an upcoming release. To retrieve user information on an artifact, please consider using the Get Dataset User as Admin APIs, or the PostWorkspaceInfo API with the getArtifactUser parameter.",
+                    "description": "(Empty value) The dataset user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dataset Users as Admin](/rest/api/power-bi/admin/datasets-get-dataset-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/DatasetUser"
                     }
@@ -17177,7 +17177,7 @@
                 },
                 "schemaMayNotBeUpToDate": {
                     "type": "boolean",
-                    "description": "Whether dataset schema may not be up to date"
+                    "description": "Whether the dataset schema might not be up to date"
                 }
             }
         },
@@ -17199,7 +17199,7 @@
                         "values": [
                             {
                                 "value": "Unknown",
-                                "description": "Unable to determine state due to dataset corruption"
+                                "description": "The encryption status is unknown due to dataset corruption"
                             },
                             {
                                 "value": "NotSupported",
@@ -17211,7 +17211,7 @@
                             },
                             {
                                 "value": "NotInSyncWithWorkspace",
-                                "description": "Encryption is supported and not in sync with the encryption settings"
+                                "description": "Encryption is supported but isn't in sync with the encryption settings"
                             }
                         ]
                     }
@@ -17231,28 +17231,28 @@
                 },
                 "tables": {
                     "type": "array",
-                    "description": "The dataset tables.",
+                    "description": "The dataset tables",
                     "items": {
                         "$ref": "#/definitions/Table"
                     }
                 },
                 "relationships": {
                     "type": "array",
-                    "description": "The dataset relationships.",
+                    "description": "The dataset relationships",
                     "items": {
                         "$ref": "#/definitions/Relationship"
                     }
                 },
                 "datasources": {
                     "type": "array",
-                    "description": "The datasources associated with this dataset.",
+                    "description": "The data sources associated with this dataset",
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
                 },
                 "defaultMode": {
                     "type": "string",
-                    "description": "The dataset mode or type.",
+                    "description": "The dataset mode or type",
                     "enum": [
                         "AsAzure",
                         "AsOnPrem",
@@ -17266,23 +17266,23 @@
                         "values": [
                             {
                                 "value": "AsAzure",
-                                "description": "A dataset with a live connection to Azure Analysis Service"
+                                "description": "A dataset with a live connection to Azure Analysis Services"
                             },
                             {
                                 "value": "AsOnPrem",
-                                "description": "A dataset with a live connection to On-premise Analysis Service"
+                                "description": "A dataset with a live connection to on-premises Azure Analysis Services"
                             },
                             {
                                 "value": "Push",
-                                "description": "A dataset which allows programmatic access for pushing data into PowerBI, [learn more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)"
+                                "description": "A dataset that allows programmatic access for pushing data into PowerBI"
                             },
                             {
                                 "value": "Streaming",
-                                "description": "A dataset which supports data streaming, [learn more](https://docs.microsoft.com/power-bi/service-real-time-streaming)"
+                                "description": "A dataset that supports data streaming. For more information, see [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming)."
                             },
                             {
                                 "value": "PushStreaming",
-                                "description": "A dataset which supports data streaming and allows programmatic access for pushing data into Power BI"
+                                "description": "A dataset that supports data streaming and allows programmatic access for pushing data into Power BI"
                             }
                         ]
                     }
@@ -17324,7 +17324,7 @@
                 },
                 "isHidden": {
                     "type": "boolean",
-                    "description": "(Optional) Whether dataset table is hidden"
+                    "description": "(Optional) Whether this dataset table is hidden"
                 },
                 "description": {
                     "type": "string",
@@ -17364,7 +17364,7 @@
             }
         },
         "DependentDataflows": {
-            "description": "Odata response wrapper for a Power BI dependent dataflows list",
+            "description": "The OData response wrapper for a list of Power BI dependent dataflows",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -17379,7 +17379,7 @@
             }
         },
         "DatasetToDataflowLinksResponse": {
-            "description": "Odata response wrapper for a Power BI dataset to dataflow links list",
+            "description": "The OData response wrapper for a list of Power BI dataset to dataflow links",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -17422,15 +17422,15 @@
                         "values": [
                             {
                                 "value": "OneDirection",
-                                "description": "For filtering purposes, filter will be applied on the table where values are being aggregated"
+                                "description": "For filtering purposes, the filter will be applied on the table where values are being aggregated."
                             },
                             {
                                 "value": "BothDirections",
-                                "description": "For filtering purposes, both tables are treated as if they're a single table"
+                                "description": "For filtering purposes, both tables are treated as a single table."
                             },
                             {
                                 "value": "Automatic",
-                                "description": "Cross filtering behavior defined automatically"
+                                "description": "Cross filtering behavior is automatically defined"
                             }
                         ]
                     },
@@ -17459,50 +17459,50 @@
             }
         },
         "Datasource": {
-            "description": "A Power BI datasource",
+            "description": "A Power BI data source",
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "(Deprecated) The datasource name. Available only for DirectQuery."
+                    "description": "(Deprecated) The data source name. Available only for DirectQuery."
                 },
                 "connectionString": {
                     "type": "string",
-                    "description": "(Deprecated) The datasource connection string. Available only for DirectQuery."
+                    "description": "(Deprecated) The data source connection string. Available only for DirectQuery."
                 },
                 "datasourceType": {
                     "type": "string",
-                    "description": "The datasource type"
+                    "description": "The data source type"
                 },
                 "connectionDetails": {
                     "$ref": "#/definitions/DatasourceConnectionDetails",
-                    "description": "The datasource connection details"
+                    "description": "The data source connection details"
                 },
                 "gatewayId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The bound gateway ID. Empty when not bound to a gateway. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
+                    "description": "The bound gateway ID, which is empty when not bound to a gateway. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster and is similar to the gateway cluster ID."
                 },
                 "datasourceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The bound datasource ID, which is empty when not bound to a gateway"
+                    "description": "The bound data source ID, which is empty when not bound to a gateway"
                 }
             }
         },
         "DatasourceConnectionDetails": {
-            "description": "A Power BI datasource connection details",
+            "description": "The Power BI data source connection details",
             "properties": {
                 "server": {
                     "type": "string",
-                    "description": "The connection server."
+                    "description": "The connection server"
                 },
                 "database": {
                     "type": "string",
-                    "description": "The connection database."
+                    "description": "The connection database"
                 },
                 "url": {
                     "type": "string",
-                    "description": "The connection url"
+                    "description": "The connection URL"
                 }
             }
         },

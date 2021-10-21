@@ -38,22 +38,26 @@ namespace Microsoft.PowerBI.Api.Models
         /// dedicated capacity</param>
         /// <param name="capacityId">The workspace capacity ID</param>
         /// <param name="reports">The reports associated with this workspace.
-        /// The list of properties returned varies between APIs, thus you may
-        /// not see them all as part of the API response.</param>
+        /// The list of report properties returned varies for different API
+        /// calls, so you might not see all report properties in an API
+        /// response.</param>
         /// <param name="dashboards">The dashboards associated with this
-        /// workspace. The list of properties returned varies between APIs,
-        /// thus you may not see them all as part of the API response.</param>
+        /// workspace. The list of dashboard properties returned varies for
+        /// different API calls, so you might not see all dashboard properties
+        /// in an API response.</param>
         /// <param name="datasets">The datasets associated with this workspace.
-        /// The list of properties returned varies between APIs, thus you may
-        /// not see them all as part of the API response.</param>
+        /// The list of dataset properties returned varies for different API
+        /// calls, so you might not see all dataset properties in an API
+        /// response.</param>
         /// <param name="dataflows">The dataflows associated with this
-        /// workspace. The list of properties returned varies between APIs,
-        /// thus you may not see them all as part of the API response.</param>
-        /// <param name="users">Users have access to the workspace, only apply
-        /// when user information is requested explicitly. The list is
-        /// retrieved for V2 workspaces but not for classic workspaces. To
-        /// retirve the users for classic workspace, call AAD Graph
-        /// APIs.</param>
+        /// workspace. The list of dataflow properties returned varies for
+        /// different API calls, so you might not see all dataflow properties
+        /// in an API response.</param>
+        /// <param name="users">The users with access to the workspace. The
+        /// list is returned only when explicitly requested, and is only
+        /// retrieved for workspaces in the new workspace experience. To
+        /// retrieve a list of users for a classic workspace, use the Azure
+        /// Active Directory Graph API.</param>
         public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), IList<GroupUser> users = default(IList<GroupUser>))
         {
             Id = id;
@@ -127,41 +131,43 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the reports associated with this workspace. The list
-        /// of properties returned varies between APIs, thus you may not see
-        /// them all as part of the API response.
+        /// of report properties returned varies for different API calls, so
+        /// you might not see all report properties in an API response.
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<Report> Reports { get; set; }
 
         /// <summary>
         /// Gets or sets the dashboards associated with this workspace. The
-        /// list of properties returned varies between APIs, thus you may not
-        /// see them all as part of the API response.
+        /// list of dashboard properties returned varies for different API
+        /// calls, so you might not see all dashboard properties in an API
+        /// response.
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
         public IList<Dashboard> Dashboards { get; set; }
 
         /// <summary>
         /// Gets or sets the datasets associated with this workspace. The list
-        /// of properties returned varies between APIs, thus you may not see
-        /// them all as part of the API response.
+        /// of dataset properties returned varies for different API calls, so
+        /// you might not see all dataset properties in an API response.
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<Dataset> Datasets { get; set; }
 
         /// <summary>
         /// Gets or sets the dataflows associated with this workspace. The list
-        /// of properties returned varies between APIs, thus you may not see
-        /// them all as part of the API response.
+        /// of dataflow properties returned varies for different API calls, so
+        /// you might not see all dataflow properties in an API response.
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
         public IList<Dataflow> Dataflows { get; set; }
 
         /// <summary>
-        /// Gets or sets users have access to the workspace, only apply when
-        /// user information is requested explicitly. The list is retrieved for
-        /// V2 workspaces but not for classic workspaces. To retirve the users
-        /// for classic workspace, call AAD Graph APIs.
+        /// Gets or sets the users with access to the workspace. The list is
+        /// returned only when explicitly requested, and is only retrieved for
+        /// workspaces in the new workspace experience. To retrieve a list of
+        /// users for a classic workspace, use the Azure Active Directory Graph
+        /// API.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }

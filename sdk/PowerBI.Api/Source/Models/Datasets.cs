@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A dataset odata list wrapper
+    /// A dataset OData list wrapper
     /// </summary>
     public partial class Datasets
     {
