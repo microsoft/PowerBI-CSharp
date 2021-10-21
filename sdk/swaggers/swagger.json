@@ -1571,7 +1571,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from **My workspace** to the specified gateway, optionally with a given set of data source IDs.",
+                "summary": "Binds the specified dataset from **My workspace** to the specified gateway, optionally with a given set of data source IDs. If you don’t supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
                 "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n\n######\n",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
@@ -4708,7 +4708,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of data source IDs.",
+                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of data source IDs. If you don’t supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
                 "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n\n######\n",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
@@ -18516,7 +18516,7 @@
                 },
                 "datasourceObjectIds": {
                     "type": "array",
-                    "description": "datasourceObjectIds belonging to the gateway",
+                    "description": "The unique identifier for the datasource in the gateway",
                     "items": {
                         "type": "string",
                         "format": "uuid",

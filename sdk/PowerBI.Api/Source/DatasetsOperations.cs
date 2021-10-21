@@ -3287,7 +3287,9 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Binds the specified dataset from **My workspace** to the specified gateway,
-        /// optionally with a given set of data source IDs.
+        /// optionally with a given set of data source IDs. If you don’t supply a
+        /// specific data source ID, the dataset will be bound to the first matching
+        /// data source in the gateway.
         /// </summary>
         /// <remarks>
         ///
@@ -7018,7 +7020,9 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Binds the specified dataset from the specified workspace to the specified
-        /// gateway, optionally with a given set of data source IDs.
+        /// gateway, optionally with a given set of data source IDs. If you don’t
+        /// supply a specific data source ID, the dataset will be bound to the first
+        /// matching data source in the gateway.
         /// </summary>
         /// <remarks>
         ///
