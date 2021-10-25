@@ -29,8 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="gatewayObjectId">The gateway ID. When using a gateway
         /// cluster, the gateway ID refers to the primary (first) gateway in
-        /// the cluster. In such cases, gateway ID is similar to gateway
-        /// cluster ID.</param>
+        /// the cluster and is similar to the gateway cluster ID.</param>
         /// <param name="datasourceObjectIds">The unique identifier for the
         /// datasource in the gateway</param>
         public BindToGatewayRequest(System.Guid gatewayObjectId, IList<System.Guid?> datasourceObjectIds = default(IList<System.Guid?>))
@@ -47,8 +46,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the gateway ID. When using a gateway cluster, the
-        /// gateway ID refers to the primary (first) gateway in the cluster. In
-        /// such cases, gateway ID is similar to gateway cluster ID.
+        /// gateway ID refers to the primary (first) gateway in the cluster and
+        /// is similar to the gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayObjectId")]
         public System.Guid GatewayObjectId { get; set; }

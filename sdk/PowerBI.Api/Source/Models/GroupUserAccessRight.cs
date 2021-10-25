@@ -24,27 +24,28 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Removes permission to content in workspace
+        /// No access to workspace content
         /// </summary>
         public static readonly GroupUserAccessRight None = "None";
 
         /// <summary>
-        /// Grants Read, Reshare and Explore access to content in workspace
+        /// Read, reshare and explore (ReadReshareExplore) access rights to
+        /// workspace content
         /// </summary>
         public static readonly GroupUserAccessRight Member = "Member";
 
         /// <summary>
-        /// Grants administrator rights to workspace
+        /// Administrator rights to workspace content
         /// </summary>
         public static readonly GroupUserAccessRight Admin = "Admin";
 
         /// <summary>
-        /// Grants Read and Explore access to content in group
+        /// Read and explore (ReadExplore) access to workspace content
         /// </summary>
         public static readonly GroupUserAccessRight Contributor = "Contributor";
 
         /// <summary>
-        /// Grants Read only access to content in group
+        /// Read-only (Read) access to workspace content
         /// </summary>
         public static readonly GroupUserAccessRight Viewer = "Viewer";
 

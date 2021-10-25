@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Installed App
+    /// A Power BI installed app
     /// </summary>
     public partial class App
     {
@@ -28,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="id">The app ID</param>
         /// <param name="name">The app name</param>
         /// <param name="description">The app description</param>
-        /// <param name="lastUpdate">The last time the app was updated</param>
+        /// <param name="lastUpdate">The date and time the app was last
+        /// updated</param>
         /// <param name="publishedBy">The app publisher</param>
         public App(System.Guid id, string name = default(string), string description = default(string), System.DateTime? lastUpdate = default(System.DateTime?), string publishedBy = default(string))
         {
@@ -64,7 +65,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the last time the app was updated
+        /// Gets or sets the date and time the app was last updated
         /// </summary>
         [JsonProperty(PropertyName = "lastUpdate")]
         public System.DateTime? LastUpdate { get; set; }

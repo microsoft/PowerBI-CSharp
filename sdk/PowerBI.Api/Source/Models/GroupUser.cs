@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for workspace
+    /// A Power BI user with access to the workspace
     /// </summary>
     public partial class GroupUser
     {
@@ -25,15 +25,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GroupUser class.
         /// </summary>
-        /// <param name="groupUserAccessRight">Access rights user has for the
-        /// workspace (Permission level). Possible values include: 'None',
-        /// 'Member', 'Admin', 'Contributor', 'Viewer'</param>
-        /// <param name="emailAddress">Email address of the user</param>
-        /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">[Object
+        /// <param name="groupUserAccessRight">The access right (permission
+        /// level) that a user has on the workspace. Possible values include:
+        /// 'None', 'Member', 'Admin', 'Contributor', 'Viewer'</param>
+        /// <param name="emailAddress">The email address of the user</param>
+        /// <param name="displayName">The display name of the principal</param>
+        /// <param name="identifier">The [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal</param>
-        /// <param name="graphId">Identifier of the principal in Microsoft
+        /// <param name="graphId">The identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
@@ -54,27 +54,27 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the workspace (Permission
-        /// level). Possible values include: 'None', 'Member', 'Admin',
+        /// Gets or sets the access right (permission level) that a user has on
+        /// the workspace. Possible values include: 'None', 'Member', 'Admin',
         /// 'Contributor', 'Viewer'
         /// </summary>
         [JsonProperty(PropertyName = "groupUserAccessRight")]
         public GroupUserAccessRight GroupUserAccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets email address of the user
+        /// Gets or sets the email address of the user
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// Gets or sets display name of the principal
+        /// Gets or sets the display name of the principal
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets [Object
+        /// Gets or sets the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal
         /// </summary>
@@ -82,8 +82,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets identifier of the principal in Microsoft Graph. Only
-        /// available for admin APIs.
+        /// Gets or sets the identifier of the principal in Microsoft Graph.
+        /// Only available for admin APIs.
         /// </summary>
         [JsonProperty(PropertyName = "graphId")]
         public string GraphId { get; set; }

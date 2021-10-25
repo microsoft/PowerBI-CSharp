@@ -26,35 +26,31 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the CredentialDetails class.
         /// </summary>
-        /// <param name="credentials">The credentials. Depends on the
-        /// 'credentialType' value. See [Update Datasource
-        /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).</param>
+        /// <param name="credentials">The credentials, which depend on the
+        /// 'credentialType' value. For more information, see [Update
+        /// Datasource](/rest/api/power-bi/gateways/update-datasource#examples)
+        /// examples.</param>
         /// <param name="credentialType">The credential type. Possible values
         /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'</param>
-        /// <param name="encryptedConnection">User input for this attribute is
-        /// currently ignored. Today, regardless of the provided value, we
-        /// always try to establish an encrypted connection first but fall back
-        /// to an unencrypted option in case of a failure. &lt;br/&gt;This will
-        /// be fixed for the following data source types with the June 2019
-        /// gateway release causing a value of Encrypted to try only an
-        /// encrypted connection and NotEncrypted with an unencrypted
-        /// connection and there would be no fallback behavior
-        /// &lt;ul&gt;&lt;li&gt;Impala&lt;/li&gt;&lt;li&gt;MySql&lt;/li&gt;&lt;li&gt;DB2&lt;/li&gt;&lt;li&gt;Netezza&lt;/li&gt;&lt;li&gt;PostgreSQL&lt;/li&gt;&lt;li&gt;Sybase&lt;/li&gt;&lt;li&gt;Teradata&lt;/li&gt;&lt;li&gt;GoogleBigQuery&lt;/li&gt;&lt;li&gt;Amazon
-        /// Redshift&lt;/li&gt;&lt;/ul&gt;. Possible values include:
-        /// 'Encrypted', 'NotEncrypted'</param>
-        /// <param name="encryptionAlgorithm">The encryption algorithm. For
-        /// cloud datasource, use 'None'. For on-premises datasource, use
-        /// gateway public key with 'RSA-OAEP' algorithm. Possible values
+        /// <param name="encryptedConnection">Whether to encrypt the data
+        /// source connection. The API call will fail if you select encryption
+        /// and Power BI is unable to establish an encrypted connection with
+        /// the data source. Possible values include: 'Encrypted',
+        /// 'NotEncrypted'</param>
+        /// <param name="encryptionAlgorithm">The encryption algorithm. For a
+        /// cloud data source, specify *None*. For an on-premises data source,
+        /// specify *RSA-OAEP* and use the gateway public key. Possible values
         /// include: 'None', 'RSA-OAEP'</param>
-        /// <param name="privacyLevel">The privacy level. Relevant when
-        /// combining data from multiple sources. Possible values include:
+        /// <param name="privacyLevel">The privacy level, which is relevant
+        /// when combining data from multiple sources. Possible values include:
         /// 'None', 'Public', 'Organizational', 'Private'</param>
-        /// <param name="useCallerAADIdentity">Should the caller's AAD identity
-        /// be used for OAuth2 credentials configuration</param>
-        /// <param name="useEndUserOAuth2Credentials">Should the end-user
-        /// OAuth2 credentials be used for connecting to the datasource in
-        /// DirectQuery mode. Only supported for Direct Query to SQL
-        /// Azure.</param>
+        /// <param name="useCallerAADIdentity">Whether the Azure Active
+        /// Directory identity of the caller should be used for configuration
+        /// of OAuth 2.0 credentials</param>
+        /// <param name="useEndUserOAuth2Credentials">Whether the OAuth 2.0
+        /// credentials of the caller should be used to connect to the data
+        /// source in DirectQuery mode. This API call is only supported for
+        /// DirectQuery to Azure SQL.</param>
         public CredentialDetails(string credentials, CredentialType credentialType, EncryptedConnection encryptedConnection, EncryptionAlgorithm encryptionAlgorithm, PrivacyLevel privacyLevel, bool? useCallerAADIdentity = default(bool?), bool? useEndUserOAuth2Credentials = default(bool?))
         {
             Credentials = credentials;
@@ -73,9 +69,10 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the credentials. Depends on the 'credentialType'
-        /// value. See [Update Datasource
-        /// Examples](/rest/api/power-bi/gateways/updatedatasource#examples).
+        /// Gets or sets the credentials, which depend on the 'credentialType'
+        /// value. For more information, see [Update
+        /// Datasource](/rest/api/power-bi/gateways/update-datasource#examples)
+        /// examples.
         /// </summary>
         [JsonProperty(PropertyName = "credentials")]
         public string Credentials { get; set; }
@@ -88,48 +85,42 @@ namespace Microsoft.PowerBI.Api.Models
         public CredentialType CredentialType { get; set; }
 
         /// <summary>
-        /// Gets or sets user input for this attribute is currently ignored.
-        /// Today, regardless of the provided value, we always try to establish
-        /// an encrypted connection first but fall back to an unencrypted
-        /// option in case of a failure. &amp;lt;br/&amp;gt;This will be fixed
-        /// for the following data source types with the June 2019 gateway
-        /// release causing a value of Encrypted to try only an encrypted
-        /// connection and NotEncrypted with an unencrypted connection and
-        /// there would be no fallback behavior
-        /// &amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Impala&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MySql&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;DB2&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Netezza&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PostgreSQL&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Sybase&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Teradata&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;GoogleBigQuery&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Amazon
-        /// Redshift&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;. Possible values
-        /// include: 'Encrypted', 'NotEncrypted'
+        /// Gets or sets whether to encrypt the data source connection. The API
+        /// call will fail if you select encryption and Power BI is unable to
+        /// establish an encrypted connection with the data source. Possible
+        /// values include: 'Encrypted', 'NotEncrypted'
         /// </summary>
         [JsonProperty(PropertyName = "encryptedConnection")]
         public EncryptedConnection EncryptedConnection { get; set; }
 
         /// <summary>
-        /// Gets or sets the encryption algorithm. For cloud datasource, use
-        /// 'None'. For on-premises datasource, use gateway public key with
-        /// 'RSA-OAEP' algorithm. Possible values include: 'None', 'RSA-OAEP'
+        /// Gets or sets the encryption algorithm. For a cloud data source,
+        /// specify *None*. For an on-premises data source, specify *RSA-OAEP*
+        /// and use the gateway public key. Possible values include: 'None',
+        /// 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
         public EncryptionAlgorithm EncryptionAlgorithm { get; set; }
 
         /// <summary>
-        /// Gets or sets the privacy level. Relevant when combining data from
-        /// multiple sources. Possible values include: 'None', 'Public',
-        /// 'Organizational', 'Private'
+        /// Gets or sets the privacy level, which is relevant when combining
+        /// data from multiple sources. Possible values include: 'None',
+        /// 'Public', 'Organizational', 'Private'
         /// </summary>
         [JsonProperty(PropertyName = "privacyLevel")]
         public PrivacyLevel PrivacyLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets should the caller's AAD identity be used for OAuth2
-        /// credentials configuration
+        /// Gets or sets whether the Azure Active Directory identity of the
+        /// caller should be used for configuration of OAuth 2.0 credentials
         /// </summary>
         [JsonProperty(PropertyName = "useCallerAADIdentity")]
         public bool? UseCallerAADIdentity { get; set; }
 
         /// <summary>
-        /// Gets or sets should the end-user OAuth2 credentials be used for
-        /// connecting to the datasource in DirectQuery mode. Only supported
-        /// for Direct Query to SQL Azure.
+        /// Gets or sets whether the OAuth 2.0 credentials of the caller should
+        /// be used to connect to the data source in DirectQuery mode. This API
+        /// call is only supported for DirectQuery to Azure SQL.
         /// </summary>
         [JsonProperty(PropertyName = "useEndUserOAuth2Credentials")]
         public bool? UseEndUserOAuth2Credentials { get; set; }

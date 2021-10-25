@@ -24,20 +24,18 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Removes permission to access the datasource. Only applies when
-        /// updating user permissions.
+        /// No permission to access the data source. Only applies when updating
+        /// user permissions.
         /// </summary>
         public static readonly DatasourceUserAccessRight None = "None";
 
         /// <summary>
-        /// Indicates that datasets owned by the user has read access to this
-        /// datasource.
+        /// Datasets owned by the user have read access to the data source
         /// </summary>
         public static readonly DatasourceUserAccessRight Read = "Read";
 
         /// <summary>
-        /// Indicates that user can override effective identity for Power BI
-        /// Embedded.
+        /// The user can override the effective identity for Power BI Embedded
         /// </summary>
         public static readonly DatasourceUserAccessRight ReadOverrideEffectiveIdentity = "ReadOverrideEffectiveIdentity";
 

@@ -18250,7 +18250,7 @@
                 },
                 "users": {
                     "type": "array",
-                    "description": "The users that belong to the group, and their access rights. This value will be empty. It will be removed from the payload response in an upcoming release. To retrieve user information on an artifact, please consider using the Get Group User APIs, or the PostWorkspaceInfo API with the getArtifactUser parameter.",
+                    "description": "(Empty value) The users that belong to the group and their access rights. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Group Users As Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
@@ -18306,7 +18306,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI Installed App",
+            "description": "A Power BI installed app",
             "properties": {
                 "id": {
                     "type": "string",
@@ -18324,7 +18324,7 @@
                 "lastUpdate": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The last time the app was updated"
+                    "description": "The date and time the app was last updated"
                 },
                 "publishedBy": {
                     "type": "string",
@@ -18342,7 +18342,7 @@
                 },
                 "modulus": {
                     "type": "string",
-                    "description": "The public key  modulus"
+                    "description": "The public key modulus"
                 }
             }
         },
@@ -18355,7 +18355,7 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
+                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster and is similar to the gateway cluster ID."
                 },
                 "name": {
                     "type": "string",
@@ -18367,7 +18367,7 @@
                 },
                 "gatewayAnnotation": {
                     "type": "string",
-                    "description": "Gateway metadata in json format"
+                    "description": "Gateway metadata in JSON format"
                 },
                 "publicKey": {
                     "$ref": "#/definitions/GatewayPublicKey",
@@ -18386,11 +18386,11 @@
                 "credentialDetails",
                 "dataSourceName"
             ],
-            "description": "A publish datasource to gateway request",
+            "description": "A publish data source to gateway request",
             "properties": {
                 "dataSourceType": {
                     "type": "string",
-                    "description": "The datasource type"
+                    "description": "The data source type"
                 },
                 "connectionDetails": {
                     "type": "string",
@@ -18401,7 +18401,7 @@
                 },
                 "dataSourceName": {
                     "type": "string",
-                    "description": "The datasource name"
+                    "description": "The data source name"
                 }
             }
         },
@@ -18417,7 +18417,7 @@
             "properties": {
                 "credentials": {
                     "type": "string",
-                    "description": "The credentials. Depends on the 'credentialType' value. See [Update Datasource Examples](/rest/api/power-bi/gateways/updatedatasource#examples)."
+                    "description": "The credentials, which depend on the 'credentialType' value. For more information, see [Update Datasource](/rest/api/power-bi/gateways/update-datasource#examples) examples."
                 },
                 "credentialType": {
                     "type": "string",
@@ -18436,7 +18436,7 @@
                 },
                 "encryptedConnection": {
                     "type": "string",
-                    "description": "User input for this attribute is currently ignored. Today, regardless of the provided value, we always try to establish an encrypted connection first but fall back to an unencrypted option in case of a failure. <br/>This will be fixed for the following data source types with the June 2019 gateway release causing a value of Encrypted to try only an encrypted connection and NotEncrypted with an unencrypted connection and there would be no fallback behavior <ul><li>Impala</li><li>MySql</li><li>DB2</li><li>Netezza</li><li>PostgreSQL</li><li>Sybase</li><li>Teradata</li><li>GoogleBigQuery</li><li>Amazon Redshift</li></ul>",
+                    "description": "Whether to encrypt the data source connection. The API call will fail if you select encryption and Power BI is unable to establish an encrypted connection with the data source.",
                     "enum": [
                         "Encrypted",
                         "NotEncrypted"
@@ -18448,7 +18448,7 @@
                 },
                 "encryptionAlgorithm": {
                     "type": "string",
-                    "description": "The encryption algorithm. For cloud datasource, use 'None'. For on-premises datasource, use gateway public key with 'RSA-OAEP' algorithm.",
+                    "description": "The encryption algorithm. For a cloud data source, specify *None*. For an on-premises data source, specify *RSA-OAEP* and use the gateway public key.",
                     "enum": [
                         "None",
                         "RSA-OAEP"
@@ -18460,7 +18460,7 @@
                 },
                 "privacyLevel": {
                     "type": "string",
-                    "description": "The privacy level. Relevant when combining data from multiple sources.",
+                    "description": "The privacy level, which is relevant when combining data from multiple sources.",
                     "enum": [
                         "None",
                         "Public",
@@ -18474,20 +18474,20 @@
                 },
                 "useCallerAADIdentity": {
                     "type": "boolean",
-                    "description": "Should the caller's AAD identity be used for OAuth2 credentials configuration"
+                    "description": "Whether the Azure Active Directory identity of the caller should be used for configuration of OAuth 2.0 credentials"
                 },
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Should the end-user OAuth2 credentials be used for connecting to the datasource in DirectQuery mode. Only supported for Direct Query to SQL Azure."
+                    "description": "Whether the OAuth 2.0 credentials of the caller should be used to connect to the data source in DirectQuery mode. This API call is only supported for DirectQuery to Azure SQL."
                 }
             }
         },
         "GatewayDatasourceCredentialDetails": {
-            "description": "The datasource credential details",
+            "description": "The data source credential details",
             "properties": {
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Indicates if the end-user OAuth2 credentials are used for connecting to the datasource in DirectQuery mode."
+                    "description": "Whether the OAuth 2.0 credentials of the caller should be used to connect to the data source in DirectQuery mode."
                 }
             }
         },
@@ -18495,7 +18495,7 @@
             "required": [
                 "credentialDetails"
             ],
-            "description": "An update datasource to gateway request",
+            "description": "An update data source to gateway request",
             "properties": {
                 "credentialDetails": {
                     "$ref": "#/definitions/CredentialDetails"
@@ -18511,7 +18511,7 @@
                 "gatewayObjectId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
+                    "description": "The gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster and is similar to the gateway cluster ID."
                 },
                 "datasourceObjectIds": {
                     "type": "array",
@@ -18519,7 +18519,7 @@
                     "items": {
                         "type": "string",
                         "format": "uuid",
-                        "description": "The datasource ID"
+                        "description": "A data source ID"
                     }
                 }
             }
@@ -18528,11 +18528,11 @@
             "required": [
                 "connectionString"
             ],
-            "description": "Connection string wrapper.",
+            "description": "A connection string wrapper",
             "properties": {
                 "connectionString": {
                     "type": "string",
-                    "description": "A dataset connection string."
+                    "description": "A dataset connection string"
                 }
             }
         },
@@ -18541,7 +18541,7 @@
             "properties": {
                 "refreshType": {
                     "type": "string",
-                    "description": "Type of refresh request",
+                    "description": "The type of refresh request",
                     "enum": [
                         "Scheduled",
                         "OnDemand",
@@ -18553,15 +18553,15 @@
                         "values": [
                             {
                                 "value": "Scheduled",
-                                "description": "Refresh was triggered by the dataset refresh schedule setting"
+                                "description": "The refresh was triggered by a dataset refresh schedule setting"
                             },
                             {
                                 "value": "OnDemand",
-                                "description": "Refresh was triggered interactively threw Power BI portal"
+                                "description": "The refresh was triggered interactively through the Power BI portal"
                             },
                             {
                                 "value": "ViaApi",
-                                "description": "Refresh was triggered by an Api call"
+                                "description": "The refresh was triggered by an API call"
                             }
                         ]
                     }
@@ -18569,24 +18569,24 @@
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "DateTime of start"
+                    "description": "The start date and time of the refresh"
                 },
                 "endTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "DateTime of termination (may be empty if refresh is progress)"
+                    "description": "The end date and time of the refresh (may be empty if a refresh is in progress)"
                 },
                 "serviceExceptionJson": {
                     "type": "string",
-                    "description": "Failure error code in json format (not empty only on error)."
+                    "description": "Failure error code in JSON format (empty if no error)"
                 },
                 "status": {
                     "type": "string",
-                    "description": "'Unknown' - Unknown completion state or refresh is in progress. endTime will be empty with this status. <br/>'Completed' - refresh completed successfully <br/> 'Failed' - Refresh failed. serviceExceptionJson will contain the error. <br/>'Disabled' - Refresh disabled by Selective Refresh."
+                    "description": "- `Unknown` if the completion state is unknown or a refresh is in progress.\n- `Completed` for a successfully completed refresh.\n- `Failed` for an unsuccessful refresh (`serviceExceptionJson` will contain the error code).\n- `Disabled` if the refresh is disabled by a selective refresh."
                 },
                 "requestId": {
                     "type": "string",
-                    "description": "The identifier of the Refresh request. <br/>Please provide this identifier in all service requests"
+                    "description": "The identifier of the refresh request. Provide this identifier in all service requests."
                 }
             }
         },
@@ -18595,7 +18595,7 @@
             "properties": {
                 "notifyOption": {
                     "type": "string",
-                    "description": "Mail notification options (success and/or failure, or none)",
+                    "description": "Mail notification options",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure",
@@ -18611,11 +18611,11 @@
                             },
                             {
                                 "value": "MailOnFailure",
-                                "description": "Mail notification will be sent on refresh failure"
+                                "description": "A mail notification will be sent on refresh failure"
                             },
                             {
                                 "value": "MailOnCompletion",
-                                "description": "Mail notification will be sent on refresh completion, including either failure and success"
+                                "description": "A mail notification indicating success or failure will be sent on refresh completion"
                             }
                         ]
                     }
@@ -18632,17 +18632,17 @@
             "description": "Power BI refresh schedule request",
             "properties": {
                 "value": {
-                    "description": "An object containg the refresh schedule details",
+                    "description": "An object that contains the details of a refresh schedule",
                     "$ref": "#/definitions/RefreshSchedule"
                 }
             }
         },
         "RefreshSchedule": {
-            "description": "A Power BI refresh schedule for cached model",
+            "description": "A Power BI refresh schedule for [imported model](/power-bi/connect-data/refresh-data#datasets-in-import-mode)",
             "properties": {
                 "days": {
                     "type": "array",
-                    "description": "Days to execute the refresh",
+                    "description": "The days on which to execute the refresh",
                     "items": {
                         "type": "string",
                         "description": "Days of week",
@@ -18663,23 +18663,23 @@
                 },
                 "times": {
                     "type": "array",
-                    "description": "Times to execute the refresh within each day",
+                    "description": "The times of day to execute the refresh",
                     "items": {
                         "type": "string",
-                        "description": "Time slot, in the format of hh:mm where hh is the hour (from 00 to 23) and mm is the minutes (can only be 00 or 30). "
+                        "description": "A time of day in the format of `hh:mm`, where `hh` is the hour (from *00* to *23*) and `mm` is the minute (can only be *00* or *30*)."
                     }
                 },
                 "enabled": {
                     "type": "boolean",
-                    "description": "Is the refresh enabled"
+                    "description": "Whether the refresh is enabled"
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The ID of the time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)"
+                    "description": "The ID of the time zone to use. For more information, see [Time zone info](/dotnet/api/system.timezoneinfo.id)."
                 },
                 "NotifyOption": {
                     "type": "string",
-                    "description": "Notification option at scheduled refresh termination",
+                    "description": "The notification option on termination of a scheduled refresh",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure"
@@ -18694,7 +18694,7 @@
                             },
                             {
                                 "value": "MailOnFailure",
-                                "description": "Mail notification will be sent on refresh failure"
+                                "description": "A mail notification will be sent on refresh failure"
                             }
                         ]
                     }
@@ -18705,24 +18705,24 @@
             "required": [
                 "value"
             ],
-            "description": "Power BI  refresh schedule request for DirectQuery or LiveConnection ",
+            "description": "Power BI refresh schedule request for DirectQuery or LiveConnection ",
             "properties": {
                 "value": {
-                    "description": "An object containg the refresh schedule details for DirectQuery or LiveConnection",
+                    "description": "An object containing the refresh schedule details for DirectQuery or LiveConnection",
                     "$ref": "#/definitions/DirectQueryRefreshSchedule"
                 }
             }
         },
         "DirectQueryRefreshSchedule": {
-            "description": "A Power BI refresh schedule for DirectQuery or LiveConnection, specified by setting either the frequency or a combination of days and times.",
+            "description": "A Power BI refresh schedule for DirectQuery or LiveConnection, specifying either the frequency or a combination of days and times.",
             "properties": {
                 "frequency": {
                     "type": "integer",
-                    "description": "the refresh frequency in minutes, supported values are 15, 30, 60, 120, and 180."
+                    "description": "The interval in minutes between successive refreshes. Supported values are *15*, *30*, *60*, *120*, and *180*."
                 },
                 "days": {
                     "type": "array",
-                    "description": "Days to execute the refresh",
+                    "description": "The days on which to execute the refresh",
                     "items": {
                         "type": "string",
                         "description": "Days of week",
@@ -18743,20 +18743,20 @@
                 },
                 "times": {
                     "type": "array",
-                    "description": "Times to execute the refresh within each day",
+                    "description": "The times of day to execute the refresh",
                     "items": {
                         "type": "string",
-                        "description": "Time slot, in the format of hh:mm where hh is the hour (from 00 to 23) and mm is the minutes (can only be 00 or 30). "
+                        "description": "A time of day in the format of `hh:mm`, where `hh` is the hour (from *00* to *23*) and `mm` is the minute (can only be *00* or *30*)."
                     }
                 },
                 "localTimeZoneId": {
                     "type": "string",
-                    "description": "The ID of the time zone to use. See [Time Zone Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)"
+                    "description": "The ID of the time zone to use. For more information, see [Time zone info](/dotnet/api/system.timezoneinfo.id)"
                 }
             }
         },
         "MashupParameter": {
-            "description": "Power BI dataset parameter",
+            "description": "A Power BI dataset parameter",
             "properties": {
                 "name": {
                     "type": "string",
@@ -18768,15 +18768,15 @@
                 },
                 "currentValue": {
                     "type": "string",
-                    "description": "The parameter current value"
+                    "description": "The current value of the parameter"
                 },
                 "isRequired": {
                     "type": "boolean",
-                    "description": "Is dataset parameter required"
+                    "description": "Whether the dataset parameter is required"
                 },
                 "suggestedValues": {
                     "type": "array",
-                    "description": "List of the parameter suggested values",
+                    "description": "A list of suggested parameter values",
                     "items": {
                         "type": "string"
                     }
@@ -18789,7 +18789,7 @@
             ]
         },
         "UpdateMashupParameterDetails": {
-            "description": "Power BI dataset parameter update details",
+            "description": "The update details for a Power BI dataset parameter",
             "properties": {
                 "name": {
                     "type": "string",
@@ -18797,7 +18797,7 @@
                 },
                 "newValue": {
                     "type": "string",
-                    "description": "The parameter new value"
+                    "description": "The new value for the parameter"
                 }
             },
             "required": [
@@ -18805,11 +18805,11 @@
             ]
         },
         "UpdateMashupParametersRequest": {
-            "description": "Power BI dataset parameter update request",
+            "description": "An update request for a Power BI dataset parameter",
             "properties": {
                 "updateDetails": {
                     "type": "array",
-                    "description": "The dataset parameter list to update",
+                    "description": "A list of dataset parameters to update",
                     "items": {
                         "$ref": "#/definitions/UpdateMashupParameterDetails"
                     }
@@ -18820,14 +18820,14 @@
             ]
         },
         "MashupParameters": {
-            "description": "Odata response wrapper for a Power BI dataset parameter list",
+            "description": "The OData response wrapper for a list of Power BI dataset parameters",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The dataset parameter List",
+                    "description": "A list of dataset parameters",
                     "items": {
                         "$ref": "#/definitions/MashupParameter"
                     }
@@ -18838,11 +18838,11 @@
             "required": [
                 "datasourceAccessRight"
             ],
-            "description": "A Power BI user access right entry for datasource",
+            "description": "A Power BI user with access to the data source",
             "properties": {
                 "datasourceAccessRight": {
                     "type": "string",
-                    "description": "The user access rights for the datasource.",
+                    "description": "The access right (permission level) that a user has on the data source",
                     "enum": [
                         "None",
                         "Read",
@@ -18854,30 +18854,30 @@
                         "values": [
                             {
                                 "value": "None",
-                                "description": "Removes permission to access the datasource. Only applies when updating user permissions."
+                                "description": "No permission to access the data source. Only applies when updating user permissions."
                             },
                             {
                                 "value": "Read",
-                                "description": "Indicates that datasets owned by the user has read access to this datasource."
+                                "description": "Datasets owned by the user have read access to the data source"
                             },
                             {
                                 "value": "ReadOverrideEffectiveIdentity",
-                                "description": "Indicates that user can override effective identity for Power BI Embedded."
+                                "description": "The user can override the effective identity for Power BI Embedded"
                             }
                         ]
                     }
                 },
                 "emailAddress": {
                     "type": "string",
-                    "description": "Email address of the user"
+                    "description": "The email address of the user"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Display name of the principal"
+                    "description": "The display name of the principal"
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
+                    "description": "The [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
@@ -18888,11 +18888,11 @@
             "required": [
                 "groupUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for workspace",
+            "description": "A Power BI user with access to the workspace",
             "properties": {
                 "groupUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the workspace (Permission level)",
+                    "description": "The access right (permission level) that a user has on the workspace",
                     "enum": [
                         "None",
                         "Member",
@@ -18906,42 +18906,42 @@
                         "values": [
                             {
                                 "value": "None",
-                                "description": "Removes permission to content in workspace"
+                                "description": "No access to workspace content"
                             },
                             {
                                 "value": "Member",
-                                "description": "Grants Read, Reshare and Explore access to content in workspace"
+                                "description": "Read, reshare and explore (ReadReshareExplore) access rights to workspace content"
                             },
                             {
                                 "value": "Admin",
-                                "description": "Grants administrator rights to workspace"
+                                "description": "Administrator rights to workspace content"
                             },
                             {
                                 "value": "Contributor",
-                                "description": "Grants Read and Explore access to content in group"
+                                "description": "Read and explore (ReadExplore) access to workspace content"
                             },
                             {
                                 "value": "Viewer",
-                                "description": "Grants Read only access to content in group"
+                                "description": "Read-only (Read) access to workspace content"
                             }
                         ]
                     }
                 },
                 "emailAddress": {
                     "type": "string",
-                    "description": "Email address of the user"
+                    "description": "The email address of the user"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Display name of the principal"
+                    "description": "The display name of the principal"
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "[Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
+                    "description": "The [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
                 },
                 "graphId": {
                     "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                    "description": "The identifier of the principal in Microsoft Graph. Only available for admin APIs."
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"

@@ -39,12 +39,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// calls.</param>
         /// <param name="state">The group state. Available only for admin API
         /// calls.</param>
-        /// <param name="users">The users that belong to the group, and their
-        /// access rights. This value will be empty. It will be removed from
-        /// the payload response in an upcoming release. To retrieve user
-        /// information on an artifact, please consider using the Get Group
-        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
-        /// parameter.</param>
+        /// <param name="users">(Empty value) The users that belong to the
+        /// group and their access rights. This property will be removed from
+        /// the payload response in an upcoming release. You can retrieve user
+        /// information on a Power BI item (such as a report or a dashboard) by
+        /// using the [Get Group Users As
+        /// Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.</param>
         /// <param name="reports">The reports that belong to the group.
         /// Available only for admin API calls.</param>
         /// <param name="dashboards">The dashboards that belong to the group.
@@ -136,12 +139,15 @@ namespace Microsoft.PowerBI.Api.Models
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or sets the users that belong to the group, and their access
-        /// rights. This value will be empty. It will be removed from the
-        /// payload response in an upcoming release. To retrieve user
-        /// information on an artifact, please consider using the Get Group
-        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
-        /// parameter.
+        /// Gets or sets (Empty value) The users that belong to the group and
+        /// their access rights. This property will be removed from the payload
+        /// response in an upcoming release. You can retrieve user information
+        /// on a Power BI item (such as a report or a dashboard) by using the
+        /// [Get Group Users As
+        /// Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }
