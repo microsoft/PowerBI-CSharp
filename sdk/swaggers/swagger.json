@@ -17514,7 +17514,7 @@
             "properties": {
                 "updateDetails": {
                     "type": "array",
-                    "description": "An array of datasource connection update requests",
+                    "description": "An array of data source connection update requests",
                     "items": {
                         "$ref": "#/definitions/UpdateDatasourceConnectionRequest"
                     }
@@ -17529,11 +17529,11 @@
             "properties": {
                 "connectionDetails": {
                     "$ref": "#/definitions/DatasourceConnectionDetails",
-                    "description": "The target connection details of the updated datasource."
+                    "description": "The target connection details of the updated data source"
                 },
                 "datasourceSelector": {
                     "$ref": "#/definitions/Datasource",
-                    "description": "The connection details of the datasource that need to be updated. This is mandataory when the dataset has more than one datasource."
+                    "description": "The connection details of the data source that needs update. This is mandatory when a dataset has more than one data source."
                 }
             }
         },
@@ -17615,7 +17615,7 @@
             }
         },
         "Tables": {
-            "description": "Odata response wrapper for a Power BI table collection",
+            "description": "The OData response wrapper for a Power BI table collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17631,7 +17631,7 @@
             }
         },
         "GatewayDatasources": {
-            "description": "Odata response wrapper for a Power BI gateway datasource collection",
+            "description": "The OData response wrapper for a Power BI gateway data source collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17639,7 +17639,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "List of gateway datasources",
+                    "description": "The list of gateway data sources",
                     "items": {
                         "$ref": "#/definitions/GatewayDatasource"
                     }
@@ -17652,33 +17652,33 @@
                 "gatewayId",
                 "credentialType"
             ],
-            "description": "A Power BI gateway datasource",
+            "description": "A Power BI gateway data source",
             "properties": {
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The unique ID for this datasource"
+                    "description": "The unique ID for the data source"
                 },
                 "gatewayId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The associated gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster. In such cases, gateway ID is similar to gateway cluster ID."
+                    "description": "The associated gateway ID. When using a gateway cluster, the gateway ID refers to the primary (first) gateway in the cluster and is similar to the gateway cluster ID."
                 },
                 "datasourceName": {
                     "type": "string",
-                    "description": "The name of the datasource"
+                    "description": "The name of the data source"
                 },
                 "datasourceType": {
                     "type": "string",
-                    "description": "The type of the datasource:<ul><li>Sql </li><li>AnalysisServices </li><li>SAPHana </li><li>File </li><li>Folder </li><li>Oracle </li><li>Teradata </li><li>SharePointList </li><li>Web </li><li>OData </li><li>DB2 </li><li>MySql </li><li>PostgreSql </li><li>Sybase </li><li>Extension </li><li>SAPBW </li><li>AzureTables </li><li>AzureBlobs </li><li>Informix </li><li>ODBC </li><li>Excel </li><li>SharePoint </li><li>PubNub </li><li>MQ </li><li>BizTalk </li><li>GoogleAnalytics </li><li>CustomHttpApi </li><li>Exchange </li><li>Facebook </li><li>HDInsight </li><li>AzureMarketplace </li><li>ActiveDirectory </li><li>Hdfs </li><li>SharePointDocLib </li><li>PowerQueryMashup </li><li>OleDb </li><li>AdoDotNet </li><li>Salesforce </li><li>CustomConnector </li><li>SAPBWMessageServer </li><li>AdobeAnalytics </li><li>Essbase </li><li>AzureDataLakeStorage </li><li>SapErp </li><li>UIFlow </li><li>CDPA </li><li>EventHub </li></ul>"
+                    "description": "The type of [data source](/power-bi/connect-data/power-bi-data-sources).\n\n\n| API name for the data source | | |\n|-|-|-|\n| ActiveDirectory | AdobeAnalytics | AdoDotNet |\n| AnalysisServices | AzureBlobs | AzureDataLakeStorage |\n| AzureMarketplace | AzureTables | BizTalk |\n| CDPA | CustomConnector | CustomHttpApi |\n| DB2 | Essbase | EventHub |\n| Excel | Exchange | Extension |\n| Facebook | File | Folder |\n| GoogleAnalytics | Hdfs | HDInsight |\n| Informix | MQ | MySql |\n| OData | ODBC | OleDb |\n| Oracle | PostgreSql | PowerQueryMashup \n| PubNub | Salesforce | SAPBW |\n| SAPBWMessageServer | SapErp | SAPHana |\n| SharePoint | SharePointDocLib | SharePointList |\n| Sql | Sybase | Teradata |\n| UIFlow | Web |"
                 },
                 "connectionDetails": {
                     "type": "string",
-                    "description": "Connection details in json format"
+                    "description": "Connection details in JSON format"
                 },
                 "credentialType": {
                     "type": "string",
-                    "description": "Type of the datasource credentials",
+                    "description": "The type of data source credentials",
                     "enum": [
                         "Basic",
                         "Windows",
@@ -17693,7 +17693,7 @@
                 },
                 "credentialDetails": {
                     "$ref": "#/definitions/GatewayDatasourceCredentialDetails",
-                    "description": "The connection details of the datasource that need to be updated. This is mandataory when the dataset has more than one datasource."
+                    "description": "The connection details for the data source that needs update. The connection details are mandatory when the dataset has more than one data source."
                 }
             }
         },
@@ -17728,7 +17728,7 @@
             }
         },
         "Datasources": {
-            "description": "Odata response wrapper for a Power BI datasource collection",
+            "description": "The OData response wrapper for a Power BI data source collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17736,7 +17736,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The datasource collection",
+                    "description": "The data source collection",
                     "items": {
                         "$ref": "#/definitions/Datasource"
                     }
@@ -17744,7 +17744,7 @@
             }
         },
         "Reports": {
-            "description": "Odata response wrapper for a Power BI report collection",
+            "description": "The OData response wrapper for a Power BI report collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17760,7 +17760,7 @@
             }
         },
         "Pages": {
-            "description": "Odata response wrapper for a Power BI page collection",
+            "description": "The OData response wrapper for a Power BI page collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17776,7 +17776,7 @@
             }
         },
         "Dashboards": {
-            "description": "Odata response wrapper for a Power BI dashboard collection",
+            "description": "The OData response wrapper for a Power BI dashboard collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17792,7 +17792,7 @@
             }
         },
         "Tiles": {
-            "description": "Odata response wrapper for a Power BI tile collection",
+            "description": "The OData response wrapper for a Power BI tile collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17808,7 +17808,7 @@
             }
         },
         "Imports": {
-            "description": "Odata response wrapper for a Power BI import collection",
+            "description": "The OData response wrapper for a Power BI import collection",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17816,7 +17816,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The imports collection",
+                    "description": "The import collection",
                     "items": {
                         "$ref": "#/definitions/Import"
                     }
@@ -17824,7 +17824,7 @@
             }
         },
         "Groups": {
-            "description": "Odata response wrapper for a Power BI group list",
+            "description": "The OData response wrapper for a list of Power BI groups",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17832,7 +17832,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The groups",
+                    "description": "The list of groups",
                     "items": {
                         "$ref": "#/definitions/Group"
                     }
@@ -17840,7 +17840,7 @@
             }
         },
         "Apps": {
-            "description": "Odata response wrapper for a Power BI installed App list",
+            "description": "The OData response wrapper for a list of Power BI installed apps",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -17848,7 +17848,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The installed apps",
+                    "description": "The list of installed apps",
                     "items": {
                         "$ref": "#/definitions/App"
                     }
@@ -17856,14 +17856,14 @@
             }
         },
         "Gateways": {
-            "description": "Odata response wrapper for a Power BI gateways list",
+            "description": "The OData response wrapper for a list of Power BI gateways",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The gateways",
+                    "description": "The list of gateways",
                     "items": {
                         "$ref": "#/definitions/Gateway"
                     }
@@ -17871,14 +17871,14 @@
             }
         },
         "Refreshes": {
-            "description": "Odata response wrapper for a Power BI refresh history",
+            "description": "The OData response wrapper for a Power BI refresh history list",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The Refresh history list",
+                    "description": "The refresh history list",
                     "items": {
                         "$ref": "#/definitions/Refresh"
                     }
@@ -17886,14 +17886,14 @@
             }
         },
         "DatasourceUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for datasource List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a data source",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for datasource List",
+                    "description": "The list of users with access to a data source",
                     "items": {
                         "$ref": "#/definitions/DatasourceUser"
                     }
@@ -17901,14 +17901,14 @@
             }
         },
         "GroupUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for group List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a workspace",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for group List",
+                    "description": "The list of users with access to a workspace",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
@@ -17916,14 +17916,14 @@
             }
         },
         "AppUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for app List",
+            "description": "The OData response wrapper for a list of Power BI users with access to an app",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for app List",
+                    "description": "The list of users with access to an app",
                     "items": {
                         "$ref": "#/definitions/AppUser"
                     }
@@ -17931,14 +17931,14 @@
             }
         },
         "CapacityUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for capacity List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a capacity",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for capacity List",
+                    "description": "The list of users with access to a capacity",
                     "items": {
                         "$ref": "#/definitions/CapacityUser"
                     }
@@ -17946,14 +17946,14 @@
             }
         },
         "ReportUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for report List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a report",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for report List",
+                    "description": "The list of users with access to a report",
                     "items": {
                         "$ref": "#/definitions/ReportUser"
                     }
@@ -17961,14 +17961,14 @@
             }
         },
         "DashboardUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for dashboard List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a dashboard",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for dashboard List",
+                    "description": "The list of users with access to a dashboard",
                     "items": {
                         "$ref": "#/definitions/DashboardUser"
                     }
@@ -17976,14 +17976,14 @@
             }
         },
         "DatasetUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for dataset List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a dataset",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for dataset List",
+                    "description": "The list of users with access to a dataset",
                     "items": {
                         "$ref": "#/definitions/DatasetUser"
                     }
@@ -17991,14 +17991,14 @@
             }
         },
         "DataflowUsers": {
-            "description": "Odata response wrapper for a Power BI user access right for dataflow List",
+            "description": "The OData response wrapper for a list of Power BI users with access to a dataflow",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The user access right for dataflow List",
+                    "description": "The list of users with access to a dataflow",
                     "items": {
                         "$ref": "#/definitions/DataflowUser"
                     }
@@ -18006,25 +18006,25 @@
             }
         },
         "ArtifactAccessResponse": {
-            "description": "Odata response wrapper for a Power BI artifact access list for user",
+            "description": "The OData response wrapper for a list of Power BI items (such as a report or a dashboard) that a user can access",
             "properties": {
                 "odata.context": {
                     "type": "string"
                 },
                 "value": {
                     "type": "array",
-                    "description": "The artifact access list for user",
+                    "description": "The list of Power BI items that a user can access",
                     "items": {
                         "$ref": "#/definitions/ArtifactAccessEntry"
                     }
                 },
                 "continuationUri": {
                     "type": "string",
-                    "description": "The URI for the next chunk in the result set"
+                    "description": "The URI of the next chunk in the result set"
                 },
                 "continuationToken": {
                     "type": "string",
-                    "description": "Token to get the next chunk of the result set"
+                    "description": "The token for the next chunk in the result set"
                 }
             }
         },
@@ -18032,7 +18032,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI report. Below is a list of properties that may be returned for a report. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "description": "A Power BI report. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -18041,19 +18041,19 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The report name"
+                    "description": "The name of the report"
                 },
                 "webUrl": {
                     "type": "string",
-                    "description": "The report web url"
+                    "description": "The web URL of the report"
                 },
                 "embedUrl": {
                     "type": "string",
-                    "description": "The report embed url"
+                    "description": "The embed URL of the report"
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "The dataset ID"
+                    "description": "The dataset ID of the report"
                 },
                 "description": {
                     "type": "string",
@@ -18065,22 +18065,21 @@
                 },
                 "modifiedBy": {
                     "type": "string",
-                    "description": "The user that modified this report"
+                    "description": "The user that modified the report"
                 },
                 "createdDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The report created date time."
+                    "description": "The report creation date and time"
                 },
                 "modifiedDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The report modified date time."
+                    "description": "The report modified date and time"
                 },
                 "endorsementDetails": {
                     "$ref": "#/definitions/EndorsementDetails",
                     "description": "The report endorsement details"
-
                 },
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
@@ -18095,7 +18094,7 @@
                 },
                 "users": {
                     "type": "array",
-                    "description": "The Report User Access Details. This value will be empty. It will be removed from the payload response in an upcoming release. To retrieve user information on an artifact, please consider using the Get Report User as Admin APIs, or the PostWorkspaceInfo API with the getArtifactUser parameter.",
+                    "description": "(Empty value) The report user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/ReportUser"
                     }
@@ -18107,16 +18106,16 @@
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The page name"
+                    "description": "The name of the report page"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The page display name"
+                    "description": "The display name of the report page"
                 },
                 "order": {
                     "type": "integer",
                     "format": "int32",
-                    "description": "The page order"
+                    "description": "The order of the report page"
                 }
             }
         },
@@ -18124,7 +18123,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI dashboard. Below is a list of properties that may be returned for a dashboard. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "description": "A Power BI dashboard. The API returns a subset of the following list of dashboard properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -18133,19 +18132,19 @@
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The dashboard display name"
+                    "description": "The display name of the dashboard"
                 },
                 "isReadOnly": {
                     "type": "boolean",
-                    "description": "Is ReadOnly dashboard"
+                    "description": "Whether the dashboard is read-only"
                 },
                 "embedUrl": {
                     "type": "string",
-                    "description": "The dashboard embed url"
+                    "description": "The embed URL of the dashboard"
                 },
                 "tiles": {
                     "type": "array",
-                    "description": "The tiles that belong to the dashboard.",
+                    "description": "The tiles that belong to the dashboard",
                     "items": {
                         "$ref": "#/definitions/Tile"
                     }
@@ -18156,11 +18155,11 @@
                 },
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The dashboard sensitivity label"
+                    "description": "The sensitivity label for the dashboard"
                 },
                 "users": {
                     "type": "array",
-                    "description": "The Dashboard User Access Details. This value will be empty. It will be removed from the payload response in an upcoming release. To retrieve user information on an artifact, please consider using the Get Dashboard User as Admin APIs, or the PostWorkspaceInfo API with the getArtifactUser parameter.",
+                    "description": "(Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/DashboardUser"
                     }
@@ -18180,32 +18179,32 @@
                 },
                 "title": {
                     "type": "string",
-                    "description": "The dashboard display name"
+                    "description": "The display name of the tile "
                 },
                 "rowSpan": {
                     "type": "integer",
-                    "description": "number of rows a tile should span"
+                    "description": "The number of tile span rows"
                 },
                 "colSpan": {
                     "type": "integer",
-                    "description": "number of columns a tile should span"
+                    "description": "The number of tile span columns"
                 },
                 "embedUrl": {
                     "type": "string",
-                    "description": "The tile embed url"
+                    "description": "The embed URL of the tile"
                 },
                 "embedData": {
                     "type": "string",
-                    "description": "The tile embed data"
+                    "description": "The embed data for the tile"
                 },
                 "reportId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The report ID, which is available only for tiles created from a report"
+                    "description": "The report ID. Available only for tiles created from a report."
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "The dataset ID, which is available only for tiles created from a report or using a dataset, such as Q&A tiles"
+                    "description": "The dataset ID. Available only for tiles created from a report or by using a dataset, such as Q&A tiles."
                 }
             }
         },

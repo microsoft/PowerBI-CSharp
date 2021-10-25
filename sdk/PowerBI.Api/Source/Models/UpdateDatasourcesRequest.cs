@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the UpdateDatasourcesRequest class.
         /// </summary>
-        /// <param name="updateDetails">An array of datasource connection
+        /// <param name="updateDetails">An array of data source connection
         /// update requests</param>
         public UpdateDatasourcesRequest(IList<UpdateDatasourceConnectionRequest> updateDetails)
         {
@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets an array of datasource connection update requests
+        /// Gets or sets an array of data source connection update requests
         /// </summary>
         [JsonProperty(PropertyName = "updateDetails")]
         public IList<UpdateDatasourceConnectionRequest> UpdateDetails { get; set; }

@@ -12,10 +12,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI dashboard. Below is a list of properties that may be
-    /// returned for a dashboard. Only a subset of the properties will be
-    /// returned depending on the API called, the caller permissions and the
-    /// availability of the data in the Power BI database.
+    /// A Power BI dashboard. The API returns a subset of the following list of
+    /// dashboard properties. The subset depends on the API called, caller
+    /// permissions, and the availability of data in the Power BI database.
     /// </summary>
     public partial class Dashboard
     {
@@ -31,19 +30,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Dashboard class.
         /// </summary>
         /// <param name="id">The dashboard ID</param>
-        /// <param name="displayName">The dashboard display name</param>
-        /// <param name="isReadOnly">Is ReadOnly dashboard</param>
-        /// <param name="embedUrl">The dashboard embed url</param>
-        /// <param name="tiles">The tiles that belong to the dashboard.</param>
+        /// <param name="displayName">The display name of the dashboard</param>
+        /// <param name="isReadOnly">Whether the dashboard is read-only</param>
+        /// <param name="embedUrl">The embed URL of the dashboard</param>
+        /// <param name="tiles">The tiles that belong to the dashboard</param>
         /// <param name="dataClassification">The data classification tag of the
         /// dashboard</param>
-        /// <param name="sensitivityLabel">The dashboard sensitivity
-        /// label</param>
-        /// <param name="users">The Dashboard User Access Details. This value
-        /// will be empty. It will be removed from the payload response in an
-        /// upcoming release. To retrieve user information on an artifact,
-        /// please consider using the Get Dashboard User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
+        /// <param name="sensitivityLabel">The sensitivity label for the
+        /// dashboard</param>
+        /// <param name="users">(Empty value) The dashboard user access
+        /// details. This property will be removed from the payload response in
+        /// an upcoming release. You can retrieve user information on a Power
+        /// BI item (such as a report or a dashboard) by using the [Get
+        /// Dashboard Users as
+        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.</param>
         public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>))
         {
             Id = id;
@@ -69,25 +72,25 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the dashboard display name
+        /// Gets or sets the display name of the dashboard
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets is ReadOnly dashboard
+        /// Gets or sets whether the dashboard is read-only
         /// </summary>
         [JsonProperty(PropertyName = "isReadOnly")]
         public bool? IsReadOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets the dashboard embed url
+        /// Gets or sets the embed URL of the dashboard
         /// </summary>
         [JsonProperty(PropertyName = "embedUrl")]
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the tiles that belong to the dashboard.
+        /// Gets or sets the tiles that belong to the dashboard
         /// </summary>
         [JsonProperty(PropertyName = "tiles")]
         public IList<Tile> Tiles { get; set; }
@@ -99,17 +102,20 @@ namespace Microsoft.PowerBI.Api.Models
         public string DataClassification { get; set; }
 
         /// <summary>
-        /// Gets or sets the dashboard sensitivity label
+        /// Gets or sets the sensitivity label for the dashboard
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabel")]
         public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
-        /// Gets or sets the Dashboard User Access Details. This value will be
-        /// empty. It will be removed from the payload response in an upcoming
-        /// release. To retrieve user information on an artifact, please
-        /// consider using the Get Dashboard User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.
+        /// Gets or sets (Empty value) The dashboard user access details. This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve user information on a Power BI item (such
+        /// as a report or a dashboard) by using the [Get Dashboard Users as
+        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DashboardUser> Users { get; set; }

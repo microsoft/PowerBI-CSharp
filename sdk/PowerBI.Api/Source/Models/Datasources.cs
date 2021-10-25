@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI datasource collection
+    /// The OData response wrapper for a Power BI data source collection
     /// </summary>
     public partial class Datasources
     {
@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Datasources class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The datasource collection</param>
+        /// <param name="value">The data source collection</param>
         public Datasources(string odatacontext = default(string), IList<Datasource> value = default(IList<Datasource>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource collection
+        /// Gets or sets the data source collection
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Datasource> Value { get; set; }

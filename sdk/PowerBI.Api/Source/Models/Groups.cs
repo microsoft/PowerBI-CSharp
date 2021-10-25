@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI group list
+    /// The OData response wrapper for a list of Power BI groups
     /// </summary>
     public partial class Groups
     {
@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Groups class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The groups</param>
+        /// <param name="value">The list of groups</param>
         public Groups(string odatacontext = default(string), IList<Group> value = default(IList<Group>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the groups
+        /// Gets or sets the list of groups
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Group> Value { get; set; }

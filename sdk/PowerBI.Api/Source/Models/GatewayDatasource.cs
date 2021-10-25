@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI gateway datasource
+    /// A Power BI gateway data source
     /// </summary>
     public partial class GatewayDatasource
     {
@@ -25,49 +25,42 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GatewayDatasource class.
         /// </summary>
-        /// <param name="id">The unique ID for this datasource</param>
+        /// <param name="id">The unique ID for the data source</param>
         /// <param name="gatewayId">The associated gateway ID. When using a
         /// gateway cluster, the gateway ID refers to the primary (first)
-        /// gateway in the cluster. In such cases, gateway ID is similar to
-        /// gateway cluster ID.</param>
-        /// <param name="credentialType">Type of the datasource credentials.
+        /// gateway in the cluster and is similar to the gateway cluster
+        /// ID.</param>
+        /// <param name="credentialType">The type of data source credentials.
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
-        /// <param name="datasourceName">The name of the datasource</param>
-        /// <param name="datasourceType">The type of the
-        /// datasource:&lt;ul&gt;&lt;li&gt;Sql
-        /// &lt;/li&gt;&lt;li&gt;AnalysisServices &lt;/li&gt;&lt;li&gt;SAPHana
-        /// &lt;/li&gt;&lt;li&gt;File &lt;/li&gt;&lt;li&gt;Folder
-        /// &lt;/li&gt;&lt;li&gt;Oracle &lt;/li&gt;&lt;li&gt;Teradata
-        /// &lt;/li&gt;&lt;li&gt;SharePointList &lt;/li&gt;&lt;li&gt;Web
-        /// &lt;/li&gt;&lt;li&gt;OData &lt;/li&gt;&lt;li&gt;DB2
-        /// &lt;/li&gt;&lt;li&gt;MySql &lt;/li&gt;&lt;li&gt;PostgreSql
-        /// &lt;/li&gt;&lt;li&gt;Sybase &lt;/li&gt;&lt;li&gt;Extension
-        /// &lt;/li&gt;&lt;li&gt;SAPBW &lt;/li&gt;&lt;li&gt;AzureTables
-        /// &lt;/li&gt;&lt;li&gt;AzureBlobs &lt;/li&gt;&lt;li&gt;Informix
-        /// &lt;/li&gt;&lt;li&gt;ODBC &lt;/li&gt;&lt;li&gt;Excel
-        /// &lt;/li&gt;&lt;li&gt;SharePoint &lt;/li&gt;&lt;li&gt;PubNub
-        /// &lt;/li&gt;&lt;li&gt;MQ &lt;/li&gt;&lt;li&gt;BizTalk
-        /// &lt;/li&gt;&lt;li&gt;GoogleAnalytics
-        /// &lt;/li&gt;&lt;li&gt;CustomHttpApi &lt;/li&gt;&lt;li&gt;Exchange
-        /// &lt;/li&gt;&lt;li&gt;Facebook &lt;/li&gt;&lt;li&gt;HDInsight
-        /// &lt;/li&gt;&lt;li&gt;AzureMarketplace
-        /// &lt;/li&gt;&lt;li&gt;ActiveDirectory &lt;/li&gt;&lt;li&gt;Hdfs
-        /// &lt;/li&gt;&lt;li&gt;SharePointDocLib
-        /// &lt;/li&gt;&lt;li&gt;PowerQueryMashup &lt;/li&gt;&lt;li&gt;OleDb
-        /// &lt;/li&gt;&lt;li&gt;AdoDotNet &lt;/li&gt;&lt;li&gt;Salesforce
-        /// &lt;/li&gt;&lt;li&gt;CustomConnector
-        /// &lt;/li&gt;&lt;li&gt;SAPBWMessageServer
-        /// &lt;/li&gt;&lt;li&gt;AdobeAnalytics &lt;/li&gt;&lt;li&gt;Essbase
-        /// &lt;/li&gt;&lt;li&gt;AzureDataLakeStorage
-        /// &lt;/li&gt;&lt;li&gt;SapErp &lt;/li&gt;&lt;li&gt;UIFlow
-        /// &lt;/li&gt;&lt;li&gt;CDPA &lt;/li&gt;&lt;li&gt;EventHub
-        /// &lt;/li&gt;&lt;/ul&gt;</param>
-        /// <param name="connectionDetails">Connection details in json
+        /// <param name="datasourceName">The name of the data source</param>
+        /// <param name="datasourceType">The type of [data
+        /// source](/power-bi/connect-data/power-bi-data-sources).
+        ///
+        ///
+        /// | API name for the data source | | |
+        /// |-|-|-|
+        /// | ActiveDirectory | AdobeAnalytics | AdoDotNet |
+        /// | AnalysisServices | AzureBlobs | AzureDataLakeStorage |
+        /// | AzureMarketplace | AzureTables | BizTalk |
+        /// | CDPA | CustomConnector | CustomHttpApi |
+        /// | DB2 | Essbase | EventHub |
+        /// | Excel | Exchange | Extension |
+        /// | Facebook | File | Folder |
+        /// | GoogleAnalytics | Hdfs | HDInsight |
+        /// | Informix | MQ | MySql |
+        /// | OData | ODBC | OleDb |
+        /// | Oracle | PostgreSql | PowerQueryMashup
+        /// | PubNub | Salesforce | SAPBW |
+        /// | SAPBWMessageServer | SapErp | SAPHana |
+        /// | SharePoint | SharePointDocLib | SharePointList |
+        /// | Sql | Sybase | Teradata |
+        /// | UIFlow | Web |</param>
+        /// <param name="connectionDetails">Connection details in JSON
         /// format</param>
-        /// <param name="credentialDetails">The connection details of the
-        /// datasource that need to be updated. This is mandataory when the
-        /// dataset has more than one datasource.</param>
+        /// <param name="credentialDetails">The connection details for the data
+        /// source that needs update. The connection details are mandatory when
+        /// the dataset has more than one data source.</param>
         public GatewayDatasource(System.Guid id, System.Guid gatewayId, CredentialType credentialType, string datasourceName = default(string), string datasourceType = default(string), string connectionDetails = default(string), GatewayDatasourceCredentialDetails credentialDetails = default(GatewayDatasourceCredentialDetails))
         {
             Id = id;
@@ -86,7 +79,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unique ID for this datasource
+        /// Gets or sets the unique ID for the data source
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -94,89 +87,61 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the associated gateway ID. When using a gateway
         /// cluster, the gateway ID refers to the primary (first) gateway in
-        /// the cluster. In such cases, gateway ID is similar to gateway
-        /// cluster ID.
+        /// the cluster and is similar to the gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
         public System.Guid GatewayId { get; set; }
 
         /// <summary>
-        /// Gets or sets the name of the datasource
+        /// Gets or sets the name of the data source
         /// </summary>
         [JsonProperty(PropertyName = "datasourceName")]
         public string DatasourceName { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the
-        /// datasource:&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;Sql
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AnalysisServices
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SAPHana
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;File
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Folder
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Oracle
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Teradata
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SharePointList
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Web
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;OData
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;DB2
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MySql
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PostgreSql
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Sybase
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Extension
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SAPBW
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureTables
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureBlobs
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Informix
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;ODBC
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Excel
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SharePoint
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PubNub
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;MQ
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;BizTalk
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;GoogleAnalytics
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CustomHttpApi
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Exchange
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Facebook
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;HDInsight
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureMarketplace
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;ActiveDirectory
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Hdfs
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SharePointDocLib
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;PowerQueryMashup
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;OleDb
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AdoDotNet
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Salesforce
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CustomConnector
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SAPBWMessageServer
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AdobeAnalytics
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;Essbase
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;AzureDataLakeStorage
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;SapErp
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;UIFlow
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;CDPA
-        /// &amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;EventHub
-        /// &amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;
+        /// Gets or sets the type of [data
+        /// source](/power-bi/connect-data/power-bi-data-sources).
+        ///
+        ///
+        /// | API name for the data source | | |
+        /// |-|-|-|
+        /// | ActiveDirectory | AdobeAnalytics | AdoDotNet |
+        /// | AnalysisServices | AzureBlobs | AzureDataLakeStorage |
+        /// | AzureMarketplace | AzureTables | BizTalk |
+        /// | CDPA | CustomConnector | CustomHttpApi |
+        /// | DB2 | Essbase | EventHub |
+        /// | Excel | Exchange | Extension |
+        /// | Facebook | File | Folder |
+        /// | GoogleAnalytics | Hdfs | HDInsight |
+        /// | Informix | MQ | MySql |
+        /// | OData | ODBC | OleDb |
+        /// | Oracle | PostgreSql | PowerQueryMashup
+        /// | PubNub | Salesforce | SAPBW |
+        /// | SAPBWMessageServer | SapErp | SAPHana |
+        /// | SharePoint | SharePointDocLib | SharePointList |
+        /// | Sql | Sybase | Teradata |
+        /// | UIFlow | Web |
         /// </summary>
         [JsonProperty(PropertyName = "datasourceType")]
         public string DatasourceType { get; set; }
 
         /// <summary>
-        /// Gets or sets connection details in json format
+        /// Gets or sets connection details in JSON format
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public string ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets type of the datasource credentials. Possible values
+        /// Gets or sets the type of data source credentials. Possible values
         /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public CredentialType CredentialType { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection details of the datasource that need to
-        /// be updated. This is mandataory when the dataset has more than one
-        /// datasource.
+        /// Gets or sets the connection details for the data source that needs
+        /// update. The connection details are mandatory when the dataset has
+        /// more than one data source.
         /// </summary>
         [JsonProperty(PropertyName = "credentialDetails")]
         public GatewayDatasourceCredentialDetails CredentialDetails { get; set; }

@@ -25,9 +25,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Page class.
         /// </summary>
-        /// <param name="name">The page name</param>
-        /// <param name="displayName">The page display name</param>
-        /// <param name="order">The page order</param>
+        /// <param name="name">The name of the report page</param>
+        /// <param name="displayName">The display name of the report
+        /// page</param>
+        /// <param name="order">The order of the report page</param>
         public Page(string name = default(string), string displayName = default(string), int? order = default(int?))
         {
             Name = name;
@@ -42,19 +43,19 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the page name
+        /// Gets or sets the name of the report page
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the page display name
+        /// Gets or sets the display name of the report page
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets the page order
+        /// Gets or sets the order of the report page
         /// </summary>
         [JsonProperty(PropertyName = "order")]
         public int? Order { get; set; }
