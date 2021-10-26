@@ -7688,8 +7688,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Exports the specified dataflow definition to a .json file.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Exports the specified dataflow definition to a JSON file.",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n\n######\n",
                 "operationId": "Dataflows_GetDataflow",
                 "consumes": [],
                 "produces": [
@@ -7727,8 +7727,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Deletes a dataflow from the CDS for Analytics storage, including its definition file and actual model.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Deletes a dataflow from Power BI data prep storage, including its definition file and model.",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_DeleteDataflow",
                 "consumes": [],
                 "produces": [],
@@ -7772,8 +7772,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Update dataflow properties, capabilities and settings.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates dataflow properties, capabilities and settings.",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_UpdateDataflow",
                 "consumes": [],
                 "produces": [
@@ -7838,8 +7838,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Triggers a refresh for the specified dataflow. The only supported mail notification options are either in case of failure, or none. MailOnCompletion is not supported.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Triggers a refresh for the specified dataflow.",
+                "description": "\nSupported email notification options are **MailOnFailure** and **NoNotification**. **MailOnCompletion** isn't supported.\n\n## Required scope\n\nDataflow.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_RefreshDataflow",
                 "consumes": [
                     "application/json"
@@ -7911,8 +7911,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Returns a list of datasources for the specified dataflow.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of data sources for the specified dataflow.",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n\n######\n",
                 "operationId": "Dataflows_GetDataflowDataSources",
                 "consumes": [],
                 "produces": [
@@ -7986,7 +7986,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of all dataflows from the specified workspace.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n\n######\n",
                 "operationId": "Dataflows_GetDataflows",
                 "consumes": [],
                 "produces": [
@@ -8040,7 +8040,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n\n######\n",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroup",
                 "consumes": [
 
@@ -8082,8 +8082,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Creates or updates the specified dataflow refresh schedule configuration.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Creates or updates the refresh schedule for a specified dataflow.",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_UpdateRefreshSchedule",
                 "consumes": [
                     "application/json"
@@ -8194,7 +8194,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of transactions for the specified dataflow.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n\n######\n",
                 "operationId": "Dataflows_GetDataflowTransactions",
                 "consumes": [],
                 "produces": [
@@ -8258,8 +8258,8 @@
                 "tags": [
                     "Dataflows"
                 ],
-                "summary": "Attempts to Cancel the specified transactions.",
-                "description": "<br/>**Required scope**: Dataflow.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Attempts to cancel the specified transactions.",
+                "description": "\n## Required scope\n\nDataflow.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_CancelDataflowTransaction",
                 "consumes": [],
                 "produces": [

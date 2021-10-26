@@ -17,12 +17,16 @@ namespace Microsoft.PowerBI.Api
     public static partial class DataflowsOperationsExtensions
     {
             /// <summary>
-            /// Exports the specified dataflow definition to a .json file.
+            /// Exports the specified dataflow definition to a JSON file.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -39,12 +43,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Exports the specified dataflow definition to a .json file.
+            /// Exports the specified dataflow definition to a JSON file.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -66,13 +74,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deletes a dataflow from the CDS for Analytics storage, including its
-            /// definition file and actual model.
+            /// Deletes a dataflow from Power BI data prep storage, including its
+            /// definition file and model.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -89,13 +101,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deletes a dataflow from the CDS for Analytics storage, including its
-            /// definition file and actual model.
+            /// Deletes a dataflow from Power BI data prep storage, including its
+            /// definition file and model.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -115,12 +131,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Update dataflow properties, capabilities and settings.
+            /// Updates dataflow properties, capabilities and settings.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -140,12 +160,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Update dataflow properties, capabilities and settings.
+            /// Updates dataflow properties, capabilities and settings.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -168,14 +192,19 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataflow. The only supported mail
-            /// notification options are either in case of failure, or none.
-            /// MailOnCompletion is not supported.
+            /// Triggers a refresh for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported email notification options are **MailOnFailure** and
+            /// **NoNotification**. **MailOnCompletion** isn't supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -197,14 +226,19 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataflow. The only supported mail
-            /// notification options are either in case of failure, or none.
-            /// MailOnCompletion is not supported.
+            /// Triggers a refresh for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// Supported email notification options are **MailOnFailure** and
+            /// **NoNotification**. **MailOnCompletion** isn't supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -229,12 +263,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataflow.
+            /// Returns a list of data sources for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -251,12 +289,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources for the specified dataflow.
+            /// Returns a list of data sources for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -282,9 +324,13 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of all dataflows from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -301,9 +347,13 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of all dataflows from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -326,9 +376,13 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of upstream dataflows for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-            /// Dataflow.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -348,9 +402,13 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of upstream dataflows for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-            /// Dataflow.Read.All&lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -373,12 +431,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates or updates the specified dataflow refresh schedule configuration.
+            /// Creates or updates the refresh schedule for a specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -398,12 +460,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates or updates the specified dataflow refresh schedule configuration.
+            /// Creates or updates the refresh schedule for a specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -429,9 +495,13 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of transactions for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -451,9 +521,13 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of transactions for the specified dataflow.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or Dataflow.Read.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All or Dataflow.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -476,12 +550,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Attempts to Cancel the specified transactions.
+            /// Attempts to cancel the specified transactions.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -498,12 +576,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Attempts to Cancel the specified transactions.
+            /// Attempts to cancel the specified transactions.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Dataflow.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
