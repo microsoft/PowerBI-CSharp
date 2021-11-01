@@ -18474,11 +18474,11 @@
                 },
                 "useCallerAADIdentity": {
                     "type": "boolean",
-                    "description": "Whether the Azure Active Directory identity of the caller should be used for configuration of OAuth 2.0 credentials"
+                    "description": "Use to indicate that the Azure AD identity (OAuth2 credentials) of the API caller (which must be the data source owner) will be used to configure data source credentials (the owner OAuth access token). Typically, you’d either use this flag or `useEndUserOAuth2Credentials`."
                 },
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Whether the OAuth 2.0 credentials of the caller should be used to connect to the data source in DirectQuery mode. This API call is only supported for DirectQuery to Azure SQL."
+                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth2 credentials) is used for connecting to the data source in DirectQuery mode. Typically, you’d either use this flag or `useCallerAADIdentity`."
                 }
             }
         },
@@ -18487,7 +18487,7 @@
             "properties": {
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Whether the OAuth 2.0 credentials of the caller should be used to connect to the data source in DirectQuery mode."
+                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth2 credentials) is used for connecting to the data source in DirectQuery mode."
                 }
             }
         },
