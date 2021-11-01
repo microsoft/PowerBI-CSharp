@@ -144,10 +144,12 @@ namespace Microsoft.PowerBI.Api
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI
         /// service live
-        /// connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets)
+        /// connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets)
         /// after calling [rebind
-        /// report](/rest/api/power-bi/reports/RebindReport) is not
-        /// supported.&lt;br/&gt;
+        /// report](/rest/api/power-bi/reports/RebindReport) is not supported.
+        /// Refer to [Download a report from the Power BI service to Power BI
+        /// Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix)
+        /// for requirements and limitations.&lt;br/&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
