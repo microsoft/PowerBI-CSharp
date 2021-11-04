@@ -12981,6 +12981,14 @@
                 ],
                 "parameters": [
                     {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
                         "name": "$expand",
                         "in": "query",
                         "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks",
@@ -14592,7 +14600,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Refreshables"
+                            "$ref": "#/definitions/CapacityUsers"
                         }
                     }
                 },
@@ -18011,7 +18019,7 @@
                 "odata.context": {
                     "type": "string"
                 },
-                "value": {
+                "artifactAccessEntities": {
                     "type": "array",
                     "description": "The list of Power BI items that a user can access",
                     "items": {

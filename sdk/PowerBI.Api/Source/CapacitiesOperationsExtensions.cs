@@ -637,7 +637,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='capacityId'>
             /// The capacity ID
             /// </param>
-            public static Refreshables GetCapacityUsersAsAdmin(this ICapacitiesOperations operations, System.Guid capacityId)
+            public static CapacityUsers GetCapacityUsersAsAdmin(this ICapacitiesOperations operations, System.Guid capacityId)
             {
                 return operations.GetCapacityUsersAsAdminAsync(capacityId).GetAwaiter().GetResult();
             }
@@ -670,7 +670,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Refreshables> GetCapacityUsersAsAdminAsync(this ICapacitiesOperations operations, System.Guid capacityId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<CapacityUsers> GetCapacityUsersAsAdminAsync(this ICapacitiesOperations operations, System.Guid capacityId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCapacityUsersAsAdminWithHttpMessagesAsync(capacityId, null, cancellationToken).ConfigureAwait(false))
                 {

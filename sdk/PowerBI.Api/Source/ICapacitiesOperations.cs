@@ -379,6 +379,6 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Refreshables>> GetCapacityUsersAsAdminWithHttpMessagesAsync(System.Guid capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<CapacityUsers>> GetCapacityUsersAsAdminWithHttpMessagesAsync(System.Guid capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

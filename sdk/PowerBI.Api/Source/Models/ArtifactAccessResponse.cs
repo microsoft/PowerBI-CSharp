@@ -28,16 +28,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ArtifactAccessResponse class.
         /// </summary>
-        /// <param name="value">The list of Power BI items that a user can
-        /// access</param>
+        /// <param name="artifactAccessEntities">The list of Power BI items
+        /// that a user can access</param>
         /// <param name="continuationUri">The URI of the next chunk in the
         /// result set</param>
         /// <param name="continuationToken">The token for the next chunk in the
         /// result set</param>
-        public ArtifactAccessResponse(string odatacontext = default(string), IList<ArtifactAccessEntry> value = default(IList<ArtifactAccessEntry>), string continuationUri = default(string), string continuationToken = default(string))
+        public ArtifactAccessResponse(string odatacontext = default(string), IList<ArtifactAccessEntry> artifactAccessEntities = default(IList<ArtifactAccessEntry>), string continuationUri = default(string), string continuationToken = default(string))
         {
             Odatacontext = odatacontext;
-            Value = value;
+            ArtifactAccessEntities = artifactAccessEntities;
             ContinuationUri = continuationUri;
             ContinuationToken = continuationToken;
             CustomInit();
@@ -56,8 +56,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the list of Power BI items that a user can access
         /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public IList<ArtifactAccessEntry> Value { get; set; }
+        [JsonProperty(PropertyName = "artifactAccessEntities")]
+        public IList<ArtifactAccessEntry> ArtifactAccessEntities { get; set; }
 
         /// <summary>
         /// Gets or sets the URI of the next chunk in the result set

@@ -892,14 +892,17 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
             /// types. Supported: users, reports, dashboards, datasets, dataflows,
             /// workbooks
             /// </param>
-            public static Group GetGroupAsAdmin(this IGroupsOperations operations, string expand = default(string))
+            public static Group GetGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, string expand = default(string))
             {
-                return operations.GetGroupAsAdminAsync(expand).GetAwaiter().GetResult();
+                return operations.GetGroupAsAdminAsync(groupId, expand).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -928,6 +931,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
             /// types. Supported: users, reports, dashboards, datasets, dataflows,
@@ -936,9 +942,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Group> GetGroupAsAdminAsync(this IGroupsOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Group> GetGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetGroupAsAdminWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGroupAsAdminWithHttpMessagesAsync(groupId, expand, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -513,6 +513,9 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
         /// data types. Supported: users, reports, dashboards, datasets,
@@ -530,7 +533,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Group>> GetGroupAsAdminWithHttpMessagesAsync(string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Group>> GetGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the properties of the specified workspace.
         /// </summary>

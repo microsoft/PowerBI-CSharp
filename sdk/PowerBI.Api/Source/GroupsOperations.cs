@@ -2028,6 +2028,9 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of data
         /// types. Supported: users, reports, dashboards, datasets, dataflows,
@@ -2048,7 +2051,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Group>> GetGroupAsAdminWithHttpMessagesAsync(string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<Group>> GetGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2057,6 +2060,7 @@ namespace Microsoft.PowerBI.Api
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("expand", expand);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetGroupAsAdmin", tracingParameters);
@@ -2064,6 +2068,7 @@ namespace Microsoft.PowerBI.Api
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (expand != null)
             {
