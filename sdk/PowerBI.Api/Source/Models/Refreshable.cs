@@ -43,9 +43,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// refresh within the summary time window</param>
         /// <param name="medianDuration">The median duration in seconds of a
         /// refresh within the summary time window</param>
-        /// <param name="refreshesPerDay">The number of refreshes
-        /// (schedule+onDemand) per day within the summary time window with at
-        /// most 60</param>
+        /// <param name="refreshesPerDay">The number of refreshes per day
+        /// (scheduled and on-demand) within the time window for which refresh
+        /// data exists</param>
         /// <param name="lastRefresh">The last Power BI refresh history entry
         /// for the refreshable item</param>
         /// <param name="refreshSchedule">The refresh schedule for the
@@ -141,8 +141,8 @@ namespace Microsoft.PowerBI.Api.Models
         public double? MedianDuration { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of refreshes (schedule+onDemand) per day
-        /// within the summary time window with at most 60
+        /// Gets or sets the number of refreshes per day (scheduled and
+        /// on-demand) within the time window for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "refreshesPerDay")]
         public int? RefreshesPerDay { get; set; }

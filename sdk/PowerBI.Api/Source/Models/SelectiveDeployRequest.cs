@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request to selectively deploy items from a deployment pipeline stage
+    /// A request to selectively deploy items from a deployment pipeline stage
     /// </summary>
     public partial class SelectiveDeployRequest : DeployRequestBase
     {
@@ -27,18 +27,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the SelectiveDeployRequest class.
         /// </summary>
-        /// <param name="sourceStageOrder">The order of the pipeline stages
-        /// that the content should be deployed from.</param>
-        /// <param name="isBackwardDeployment">Whether the deployment should be
-        /// done into the previous stage, if not provided treated as
-        /// false.</param>
-        /// <param name="newWorkspace">Required for creating a new workspace
-        /// when deploying into a stage which has no assigned workspaces. If
-        /// not provided when required, deployment will fail.</param>
+        /// <param name="sourceStageOrder">The numeric identifier of the
+        /// pipeline deployment stage that the content should be deployed from.
+        /// Development (0), Test (1), Production (2).</param>
+        /// <param name="isBackwardDeployment">Whether the deployment will be
+        /// from a later stage in the deployment pipeline, to an earlier one.
+        /// The default value is `false`.</param>
+        /// <param name="newWorkspace">The configuration details for creating a
+        /// new workspace. Required when deploying to a stage that has no
+        /// assigned workspaces. The deployment will fail if the new workspace
+        /// configuration details are not provided when required.</param>
         /// <param name="updateAppSettings">Update org app in the target
-        /// workspace settings.</param>
-        /// <param name="options">Options to control the behavior of the entire
-        /// deployment.</param>
+        /// workspace settings</param>
+        /// <param name="options">Options that control the behavior of the
+        /// entire deployment</param>
         /// <param name="datasets">A list of datasets to be deployed</param>
         /// <param name="reports">A list of reports to be deployed</param>
         /// <param name="dashboards">A list of dashboards to be

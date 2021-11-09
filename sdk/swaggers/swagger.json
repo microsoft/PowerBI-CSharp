@@ -21320,7 +21320,7 @@
                 },
                 "refreshesPerDay": {
                     "type": "integer",
-                    "description": "The number of refreshes (schedule+onDemand) per day within the summary time window with at most 60"
+                    "description": "The number of refreshes per day (scheduled and on-demand) within the time window for which refresh data exists"
                 },
                 "lastRefresh": {
                     "$ref": "#/definitions/Refresh",
@@ -21758,7 +21758,7 @@
             }
         },
         "Pipelines": {
-            "description": "Odata response wrapper for a Power BI deployment pipeline collection.",
+            "description": "Odata response wrapper for a collection of Power BI deployment pipelines",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -21766,7 +21766,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The deployment pipelines collection",
+                    "description": "The collection of deployment pipelines",
                     "items": {
                         "$ref": "#/definitions/Pipeline"
                     }
@@ -21777,7 +21777,7 @@
             "required": [
                 "id"
             ],
-            "description": "A Power BI deployment pipeline.",
+            "description": "A Power BI deployment pipeline",
             "properties": {
                 "id": {
                     "type": "string",
@@ -21794,14 +21794,14 @@
                 },
                 "stages": {
                     "type": "array",
-                    "description": "The deployment pipeline stages collection, only returned when $expand stages is specified",
+                    "description": "The collection of deployment pipeline stages. Only returned when `$expand` is set to `stages` in the request.",
                     "items": {
                         "$ref": "#/definitions/PipelineStage"
                     }
                 },
                 "users": {
                     "type": "array",
-                    "description": "The deployment pipeline users collection, only returned when $expand users is specified and only in admin API",
+                    "description": "The collection of deployment pipeline users. Only returned when `$expand` is set to `users` in the request, and only for admin API calls.",
                     "items": {
                         "$ref": "#/definitions/PipelineUser"
                     }
@@ -21809,7 +21809,7 @@
             }
         },
         "PipelineStages": {
-            "description": "Odata response wrapper for Power BI deployment pipeline stages collection.",
+            "description": "Odata response wrapper for a collection of Power BI deployment pipeline stages.",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -21817,7 +21817,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The deployment pipeline stages collection",
+                    "description": "The collection of deployment pipeline stages",
                     "items": {
                         "$ref": "#/definitions/PipelineStage"
                     }
@@ -21828,7 +21828,7 @@
             "required": [
                 "order"
             ],
-            "description": "A Power BI deployment pipeline stage.",
+            "description": "A Power BI deployment pipeline stage",
             "properties": {
                 "order": {
                     "type": "integer",
@@ -21837,16 +21837,16 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The assigned workspace ID, only applicable when there is an assigned workspace."
+                    "description": "The assigned workspace ID. Only applicable when there's an assigned workspace."
                 },
                 "workspaceName": {
                     "type": "string",
-                    "description": "The assigned workspace name, only applicable when there is an assigned workspace and the user has access to the workspace."
+                    "description": "The assigned workspace name. Only applicable when there's an assigned workspace and the user has access to the workspace."
                 }
             }
         },
         "PipelineStageArtifacts": {
-            "description": "Supported items from a workspace assigned to a deployment pipeline stage.",
+            "description": "Supported items from a workspace that's assigned to a deployment pipeline stage",
             "properties": {
                 "datasets": {
                     "type": "array",
@@ -21882,21 +21882,21 @@
             "required": [
                 "artifactId"
             ],
-            "description": "The deployment pipeline stage artifact metadata.",
+            "description": "Power BI item metadata for a deployment pipeline stage",
             "properties": {
                 "artifactId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The artifact ID."
+                    "description": "The Power BI item ID"
                 },
                 "artifactDisplayName": {
                     "type": "string",
-                    "description": "The artifact display name."
+                    "description": "The Power BI item display name"
                 },
                 "sourceArtifactId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The artifact ID from the workspace of the source stage, which will update the current artifact upon deployment. Applicable only when the user has at least contributor access to the source stage workspace."
+                    "description": "The ID of the Power BI item from the workspace assigned to the source stage, which will update the current artifact upon deployment. Applicable only when the user has at least contributor access to the source stage workspace."
                 },
                 "targetArtifactId": {
                     "type": "string",
@@ -21906,28 +21906,28 @@
                 "lastDeploymentTime ": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The artifact's last deployment time."
+                    "description": "The last deployment date and time of the Power BI item"
                 }
             }
         },
         "PipelineStageDataflow": {
-            "description": "The deployment pipeline dataflow metadata.",
+            "description": "The metadata for a deployment pipeline dataflow",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageDataset": {
-            "description": "The deployment pipeline dataset metadata.",
+            "description": "The metadata for a deployment pipeline dataset",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageReport": {
-            "description": "The deployment pipeline report metadata.",
+            "description": "The metadata for a deployment pipeline report",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineStageDashboard": {
-            "description": "The deployment pipeline dashboard metadata.",
+            "description": "The metadata for a deployment pipeline dashboard",
             "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
         },
         "PipelineOperations": {
-            "description": "Odata response wrapper for a Power BI deployment pipeline operation collection",
+            "description": "OData response wrapper for a collection of Power BI deployment pipeline operations",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -21935,7 +21935,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The deployment pipeline operations collection",
+                    "description": "The collection of deployment pipeline operations",
                     "items": {
                         "$ref": "#/definitions/PipelineOperation"
                     }
@@ -21948,16 +21948,16 @@
                 "status",
                 "lastUpdatedTime"
             ],
-            "description": "A Power BI deployment pipeline operation.",
+            "description": "A Power BI deployment pipeline operation",
             "properties": {
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The operation ID."
+                    "description": "The operation ID"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The operation type.",
+                    "description": "The operation type",
                     "enum": [
                         "Deploy"
                     ],
@@ -21974,7 +21974,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The pipeline operation status.",
+                    "description": "The pipeline operation status",
                     "enum": [
                         "NotStarted",
                         "Executing",
@@ -22007,38 +22007,38 @@
                 "lastUpdatedTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The last time the operation was updated."
+                    "description": "The date and time that the operation was last updated"
                 },
                 "executionStartTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The time the operation execution started."
+                    "description": "The date and time that the operation started"
                 },
                 "executionEndTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The time the operation execution ended."
+                    "description": "The date and time that the operation ended"
                 },
                 "sourceStageOrder": {
                     "type": "integer",
-                    "description": "The source stage order. Development (0), Test (1), Production (2)."
+                    "description": "The numeric identifier of a source pipeline deployment stage. Development (0), Test (1), Production (2)."
                 },
                 "targetStageOrder": {
                     "type": "integer",
-                    "description": "The target stage order. Development (0), Test (1), Production (2)."
+                    "description": "The numeric identifier of a target pipeline deployment stage. Development (0), Test (1), Production (2)."
                 },
                 "executionPlan": {
-                    "description": "The deployment execution plan. Only applicable when getting a single operation.",
+                    "description": "The deployment execution plan. Only applicable to a single pipeline operation.",
                     "$ref": "#/definitions/DeploymentExecutionPlan"
                 }
             }
         },
         "DeploymentExecutionPlan": {
-            "description": "The deployment execution plan",
+            "description": "A deployment execution plan",
             "properties": {
                 "steps": {
                     "type": "array",
-                    "description": "The execution plan steps collection",
+                    "description": "The collection of execution plan steps",
                     "items": {
                         "$ref": "#/definitions/DeploymentExecutionStep"
                     }
@@ -22052,7 +22052,7 @@
                 "status",
                 "lastUpdatedTime"
             ],
-            "description": "The deployment execution step",
+            "description": "A deployment execution step",
             "properties": {
                 "index": {
                     "type": "integer",
@@ -22060,7 +22060,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "description": "The deployment step type",
+                    "description": "The type of deployment step",
                     "enum": [
                         "DatasetDeployment",
                         "ReportDeployment",
@@ -22092,7 +22092,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The status of the pipeline operation.",
+                    "description": "The status of the pipeline operation",
                     "enum": [
                         "NotStarted",
                         "Executing",
@@ -22105,19 +22105,19 @@
                         "values": [
                             {
                                 "value": "NotStarted",
-                                "description": "Operation didn't start"
+                                "description": "The pipeline operation didn't start"
                             },
                             {
                                 "value": "Executing",
-                                "description": "Operation executing"
+                                "description": "The pipeline operation is executing"
                             },
                             {
                                 "value": "Succeeded",
-                                "description": "Operation succeeded"
+                                "description": "The pipeline operation succeeded"
                             },
                             {
                                 "value": "Failed",
-                                "description": "Operation failed"
+                                "description": "The pipeline operation failed"
                             }
                         ]
                     }
@@ -22127,7 +22127,7 @@
                     "$ref": "#/definitions/DeploymentSourceAndTarget"
                 },
                 "error": {
-                    "description": "Error details of the step's failure",
+                    "description": "The error details. Only applicable if the pipeline operation failed.",
                     "$ref": "#/definitions/DeploymentError"
                 }
             }
@@ -22136,22 +22136,22 @@
             "required": [
                 "source"
             ],
-            "description": "Source and target items.",
+            "description": "Source and target items",
             "properties": {
                 "source": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The ID of the artifact being deployed from the source stage."
+                    "description": "The ID of the Power BI item that's deployed from the source stage"
                 },
                 "target": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The ID of the artifact being overwritten on the target stage. Only applicable when overwriting an artifact."
+                    "description": "The ID of the Power BI item that will be overwritten in the target stage. Only applies when overwriting a Power BI item."
                 }
             }
         },
         "DeploymentError": {
-            "description": "The deployment step error details",
+            "description": "Error details for the deployment step",
             "properties": {
                 "errorCode": {
                     "type": "string",
@@ -22167,36 +22167,36 @@
             "required": [
                 "sourceStageOrder"
             ],
-            "description": "Base request to deploy content from a deployment pipeline stage.",
+            "description": "Base request to deploy content from a deployment pipeline stage",
             "properties": {
                 "sourceStageOrder": {
                     "type": "integer",
-                    "description": "The order of the pipeline stages that the content should be deployed from."
+                    "description": "The numeric identifier of the pipeline deployment stage that the content should be deployed from. Development (0), Test (1), Production (2)."
                 },
                 "isBackwardDeployment": {
                     "type": "boolean",
-                    "description": "Whether the deployment should be done into the previous stage, if not provided treated as false."
+                    "description": "Whether the deployment will be from a later stage in the deployment pipeline, to an earlier one. The default value is `false`."
                 },
                 "newWorkspace": {
-                    "description": "Required for creating a new workspace when deploying into a stage which has no assigned workspaces. If not provided when required, deployment will fail.",
+                    "description": "The configuration details for creating a new workspace. Required when deploying to a stage that has no assigned workspaces. The deployment will fail if the new workspace configuration details are not provided when required.",
                     "$ref": "#/definitions/PipelineNewWorkspaceRequest"
                 },
                 "updateAppSettings": {
-                    "description": "Update org app in the target workspace settings.",
+                    "description": "Update org app in the target workspace settings",
                     "$ref": "#/definitions/PipelineUpdateAppSettings"
                 },
                 "options": {
-                    "description": "Options to control the behavior of the entire deployment.",
+                    "description": "Options that control the behavior of the entire deployment",
                     "$ref": "#/definitions/DeploymentOptions"
                 }
             }
         },
         "DeployAllRequest": {
-            "description": "Request to deploy all supported items from a deployment pipeline stage",
+            "description": "A request to deploy all supported items from a deployment pipeline stage",
             "allOf": [ { "$ref": "#/definitions/DeployRequestBase" } ]
         },
         "SelectiveDeployRequest": {
-            "description": "Request to selectively deploy items from a deployment pipeline stage",
+            "description": "A request to selectively deploy items from a deployment pipeline stage",
             "allOf": [ { "$ref": "#/definitions/DeployRequestBase" } ],
             "properties": {
                 "datasets": {
@@ -22230,16 +22230,16 @@
             }
         },
         "PipelineNewWorkspaceRequest": {
-            "description": "Configuration for creating a new workspace when deploying into a stage which has no assigned workspaces.",
+            "description": "The configuration details for creating a new workspace. Required when deploying to a stage that has no assigned workspaces.",
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the new workspace."
+                    "description": "The name of the new workspace"
                 },
                 "capacityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The ID of the capacity that the new workspace will be assigned to. When unspecified, if you have permissions for the source stage workspace capacity, this capacity will be used. Otherwise, a capacity that you have permissions for, will be selected."
+                    "description": "The ID of the capacity that the new workspace will be assigned to. If unspecified and the API caller has permissions for the source stage workspace capacity, then that capacity will be used. Otherwise, Power BI will select a capacity that the API caller has permissions for."
                 }
             }
         },
@@ -22253,15 +22253,15 @@
             }
         },
         "DeploymentOptions": {
-            "description": "Options to control the behaviour of the deployment. can be specified either for the entire deployment or for a specific artifact. if both are specified, the artifact value is used.",
+            "description": "Deployment configuration options. Can be specified either for the entire deployment or for a specific Power BI item (such as a report or dashboard). If both are specified, only the deployment options for the Power BI item are used.",
             "properties": {
                 "allowCreateArtifact": {
                     "type": "boolean",
-                    "description": " Specifies whether creating a new artifact on the target stage workspace is allowed. If required but not allowed, deployment will fail."
+                    "description": "Whether creating a new Power BI item (such as a report or a dashboard) in the target stage workspace is allowed. If this option isn't allowed when it's required for deployment, the deployment will fail."
                 },
                 "allowOverwriteArtifact": {
                     "type": "boolean",
-                    "description": "Specifies whether overwriting an artifact on the target stage workspace is allowed. If required but not allowed, deployment will fail."
+                    "description": "Whether overwriting a Power BI item (such as a report or a dashboard) in the target stage workspace is allowed. If this option isn't allowed when it's required for deployment, the deployment will fail."
                 },
                 "allowSkipTilesWithMissingPrerequisites": {
                     "type": "boolean",

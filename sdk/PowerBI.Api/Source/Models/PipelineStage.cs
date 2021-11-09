@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI deployment pipeline stage.
+    /// A Power BI deployment pipeline stage
     /// </summary>
     public partial class PipelineStage
     {
@@ -26,10 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PipelineStage class.
         /// </summary>
         /// <param name="order">The stage order, starting from zero.</param>
-        /// <param name="workspaceId">The assigned workspace ID, only
-        /// applicable when there is an assigned workspace.</param>
-        /// <param name="workspaceName">The assigned workspace name, only
-        /// applicable when there is an assigned workspace and the user has
+        /// <param name="workspaceId">The assigned workspace ID. Only
+        /// applicable when there's an assigned workspace.</param>
+        /// <param name="workspaceName">The assigned workspace name. Only
+        /// applicable when there's an assigned workspace and the user has
         /// access to the workspace.</param>
         public PipelineStage(int order, System.Guid? workspaceId = default(System.Guid?), string workspaceName = default(string))
         {
@@ -51,15 +51,15 @@ namespace Microsoft.PowerBI.Api.Models
         public int Order { get; set; }
 
         /// <summary>
-        /// Gets or sets the assigned workspace ID, only applicable when there
-        /// is an assigned workspace.
+        /// Gets or sets the assigned workspace ID. Only applicable when
+        /// there's an assigned workspace.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }
 
         /// <summary>
-        /// Gets or sets the assigned workspace name, only applicable when
-        /// there is an assigned workspace and the user has access to the
+        /// Gets or sets the assigned workspace name. Only applicable when
+        /// there's an assigned workspace and the user has access to the
         /// workspace.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceName")]

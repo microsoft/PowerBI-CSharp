@@ -10,9 +10,10 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Options to control the behaviour of the deployment. can be specified
-    /// either for the entire deployment or for a specific artifact. if both
-    /// are specified, the artifact value is used.
+    /// Deployment configuration options. Can be specified either for the
+    /// entire deployment or for a specific Power BI item (such as a report or
+    /// dashboard). If both are specified, only the deployment options for the
+    /// Power BI item are used.
     /// </summary>
     public partial class DeploymentOptions
     {
@@ -27,12 +28,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DeploymentOptions class.
         /// </summary>
-        /// <param name="allowCreateArtifact"> Specifies whether creating a new
-        /// artifact on the target stage workspace is allowed. If required but
-        /// not allowed, deployment will fail.</param>
-        /// <param name="allowOverwriteArtifact">Specifies whether overwriting
-        /// an artifact on the target stage workspace is allowed. If required
-        /// but not allowed, deployment will fail.</param>
+        /// <param name="allowCreateArtifact">Whether creating a new Power BI
+        /// item (such as a report or a dashboard) in the target stage
+        /// workspace is allowed. If this option isn't allowed when it's
+        /// required for deployment, the deployment will fail.</param>
+        /// <param name="allowOverwriteArtifact">Whether overwriting a Power BI
+        /// item (such as a report or a dashboard) in the target stage
+        /// workspace is allowed. If this option isn't allowed when it's
+        /// required for deployment, the deployment will fail.</param>
         /// <param name="allowSkipTilesWithMissingPrerequisites">Specifies
         /// whether skipping tiles that are missing their model or report in
         /// target stage workspace is allowed. If required but not allowed,
@@ -64,16 +67,18 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets  Specifies whether creating a new artifact on the
-        /// target stage workspace is allowed. If required but not allowed,
+        /// Gets or sets whether creating a new Power BI item (such as a report
+        /// or a dashboard) in the target stage workspace is allowed. If this
+        /// option isn't allowed when it's required for deployment, the
         /// deployment will fail.
         /// </summary>
         [JsonProperty(PropertyName = "allowCreateArtifact")]
         public bool? AllowCreateArtifact { get; set; }
 
         /// <summary>
-        /// Gets or sets specifies whether overwriting an artifact on the
-        /// target stage workspace is allowed. If required but not allowed,
+        /// Gets or sets whether overwriting a Power BI item (such as a report
+        /// or a dashboard) in the target stage workspace is allowed. If this
+        /// option isn't allowed when it's required for deployment, the
         /// deployment will fail.
         /// </summary>
         [JsonProperty(PropertyName = "allowOverwriteArtifact")]

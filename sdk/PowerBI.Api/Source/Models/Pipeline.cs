@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI deployment pipeline.
+    /// A Power BI deployment pipeline
     /// </summary>
     public partial class Pipeline
     {
@@ -32,11 +32,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// name</param>
         /// <param name="description">The deployment pipeline
         /// description</param>
-        /// <param name="stages">The deployment pipeline stages collection,
-        /// only returned when $expand stages is specified</param>
-        /// <param name="users">The deployment pipeline users collection, only
-        /// returned when $expand users is specified and only in admin
-        /// API</param>
+        /// <param name="stages">The collection of deployment pipeline stages.
+        /// Only returned when `$expand` is set to `stages` in the
+        /// request.</param>
+        /// <param name="users">The collection of deployment pipeline users.
+        /// Only returned when `$expand` is set to `users` in the request, and
+        /// only for admin API calls.</param>
         public Pipeline(System.Guid id, string displayName = default(string), string description = default(string), IList<PipelineStage> stages = default(IList<PipelineStage>), IList<PipelineUser> users = default(IList<PipelineUser>))
         {
             Id = id;
@@ -71,15 +72,16 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the deployment pipeline stages collection, only
-        /// returned when $expand stages is specified
+        /// Gets or sets the collection of deployment pipeline stages. Only
+        /// returned when `$expand` is set to `stages` in the request.
         /// </summary>
         [JsonProperty(PropertyName = "stages")]
         public IList<PipelineStage> Stages { get; set; }
 
         /// <summary>
-        /// Gets or sets the deployment pipeline users collection, only
-        /// returned when $expand users is specified and only in admin API
+        /// Gets or sets the collection of deployment pipeline users. Only
+        /// returned when `$expand` is set to `users` in the request, and only
+        /// for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<PipelineUser> Users { get; set; }

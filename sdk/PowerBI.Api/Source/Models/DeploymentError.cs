@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment step error details
+    /// Error details for the deployment step
     /// </summary>
     public partial class DeploymentError
     {
