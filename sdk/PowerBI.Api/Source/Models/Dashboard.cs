@@ -47,7 +47,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>))
+        /// <param name="subscriptions">(Empty value) The Dashboard
+        /// subscription Details.It will be removed from the payload response
+        /// in an upcoming release. To retrieve subscription information for
+        /// dashboard, please consider using the Get Dashboard Subscriptions as
+        /// Admin API.</param>
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
             DisplayName = displayName;
@@ -57,6 +62,7 @@ namespace Microsoft.PowerBI.Api.Models
             DataClassification = dataClassification;
             SensitivityLabel = sensitivityLabel;
             Users = users;
+            Subscriptions = subscriptions;
             CustomInit();
         }
 
@@ -121,6 +127,15 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DashboardUser> Users { get; set; }
 
         /// <summary>
+        /// Gets or sets (Empty value) The Dashboard subscription Details.It
+        /// will be removed from the payload response in an upcoming release.
+        /// To retrieve subscription information for dashboard, please consider
+        /// using the Get Dashboard Subscriptions as Admin API.
+        /// </summary>
+        [JsonProperty(PropertyName = "subscriptions")]
+        public IList<Subscription> Subscriptions { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -149,6 +164,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element1 != null)
                     {
                         element1.Validate();
+                    }
+                }
+            }
+            if (Subscriptions != null)
+            {
+                foreach (var element2 in Subscriptions)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

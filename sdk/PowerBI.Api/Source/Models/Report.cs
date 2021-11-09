@@ -56,7 +56,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.</param>
-        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string), IList<ReportUser> users = default(IList<ReportUser>))
+        /// <param name="subscriptions">(Empty Value)The Report subscription
+        /// Details. It will be removed from the payload response in an
+        /// upcoming release. To retrieve subscription information for report,
+        /// please consider using the Get Report Subscriptions as Admin
+        /// API.</param>
+        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
             Name = name;
@@ -72,6 +77,7 @@ namespace Microsoft.PowerBI.Api.Models
             SensitivityLabel = sensitivityLabel;
             ReportType = reportType;
             Users = users;
+            Subscriptions = subscriptions;
             CustomInit();
         }
 
@@ -174,6 +180,15 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<ReportUser> Users { get; set; }
 
         /// <summary>
+        /// Gets or sets (Empty Value)The Report subscription Details. It will
+        /// be removed from the payload response in an upcoming release. To
+        /// retrieve subscription information for report, please consider using
+        /// the Get Report Subscriptions as Admin API.
+        /// </summary>
+        [JsonProperty(PropertyName = "subscriptions")]
+        public IList<Subscription> Subscriptions { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -192,6 +207,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Subscriptions != null)
+            {
+                foreach (var element1 in Subscriptions)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

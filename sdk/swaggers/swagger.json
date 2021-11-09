@@ -13970,6 +13970,78 @@
                 },
                 "deprecated": false
             }
+        },    
+        "/v1.0/myorg/admin/reports/{reportId}/subscriptions": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of subscriptions long with subscribees that the report subscribed to. This is a preview API call.",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "Reports_GetReportSubscriptionsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The report ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Subscriptions"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {                                
+                                            "id": "18b746fe-c6d5-4a00-9523-05dc91424274",
+                                            "title": "TestReportSubscription-1",
+                                            "artifactId": "7b71b90a-a333-4006-b12c-ef3d767fa4e9",
+                                            "artifactDisplayName": "Customer Profitability Sample",
+                                            "subArtifactDisplayName": "Team Scorecard",
+                                            "artifactType": "Report",
+                                            "isEnabled": true,
+                                            "frequency": "Daily",
+                                            "startDate": "10/13/2021 12:00:00 AM",
+                                            "endDate": "10/13/2022 12:00:00 AM",
+                                            "linkToContent": true,
+                                            "previewImage": true,
+                                            "attachmentFormat": "PNG",
+                                            "users": [
+                                                {
+                                                    "displayName": "John Nick",
+                                                    "emailAddress": "john@contoso.com",
+                                                    "identifier": "john@contoso.com",
+                                                    "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                    "principalType": "User"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
         },
 
         "/v1.0/myorg/admin/dashboards": {
@@ -14153,6 +14225,76 @@
                                             "identifier": "john@contoso.com",
                                             "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
                                             "principalType": "User"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/dashboards/{dashboardId}/subscriptions": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of subscriptions long with subscribees that the dashboard subscribed to. This is a preview API call.",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "Reports_GetDashboardSubscriptionsAsAdmin",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "dashboardId",
+                        "in": "path",
+                        "description": "The dashboard ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Subscriptions"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {                                
+                                            "id": "18b746fe-c6d5-4a00-9523-05dc91424275",
+                                            "title": "TestDashboardSubscription-1",
+                                            "artifactId": "7b71b90a-a333-4006-b12c-ef3d767fa4e9",
+                                            "artifactDisplayName": "Customer Profitability Sample",
+                                            "artifactType": "Dashboard",
+                                            "isEnabled": true,
+                                            "frequency": "Daily",
+                                            "startDate": "10/13/2021 12:00:00 AM",
+                                            "endDate": "10/13/2022 12:00:00 AM",
+                                            "linkToContent": true,
+                                            "previewImage": false,
+                                            "users": [
+                                                {
+                                                    "displayName": "John Nick",
+                                                    "emailAddress": "john@contoso.com",
+                                                    "identifier": "john@contoso.com",
+                                                    "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                    "principalType": "User"
+                                                }
+                                            ]
                                         }
                                     ]
                                 }
@@ -15773,8 +15915,81 @@
                                             "accessRight": "ReadWrite"
                                         }
                                     ],
-                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/activityevents?continuationToken='%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D'",
-                                    "continuationToken": "%2BRID%3A244SAKlHY7YGAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AAQYAAAAAAAAAFwAAAAAAAAA%3D"
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/f089354e-8366-4e18-aea3-4cb4a3a50b48/artifactAccess?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/users/{userId}/subscriptions": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of subscriptions that the given user have subscribed to (Preview).",
+                "description": "\n### userId\n- The UserId can be userGraphId or UserPrincipalName\n### Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "Users_GetUserSubscriptionsAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "userGraphId",
+                        "in": "path",
+                        "description": "The graph ID of user or User Principal Name of the user",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SubscriptionsByUserResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "userGraphId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "subscriptionEntities": [
+                                        {
+                                            "id": "9225d0bc-9f5e-4819-a637-799c0c4fh3f1",
+                                            "title": "Team Scorecard-test",
+                                            "artifactId": "0b50f0bf-b22b-4685-83b9-b6d17f7f4e46",
+                                            "artifactDisplayName": "Customer Profitability Sample",
+                                            "subArtifactDisplayName": "Team Scorecard",
+                                            "artifactType": "Report",
+                                            "isEnabled": false,
+                                            "frequency": "Daily",
+                                            "startDate": "8/10/2021 12:00:00 AM",
+                                            "endDate": "8/10/2022 12:00:00 AM",
+                                            "linkToContent": false,
+                                            "previewImage": true,
+                                            "attachmentFormat": "PNG",
+                                            "users": []
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/f089354e-8366-4e18-aea3-4cb4a3a50b48/subscriptions?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
                                 }
                             }
                         }
@@ -18036,6 +18251,29 @@
                 }
             }
         },
+        "SubscriptionsByUserResponse": {
+            "description": "Odata response wrapper for a Power BI subscriptions for user",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "subscriptionEntities": {
+                    "type": "array",
+                    "description": "The subscriptions for user",
+                    "items": {
+                        "$ref": "#/definitions/Subscription"
+                    }
+                },
+                "continuationUri": {
+                    "type": "string",
+                    "description": "The URI for the next chunk in the result set"
+                },
+                "continuationToken": {
+                    "type": "string",
+                    "description": "Token to get the next chunk of the result set"
+                }
+            }
+        },
         "Report": {
             "required": [
                 "id"
@@ -18106,6 +18344,13 @@
                     "items": {
                         "$ref": "#/definitions/ReportUser"
                     }
+                },
+                "subscriptions": {
+                    "type": "array",
+                    "description": "(Empty Value)The Report subscription Details. It will be removed from the payload response in an upcoming release. To retrieve subscription information for report, please consider using the Get Report Subscriptions as Admin API.",
+                    "items": {
+                        "$ref": "#/definitions/Subscription"
+                    }
                 }
             }
         },
@@ -18170,6 +18415,13 @@
                     "description": "(Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/DashboardUser"
+                    }
+                },
+                "subscriptions": {
+                    "type": "array",
+                    "description": "(Empty value) The Dashboard subscription Details.It will be removed from the payload response in an upcoming release. To retrieve subscription information for dashboard, please consider using the Get Dashboard Subscriptions as Admin API.",
+                    "items": {
+                        "$ref": "#/definitions/Subscription"
                     }
                 }
             }
@@ -18339,6 +18591,92 @@
                     "description": "The app publisher"
                 }
 
+            }
+        },
+        "Subscription": {
+            "required": [
+                "id"
+            ],
+            "description": "artifact email subscription",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The subscription ID"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "The app name"
+                },
+                "artifactId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The subscribed artifact ID"
+                },
+                "artifactDisplayName": {
+                    "type": "string",
+                    "description": "The subscribed artifact Name"
+                },
+                "subArtifactDisplayName": {
+                    "type": "string",
+                    "description": "Page Name in case of Reports only"
+                },
+                "artifactType": {
+                    "type": "string",
+                    "description": "artifactType"
+                },
+                "isEnabled": {
+                    "type": "boolean",
+                    "description": "subscription Enabled or not"
+                },
+                "frequency": {
+                    "type": "string",
+                    "description": "Frequency of Email Subscription"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start date and time of subscription"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start date and time of subscription"
+                },
+                "linkToContent": {
+                    "type": "boolean",
+                    "description": "subscription link exists in email subscription"
+                },
+                "previewImage": {
+                    "type": "boolean",
+                    "description": "screenshot of the report exists in email subscription"
+                },
+                "attachmentFormat": {
+                    "type": "string",
+                    "description": "Format of the report attached in the eamil subscription"
+                },
+                "users": {
+                    "type": "array",
+                    "description": "The Email subscribee Details. This value can be null when Get Subscirpions By User As Admin API is called. It will be removed from the payload response in an upcoming release. To retrieve subscription information on an artifact please consider using the Get Dashboard or Report Subscriptions as Admin API. ",
+                    "items": {
+                        "$ref": "#/definitions/SubscriptionUser"
+                    }
+                }
+            }
+        },
+        "Subscriptions": {
+            "description": "Odata response wrapper for a Power BI subscriptions",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "powerBI email subscription",
+                    "items": {
+                        "$ref": "#/definitions/Subscription"
+                    }
+                }
             }
         },
         "GatewayPublicKey": {
@@ -19390,6 +19728,35 @@
                         ]
                     }
                 },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "SubscriptionUser": {
+            "required": [   
+                "emailAddress",
+                "principalType",
+                "identifier"
+            ],
+            "description": "A Power BI email subscription user",
+            "properties": {
                 "emailAddress": {
                     "type": "string",
                     "description": "Email address of the user"

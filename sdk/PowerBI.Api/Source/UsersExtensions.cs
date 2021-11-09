@@ -168,5 +168,91 @@ namespace Microsoft.PowerBI.Api
                 }
             }
 
+            /// <summary>
+            /// Returns a list of subscriptions that the given user have subscribed to
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ### userId
+            /// - The UserId can be userGraphId or UserPrincipalName
+            /// ### Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='userGraphId'>
+            /// The graph ID of user or User Principal Name of the user
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            public static SubscriptionsByUserResponse GetUserSubscriptionsAsAdmin(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string))
+            {
+                return operations.GetUserSubscriptionsAsAdminAsync(userGraphId, continuationToken).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions that the given user have subscribed to
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ### userId
+            /// - The UserId can be userGraphId or UserPrincipalName
+            /// ### Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='userGraphId'>
+            /// The graph ID of user or User Principal Name of the user
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<SubscriptionsByUserResponse> GetUserSubscriptionsAsAdminAsync(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUserSubscriptionsAsAdminWithHttpMessagesAsync(userGraphId, continuationToken, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
     }
 }

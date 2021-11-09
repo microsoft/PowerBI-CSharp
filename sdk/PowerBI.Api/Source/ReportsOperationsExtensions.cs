@@ -2053,6 +2053,158 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Returns a list of subscriptions long with subscribees that the report
+            /// subscribed to. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportId'>
+            /// The report ID
+            /// </param>
+            public static Subscriptions GetReportSubscriptionsAsAdmin(this IReportsOperations operations, System.Guid reportId)
+            {
+                return operations.GetReportSubscriptionsAsAdminAsync(reportId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions long with subscribees that the report
+            /// subscribed to. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='reportId'>
+            /// The report ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Subscriptions> GetReportSubscriptionsAsAdminAsync(this IReportsOperations operations, System.Guid reportId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetReportSubscriptionsAsAdminWithHttpMessagesAsync(reportId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions long with subscribees that the dashboard
+            /// subscribed to. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static Subscriptions GetDashboardSubscriptionsAsAdmin(this IReportsOperations operations, System.Guid dashboardId)
+            {
+                return operations.GetDashboardSubscriptionsAsAdminAsync(dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions long with subscribees that the dashboard
+            /// subscribed to. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Subscriptions> GetDashboardSubscriptionsAsAdminAsync(this IReportsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardSubscriptionsAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
             /// Transfers ownership over the specified paginated report datasources to the
             /// current authorized user.
             /// </summary>
