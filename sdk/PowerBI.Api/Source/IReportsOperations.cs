@@ -1182,7 +1182,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<ReportUsers>> GetReportUsersAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of subscriptions long with subscribees that the
+        /// Returns a list of subscriptions along with subscribees that the
         /// report subscribed to. This is a preview API call.
         /// </summary>
         /// <remarks>
@@ -1221,46 +1221,6 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<Subscriptions>> GetReportSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Returns a list of subscriptions long with subscribees that the
-        /// dashboard subscribed to. This is a preview API call.
-        /// </summary>
-        /// <remarks>
-        ///
-        /// ## Permissions
-        ///
-        /// - The user must have administrator rights (such as Office 365
-        /// Global Administrator or Power BI Service Administrator) or
-        /// authenticate using a service principal.
-        /// - Delegated permissions are supported.
-        ///
-        /// ## Required scope
-        ///
-        /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
-        /// </remarks>
-        /// <param name='dashboardId'>
-        /// The dashboard ID
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<Subscriptions>> GetDashboardSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Transfers ownership over the specified paginated report datasources
         /// to the current authorized user.

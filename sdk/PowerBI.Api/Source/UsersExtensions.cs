@@ -169,7 +169,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions that the given user have subscribed to
+            /// Returns a list of subscriptions that the given user has subscribed to
             /// (Preview).
             /// </summary>
             /// <remarks>
@@ -209,7 +209,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions that the given user have subscribed to
+            /// Returns a list of subscriptions that the given user has subscribed to
             /// (Preview).
             /// </summary>
             /// <remarks>

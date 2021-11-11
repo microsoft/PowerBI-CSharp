@@ -100,7 +100,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(System.Guid userGraphId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of subscriptions that the given user have subscribed
+        /// Returns a list of subscriptions that the given user has subscribed
         /// to (Preview).
         /// </summary>
         /// <remarks>
