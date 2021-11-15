@@ -107,6 +107,18 @@ namespace Microsoft.PowerBI.Api.Models
         public string DatasetId { get; set; }
 
         /// <summary>
+        /// Gets or sets if the report is a custom one (true) or a system one (false)
+        /// </summary>
+        [JsonProperty(PropertyName = "isFromPbix")]
+        public string IsFromPbix { get; set; }
+
+        /// <summary>
+        /// Gets or sets if the report is owned by the user
+        /// </summary>
+        [JsonProperty(PropertyName = "isOwnedByMe")]
+        public string IsOwnedByMe { get; set; }
+
+        /// <summary>
         /// Gets or sets the report description
         /// </summary>
         [JsonProperty(PropertyName = "description")]
