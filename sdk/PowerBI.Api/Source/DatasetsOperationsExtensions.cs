@@ -230,9 +230,9 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Executes Data Analysis Expressions (DAX) queries against the provided
-            /// dataset. The dataset must reside in **My workspace** or another [new
-            /// workspace experience](/power-bi/collaborate-share/service-new-workspaces)
-            /// workspace.
+            /// dataset (Preview). The dataset must reside in **My workspace** or another
+            /// [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace.
             /// </summary>
             /// <remarks>
             ///
@@ -277,6 +277,9 @@ namespace Microsoft.PowerBI.Api
             /// - One query per API call.
             /// - One table request per query.
             /// - Maximum of 100,000 table rows per query.
+            /// - Service Principals are not supported for datasets with RLS per [RLS
+            /// limitations](/admin/service-admin-rls#limitations) and user impersonation
+            /// is not supported.
             ///
             /// ######
             ///
@@ -297,9 +300,9 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Executes Data Analysis Expressions (DAX) queries against the provided
-            /// dataset. The dataset must reside in **My workspace** or another [new
-            /// workspace experience](/power-bi/collaborate-share/service-new-workspaces)
-            /// workspace.
+            /// dataset (Preview). The dataset must reside in **My workspace** or another
+            /// [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace.
             /// </summary>
             /// <remarks>
             ///
@@ -344,6 +347,9 @@ namespace Microsoft.PowerBI.Api
             /// - One query per API call.
             /// - One table request per query.
             /// - Maximum of 100,000 table rows per query.
+            /// - Service Principals are not supported for datasets with RLS per [RLS
+            /// limitations](/admin/service-admin-rls#limitations) and user impersonation
+            /// is not supported.
             ///
             /// ######
             ///
