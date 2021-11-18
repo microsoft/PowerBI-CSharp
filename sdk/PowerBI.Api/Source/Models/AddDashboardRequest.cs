@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI add dashboard request
+    /// A Power BI request to add a dashboard
     /// </summary>
     public partial class AddDashboardRequest
     {

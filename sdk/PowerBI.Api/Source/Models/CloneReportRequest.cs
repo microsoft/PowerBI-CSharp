@@ -27,15 +27,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the CloneReportRequest class.
         /// </summary>
         /// <param name="name">The new report name</param>
-        /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace ID. Empty Guid
-        /// (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'.
-        /// &lt;br/&gt;If not provided, the new report will be cloned within
-        /// the same workspace as the source report.</param>
-        /// <param name="targetModelId">Optional parameter for specifying the
-        /// target associated dataset ID. &lt;br/&gt;If not provided, the new
-        /// report will be associated with the same dataset as the source
-        /// report</param>
+        /// <param name="targetWorkspaceId">(Optional) Parameter for specifying
+        /// the target workspace ID. An empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`) indicates **My
+        /// workspace**. If this parameter isn't provided, the new report will
+        /// be cloned within the same workspace as the source report.</param>
+        /// <param name="targetModelId">(Optional) Parameter for specifying the
+        /// target associated dataset ID. If not provided, the new report will
+        /// be associated with the same dataset as the source report.</param>
         public CloneReportRequest(string name, System.Guid? targetWorkspaceId = default(System.Guid?), string targetModelId = default(string))
         {
             Name = name;
@@ -56,19 +55,19 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter for specifying the target workspace
-        /// ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
-        /// Workspace'. &amp;lt;br/&amp;gt;If not provided, the new report will
+        /// Gets or sets (Optional) Parameter for specifying the target
+        /// workspace ID. An empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`) indicates **My
+        /// workspace**. If this parameter isn't provided, the new report will
         /// be cloned within the same workspace as the source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
         public System.Guid? TargetWorkspaceId { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter for specifying the target
-        /// associated dataset ID. &amp;lt;br/&amp;gt;If not provided, the new
-        /// report will be associated with the same dataset as the source
-        /// report
+        /// Gets or sets (Optional) Parameter for specifying the target
+        /// associated dataset ID. If not provided, the new report will be
+        /// associated with the same dataset as the source report.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
         public string TargetModelId { get; set; }

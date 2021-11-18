@@ -18861,7 +18861,7 @@
                 },
                 "datasourceObjectIds": {
                     "type": "array",
-                    "description": "The unique identifier for the datasource in the gateway",
+                    "description": "The unique identifiers for the datasources in the gateway",
                     "items": {
                         "type": "string",
                         "format": "uuid",
@@ -19785,23 +19785,23 @@
                 "artifactType",
                 "accessRight"
             ],
-            "description": "A Power BI artifact access entry for user",
+            "description": "A user access entry for a Power BI item",
             "properties": {
                 "artifactId": {
                     "type": "string",
-                    "description": "Artifact ID"
+                    "description": "The Power BI item ID"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Display name of the artifact"
+                    "description": "The display name of the Power BI item"
                 },
                 "artifactType": {
                     "type": "string",
-                    "description": "Type of the artifact"
+                    "description": "The type of Power BI item"
                 },
                 "accessRight": {
                     "type": "string",
-                    "description": "Access right that the user has for the artifact."
+                    "description": "The access right that the user has for the Power BI item"
                 }
             }
         },
@@ -19820,7 +19820,7 @@
                 "values": [
                     {
                         "value": "None",
-                        "description": "None principal type, used for whole organization level access."
+                        "description": "No principal type. Use for whole organization level access."
                     },
                     {
                         "value": "User",
@@ -19850,11 +19850,11 @@
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Optional parameter for specifying the target workspace ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'. <br/>If not provided, the new report will be cloned within the same workspace as the source report."
+                    "description": "(Optional) Parameter for specifying the target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates **My workspace**. If this parameter isn't provided, the new report will be cloned within the same workspace as the source report."
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "Optional parameter for specifying the target associated dataset ID. <br/>If not provided, the new report will be associated with the same dataset as the source report"
+                    "description": "(Optional) Parameter for specifying the target associated dataset ID. If not provided, the new report will be associated with the same dataset as the source report."
                 }
             }
         },
@@ -19866,7 +19866,7 @@
             "properties": {
                 "datasetId": {
                     "type": "string",
-                    "description": "The new dataset for the rebound report. If the dataset resides in a different workspace than the report, a shared dataset will be created in the report's workspace"
+                    "description": "The new dataset for the rebound report. If the dataset resides in a different workspace than the report, a shared dataset will be created in the report's workspace."
                 }
             }
         },
@@ -19874,11 +19874,11 @@
             "required": [
                 "format"
             ],
-            "description": "The Export to file request",
+            "description": "The export to file request",
             "properties": {
                 "format": {
                     "type": "string",
-                    "description": "Export to file format",
+                    "description": "The requested format for the exported file",
                     "enum": [
                         "PPTX",
                         "PDF",
@@ -19896,43 +19896,43 @@
                         "values": [
                             {
                                 "value": "PPTX",
-                                "description": "Requested file format is PPTX"
+                                "description": "Microsoft PowerPoint"
                             },
                             {
                                 "value": "PDF",
-                                "description": "Requested file format is PDF"
+                                "description": "PDF"
                             },
                             {
                                 "value": "PNG",
-                                "description": "Requested file format is PNG (only supported for Power BI reports)"
+                                "description": "PNG (only supported for Power BI reports)"
                             },
                             {
                                 "value": "IMAGE",
-                                "description": "Requested file format is [IMAGE](https://docs.microsoft.com/sql/reporting-services/image-device-information-settings) (only supported for paginated reports)"
+                                "description": "BMP, EMF, GIF, JPEG, PNG, or TIFF [image](/sql/reporting-services/image-device-information-settings) formats (only supported for paginated reports)"
                             },
                             {
                                 "value": "XLSX",
-                                "description": "Requested file format is XLSX (only supported for paginated reports)"
+                                "description": "Microsoft Excel (only supported for paginated reports)"
                             },
                             {
                                 "value": "DOCX",
-                                "description": "Requested file format is DOCX (only supported for paginated reports)"
+                                "description": "Microsoft Word (only supported for paginated reports)"
                             },
                             {
                                 "value": "CSV",
-                                "description": "Requested file format is CSV (only supported for paginated reports)"
+                                "description": "CSV (only supported for paginated reports)"
                             },
                             {
                                 "value": "XML",
-                                "description": "Requested file format is XML (only supported for paginated reports)"
+                                "description": "XML (only supported for paginated reports)"
                             },
                             {
                                 "value": "MHTML",
-                                "description": "Requested file format is MHTML (only supported for paginated reports)"
+                                "description": "MHTML (only supported for paginated reports)"
                             },
                             {
                                 "value": "ACCESSIBLEPDF",
-                                "description": "Requested file format is Accessible PDF (only supported for paginated reports)"
+                                "description": "Accessible PDF (only supported for paginated reports)"
                             }
                         ]
                     }
@@ -19948,33 +19948,33 @@
             }
         },
         "PowerBIReportExportConfiguration": {
-            "description": "Power BI report Export to file configuration",
+            "description": "The export to file configuration for a Power BI report",
             "properties": {
                 "settings": {
                     "$ref": "#/definitions/ExportReportSettings",
-                    "description": "The settings to be applied in this Export to file job"
+                    "description": "The settings to be applied for the export to file job"
                 },
                 "defaultBookmark": {
                     "$ref": "#/definitions/PageBookmark",
-                    "description": "The default bookmark to apply on all pages which don't have a specific bookmark"
+                    "description": "A default bookmark to apply on all pages that don't have a specific bookmark"
                 },
                 "reportLevelFilters": {
                     "type": "array",
-                    "description": "List of report level filters to apply. Currently only one filter can be provided",
+                    "description": "A list of report level filters to apply. Currently, only one filter is supported.",
                     "items": {
                         "$ref": "#/definitions/ExportFilter"
                     }
                 },
                 "pages": {
                     "type": "array",
-                    "description": "List of pages to export and their properties. The same page may appear more than once with different visuals",
+                    "description": "A list of pages to export and their properties. The same page may appear more than once with different visuals.",
                     "items": {
                         "$ref": "#/definitions/ExportReportPage"
                     }
                 },
                 "identities": {
                     "type": "array",
-                    "description": "List of identities to use for RLS rules",
+                    "description": "A list of identities to use for row-level security rules",
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
@@ -19982,25 +19982,25 @@
             }
         },
         "PaginatedReportExportConfiguration": {
-            "description": "Paginated report Export to file configuration",
+            "description": "The export to file configuration for a paginated report ",
             "properties": {
                 "identities": {
                     "type": "array",
-                    "description": "A single identity to use when exporting a report. Required when a report uses a Power BI dataset or an Azure AS datasource.",
+                    "description": "The single identity to use when exporting a report. Required when a report uses a Power BI dataset or an Azure Analysis Services data source.",
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
                 },
                 "formatSettings": {
                     "type": "object",
-                    "description": "Dictionary of format settings. The keys are the device info property names for the requested file format.",
+                    "description": "A dictionary of format settings. The keys are the device information property names for the requested file format.",
                     "additionalProperties": {
                         "type": "string"
                     }
                 },
                 "parameterValues": {
                     "type": "array",
-                    "description": "List of report parameters",
+                    "description": "A list of report parameters",
                     "items": {
                         "$ref": "#/definitions/ParameterValue"
                     }
@@ -20016,7 +20016,7 @@
                 },
                 "includeHiddenPages": {
                     "type": "boolean",
-                    "description": "A flag indicating whether to include hidden pages when exporting the entire report (when passing specific pages this property will be ignored). If not provided, the default behavior is to exclude hidden pages"
+                    "description": "Whether to include hidden pages when exporting an entire report. If not provided, the default behavior is to exclude hidden pages. This property will be ignored when specific pages are exported."
                 }
             }
         },
@@ -20032,11 +20032,11 @@
                 },
                 "visualName": {
                     "type": "string",
-                    "description": "Visual name to be exported. Should be provided in case only a single visual from this page is exported"
+                    "description": "The name of the visual to export. Specify a name, in case only a single visual from this page is exported."
                 },
                 "bookmark": {
                     "$ref": "#/definitions/PageBookmark",
-                    "description": "The bookmark to be applied on the page"
+                    "description": "The bookmark to apply on the page"
                 }
             }
         },
@@ -20058,7 +20058,7 @@
             "properties": {
                 "filter": {
                     "type": "string",
-                    "description": "The filter to apply. Filter format should be as described [here](https://docs.microsoft.com/power-bi/collaborate-share/service-url-filters)"
+                    "description": "The filter to apply. For information about the filter syntax, see [Filter a report](/power-bi/collaborate-share/service-url-filters)."
                 }
             }
         },
@@ -20079,7 +20079,7 @@
             "required": [
                 "name"
             ],
-            "description": "Power BI create a new group request",
+            "description": "A Power BI request to create a new group",
             "properties": {
                 "name": {
                     "type": "string",
@@ -20088,15 +20088,15 @@
             }
         },
         "GroupRestoreRequest": {
-            "description": "Power BI request to restore a deleted group",
+            "description": "A Power BI request to restore a deleted group",
             "properties": {
                 "name": {
                     "type": "string",
-                    "description": "The name of the group to be restored."
+                    "description": "The name of the group to be restored"
                 },
                 "emailAddress": {
                     "type": "string",
-                    "description": "The email address of the owner of the group to be restored."
+                    "description": "The email address of the owner of the group to be restored"
                 }
             },
             "required": [
@@ -20107,11 +20107,11 @@
             "required": [
                 "value"
             ],
-            "description": "A blob for specifying the identity. Only supported for datasets with Direct Query connection to SQL Azure",
+            "description": "A blob for specifying an identity. Only supported for datasets with a DirectQuery connection to Azure SQL",
             "properties": {
                 "value": {
                     "type": "string",
-                    "description": "OAuth2 access token for SQL Azure"
+                    "description": "An OAuth 2.0 access token for Azure SQL"
                 }
             }
         },
@@ -20119,11 +20119,11 @@
             "required": [
                 "username"
             ],
-            "description": "Defines the user identity and roles, for more details see this [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)",
+            "description": "Defines the user identity and roles. For more information, see [Row-level security with Power BI Embedded](/power-bi/developer/embedded/embedded-row-level-security).",
             "properties": {
                 "username": {
                     "type": "string",
-                    "description": "The effective username reflected by a token for applying RLS rules (For OnPrem model, username can be composed of alpha-numerical characters or any of the following characters  '.', '-', '_', '!', '#', '^', '~', '\\\\', '@', also username cannot contain spaces. For Cloud model, username can be composed of all ASCII characters. username must be up to 256 characters)"
+                    "description": "The effective username within a token that applies row-level security rules. For an on-premises model, the username can contain alphanumeric or any of the following characters `.`, `-`, `_`, `!`, `#`, `^`, `~`, `\\\\`, `@`. For cloud models, the username can contain any ASCII character. For either model, the username length must not exceed 256 characters, and the username shouldn't contain spaces."
                 },
                 "datasets": {
                     "type": "array",
@@ -20134,22 +20134,22 @@
                 },
                 "roles": {
                     "type": "array",
-                    "description": "An array of RLS roles reflected by a token when applying RLS rules (identity can contain up to 50 roles, role can be composed of any character besides ',' and must be up to 50 characters)",
+                    "description": "An array of row-level security (RLS) roles within a token that applies RLS rules. An identity can contain up to 50 roles. A role can contain any character except `,`, and its length must not exceed 50 characters.",
                     "items": {
                         "type": "string"
                     }
                 },
                 "customData": {
                     "type": "string",
-                    "description": "The value of customdata to be used for applying RLS rules. Only supported for live connections to Azure Analysis Services."
+                    "description": "[Custom data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature) that's used to apply row-level security rules. Only supported for live connections to Azure Analysis Services."
                 },
                 "identityBlob": {
                     "$ref": "#/definitions/IdentityBlob",
-                    "description": "A blob for specifying the identity. Only supported for datasets with Direct Query connection to SQL Azure"
+                    "description": "A blob that specifies an [identity](/power-bi/developer/embedded/embedded-row-level-security#token-based-identity-sdk-additions). Only supported for datasets with a DirectQuery connection to Azure SQL."
                 },
                 "reports": {
                     "type": "array",
-                    "description": "An array of reports for which this identity applies, Only supported for paginated reports",
+                    "description": "An array of reports for which this identity applies. Only supported for paginated reports.",
                     "items": {
                         "type": "string"
                     }
@@ -20160,7 +20160,7 @@
             "required": [
                 "id"
             ],
-            "description": "The dataset object for Generate Token Request V2.",
+            "description": "A dataset object in [GenerateTokenRequestV2](#generatetokenrequestv2)",
             "properties": {
                 "id": {
                     "type": "string",
@@ -20172,7 +20172,7 @@
             "required": [
                 "id"
             ],
-            "description": "The workspace object for Generate Token Request V2.",
+            "description": "A workspace object in [GenerateTokenRequestV2](#generatetokenrequestv2)",
             "properties": {
                 "id": {
                     "type": "string",
@@ -20185,11 +20185,11 @@
             "required": [
                 "id"
             ],
-            "description": "The report object for Generate Token Request V2.",
+            "description": "A report object in [GenerateTokenRequestV2](#generatetokenrequestv2)",
             "properties": {
                 "allowEdit": {
                     "type": "boolean",
-                    "description": "Indicates that the generated EmbedToken grand editing for this report"
+                    "description": "Whether the generated embed token supports report editing"
                 },
                 "id": {
                     "type": "string",
@@ -20203,7 +20203,7 @@
             "properties": {
                 "accessLevel": {
                     "type": "string",
-                    "description": "Required access level for EmbedToken generation",
+                    "description": "The required access level for embed token generation",
                     "enum": [
                         "View",
                         "Edit",
@@ -20215,37 +20215,37 @@
                         "values": [
                             {
                                 "value": "View",
-                                "description": "Indicates that the generated EmbedToken should grant only Viewing permissions"
+                                "description": "Indicates that the generated embed token grants view-only permission"
                             },
                             {
                                 "value": "Edit",
-                                "description": "Indicates that the generated EmbedToken should grant Viewing and Editing permissions, only applies when generating EmbedToken for report embedding"
+                                "description": "Indicates that the generated embed token grants view and edit permissions. Only applies when you generate an embed token for report embedding."
                             },
                             {
                                 "value": "Create",
-                                "description": "Indicates that the generated EmbedToken should grant Creation permissions, only applies when generating EmbedToken for report creation"
+                                "description": "Indicates that the generated embed token grants create permission. Only applies when you generate an embed token for report creation."
                             }
                         ]
                     }
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "The dataset ID used for report creation. Only applies when generating an EmbedToken for report creation."
+                    "description": "The dataset ID used for report creation. Only applies when you generate an embed token for report creation."
                 },
                 "allowSaveAs": {
                     "type": "boolean",
-                    "description": "Indicates an embedded report can be saved as a new report. Default value is 'false'. Only applies when generating EmbedToken for report embedding."
+                    "description": "Whether an embedded report can be saved as a new report. The default value is `false`. Only applies when you generate an embed token for report embedding."
                 },
                 "identities": {
                     "type": "array",
-                    "description": "List of identities to use for RLS rules.",
+                    "description": "A list of identities to use for row-level security rules",
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
                 },
                 "lifetimeInMinutes": {
                     "type": "integer",
-                    "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token’s expiration time, but not to extend it. The value must be a positive integer. Zero (0) is equivalent to null and will be ignored, resulting in the default expiration time."
+                    "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the expiration time of a token, but not to extend it. The value must be a positive integer. Zero (0) is equivalent to null and will be ignored, resulting in the default expiration time."
                 }
             }
         },
@@ -20254,35 +20254,35 @@
             "properties": {
                 "datasets": {
                     "type": "array",
-                    "description": "List of datasets",
+                    "description": "A list of datasets",
                     "items": {
                         "$ref": "#/definitions/GenerateTokenRequestV2Dataset"
                     }
                 },
                 "reports": {
                     "type": "array",
-                    "description": "List of reports",
+                    "description": "A list of reports",
                     "items": {
                         "$ref": "#/definitions/GenerateTokenRequestV2Report"
                     }
                 },
                 "targetWorkspaces": {
                     "type": "array",
-                    "description": "List of workspaces *Embed Token* allows saving to",
+                    "description": "The list of workspaces that the embed token will allow saving to",
                     "items": {
                         "$ref": "#/definitions/GenerateTokenRequestV2TargetWorkspace"
                     }
                 },
                 "identities": {
                     "type": "array",
-                    "description": "List of identities to use for RLS rules.",
+                    "description": "The list of identities to use for row-level security rules",
                     "items": {
                         "$ref": "#/definitions/EffectiveIdentity"
                     }
                 },
                 "lifetimeInMinutes": {
                     "type": "integer",
-                    "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token’s expiration time, but not to extend it. The value must be a positive integer. Zero (0) is equivalent to null and will be ignored, resulting in the default expiration time."
+                    "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token's expiration time, but not to extend it. The value must be a positive integer. Zero (`0`) is equivalent to `null`, and will set the default expiration time."
                 }
             }
         },
@@ -20292,21 +20292,21 @@
                 "tokenId",
                 "expiration"
             ],
-            "description": "Power BI embed token",
+            "description": "A Power BI embed token",
             "properties": {
                 "token": {
                     "type": "string",
-                    "description": "Embed token"
+                    "description": "The embed token"
                 },
                 "tokenId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The unique token ID, which can be used to correlate operations that use this token with the generate operation through audit logs"
+                    "description": "The unique token ID. Through audit logs, the token ID can be used to correlate operations that use the token with the generate operation."
                 },
                 "expiration": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Expiration time of token. In UTC."
+                    "description": "The date and time (UTC) of token expiration"
                 }
             }
         },
@@ -20314,7 +20314,7 @@
             "required": [
                 "targetDashboardId"
             ],
-            "description": "Power BI clone tile request",
+            "description": " A Power BI request to clone a tile",
             "properties": {
                 "targetDashboardId": {
                     "type": "string",
@@ -20324,20 +20324,20 @@
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Optional parameter for specifying the target workspace ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'. <br/>If not provided, tile will be cloned within the same workspace as the source tile."
+                    "description": "(Optional) A parameter for specifying a target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates 'My Workspace'. If this parameter isn't provided, the tile will be cloned within the same workspace as the source tile."
                 },
                 "targetReportId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Optional parameter <br/>When cloning a tile linked to a report, pass the target report ID to rebind the new tile to a different report."
+                    "description": "(Optional) A parameter for specifying a target report ID. When cloning a tile linked to a report, pass the target report ID to rebind the new tile to a different report."
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "Optional parameter <br/>When cloning a tile linked to a dataset, pass the target model ID to rebind the new tile to a different dataset."
+                    "description": "(Optional) A parameter for specifying a target model ID. When cloning a tile linked to a dataset, pass the target model ID to rebind the new tile to a different dataset."
                 },
                 "positionConflictAction": {
                     "type": "string",
-                    "description": "Optional parameter for specifying the action in case of position conflict. <br/>If not provided, 'Tail' is used. <br/>If there is no conflict, clone tile to same position as in source.",
+                    "description": "(Optional) A parameter for specifying an action in case of a position conflict. If there's a conflict and this parameter isn't provided, then the default value `Tail` will be applied. If there's no conflict, then the cloned tile will have the same position as in the source.",
                     "enum": [
                         "Tail",
                         "Abort"
@@ -20348,11 +20348,11 @@
                         "values": [
                             {
                                 "value": "Tail",
-                                "description": "Tile will be added at the end of the chosen dashboard"
+                                "description": "In the event of position conflict, the tile will be added at the end of the specified dashboard."
                             },
                             {
                                 "value": "Abort",
-                                "description": "In a case of position conflict, the request will be aborted"
+                                "description": "In the event of position conflict, the request will be aborted."
                             }
                         ]
                     }
@@ -20363,7 +20363,7 @@
             "required": [
                 "name"
             ],
-            "description": "Power BI add dashboard request",
+            "description": "A Power BI request to add a dashboard",
             "properties": {
                 "name": {
                     "type": "string",
