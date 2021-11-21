@@ -15939,7 +15939,7 @@
                 ],
                 "parameters": [
                     {
-                        "name": "userGraphId",
+                        "name": "userId",
                         "in": "path",
                         "description": "The graph ID of user or User Principal Name of the user",
                         "required": true,

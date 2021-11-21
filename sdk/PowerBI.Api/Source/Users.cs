@@ -365,7 +365,7 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
-        /// <param name='userGraphId'>
+        /// <param name='userId'>
         /// The graph ID of user or User Principal Name of the user
         /// </param>
         /// <param name='continuationToken'>
@@ -386,7 +386,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid userGraphId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -395,7 +395,7 @@ namespace Microsoft.PowerBI.Api
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("userGraphId", userGraphId);
+                tracingParameters.Add("userId", userId);
                 tracingParameters.Add("continuationToken", continuationToken);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetUserSubscriptionsAsAdmin", tracingParameters);
@@ -403,7 +403,7 @@ namespace Microsoft.PowerBI.Api
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/users/{userId}/subscriptions").ToString();
-            _url = _url.Replace("{userGraphId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(userGraphId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{userId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(userId, Client.SerializationSettings).Trim('"')));
             List<string> _queryParameters = new List<string>();
             if (continuationToken != null)
             {

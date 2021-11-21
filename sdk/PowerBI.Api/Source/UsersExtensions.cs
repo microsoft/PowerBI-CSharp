@@ -197,15 +197,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='userGraphId'>
+            /// <param name='userId'>
             /// The graph ID of user or User Principal Name of the user
             /// </param>
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
             /// </param>
-            public static SubscriptionsByUserResponse GetUserSubscriptionsAsAdmin(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string))
+            public static SubscriptionsByUserResponse GetUserSubscriptionsAsAdmin(this IUsers operations, System.Guid userId, string continuationToken = default(string))
             {
-                return operations.GetUserSubscriptionsAsAdminAsync(userGraphId, continuationToken).GetAwaiter().GetResult();
+                return operations.GetUserSubscriptionsAsAdminAsync(userId, continuationToken).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -237,7 +237,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='userGraphId'>
+            /// <param name='userId'>
             /// The graph ID of user or User Principal Name of the user
             /// </param>
             /// <param name='continuationToken'>
@@ -246,9 +246,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SubscriptionsByUserResponse> GetUserSubscriptionsAsAdminAsync(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SubscriptionsByUserResponse> GetUserSubscriptionsAsAdminAsync(this IUsers operations, System.Guid userId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetUserSubscriptionsAsAdminWithHttpMessagesAsync(userGraphId, continuationToken, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUserSubscriptionsAsAdminWithHttpMessagesAsync(userId, continuationToken, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
