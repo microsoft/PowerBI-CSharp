@@ -938,6 +938,11 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
+            /// ## Deleted datasources will still appear in the response. This may include
+            /// both cloud and on-premise data gateway sources. For more information see
+            /// [Dataflows considerations and
+            /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations)
+            ///
             /// ######
             ///
             /// </remarks>
@@ -967,6 +972,11 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Deleted datasources will still appear in the response. This may include
+            /// both cloud and on-premise data gateway sources. For more information see
+            /// [Dataflows considerations and
+            /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations)
             ///
             /// ######
             ///
