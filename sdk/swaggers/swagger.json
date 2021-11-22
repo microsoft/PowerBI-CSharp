@@ -22257,27 +22257,27 @@
             "properties": {
                 "allowCreateArtifact": {
                     "type": "boolean",
-                    "description": "Whether creating a new Power BI item (such as a report or a dashboard) in the target stage workspace is allowed. If this option isn't allowed when it's required for deployment, the deployment will fail."
+                    "description": "Whether creating a new Power BI item (such as a report or a dashboard) in the target stage workspace is allowed. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 },
                 "allowOverwriteArtifact": {
                     "type": "boolean",
-                    "description": "Whether overwriting a Power BI item (such as a report or a dashboard) in the target stage workspace is allowed. If this option isn't allowed when it's required for deployment, the deployment will fail."
+                    "description": "Whether overwriting a Power BI item (such as a report or a dashboard) in the target stage workspace is allowed. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 },
                 "allowSkipTilesWithMissingPrerequisites": {
                     "type": "boolean",
-                    "description": "Specifies whether skipping tiles that are missing their model or report in target stage workspace is allowed. If required but not allowed, deployment will fail."
+                    "description": "Whether to skip tiles that don't have a model or a report in the target stage workspace. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 },
                 "allowPurgeData": {
                     "type": "boolean",
-                    "description": "Specify whether deleting all data from the target artifact is allowed in case of a schema mismatch. If required but not allowed, deployment will fail."
+                    "description": "Whether to delete all data from the target Power BI item (such as a report or a dashboard) when there's a schema mismatch. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 },
                 "allowTakeOver": {
                     "type": "boolean",
-                    "description": "Specify whether taking ownership of the target artifact is allowed for paginated report. If required but not allowed, deployment will fail."
+                    "description": "Allow overriding the previous paginated report owner and becoming the owner of the paginated report. Applicable when deploying a paginated report to a stage that already contains a copy of the paginated report that isn't owned by you. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 },
                 "allowOverwriteTargetArtifactLabel": {
                     "type": "boolean",
-                    "description": "Specify whether changing the target artifact label is allowed. The label is changed when the source is protected but the target is not. If required but not allowed, deployment will fail."
+                    "description": "Whether the label of a target Power BI item (such as a report or a dashboard) can be changed. The label gets changed when the source is protected but the target isn't. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 }
             }
         },
@@ -22293,7 +22293,7 @@
                     "description": "The artifact ID"
                 },
                 "options": {
-                    "description": "Options to control the behavior of the deployment of a specific artifact",
+                    "description": "The deployment configuration options for a specific Power BI item (such as a report or a dashboard)",
                     "$ref": "#/definitions/DeploymentOptions"
                 }
             }
@@ -22302,31 +22302,31 @@
             "required": [
                 "displayName"
             ],
-            "description": "Request to create a new deployment pipeline",
+            "description": "A request to create a new deployment pipeline",
             "properties": {
                 "displayName": {
                     "type": "string",
-                    "description": "The display name of the newly created deployment pipeline",
+                    "description": "The display name for the new deployment pipeline",
                     "maxLength": 256
                 },
                 "description": {
                     "type": "string",
-                    "description": "The description of the newly created deployment pipeline",
+                    "description": "The description for the new deployment pipeline",
                     "maxLength": 1024
                 }
             }
         },
         "UpdatePipelineRequest": {
-            "description": "Request to update an exisiting deployment pipeline. At least one of the following properties must be provided",
+            "description": "A request to update an existing deployment pipeline. An updated display name and/or a description is required.",
             "properties": {
                 "displayName": {
                     "type": "string",
-                    "description": "New display name for the deployment pipeline",
+                    "description": "The updated display name for the deployment pipeline",
                     "maxLength": 256
                 },
                 "description": {
                     "type": "string",
-                    "description": "New description for the deployment pipeline",
+                    "description": "The updated description for the deployment pipeline",
                     "maxLength": 1024
                 }
             }
@@ -22335,7 +22335,7 @@
             "required": [
                 "workspaceId"
             ],
-            "description": "Request to assign a workspace to a deployment pipeline stage",
+            "description": "A request to assign a workspace to a deployment pipeline stage",
             "properties": {
                 "workspaceId": {
                     "type": "string",
@@ -22345,7 +22345,7 @@
             }
         },
         "PipelineUsers": {
-            "description": "Odata response wrapper for a Power BI deployment pipeline users collection.",
+            "description": "OData response wrapper for a collection of Power BI deployment pipeline users",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -22353,7 +22353,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The deployment pipeline users collection",
+                    "description": "The collection of deployment pipeline users",
                     "items": {
                         "$ref": "#/definitions/PipelineUser"
                     }
@@ -22365,11 +22365,11 @@
                 "identifier",
                 "principalType"
             ],
-            "description": "A Power BI user access right entry for a deployment pipeline.",
+            "description": "A Power BI user access right entry for a deployment pipeline",
             "properties": {
                 "accessRight": {
                     "type": "string",
-                    "description": "**Required** - Access rights a user has for the deployment pipeline.",
+                    "description": "(Required) The access right a user has for the deployment pipeline",
                     "enum": [
                         "Admin"
                     ],
@@ -22386,7 +22386,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "For Principal type 'User' provide UPN , otherwise provide [Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
+                    "description": "For the service principal type `User`, enter *UPN*. Otherwise provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the service principal."
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
@@ -22401,17 +22401,17 @@
             "properties": {
                 "queries": {
                     "type": "array",
-                    "description": "A list of queries to be executed.",
+                    "description": "The list of dataset queries to execute",
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesQuery"
                     }
                 },
                 "serializerSettings": {
-                    "description": "The serialization settings for the results.",
+                    "description": "The serialization settings for the result set",
                     "$ref": "#/definitions/DatasetExecuteQueriesSerializationSettings"
                 }
             },
-            "description": "Request to execute queries against a dataset."
+            "description": "A request to execute queries against a dataset"
         },
         "DatasetExecuteQueriesQuery": {
             "type": "object",
@@ -22421,59 +22421,59 @@
             "properties": {
                 "query": {
                     "type": "string",
-                    "description": "The DAX query to be executed."
+                    "description": "The DAX query to be executed"
                 }
             },
-            "description": "A dataset query."
+            "description": "A dataset query"
         },
         "DatasetExecuteQueriesSerializationSettings": {
             "type": "object",
             "properties": {
                 "includeNulls": {
                     "type": "boolean",
-                    "description": "1 indicates that null (blank) values should be included in the result. 0 indicates they should be omitted. 0 is the default in absence of the settings."
+                    "description": "Whether null (blank) values should be included in the result set. If unspecified, the default value is `false`."
                 }
             },
-            "description": "The serialization settings for the dataset query results."
+            "description": "The serialization settings for the results of a dataset query"
         },
         "DatasetExecuteQueriesResponse": {
             "type": "object",
             "properties": {
                 "results": {
                     "type": "array",
-                    "description": "A list of results, one per input query.",
+                    "description": "The list of results, one per input query.",
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesQueryResult"
                     }
                 }
             },
-            "description": "Response of a data set execute queries request."
+            "description": "The response to a dataset execute queries request"
         },
         "DatasetExecuteQueriesQueryResult": {
             "type": "object",
             "properties": {
                 "tables": {
                     "type": "array",
-                    "description": "A list of tables data for a query.",
+                    "description": "A list of tables data for a query",
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesTableResult"
                     }
                 }
             },
-            "description": "Result of a single data set query."
+            "description": "The results from a single dataset query"
         },
         "DatasetExecuteQueriesTableResult": {
             "type": "object",
             "properties": {
                 "rows": {
                     "type": "array",
-                    "description": "A list of rows.",
+                    "description": "A list of rows",
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesRowResult"
                     }
                 }
             },
-            "description": "A table of data."
+            "description": "A table of data"
         },
         "DatasetExecuteQueriesRowResult": {
             "type": "object",
@@ -22481,7 +22481,7 @@
                 "Country": "United States",
                 "Sales": 100.5
             },
-            "description": "A set of key value pairs representing the column name and value. The column name is the key of the pair."
+            "description": "A set of key-value pairs representing the column name and a row value. The column name is the key of the pair."
         }
     },
     "parameters": {

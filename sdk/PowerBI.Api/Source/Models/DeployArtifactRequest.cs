@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DeployArtifactRequest class.
         /// </summary>
         /// <param name="sourceId">The artifact ID</param>
-        /// <param name="options">Options to control the behavior of the
-        /// deployment of a specific artifact</param>
+        /// <param name="options">The deployment configuration options for a
+        /// specific artifact</param>
         public DeployArtifactRequest(System.Guid sourceId, DeploymentOptions options = default(DeploymentOptions))
         {
             SourceId = sourceId;
@@ -47,8 +47,8 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid SourceId { get; set; }
 
         /// <summary>
-        /// Gets or sets options to control the behavior of the deployment of a
-        /// specific artifact
+        /// Gets or sets the deployment configuration options for a specific
+        /// artifact
         /// </summary>
         [JsonProperty(PropertyName = "options")]
         public DeploymentOptions Options { get; set; }

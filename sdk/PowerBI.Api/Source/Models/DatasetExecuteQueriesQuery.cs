@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A dataset query.
+    /// A dataset query
     /// </summary>
     public partial class DatasetExecuteQueriesQuery
     {
@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasetExecuteQueriesQuery class.
         /// </summary>
-        /// <param name="query">The DAX query to be executed.</param>
+        /// <param name="query">The DAX query to be executed</param>
         public DatasetExecuteQueriesQuery(string query)
         {
             Query = query;
@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the DAX query to be executed.
+        /// Gets or sets the DAX query to be executed
         /// </summary>
         [JsonProperty(PropertyName = "query")]
         public string Query { get; set; }
