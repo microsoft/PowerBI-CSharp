@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="sourceId">The artifact ID</param>
         /// <param name="options">The deployment configuration options for a
-        /// specific artifact</param>
+        /// specific Power BI item (such as a report or a dashboard)</param>
         public DeployArtifactRequest(System.Guid sourceId, DeploymentOptions options = default(DeploymentOptions))
         {
             SourceId = sourceId;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the deployment configuration options for a specific
-        /// artifact
+        /// Power BI item (such as a report or a dashboard)
         /// </summary>
         [JsonProperty(PropertyName = "options")]
         public DeploymentOptions Options { get; set; }

@@ -125,7 +125,7 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
-        /// <param name='userGraphId'>
+        /// <param name='userId'>
         /// The graph ID of user or User Principal Name of the user
         /// </param>
         /// <param name='continuationToken'>
@@ -143,6 +143,6 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid userGraphId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

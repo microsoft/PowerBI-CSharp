@@ -53,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="allowOverwriteTargetArtifactLabel">Whether the label
         /// of a target Power BI item (such as a report or a dashboard) can be
         /// changed. The label gets changed when the source is protected but
-        /// the target is not. If this option isn't set to `true` when it's
+        /// the target isn't. If this option isn't set to `true` when it's
         /// required for deployment, the deployment will fail.</param>
         public DeploymentOptions(bool? allowCreateArtifact = default(bool?), bool? allowOverwriteArtifact = default(bool?), bool? allowSkipTilesWithMissingPrerequisites = default(bool?), bool? allowPurgeData = default(bool?), bool? allowTakeOver = default(bool?), bool? allowOverwriteTargetArtifactLabel = default(bool?))
         {
@@ -120,7 +120,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets whether the label of a target Power BI item (such as a
         /// report or a dashboard) can be changed. The label gets changed when
-        /// the source is protected but the target is not. If this option isn't
+        /// the source is protected but the target isn't. If this option isn't
         /// set to `true` when it's required for deployment, the deployment
         /// will fail.
         /// </summary>

@@ -2110,6 +2110,11 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// Deleted datasources will still appear in the response. This may include
+        /// both cloud and on-premise data gateway sources. For more information see
+        /// [Dataflows considerations and
+        /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).
+        ///
         /// ## Permissions
         ///
         /// - The user must have administrator rights (such as Office 365 Global
@@ -2120,11 +2125,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ## Deleted datasources will still appear in the response. This may include
-        /// both cloud and on-premise data gateway sources. For more information see
-        /// [Dataflows considerations and
-        /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations)
         ///
         /// ######
         ///
