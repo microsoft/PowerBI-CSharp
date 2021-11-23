@@ -12980,6 +12980,14 @@
                     "application/json"
                 ],
                 "parameters": [
+					{
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
                     {
                         "name": "$expand",
                         "in": "query",
@@ -19318,7 +19326,7 @@
             ],
             "description": "A Power BI user access right entry for dataflow",
             "properties": {
-                "DataflowUserAccessRight": {
+                "dataflowUserAccessRight": {
                     "type": "string",
                     "description": "Access rights user has for the dataflow (Permission level)",
                     "enum": [
@@ -21719,6 +21727,11 @@
                             }
                         ]
                     }
+                },
+				"lastUpdatedTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The last time the operation was updated."
                 },
                 "sourceAndTarget": {
                     "description": "The source and target items of the step",
