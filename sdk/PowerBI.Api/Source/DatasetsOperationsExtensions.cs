@@ -3692,7 +3692,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Datasets GetDatasetsAsAdmin(this IDatasetsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDatasets GetDatasetsAsAdmin(this IDatasetsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDatasetsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
             }
@@ -3734,7 +3734,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Datasets> GetDatasetsAsAdminAsync(this IDatasetsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDatasets> GetDatasetsAsAdminAsync(this IDatasetsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDatasetsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -3929,7 +3929,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='expand'>
             /// Expands related entities inline
             /// </param>
-            public static Datasets GetDatasetsInGroupAsAdmin(this IDatasetsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string))
+            public static AdminDatasets GetDatasetsInGroupAsAdmin(this IDatasetsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string))
             {
                 return operations.GetDatasetsInGroupAsAdminAsync(groupId, filter, top, skip, expand).GetAwaiter().GetResult();
             }
@@ -3978,7 +3978,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Datasets> GetDatasetsInGroupAsAdminAsync(this IDatasetsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDatasets> GetDatasetsInGroupAsAdminAsync(this IDatasetsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDatasetsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, expand, null, cancellationToken).ConfigureAwait(false))
                 {

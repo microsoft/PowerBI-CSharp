@@ -27,25 +27,25 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="id">The tile ID</param>
         /// <param name="title">The display name of the tile </param>
-        /// <param name="rowSpan">The number of tile span rows</param>
-        /// <param name="colSpan">The number of tile span columns</param>
-        /// <param name="embedUrl">The embed URL of the tile</param>
-        /// <param name="embedData">The embed data for the tile</param>
         /// <param name="reportId">The report ID. Available only for tiles
         /// created from a report.</param>
         /// <param name="datasetId">The dataset ID. Available only for tiles
         /// created from a report or by using a dataset, such as Q&amp;A
         /// tiles.</param>
-        public Tile(System.Guid id, string title = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string), System.Guid? reportId = default(System.Guid?), string datasetId = default(string))
+        /// <param name="rowSpan">The number of tile span rows</param>
+        /// <param name="colSpan">The number of tile span columns</param>
+        /// <param name="embedUrl">The embed URL of the tile</param>
+        /// <param name="embedData">The embed data for the tile</param>
+        public Tile(System.Guid id, string title = default(string), System.Guid? reportId = default(System.Guid?), string datasetId = default(string), int? rowSpan = default(int?), int? colSpan = default(int?), string embedUrl = default(string), string embedData = default(string))
         {
             Id = id;
             Title = title;
+            ReportId = reportId;
+            DatasetId = datasetId;
             RowSpan = rowSpan;
             ColSpan = colSpan;
             EmbedUrl = embedUrl;
             EmbedData = embedData;
-            ReportId = reportId;
-            DatasetId = datasetId;
             CustomInit();
         }
 
@@ -65,6 +65,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or sets the report ID. Available only for tiles created from a
+        /// report.
+        /// </summary>
+        [JsonProperty(PropertyName = "reportId")]
+        public System.Guid? ReportId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset ID. Available only for tiles created from
+        /// a report or by using a dataset, such as Q&amp;amp;A tiles.
+        /// </summary>
+        [JsonProperty(PropertyName = "datasetId")]
+        public string DatasetId { get; set; }
 
         /// <summary>
         /// Gets or sets the number of tile span rows
@@ -89,20 +103,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "embedData")]
         public string EmbedData { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report ID. Available only for tiles created from a
-        /// report.
-        /// </summary>
-        [JsonProperty(PropertyName = "reportId")]
-        public System.Guid? ReportId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataset ID. Available only for tiles created from
-        /// a report or by using a dataset, such as Q&amp;amp;A tiles.
-        /// </summary>
-        [JsonProperty(PropertyName = "datasetId")]
-        public string DatasetId { get; set; }
 
         /// <summary>
         /// Validate the object.

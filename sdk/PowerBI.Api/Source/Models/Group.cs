@@ -63,7 +63,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="pipelineId">The deployment pipeline ID that the
         /// workspace is assigned to. Available only for workspaces in the new
         /// workspace experience and only for admin API calls.</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?))
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), System.Guid? dataflowStorageId = default(System.Guid?), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?))
         {
             Id = id;
             Name = name;
@@ -157,28 +157,28 @@ namespace Microsoft.PowerBI.Api.Models
         /// for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
-        public IList<Report> Reports { get; set; }
+        public IList<AdminReport> Reports { get; set; }
 
         /// <summary>
         /// Gets or sets the dashboards that belong to the group. Available
         /// only for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
-        public IList<Dashboard> Dashboards { get; set; }
+        public IList<AdminDashboard> Dashboards { get; set; }
 
         /// <summary>
         /// Gets or sets the datasets that belong to the group. Available only
         /// for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
-        public IList<Dataset> Datasets { get; set; }
+        public IList<AdminDataset> Datasets { get; set; }
 
         /// <summary>
         /// Gets or sets the dataflows that belong to the group. Available only
         /// for admin API calls.
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
-        public IList<Dataflow> Dataflows { get; set; }
+        public IList<AdminDataflow> Dataflows { get; set; }
 
         /// <summary>
         /// Gets or sets the Power BI dataflow storage account ID

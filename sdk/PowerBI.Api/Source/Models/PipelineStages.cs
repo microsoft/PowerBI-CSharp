@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a collection of Power BI deployment pipeline
+    /// OData response wrapper for a collection of Power BI deployment pipeline
     /// stages.
     /// </summary>
     public partial class PipelineStages

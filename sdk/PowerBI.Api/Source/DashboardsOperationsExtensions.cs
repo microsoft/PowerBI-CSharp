@@ -915,7 +915,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dashboards GetDashboardsInGroupAsAdmin(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDashboards GetDashboardsInGroupAsAdmin(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDashboardsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
             }
@@ -961,7 +961,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dashboards> GetDashboardsInGroupAsAdminAsync(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDashboards> GetDashboardsInGroupAsAdminAsync(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1008,7 +1008,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dashboards GetDashboardsAsAdmin(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDashboards GetDashboardsAsAdmin(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDashboardsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
             }
@@ -1055,7 +1055,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dashboards> GetDashboardsAsAdminAsync(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDashboards> GetDashboardsAsAdminAsync(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1092,7 +1092,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='dashboardId'>
             /// The dashboard ID
             /// </param>
-            public static Tiles GetTilesAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
+            public static AdminTiles GetTilesAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
             {
                 return operations.GetTilesAsAdminAsync(dashboardId).GetAwaiter().GetResult();
             }
@@ -1129,7 +1129,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Tiles> GetTilesAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminTiles> GetTilesAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTilesAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
                 {

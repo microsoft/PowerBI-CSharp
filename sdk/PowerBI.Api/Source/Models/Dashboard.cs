@@ -32,35 +32,32 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="id">The dashboard ID</param>
         /// <param name="displayName">The display name of the dashboard</param>
         /// <param name="isReadOnly">Whether the dashboard is read-only</param>
+        /// <param name="appId">The app ID, returned only if the dashboard
+        /// belongs to an app</param>
+        /// <param name="webUrl">The web URL of the dashboard</param>
         /// <param name="embedUrl">The embed URL of the dashboard</param>
-        /// <param name="tiles">The tiles that belong to the dashboard</param>
-        /// <param name="dataClassification">The data classification tag of the
-        /// dashboard</param>
-        /// <param name="sensitivityLabel">The sensitivity label for the
-        /// dashboard</param>
         /// <param name="users">(Empty value) The dashboard user access
         /// details. This property will be removed from the payload response in
         /// an upcoming release. You can retrieve user information on a Power
         /// BI item (such as a report or a dashboard) by using the [Get
         /// Dashboard Users as
-        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
+        /// Admin](/rest/api/power-bi/admin/datasets-get-dashboard-users-as-admin)
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.</param>
-        /// <param name="subscriptions">(Empty value) The Dashboard
-        /// subscription Details.It will be removed from the payload response
-        /// in an upcoming release. To retrieve subscription information for
-        /// dashboard, please consider using the Get Dashboard Subscriptions as
-        /// Admin API.</param>
-        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string embedUrl = default(string), IList<Tile> tiles = default(IList<Tile>), string dataClassification = default(string), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DashboardUser> users = default(IList<DashboardUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
+        /// <param name="subscriptions">(Empty Value)The artifact subscription
+        /// Details. It will be removed from the payload response in an
+        /// upcoming release. To retrieve subscription information for report,
+        /// please consider using the Get Report Subscriptions as Admin
+        /// API.</param>
+        public Dashboard(System.Guid id, string displayName = default(string), bool? isReadOnly = default(bool?), string appId = default(string), string webUrl = default(string), string embedUrl = default(string), IList<DashboardUser> users = default(IList<DashboardUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
             DisplayName = displayName;
             IsReadOnly = isReadOnly;
+            AppId = appId;
+            WebUrl = webUrl;
             EmbedUrl = embedUrl;
-            Tiles = tiles;
-            DataClassification = dataClassification;
-            SensitivityLabel = sensitivityLabel;
             Users = users;
             Subscriptions = subscriptions;
             CustomInit();
@@ -90,35 +87,30 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? IsReadOnly { get; set; }
 
         /// <summary>
+        /// Gets or sets the app ID, returned only if the dashboard belongs to
+        /// an app
+        /// </summary>
+        [JsonProperty(PropertyName = "appId")]
+        public string AppId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the web URL of the dashboard
+        /// </summary>
+        [JsonProperty(PropertyName = "webUrl")]
+        public string WebUrl { get; set; }
+
+        /// <summary>
         /// Gets or sets the embed URL of the dashboard
         /// </summary>
         [JsonProperty(PropertyName = "embedUrl")]
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets the tiles that belong to the dashboard
-        /// </summary>
-        [JsonProperty(PropertyName = "tiles")]
-        public IList<Tile> Tiles { get; set; }
-
-        /// <summary>
-        /// Gets or sets the data classification tag of the dashboard
-        /// </summary>
-        [JsonProperty(PropertyName = "dataClassification")]
-        public string DataClassification { get; set; }
-
-        /// <summary>
-        /// Gets or sets the sensitivity label for the dashboard
-        /// </summary>
-        [JsonProperty(PropertyName = "sensitivityLabel")]
-        public SensitivityLabel SensitivityLabel { get; set; }
-
-        /// <summary>
         /// Gets or sets (Empty value) The dashboard user access details. This
         /// property will be removed from the payload response in an upcoming
         /// release. You can retrieve user information on a Power BI item (such
         /// as a report or a dashboard) by using the [Get Dashboard Users as
-        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
+        /// Admin](/rest/api/power-bi/admin/datasets-get-dashboard-users-as-admin)
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.
@@ -127,10 +119,10 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DashboardUser> Users { get; set; }
 
         /// <summary>
-        /// Gets or sets (Empty value) The Dashboard subscription Details.It
+        /// Gets or sets (Empty Value)The artifact subscription Details. It
         /// will be removed from the payload response in an upcoming release.
-        /// To retrieve subscription information for dashboard, please consider
-        /// using the Get Dashboard Subscriptions as Admin API.
+        /// To retrieve subscription information for report, please consider
+        /// using the Get Report Subscriptions as Admin API.
         /// </summary>
         [JsonProperty(PropertyName = "subscriptions")]
         public IList<Subscription> Subscriptions { get; set; }
@@ -143,9 +135,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Tiles != null)
+            if (Users != null)
             {
-                foreach (var element in Tiles)
+                foreach (var element in Users)
                 {
                     if (element != null)
                     {
@@ -153,27 +145,13 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (SensitivityLabel != null)
+            if (Subscriptions != null)
             {
-                SensitivityLabel.Validate();
-            }
-            if (Users != null)
-            {
-                foreach (var element1 in Users)
+                foreach (var element1 in Subscriptions)
                 {
                     if (element1 != null)
                     {
                         element1.Validate();
-                    }
-                }
-            }
-            if (Subscriptions != null)
-            {
-                foreach (var element2 in Subscriptions)
-                {
-                    if (element2 != null)
-                    {
-                        element2.Validate();
                     }
                 }
             }

@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// retrieved for workspaces in the new workspace experience. To
         /// retrieve a list of users for a classic workspace, use the Azure
         /// Active Directory Graph API.</param>
-        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), IList<GroupUser> users = default(IList<GroupUser>))
+        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<WorkspaceInfoReport> reports = default(IList<WorkspaceInfoReport>), IList<WorkspaceInfoDashboard> dashboards = default(IList<WorkspaceInfoDashboard>), IList<WorkspaceInfoDataset> datasets = default(IList<WorkspaceInfoDataset>), IList<WorkspaceInfoDataflow> dataflows = default(IList<WorkspaceInfoDataflow>), IList<GroupUser> users = default(IList<GroupUser>))
         {
             Id = id;
             Name = name;
@@ -135,7 +135,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// you might not see all report properties in an API response.
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
-        public IList<Report> Reports { get; set; }
+        public IList<WorkspaceInfoReport> Reports { get; set; }
 
         /// <summary>
         /// Gets or sets the dashboards associated with this workspace. The
@@ -144,7 +144,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// response.
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
-        public IList<Dashboard> Dashboards { get; set; }
+        public IList<WorkspaceInfoDashboard> Dashboards { get; set; }
 
         /// <summary>
         /// Gets or sets the datasets associated with this workspace. The list
@@ -152,7 +152,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// you might not see all dataset properties in an API response.
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
-        public IList<Dataset> Datasets { get; set; }
+        public IList<WorkspaceInfoDataset> Datasets { get; set; }
 
         /// <summary>
         /// Gets or sets the dataflows associated with this workspace. The list
@@ -160,7 +160,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// you might not see all dataflow properties in an API response.
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
-        public IList<Dataflow> Dataflows { get; set; }
+        public IList<WorkspaceInfoDataflow> Dataflows { get; set; }
 
         /// <summary>
         /// Gets or sets the users with access to the workspace. The list is

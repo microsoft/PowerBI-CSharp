@@ -12453,7 +12453,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Datasets"
+                            "$ref": "#/definitions/AdminDatasets"
                         }
                     }
                 },
@@ -13430,7 +13430,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Dashboards"
+                            "$ref": "#/definitions/AdminDashboards"
                         }
                     }
                 },
@@ -13509,7 +13509,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Reports"
+                            "$ref": "#/definitions/AdminReports"
                         }
                     }
                 },
@@ -13596,7 +13596,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Datasets"
+                            "$ref": "#/definitions/AdminDatasets"
                         }
                     }
                 },
@@ -13888,7 +13888,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Reports"
+                            "$ref": "#/definitions/AdminReports"
                         }
                     }
                 },
@@ -14094,7 +14094,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Dashboards"
+                            "$ref": "#/definitions/AdminDashboards"
                         }
                     }
                 },
@@ -14148,7 +14148,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Tiles"
+                            "$ref": "#/definitions/AdminTiles"
                         }
                     }
                 },
@@ -17162,28 +17162,28 @@
                     "type": "array",
                     "description": "The reports associated with this workspace. The list of report properties returned varies for different API calls, so you might not see all report properties in an API response.",
                     "items": {
-                        "$ref": "#/definitions/Report"
+                        "$ref": "#/definitions/WorkspaceInfoReport"
                     }
                 },
                 "dashboards": {
                     "type": "array",
                     "description": "The dashboards associated with this workspace. The list of dashboard properties returned varies for different API calls, so you might not see all dashboard properties in an API response.",
                     "items": {
-                        "$ref": "#/definitions/Dashboard"
+                        "$ref": "#/definitions/WorkspaceInfoDashboard"
                     }
                 },
                 "datasets": {
                     "type": "array",
                     "description": "The datasets associated with this workspace. The list of dataset properties returned varies for different API calls, so you might not see all dataset properties in an API response.",
                     "items": {
-                        "$ref": "#/definitions/Dataset"
+                        "$ref": "#/definitions/WorkspaceInfoDataset"
                     }
                 },
                 "dataflows": {
                     "type": "array",
                     "description": "The dataflows associated with this workspace. The list of dataflow properties returned varies for different API calls, so you might not see all dataflow properties in an API response.",
                     "items": {
-                        "$ref": "#/definitions/Dataflow"
+                        "$ref": "#/definitions/WorkspaceInfoDataflow"
                     }
                 },
                 "users": {
@@ -17291,7 +17291,40 @@
                 }
             }
         },
-        "Dataset": {
+        "AdminDatasets": {
+            "description": "A dataset odata list wrapper",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The datasets",
+                    "items": {
+                        "$ref": "#/definitions/AdminDataset"
+                    }
+                }
+            }
+        },
+        "DatasetNavigationProperties": {
+            "description": "A list of navigation related properties of a dataset.",
+            "properties": {
+                "CreateReportEmbedURL": {
+                    "type": "string",
+                    "description": "The dataset create report embed URL"
+                },
+                "QnaEmbedURL": {
+                    "type": "string",
+                    "description": "The dataset Q&A embed URL"
+                },
+                "webUrl": {
+                    "type": "string",
+                    "description": "The web URL of the dataset"
+                }
+            }
+        },
+        "DatasetBaseProperties": {
             "required": [
                 "id"
             ],
@@ -17309,18 +17342,44 @@
                     "type": "string",
                     "description": "The dataset owner"
                 },
+                "CreatedDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The dataset creation date and time"
+                },
+                "ContentProviderType": {
+                    "type": "string",
+                    "description": "The content provider type for the dataset"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The dataset description"
+                },
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "The upstream dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
+        "DatasetMiscProperties": {
+            "description": "A list of miscellaneous properties returned for a dataset. Returned by User and Admin APIs.",
+            "properties": {
                 "addRowsAPIEnabled": {
                     "type": "boolean",
                     "description": "Whether the dataset allows adding new rows"
                 },
-                "webUrl": {
-                    "type": "string",
-                    "description": "The dataset web URL"
-                },
                 "IsRefreshable": {
                     "type": "boolean",
                     "description": "Whether the dataset can be refreshed"
-                },
+                }
+            }
+        },
+        "DatasetSecurityProperties": {
+            "description": "A list of security related properties of a Power BI dataset.",
+            "properties": {
                 "IsEffectiveIdentityRequired": {
                     "type": "boolean",
                     "description": "Whether the dataset requires an effective identity, which you must send in a [GenerateToken](/rest/api/power-bi/embed-token/generate-token) API call."
@@ -17336,62 +17395,28 @@
                 "Encryption": {
                     "$ref": "#/definitions/Encryption",
                     "description": "Dataset encryption information. Only applicable when `$expand` is specified."
-                },
-                "CreatedDate": {
-                    "type": "string",
-                    "format": "date-time",
-                    "description": "The dataset creation date and time"
-                },
-                "ContentProviderType": {
-                    "type": "string",
-                    "description": "The content provider type for the dataset"
-                },
-                "CreateReportEmbedURL": {
-                    "type": "string",
-                    "description": "The dataset create report embed URL"
-                },
-                "QnaEmbedURL": {
-                    "type": "string",
-                    "description": "The dataset Q&A embed URL"
-                },
-                "description": {
-                    "type": "string",
-                    "description": "The dataset description"
-                },
-                "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails",
-                    "description": "The endorsement details for the dataset"
-                },
-                "datasourceUsages": {
-                    "type": "array",
-                    "description": "The data source usages",
-                    "items": {
-                        "$ref": "#/definitions/DatasourceUsage"
-                    }
-                },
-                "upstreamDataflows": {
-                    "type": "array",
-                    "description": "The upstream dataflows",
-                    "items": {
-                        "$ref": "#/definitions/DependentDataflow"
-                    }
-                },
-                "tables": {
-                    "type": "array",
-                    "description": "The dataset tables",
-                    "items": {
-                        "$ref": "#/definitions/Table"
-                    }
-                },
-                "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The dataset sensitivity label. Only available for [Admin](/rest/api/power-bi/admin) APIs."
-                },
+                }
+            }
+        },
+        "DatasetUserProperties": {
+            "properties": {
                 "users": {
                     "type": "array",
                     "description": "(Empty value) The dataset user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dataset Users as Admin](/rest/api/power-bi/admin/datasets-get-dataset-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/DatasetUser"
+                    }
+                }
+            }
+        },
+        "DatasetSchemaProperties": {
+            "description": "A list of properties related to the schema of the dataset.",
+            "properties": {
+                "tables": {
+                    "type": "array",
+                    "description": "The dataset tables",
+                    "items": {
+                        "$ref": "#/definitions/Table"
                     }
                 },
                 "schemaRetrievalError": {
@@ -17403,6 +17428,94 @@
                     "description": "Whether the dataset schema might not be up to date"
                 }
             }
+        },
+        "DatasetStorageMode": {
+            "properties": {
+                "targetStorageMode": {
+                    "type": "string",
+                    "description": "The dataset storage mode"
+                }
+            }
+        },
+        "UpstreamDatasetsProperties": {
+            "properties": {
+                "upstreamDatasets": {
+                    "type": "array",
+                    "description": "The upstream datasets",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataset"
+                    }
+                }
+            }
+        },
+        "Dataset": {
+            "description": "A Power BI dataset. The API returns a subset of the following list of dataset properties. The subset depends on the API called, caller permissions, and the availability of the data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DatasetBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetSecurityProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetMiscProperties"
+                }
+            ]
+        },
+        "AdminDataset": {
+            "description": "A Power BI dataset returned by Admin APIs. The API returns a subset of the following list of dataset properties. The subset depends on the API called, caller permissions, and the availability of the data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DatasetBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetSecurityProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetMiscProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetStorageMode"
+                }
+            ]
+        },
+        "WorkspaceInfoDataset": {
+            "description": "A Power BI dataset returned by WorkspaceInfo APIs. The API returns a subset of the following list of dataset properties. The subset depends on the API called, caller permissions, and the availability of the data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DatasetBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetSchemaProperties"
+                },
+                {
+                    "$ref": "#/definitions/EndorsmentProperties"
+                },
+                {
+                    "$ref": "#/definitions/SensitivityProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetStorageMode"
+                },
+                {
+                    "$ref": "#/definitions/WorkspaceInfoDataflowProperties"
+                },
+                {
+                    "$ref": "#/definitions/UpstreamDatasetsProperties"
+                }
+            ]
         },
         "Encryption": {
             "description": "Encryption information for a dataset",
@@ -17597,6 +17710,21 @@
                     "description": "The dependent dataflows",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
+        "DependentDatasets": {
+            "description": "The OData response wrapper for a list of Power BI dependent datasets",
+            "properties": {
+                "odata.context": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dependent datasets",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataset"
                     }
                 }
             }
@@ -17921,11 +18049,24 @@
             }
         },
         "DependentDataflow": {
-            "description": "A Power BI Dependent dataflow",
+            "description": "A Power BI dependent dataflow",
             "properties": {
                 "targetDataflowId": {
                     "type": "string",
                     "description": "The target dataflow ID"
+                },
+                "groupId": {
+                    "type": "string",
+                    "description": "The target group ID"
+                }
+            }
+        },
+        "DependentDataset": {
+            "description": "A Power BI dependent dataset",
+            "properties": {
+                "targetDatasetId": {
+                    "type": "string",
+                    "description": "The target dataset ID"
                 },
                 "groupId": {
                     "type": "string",
@@ -17982,6 +18123,22 @@
                 }
             }
         },
+        "AdminReports": {
+            "description": "OData response wrapper for a Power BI Admin report collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The report collection",
+                    "items": {
+                        "$ref": "#/definitions/AdminReport"
+                    }
+                }
+            }
+        },
         "Pages": {
             "description": "The OData response wrapper for a Power BI page collection",
             "properties": {
@@ -18014,6 +18171,38 @@
                 }
             }
         },
+        "AdminDashboards": {
+            "description": "The OData response wrapper for a Power BI dashboard collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dashboard collection",
+                    "items": {
+                        "$ref": "#/definitions/AdminDashboard"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfoDashboards": {
+            "description": "The OData response wrapper for a Power BI dashboard collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The dashboard collection",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfoDashboard"
+                    }
+                }
+            }
+        },
         "Tiles": {
             "description": "The OData response wrapper for a Power BI tile collection",
             "properties": {
@@ -18026,6 +18215,38 @@
                     "description": "The tile collection",
                     "items": {
                         "$ref": "#/definitions/Tile"
+                    }
+                }
+            }
+        },
+        "AdminTiles": {
+            "description": "The OData response wrapper for a Power BI tile collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The tile collection",
+                    "items": {
+                        "$ref": "#/definitions/AdminTile"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfoTiles": {
+            "description": "The OData response wrapper for a Power BI tile collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The tile collection",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfoTile"
                     }
                 }
             }
@@ -18251,8 +18472,26 @@
                 }
             }
         },
+        "EndorsmentProperties": {
+            "description": "A list of properties returned for an artifact by WorkspaceInfo APIs.",
+            "properties": {
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The endorsement details"
+                }
+            }
+        },
+        "SensitivityProperties": {
+            "description": "A list of properties returned for an artifact by WorkspaceInfo APIs.",
+            "properties": {
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The sensitivity label"
+                }
+            }
+        },
         "SubscriptionsByUserResponse": {
-            "description": "Odata response wrapper for a Power BI subscriptions for user",
+            "description": "OData response wrapper for a Power BI subscriptions for user",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -18274,11 +18513,11 @@
                 }
             }
         },
-        "Report": {
+        "ReportBaseProperties": {
             "required": [
                 "id"
             ],
-            "description": "A Power BI report. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "description": "Power BI report common properties. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -18289,6 +18528,30 @@
                     "type": "string",
                     "description": "The name of the report"
                 },
+                "datasetId": {
+                    "type": "string",
+                    "description": "The dataset ID of the report"
+                },
+                "appId": {
+                    "type": "string",
+                    "description": "The app ID, returned only if the report belongs to an app"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The report description"
+                },
+                "reportType": {
+                    "type": "string",
+                    "description": "The report type",
+                    "enum": [
+                        "PaginatedReport"
+                    ]
+                }
+            }
+        },
+        "ReportNavigationProperties": {
+            "description": "A list of navigation related properties of a report.",
+            "properties": {
                 "webUrl": {
                     "type": "string",
                     "description": "The web URL of the report"
@@ -18296,22 +18559,18 @@
                 "embedUrl": {
                     "type": "string",
                     "description": "The embed URL of the report"
-                },
-                "datasetId": {
-                    "type": "string",
-                    "description": "The dataset ID of the report"
-                },
-                "description": {
-                    "type": "string",
-                    "description": "The report description"
-                },
+                }
+            }
+        },
+        "ReportAuthoringProperties": {
+            "properties": {
                 "createdBy": {
                     "type": "string",
                     "description": "The report owner. Available only for reports created after June 2019."
                 },
                 "modifiedBy": {
                     "type": "string",
-                    "description": "The user that modified the report"
+                    "description": "The last user that modified the report"
                 },
                 "createdDateTime": {
                     "type": "string",
@@ -18321,38 +18580,115 @@
                 "modifiedDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The report modified date and time"
-                },
-                "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails",
-                    "description": "The report endorsement details"
-                },
-                "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The report sensitivity label"
-                },
-                "reportType": {
+                    "description": "The report modified date time."
+                }
+            }
+        },
+        "ReportAuthoringPropertiesById": {
+            "properties": {
+                "createdById": {
                     "type": "string",
-                    "description": "The report type",
-                    "enum": [
-                        "PaginatedReport"
-                    ]
+                    "description": "The ID of the report owner. Available only for reports created after June 2019."
                 },
+                "modifiedById": {
+                    "type": "string",
+                    "description": "The ID of the last user that modified the report"
+                }
+            }
+        },
+        "ReportUserProperties": {
+            "properties": {
                 "users": {
                     "type": "array",
-                    "description": "(Empty value) The report user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
+                    "description": "(Empty value) The artifact user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/ReportUser"
                     }
-                },
+                }
+            }
+        },
+        "SubscriptionProperties": {
+            "properties": {
                 "subscriptions": {
                     "type": "array",
-                    "description": "(Empty Value)The Report subscription Details. It will be removed from the payload response in an upcoming release. To retrieve subscription information for report, please consider using the Get Report Subscriptions as Admin API.",
+                    "description": "(Empty Value)The artifact subscription Details. It will be removed from the payload response in an upcoming release. To retrieve subscription information for report, please consider using the Get Report Subscriptions as Admin API.",
                     "items": {
                         "$ref": "#/definitions/Subscription"
                     }
                 }
             }
+        },
+        "RelatedDatasetProperties": {
+            "properties": {
+                "datasetWorkspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The workspace ID of the related dataset, returned only if the related dataset belongs to a different workspace"
+                }
+            }
+        },
+        "Report": {
+            "description": "A Power BI report. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/ReportBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/SubscriptionProperties"
+                }
+            ]
+        },
+        "AdminReport": {
+            "description": "A Power BI report returned by Admin APIs. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/ReportBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportAuthoringProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/SubscriptionProperties"
+                }
+            ]
+        },
+        "WorkspaceInfoReport": {
+            "description": "A Power BI report returned by Workspace Info APIs. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/ReportBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportAuthoringProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportAuthoringPropertiesById"
+                },
+                {
+                    "$ref": "#/definitions/EndorsmentProperties"
+                },
+                {
+                    "$ref": "#/definitions/SensitivityProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/RelatedDatasetProperties"
+                }
+            ]
         },
         "Page": {
             "description": "A Power BI report page",
@@ -18372,11 +18708,11 @@
                 }
             }
         },
-        "Dashboard": {
+        "DashboardBaseProperties": {
             "required": [
                 "id"
             ],
-            "description": "A Power BI dashboard. The API returns a subset of the following list of dashboard properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "description": "Power BI dashboard common properties. The API returns a subset of the following list of report properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
             "properties": {
                 "id": {
                     "type": "string",
@@ -18391,46 +18727,136 @@
                     "type": "boolean",
                     "description": "Whether the dashboard is read-only"
                 },
+                "appId": {
+                    "type": "string",
+                    "description": "The app ID, returned only if the dashboard belongs to an app"
+                }
+            }
+        },
+        "DashboardNavigationProperties": {
+            "description": "A list of navigation related properties of a Dashboard.",
+            "properties": {
+                "webUrl": {
+                    "type": "string",
+                    "description": "The web URL of the dashboard"
+                },
                 "embedUrl": {
                     "type": "string",
                     "description": "The embed URL of the dashboard"
-                },
-                "tiles": {
-                    "type": "array",
-                    "description": "The tiles that belong to the dashboard",
-                    "items": {
-                        "$ref": "#/definitions/Tile"
-                    }
-                },
-                "dataClassification": {
-                    "type": "string",
-                    "description": "The data classification tag of the dashboard"
-                },
-                "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The sensitivity label for the dashboard"
-                },
+                }
+            }
+        },
+        "DashboardUserProperties": {
+            "properties": {
                 "users": {
                     "type": "array",
-                    "description": "(Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
+                    "description": "(Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/datasets-get-dashboard-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/DashboardUser"
-                    }
-                },
-                "subscriptions": {
-                    "type": "array",
-                    "description": "(Empty value) The Dashboard subscription Details.It will be removed from the payload response in an upcoming release. To retrieve subscription information for dashboard, please consider using the Get Dashboard Subscriptions as Admin API.",
-                    "items": {
-                        "$ref": "#/definitions/Subscription"
                     }
                 }
             }
         },
-        "Tile": {
+        "DataClassificationProperties": {
+            "properties": {
+                "dataClassification": {
+                    "type": "string",
+                    "description": "The data classification tag of the artifact"
+                }
+            }
+        },
+        "AdminDashboardTilesProperties": {
+            "properties": {
+                "tiles": {
+                    "type": "array",
+                    "description": "The tiles that belong to the dashboard",
+                    "items": {
+                        "$ref": "#/definitions/AdminTile"
+                    }
+                }
+            }
+        },
+        "WorkspaceInfoDashboardTilesProperties": {
+            "properties": {
+                "tiles": {
+                    "type": "array",
+                    "description": "The tiles that belong to the dashboard",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfoTile"
+                    }
+                }
+            }
+        },
+        "Dashboard": {
             "required": [
                 "id"
             ],
-            "description": "A Power BI tile",
+            "description": "A Power BI dashboard. The API returns a subset of the following list of dashboard properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DashboardBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DashboardNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/DashboardUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/SubscriptionProperties"
+                }
+            ]
+        },
+        "AdminDashboard": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI dashboard returned by Admin APIs. The API returns a subset of the following list of dashboard properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DashboardBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DashboardNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/AdminDashboardTilesProperties"
+                },
+                {
+                    "$ref": "#/definitions/DashboardUserProperties"
+                },
+                {
+                    "$ref": "#/definitions/SubscriptionProperties"
+                }
+            ]
+        },
+        "WorkspaceInfoDashboard": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI dashboard returned by WorkspaceInfo APIs. The API returns a subset of the following list of dashboard properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DashboardBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DataClassificationProperties"
+                },
+                {
+                    "$ref": "#/definitions/SensitivityProperties"
+                },
+                {
+                    "$ref": "#/definitions/WorkspaceInfoDashboardTilesProperties"
+                },
+                {
+                    "$ref": "#/definitions/DashboardUserProperties"
+                }
+            ]
+        },
+        "TileBaseProperties": {
+            "required": [
+                "id"
+            ],
             "properties": {
                 "id": {
                     "type": "string",
@@ -18440,22 +18866,6 @@
                 "title": {
                     "type": "string",
                     "description": "The display name of the tile "
-                },
-                "rowSpan": {
-                    "type": "integer",
-                    "description": "The number of tile span rows"
-                },
-                "colSpan": {
-                    "type": "integer",
-                    "description": "The number of tile span columns"
-                },
-                "embedUrl": {
-                    "type": "string",
-                    "description": "The embed URL of the tile"
-                },
-                "embedData": {
-                    "type": "string",
-                    "description": "The embed data for the tile"
                 },
                 "reportId": {
                     "type": "string",
@@ -18467,6 +18877,69 @@
                     "description": "The dataset ID. Available only for tiles created from a report or by using a dataset, such as Q&A tiles."
                 }
             }
+        },
+        "TileLayoutProperties": {
+            "properties": {
+                "rowSpan": {
+                    "type": "integer",
+                    "description": "The number of tile span rows"
+                },
+                "colSpan": {
+                    "type": "integer",
+                    "description": "The number of tile span columns"
+                }
+            }
+        },
+        "TileEmbedProperties": {
+            "properties": {
+                "embedUrl": {
+                    "type": "string",
+                    "description": "The embed URL of the tile"
+                },
+                "embedData": {
+                    "type": "string",
+                    "description": "The embed data for the tile"
+                }
+            }
+        },
+        "Tile": {
+            "description": "A Power BI tile",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/TileBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/TileLayoutProperties"
+                },
+                {
+                    "$ref": "#/definitions/TileEmbedProperties"
+                }
+            ]
+        },
+        "AdminTile": {
+            "description": "A Power BI tile returned by Admin APIs.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/TileBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/TileLayoutProperties"
+                },
+                {
+                    "$ref": "#/definitions/TileEmbedProperties"
+                }
+            ]
+        },
+        "WorkspaceInfoTile": {
+            "description": "A Power BI tile returned by WorkspaceInfo APIs",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/TileBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/RelatedDatasetProperties"
+                }
+            ]
         },
         "Group": {
             "required": [
@@ -18519,28 +18992,28 @@
                     "type": "array",
                     "description": "The reports that belong to the group. Available only for admin API calls.",
                     "items": {
-                        "$ref": "#/definitions/Report"
+                        "$ref": "#/definitions/AdminReport"
                     }
                 },
                 "dashboards": {
                     "type": "array",
                     "description": "The dashboards that belong to the group. Available only for admin API calls.",
                     "items": {
-                        "$ref": "#/definitions/Dashboard"
+                        "$ref": "#/definitions/AdminDashboard"
                     }
                 },
                 "datasets": {
                     "type": "array",
                     "description": "The datasets that belong to the group. Available only for admin API calls.",
                     "items": {
-                        "$ref": "#/definitions/Dataset"
+                        "$ref": "#/definitions/AdminDataset"
                     }
                 },
                 "dataflows": {
                     "type": "array",
                     "description": "The dataflows that belong to the group. Available only for admin API calls.",
                     "items": {
-                        "$ref": "#/definitions/Dataflow"
+                        "$ref": "#/definitions/AdminDataflow"
                     }
                 },
                 "dataflowStorageId": {
@@ -18665,7 +19138,7 @@
             }
         },
         "Subscriptions": {
-            "description": "Odata response wrapper for a Power BI subscriptions",
+            "description": "OData response wrapper for a Power BI subscriptions",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -19750,7 +20223,7 @@
             }
         },
         "SubscriptionUser": {
-            "required": [   
+            "required": [
                 "emailAddress",
                 "principalType",
                 "identifier"
@@ -20551,7 +21024,7 @@
             }
         },
         "Capacities": {
-            "description": "Odata response wrapper for a Power BI capacity list",
+            "description": "OData response wrapper for a Power BI capacity list",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -20566,7 +21039,7 @@
             }
         },
         "AvailableFeatures": {
-            "description": "Odata response wrapper for a Power BI available features list",
+            "description": "OData response wrapper for a Power BI available features list",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -20724,7 +21197,7 @@
             }
         },
         "Workloads": {
-            "description": "Odata response wrapper for capacity workload settings list",
+            "description": "OData response wrapper for capacity workload settings list",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -20799,7 +21272,7 @@
                 }
             }
         },
-        "Dataflow": {
+        "DataflowBaseProperties": {
             "required": [
                 "objectId"
             ],
@@ -20830,33 +21303,10 @@
                     "type": "string",
                     "description": "The user that modified this dataflow"
                 },
-                "endorsementDetails": {
-                    "$ref": "#/definitions/EndorsementDetails",
-                    "description": "The dataflow endorsement details"
-                },
                 "modifiedDateTime": {
                     "type": "string",
                     "format": "date-time",
                     "description": "modification date time"
-                },
-                "datasourceUsages": {
-                    "type": "array",
-                    "description": "Datasource usages",
-                    "items": {
-                        "$ref": "#/definitions/DatasourceUsage"
-                    }
-                },
-                "upstreamDataflows": {
-                    "type": "array",
-                    "description": "Upstream Dataflows",
-                    "items": {
-                        "$ref": "#/definitions/DependentDataflow"
-                    }
-                },
-                "sensitivityLabel": {
-                    "$ref": "#/definitions/SensitivityLabel",
-                    "description": "The dataflow sensitivity label"
-
                 },
                 "users": {
                     "type": "array",
@@ -20867,8 +21317,71 @@
                 }
             }
         },
+        "WorkspaceInfoDataflowProperties": {
+            "properties": {
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "The datasource usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                },
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Upstream Dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
+        "DataflowWorkspaceIdProperty": {
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The dataflow workspace ID"
+                }
+            }
+        },
+        "Dataflow": {
+            "description": "The metadata of a dataflow. Below is a list of properties that may be returned for a dataflow. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DataflowBaseProperties"
+                }
+            ]
+        },
+        "AdminDataflow": {
+            "description": "The metadata of a dataflow returned by Admin APIs. Below is a list of properties that may be returned for a dataflow. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DataflowBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DataflowWorkspaceIdProperty"
+                }
+            ]
+        },
+        "WorkspaceInfoDataflow": {
+            "description": "The metadata of a dataflow returned by Workspace Info APIs. Below is a list of properties that may be returned for a dataflow. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DataflowBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/WorkspaceInfoDataflowProperties"
+                },
+                {
+                    "$ref": "#/definitions/EndorsmentProperties"
+                },
+                {
+                    "$ref": "#/definitions/SensitivityProperties"
+                }
+            ]
+        },
         "Dataflows": {
-            "description": "Odata response wrapper for a dataflow metadata list",
+            "description": "OData response wrapper for a dataflow metadata list",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -20905,7 +21418,7 @@
             }
         },
         "DataflowStorageAccounts": {
-            "description": "Odata response wrapper for Power BI dataflow storage account list",
+            "description": "OData response wrapper for Power BI dataflow storage account list",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -21152,7 +21665,7 @@
             }
         },
         "ActivityEventResponse": {
-            "description": "Odata response wrapper for audit activity events list",
+            "description": "OData response wrapper for audit activity events list",
             "properties": {
                 "activityEventEntities": {
                     "type": "array",
@@ -21172,7 +21685,7 @@
             }
         },
         "UnusedArtifactsResponse": {
-            "description": "Odata response wrapper for unused artifact entities",
+            "description": "OData response wrapper for unused artifact entities",
             "properties": {
                 "unusedArtifactEntities": {
                     "type": "array",
@@ -21758,7 +22271,7 @@
             }
         },
         "Pipelines": {
-            "description": "Odata response wrapper for a collection of Power BI deployment pipelines",
+            "description": "OData response wrapper for a collection of Power BI deployment pipelines",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -21809,7 +22322,7 @@
             }
         },
         "PipelineStages": {
-            "description": "Odata response wrapper for a collection of Power BI deployment pipeline stages.",
+            "description": "OData response wrapper for a collection of Power BI deployment pipeline stages.",
             "properties": {
                 "odata.context": {
                     "type": "string",

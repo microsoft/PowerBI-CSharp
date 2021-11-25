@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI capacity list
+    /// OData response wrapper for a Power BI capacity list
     /// </summary>
     public partial class Capacities
     {

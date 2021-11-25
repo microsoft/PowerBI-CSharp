@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for unused artifact entities
+    /// OData response wrapper for unused artifact entities
     /// </summary>
     public partial class UnusedArtifactsResponse
     {
