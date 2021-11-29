@@ -808,7 +808,7 @@ namespace Microsoft.PowerBI.Api
             /// Skips the first n results. Use with top to fetch results beyond the first
             /// 5000.
             /// </param>
-            public static Groups GetGroupsAsAdmin(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
+            public static AdminGroups GetGroupsAsAdmin(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
             {
                 return operations.GetGroupsAsAdminAsync(top, expand, filter, skip).GetAwaiter().GetResult();
             }
@@ -858,7 +858,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Groups> GetGroupsAsAdminAsync(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminGroups> GetGroupsAsAdminAsync(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetGroupsAsAdminWithHttpMessagesAsync(top, expand, filter, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -900,7 +900,7 @@ namespace Microsoft.PowerBI.Api
             /// types. Supported: users, reports, dashboards, datasets, dataflows,
             /// workbooks
             /// </param>
-            public static Group GetGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, string expand = default(string))
+            public static AdminGroup GetGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, string expand = default(string))
             {
                 return operations.GetGroupAsAdminAsync(groupId, expand).GetAwaiter().GetResult();
             }
@@ -942,7 +942,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Group> GetGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminGroup> GetGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetGroupAsAdminWithHttpMessagesAsync(groupId, expand, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -984,7 +984,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='groupProperties'>
             /// The properties to update
             /// </param>
-            public static void UpdateGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, Group groupProperties)
+            public static void UpdateGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, AdminGroup groupProperties)
             {
                 operations.UpdateGroupAsAdminAsync(groupId, groupProperties).GetAwaiter().GetResult();
             }
@@ -1026,7 +1026,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, Group groupProperties, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, AdminGroup groupProperties, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateGroupAsAdminWithHttpMessagesAsync(groupId, groupProperties, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// item</param>
         /// <param name="group">The associated group for the refreshable
         /// item</param>
-        public Refreshable(string id = default(string), string name = default(string), RefreshableKind? kind = default(RefreshableKind?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), int? refreshCount = default(int?), int? refreshFailures = default(int?), double? averageDuration = default(double?), double? medianDuration = default(double?), int? refreshesPerDay = default(int?), Refresh lastRefresh = default(Refresh), RefreshSchedule refreshSchedule = default(RefreshSchedule), IList<string> configuredBy = default(IList<string>), Capacity capacity = default(Capacity), Group group = default(Group))
+        public Refreshable(string id = default(string), string name = default(string), RefreshableKind? kind = default(RefreshableKind?), System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), int? refreshCount = default(int?), int? refreshFailures = default(int?), double? averageDuration = default(double?), double? medianDuration = default(double?), int? refreshesPerDay = default(int?), Refresh lastRefresh = default(Refresh), RefreshSchedule refreshSchedule = default(RefreshSchedule), IList<string> configuredBy = default(IList<string>), Capacity capacity = default(Capacity), RefreshableGroup group = default(RefreshableGroup))
         {
             Id = id;
             Name = name;
@@ -176,7 +176,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Gets or sets the associated group for the refreshable item
         /// </summary>
         [JsonProperty(PropertyName = "group")]
-        public Group Group { get; set; }
+        public RefreshableGroup Group { get; set; }
 
         /// <summary>
         /// Validate the object.

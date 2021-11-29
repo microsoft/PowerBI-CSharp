@@ -9,34 +9,27 @@ namespace Microsoft.PowerBI.Api.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    /// <summary>
-    /// A Power BI group
-    /// </summary>
-    public partial class Group
+    public partial class GroupExtendedProperties
     {
         /// <summary>
-        /// Initializes a new instance of the Group class.
+        /// Initializes a new instance of the GroupExtendedProperties class.
         /// </summary>
-        public Group()
+        public GroupExtendedProperties()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Group class.
+        /// Initializes a new instance of the GroupExtendedProperties class.
         /// </summary>
-        /// <param name="id">The workspace ID</param>
-        /// <param name="name">The group name</param>
         /// <param name="isReadOnly">Is the group read only</param>
         /// <param name="isOnDedicatedCapacity">Is the group on dedicated
         /// capacity</param>
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?))
+        public GroupExtendedProperties(bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?))
         {
-            Id = id;
-            Name = name;
             IsReadOnly = isReadOnly;
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
@@ -48,18 +41,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
-
-        /// <summary>
-        /// Gets or sets the workspace ID
-        /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public System.Guid Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the group name
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets is the group read only
@@ -85,15 +66,5 @@ namespace Microsoft.PowerBI.Api.Models
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
 
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            //Nothing to validate
-        }
     }
 }

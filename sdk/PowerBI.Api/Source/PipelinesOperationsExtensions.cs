@@ -1061,7 +1061,7 @@ namespace Microsoft.PowerBI.Api
             /// Skips the first n results. Use with top to fetch results beyond the first
             /// 5000.
             /// </param>
-            public static Pipelines GetPipelinesAsAdmin(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminPipelines GetPipelinesAsAdmin(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetPipelinesAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
             }
@@ -1108,7 +1108,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Pipelines> GetPipelinesAsAdminAsync(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminPipelines> GetPipelinesAsAdminAsync(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPipelinesAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {

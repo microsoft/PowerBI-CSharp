@@ -12598,7 +12598,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/groups": {
             "get": {
                 "tags": [
@@ -12651,7 +12650,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Groups"
+                            "$ref": "#/definitions/AdminGroups"
                         }
                     }
                 },
@@ -13000,7 +12999,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Group"
+                            "$ref": "#/definitions/AdminGroup"
                         }
                     }
                 },
@@ -13058,7 +13057,7 @@
                         "required": true,
                         "description": "The properties to update",
                         "schema": {
-                            "$ref": "#/definitions/Group"
+                            "$ref": "#/definitions/AdminGroup"
                         }
                     }
                 ],
@@ -16522,7 +16521,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Pipelines"
+                            "$ref": "#/definitions/AdminPipelines"
                         }
                     }
                 },
@@ -18283,6 +18282,22 @@
                 }
             }
         },
+        "AdminGroups": {
+            "description": "The OData response wrapper for a list of Power BI groups returned by Admin APIs",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The list of groups",
+                    "items": {
+                        "$ref": "#/definitions/AdminGroup"
+                    }
+                }
+            }
+        },
         "Apps": {
             "description": "The OData response wrapper for a list of Power BI installed apps",
             "properties": {
@@ -18941,11 +18956,10 @@
                 }
             ]
         },
-        "Group": {
+        "GroupBaseProperties": {
             "required": [
                 "id"
             ],
-            "description": "A Power BI group",
             "properties": {
                 "id": {
                     "type": "string",
@@ -18955,7 +18969,11 @@
                 "name": {
                     "type": "string",
                     "description": "The group name"
-                },
+                }
+            }
+        },
+        "GroupExtendedProperties": {
+            "properties": {
                 "isReadOnly": {
                     "type": "boolean",
                     "description": "Is the group read only"
@@ -18969,17 +18987,26 @@
                     "format": "uuid",
                     "description": "The capacity ID"
                 },
+                "dataflowStorageId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The Power BI dataflow storage account ID"
+                }
+            }
+        },
+        "GroupAdminProperties": {
+            "properties": {
                 "description": {
                     "type": "string",
-                    "description": "The group description. Available only for admin API calls."
+                    "description": "The group description"
                 },
                 "type": {
                     "type": "string",
-                    "description": "The type of group. Available only for admin API calls."
+                    "description": "The type of group"
                 },
                 "state": {
                     "type": "string",
-                    "description": "The group state. Available only for admin API calls."
+                    "description": "The group state"
                 },
                 "users": {
                     "type": "array",
@@ -18990,40 +19017,35 @@
                 },
                 "reports": {
                     "type": "array",
-                    "description": "The reports that belong to the group. Available only for admin API calls.",
+                    "description": "The reports that belong to the group",
                     "items": {
                         "$ref": "#/definitions/AdminReport"
                     }
                 },
                 "dashboards": {
                     "type": "array",
-                    "description": "The dashboards that belong to the group. Available only for admin API calls.",
+                    "description": "The dashboards that belong to the group",
                     "items": {
                         "$ref": "#/definitions/AdminDashboard"
                     }
                 },
                 "datasets": {
                     "type": "array",
-                    "description": "The datasets that belong to the group. Available only for admin API calls.",
+                    "description": "The datasets that belong to the group",
                     "items": {
                         "$ref": "#/definitions/AdminDataset"
                     }
                 },
                 "dataflows": {
                     "type": "array",
-                    "description": "The dataflows that belong to the group. Available only for admin API calls.",
+                    "description": "The dataflows that belong to the group",
                     "items": {
                         "$ref": "#/definitions/AdminDataflow"
                     }
                 },
-                "dataflowStorageId": {
-                    "type": "string",
-                    "format": "uuid",
-                    "description": "The Power BI dataflow storage account ID"
-                },
                 "workbooks": {
                     "type": "array",
-                    "description": "The workbooks that belong to the group. Available only for admin API calls.",
+                    "description": "The workbooks that belong to the group",
                     "items": {
                         "$ref": "#/definitions/Workbook"
                     }
@@ -19031,9 +19053,42 @@
                 "pipelineId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The deployment pipeline ID that the workspace is assigned to. Available only for workspaces in the new workspace experience and only for admin API calls."
+                    "description": "The deployment pipeline ID that the workspace is assigned to."
                 }
             }
+        },
+        "RefreshableGroup": {
+            "description": "A Power BI group associated to a Refreshable item",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/GroupBaseProperties"
+                }
+            ]
+        },
+        "Group": {
+            "description": "A Power BI group",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/GroupBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/GroupExtendedProperties"
+                }
+            ]
+        },
+        "AdminGroup": {
+            "description": "A Power BI group returned by admin APIs",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/GroupBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/GroupExtendedProperties"
+                },
+                {
+                    "$ref": "#/definitions/GroupAdminProperties"
+                }
+            ]
         },
         "App": {
             "required": [
@@ -21855,7 +21910,7 @@
                     "description": "The capacity for the refreshable item"
                 },
                 "group": {
-                    "$ref": "#/definitions/Group",
+                    "$ref": "#/definitions/RefreshableGroup",
                     "description": "The associated group for the refreshable item"
                 }
             }
@@ -22286,11 +22341,26 @@
                 }
             }
         },
-        "Pipeline": {
+        "AdminPipelines": {
+            "description": "OData response wrapper for a collection of Power BI deployment pipelines",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The collection of deployment pipelines",
+                    "items": {
+                        "$ref": "#/definitions/AdminPipeline"
+                    }
+                }
+            }
+        },
+        "PipelineBaseProperties": {
             "required": [
                 "id"
             ],
-            "description": "A Power BI deployment pipeline",
             "properties": {
                 "id": {
                     "type": "string",
@@ -22311,15 +22381,38 @@
                     "items": {
                         "$ref": "#/definitions/PipelineStage"
                     }
-                },
+                }
+            }
+        },
+        "PipelineUsersProperties": {
+            "properties": {
                 "users": {
                     "type": "array",
-                    "description": "The collection of deployment pipeline users. Only returned when `$expand` is set to `users` in the request, and only for admin API calls.",
+                    "description": "The collection of deployment pipeline users. Only returned when `$expand` is set to `users` in the request.",
                     "items": {
                         "$ref": "#/definitions/PipelineUser"
                     }
                 }
             }
+        },
+        "Pipeline": {
+            "description": "A Power BI pipeline",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineBaseProperties"
+                }
+            ]
+        },
+        "AdminPipeline": {
+            "description": "A Power BI pipeline returned by user APIs",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/PipelineUsersProperties"
+                }
+            ]
         },
         "PipelineStages": {
             "description": "OData response wrapper for a collection of Power BI deployment pipeline stages.",
