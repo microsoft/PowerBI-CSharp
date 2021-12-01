@@ -11,8 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request to update an exisiting deployment pipeline. At least one of the
-    /// following properties must be provided
+    /// A request to update an existing deployment pipeline. An updated display
+    /// name and/or a description is required.
     /// </summary>
     public partial class UpdatePipelineRequest
     {
@@ -27,10 +27,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the UpdatePipelineRequest class.
         /// </summary>
-        /// <param name="displayName">New display name for the deployment
-        /// pipeline</param>
-        /// <param name="description">New description for the deployment
-        /// pipeline</param>
+        /// <param name="displayName">The updated display name for the
+        /// deployment pipeline</param>
+        /// <param name="description">The updated description for the
+        /// deployment pipeline</param>
         public UpdatePipelineRequest(string displayName = default(string), string description = default(string))
         {
             DisplayName = displayName;
@@ -44,13 +44,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets new display name for the deployment pipeline
+        /// Gets or sets the updated display name for the deployment pipeline
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets new description for the deployment pipeline
+        /// Gets or sets the updated description for the deployment pipeline
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }

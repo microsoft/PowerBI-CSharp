@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI dataset parameter update request
+    /// An update request for a Power BI dataset parameter
     /// </summary>
     public partial class UpdateMashupParametersRequest
     {
@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the UpdateMashupParametersRequest
         /// class.
         /// </summary>
-        /// <param name="updateDetails">The dataset parameter list to
+        /// <param name="updateDetails">A list of dataset parameters to
         /// update</param>
         public UpdateMashupParametersRequest(IList<UpdateMashupParameterDetails> updateDetails)
         {
@@ -44,7 +44,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataset parameter list to update
+        /// Gets or sets a list of dataset parameters to update
         /// </summary>
         [JsonProperty(PropertyName = "updateDetails")]
         public IList<UpdateMashupParameterDetails> UpdateDetails { get; set; }

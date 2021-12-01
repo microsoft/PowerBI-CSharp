@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Supported items from a workspace assigned to a deployment pipeline
-    /// stage.
+    /// Supported items from a workspace that's assigned to a deployment
+    /// pipeline stage
     /// </summary>
     public partial class PipelineStageArtifacts
     {

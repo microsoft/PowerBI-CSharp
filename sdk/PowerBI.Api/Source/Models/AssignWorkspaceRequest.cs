@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request to assign a workspace to a deployment pipeline stage
+    /// A request to assign a workspace to a deployment pipeline stage
     /// </summary>
     public partial class AssignWorkspaceRequest
     {

@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI create a new group request
+    /// A Power BI request to create a new group
     /// </summary>
     public partial class GroupCreationRequest
     {

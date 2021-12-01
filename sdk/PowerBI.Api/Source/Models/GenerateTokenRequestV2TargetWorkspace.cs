@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The workspace object for Generate Token Request V2.
+    /// A workspace object in [GenerateTokenRequestV2](#generatetokenrequestv2)
     /// </summary>
     public partial class GenerateTokenRequestV2TargetWorkspace
     {

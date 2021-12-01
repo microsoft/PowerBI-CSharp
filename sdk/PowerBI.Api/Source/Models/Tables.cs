@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI table collection
+    /// The OData response wrapper for a Power BI table collection
     /// </summary>
     public partial class Tables
     {

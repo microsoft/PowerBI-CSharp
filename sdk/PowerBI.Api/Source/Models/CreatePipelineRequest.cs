@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request to create a new deployment pipeline
+    /// A request to create a new deployment pipeline
     /// </summary>
     public partial class CreatePipelineRequest
     {
@@ -26,10 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the CreatePipelineRequest class.
         /// </summary>
-        /// <param name="displayName">The display name of the newly created
-        /// deployment pipeline</param>
-        /// <param name="description">The description of the newly created
-        /// deployment pipeline</param>
+        /// <param name="displayName">The display name for the new deployment
+        /// pipeline</param>
+        /// <param name="description">The description for the new deployment
+        /// pipeline</param>
         public CreatePipelineRequest(string displayName, string description = default(string))
         {
             DisplayName = displayName;
@@ -43,15 +43,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the display name of the newly created deployment
-        /// pipeline
+        /// Gets or sets the display name for the new deployment pipeline
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets the description of the newly created deployment
-        /// pipeline
+        /// Gets or sets the description for the new deployment pipeline
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }

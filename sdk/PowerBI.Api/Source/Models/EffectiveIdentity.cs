@@ -13,8 +13,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Defines the user identity and roles, for more details see this
-    /// [article](https://docs.microsoft.com/power-bi/developer/embedded-row-level-security)
+    /// Defines the user identity and roles. For more information, see
+    /// [Row-level security with Power BI
+    /// Embedded](/power-bi/developer/embedded/embedded-row-level-security).
     /// </summary>
     public partial class EffectiveIdentity
     {
@@ -29,26 +30,29 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the EffectiveIdentity class.
         /// </summary>
-        /// <param name="username">The effective username reflected by a token
-        /// for applying RLS rules (For OnPrem model, username can be composed
-        /// of alpha-numerical characters or any of the following characters
-        /// '.', '-', '_', '!', '#', '^', '~', '\\', '@', also username cannot
-        /// contain spaces. For Cloud model, username can be composed of all
-        /// ASCII characters. username must be up to 256 characters)</param>
+        /// <param name="username">The effective username within a token that
+        /// applies row-level security rules. For an on-premises model, the
+        /// username can contain alphanumeric or any of the following
+        /// characters `.`, `-`, `_`, `!`, `#`, `^`, `~`, `\\`, `@`. For cloud
+        /// models, the username can contain any ASCII character. For either
+        /// model, the username length must not exceed 256 characters, and the
+        /// username shouldn't contain spaces.</param>
         /// <param name="datasets">An array of datasets for which this identity
         /// applies</param>
-        /// <param name="roles">An array of RLS roles reflected by a token when
-        /// applying RLS rules (identity can contain up to 50 roles, role can
-        /// be composed of any character besides ',' and must be up to 50
-        /// characters)</param>
-        /// <param name="customData">The value of customdata to be used for
-        /// applying RLS rules. Only supported for live connections to Azure
-        /// Analysis Services.</param>
-        /// <param name="identityBlob">A blob for specifying the identity. Only
-        /// supported for datasets with Direct Query connection to SQL
-        /// Azure</param>
+        /// <param name="roles">An array of row-level security (RLS) roles
+        /// within a token that applies RLS rules. An identity can contain up
+        /// to 50 roles. A role can contain any character except `,`, and its
+        /// length must not exceed 50 characters.</param>
+        /// <param name="customData">[Custom
+        /// data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature)
+        /// that's used to apply row-level security rules. Only supported for
+        /// live connections to Azure Analysis Services.</param>
+        /// <param name="identityBlob">A blob that specifies an
+        /// [identity](/power-bi/developer/embedded/embedded-row-level-security#token-based-identity-sdk-additions).
+        /// Only supported for datasets with a DirectQuery connection to Azure
+        /// SQL.</param>
         /// <param name="reports">An array of reports for which this identity
-        /// applies, Only supported for paginated reports</param>
+        /// applies. Only supported for paginated reports.</param>
         public EffectiveIdentity(string username, IList<string> datasets = default(IList<string>), IList<string> roles = default(IList<string>), string customData = default(string), IdentityBlob identityBlob = default(IdentityBlob), IList<string> reports = default(IList<string>))
         {
             Username = username;
@@ -66,12 +70,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the effective username reflected by a token for
-        /// applying RLS rules (For OnPrem model, username can be composed of
-        /// alpha-numerical characters or any of the following characters  '.',
-        /// '-', '_', '!', '#', '^', '~', '\\', '@', also username cannot
-        /// contain spaces. For Cloud model, username can be composed of all
-        /// ASCII characters. username must be up to 256 characters)
+        /// Gets or sets the effective username within a token that applies
+        /// row-level security rules. For an on-premises model, the username
+        /// can contain alphanumeric or any of the following characters `.`,
+        /// `-`, `_`, `!`, `#`, `^`, `~`, `\\`, `@`. For cloud models, the
+        /// username can contain any ASCII character. For either model, the
+        /// username length must not exceed 256 characters, and the username
+        /// shouldn't contain spaces.
         /// </summary>
         [JsonProperty(PropertyName = "username")]
         public string Username { get; set; }
@@ -83,32 +88,35 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<string> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets an array of RLS roles reflected by a token when
-        /// applying RLS rules (identity can contain up to 50 roles, role can
-        /// be composed of any character besides ',' and must be up to 50
-        /// characters)
+        /// Gets or sets an array of row-level security (RLS) roles within a
+        /// token that applies RLS rules. An identity can contain up to 50
+        /// roles. A role can contain any character except `,`, and its length
+        /// must not exceed 50 characters.
         /// </summary>
         [JsonProperty(PropertyName = "roles")]
         public IList<string> Roles { get; set; }
 
         /// <summary>
-        /// Gets or sets the value of customdata to be used for applying RLS
-        /// rules. Only supported for live connections to Azure Analysis
-        /// Services.
+        /// Gets or sets [Custom
+        /// data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature)
+        /// that's used to apply row-level security rules. Only supported for
+        /// live connections to Azure Analysis Services.
         /// </summary>
         [JsonProperty(PropertyName = "customData")]
         public string CustomData { get; set; }
 
         /// <summary>
-        /// Gets or sets a blob for specifying the identity. Only supported for
-        /// datasets with Direct Query connection to SQL Azure
+        /// Gets or sets a blob that specifies an
+        /// [identity](/power-bi/developer/embedded/embedded-row-level-security#token-based-identity-sdk-additions).
+        /// Only supported for datasets with a DirectQuery connection to Azure
+        /// SQL.
         /// </summary>
         [JsonProperty(PropertyName = "identityBlob")]
         public IdentityBlob IdentityBlob { get; set; }
 
         /// <summary>
-        /// Gets or sets an array of reports for which this identity applies,
-        /// Only supported for paginated reports
+        /// Gets or sets an array of reports for which this identity applies.
+        /// Only supported for paginated reports.
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<string> Reports { get; set; }

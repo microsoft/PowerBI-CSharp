@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request to execute queries against a dataset.
+    /// A request to execute queries against a dataset
     /// </summary>
     public partial class DatasetExecuteQueriesRequest
     {
@@ -30,9 +30,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DatasetExecuteQueriesRequest
         /// class.
         /// </summary>
-        /// <param name="queries">A list of queries to be executed.</param>
+        /// <param name="queries">The list of dataset queries to
+        /// execute</param>
         /// <param name="serializerSettings">The serialization settings for the
-        /// results.</param>
+        /// result set</param>
         public DatasetExecuteQueriesRequest(IList<DatasetExecuteQueriesQuery> queries, DatasetExecuteQueriesSerializationSettings serializerSettings = default(DatasetExecuteQueriesSerializationSettings))
         {
             Queries = queries;
@@ -46,13 +47,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets a list of queries to be executed.
+        /// Gets or sets the list of dataset queries to execute
         /// </summary>
         [JsonProperty(PropertyName = "queries")]
         public IList<DatasetExecuteQueriesQuery> Queries { get; set; }
 
         /// <summary>
-        /// Gets or sets the serialization settings for the results.
+        /// Gets or sets the serialization settings for the result set
         /// </summary>
         [JsonProperty(PropertyName = "serializerSettings")]
         public DatasetExecuteQueriesSerializationSettings SerializerSettings { get; set; }

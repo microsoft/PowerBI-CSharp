@@ -19,7 +19,7 @@ namespace Microsoft.PowerBI.Api
     public partial interface IDashboardsOperations
     {
         /// <summary>
-        /// Returns a list of dashboards from **My Workspace**.
+        /// Returns a list of dashboards from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -44,7 +44,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboards>> GetDashboardsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new empty dashboard in **My Workspace**.
+        /// Creates a new empty dashboard in **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -75,7 +75,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> AddDashboardWithHttpMessagesAsync(AddDashboardRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified dashboard from **My Workspace**.
+        /// Returns the specified dashboard from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -104,7 +104,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from **My
-        /// Workspace**.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -136,7 +136,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Tiles>> GetTilesWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the specified tile within the specified dashboard from **My
-        /// Workspace**.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -170,7 +170,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(System.Guid dashboardId, System.Guid tileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified tile from **My Workspace**.
+        /// Clones the specified tile from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -436,25 +436,35 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Tile>> CloneTileInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, System.Guid tileId, CloneTileRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generates an embed token to view the specified dashboard from the
-        /// specified workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only
-        /// to the ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
-        /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
-        /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope,
-        /// see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service
-        /// Principal with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers)
+        /// scenario. To learn more about using this API, see [Considerations
+        /// when generating an embed
+        /// token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// When using a service principal for authentication, refer to [Embed
+        /// Power BI content with service
+        /// principal](/power-bi/developer/embed-service-principal) and
+        /// [Considerations and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        ///
+        /// ## Required scope
+        ///
+        /// All of the following:
+        ///
+        /// - Dashboard.ReadWrite.All or Dashboard.Read.All
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -528,7 +538,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Dashboards>> GetDashboardsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminDashboards>> GetDashboardsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of dashboards for the organization.
         /// </summary>
@@ -577,7 +587,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Dashboards>> GetDashboardsAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminDashboards>> GetDashboardsAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard.
         /// </summary>
@@ -616,7 +626,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Tiles>> GetTilesAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminTiles>> GetTilesAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
         /// dashboard. This is a preview API call.
@@ -657,5 +667,45 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<DashboardUsers>> GetDashboardUsersAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of subscriptions along with subscribees that the
+        /// dashboard subscribed to. This is a preview API call.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365
+        /// Global Administrator or Power BI Service Administrator) or
+        /// authenticate using a service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<Subscriptions>> GetDashboardSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

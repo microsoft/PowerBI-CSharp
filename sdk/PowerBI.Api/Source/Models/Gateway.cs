@@ -26,11 +26,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Gateway class.
         /// </summary>
         /// <param name="id">The gateway ID. When using a gateway cluster, the
-        /// gateway ID refers to the primary (first) gateway in the cluster. In
-        /// such cases, gateway ID is similar to gateway cluster ID.</param>
+        /// gateway ID refers to the primary (first) gateway in the cluster and
+        /// is similar to the gateway cluster ID.</param>
         /// <param name="name">The gateway name</param>
         /// <param name="type">The gateway type</param>
-        /// <param name="gatewayAnnotation">Gateway metadata in json
+        /// <param name="gatewayAnnotation">Gateway metadata in JSON
         /// format</param>
         /// <param name="publicKey">The gateway public key</param>
         /// <param name="gatewayStatus">The gateway connectivity status</param>
@@ -52,8 +52,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the gateway ID. When using a gateway cluster, the
-        /// gateway ID refers to the primary (first) gateway in the cluster. In
-        /// such cases, gateway ID is similar to gateway cluster ID.
+        /// gateway ID refers to the primary (first) gateway in the cluster and
+        /// is similar to the gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -71,7 +71,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets gateway metadata in json format
+        /// Gets or sets gateway metadata in JSON format
         /// </summary>
         [JsonProperty(PropertyName = "gatewayAnnotation")]
         public string GatewayAnnotation { get; set; }

@@ -24,22 +24,21 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Indicates that the generated EmbedToken should grant only Viewing
-        /// permissions
+        /// Indicates that the generated embed token grants view-only
+        /// permission
         /// </summary>
         public static readonly TokenAccessLevel View = "View";
 
         /// <summary>
-        /// Indicates that the generated EmbedToken should grant Viewing and
-        /// Editing permissions, only applies when generating EmbedToken for
-        /// report embedding
+        /// Indicates that the generated embed token grants view and edit
+        /// permissions. Only applies when you generate an embed token for
+        /// report embedding.
         /// </summary>
         public static readonly TokenAccessLevel Edit = "Edit";
 
         /// <summary>
-        /// Indicates that the generated EmbedToken should grant Creation
-        /// permissions, only applies when generating EmbedToken for report
-        /// creation
+        /// Indicates that the generated embed token grants create permission.
+        /// Only applies when you generate an embed token for report creation.
         /// </summary>
         public static readonly TokenAccessLevel Create = "Create";
 

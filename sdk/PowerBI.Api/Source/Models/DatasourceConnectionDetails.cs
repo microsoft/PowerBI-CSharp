@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI datasource connection details
+    /// The Power BI data source connection details
     /// </summary>
     public partial class DatasourceConnectionDetails
     {
@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DatasourceConnectionDetails
         /// class.
         /// </summary>
-        /// <param name="server">The connection server.</param>
-        /// <param name="database">The connection database.</param>
-        /// <param name="url">The connection url</param>
+        /// <param name="server">The connection server</param>
+        /// <param name="database">The connection database</param>
+        /// <param name="url">The connection URL</param>
         public DatasourceConnectionDetails(string server = default(string), string database = default(string), string url = default(string))
         {
             Server = server;
@@ -44,19 +44,19 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the connection server.
+        /// Gets or sets the connection server
         /// </summary>
         [JsonProperty(PropertyName = "server")]
         public string Server { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection database.
+        /// Gets or sets the connection database
         /// </summary>
         [JsonProperty(PropertyName = "database")]
         public string Database { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection url
+        /// Gets or sets the connection URL
         /// </summary>
         [JsonProperty(PropertyName = "url")]
         public string Url { get; set; }

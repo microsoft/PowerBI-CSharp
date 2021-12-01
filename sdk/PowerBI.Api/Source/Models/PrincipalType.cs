@@ -24,7 +24,7 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// None principal type, used for whole organization level access.
+        /// No principal type. Use for whole organization level access.
         /// </summary>
         public static readonly PrincipalType None = "None";
 

@@ -29,13 +29,13 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly NotifyOption NoNotification = "NoNotification";
 
         /// <summary>
-        /// Mail notification will be sent on refresh failure
+        /// A mail notification will be sent on refresh failure
         /// </summary>
         public static readonly NotifyOption MailOnFailure = "MailOnFailure";
 
         /// <summary>
-        /// Mail notification will be sent on refresh completion, including
-        /// either failure and success
+        /// A mail notification indicating success or failure will be sent on
+        /// refresh completion
         /// </summary>
         public static readonly NotifyOption MailOnCompletion = "MailOnCompletion";
 

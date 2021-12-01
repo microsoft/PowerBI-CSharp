@@ -124,8 +124,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Only make this API call after a successful [scan
-        /// status](/rest/api/power-bi/admin/workspace-info-get-scan-status)
+        /// Only make this API call after a successful
+        /// [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status)
         /// API call. The scan result will remain available for 24 hours.
         ///
         /// ## Permissions
@@ -170,7 +170,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// If the optional `modifiedSince` parameter is set to a date-time,
         /// only the IDs of workspaces that changed after that date-time are
-        /// returned. If the `modifiedSince` parameter is not used, the IDs of
+        /// returned. If the `modifiedSince` parameter isn't used, the IDs of
         /// all workspaces in the organization are returned. The date-time
         /// specified by the `modifiedSince` parameter must be in the range of
         /// 30 minutes (to allow workspace changes to take effect) to 30 days

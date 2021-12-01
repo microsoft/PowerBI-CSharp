@@ -7,8 +7,6 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -33,51 +31,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="isOnDedicatedCapacity">Is the group on dedicated
         /// capacity</param>
         /// <param name="capacityId">The capacity ID</param>
-        /// <param name="description">The group description. Available only for
-        /// admin API calls.</param>
-        /// <param name="type">The type of group. Available only for admin API
-        /// calls.</param>
-        /// <param name="state">The group state. Available only for admin API
-        /// calls.</param>
-        /// <param name="users">The users that belong to the group, and their
-        /// access rights. This value will be empty. It will be removed from
-        /// the payload response in an upcoming release. To retrieve user
-        /// information on an artifact, please consider using the Get Group
-        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
-        /// parameter.</param>
-        /// <param name="reports">The reports that belong to the group.
-        /// Available only for admin API calls.</param>
-        /// <param name="dashboards">The dashboards that belong to the group.
-        /// Available only for admin API calls.</param>
-        /// <param name="datasets">The datasets that belong to the group.
-        /// Available only for admin API calls.</param>
-        /// <param name="dataflows">The dataflows that belong to the group.
-        /// Available only for admin API calls.</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
-        /// <param name="workbooks">The workbooks that belong to the group.
-        /// Available only for admin API calls.</param>
-        /// <param name="pipelineId">The deployment pipeline ID that the
-        /// workspace is assigned to. Available only for workspaces in the new
-        /// workspace experience and only for admin API calls.</param>
-        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<Report> reports = default(IList<Report>), IList<Dashboard> dashboards = default(IList<Dashboard>), IList<Dataset> datasets = default(IList<Dataset>), IList<Dataflow> dataflows = default(IList<Dataflow>), System.Guid? dataflowStorageId = default(System.Guid?), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?))
+        public Group(System.Guid id, string name = default(string), bool? isReadOnly = default(bool?), bool? isOnDedicatedCapacity = default(bool?), System.Guid? capacityId = default(System.Guid?), System.Guid? dataflowStorageId = default(System.Guid?))
         {
             Id = id;
             Name = name;
             IsReadOnly = isReadOnly;
             IsOnDedicatedCapacity = isOnDedicatedCapacity;
             CapacityId = capacityId;
-            Description = description;
-            Type = type;
-            State = state;
-            Users = users;
-            Reports = reports;
-            Dashboards = dashboards;
-            Datasets = datasets;
-            Dataflows = dataflows;
             DataflowStorageId = dataflowStorageId;
-            Workbooks = workbooks;
-            PipelineId = pipelineId;
             CustomInit();
         }
 
@@ -117,83 +80,10 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? CapacityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the group description. Available only for admin API
-        /// calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the type of group. Available only for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or sets the group state. Available only for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "state")]
-        public string State { get; set; }
-
-        /// <summary>
-        /// Gets or sets the users that belong to the group, and their access
-        /// rights. This value will be empty. It will be removed from the
-        /// payload response in an upcoming release. To retrieve user
-        /// information on an artifact, please consider using the Get Group
-        /// User APIs, or the PostWorkspaceInfo API with the getArtifactUser
-        /// parameter.
-        /// </summary>
-        [JsonProperty(PropertyName = "users")]
-        public IList<GroupUser> Users { get; set; }
-
-        /// <summary>
-        /// Gets or sets the reports that belong to the group. Available only
-        /// for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "reports")]
-        public IList<Report> Reports { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dashboards that belong to the group. Available
-        /// only for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "dashboards")]
-        public IList<Dashboard> Dashboards { get; set; }
-
-        /// <summary>
-        /// Gets or sets the datasets that belong to the group. Available only
-        /// for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "datasets")]
-        public IList<Dataset> Datasets { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataflows that belong to the group. Available only
-        /// for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "dataflows")]
-        public IList<Dataflow> Dataflows { get; set; }
-
-        /// <summary>
         /// Gets or sets the Power BI dataflow storage account ID
         /// </summary>
         [JsonProperty(PropertyName = "dataflowStorageId")]
         public System.Guid? DataflowStorageId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the workbooks that belong to the group. Available only
-        /// for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "workbooks")]
-        public IList<Workbook> Workbooks { get; set; }
-
-        /// <summary>
-        /// Gets or sets the deployment pipeline ID that the workspace is
-        /// assigned to. Available only for workspaces in the new workspace
-        /// experience and only for admin API calls.
-        /// </summary>
-        [JsonProperty(PropertyName = "pipelineId")]
-        public System.Guid? PipelineId { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -203,56 +93,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (Users != null)
-            {
-                foreach (var element in Users)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-            if (Reports != null)
-            {
-                foreach (var element1 in Reports)
-                {
-                    if (element1 != null)
-                    {
-                        element1.Validate();
-                    }
-                }
-            }
-            if (Dashboards != null)
-            {
-                foreach (var element2 in Dashboards)
-                {
-                    if (element2 != null)
-                    {
-                        element2.Validate();
-                    }
-                }
-            }
-            if (Datasets != null)
-            {
-                foreach (var element3 in Datasets)
-                {
-                    if (element3 != null)
-                    {
-                        element3.Validate();
-                    }
-                }
-            }
-            if (Dataflows != null)
-            {
-                foreach (var element4 in Dataflows)
-                {
-                    if (element4 != null)
-                    {
-                        element4.Validate();
-                    }
-                }
-            }
+            //Nothing to validate
         }
     }
 }

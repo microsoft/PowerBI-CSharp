@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI dataset parameter
+    /// A Power BI dataset parameter
     /// </summary>
     public partial class MashupParameter
     {
@@ -30,9 +30,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The parameter name</param>
         /// <param name="type">The parameter type</param>
-        /// <param name="isRequired">Is dataset parameter required</param>
-        /// <param name="currentValue">The parameter current value</param>
-        /// <param name="suggestedValues">List of the parameter suggested
+        /// <param name="isRequired">Whether the dataset parameter is
+        /// required</param>
+        /// <param name="currentValue">The current value of the
+        /// parameter</param>
+        /// <param name="suggestedValues">A list of suggested parameter
         /// values</param>
         public MashupParameter(string name, string type, bool isRequired, string currentValue = default(string), IList<string> suggestedValues = default(IList<string>))
         {
@@ -62,19 +64,19 @@ namespace Microsoft.PowerBI.Api.Models
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the parameter current value
+        /// Gets or sets the current value of the parameter
         /// </summary>
         [JsonProperty(PropertyName = "currentValue")]
         public string CurrentValue { get; set; }
 
         /// <summary>
-        /// Gets or sets is dataset parameter required
+        /// Gets or sets whether the dataset parameter is required
         /// </summary>
         [JsonProperty(PropertyName = "isRequired")]
         public bool IsRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets list of the parameter suggested values
+        /// Gets or sets a list of suggested parameter values
         /// </summary>
         [JsonProperty(PropertyName = "suggestedValues")]
         public IList<string> SuggestedValues { get; set; }

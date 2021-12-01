@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="datasetId">The new dataset for the rebound report. If
         /// the dataset resides in a different workspace than the report, a
-        /// shared dataset will be created in the report's workspace</param>
+        /// shared dataset will be created in the report's workspace.</param>
         public RebindReportRequest(string datasetId)
         {
             DatasetId = datasetId;
@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the new dataset for the rebound report. If the dataset
         /// resides in a different workspace than the report, a shared dataset
-        /// will be created in the report's workspace
+        /// will be created in the report's workspace.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

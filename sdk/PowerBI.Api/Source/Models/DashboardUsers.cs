@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user access right for dashboard
-    /// List
+    /// The OData response wrapper for a list of Power BI users with access to
+    /// a dashboard
     /// </summary>
     public partial class DashboardUsers
     {
@@ -28,8 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DashboardUsers class.
         /// </summary>
-        /// <param name="value">The user access right for dashboard
-        /// List</param>
+        /// <param name="value">The list of users with access to a
+        /// dashboard</param>
         public DashboardUsers(string odatacontext = default(string), IList<DashboardUser> value = default(IList<DashboardUser>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user access right for dashboard List
+        /// Gets or sets the list of users with access to a dashboard
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<DashboardUser> Value { get; set; }

@@ -32,7 +32,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="columns">The column schema for this table</param>
         /// <param name="rows">The data rows within this table</param>
         /// <param name="measures">The measures within this table</param>
-        /// <param name="isHidden">(Optional) Whether dataset table is
+        /// <param name="isHidden">(Optional) Whether this dataset table is
         /// hidden</param>
         /// <param name="description">The table description</param>
         /// <param name="source">The table source</param>
@@ -78,7 +78,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Measure> Measures { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) Whether dataset table is hidden
+        /// Gets or sets (Optional) Whether this dataset table is hidden
         /// </summary>
         [JsonProperty(PropertyName = "isHidden")]
         public bool? IsHidden { get; set; }

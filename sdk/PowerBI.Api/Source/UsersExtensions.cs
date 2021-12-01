@@ -19,19 +19,28 @@ namespace Microsoft.PowerBI.Api
             /// Refreshes user permissions in Power BI.
             /// </summary>
             /// <remarks>
-            /// When a user is granted permissions to a workspace, app, or artifact, it
-            /// might not be immediately available through API calls.&lt;br/&gt;This
-            /// operation refreshes user permissions and makes sure the user permissions
-            /// are fully
-            /// updated.&lt;br/&gt;&lt;br/&gt;**Important:**&lt;ul&gt;&lt;li&gt;Make the
-            /// *refresh user permissions* call, before any other API
-            /// calls.&lt;/li&gt;&lt;li&gt;It takes about two minutes for the permissions
-            /// to get refreshed. Before calling other APIs, wait for two
-            /// minutes.&lt;/li&gt;&lt;/ul&gt;**Required scope:** Workspace.Read.All  or
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt; User can call this API once per hour.
+            ///
+            /// When a user is granted permissions to a workspace, app, or Power BI item
+            /// (such as a report or a dashboard), the new permissions might not be
+            /// immediately available through API calls. This operation refreshes user
+            /// permissions to ensure they're fully updated.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt;
+            /// &gt; - Call **Refresh User Permissions** before making other API calls.
+            /// &gt; - Since it takes about two minutes for the permissions to get
+            /// refreshed, wait for two minutes before making other API calls.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum one call per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -45,19 +54,28 @@ namespace Microsoft.PowerBI.Api
             /// Refreshes user permissions in Power BI.
             /// </summary>
             /// <remarks>
-            /// When a user is granted permissions to a workspace, app, or artifact, it
-            /// might not be immediately available through API calls.&lt;br/&gt;This
-            /// operation refreshes user permissions and makes sure the user permissions
-            /// are fully
-            /// updated.&lt;br/&gt;&lt;br/&gt;**Important:**&lt;ul&gt;&lt;li&gt;Make the
-            /// *refresh user permissions* call, before any other API
-            /// calls.&lt;/li&gt;&lt;li&gt;It takes about two minutes for the permissions
-            /// to get refreshed. Before calling other APIs, wait for two
-            /// minutes.&lt;/li&gt;&lt;/ul&gt;**Required scope:** Workspace.Read.All  or
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-            /// &lt;h2&gt;Restrictions&lt;/h2&gt; User can call this API once per hour.
+            ///
+            /// When a user is granted permissions to a workspace, app, or Power BI item
+            /// (such as a report or a dashboard), the new permissions might not be
+            /// immediately available through API calls. This operation refreshes user
+            /// permissions to ensure they're fully updated.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt;
+            /// &gt; - Call **Refresh User Permissions** before making other API calls.
+            /// &gt; - Since it takes about two minutes for the permissions to get
+            /// refreshed, wait for two minutes before making other API calls.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum one call per hour.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -145,6 +163,92 @@ namespace Microsoft.PowerBI.Api
             public static async Task<ArtifactAccessResponse> GetUserArtifactAccessAsAdminAsync(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetUserArtifactAccessAsAdminWithHttpMessagesAsync(userGraphId, continuationToken, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions that the given user has subscribed to
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ### userId
+            /// - The UserId can be userGraphId or UserPrincipalName
+            /// ### Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='userId'>
+            /// The graph ID of user or User Principal Name of the user
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            public static SubscriptionsByUserResponse GetUserSubscriptionsAsAdmin(this IUsers operations, System.Guid userId, string continuationToken = default(string))
+            {
+                return operations.GetUserSubscriptionsAsAdminAsync(userId, continuationToken).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions that the given user has subscribed to
+            /// (Preview).
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ### userId
+            /// - The UserId can be userGraphId or UserPrincipalName
+            /// ### Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='userId'>
+            /// The graph ID of user or User Principal Name of the user
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<SubscriptionsByUserResponse> GetUserSubscriptionsAsAdminAsync(this IUsers operations, System.Guid userId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetUserSubscriptionsAsAdminWithHttpMessagesAsync(userId, continuationToken, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

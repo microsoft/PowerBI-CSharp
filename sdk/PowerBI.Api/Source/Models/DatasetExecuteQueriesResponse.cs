@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Response of a data set execute queries request.
+    /// The response to a dataset execute queries request
     /// </summary>
     public partial class DatasetExecuteQueriesResponse
     {
@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DatasetExecuteQueriesResponse
         /// class.
         /// </summary>
-        /// <param name="results">A list of results, one per input
+        /// <param name="results">The list of results, one per input
         /// query.</param>
         public DatasetExecuteQueriesResponse(IList<DatasetExecuteQueriesQueryResult> results = default(IList<DatasetExecuteQueriesQueryResult>))
         {
@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets a list of results, one per input query.
+        /// Gets or sets the list of results, one per input query.
         /// </summary>
         [JsonProperty(PropertyName = "results")]
         public IList<DatasetExecuteQueriesQueryResult> Results { get; set; }

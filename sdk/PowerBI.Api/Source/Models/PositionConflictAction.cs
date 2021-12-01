@@ -24,12 +24,13 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Tile will be added at the end of the chosen dashboard
+        /// In the event of position conflict, the tile will be added at the
+        /// end of the specified dashboard.
         /// </summary>
         public static readonly PositionConflictAction Tail = "Tail";
 
         /// <summary>
-        /// In a case of position conflict, the request will be aborted
+        /// In the event of position conflict, the request will be aborted.
         /// </summary>
         public static readonly PositionConflictAction Abort = "Abort";
 

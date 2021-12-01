@@ -25,10 +25,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ScanRequest class.
         /// </summary>
-        /// <param name="id">The scan ID.</param>
-        /// <param name="createdDateTime">The scan created date time.</param>
-        /// <param name="status">The scan state.</param>
-        /// <param name="error">The scan error (if such exists)</param>
+        /// <param name="id">The scan ID</param>
+        /// <param name="createdDateTime">The scan creation date and
+        /// time</param>
+        /// <param name="status">The scan state</param>
+        /// <param name="error">The scan error (if any)</param>
         public ScanRequest(System.Guid? id = default(System.Guid?), System.DateTime? createdDateTime = default(System.DateTime?), string status = default(string), PowerBIApiErrorResponseDetail error = default(PowerBIApiErrorResponseDetail))
         {
             Id = id;
@@ -44,25 +45,25 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the scan ID.
+        /// Gets or sets the scan ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid? Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the scan created date time.
+        /// Gets or sets the scan creation date and time
         /// </summary>
         [JsonProperty(PropertyName = "createdDateTime")]
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the scan state.
+        /// Gets or sets the scan state
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or sets the scan error (if such exists)
+        /// Gets or sets the scan error (if any)
         /// </summary>
         [JsonProperty(PropertyName = "error")]
         public PowerBIApiErrorResponseDetail Error { get; set; }

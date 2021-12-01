@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for a deployment pipeline.
+    /// A Power BI user access right entry for a deployment pipeline
     /// </summary>
     public partial class PipelineUser
     {
@@ -26,13 +26,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PipelineUser class.
         /// </summary>
-        /// <param name="identifier">For Principal type 'User' provide UPN ,
-        /// otherwise provide [Object
+        /// <param name="identifier">For the service principal type `User`,
+        /// enter *UPN*. Otherwise provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the principal</param>
+        /// of the service principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="accessRight">**Required** - Access rights a user has
+        /// <param name="accessRight">(Required) The access right a user has
         /// for the deployment pipeline. Possible values include:
         /// 'Admin'</param>
         public PipelineUser(string identifier, PrincipalType principalType, PipelineUserAccessRight? accessRight = default(PipelineUserAccessRight?))
@@ -49,17 +49,17 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets **Required** - Access rights a user has for the
+        /// Gets or sets (Required) The access right a user has for the
         /// deployment pipeline. Possible values include: 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "accessRight")]
         public PipelineUserAccessRight? AccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets for Principal type 'User' provide UPN , otherwise
-        /// provide [Object
+        /// Gets or sets for the service principal type `User`, enter *UPN*.
+        /// Otherwise provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the principal
+        /// of the service principal.
         /// </summary>
         [JsonProperty(PropertyName = "identifier")]
         public string Identifier { get; set; }

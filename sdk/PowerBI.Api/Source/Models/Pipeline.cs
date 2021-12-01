@@ -6,15 +6,14 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
-    /// A Power BI deployment pipeline.
+    /// A Power BI pipeline
     /// </summary>
-    public partial class Pipeline
+    public partial class Pipeline : PipelineBaseProperties
     {
         /// <summary>
         /// Initializes a new instance of the Pipeline class.
@@ -32,18 +31,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// name</param>
         /// <param name="description">The deployment pipeline
         /// description</param>
-        /// <param name="stages">The deployment pipeline stages collection,
-        /// only returned when $expand stages is specified</param>
-        /// <param name="users">The deployment pipeline users collection, only
-        /// returned when $expand users is specified and only in admin
-        /// API</param>
-        public Pipeline(System.Guid id, string displayName = default(string), string description = default(string), IList<PipelineStage> stages = default(IList<PipelineStage>), IList<PipelineUser> users = default(IList<PipelineUser>))
+        /// <param name="stages">The collection of deployment pipeline stages.
+        /// Only returned when `$expand` is set to `stages` in the
+        /// request.</param>
+        public Pipeline(System.Guid id, string displayName = default(string), string description = default(string), IList<PipelineStage> stages = default(IList<PipelineStage>))
+            : base(id, displayName, description, stages)
         {
-            Id = id;
-            DisplayName = displayName;
-            Description = description;
-            Stages = stages;
-            Users = users;
             CustomInit();
         }
 
@@ -53,65 +46,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the deployment pipeline ID
-        /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public System.Guid Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the deployment pipeline display name
-        /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the deployment pipeline description
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the deployment pipeline stages collection, only
-        /// returned when $expand stages is specified
-        /// </summary>
-        [JsonProperty(PropertyName = "stages")]
-        public IList<PipelineStage> Stages { get; set; }
-
-        /// <summary>
-        /// Gets or sets the deployment pipeline users collection, only
-        /// returned when $expand users is specified and only in admin API
-        /// </summary>
-        [JsonProperty(PropertyName = "users")]
-        public IList<PipelineUser> Users { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
-            if (Stages != null)
-            {
-                foreach (var element in Stages)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-            if (Users != null)
-            {
-                foreach (var element1 in Users)
-                {
-                    if (element1 != null)
-                    {
-                        element1.Validate();
-                    }
-                }
-            }
+            base.Validate();
         }
     }
 }

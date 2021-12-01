@@ -35,8 +35,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// import</param>
         /// <param name="datasets">The datasets associated with this
         /// import</param>
-        /// <param name="createdDateTime">Import creation time</param>
-        /// <param name="updatedDateTime">Import last update time</param>
+        /// <param name="createdDateTime">Import creation date and time</param>
+        /// <param name="updatedDateTime">Import last update date and
+        /// time</param>
         public Import(System.Guid id, string name = default(string), string importState = default(string), IList<Report> reports = default(IList<Report>), IList<Dataset> datasets = default(IList<Dataset>), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? updatedDateTime = default(System.DateTime?))
         {
             Id = id;
@@ -86,13 +87,13 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<Dataset> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets import creation time
+        /// Gets or sets import creation date and time
         /// </summary>
         [JsonProperty(PropertyName = "createdDateTime")]
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets import last update time
+        /// Gets or sets import last update date and time
         /// </summary>
         [JsonProperty(PropertyName = "updatedDateTime")]
         public System.DateTime? UpdatedDateTime { get; set; }

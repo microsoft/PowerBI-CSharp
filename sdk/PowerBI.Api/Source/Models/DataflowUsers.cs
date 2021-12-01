@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user access right for dataflow
-    /// List
+    /// The OData response wrapper for a list of Power BI users with access to
+    /// a dataflow
     /// </summary>
     public partial class DataflowUsers
     {
@@ -28,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DataflowUsers class.
         /// </summary>
-        /// <param name="value">The user access right for dataflow List</param>
+        /// <param name="value">The list of users with access to a
+        /// dataflow</param>
         public DataflowUsers(string odatacontext = default(string), IList<DataflowUser> value = default(IList<DataflowUser>))
         {
             Odatacontext = odatacontext;
@@ -47,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user access right for dataflow List
+        /// Gets or sets the list of users with access to a dataflow
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<DataflowUser> Value { get; set; }

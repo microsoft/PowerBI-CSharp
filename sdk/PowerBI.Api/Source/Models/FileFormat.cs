@@ -18,58 +18,54 @@ namespace Microsoft.PowerBI.Api.Models
     public enum FileFormat
     {
         /// <summary>
-        /// Requested file format is PPTX
+        /// Microsoft PowerPoint
         /// </summary>
         [EnumMember(Value = "PPTX")]
         PPTX,
         /// <summary>
-        /// Requested file format is PDF
+        /// PDF
         /// </summary>
         [EnumMember(Value = "PDF")]
         PDF,
         /// <summary>
-        /// Requested file format is PNG (only supported for Power BI reports)
+        /// PNG (only supported for Power BI reports)
         /// </summary>
         [EnumMember(Value = "PNG")]
         PNG,
         /// <summary>
-        /// Requested file format is
-        /// [IMAGE](https://docs.microsoft.com/sql/reporting-services/image-device-information-settings)
-        /// (only supported for paginated reports)
+        /// BMP, EMF, GIF, JPEG, PNG, or TIFF
+        /// [image](/sql/reporting-services/image-device-information-settings)
+        /// formats (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "IMAGE")]
         IMAGE,
         /// <summary>
-        /// Requested file format is XLSX (only supported for paginated
-        /// reports)
+        /// Microsoft Excel (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "XLSX")]
         XLSX,
         /// <summary>
-        /// Requested file format is DOCX (only supported for paginated
-        /// reports)
+        /// Microsoft Word (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "DOCX")]
         DOCX,
         /// <summary>
-        /// Requested file format is CSV (only supported for paginated reports)
+        /// CSV (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "CSV")]
         CSV,
         /// <summary>
-        /// Requested file format is XML (only supported for paginated reports)
+        /// XML (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "XML")]
         XML,
         /// <summary>
-        /// Requested file format is MHTML (only supported for paginated
-        /// reports)
+        /// MHTML (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "MHTML")]
         MHTML,
         /// <summary>
-        /// Requested file format is Accessible PDF (only supported for
-        /// paginated reports)
+        /// Accessible PDF (only supported for paginated reports)
         /// </summary>
         [EnumMember(Value = "ACCESSIBLEPDF")]
         ACCESSIBLEPDF

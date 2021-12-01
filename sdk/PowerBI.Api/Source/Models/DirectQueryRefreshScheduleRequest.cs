@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI  refresh schedule request for DirectQuery or LiveConnection
+    /// Power BI refresh schedule request for DirectQuery or LiveConnection
     /// </summary>
     public partial class DirectQueryRefreshScheduleRequest
     {
@@ -28,8 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DirectQueryRefreshScheduleRequest
         /// class.
         /// </summary>
-        /// <param name="value">An object containg the refresh schedule details
-        /// for DirectQuery or LiveConnection</param>
+        /// <param name="value">An object containing the refresh schedule
+        /// details for DirectQuery or LiveConnection</param>
         public DirectQueryRefreshScheduleRequest(DirectQueryRefreshSchedule value)
         {
             Value = value;
@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets an object containg the refresh schedule details for
+        /// Gets or sets an object containing the refresh schedule details for
         /// DirectQuery or LiveConnection
         /// </summary>
         [JsonProperty(PropertyName = "value")]

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Datasource usage
+    /// Data source usage
     /// </summary>
     public partial class DatasourceUsage
     {
@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasourceUsage class.
         /// </summary>
-        /// <param name="datasourceInstanceId">The datasource instance
+        /// <param name="datasourceInstanceId">The data source instance
         /// ID</param>
         public DatasourceUsage(System.Guid datasourceInstanceId)
         {
@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the datasource instance ID
+        /// Gets or sets the data source instance ID
         /// </summary>
         [JsonProperty(PropertyName = "datasourceInstanceId")]
         public System.Guid DatasourceInstanceId { get; set; }

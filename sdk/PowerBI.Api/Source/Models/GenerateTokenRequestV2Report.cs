@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The report object for Generate Token Request V2.
+    /// A report object in [GenerateTokenRequestV2](#generatetokenrequestv2)
     /// </summary>
     public partial class GenerateTokenRequestV2Report
     {
@@ -28,8 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="id">The report ID</param>
-        /// <param name="allowEdit">Indicates that the generated EmbedToken
-        /// grand editing for this report</param>
+        /// <param name="allowEdit">Whether the generated embed token supports
+        /// report editing</param>
         public GenerateTokenRequestV2Report(System.Guid id, bool? allowEdit = default(bool?))
         {
             AllowEdit = allowEdit;
@@ -43,8 +43,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets indicates that the generated EmbedToken grand editing
-        /// for this report
+        /// Gets or sets whether the generated embed token supports report
+        /// editing
         /// </summary>
         [JsonProperty(PropertyName = "allowEdit")]
         public bool? AllowEdit { get; set; }

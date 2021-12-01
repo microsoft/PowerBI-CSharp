@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI report Export to file configuration
+    /// The export to file configuration for a Power BI report
     /// </summary>
     public partial class PowerBIReportExportConfiguration
     {
@@ -29,17 +29,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PowerBIReportExportConfiguration
         /// class.
         /// </summary>
-        /// <param name="settings">The settings to be applied in this Export to
+        /// <param name="settings">The settings to be applied for the export to
         /// file job</param>
-        /// <param name="defaultBookmark">The default bookmark to apply on all
-        /// pages which don't have a specific bookmark</param>
-        /// <param name="reportLevelFilters">List of report level filters to
-        /// apply. Currently only one filter can be provided</param>
-        /// <param name="pages">List of pages to export and their properties.
+        /// <param name="defaultBookmark">A default bookmark to apply on all
+        /// pages that don't have a specific bookmark</param>
+        /// <param name="reportLevelFilters">A list of report level filters to
+        /// apply. Currently, only one filter is supported.</param>
+        /// <param name="pages">A list of pages to export and their properties.
         /// The same page may appear more than once with different
-        /// visuals</param>
-        /// <param name="identities">List of identities to use for RLS
-        /// rules</param>
+        /// visuals.</param>
+        /// <param name="identities">A list of identities to use for row-level
+        /// security rules</param>
         public PowerBIReportExportConfiguration(ExportReportSettings settings = default(ExportReportSettings), PageBookmark defaultBookmark = default(PageBookmark), IList<ExportFilter> reportLevelFilters = default(IList<ExportFilter>), IList<ExportReportPage> pages = default(IList<ExportReportPage>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             Settings = settings;
@@ -56,34 +56,35 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the settings to be applied in this Export to file job
+        /// Gets or sets the settings to be applied for the export to file job
         /// </summary>
         [JsonProperty(PropertyName = "settings")]
         public ExportReportSettings Settings { get; set; }
 
         /// <summary>
-        /// Gets or sets the default bookmark to apply on all pages which don't
+        /// Gets or sets a default bookmark to apply on all pages that don't
         /// have a specific bookmark
         /// </summary>
         [JsonProperty(PropertyName = "defaultBookmark")]
         public PageBookmark DefaultBookmark { get; set; }
 
         /// <summary>
-        /// Gets or sets list of report level filters to apply. Currently only
-        /// one filter can be provided
+        /// Gets or sets a list of report level filters to apply. Currently,
+        /// only one filter is supported.
         /// </summary>
         [JsonProperty(PropertyName = "reportLevelFilters")]
         public IList<ExportFilter> ReportLevelFilters { get; set; }
 
         /// <summary>
-        /// Gets or sets list of pages to export and their properties. The same
-        /// page may appear more than once with different visuals
+        /// Gets or sets a list of pages to export and their properties. The
+        /// same page may appear more than once with different visuals.
         /// </summary>
         [JsonProperty(PropertyName = "pages")]
         public IList<ExportReportPage> Pages { get; set; }
 
         /// <summary>
-        /// Gets or sets list of identities to use for RLS rules
+        /// Gets or sets a list of identities to use for row-level security
+        /// rules
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }

@@ -27,8 +27,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the RequiredWorkspaces class.
         /// </summary>
-        /// <param name="workspaces">Required workspace IDs to be scaned. It
-        /// should contain 1-100 workspaces.</param>
+        /// <param name="workspaces">The required workspace IDs to be scanned
+        /// (supports 1 to 100 workspace IDs)</param>
         public RequiredWorkspaces(IList<System.Guid?> workspaces = default(IList<System.Guid?>))
         {
             Workspaces = workspaces;
@@ -41,8 +41,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets required workspace IDs to be scaned. It should contain
-        /// 1-100 workspaces.
+        /// Gets or sets the required workspace IDs to be scanned (supports 1
+        /// to 100 workspace IDs)
         /// </summary>
         [JsonProperty(PropertyName = "workspaces")]
         public IList<System.Guid?> Workspaces { get; set; }

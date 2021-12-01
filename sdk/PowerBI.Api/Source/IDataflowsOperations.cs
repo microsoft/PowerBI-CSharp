@@ -20,13 +20,16 @@ namespace Microsoft.PowerBI.Api
     public partial interface IDataflowsOperations
     {
         /// <summary>
-        /// Exports the specified dataflow definition to a .json file.
+        /// Exports the specified dataflow definition to a JSON file.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-        /// Dataflow.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All or Dataflow.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -48,13 +51,17 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Stream>> GetDataflowWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes a dataflow from the CDS for Analytics storage, including
-        /// its definition file and actual model.
+        /// Deletes a dataflow from Power BI data prep storage, including its
+        /// definition file and model.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -73,12 +80,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> DeleteDataflowWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update dataflow properties, capabilities and settings.
+        /// Updates dataflow properties, capabilities and settings.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -103,14 +114,19 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateDataflowWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, DataflowUpdateRequestMessage dataflowUpdateRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Triggers a refresh for the specified dataflow. The only supported
-        /// mail notification options are either in case of failure, or none.
-        /// MailOnCompletion is not supported.
+        /// Triggers a refresh for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// Supported email notification options are **MailOnFailure** and
+        /// **NoNotification**. **MailOnCompletion** isn't supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -134,13 +150,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> RefreshDataflowWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, RefreshRequest refreshRequest = default(RefreshRequest), System.Guid? processType = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasources for the specified dataflow.
+        /// Returns a list of data sources for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-        /// Dataflow.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All or Dataflow.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -165,10 +184,13 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of all dataflows from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-        /// Dataflow.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All or Dataflow.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -190,10 +212,13 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of upstream dataflows for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-        /// Dataflow.Read.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All or Dataflow.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -215,13 +240,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DependentDataflows>> GetUpstreamDataflowsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates or updates the specified dataflow refresh schedule
-        /// configuration.
+        /// Creates or updates the refresh schedule for a specified dataflow.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -249,10 +277,13 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of transactions for the specified dataflow.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All or
-        /// Dataflow.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All or Dataflow.Read.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -274,12 +305,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DataflowTransactions>> GetDataflowTransactionsWithHttpMessagesAsync(System.Guid groupId, System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Attempts to Cancel the specified transactions.
+        /// Attempts to cancel the specified transactions.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Dataflow.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataflow.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -467,9 +502,14 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Stream>> ExportDataflowAsAdminWithHttpMessagesAsync(System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasources for the specified dataflow.
+        /// Returns a list of data sources for the specified dataflow.
         /// </summary>
         /// <remarks>
+        ///
+        /// Deleted datasources will still appear in the response. This may
+        /// include both cloud and on-premise data gateway sources. For more
+        /// information see [Dataflows considerations and
+        /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).
         ///
         /// ## Permissions
         ///

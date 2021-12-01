@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI deployment pipeline users
-    /// collection.
+    /// OData response wrapper for a collection of Power BI deployment pipeline
+    /// users
     /// </summary>
     public partial class PipelineUsers
     {
@@ -29,8 +29,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PipelineUsers class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The deployment pipeline users
-        /// collection</param>
+        /// <param name="value">The collection of deployment pipeline
+        /// users</param>
         public PipelineUsers(string odatacontext = default(string), IList<PipelineUser> value = default(IList<PipelineUser>))
         {
             Odatacontext = odatacontext;
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the deployment pipeline users collection
+        /// Gets or sets the collection of deployment pipeline users
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<PipelineUser> Value { get; set; }

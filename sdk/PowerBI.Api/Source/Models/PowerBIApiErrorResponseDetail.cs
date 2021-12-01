@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI error response details
+    /// Detailed information about a Power BI error response
     /// </summary>
     public partial class PowerBIApiErrorResponseDetail
     {
@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PowerBIApiErrorResponseDetail
         /// class.
         /// </summary>
-        /// <param name="code">The error code.</param>
-        /// <param name="message">The error message.</param>
-        /// <param name="target">The error target.</param>
+        /// <param name="code">The error code</param>
+        /// <param name="message">The error message</param>
+        /// <param name="target">The error target</param>
         public PowerBIApiErrorResponseDetail(string code = default(string), string message = default(string), string target = default(string))
         {
             Code = code;
@@ -44,19 +44,19 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the error code.
+        /// Gets or sets the error code
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
 
         /// <summary>
-        /// Gets or sets the error message.
+        /// Gets or sets the error message
         /// </summary>
         [JsonProperty(PropertyName = "message")]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or sets the error target.
+        /// Gets or sets the error target
         /// </summary>
         [JsonProperty(PropertyName = "target")]
         public string Target { get; set; }

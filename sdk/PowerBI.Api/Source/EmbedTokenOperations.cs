@@ -47,40 +47,63 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Generates an embed token for multiple reports, datasets and target
-        /// workspaces. Reports and datasets do not have to be related. The binding of
-        /// a report to a dataset can be done during embedding. Creating a report can
-        /// only be done in workspaces specified in
-        /// *targetWrokspaces*.&lt;br/&gt;&lt;br/&gt;This API is relevant only to ['App
-        /// owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// Generates an embed token for multiple reports, datasets, and target
+        /// workspaces.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: &lt;ul&gt;&lt;li&gt;Content.Create -
-        /// required only if a target workspace is specified in
-        /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
-        /// or Report.Read.All - required only if a report is specified in
-        /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
-        /// - required if allowEdit flag is specified for at least one report in
-        /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2)&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All
-        /// or Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service Principal
-        /// with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;All the reports and
-        /// datasets must reside in workspace V2. All the target workpaces must be
-        /// workspace V2.&lt;/li&gt;&lt;li&gt;Maximum number of reports, datasets and
-        /// target workspaces is 50 each.&lt;/li&gt;&lt;li&gt;Generating Embed Token
-        /// with RLS may not work for AS Azure or AS OnPrem live connection reports for
-        /// several minutes after a
-        /// [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;/li&gt;&lt;li&gt;Paginated
-        /// reports are not supported.&lt;/li&gt;&lt;/ul&gt;&lt;br/&gt;
+        ///
+        /// - Reports and datasets don't have to be related.
+        /// - You can bind a report to a dataset during embedding.
+        /// - You can only create a report in workspaces specified by the
+        /// `targetWorkspaces` parameter.
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+        /// learn more about using this API, see [Considerations when generating an
+        /// embed token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// - When using a service principal for authentication, refer to [Embed Power
+        /// BI content with service
+        /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+        /// and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        /// - For PowerBI reports with a paginated visual, include the paginated report
+        /// ID in the API call. For more information, see
+        /// [example](/rest/api/power-bi/embed-token/generate-token#examples).
+        ///
+        /// ## Required scope
+        ///
+        /// All of the following, unless a requirement doesn't apply:
+        ///
+        /// - Content.Create, required if a target workspace is specified in
+        /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).
+        /// - Report.ReadWrite.All or Report.Read.All, required if a report is
+        /// specified in
+        /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).
+        /// - Report.ReadWrite.All, required if the `allowEdit` flag is specified for
+        /// at least one report in
+        /// [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// - You can only create a report in workspaces specified by the
+        /// `targetWorkspaces` parameter.
+        /// - All reports and datasets must reside in a **V2** workspace.
+        /// - All target workspaces must be **V2** workspaces.
+        /// - Maximum 50 reports.
+        /// - Maximum 50 datasets.
+        /// - Maximum 50 target workspaces.
+        /// - For Azure Analysis Services or Analysis Services on-premises live
+        /// connection reports, generating an embed token with row-level security might
+        /// not work for several minutes after a
+        /// [rebind](/rest/api/power-bi/reports/rebind-report).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='requestParameters'>
         /// Generate token parameters

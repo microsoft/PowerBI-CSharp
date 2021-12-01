@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Paginated report Export to file configuration
+    /// The export to file configuration for a paginated report
     /// </summary>
     public partial class PaginatedReportExportConfiguration
     {
@@ -29,13 +29,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// PaginatedReportExportConfiguration class.
         /// </summary>
-        /// <param name="identities">A single identity to use when exporting a
-        /// report. Required when a report uses a Power BI dataset or an Azure
-        /// AS datasource.</param>
-        /// <param name="formatSettings">Dictionary of format settings. The
-        /// keys are the device info property names for the requested file
-        /// format.</param>
-        /// <param name="parameterValues">List of report parameters</param>
+        /// <param name="identities">The single identity to use when exporting
+        /// a report. Required when a report uses a Power BI dataset or an
+        /// Azure Analysis Services data source.</param>
+        /// <param name="formatSettings">A dictionary of format settings. The
+        /// keys are the device information property names for the requested
+        /// file format.</param>
+        /// <param name="parameterValues">A list of report parameters</param>
         public PaginatedReportExportConfiguration(IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), IDictionary<string, string> formatSettings = default(IDictionary<string, string>), IList<ParameterValue> parameterValues = default(IList<ParameterValue>))
         {
             Identities = identities;
@@ -50,22 +50,22 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets a single identity to use when exporting a report.
-        /// Required when a report uses a Power BI dataset or an Azure AS
-        /// datasource.
+        /// Gets or sets the single identity to use when exporting a report.
+        /// Required when a report uses a Power BI dataset or an Azure Analysis
+        /// Services data source.
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
 
         /// <summary>
-        /// Gets or sets dictionary of format settings. The keys are the device
-        /// info property names for the requested file format.
+        /// Gets or sets a dictionary of format settings. The keys are the
+        /// device information property names for the requested file format.
         /// </summary>
         [JsonProperty(PropertyName = "formatSettings")]
         public IDictionary<string, string> FormatSettings { get; set; }
 
         /// <summary>
-        /// Gets or sets list of report parameters
+        /// Gets or sets a list of report parameters
         /// </summary>
         [JsonProperty(PropertyName = "parameterValues")]
         public IList<ParameterValue> ParameterValues { get; set; }

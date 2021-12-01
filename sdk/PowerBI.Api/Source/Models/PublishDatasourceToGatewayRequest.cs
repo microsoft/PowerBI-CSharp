@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A publish datasource to gateway request
+    /// A publish data source to gateway request
     /// </summary>
     public partial class PublishDatasourceToGatewayRequest
     {
@@ -28,9 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PublishDatasourceToGatewayRequest
         /// class.
         /// </summary>
-        /// <param name="dataSourceType">The datasource type</param>
+        /// <param name="dataSourceType">The data source type</param>
         /// <param name="connectionDetails">The connection details</param>
-        /// <param name="dataSourceName">The datasource name</param>
+        /// <param name="dataSourceName">The data source name</param>
         public PublishDatasourceToGatewayRequest(string dataSourceType, string connectionDetails, CredentialDetails credentialDetails, string dataSourceName)
         {
             DataSourceType = dataSourceType;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the datasource type
+        /// Gets or sets the data source type
         /// </summary>
         [JsonProperty(PropertyName = "dataSourceType")]
         public string DataSourceType { get; set; }
@@ -63,7 +63,7 @@ namespace Microsoft.PowerBI.Api.Models
         public CredentialDetails CredentialDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource name
+        /// Gets or sets the data source name
         /// </summary>
         [JsonProperty(PropertyName = "dataSourceName")]
         public string DataSourceName { get; set; }
