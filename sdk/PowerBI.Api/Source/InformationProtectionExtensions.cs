@@ -20,9 +20,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// For a usage example, see [Set or remove sensitivity labels using Power BI
-            /// REST admin
-            /// APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
+            /// For a usage example, see [Set or remove sensitivity
+            /// labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
             ///
             /// ## Permissions
             ///
@@ -60,9 +59,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// For a usage example, see [Set or remove sensitivity labels using Power BI
-            /// REST admin
-            /// APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
+            /// For a usage example, see [Set or remove sensitivity
+            /// labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
             ///
             /// ## Permissions
             ///
@@ -109,9 +107,8 @@ namespace Microsoft.PowerBI.Api
             /// To set a sensitivity label using this API, the admin user or the delegated
             /// user (if provided) must have the label included in their [label
             /// policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide).
-            /// For a usage example, see [Set or remove sensitivity labels using Power BI
-            /// REST admin
-            /// APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
+            /// For a usage example, see [Set or remove sensitivity
+            /// labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
             ///
             /// ## Permissions
             ///
@@ -152,9 +149,8 @@ namespace Microsoft.PowerBI.Api
             /// To set a sensitivity label using this API, the admin user or the delegated
             /// user (if provided) must have the label included in their [label
             /// policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide).
-            /// For a usage example, see [Set or remove sensitivity labels using Power BI
-            /// REST admin
-            /// APIs](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
+            /// For a usage example, see [Set or remove sensitivity
+            /// labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).
             ///
             /// ## Permissions
             ///

@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user access right for report List
+    /// The OData response wrapper for a list of Power BI users with access to
+    /// a report
     /// </summary>
     public partial class ReportUsers
     {
@@ -27,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ReportUsers class.
         /// </summary>
-        /// <param name="value">The user access right for report List</param>
+        /// <param name="value">The list of users with access to a
+        /// report</param>
         public ReportUsers(string odatacontext = default(string), IList<ReportUser> value = default(IList<ReportUser>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user access right for report List
+        /// Gets or sets the list of users with access to a report
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<ReportUser> Value { get; set; }

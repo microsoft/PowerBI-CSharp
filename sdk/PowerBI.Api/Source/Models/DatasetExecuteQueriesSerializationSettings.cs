@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The serialization settings for the dataset query results.
+    /// The serialization settings for the results of a dataset query
     /// </summary>
     public partial class DatasetExecuteQueriesSerializationSettings
     {
@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// DatasetExecuteQueriesSerializationSettings class.
         /// </summary>
-        /// <param name="includeNulls">1 indicates that null (blank) values
-        /// should be included in the result. 0 indicates they should be
-        /// omitted. 0 is the default in absence of the settings.</param>
+        /// <param name="includeNulls">Whether null (blank) values should be
+        /// included in the result set. If unspecified, the default value is
+        /// `false`.</param>
         public DatasetExecuteQueriesSerializationSettings(bool? includeNulls = default(bool?))
         {
             IncludeNulls = includeNulls;
@@ -42,9 +42,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets 1 indicates that null (blank) values should be
-        /// included in the result. 0 indicates they should be omitted. 0 is
-        /// the default in absence of the settings.
+        /// Gets or sets whether null (blank) values should be included in the
+        /// result set. If unspecified, the default value is `false`.
         /// </summary>
         [JsonProperty(PropertyName = "includeNulls")]
         public bool? IncludeNulls { get; set; }

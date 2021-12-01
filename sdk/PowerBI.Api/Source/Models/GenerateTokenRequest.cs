@@ -27,20 +27,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GenerateTokenRequest class.
         /// </summary>
-        /// <param name="accessLevel">Required access level for EmbedToken
+        /// <param name="accessLevel">The required access level for embed token
         /// generation. Possible values include: 'View', 'Edit',
         /// 'Create'</param>
         /// <param name="datasetId">The dataset ID used for report creation.
-        /// Only applies when generating an EmbedToken for report
+        /// Only applies when you generate an embed token for report
         /// creation.</param>
-        /// <param name="allowSaveAs">Indicates an embedded report can be saved
-        /// as a new report. Default value is 'false'. Only applies when
-        /// generating EmbedToken for report embedding.</param>
-        /// <param name="identities">List of identities to use for RLS
-        /// rules.</param>
+        /// <param name="allowSaveAs">Whether an embedded report can be saved
+        /// as a new report. The default value is `false`. Only applies when
+        /// you generate an embed token for report embedding.</param>
+        /// <param name="identities">A list of identities to use for row-level
+        /// security rules</param>
         /// <param name="lifetimeInMinutes">The maximum lifetime of the token
         /// in minutes, starting from the time it was generated. Can be used to
-        /// shorten the token’s expiration time, but not to extend it. The
+        /// shorten the expiration time of a token, but not to extend it. The
         /// value must be a positive integer. Zero (0) is equivalent to null
         /// and will be ignored, resulting in the default expiration
         /// time.</param>
@@ -60,7 +60,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets required access level for EmbedToken generation.
+        /// Gets or sets the required access level for embed token generation.
         /// Possible values include: 'View', 'Edit', 'Create'
         /// </summary>
         [JsonProperty(PropertyName = "accessLevel")]
@@ -68,31 +68,32 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the dataset ID used for report creation. Only applies
-        /// when generating an EmbedToken for report creation.
+        /// when you generate an embed token for report creation.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
 
         /// <summary>
-        /// Gets or sets indicates an embedded report can be saved as a new
-        /// report. Default value is 'false'. Only applies when generating
-        /// EmbedToken for report embedding.
+        /// Gets or sets whether an embedded report can be saved as a new
+        /// report. The default value is `false`. Only applies when you
+        /// generate an embed token for report embedding.
         /// </summary>
         [JsonProperty(PropertyName = "allowSaveAs")]
         public bool? AllowSaveAs { get; set; }
 
         /// <summary>
-        /// Gets or sets list of identities to use for RLS rules.
+        /// Gets or sets a list of identities to use for row-level security
+        /// rules
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum lifetime of the token in minutes, starting
-        /// from the time it was generated. Can be used to shorten the token’s
-        /// expiration time, but not to extend it. The value must be a positive
-        /// integer. Zero (0) is equivalent to null and will be ignored,
-        /// resulting in the default expiration time.
+        /// from the time it was generated. Can be used to shorten the
+        /// expiration time of a token, but not to extend it. The value must be
+        /// a positive integer. Zero (0) is equivalent to null and will be
+        /// ignored, resulting in the default expiration time.
         /// </summary>
         [JsonProperty(PropertyName = "lifetimeInMinutes")]
         public int? LifetimeInMinutes { get; set; }

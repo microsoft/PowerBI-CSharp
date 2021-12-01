@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for datasource
+    /// A Power BI user with access to the data source
     /// </summary>
     public partial class DatasourceUser
     {
@@ -25,12 +25,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasourceUser class.
         /// </summary>
-        /// <param name="datasourceAccessRight">The user access rights for the
-        /// datasource. Possible values include: 'None', 'Read',
-        /// 'ReadOverrideEffectiveIdentity'</param>
-        /// <param name="emailAddress">Email address of the user</param>
-        /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">[Object
+        /// <param name="datasourceAccessRight">The access right (permission
+        /// level) that a user has on the data source. Possible values include:
+        /// 'None', 'Read', 'ReadOverrideEffectiveIdentity'</param>
+        /// <param name="emailAddress">The email address of the user</param>
+        /// <param name="displayName">The display name of the principal</param>
+        /// <param name="identifier">The [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
@@ -51,26 +51,27 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the user access rights for the datasource. Possible
-        /// values include: 'None', 'Read', 'ReadOverrideEffectiveIdentity'
+        /// Gets or sets the access right (permission level) that a user has on
+        /// the data source. Possible values include: 'None', 'Read',
+        /// 'ReadOverrideEffectiveIdentity'
         /// </summary>
         [JsonProperty(PropertyName = "datasourceAccessRight")]
         public DatasourceUserAccessRight DatasourceAccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets email address of the user
+        /// Gets or sets the email address of the user
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// Gets or sets display name of the principal
+        /// Gets or sets the display name of the principal
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets [Object
+        /// Gets or sets the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal
         /// </summary>

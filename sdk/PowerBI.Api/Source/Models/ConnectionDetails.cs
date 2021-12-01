@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Connection string wrapper.
+    /// A connection string wrapper
     /// </summary>
     public partial class ConnectionDetails
     {
@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ConnectionDetails class.
         /// </summary>
-        /// <param name="connectionString">A dataset connection string.</param>
+        /// <param name="connectionString">A dataset connection string</param>
         public ConnectionDetails(string connectionString)
         {
             ConnectionString = connectionString;
@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets a dataset connection string.
+        /// Gets or sets a dataset connection string
         /// </summary>
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }

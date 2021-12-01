@@ -1170,7 +1170,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns the specified workspaces to the specified premium capacity.
+        /// Assigns the specified workspaces to the specified Premium capacity.
         /// </summary>
         /// <remarks>
         ///
@@ -1488,7 +1488,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Refreshables>> GetCapacityUsersAsAdminWithHttpMessagesAsync(System.Guid capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<CapacityUsers>> GetCapacityUsersAsAdminWithHttpMessagesAsync(System.Guid capacityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1570,7 +1570,7 @@ namespace Microsoft.PowerBI.Api
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<Refreshables>();
+            var _result = new HttpOperationResponse<CapacityUsers>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1579,7 +1579,7 @@ namespace Microsoft.PowerBI.Api
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Refreshables>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<CapacityUsers>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

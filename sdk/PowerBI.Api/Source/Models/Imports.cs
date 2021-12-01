@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI import collection
+    /// The OData response wrapper for a Power BI import collection
     /// </summary>
     public partial class Imports
     {
@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Imports class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The imports collection</param>
+        /// <param name="value">The import collection</param>
         public Imports(string odatacontext = default(string), IList<Import> value = default(IList<Import>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the imports collection
+        /// Gets or sets the import collection
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Import> Value { get; set; }

@@ -11,8 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A blob for specifying the identity. Only supported for datasets with
-    /// Direct Query connection to SQL Azure
+    /// A blob for specifying an identity. Only supported for datasets with a
+    /// DirectQuery connection to Azure SQL
     /// </summary>
     public partial class IdentityBlob
     {
@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the IdentityBlob class.
         /// </summary>
-        /// <param name="value">OAuth2 access token for SQL Azure</param>
+        /// <param name="value">An OAuth 2.0 access token for Azure SQL</param>
         public IdentityBlob(string value)
         {
             Value = value;
@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets oAuth2 access token for SQL Azure
+        /// Gets or sets an OAuth 2.0 access token for Azure SQL
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public string Value { get; set; }

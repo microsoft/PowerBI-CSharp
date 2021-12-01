@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The dataset object for Generate Token Request V2.
+    /// A dataset object in [GenerateTokenRequestV2](#generatetokenrequestv2)
     /// </summary>
     public partial class GenerateTokenRequestV2Dataset
     {

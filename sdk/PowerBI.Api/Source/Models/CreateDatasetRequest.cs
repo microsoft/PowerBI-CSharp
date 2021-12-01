@@ -29,10 +29,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the CreateDatasetRequest class.
         /// </summary>
         /// <param name="name">The dataset name</param>
-        /// <param name="tables">The dataset tables.</param>
-        /// <param name="relationships">The dataset relationships.</param>
-        /// <param name="datasources">The datasources associated with this
-        /// dataset.</param>
+        /// <param name="tables">The dataset tables</param>
+        /// <param name="relationships">The dataset relationships</param>
+        /// <param name="datasources">The data sources associated with this
+        /// dataset</param>
         /// <param name="defaultMode">The dataset mode or type. Possible values
         /// include: 'AsAzure', 'AsOnPrem', 'Push', 'Streaming',
         /// 'PushStreaming'</param>
@@ -58,19 +58,19 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset tables.
+        /// Gets or sets the dataset tables
         /// </summary>
         [JsonProperty(PropertyName = "tables")]
         public IList<Table> Tables { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset relationships.
+        /// Gets or sets the dataset relationships
         /// </summary>
         [JsonProperty(PropertyName = "relationships")]
         public IList<Relationship> Relationships { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasources associated with this dataset.
+        /// Gets or sets the data sources associated with this dataset
         /// </summary>
         [JsonProperty(PropertyName = "datasources")]
         public IList<Datasource> Datasources { get; set; }

@@ -16,7 +16,7 @@ namespace Microsoft.PowerBI.Api
     public static partial class DashboardsOperationsExtensions
     {
             /// <summary>
-            /// Returns a list of dashboards from **My Workspace**.
+            /// Returns a list of dashboards from **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -36,7 +36,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of dashboards from **My Workspace**.
+            /// Returns a list of dashboards from **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -62,7 +62,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new empty dashboard in **My Workspace**.
+            /// Creates a new empty dashboard in **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -85,7 +85,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new empty dashboard in **My Workspace**.
+            /// Creates a new empty dashboard in **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -114,7 +114,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified dashboard from **My Workspace**.
+            /// Returns the specified dashboard from **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -137,7 +137,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified dashboard from **My Workspace**.
+            /// Returns the specified dashboard from **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -167,7 +167,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns a list of tiles within the specified dashboard from **My
-            /// Workspace**.
+            /// workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -194,7 +194,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns a list of tiles within the specified dashboard from **My
-            /// Workspace**.
+            /// workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -227,7 +227,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns the specified tile within the specified dashboard from **My
-            /// Workspace**.
+            /// workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -257,7 +257,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns the specified tile within the specified dashboard from **My
-            /// Workspace**.
+            /// workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -292,7 +292,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Clones the specified tile from **My Workspace**.
+            /// Clones the specified tile from **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -332,7 +332,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Clones the specified tile from **My Workspace**.
+            /// Clones the specified tile from **My workspace**.
             /// </summary>
             /// <remarks>
             ///
@@ -777,25 +777,34 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified dashboard from the specified
-            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to the ['App owns
-            /// data' embed
-            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-            /// For more information about using this API, see [Considerations when
-            /// generating an embed
-            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+            /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: (all of the below)
-            /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
-            /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-            /// using service principal for authentication, refer to [Service Principal
-            /// with Power
-            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-            /// document along with considerations and limitations section.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt; This API is only relevant to the [embed for your
+            /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+            /// learn more about using this API, see [Considerations when generating an
+            /// embed token](/power-bi/developer/embedded/generate-embed-token).
+            ///
+            /// ## Permissions
+            ///
+            /// When using a service principal for authentication, refer to [Embed Power BI
+            /// content with service
+            /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+            /// and
+            /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            ///
+            /// ## Required scope
+            ///
+            /// All of the following:
+            ///
+            /// - Dashboard.ReadWrite.All or Dashboard.Read.All
+            /// - Report.ReadWrite.All or Report.Read.All
+            /// - Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -816,25 +825,34 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an embed token to view the specified dashboard from the specified
-            /// workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to the ['App owns
-            /// data' embed
-            /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-            /// For more information about using this API, see [Considerations when
-            /// generating an embed
-            /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+            /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: (all of the below)
-            /// &lt;ul&gt;&lt;li&gt;Dashboard.ReadWrite.All or
-            /// Dashboard.Read.All&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All or
-            /// Report.Read.All &lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-            /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-            /// using service principal for authentication, refer to [Service Principal
-            /// with Power
-            /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-            /// document along with considerations and limitations section.
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt; This API is only relevant to the [embed for your
+            /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+            /// learn more about using this API, see [Considerations when generating an
+            /// embed token](/power-bi/developer/embedded/generate-embed-token).
+            ///
+            /// ## Permissions
+            ///
+            /// When using a service principal for authentication, refer to [Embed Power BI
+            /// content with service
+            /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+            /// and
+            /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            ///
+            /// ## Required scope
+            ///
+            /// All of the following:
+            ///
+            /// - Dashboard.ReadWrite.All or Dashboard.Read.All
+            /// - Report.ReadWrite.All or Report.Read.All
+            /// - Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -897,7 +915,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dashboards GetDashboardsInGroupAsAdmin(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDashboards GetDashboardsInGroupAsAdmin(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDashboardsInGroupAsAdminAsync(groupId, filter, top, skip).GetAwaiter().GetResult();
             }
@@ -943,7 +961,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dashboards> GetDashboardsInGroupAsAdminAsync(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDashboards> GetDashboardsInGroupAsAdminAsync(this IDashboardsOperations operations, System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardsInGroupAsAdminWithHttpMessagesAsync(groupId, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -990,7 +1008,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dashboards GetDashboardsAsAdmin(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDashboards GetDashboardsAsAdmin(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDashboardsAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
             }
@@ -1037,7 +1055,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dashboards> GetDashboardsAsAdminAsync(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDashboards> GetDashboardsAsAdminAsync(this IDashboardsOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardsAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1074,7 +1092,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='dashboardId'>
             /// The dashboard ID
             /// </param>
-            public static Tiles GetTilesAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
+            public static AdminTiles GetTilesAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
             {
                 return operations.GetTilesAsAdminAsync(dashboardId).GetAwaiter().GetResult();
             }
@@ -1111,7 +1129,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Tiles> GetTilesAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminTiles> GetTilesAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetTilesAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1190,6 +1208,82 @@ namespace Microsoft.PowerBI.Api
             public static async Task<DashboardUsers> GetDashboardUsersAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDashboardUsersAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions along with subscribees that the dashboard
+            /// subscribed to. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static Subscriptions GetDashboardSubscriptionsAsAdmin(this IDashboardsOperations operations, System.Guid dashboardId)
+            {
+                return operations.GetDashboardSubscriptionsAsAdminAsync(dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns a list of subscriptions along with subscribees that the dashboard
+            /// subscribed to. This is a preview API call.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// - The user must have administrator rights (such as Office 365 Global
+            /// Administrator or Power BI Service Administrator) or authenticate using a
+            /// service principal.
+            /// - Delegated permissions are supported.
+            ///
+            /// ## Required scope
+            ///
+            /// Tenant.Read.All or Tenant.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Maximum 200 requests per hour.
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<Subscriptions> GetDashboardSubscriptionsAsAdminAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetDashboardSubscriptionsAsAdminWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

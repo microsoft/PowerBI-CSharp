@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI refresh history
+    /// The OData response wrapper for a Power BI refresh history list
     /// </summary>
     public partial class Refreshes
     {
@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Refreshes class.
         /// </summary>
-        /// <param name="value">The Refresh history list</param>
+        /// <param name="value">The refresh history list</param>
         public Refreshes(string odatacontext = default(string), IList<Refresh> value = default(IList<Refresh>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the Refresh history list
+        /// Gets or sets the refresh history list
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Refresh> Value { get; set; }

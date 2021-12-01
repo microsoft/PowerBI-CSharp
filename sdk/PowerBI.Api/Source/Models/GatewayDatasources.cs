@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI gateway datasource collection
+    /// The OData response wrapper for a Power BI gateway data source
+    /// collection
     /// </summary>
     public partial class GatewayDatasources
     {
@@ -28,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GatewayDatasources class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">List of gateway datasources</param>
+        /// <param name="value">The list of gateway data sources</param>
         public GatewayDatasources(string odatacontext = default(string), IList<GatewayDatasource> value = default(IList<GatewayDatasource>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets list of gateway datasources
+        /// Gets or sets the list of gateway data sources
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<GatewayDatasource> Value { get; set; }

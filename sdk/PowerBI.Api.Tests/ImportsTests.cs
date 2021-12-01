@@ -43,7 +43,7 @@ namespace PowerBI.Api.Tests
         }
 
         [TestMethod]
-        public async Task Groups_PostImportWithFileWithNameAndConflict()
+        public async Task Groups_PostImportWithFileWithNameAndConflictAsync()
         {
             var datasetDisplayName = "TestDataset";
             var nameConflict = ImportConflictHandlerMode.Overwrite;
@@ -54,6 +54,23 @@ namespace PowerBI.Api.Tests
             using (var stream = new MemoryStream())
             {
                 await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, datasetDisplayName, nameConflict);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void Groups_PostImportWithFileWithNameAndConflict()
+        {
+            var datasetDisplayName = "TestDataset";
+            var nameConflict = ImportConflictHandlerMode.Overwrite;
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                client.Imports.PostImportWithFileInGroup(this.groupId, stream, datasetDisplayName, nameConflict);
                 var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}&nameConflict={nameConflict}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
@@ -76,7 +93,7 @@ namespace PowerBI.Api.Tests
         }
 
         [TestMethod]
-        public async Task Groups_PostImportFileWithName()
+        public async Task Groups_PostImportFileWithNameAsync()
         {
             var datasetDisplayName = "TestDataset";
             var importResponse = CreateSampleImportResponse();
@@ -86,6 +103,22 @@ namespace PowerBI.Api.Tests
             using (var stream = new MemoryStream())
             {
                 await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, datasetDisplayName);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void Groups_PostImportFileWithName()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                client.Imports.PostImportWithFileInGroup(this.groupId, stream, datasetDisplayName);
                 var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
@@ -103,6 +136,38 @@ namespace PowerBI.Api.Tests
             {
                 await client.Imports.PostImportWithFileAsync(stream, datasetDisplayName, skipReport: true);
                 var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/imports?datasetDisplayName={datasetDisplayName}&skipReport=True";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public void Group_PostImportFileWithNameAndSkipReport()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                client.Imports.PostImportWithFileInGroup(this.groupId, stream, datasetDisplayName, skipReport: true);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}&skipReport=True";
+                Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
+            }
+        }
+
+        [TestMethod]
+        public async Task Group_PostImportFileWithNameAndSkipReportAsync()
+        {
+            var datasetDisplayName = "TestDataset";
+            var importResponse = CreateSampleImportResponse();
+
+            using (var handler = new FakeHttpClientHandler(importResponse))
+            using (var client = CreatePowerBIClient(handler))
+            using (var stream = new MemoryStream())
+            {
+                await client.Imports.PostImportWithFileAsyncInGroup(this.groupId, stream, datasetDisplayName, skipReport: true);
+                var expectedRequesetUrl = $"https://api.powerbi.com/v1.0/myorg/groups/{this.groupId}/imports?datasetDisplayName={datasetDisplayName}&skipReport=True";
                 Assert.AreEqual(expectedRequesetUrl, handler.Request.RequestUri.ToString());
             }
         }

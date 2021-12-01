@@ -25,15 +25,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ImportInfo class.
         /// </summary>
-        /// <param name="filePath">The OneDrive for Business .xlsx file path to
-        /// import, can be absolute or relative. .pbix files are not
-        /// supported.</param>
-        /// <param name="connectionType">The import connection type for
+        /// <param name="filePath">The path of the OneDrive for Business Excel
+        /// (.xlsx) file to import, which can be absolute or relative. Power BI
+        /// Desktop report (.pbix) files aren't supported.</param>
+        /// <param name="connectionType">The import connection type for a
         /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
-        /// <param name="fileUrl">The shared access signature (SAS) url of the
-        /// temporary blob storage, used to import large .pbix files between 1
-        /// GB and 10 GB</param>
+        /// <param name="fileUrl">The shared access signature URL of the
+        /// temporary blob storage used to import large Power BI Desktop report
+        /// (.pbix) files between 1 GB and 10 GB in size.</param>
         public ImportInfo(string filePath = default(string), ConnectionType? connectionType = default(ConnectionType?), string fileUrl = default(string))
         {
             FilePath = filePath;
@@ -48,23 +48,24 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the OneDrive for Business .xlsx file path to import,
-        /// can be absolute or relative. .pbix files are not supported.
+        /// Gets or sets the path of the OneDrive for Business Excel (.xlsx)
+        /// file to import, which can be absolute or relative. Power BI Desktop
+        /// report (.pbix) files aren't supported.
         /// </summary>
         [JsonProperty(PropertyName = "filePath")]
         public string FilePath { get; set; }
 
         /// <summary>
-        /// Gets or sets the import connection type for OneDrive for Business
+        /// Gets or sets the import connection type for a OneDrive for Business
         /// file. Possible values include: 'import', 'connect'
         /// </summary>
         [JsonProperty(PropertyName = "connectionType")]
         public ConnectionType? ConnectionType { get; set; }
 
         /// <summary>
-        /// Gets or sets the shared access signature (SAS) url of the temporary
-        /// blob storage, used to import large .pbix files between 1 GB and 10
-        /// GB
+        /// Gets or sets the shared access signature URL of the temporary blob
+        /// storage used to import large Power BI Desktop report (.pbix) files
+        /// between 1 GB and 10 GB in size.
         /// </summary>
         [JsonProperty(PropertyName = "fileUrl")]
         public string FileUrl { get; set; }

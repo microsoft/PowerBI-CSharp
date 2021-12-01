@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user access right for datasource
-    /// List
+    /// The OData response wrapper for a list of Power BI users with access to
+    /// a data source
     /// </summary>
     public partial class DatasourceUsers
     {
@@ -28,8 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasourceUsers class.
         /// </summary>
-        /// <param name="value">The user access right for datasource
-        /// List</param>
+        /// <param name="value">The list of users with access to a data
+        /// source</param>
         public DatasourceUsers(string odatacontext = default(string), IList<DatasourceUser> value = default(IList<DatasourceUser>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user access right for datasource List
+        /// Gets or sets the list of users with access to a data source
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<DatasourceUser> Value { get; set; }

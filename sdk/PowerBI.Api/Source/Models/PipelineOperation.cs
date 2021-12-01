@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI deployment pipeline operation.
+    /// A Power BI deployment pipeline operation
     /// </summary>
     public partial class PipelineOperation
     {
@@ -25,23 +25,25 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PipelineOperation class.
         /// </summary>
-        /// <param name="id">The operation ID.</param>
+        /// <param name="id">The operation ID</param>
         /// <param name="status">The pipeline operation status. Possible values
         /// include: 'NotStarted', 'Executing', 'Succeeded', 'Failed'</param>
-        /// <param name="lastUpdatedTime">The last time the operation was
-        /// updated.</param>
+        /// <param name="lastUpdatedTime">The date and time that the operation
+        /// was last updated</param>
         /// <param name="type">The operation type. Possible values include:
         /// 'Deploy'</param>
-        /// <param name="executionStartTime">The time the operation execution
-        /// started.</param>
-        /// <param name="executionEndTime">The time the operation execution
-        /// ended.</param>
-        /// <param name="sourceStageOrder">The source stage order. Development
-        /// (0), Test (1), Production (2).</param>
-        /// <param name="targetStageOrder">The target stage order. Development
-        /// (0), Test (1), Production (2).</param>
+        /// <param name="executionStartTime">The date and time that the
+        /// operation started</param>
+        /// <param name="executionEndTime">The date and time that the operation
+        /// ended</param>
+        /// <param name="sourceStageOrder">The numeric identifier of a source
+        /// pipeline deployment stage. Development (0), Test (1), Production
+        /// (2).</param>
+        /// <param name="targetStageOrder">The numeric identifier of a target
+        /// pipeline deployment stage. Development (0), Test (1), Production
+        /// (2).</param>
         /// <param name="executionPlan">The deployment execution plan. Only
-        /// applicable when getting a single operation.</param>
+        /// applicable to a single pipeline operation.</param>
         public PipelineOperation(System.Guid id, PipelineOperationStatus status, System.DateTime lastUpdatedTime, PipelineOperationType? type = default(PipelineOperationType?), System.DateTime? executionStartTime = default(System.DateTime?), System.DateTime? executionEndTime = default(System.DateTime?), int? sourceStageOrder = default(int?), int? targetStageOrder = default(int?), DeploymentExecutionPlan executionPlan = default(DeploymentExecutionPlan))
         {
             Id = id;
@@ -62,7 +64,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the operation ID.
+        /// Gets or sets the operation ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }
@@ -81,40 +83,40 @@ namespace Microsoft.PowerBI.Api.Models
         public PipelineOperationStatus Status { get; set; }
 
         /// <summary>
-        /// Gets or sets the last time the operation was updated.
+        /// Gets or sets the date and time that the operation was last updated
         /// </summary>
         [JsonProperty(PropertyName = "lastUpdatedTime")]
         public System.DateTime LastUpdatedTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the time the operation execution started.
+        /// Gets or sets the date and time that the operation started
         /// </summary>
         [JsonProperty(PropertyName = "executionStartTime")]
         public System.DateTime? ExecutionStartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the time the operation execution ended.
+        /// Gets or sets the date and time that the operation ended
         /// </summary>
         [JsonProperty(PropertyName = "executionEndTime")]
         public System.DateTime? ExecutionEndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the source stage order. Development (0), Test (1),
-        /// Production (2).
+        /// Gets or sets the numeric identifier of a source pipeline deployment
+        /// stage. Development (0), Test (1), Production (2).
         /// </summary>
         [JsonProperty(PropertyName = "sourceStageOrder")]
         public int? SourceStageOrder { get; set; }
 
         /// <summary>
-        /// Gets or sets the target stage order. Development (0), Test (1),
-        /// Production (2).
+        /// Gets or sets the numeric identifier of a target pipeline deployment
+        /// stage. Development (0), Test (1), Production (2).
         /// </summary>
         [JsonProperty(PropertyName = "targetStageOrder")]
         public int? TargetStageOrder { get; set; }
 
         /// <summary>
-        /// Gets or sets the deployment execution plan. Only applicable when
-        /// getting a single operation.
+        /// Gets or sets the deployment execution plan. Only applicable to a
+        /// single pipeline operation.
         /// </summary>
         [JsonProperty(PropertyName = "executionPlan")]
         public DeploymentExecutionPlan ExecutionPlan { get; set; }

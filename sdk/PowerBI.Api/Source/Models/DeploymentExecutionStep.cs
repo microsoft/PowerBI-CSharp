@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment execution step
+    /// A deployment execution step
     /// </summary>
     public partial class DeploymentExecutionStep
     {
@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DeploymentExecutionStep class.
         /// </summary>
         /// <param name="index">The step index</param>
-        /// <param name="type">The deployment step type. Possible values
+        /// <param name="type">The type of deployment step. Possible values
         /// include: 'DatasetDeployment', 'ReportDeployment',
         /// 'DashboardDeployment', 'DataflowDeployment'</param>
         /// <param name="status">The status of the pipeline operation. Possible
@@ -34,7 +34,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'Failed'</param>
         /// <param name="sourceAndTarget">The source and target items of the
         /// step</param>
-        /// <param name="error">Error details of the step's failure</param>
+        /// <param name="error">The error details. Only applicable if the
+        /// pipeline operation failed.</param>
         public DeploymentExecutionStep(int index, DeploymentStepType type, PipelineOperationStatus status, DeploymentSourceAndTarget sourceAndTarget = default(DeploymentSourceAndTarget), DeploymentError error = default(DeploymentError))
         {
             Index = index;
@@ -57,7 +58,7 @@ namespace Microsoft.PowerBI.Api.Models
         public int Index { get; set; }
 
         /// <summary>
-        /// Gets or sets the deployment step type. Possible values include:
+        /// Gets or sets the type of deployment step. Possible values include:
         /// 'DatasetDeployment', 'ReportDeployment', 'DashboardDeployment',
         /// 'DataflowDeployment'
         /// </summary>
@@ -78,7 +79,8 @@ namespace Microsoft.PowerBI.Api.Models
         public DeploymentSourceAndTarget SourceAndTarget { get; set; }
 
         /// <summary>
-        /// Gets or sets error details of the step's failure
+        /// Gets or sets the error details. Only applicable if the pipeline
+        /// operation failed.
         /// </summary>
         [JsonProperty(PropertyName = "error")]
         public DeploymentError Error { get; set; }

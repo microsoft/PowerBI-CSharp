@@ -24,17 +24,17 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Refresh was triggered by the dataset refresh schedule setting
+        /// The refresh was triggered by a dataset refresh schedule setting
         /// </summary>
         public static readonly RefreshType Scheduled = "Scheduled";
 
         /// <summary>
-        /// Refresh was triggered interactively threw Power BI portal
+        /// The refresh was triggered interactively through the Power BI portal
         /// </summary>
         public static readonly RefreshType OnDemand = "OnDemand";
 
         /// <summary>
-        /// Refresh was triggered by an Api call
+        /// The refresh was triggered by an API call
         /// </summary>
         public static readonly RefreshType ViaApi = "ViaApi";
 

@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment execution plan
+    /// A deployment execution plan
     /// </summary>
     public partial class DeploymentExecutionPlan
     {
@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DeploymentExecutionPlan class.
         /// </summary>
-        /// <param name="steps">The execution plan steps collection</param>
+        /// <param name="steps">The collection of execution plan steps</param>
         public DeploymentExecutionPlan(IList<DeploymentExecutionStep> steps = default(IList<DeploymentExecutionStep>))
         {
             Steps = steps;
@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the execution plan steps collection
+        /// Gets or sets the collection of execution plan steps
         /// </summary>
         [JsonProperty(PropertyName = "steps")]
         public IList<DeploymentExecutionStep> Steps { get; set; }

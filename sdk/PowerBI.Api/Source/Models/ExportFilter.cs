@@ -25,9 +25,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ExportFilter class.
         /// </summary>
-        /// <param name="filter">The filter to apply. Filter format should be
-        /// as described
-        /// [here](https://docs.microsoft.com/power-bi/collaborate-share/service-url-filters)</param>
+        /// <param name="filter">The filter to apply. For information about the
+        /// filter syntax, see [Filter a
+        /// report](/power-bi/collaborate-share/service-url-filters).</param>
         public ExportFilter(string filter = default(string))
         {
             Filter = filter;
@@ -40,9 +40,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the filter to apply. Filter format should be as
-        /// described
-        /// [here](https://docs.microsoft.com/power-bi/collaborate-share/service-url-filters)
+        /// Gets or sets the filter to apply. For information about the filter
+        /// syntax, see [Filter a
+        /// report](/power-bi/collaborate-share/service-url-filters).
         /// </summary>
         [JsonProperty(PropertyName = "filter")]
         public string Filter { get; set; }
