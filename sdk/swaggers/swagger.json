@@ -15861,7 +15861,7 @@
                 "deprecated": false
             }
         },
-        "/v1.0/myorg/admin/users/{userGraphId}/artifactAccess": {
+        "/v1.0/myorg/admin/users/{userId}/artifactAccess": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15875,12 +15875,11 @@
                 ],
                 "parameters": [
                     {
-                        "name": "userGraphId",
+                        "name": "userId",
                         "in": "path",
-                        "description": "The graph ID of user",
+                        "description": "The graph ID or UPN of user",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "continuationToken",
@@ -15901,7 +15900,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "userGraphId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                            "userId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
                         "responses": {
                             "200": {
@@ -15930,7 +15929,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of subscriptions that the given user has subscribed to (Preview).",
-                "description": "\n### userId\n- The UserId can be userGraphId or UserPrincipalName\n### Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "description": "\n### Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Users_GetUserSubscriptionsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15940,10 +15939,9 @@
                     {
                         "name": "userId",
                         "in": "path",
-                        "description": "The graph ID of user or User Principal Name of the user",
+                        "description": "The graph ID or UPN of user",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "continuationToken",
@@ -15964,7 +15962,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "userGraphId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                            "userId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
                         "responses": {
                             "200": {
