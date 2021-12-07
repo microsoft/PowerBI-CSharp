@@ -13939,7 +13939,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of datasets that have not been used within 30 days for the specified workspace (Preview).",
+                "summary": "Returns a list of datasets, reports, and dashboards that have not been used within 30 days for the specified workspace (Preview).",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Groups_GetUnusedArtifactsAsAdmin",
                 "consumes": [],
@@ -13954,6 +13954,13 @@
                         "required": true,
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -13980,7 +13987,9 @@
                                         "createdDateTime": "2020-09-01T22:40:52.197Z",
                                         "lastAccessedDateTime": "2021-07-01T22:40:52.953Z"
                                     }
-                                ]
+                                ],
+                                "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/groups/f089354e-8366-4e18-aea3-4cb4a3a50b48/unused?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                "continuationToken": "LDEsMTAwMDAwLDA%3D"
                             }
                         }
                     }
@@ -21939,6 +21948,14 @@
                     "items": {
                         "$ref": "#/definitions/UnusedArtifactEntity"
                     }
+                },
+                "continuationUri": {
+                    "type": "string",
+                    "description": "The URI for the next chunk in the result set"
+                },
+                "continuationToken": {
+                    "type": "string",
+                    "description": "Token to get the next chunk of the result set"
                 }
             }
         },

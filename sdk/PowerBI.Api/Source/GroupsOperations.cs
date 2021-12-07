@@ -2933,8 +2933,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of datasets that have not been used within 30 days for the
-        /// specified workspace (Preview).
+        /// Returns a list of datasets, reports, and dashboards that have not been used
+        /// within 30 days for the specified workspace (Preview).
         /// </summary>
         /// <remarks>
         ///
@@ -2959,6 +2959,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='groupId'>
         /// The workspace ID
         /// </param>
+        /// <param name='continuationToken'>
+        /// Token required to get the next chunk of the result set
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -2974,7 +2977,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<UnusedArtifactsResponse>> GetUnusedArtifactsAsAdminWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<UnusedArtifactsResponse>> GetUnusedArtifactsAsAdminWithHttpMessagesAsync(System.Guid groupId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -2984,6 +2987,7 @@ namespace Microsoft.PowerBI.Api
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("continuationToken", continuationToken);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetUnusedArtifactsAsAdmin", tracingParameters);
             }
@@ -2991,6 +2995,15 @@ namespace Microsoft.PowerBI.Api
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/unused").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            List<string> _queryParameters = new List<string>();
+            if (continuationToken != null)
+            {
+                _queryParameters.Add(string.Format("continuationToken={0}", System.Uri.EscapeDataString(continuationToken)));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
