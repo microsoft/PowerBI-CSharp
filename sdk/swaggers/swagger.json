@@ -20893,6 +20893,28 @@
                 "id": {
                     "type": "string",
                     "description": "The dataset ID"
+                },
+                "xmlaPermissions": {
+                    "type": "string",
+                    "description": "XMLA Permissions",
+                    "enum": [
+                        "Off",
+                        "ReadOnly"
+                    ],
+                    "x-ms-enum": {
+                        "name": "XmlaPermissions",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Off",
+                                "description": "Indicates that the generated embed token doesn't grant access permissions to the dataset's XMLA endpoint."
+                            },
+                            {
+                                "value": "ReadOnly",
+                                "description": "Indicates that the generated embed token grants Read access permissions to the dataset's XMLA endpoint."
+                            }
+                        ]
+                    }
                 }
             }
         },
