@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI dataset parameter update details
+    /// The update details for a Power BI dataset parameter
     /// </summary>
     public partial class UpdateMashupParameterDetails
     {
@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="name">The parameter name</param>
-        /// <param name="newValue">The parameter new value</param>
+        /// <param name="newValue">The new value for the parameter</param>
         public UpdateMashupParameterDetails(string name, string newValue = default(string))
         {
             Name = name;
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the parameter new value
+        /// Gets or sets the new value for the parameter
         /// </summary>
         [JsonProperty(PropertyName = "newValue")]
         public string NewValue { get; set; }

@@ -602,15 +602,20 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
         /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-        /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
+        /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files are
+        /// downloaded to a temporary blob. Their URL is returned in the response and
+        /// stored in the locally downloaded PBIX file.&lt;br/&gt;&lt;br/&gt;**Required
         /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
         /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI service
         /// live
-        /// connection](https://docs.microsoft.com/en-us/power-bi/desktop-report-lifecycle-datasets)
+        /// connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets)
         /// after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is
-        /// not supported.&lt;br/&gt;
+        /// not supported. Refer to [Download a report from the Power BI service to
+        /// Power BI
+        /// Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix)
+        /// for requirements and limitations.&lt;br/&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -1615,7 +1620,8 @@ namespace Microsoft.PowerBI.Api
         /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Premium Per User (PPU) is not supported.
+        /// Check the limitations in the [Export to File API
+        /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -2653,7 +2659,9 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
         /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-        /// you can set `preferClientRouting` to true.&lt;br/&gt;&lt;br/&gt;**Required
+        /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files are
+        /// downloaded to a temporary blob. Their URL is returned in the response and
+        /// stored in the locally downloaded PBIX file.&lt;br/&gt;&lt;br/&gt;**Required
         /// scope**: Report.ReadWrite.All or Report.Read.All &lt;br/&gt;To set the
         /// permissions scope, see [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).
@@ -3704,7 +3712,8 @@ namespace Microsoft.PowerBI.Api
         /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
         /// [Register an
         /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Premium Per User (PPU) is not supported.
+        /// Check the limitations in the [Export to File API
+        /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -4182,28 +4191,42 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Generates an embed token to allow report creation on the specified
-        /// workspace based on the specified dataset.&lt;br/&gt;&lt;br/&gt;This API is
-        /// relevant only to ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// Generates an embed token to allow report creation in the specified
+        /// workspace based on the specified dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Content.Create&lt;/li&gt;&lt;li&gt;Report.ReadWrite.All
-        /// or Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service Principal
-        /// with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
-        /// work for AS Azure or AS OnPrem live connection reports for several minutes
-        /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+        /// learn more about using this API, see [Considerations when generating an
+        /// embed token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// When using a service principal for authentication, refer to [Embed Power BI
+        /// content with service
+        /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+        /// and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        ///
+        /// ## Required scope
+        ///
+        /// All of the following:
+        ///
+        /// - Content.Create
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// For Azure Analysis Services or Analysis Services on-premises live
+        /// connection reports, generating an embed token with row-level security may
+        /// not work for several minutes after a [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report) api call.
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -4355,29 +4378,42 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Generates an embed token to view or edit the specified report from the
-        /// specified workspace.&lt;br/&gt;&lt;br/&gt;This API is relevant only to
-        /// ['App owns data' embed
-        /// scenario](https://docs.microsoft.com/power-bi/developer/embed-sample-for-customers).
-        /// For more information about using this API, see [Considerations when
-        /// generating an embed
-        /// token](https://docs.microsoft.com/power-bi/developer/embedded/generate-embed-token).
+        /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
-        /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;li&gt;Content.Create - required only if
-        /// allowSaveAs specified in
-        /// [GenerateTokenRequest](/rest/api/power-bi/embedtoken/reports_generatetokeningroup#GenerateTokenRequest)&lt;/li&gt;&lt;/ul&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;When
-        /// using service principal for authentication, refer to [Service Principal
-        /// with Power
-        /// BI](https://docs.microsoft.com/power-bi/developer/embed-service-principal)
-        /// document along with considerations and limitations section.
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Generating Embed Token with RLS may not
-        /// work for AS Azure or AS OnPrem live connection reports for several minutes
-        /// after a [Rebind](/rest/api/power-bi/reports/RebindReport).&lt;br/&gt;
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; This API is only relevant to the [embed for your
+        /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
+        /// learn more about using this API, see [Considerations when generating an
+        /// embed token](/power-bi/developer/embedded/generate-embed-token).
+        ///
+        /// ## Permissions
+        ///
+        /// When using a service principal for authentication, refer to [Embed Power BI
+        /// content with service
+        /// principal](/power-bi/developer/embed-service-principal) and [Considerations
+        /// and
+        /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        ///
+        /// ## Required scope
+        ///
+        /// All of the following, unless a requirement doesn't apply:
+        ///
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        /// - Content.Create, required if the `allowSaveAs` flag is specified in
+        /// [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)
+        ///
+        /// ## Limitations
+        ///
+        /// For Azure Analysis Services or Analysis Services on-premises live
+        /// connection reports, generating an embed token with row-level security may
+        /// not work for several minutes after a [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -4582,7 +4618,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Reports>> GetReportsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AdminReports>> GetReportsInGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4684,7 +4720,7 @@ namespace Microsoft.PowerBI.Api
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<Reports>();
+            var _result = new HttpOperationResponse<AdminReports>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4693,7 +4729,7 @@ namespace Microsoft.PowerBI.Api
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Reports>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<AdminReports>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -4759,7 +4795,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Reports>> GetReportsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AdminReports>> GetReportsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4859,7 +4895,7 @@ namespace Microsoft.PowerBI.Api
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<Reports>();
+            var _result = new HttpOperationResponse<AdminReports>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -4868,7 +4904,7 @@ namespace Microsoft.PowerBI.Api
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Reports>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<AdminReports>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -5021,6 +5057,158 @@ namespace Microsoft.PowerBI.Api
                 try
                 {
                     _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ReportUsers>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns a list of subscriptions along with subscribees that the report
+        /// subscribed to. This is a preview API call.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// - The user must have administrator rights (such as Office 365 Global
+        /// Administrator or Power BI Service Administrator) or authenticate using a
+        /// service principal.
+        /// - Delegated permissions are supported.
+        ///
+        /// ## Required scope
+        ///
+        /// Tenant.Read.All or Tenant.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Maximum 200 requests per hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='reportId'>
+        /// The report ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<Subscriptions>> GetReportSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("reportId", reportId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetReportSubscriptionsAsAdmin", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/reports/{reportId}/subscriptions").ToString();
+            _url = _url.Replace("{reportId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(reportId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<Subscriptions>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Subscriptions>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

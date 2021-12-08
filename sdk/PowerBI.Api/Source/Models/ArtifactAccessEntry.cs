@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI artifact access entry for user
+    /// A user access entry for a Power BI item
     /// </summary>
     public partial class ArtifactAccessEntry
     {
@@ -26,11 +26,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ArtifactAccessEntry class.
         /// </summary>
-        /// <param name="artifactId">Artifact ID</param>
-        /// <param name="displayName">Display name of the artifact</param>
-        /// <param name="artifactType">Type of the artifact</param>
-        /// <param name="accessRight">Access right that the user has for the
-        /// artifact.</param>
+        /// <param name="artifactId">The Power BI item ID</param>
+        /// <param name="displayName">The display name of the Power BI
+        /// item</param>
+        /// <param name="artifactType">The type of Power BI item</param>
+        /// <param name="accessRight">The access right that the user has for
+        /// the Power BI item</param>
         public ArtifactAccessEntry(string artifactId, string displayName, string artifactType, string accessRight)
         {
             ArtifactId = artifactId;
@@ -46,25 +47,26 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets artifact ID
+        /// Gets or sets the Power BI item ID
         /// </summary>
         [JsonProperty(PropertyName = "artifactId")]
         public string ArtifactId { get; set; }
 
         /// <summary>
-        /// Gets or sets display name of the artifact
+        /// Gets or sets the display name of the Power BI item
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets type of the artifact
+        /// Gets or sets the type of Power BI item
         /// </summary>
         [JsonProperty(PropertyName = "artifactType")]
         public string ArtifactType { get; set; }
 
         /// <summary>
-        /// Gets or sets access right that the user has for the artifact.
+        /// Gets or sets the access right that the user has for the Power BI
+        /// item
         /// </summary>
         [JsonProperty(PropertyName = "accessRight")]
         public string AccessRight { get; set; }

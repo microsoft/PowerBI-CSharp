@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly ScheduleNotifyOption NoNotification = "NoNotification";
 
         /// <summary>
-        /// Mail notification will be sent on refresh failure
+        /// A mail notification will be sent on refresh failure
         /// </summary>
         public static readonly ScheduleNotifyOption MailOnFailure = "MailOnFailure";
 

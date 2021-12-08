@@ -19,13 +19,13 @@ namespace Microsoft.PowerBI.Api
     public partial interface IPipelinesOperations
     {
         /// <summary>
-        /// Returns a list of deployment pipelines the user has access to.
+        /// Returns a list of deployment pipelines that the user has access to.
         /// </summary>
         /// <remarks>
         ///
         /// ## Required scope
         ///
-        /// Pipeline.ReadWrite.All or Pipeline.Read.All
+        /// Pipeline.Read.All or Pipeline.ReadWrite.All
         ///
         /// ######
         ///
@@ -372,18 +372,19 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> UnassignWorkspaceWithHttpMessagesAsync(System.Guid pipelineId, int stageOrder, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the supported items from the workspace assigned to the
-        /// specified deployment pipeline stage. To learn more about items that
-        /// are not supported in deployment pipelines, see [unsupported
-        /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
+        /// specified stage of the specified deployment pipeline.
         /// </summary>
         /// <remarks>
         ///
+        /// To learn about items that aren't supported in deployment pipelines,
+        /// see [Unsupported
+        /// items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).
+        ///
         /// ## Permissions
         ///
-        /// To perform this operation, the user must be at least a contributor
-        /// on the workspace assigned to the specified stage. For more
-        /// information, see
-        /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+        /// The user must at least be a contributor on the workspace assigned
+        /// to the specified stage. For more information, see
+        /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
         ///
         /// ## Required scope
         ///
@@ -413,11 +414,10 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<PipelineStageArtifacts>> GetPipelineStageArtifactsWithHttpMessagesAsync(System.Guid pipelineId, int stageOrder, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of up to 20 last deploy operations performed on the
-        /// specified deployment pipeline.
+        /// Returns a list of the up-to-20 most recent deploy operations
+        /// performed on the specified deployment pipeline.
         /// </summary>
         /// <remarks>
-        ///
         ///
         /// ## Required scope
         ///
@@ -444,11 +444,12 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<PipelineOperations>> GetPipelineOperationsWithHttpMessagesAsync(System.Guid pipelineId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the details of the specified deploy operation performed on
-        /// the specified deployment pipeline including the `executionPlan`.
-        /// Use to track the status of the deploy operation.
+        /// the specified deployment pipeline, including the deployment
+        /// execution plan.
         /// </summary>
         /// <remarks>
         ///
+        /// Use to track the status of a deploy operation.
         ///
         /// ## Required scope
         ///
@@ -477,18 +478,20 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<PipelineOperation>> GetPipelineOperationWithHttpMessagesAsync(System.Guid pipelineId, System.Guid operationId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deploy all supported items from the specified deployment pipeline
-        /// source stage. To learn more about items that are not supported in
-        /// deployment pipelines, see [unsupported
-        /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
+        /// Deploys all supported items from the source stage of the specified
+        /// deployment pipeline.
         /// </summary>
         /// <remarks>
         ///
+        /// To learn about items that aren't supported in deployment pipelines,
+        /// see [Unsupported
+        /// items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).
+        ///
         /// ## Permissions
         ///
-        /// To perform this operation, the user must be at least a member on
-        /// both workpsaces. For more information, see
-        /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+        /// The user must at least be a member on both source and target
+        /// deployment workspaces. For more information, see
+        /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
         ///
         /// ## Required scope
         ///
@@ -496,7 +499,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// You can deploy up to 300 items per request
+        /// Maximum 300 deployed items per request.
         ///
         /// ######
         ///
@@ -524,16 +527,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<PipelineOperation>> DeployAllWithHttpMessagesAsync(System.Guid pipelineId, DeployAllRequest deployRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deploy the specified items from the specified deployment pipeline
-        /// source stage.
+        /// Deploys the specified items from the source stage of the specified
+        /// deployment pipeline.
         /// </summary>
         /// <remarks>
         ///
         /// ## Permissions
         ///
-        /// To perform this operation, the user must be at least a member on
-        /// both workpsaces. For more information, see
-        /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+        /// The user must at least be a member on both source and target
+        /// deployment workspaces. For more information, see
+        /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
         ///
         /// ## Required scope
         ///
@@ -541,7 +544,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// You can deploy up to 300 items per request
+        /// Maximum 300 deployed items per request.
         ///
         /// ######
         ///
@@ -616,7 +619,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Pipelines>> GetPipelinesAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminPipelines>> GetPipelinesAsAdminWithHttpMessagesAsync(string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to a specified deployment
         /// pipeline.

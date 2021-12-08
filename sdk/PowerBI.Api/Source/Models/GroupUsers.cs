@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user access right for group List
+    /// The OData response wrapper for a list of Power BI users with access to
+    /// a workspace
     /// </summary>
     public partial class GroupUsers
     {
@@ -27,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GroupUsers class.
         /// </summary>
-        /// <param name="value">The user access right for group List</param>
+        /// <param name="value">The list of users with access to a
+        /// workspace</param>
         public GroupUsers(string odatacontext = default(string), IList<GroupUser> value = default(IList<GroupUser>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user access right for group List
+        /// Gets or sets the list of users with access to a workspace
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<GroupUser> Value { get; set; }

@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -80,7 +80,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -107,7 +107,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -140,7 +140,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -167,7 +167,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -200,7 +200,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -230,7 +230,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -266,7 +266,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -293,7 +293,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -326,7 +326,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -356,7 +356,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -393,7 +393,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -424,7 +424,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -455,8 +455,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// All tile types, except *model tiles*, are supported. Supported tiles
-            /// include datasets and live tiles that contain an entire report page.
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
             ///
             /// ## Required scope
             ///
@@ -464,7 +464,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///
@@ -492,8 +492,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// All tile types, except *model tiles*, are supported. Supported tiles
-            /// include datasets and live tiles that contain an entire report page.
+            /// Supported tiles include datasets and live tiles that contain an entire
+            /// report page.
             ///
             /// ## Required scope
             ///
@@ -501,7 +501,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// Service principal authentication is not supported.
+            /// Service principal authentication isn't supported.
             ///
             /// ######
             ///

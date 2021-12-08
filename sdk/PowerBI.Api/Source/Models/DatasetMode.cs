@@ -24,30 +24,31 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// A dataset with a live connection to Azure Analysis Service
+        /// A dataset with a live connection to Azure Analysis Services
         /// </summary>
         public static readonly DatasetMode AsAzure = "AsAzure";
 
         /// <summary>
-        /// A dataset with a live connection to On-premise Analysis Service
+        /// A dataset with a live connection to on-premises Azure Analysis
+        /// Services
         /// </summary>
         public static readonly DatasetMode AsOnPrem = "AsOnPrem";
 
         /// <summary>
-        /// A dataset which allows programmatic access for pushing data into
-        /// PowerBI, [learn
-        /// more](https://docs.microsoft.com/power-bi/developer/walkthrough-push-data)
+        /// A dataset that allows programmatic access for pushing data into
+        /// PowerBI
         /// </summary>
         public static readonly DatasetMode Push = "Push";
 
         /// <summary>
-        /// A dataset which supports data streaming, [learn
-        /// more](https://docs.microsoft.com/power-bi/service-real-time-streaming)
+        /// A dataset that supports data streaming. For more information, see
+        /// [Real-time streaming in Power
+        /// BI](/power-bi/connect-data/service-real-time-streaming).
         /// </summary>
         public static readonly DatasetMode Streaming = "Streaming";
 
         /// <summary>
-        /// A dataset which supports data streaming and allows programmatic
+        /// A dataset that supports data streaming and allows programmatic
         /// access for pushing data into Power BI
         /// </summary>
         public static readonly DatasetMode PushStreaming = "PushStreaming";

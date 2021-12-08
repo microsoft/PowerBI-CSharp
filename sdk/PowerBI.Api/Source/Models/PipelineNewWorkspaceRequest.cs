@@ -10,8 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Configuration for creating a new workspace when deploying into a stage
-    /// which has no assigned workspaces.
+    /// The configuration details for creating a new workspace. Required when
+    /// deploying to a stage that has no assigned workspaces.
     /// </summary>
     public partial class PipelineNewWorkspaceRequest
     {
@@ -28,12 +28,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the PipelineNewWorkspaceRequest
         /// class.
         /// </summary>
-        /// <param name="name">The name of the new workspace.</param>
+        /// <param name="name">The name of the new workspace</param>
         /// <param name="capacityId">The ID of the capacity that the new
-        /// workspace will be assigned to. When unspecified, if you have
-        /// permissions for the source stage workspace capacity, this capacity
-        /// will be used. Otherwise, a capacity that you have permissions for,
-        /// will be selected.</param>
+        /// workspace will be assigned to. If unspecified and the API caller
+        /// has permissions for the source stage workspace capacity, then that
+        /// capacity will be used. Otherwise, Power BI will select a capacity
+        /// that the API caller has permissions for.</param>
         public PipelineNewWorkspaceRequest(string name = default(string), System.Guid? capacityId = default(System.Guid?))
         {
             Name = name;
@@ -47,17 +47,17 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the name of the new workspace.
+        /// Gets or sets the name of the new workspace
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the ID of the capacity that the new workspace will be
-        /// assigned to. When unspecified, if you have permissions for the
-        /// source stage workspace capacity, this capacity will be used.
-        /// Otherwise, a capacity that you have permissions for, will be
-        /// selected.
+        /// assigned to. If unspecified and the API caller has permissions for
+        /// the source stage workspace capacity, then that capacity will be
+        /// used. Otherwise, Power BI will select a capacity that the API
+        /// caller has permissions for.
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
         public System.Guid? CapacityId { get; set; }

@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="workspaces">The workspace info associated with this
         /// scan</param>
-        /// <param name="datasourceInstances">The datasources' instances
+        /// <param name="datasourceInstances">The data source instances
         /// associated with this scan</param>
         public WorkspaceInfoResponse(IList<WorkspaceInfo> workspaces = default(IList<WorkspaceInfo>), IList<Datasource> datasourceInstances = default(IList<Datasource>))
         {
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<WorkspaceInfo> Workspaces { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasources' instances associated with this scan
+        /// Gets or sets the data source instances associated with this scan
         /// </summary>
         [JsonProperty(PropertyName = "datasourceInstances")]
         public IList<Datasource> DatasourceInstances { get; set; }

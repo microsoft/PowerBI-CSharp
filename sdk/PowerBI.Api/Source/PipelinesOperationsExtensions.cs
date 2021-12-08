@@ -16,13 +16,13 @@ namespace Microsoft.PowerBI.Api
     public static partial class PipelinesOperationsExtensions
     {
             /// <summary>
-            /// Returns a list of deployment pipelines the user has access to.
+            /// Returns a list of deployment pipelines that the user has access to.
             /// </summary>
             /// <remarks>
             ///
             /// ## Required scope
             ///
-            /// Pipeline.ReadWrite.All or Pipeline.Read.All
+            /// Pipeline.Read.All or Pipeline.ReadWrite.All
             ///
             /// ######
             ///
@@ -36,13 +36,13 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of deployment pipelines the user has access to.
+            /// Returns a list of deployment pipelines that the user has access to.
             /// </summary>
             /// <remarks>
             ///
             /// ## Required scope
             ///
-            /// Pipeline.ReadWrite.All or Pipeline.Read.All
+            /// Pipeline.Read.All or Pipeline.ReadWrite.All
             ///
             /// ######
             ///
@@ -656,17 +656,19 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns the supported items from the workspace assigned to the specified
-            /// deployment pipeline stage. To learn more about items that are not supported
-            /// in deployment pipelines, see [unsupported
-            /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
+            /// stage of the specified deployment pipeline.
             /// </summary>
             /// <remarks>
             ///
+            /// To learn about items that aren't supported in deployment pipelines, see
+            /// [Unsupported
+            /// items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).
+            ///
             /// ## Permissions
             ///
-            /// To perform this operation, the user must be at least a contributor on the
-            /// workspace assigned to the specified stage. For more information, see
-            /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+            /// The user must at least be a contributor on the workspace assigned to the
+            /// specified stage. For more information, see
+            /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
             /// ## Required scope
             ///
@@ -692,17 +694,19 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns the supported items from the workspace assigned to the specified
-            /// deployment pipeline stage. To learn more about items that are not supported
-            /// in deployment pipelines, see [unsupported
-            /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
+            /// stage of the specified deployment pipeline.
             /// </summary>
             /// <remarks>
             ///
+            /// To learn about items that aren't supported in deployment pipelines, see
+            /// [Unsupported
+            /// items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).
+            ///
             /// ## Permissions
             ///
-            /// To perform this operation, the user must be at least a contributor on the
-            /// workspace assigned to the specified stage. For more information, see
-            /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+            /// The user must at least be a contributor on the workspace assigned to the
+            /// specified stage. For more information, see
+            /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
             /// ## Required scope
             ///
@@ -733,11 +737,10 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of up to 20 last deploy operations performed on the
-            /// specified deployment pipeline.
+            /// Returns a list of the up-to-20 most recent deploy operations performed on
+            /// the specified deployment pipeline.
             /// </summary>
             /// <remarks>
-            ///
             ///
             /// ## Required scope
             ///
@@ -758,11 +761,10 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of up to 20 last deploy operations performed on the
-            /// specified deployment pipeline.
+            /// Returns a list of the up-to-20 most recent deploy operations performed on
+            /// the specified deployment pipeline.
             /// </summary>
             /// <remarks>
-            ///
             ///
             /// ## Required scope
             ///
@@ -790,11 +792,11 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns the details of the specified deploy operation performed on the
-            /// specified deployment pipeline including the `executionPlan`. Use to track
-            /// the status of the deploy operation.
+            /// specified deployment pipeline, including the deployment execution plan.
             /// </summary>
             /// <remarks>
             ///
+            /// Use to track the status of a deploy operation.
             ///
             /// ## Required scope
             ///
@@ -819,11 +821,11 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Returns the details of the specified deploy operation performed on the
-            /// specified deployment pipeline including the `executionPlan`. Use to track
-            /// the status of the deploy operation.
+            /// specified deployment pipeline, including the deployment execution plan.
             /// </summary>
             /// <remarks>
             ///
+            /// Use to track the status of a deploy operation.
             ///
             /// ## Required scope
             ///
@@ -853,18 +855,20 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deploy all supported items from the specified deployment pipeline source
-            /// stage. To learn more about items that are not supported in deployment
-            /// pipelines, see [unsupported
-            /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
+            /// Deploys all supported items from the source stage of the specified
+            /// deployment pipeline.
             /// </summary>
             /// <remarks>
             ///
+            /// To learn about items that aren't supported in deployment pipelines, see
+            /// [Unsupported
+            /// items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).
+            ///
             /// ## Permissions
             ///
-            /// To perform this operation, the user must be at least a member on both
-            /// workpsaces. For more information, see
-            /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+            /// The user must at least be a member on both source and target deployment
+            /// workspaces. For more information, see
+            /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
             /// ## Required scope
             ///
@@ -872,7 +876,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// You can deploy up to 300 items per request
+            /// Maximum 300 deployed items per request.
             ///
             /// ######
             ///
@@ -892,18 +896,20 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deploy all supported items from the specified deployment pipeline source
-            /// stage. To learn more about items that are not supported in deployment
-            /// pipelines, see [unsupported
-            /// items](https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#unsupported-items)
+            /// Deploys all supported items from the source stage of the specified
+            /// deployment pipeline.
             /// </summary>
             /// <remarks>
             ///
+            /// To learn about items that aren't supported in deployment pipelines, see
+            /// [Unsupported
+            /// items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).
+            ///
             /// ## Permissions
             ///
-            /// To perform this operation, the user must be at least a member on both
-            /// workpsaces. For more information, see
-            /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+            /// The user must at least be a member on both source and target deployment
+            /// workspaces. For more information, see
+            /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
             /// ## Required scope
             ///
@@ -911,7 +917,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// You can deploy up to 300 items per request
+            /// Maximum 300 deployed items per request.
             ///
             /// ######
             ///
@@ -937,16 +943,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deploy the specified items from the specified deployment pipeline source
-            /// stage.
+            /// Deploys the specified items from the source stage of the specified
+            /// deployment pipeline.
             /// </summary>
             /// <remarks>
             ///
             /// ## Permissions
             ///
-            /// To perform this operation, the user must be at least a member on both
-            /// workpsaces. For more information, see
-            /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+            /// The user must at least be a member on both source and target deployment
+            /// workspaces. For more information, see
+            /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
             /// ## Required scope
             ///
@@ -954,7 +960,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// You can deploy up to 300 items per request
+            /// Maximum 300 deployed items per request.
             ///
             /// ######
             ///
@@ -974,16 +980,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deploy the specified items from the specified deployment pipeline source
-            /// stage.
+            /// Deploys the specified items from the source stage of the specified
+            /// deployment pipeline.
             /// </summary>
             /// <remarks>
             ///
             /// ## Permissions
             ///
-            /// To perform this operation, the user must be at least a member on both
-            /// workpsaces. For more information, see
-            /// [permissions]([https://docs.microsoft.com/power-bi/create-reports/deployment-pipelines-process#permissions)
+            /// The user must at least be a member on both source and target deployment
+            /// workspaces. For more information, see
+            /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
             /// ## Required scope
             ///
@@ -991,7 +997,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// You can deploy up to 300 items per request
+            /// Maximum 300 deployed items per request.
             ///
             /// ######
             ///
@@ -1055,7 +1061,7 @@ namespace Microsoft.PowerBI.Api
             /// Skips the first n results. Use with top to fetch results beyond the first
             /// 5000.
             /// </param>
-            public static Pipelines GetPipelinesAsAdmin(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminPipelines GetPipelinesAsAdmin(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetPipelinesAsAdminAsync(expand, filter, top, skip).GetAwaiter().GetResult();
             }
@@ -1102,7 +1108,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Pipelines> GetPipelinesAsAdminAsync(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminPipelines> GetPipelinesAsAdminAsync(this IPipelinesOperations operations, string expand = default(string), string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetPipelinesAsAdminWithHttpMessagesAsync(expand, filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {

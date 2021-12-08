@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ModifiedWorkspace class.
         /// </summary>
-        /// <param name="id">The workspace object ID.</param>
+        /// <param name="id">The workspace object ID</param>
         public ModifiedWorkspace(System.Guid id)
         {
             Id = id;
@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the workspace object ID.
+        /// Gets or sets the workspace object ID
         /// </summary>
         [JsonProperty(PropertyName = "Id")]
         public System.Guid Id { get; set; }

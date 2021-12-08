@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI dataset parameter list
+    /// The OData response wrapper for a list of Power BI dataset parameters
     /// </summary>
     public partial class MashupParameters
     {
@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the MashupParameters class.
         /// </summary>
-        /// <param name="value">The dataset parameter List</param>
+        /// <param name="value">A list of dataset parameters</param>
         public MashupParameters(string odatacontext = default(string), IList<MashupParameter> value = default(IList<MashupParameter>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset parameter List
+        /// Gets or sets a list of dataset parameters
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<MashupParameter> Value { get; set; }

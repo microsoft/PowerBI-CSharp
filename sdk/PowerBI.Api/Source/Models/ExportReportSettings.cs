@@ -26,10 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the ExportReportSettings class.
         /// </summary>
         /// <param name="locale">The locale to apply</param>
-        /// <param name="includeHiddenPages">A flag indicating whether to
-        /// include hidden pages when exporting the entire report (when passing
-        /// specific pages this property will be ignored). If not provided, the
-        /// default behavior is to exclude hidden pages</param>
+        /// <param name="includeHiddenPages">Whether to include hidden pages
+        /// when exporting an entire report. If not provided, the default
+        /// behavior is to exclude hidden pages. This property will be ignored
+        /// when specific pages are exported.</param>
         public ExportReportSettings(string locale = default(string), bool? includeHiddenPages = default(bool?))
         {
             Locale = locale;
@@ -49,10 +49,10 @@ namespace Microsoft.PowerBI.Api.Models
         public string Locale { get; set; }
 
         /// <summary>
-        /// Gets or sets a flag indicating whether to include hidden pages when
-        /// exporting the entire report (when passing specific pages this
-        /// property will be ignored). If not provided, the default behavior is
-        /// to exclude hidden pages
+        /// Gets or sets whether to include hidden pages when exporting an
+        /// entire report. If not provided, the default behavior is to exclude
+        /// hidden pages. This property will be ignored when specific pages are
+        /// exported.
         /// </summary>
         [JsonProperty(PropertyName = "includeHiddenPages")]
         public bool? IncludeHiddenPages { get; set; }

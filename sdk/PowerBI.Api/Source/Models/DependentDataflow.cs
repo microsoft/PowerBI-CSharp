@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI Dependent dataflow
+    /// A Power BI dependent dataflow
     /// </summary>
     public partial class DependentDataflow
     {

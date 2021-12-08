@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI datasource
+    /// A Power BI data source
     /// </summary>
     public partial class Datasource
     {
@@ -25,18 +25,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Datasource class.
         /// </summary>
-        /// <param name="name">(Deprecated) The datasource name. Available only
-        /// for DirectQuery.</param>
-        /// <param name="connectionString">(Deprecated) The datasource
+        /// <param name="name">(Deprecated) The data source name. Available
+        /// only for DirectQuery.</param>
+        /// <param name="connectionString">(Deprecated) The data source
         /// connection string. Available only for DirectQuery.</param>
-        /// <param name="datasourceType">The datasource type</param>
-        /// <param name="connectionDetails">The datasource connection
+        /// <param name="datasourceType">The data source type</param>
+        /// <param name="connectionDetails">The data source connection
         /// details</param>
-        /// <param name="gatewayId">The bound gateway ID. Empty when not bound
-        /// to a gateway. When using a gateway cluster, the gateway ID refers
-        /// to the primary (first) gateway in the cluster. In such cases,
-        /// gateway ID is similar to gateway cluster ID.</param>
-        /// <param name="datasourceId">The bound datasource ID, which is empty
+        /// <param name="gatewayId">The bound gateway ID, which is empty when
+        /// not bound to a gateway. When using a gateway cluster, the gateway
+        /// ID refers to the primary (first) gateway in the cluster and is
+        /// similar to the gateway cluster ID.</param>
+        /// <param name="datasourceId">The bound data source ID, which is empty
         /// when not bound to a gateway</param>
         public Datasource(string name = default(string), string connectionString = default(string), string datasourceType = default(string), DatasourceConnectionDetails connectionDetails = default(DatasourceConnectionDetails), System.Guid? gatewayId = default(System.Guid?), System.Guid? datasourceId = default(System.Guid?))
         {
@@ -55,43 +55,43 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Deprecated) The datasource name. Available only for
+        /// Gets or sets (Deprecated) The data source name. Available only for
         /// DirectQuery.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets (Deprecated) The datasource connection string.
+        /// Gets or sets (Deprecated) The data source connection string.
         /// Available only for DirectQuery.
         /// </summary>
         [JsonProperty(PropertyName = "connectionString")]
         public string ConnectionString { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource type
+        /// Gets or sets the data source type
         /// </summary>
         [JsonProperty(PropertyName = "datasourceType")]
         public string DatasourceType { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource connection details
+        /// Gets or sets the data source connection details
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public DatasourceConnectionDetails ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the bound gateway ID. Empty when not bound to a
-        /// gateway. When using a gateway cluster, the gateway ID refers to the
-        /// primary (first) gateway in the cluster. In such cases, gateway ID
-        /// is similar to gateway cluster ID.
+        /// Gets or sets the bound gateway ID, which is empty when not bound to
+        /// a gateway. When using a gateway cluster, the gateway ID refers to
+        /// the primary (first) gateway in the cluster and is similar to the
+        /// gateway cluster ID.
         /// </summary>
         [JsonProperty(PropertyName = "gatewayId")]
         public System.Guid? GatewayId { get; set; }
 
         /// <summary>
-        /// Gets or sets the bound datasource ID, which is empty when not bound
-        /// to a gateway
+        /// Gets or sets the bound data source ID, which is empty when not
+        /// bound to a gateway
         /// </summary>
         [JsonProperty(PropertyName = "datasourceId")]
         public System.Guid? DatasourceId { get; set; }

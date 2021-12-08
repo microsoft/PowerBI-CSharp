@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for capacity workload settings list
+    /// OData response wrapper for capacity workload settings list
     /// </summary>
     public partial class Workloads
     {

@@ -22,13 +22,19 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of workspaces the user has access to.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: Users that have been recently added to a group
-        /// may not have their new group immediately available, see [Refresh
-        /// user
-        /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).&lt;br/&gt;&lt;br/&gt;**Required
-        /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// When user permissions to a workspace have been recently updated,
+        /// the new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.Read.All or Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -53,12 +59,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Groups>> GetGroupsWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates new workspace.
+        /// Creates a new workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='requestParameters'>
         /// Create group request parameters
@@ -87,9 +97,13 @@ namespace Microsoft.PowerBI.Api
         /// Deletes the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID to delete
@@ -109,15 +123,21 @@ namespace Microsoft.PowerBI.Api
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note:** User permissions are only refreshed when
-        /// needed. As a result, the API might return a 401 error when a user
-        /// has permission to a workspace. To refresh user permissions
-        /// programmatically, use the [Refresh User
-        /// Permissions](/rest/api/power-bi/users/refreshuserpermissions)
-        /// API.&lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All or
-        /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// When user permissions to a workspace have been recently updated,
+        /// the new permissions might not be immediately available through API
+        /// calls. As a result, this API call might return an HTTP 401 error
+        /// when a user has permissions to a workspace. To refresh user
+        /// permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.Read.All or Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -136,17 +156,23 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<GroupUsers>> GetGroupUsersWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Grants the specified user permissions to the specified workspace.
+        /// Grants the specified user the specified permissions to the
+        /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Notes**: &lt;li&gt; Users that have been recently
-        /// added to a group may not have their new group immediately
-        /// available, see [Refresh user
-        /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).
-        /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
-        /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// When user permissions to a workspace have been recently updated,
+        /// the new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -168,15 +194,22 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> AddGroupUserWithHttpMessagesAsync(System.Guid groupId, GroupUser userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Update the specified user permissions to the specified workspace.
+        /// Updates the specified user permissions to the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Notes**: &lt;li&gt; Users permissions that have been
-        /// recently updated may not have their new permissions immediately
-        /// updated. &lt;/li&gt;&lt;br/&gt;**Required scope**:
-        /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// When user permissions to a workspace have been recently updated,
+        /// the new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -202,9 +235,13 @@ namespace Microsoft.PowerBI.Api
         /// workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required scope
+        ///
+        /// Workspace.ReadWrite.All
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -366,15 +403,21 @@ namespace Microsoft.PowerBI.Api
         /// account.
         /// </summary>
         /// <remarks>
-        /// **Note**: To perform this operation, the user must be an admin on
-        /// the specified workspace and the Power BI dataflow storage account
-        /// must be enabled. To unassign the specified workspace from a Power
-        /// BI dataflow storage account, an empty GUID
-        /// (00000000-0000-0000-0000-000000000000) should be provided as
-        /// dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required scope**:
+        ///
+        /// To perform this operation, the user must be an admin on the
+        /// specified workspace and the Power BI dataflow storage account must
+        /// be enabled.
+        ///
+        /// To unassign the specified workspace from a Power BI dataflow
+        /// storage account, provide an empty GUID
+        /// (00000000-0000-0000-0000-000000000000) as the `dataflowStorageId`.
+        ///
+        /// ## Required scope
+        ///
         /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -446,7 +489,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Groups>> GetGroupsAsAdminWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminGroups>> GetGroupsAsAdminWithHttpMessagesAsync(int top, string expand = default(string), string filter = default(string), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a workspace for the organization.
         /// </summary>
@@ -470,6 +513,9 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
         /// data types. Supported: users, reports, dashboards, datasets,
@@ -487,7 +533,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Group>> GetGroupAsAdminWithHttpMessagesAsync(string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminGroup>> GetGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, string expand = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the properties of the specified workspace.
         /// </summary>
@@ -531,7 +577,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, Group groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, AdminGroup groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
         /// workspace. This is a preview API call.

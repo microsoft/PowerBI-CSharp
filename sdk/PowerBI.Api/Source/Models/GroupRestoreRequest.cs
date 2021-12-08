@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI request to restore a deleted group
+    /// A Power BI request to restore a deleted group
     /// </summary>
     public partial class GroupRestoreRequest
     {
@@ -27,8 +27,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GroupRestoreRequest class.
         /// </summary>
         /// <param name="emailAddress">The email address of the owner of the
-        /// group to be restored.</param>
-        /// <param name="name">The name of the group to be restored.</param>
+        /// group to be restored</param>
+        /// <param name="name">The name of the group to be restored</param>
         public GroupRestoreRequest(string emailAddress, string name = default(string))
         {
             Name = name;
@@ -42,14 +42,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the name of the group to be restored.
+        /// Gets or sets the name of the group to be restored
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the email address of the owner of the group to be
-        /// restored.
+        /// restored
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }

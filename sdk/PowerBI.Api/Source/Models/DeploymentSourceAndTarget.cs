@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Source and target items.
+    /// Source and target items
     /// </summary>
     public partial class DeploymentSourceAndTarget
     {
@@ -25,11 +25,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DeploymentSourceAndTarget class.
         /// </summary>
-        /// <param name="source">The ID of the artifact being deployed from the
-        /// source stage.</param>
-        /// <param name="target">The ID of the artifact being overwritten on
-        /// the target stage. Only applicable when overwriting an
-        /// artifact.</param>
+        /// <param name="source">The ID of the Power BI item that's deployed
+        /// from the source stage</param>
+        /// <param name="target">The ID of the Power BI item that will be
+        /// overwritten in the target stage. Only applies when overwriting a
+        /// Power BI item.</param>
         public DeploymentSourceAndTarget(System.Guid source, System.Guid? target = default(System.Guid?))
         {
             Source = source;
@@ -43,15 +43,15 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the ID of the artifact being deployed from the source
-        /// stage.
+        /// Gets or sets the ID of the Power BI item that's deployed from the
+        /// source stage
         /// </summary>
         [JsonProperty(PropertyName = "source")]
         public System.Guid Source { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the artifact being overwritten on the target
-        /// stage. Only applicable when overwriting an artifact.
+        /// Gets or sets the ID of the Power BI item that will be overwritten
+        /// in the target stage. Only applies when overwriting a Power BI item.
         /// </summary>
         [JsonProperty(PropertyName = "target")]
         public System.Guid? Target { get; set; }

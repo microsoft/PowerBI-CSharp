@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI dataset to dataflow links list
+    /// The OData response wrapper for a list of Power BI dataset to dataflow
+    /// links
     /// </summary>
     public partial class DatasetToDataflowLinksResponse
     {

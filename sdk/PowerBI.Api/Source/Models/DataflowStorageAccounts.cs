@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for Power BI dataflow storage account list
+    /// OData response wrapper for Power BI dataflow storage account list
     /// </summary>
     public partial class DataflowStorageAccounts
     {

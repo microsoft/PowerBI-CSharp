@@ -27,18 +27,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GenerateTokenRequestV2 class.
         /// </summary>
-        /// <param name="datasets">List of datasets</param>
-        /// <param name="reports">List of reports</param>
-        /// <param name="targetWorkspaces">List of workspaces *Embed Token*
-        /// allows saving to</param>
-        /// <param name="identities">List of identities to use for RLS
-        /// rules.</param>
+        /// <param name="datasets">A list of datasets</param>
+        /// <param name="reports">A list of reports</param>
+        /// <param name="targetWorkspaces">The list of workspaces that the
+        /// embed token will allow saving to</param>
+        /// <param name="identities">The list of identities to use for
+        /// row-level security rules</param>
         /// <param name="lifetimeInMinutes">The maximum lifetime of the token
         /// in minutes, starting from the time it was generated. Can be used to
-        /// shorten the token’s expiration time, but not to extend it. The
-        /// value must be a positive integer. Zero (0) is equivalent to null
-        /// and will be ignored, resulting in the default expiration
-        /// time.</param>
+        /// shorten the token's expiration time, but not to extend it. The
+        /// value must be a positive integer. Zero (`0`) is equivalent to
+        /// `null`, and will set the default expiration time.</param>
         public GenerateTokenRequestV2(IList<GenerateTokenRequestV2Dataset> datasets = default(IList<GenerateTokenRequestV2Dataset>), IList<GenerateTokenRequestV2Report> reports = default(IList<GenerateTokenRequestV2Report>), IList<GenerateTokenRequestV2TargetWorkspace> targetWorkspaces = default(IList<GenerateTokenRequestV2TargetWorkspace>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), int? lifetimeInMinutes = default(int?))
         {
             Datasets = datasets;
@@ -55,35 +54,37 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets list of datasets
+        /// Gets or sets a list of datasets
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<GenerateTokenRequestV2Dataset> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets list of reports
+        /// Gets or sets a list of reports
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<GenerateTokenRequestV2Report> Reports { get; set; }
 
         /// <summary>
-        /// Gets or sets list of workspaces *Embed Token* allows saving to
+        /// Gets or sets the list of workspaces that the embed token will allow
+        /// saving to
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaces")]
         public IList<GenerateTokenRequestV2TargetWorkspace> TargetWorkspaces { get; set; }
 
         /// <summary>
-        /// Gets or sets list of identities to use for RLS rules.
+        /// Gets or sets the list of identities to use for row-level security
+        /// rules
         /// </summary>
         [JsonProperty(PropertyName = "identities")]
         public IList<EffectiveIdentity> Identities { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum lifetime of the token in minutes, starting
-        /// from the time it was generated. Can be used to shorten the token’s
+        /// from the time it was generated. Can be used to shorten the token's
         /// expiration time, but not to extend it. The value must be a positive
-        /// integer. Zero (0) is equivalent to null and will be ignored,
-        /// resulting in the default expiration time.
+        /// integer. Zero (`0`) is equivalent to `null`, and will set the
+        /// default expiration time.
         /// </summary>
         [JsonProperty(PropertyName = "lifetimeInMinutes")]
         public int? LifetimeInMinutes { get; set; }

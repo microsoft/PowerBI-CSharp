@@ -159,7 +159,7 @@ namespace PowerBI.Api.Tests
 
         private static HttpResponseMessage CreateSampleReportResponse(string name = default(string))
         {
-            var report = new Report(Guid.NewGuid(), "Report Name", "AN URL", "EMBEDURL");
+            var report = new Report(id: Guid.NewGuid(), name: "Report Name", webUrl: "AN URL", embedUrl: "EMBEDURL");
 
             return new HttpResponseMessage(HttpStatusCode.OK)
             {

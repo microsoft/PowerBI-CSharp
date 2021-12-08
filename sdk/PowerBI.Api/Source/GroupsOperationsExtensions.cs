@@ -19,12 +19,18 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of workspaces the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
-            /// have their new group immediately available, see [Refresh user
-            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -47,12 +53,18 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of workspaces the user has access to.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note**: Users that have been recently added to a group may not
-            /// have their new group immediately available, see [Refresh user
-            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: Workspace.Read.All or Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -78,12 +90,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates new workspace.
+            /// Creates a new workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -100,12 +116,16 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates new workspace.
+            /// Creates a new workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -131,9 +151,13 @@ namespace Microsoft.PowerBI.Api
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -150,9 +174,13 @@ namespace Microsoft.PowerBI.Api
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -172,14 +200,20 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** User permissions are only refreshed when needed. As a
-            /// result, the API might return a 401 error when a user has permission to a
-            /// workspace. To refresh user permissions programmatically, use the [Refresh
-            /// User Permissions](/rest/api/power-bi/users/refreshuserpermissions)
-            /// API.&lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All or
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. As a
+            /// result, this API call might return an HTTP 401 error when a user has
+            /// permissions to a workspace. To refresh user permissions, use the [Refresh
+            /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+            /// call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -196,14 +230,20 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** User permissions are only refreshed when needed. As a
-            /// result, the API might return a 401 error when a user has permission to a
-            /// workspace. To refresh user permissions programmatically, use the [Refresh
-            /// User Permissions](/rest/api/power-bi/users/refreshuserpermissions)
-            /// API.&lt;br/&gt;&lt;br/&gt;**Required scope**: Workspace.Read.All or
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. As a
+            /// result, this API call might return an HTTP 401 error when a user has
+            /// permissions to a workspace. To refresh user permissions, use the [Refresh
+            /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+            /// call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.Read.All or Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -223,16 +263,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Grants the specified user permissions to the specified workspace.
+            /// Grants the specified user the specified permissions to the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users that have been recently added to a
-            /// group may not have their new group immediately available, see [Refresh user
-            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).
-            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -249,16 +295,22 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Grants the specified user permissions to the specified workspace.
+            /// Grants the specified user the specified permissions to the specified
+            /// workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users that have been recently added to a
-            /// group may not have their new group immediately available, see [Refresh user
-            /// permissions](https://docs.microsoft.com/en-us/rest/api/power-bi/users/refreshuserpermissions).
-            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -278,15 +330,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Update the specified user permissions to the specified workspace.
+            /// Updates the specified user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users permissions that have been recently
-            /// updated may not have their new permissions immediately updated.
-            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -303,15 +361,21 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Update the specified user permissions to the specified workspace.
+            /// Updates the specified user permissions to the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Notes**: &lt;li&gt; Users permissions that have been recently
-            /// updated may not have their new permissions immediately updated.
-            /// &lt;/li&gt;&lt;br/&gt;**Required scope**:
-            /// Workspace.ReadWrite.All&lt;br/&gt;To set the permissions scope, see
-            /// [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// When user permissions to a workspace have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -334,9 +398,13 @@ namespace Microsoft.PowerBI.Api
             /// Deletes the specified user permissions from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -357,9 +425,13 @@ namespace Microsoft.PowerBI.Api
             /// Deletes the specified user permissions from the specified workspace.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Required scope**: Workspace.ReadWrite.All&lt;br/&gt;To set the
-            /// permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Required scope
+            ///
+            /// Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -629,14 +701,20 @@ namespace Microsoft.PowerBI.Api
             /// Assigns the specified workspace to the specified dataflow storage account.
             /// </summary>
             /// <remarks>
-            /// **Note**: To perform this operation, the user must be an admin on the
-            /// specified workspace and the Power BI dataflow storage account must be
-            /// enabled. To unassign the specified workspace from a Power BI dataflow
-            /// storage account, an empty GUID (00000000-0000-0000-0000-000000000000)
-            /// should be provided as dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// To perform this operation, the user must be an admin on the specified
+            /// workspace and the Power BI dataflow storage account must be enabled.
+            ///
+            /// To unassign the specified workspace from a Power BI dataflow storage
+            /// account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as
+            /// the `dataflowStorageId`.
+            ///
+            /// ## Required scope
+            ///
+            /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -656,14 +734,20 @@ namespace Microsoft.PowerBI.Api
             /// Assigns the specified workspace to the specified dataflow storage account.
             /// </summary>
             /// <remarks>
-            /// **Note**: To perform this operation, the user must be an admin on the
-            /// specified workspace and the Power BI dataflow storage account must be
-            /// enabled. To unassign the specified workspace from a Power BI dataflow
-            /// storage account, an empty GUID (00000000-0000-0000-0000-000000000000)
-            /// should be provided as dataflowStorageId.&lt;br/&gt;&lt;br/&gt;**Required
-            /// scope**: StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// To perform this operation, the user must be an admin on the specified
+            /// workspace and the Power BI dataflow storage account must be enabled.
+            ///
+            /// To unassign the specified workspace from a Power BI dataflow storage
+            /// account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as
+            /// the `dataflowStorageId`.
+            ///
+            /// ## Required scope
+            ///
+            /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -724,7 +808,7 @@ namespace Microsoft.PowerBI.Api
             /// Skips the first n results. Use with top to fetch results beyond the first
             /// 5000.
             /// </param>
-            public static Groups GetGroupsAsAdmin(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
+            public static AdminGroups GetGroupsAsAdmin(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?))
             {
                 return operations.GetGroupsAsAdminAsync(top, expand, filter, skip).GetAwaiter().GetResult();
             }
@@ -774,7 +858,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Groups> GetGroupsAsAdminAsync(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminGroups> GetGroupsAsAdminAsync(this IGroupsOperations operations, int top, string expand = default(string), string filter = default(string), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetGroupsAsAdminWithHttpMessagesAsync(top, expand, filter, skip, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -808,14 +892,17 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
             /// types. Supported: users, reports, dashboards, datasets, dataflows,
             /// workbooks
             /// </param>
-            public static Group GetGroupAsAdmin(this IGroupsOperations operations, string expand = default(string))
+            public static AdminGroup GetGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, string expand = default(string))
             {
-                return operations.GetGroupAsAdminAsync(expand).GetAwaiter().GetResult();
+                return operations.GetGroupAsAdminAsync(groupId, expand).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -844,6 +931,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
             /// <param name='expand'>
             /// Expands related entities inline, receives a comma-separated list of data
             /// types. Supported: users, reports, dashboards, datasets, dataflows,
@@ -852,9 +942,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Group> GetGroupAsAdminAsync(this IGroupsOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminGroup> GetGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetGroupAsAdminWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGroupAsAdminWithHttpMessagesAsync(groupId, expand, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -894,7 +984,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='groupProperties'>
             /// The properties to update
             /// </param>
-            public static void UpdateGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, Group groupProperties)
+            public static void UpdateGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, AdminGroup groupProperties)
             {
                 operations.UpdateGroupAsAdminAsync(groupId, groupProperties).GetAwaiter().GetResult();
             }
@@ -936,7 +1026,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, Group groupProperties, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateGroupAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, AdminGroup groupProperties, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateGroupAsAdminWithHttpMessagesAsync(groupId, groupProperties, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

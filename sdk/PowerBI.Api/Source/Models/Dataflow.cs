@@ -6,7 +6,6 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    using Newtonsoft.Json;
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
@@ -17,7 +16,7 @@ namespace Microsoft.PowerBI.Api.Models
     /// returned depending on the API called, the caller permissions and the
     /// availability of the data in the Power BI database.
     /// </summary>
-    public partial class Dataflow
+    public partial class Dataflow : DataflowBaseProperties
     {
         /// <summary>
         /// Initializes a new instance of the Dataflow class.
@@ -38,32 +37,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="configuredBy">The dataflow owner</param>
         /// <param name="modifiedBy">The user that modified this
         /// dataflow</param>
-        /// <param name="endorsementDetails">The dataflow endorsement
-        /// details</param>
         /// <param name="modifiedDateTime">modification date time</param>
-        /// <param name="datasourceUsages">Datasource usages</param>
-        /// <param name="upstreamDataflows">Upstream Dataflows</param>
-        /// <param name="sensitivityLabel">The dataflow sensitivity
-        /// label</param>
         /// <param name="users">The Dataflow User Access Details. This value
         /// will be empty. It will be removed from the payload response in an
         /// upcoming release. To retrieve user information on an artifact,
         /// please consider using the Get Dataflow User as Admin APIs, or the
         /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
-        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), SensitivityLabel sensitivityLabel = default(SensitivityLabel), IList<DataflowUser> users = default(IList<DataflowUser>))
+        public Dataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>))
+            : base(objectId, name, description, modelUrl, configuredBy, modifiedBy, modifiedDateTime, users)
         {
-            ObjectId = objectId;
-            Name = name;
-            Description = description;
-            ModelUrl = modelUrl;
-            ConfiguredBy = configuredBy;
-            ModifiedBy = modifiedBy;
-            EndorsementDetails = endorsementDetails;
-            ModifiedDateTime = modifiedDateTime;
-            DatasourceUsages = datasourceUsages;
-            UpstreamDataflows = upstreamDataflows;
-            SensitivityLabel = sensitivityLabel;
-            Users = users;
             CustomInit();
         }
 
@@ -73,103 +55,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataflow ID
-        /// </summary>
-        [JsonProperty(PropertyName = "objectId")]
-        public System.Guid ObjectId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataflow name
-        /// </summary>
-        [JsonProperty(PropertyName = "name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataflow description
-        /// </summary>
-        [JsonProperty(PropertyName = "description")]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets a URL to the dataflow definition file (model.json)
-        /// </summary>
-        [JsonProperty(PropertyName = "modelUrl")]
-        public string ModelUrl { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataflow owner
-        /// </summary>
-        [JsonProperty(PropertyName = "configuredBy")]
-        public string ConfiguredBy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user that modified this dataflow
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedBy")]
-        public string ModifiedBy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataflow endorsement details
-        /// </summary>
-        [JsonProperty(PropertyName = "endorsementDetails")]
-        public EndorsementDetails EndorsementDetails { get; set; }
-
-        /// <summary>
-        /// Gets or sets modification date time
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedDateTime")]
-        public System.DateTime? ModifiedDateTime { get; set; }
-
-        /// <summary>
-        /// Gets or sets datasource usages
-        /// </summary>
-        [JsonProperty(PropertyName = "datasourceUsages")]
-        public IList<DatasourceUsage> DatasourceUsages { get; set; }
-
-        /// <summary>
-        /// Gets or sets upstream Dataflows
-        /// </summary>
-        [JsonProperty(PropertyName = "upstreamDataflows")]
-        public IList<DependentDataflow> UpstreamDataflows { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataflow sensitivity label
-        /// </summary>
-        [JsonProperty(PropertyName = "sensitivityLabel")]
-        public SensitivityLabel SensitivityLabel { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Dataflow User Access Details. This value will be
-        /// empty. It will be removed from the payload response in an upcoming
-        /// release. To retrieve user information on an artifact, please
-        /// consider using the Get Dataflow User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.
-        /// </summary>
-        [JsonProperty(PropertyName = "users")]
-        public IList<DataflowUser> Users { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
-            if (DatasourceUsages != null)
-            {
-                foreach (var element in DatasourceUsages)
-                {
-                    if (element != null)
-                    {
-                        element.Validate();
-                    }
-                }
-            }
-            if (SensitivityLabel != null)
-            {
-                SensitivityLabel.Validate();
-            }
+            base.Validate();
         }
     }
 }

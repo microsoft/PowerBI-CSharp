@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI clone tile request
+    /// A Power BI request to clone a tile
     /// </summary>
     public partial class CloneTileRequest
     {
@@ -26,22 +26,25 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the CloneTileRequest class.
         /// </summary>
         /// <param name="targetDashboardId">The target dashboard ID</param>
-        /// <param name="targetWorkspaceId">Optional parameter for specifying
-        /// the target workspace ID. Empty Guid
-        /// (00000000-0000-0000-0000-000000000000) indicates 'My Workspace'.
-        /// &lt;br/&gt;If not provided, tile will be cloned within the same
-        /// workspace as the source tile.</param>
-        /// <param name="targetReportId">Optional parameter &lt;br/&gt;When
-        /// cloning a tile linked to a report, pass the target report ID to
-        /// rebind the new tile to a different report.</param>
-        /// <param name="targetModelId">Optional parameter &lt;br/&gt;When
-        /// cloning a tile linked to a dataset, pass the target model ID to
-        /// rebind the new tile to a different dataset.</param>
-        /// <param name="positionConflictAction">Optional parameter for
-        /// specifying the action in case of position conflict. &lt;br/&gt;If
-        /// not provided, 'Tail' is used. &lt;br/&gt;If there is no conflict,
-        /// clone tile to same position as in source. Possible values include:
-        /// 'Tail', 'Abort'</param>
+        /// <param name="targetWorkspaceId">(Optional) A parameter for
+        /// specifying a target workspace ID. An empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`) indicates 'My Workspace'.
+        /// If this parameter isn't provided, the tile will be cloned within
+        /// the same workspace as the source tile.</param>
+        /// <param name="targetReportId">(Optional) A parameter for specifying
+        /// a target report ID. When cloning a tile linked to a report, pass
+        /// the target report ID to rebind the new tile to a different
+        /// report.</param>
+        /// <param name="targetModelId">(Optional) A parameter for specifying a
+        /// target model ID. When cloning a tile linked to a dataset, pass the
+        /// target model ID to rebind the new tile to a different
+        /// dataset.</param>
+        /// <param name="positionConflictAction">(Optional) A parameter for
+        /// specifying an action in case of a position conflict. If there's a
+        /// conflict and this parameter isn't provided, then the default value
+        /// `Tail` will be applied. If there's no conflict, then the cloned
+        /// tile will have the same position as in the source. Possible values
+        /// include: 'Tail', 'Abort'</param>
         public CloneTileRequest(System.Guid targetDashboardId, System.Guid? targetWorkspaceId = default(System.Guid?), System.Guid? targetReportId = default(System.Guid?), string targetModelId = default(string), PositionConflictAction? positionConflictAction = default(PositionConflictAction?))
         {
             TargetDashboardId = targetDashboardId;
@@ -64,35 +67,37 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid TargetDashboardId { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter for specifying the target workspace
-        /// ID. Empty Guid (00000000-0000-0000-0000-000000000000) indicates 'My
-        /// Workspace'. &amp;lt;br/&amp;gt;If not provided, tile will be cloned
-        /// within the same workspace as the source tile.
+        /// Gets or sets (Optional) A parameter for specifying a target
+        /// workspace ID. An empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`) indicates 'My Workspace'.
+        /// If this parameter isn't provided, the tile will be cloned within
+        /// the same workspace as the source tile.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
         public System.Guid? TargetWorkspaceId { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter &amp;lt;br/&amp;gt;When cloning a
-        /// tile linked to a report, pass the target report ID to rebind the
-        /// new tile to a different report.
+        /// Gets or sets (Optional) A parameter for specifying a target report
+        /// ID. When cloning a tile linked to a report, pass the target report
+        /// ID to rebind the new tile to a different report.
         /// </summary>
         [JsonProperty(PropertyName = "targetReportId")]
         public System.Guid? TargetReportId { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter &amp;lt;br/&amp;gt;When cloning a
-        /// tile linked to a dataset, pass the target model ID to rebind the
-        /// new tile to a different dataset.
+        /// Gets or sets (Optional) A parameter for specifying a target model
+        /// ID. When cloning a tile linked to a dataset, pass the target model
+        /// ID to rebind the new tile to a different dataset.
         /// </summary>
         [JsonProperty(PropertyName = "targetModelId")]
         public string TargetModelId { get; set; }
 
         /// <summary>
-        /// Gets or sets optional parameter for specifying the action in case
-        /// of position conflict. &amp;lt;br/&amp;gt;If not provided, 'Tail' is
-        /// used. &amp;lt;br/&amp;gt;If there is no conflict, clone tile to
-        /// same position as in source. Possible values include: 'Tail',
+        /// Gets or sets (Optional) A parameter for specifying an action in
+        /// case of a position conflict. If there's a conflict and this
+        /// parameter isn't provided, then the default value `Tail` will be
+        /// applied. If there's no conflict, then the cloned tile will have the
+        /// same position as in the source. Possible values include: 'Tail',
         /// 'Abort'
         /// </summary>
         [JsonProperty(PropertyName = "positionConflictAction")]

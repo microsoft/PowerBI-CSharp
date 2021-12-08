@@ -13,8 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
 
     /// <summary>
     /// A Power BI refresh schedule for DirectQuery or LiveConnection,
-    /// specified by setting either the frequency or a combination of days and
-    /// times.
+    /// specifying either the frequency or a combination of days and times.
     /// </summary>
     public partial class DirectQueryRefreshSchedule
     {
@@ -29,14 +28,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DirectQueryRefreshSchedule class.
         /// </summary>
-        /// <param name="frequency">the refresh frequency in minutes, supported
-        /// values are 15, 30, 60, 120, and 180.</param>
-        /// <param name="days">Days to execute the refresh</param>
-        /// <param name="times">Times to execute the refresh within each
-        /// day</param>
-        /// <param name="localTimeZoneId">The ID of the time zone to use. See
-        /// [Time Zone
-        /// Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)</param>
+        /// <param name="frequency">The interval in minutes between successive
+        /// refreshes. Supported values are *15*, *30*, *60*, *120*, and
+        /// *180*.</param>
+        /// <param name="days">The days on which to execute the refresh</param>
+        /// <param name="times">The times of day to execute the refresh</param>
+        /// <param name="localTimeZoneId">The ID of the time zone to use. For
+        /// more information, see [Time zone
+        /// info](/dotnet/api/system.timezoneinfo.id)</param>
         public DirectQueryRefreshSchedule(int? frequency = default(int?), IList<Days?> days = default(IList<Days?>), IList<string> times = default(IList<string>), string localTimeZoneId = default(string))
         {
             Frequency = frequency;
@@ -52,27 +51,27 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the refresh frequency in minutes, supported values are
-        /// 15, 30, 60, 120, and 180.
+        /// Gets or sets the interval in minutes between successive refreshes.
+        /// Supported values are *15*, *30*, *60*, *120*, and *180*.
         /// </summary>
         [JsonProperty(PropertyName = "frequency")]
         public int? Frequency { get; set; }
 
         /// <summary>
-        /// Gets or sets days to execute the refresh
+        /// Gets or sets the days on which to execute the refresh
         /// </summary>
         [JsonProperty(PropertyName = "days")]
         public IList<Days?> Days { get; set; }
 
         /// <summary>
-        /// Gets or sets times to execute the refresh within each day
+        /// Gets or sets the times of day to execute the refresh
         /// </summary>
         [JsonProperty(PropertyName = "times")]
         public IList<string> Times { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the time zone to use. See [Time Zone
-        /// Info](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id)
+        /// Gets or sets the ID of the time zone to use. For more information,
+        /// see [Time zone info](/dotnet/api/system.timezoneinfo.id)
         /// </summary>
         [JsonProperty(PropertyName = "localTimeZoneId")]
         public string LocalTimeZoneId { get; set; }

@@ -12,10 +12,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI report. Below is a list of properties that may be returned
-    /// for a report. Only a subset of the properties will be returned
-    /// depending on the API called, the caller permissions and the
-    /// availability of the data in the Power BI database.
+    /// A Power BI report. The API returns a subset of the following list of
+    /// report properties. The subset depends on the API called, caller
+    /// permissions, and the availability of data in the Power BI database.
     /// </summary>
     public partial class Report
     {
@@ -31,43 +30,41 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Report class.
         /// </summary>
         /// <param name="id">The report ID</param>
-        /// <param name="name">The report name</param>
-        /// <param name="webUrl">The report web url</param>
-        /// <param name="embedUrl">The report embed url</param>
-        /// <param name="datasetId">The dataset ID</param>
+        /// <param name="name">The name of the report</param>
+        /// <param name="datasetId">The dataset ID of the report</param>
+        /// <param name="appId">The app ID, returned only if the report belongs
+        /// to an app</param>
         /// <param name="description">The report description</param>
-        /// <param name="createdBy">The report owner. Available only for
-        /// reports created after June 2019.</param>
-        /// <param name="modifiedBy">The user that modified this report</param>
-        /// <param name="createdDateTime">The report created date time.</param>
-        /// <param name="modifiedDateTime">The report modified date
-        /// time.</param>
-        /// <param name="endorsementDetails">The report endorsement
-        /// details</param>
-        /// <param name="sensitivityLabel">The report sensitivity label</param>
         /// <param name="reportType">The report type. Possible values include:
         /// 'PaginatedReport'</param>
-        /// <param name="users">The Report User Access Details. This value will
-        /// be empty. It will be removed from the payload response in an
-        /// upcoming release. To retrieve user information on an artifact,
-        /// please consider using the Get Report User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
-        public Report(System.Guid id, string name = default(string), string webUrl = default(string), string embedUrl = default(string), string datasetId = default(string), string description = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string reportType = default(string), IList<ReportUser> users = default(IList<ReportUser>))
+        /// <param name="webUrl">The web URL of the report</param>
+        /// <param name="embedUrl">The embed URL of the report</param>
+        /// <param name="users">(Empty value) The artifact user access details.
+        /// This property will be removed from the payload response in an
+        /// upcoming release. You can retrieve user information on a Power BI
+        /// item (such as a report or a dashboard) by using the [Get Report
+        /// Users as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.</param>
+        /// <param name="subscriptions">(Empty Value)The artifact subscription
+        /// Details. It will be removed from the payload response in an
+        /// upcoming release. To retrieve subscription information for report,
+        /// please consider using the Get Report Subscriptions as Admin
+        /// API.</param>
+        public Report(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), string webUrl = default(string), string embedUrl = default(string), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
             Name = name;
+            DatasetId = datasetId;
+            AppId = appId;
+            Description = description;
+            ReportType = reportType;
             WebUrl = webUrl;
             EmbedUrl = embedUrl;
-            DatasetId = datasetId;
-            Description = description;
-            CreatedBy = createdBy;
-            ModifiedBy = modifiedBy;
-            CreatedDateTime = createdDateTime;
-            ModifiedDateTime = modifiedDateTime;
-            EndorsementDetails = endorsementDetails;
-            SensitivityLabel = sensitivityLabel;
-            ReportType = reportType;
             Users = users;
+            Subscriptions = subscriptions;
             CustomInit();
         }
 
@@ -83,71 +80,29 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the report name
+        /// Gets or sets the name of the report
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the report web url
-        /// </summary>
-        [JsonProperty(PropertyName = "webUrl")]
-        public string WebUrl { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report embed url
-        /// </summary>
-        [JsonProperty(PropertyName = "embedUrl")]
-        public string EmbedUrl { get; set; }
-
-        /// <summary>
-        /// Gets or sets the dataset ID
+        /// Gets or sets the dataset ID of the report
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the app ID, returned only if the report belongs to an
+        /// app
+        /// </summary>
+        [JsonProperty(PropertyName = "appId")]
+        public string AppId { get; set; }
 
         /// <summary>
         /// Gets or sets the report description
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report owner. Available only for reports created
-        /// after June 2019.
-        /// </summary>
-        [JsonProperty(PropertyName = "createdBy")]
-        public string CreatedBy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user that modified this report
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedBy")]
-        public string ModifiedBy { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report created date time.
-        /// </summary>
-        [JsonProperty(PropertyName = "createdDateTime")]
-        public System.DateTime? CreatedDateTime { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report modified date time.
-        /// </summary>
-        [JsonProperty(PropertyName = "modifiedDateTime")]
-        public System.DateTime? ModifiedDateTime { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report endorsement details
-        /// </summary>
-        [JsonProperty(PropertyName = "endorsementDetails")]
-        public EndorsementDetails EndorsementDetails { get; set; }
-
-        /// <summary>
-        /// Gets or sets the report sensitivity label
-        /// </summary>
-        [JsonProperty(PropertyName = "sensitivityLabel")]
-        public SensitivityLabel SensitivityLabel { get; set; }
 
         /// <summary>
         /// Gets or sets the report type. Possible values include:
@@ -157,14 +112,38 @@ namespace Microsoft.PowerBI.Api.Models
         public string ReportType { get; set; }
 
         /// <summary>
-        /// Gets or sets the Report User Access Details. This value will be
-        /// empty. It will be removed from the payload response in an upcoming
-        /// release. To retrieve user information on an artifact, please
-        /// consider using the Get Report User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.
+        /// Gets or sets the web URL of the report
+        /// </summary>
+        [JsonProperty(PropertyName = "webUrl")]
+        public string WebUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets the embed URL of the report
+        /// </summary>
+        [JsonProperty(PropertyName = "embedUrl")]
+        public string EmbedUrl { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Empty value) The artifact user access details. This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve user information on a Power BI item (such
+        /// as a report or a dashboard) by using the [Get Report Users as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<ReportUser> Users { get; set; }
+
+        /// <summary>
+        /// Gets or sets (Empty Value)The artifact subscription Details. It
+        /// will be removed from the payload response in an upcoming release.
+        /// To retrieve subscription information for report, please consider
+        /// using the Get Report Subscriptions as Admin API.
+        /// </summary>
+        [JsonProperty(PropertyName = "subscriptions")]
+        public IList<Subscription> Subscriptions { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -174,10 +153,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (SensitivityLabel != null)
-            {
-                SensitivityLabel.Validate();
-            }
             if (Users != null)
             {
                 foreach (var element in Users)
@@ -185,6 +160,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (Subscriptions != null)
+            {
+                foreach (var element1 in Subscriptions)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

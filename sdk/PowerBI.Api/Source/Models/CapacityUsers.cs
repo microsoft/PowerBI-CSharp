@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI user access right for capacity
-    /// List
+    /// The OData response wrapper for a list of Power BI users with access to
+    /// a capacity
     /// </summary>
     public partial class CapacityUsers
     {
@@ -28,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the CapacityUsers class.
         /// </summary>
-        /// <param name="value">The user access right for capacity List</param>
+        /// <param name="value">The list of users with access to a
+        /// capacity</param>
         public CapacityUsers(string odatacontext = default(string), IList<CapacityUser> value = default(IList<CapacityUser>))
         {
             Odatacontext = odatacontext;
@@ -47,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the user access right for capacity List
+        /// Gets or sets the list of users with access to a capacity
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<CapacityUser> Value { get; set; }

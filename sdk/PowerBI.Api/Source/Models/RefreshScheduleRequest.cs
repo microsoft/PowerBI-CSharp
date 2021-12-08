@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the RefreshScheduleRequest class.
         /// </summary>
-        /// <param name="value">An object containg the refresh schedule
-        /// details</param>
+        /// <param name="value">An object that contains the details of a
+        /// refresh schedule</param>
         public RefreshScheduleRequest(RefreshSchedule value)
         {
             Value = value;
@@ -40,7 +40,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets an object containg the refresh schedule details
+        /// Gets or sets an object that contains the details of a refresh
+        /// schedule
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public RefreshSchedule Value { get; set; }

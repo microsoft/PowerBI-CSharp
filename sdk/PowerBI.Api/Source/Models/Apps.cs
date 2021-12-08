@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI installed App list
+    /// The OData response wrapper for a list of Power BI installed apps
     /// </summary>
     public partial class Apps
     {
@@ -28,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Apps class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The installed apps</param>
+        /// <param name="value">The list of installed apps</param>
         public Apps(string odatacontext = default(string), IList<App> value = default(IList<App>))
         {
             Odatacontext = odatacontext;
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the installed apps
+        /// Gets or sets the list of installed apps
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<App> Value { get; set; }

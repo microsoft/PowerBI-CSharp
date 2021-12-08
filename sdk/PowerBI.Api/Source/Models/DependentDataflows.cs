@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for a Power BI dependent dataflows list
+    /// The OData response wrapper for a list of Power BI dependent dataflows
     /// </summary>
     public partial class DependentDataflows
     {

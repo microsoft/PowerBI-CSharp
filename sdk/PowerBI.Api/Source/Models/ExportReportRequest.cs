@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The Export to file request
+    /// The export to file request
     /// </summary>
     public partial class ExportReportRequest
     {
@@ -25,9 +25,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ExportReportRequest class.
         /// </summary>
-        /// <param name="format">Export to file format. Possible values
-        /// include: 'PPTX', 'PDF', 'PNG', 'IMAGE', 'XLSX', 'DOCX', 'CSV',
-        /// 'XML', 'MHTML', 'ACCESSIBLEPDF'</param>
+        /// <param name="format">The requested format for the exported file.
+        /// Possible values include: 'PPTX', 'PDF', 'PNG', 'IMAGE', 'XLSX',
+        /// 'DOCX', 'CSV', 'XML', 'MHTML', 'ACCESSIBLEPDF'</param>
         /// <param name="powerBIReportConfiguration">The configuration used to
         /// export a Power BI report</param>
         /// <param name="paginatedReportConfiguration">The configuration used
@@ -46,9 +46,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets export to file format. Possible values include:
-        /// 'PPTX', 'PDF', 'PNG', 'IMAGE', 'XLSX', 'DOCX', 'CSV', 'XML',
-        /// 'MHTML', 'ACCESSIBLEPDF'
+        /// Gets or sets the requested format for the exported file. Possible
+        /// values include: 'PPTX', 'PDF', 'PNG', 'IMAGE', 'XLSX', 'DOCX',
+        /// 'CSV', 'XML', 'MHTML', 'ACCESSIBLEPDF'
         /// </summary>
         [JsonProperty(PropertyName = "format")]
         public FileFormat Format { get; set; }

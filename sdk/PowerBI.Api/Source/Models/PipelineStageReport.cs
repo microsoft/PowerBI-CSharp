@@ -9,7 +9,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The deployment pipeline report metadata.
+    /// The metadata for a deployment pipeline report
     /// </summary>
     public partial class PipelineStageReport : PipelineStageArtifactBase
     {
@@ -24,19 +24,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PipelineStageReport class.
         /// </summary>
-        /// <param name="artifactId">The artifact ID.</param>
-        /// <param name="artifactDisplayName">The artifact display
-        /// name.</param>
-        /// <param name="sourceArtifactId">The artifact ID from the workspace
-        /// of the source stage, which will update the current artifact upon
-        /// deployment. Applicable only when the user has at least contributor
-        /// access to the source stage workspace.</param>
+        /// <param name="artifactId">The Power BI item ID</param>
+        /// <param name="artifactDisplayName">The Power BI item display
+        /// name</param>
+        /// <param name="sourceArtifactId">The ID of the Power BI item from the
+        /// workspace assigned to the source stage, which will update the
+        /// current artifact upon deployment. Applicable only when the user has
+        /// at least contributor access to the source stage workspace.</param>
         /// <param name="targetArtifactId">The artifact ID from the workspace
         /// of the target stage, which will be updated by the current artifact
         /// upon deployment. Applicable only when the user has at least
         /// contributor access to the target stage workspace.</param>
-        /// <param name="lastDeploymentTime">The artifact's last deployment
-        /// time.</param>
+        /// <param name="lastDeploymentTime">The last deployment date and time
+        /// of the Power BI item</param>
         public PipelineStageReport(System.Guid artifactId, string artifactDisplayName = default(string), System.Guid? sourceArtifactId = default(System.Guid?), System.Guid? targetArtifactId = default(System.Guid?), System.DateTime? lastDeploymentTime = default(System.DateTime?))
             : base(artifactId, artifactDisplayName, sourceArtifactId, targetArtifactId, lastDeploymentTime)
         {

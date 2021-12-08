@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Odata response wrapper for audit activity events list
+    /// OData response wrapper for audit activity events list
     /// </summary>
     public partial class ActivityEventResponse
     {
