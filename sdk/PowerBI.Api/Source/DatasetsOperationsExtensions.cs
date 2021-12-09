@@ -1743,20 +1743,25 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
-            ///
-            /// Dataset.ReadWrite.All
-            ///
             /// When user permissions to a dataset have been recently updated, the new
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
             /// ## Limitations
             ///
-            /// This API only supports adding permissions to principals who doesn't have
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
             /// permissions to the dataset. It cannot be used to change existing dataset
             /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
             ///
             /// ######
             ///
@@ -1784,20 +1789,25 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
-            ///
-            /// Dataset.ReadWrite.All
-            ///
             /// When user permissions to a dataset have been recently updated, the new
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
             /// ## Limitations
             ///
-            /// This API only supports adding permissions to principals who doesn't have
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
             /// permissions to the dataset. It cannot be used to change existing dataset
             /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
             ///
             /// ######
             ///
@@ -1828,20 +1838,25 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
-            ///
-            /// Dataset.ReadWrite.All
-            ///
             /// When user permissions to a dataset have been recently updated, the new
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
             /// ## Limitations
             ///
-            /// This API only supports adding permissions to principals who doesn't have
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
             /// permissions to the dataset. It cannot be used to change existing dataset
             /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
             ///
             /// ######
             ///
@@ -1866,20 +1881,25 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
-            ///
-            /// Dataset.ReadWrite.All
-            ///
             /// When user permissions to a dataset have been recently updated, the new
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
             /// ## Limitations
             ///
-            /// This API only supports adding permissions to principals who doesn't have
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
             /// permissions to the dataset. It cannot be used to change existing dataset
             /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
             ///
             /// ######
             ///
