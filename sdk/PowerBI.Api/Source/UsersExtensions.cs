@@ -114,15 +114,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='userGraphId'>
-            /// The graph ID of user
+            /// <param name='userId'>
+            /// The graph ID or UPN of user
             /// </param>
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
             /// </param>
-            public static ArtifactAccessResponse GetUserArtifactAccessAsAdmin(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string))
+            public static ArtifactAccessResponse GetUserArtifactAccessAsAdmin(this IUsers operations, string userId, string continuationToken = default(string))
             {
-                return operations.GetUserArtifactAccessAsAdminAsync(userGraphId, continuationToken).GetAwaiter().GetResult();
+                return operations.GetUserArtifactAccessAsAdminAsync(userId, continuationToken).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -151,8 +151,8 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='userGraphId'>
-            /// The graph ID of user
+            /// <param name='userId'>
+            /// The graph ID or UPN of user
             /// </param>
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
@@ -160,9 +160,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ArtifactAccessResponse> GetUserArtifactAccessAsAdminAsync(this IUsers operations, System.Guid userGraphId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ArtifactAccessResponse> GetUserArtifactAccessAsAdminAsync(this IUsers operations, string userId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetUserArtifactAccessAsAdminWithHttpMessagesAsync(userGraphId, continuationToken, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUserArtifactAccessAsAdminWithHttpMessagesAsync(userId, continuationToken, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -174,8 +174,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ### userId
-            /// - The UserId can be userGraphId or UserPrincipalName
             /// ### Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -198,12 +196,12 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='userId'>
-            /// The graph ID of user or User Principal Name of the user
+            /// The graph ID or UPN of user
             /// </param>
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
             /// </param>
-            public static SubscriptionsByUserResponse GetUserSubscriptionsAsAdmin(this IUsers operations, System.Guid userId, string continuationToken = default(string))
+            public static SubscriptionsByUserResponse GetUserSubscriptionsAsAdmin(this IUsers operations, string userId, string continuationToken = default(string))
             {
                 return operations.GetUserSubscriptionsAsAdminAsync(userId, continuationToken).GetAwaiter().GetResult();
             }
@@ -214,8 +212,6 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ### userId
-            /// - The UserId can be userGraphId or UserPrincipalName
             /// ### Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -238,7 +234,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='userId'>
-            /// The graph ID of user or User Principal Name of the user
+            /// The graph ID or UPN of user
             /// </param>
             /// <param name='continuationToken'>
             /// Token required to get the next chunk of the result set
@@ -246,7 +242,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<SubscriptionsByUserResponse> GetUserSubscriptionsAsAdminAsync(this IUsers operations, System.Guid userId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<SubscriptionsByUserResponse> GetUserSubscriptionsAsAdminAsync(this IUsers operations, string userId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetUserSubscriptionsAsAdminWithHttpMessagesAsync(userId, continuationToken, null, cancellationToken).ConfigureAwait(false))
                 {

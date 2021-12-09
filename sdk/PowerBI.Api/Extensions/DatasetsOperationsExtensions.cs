@@ -633,6 +633,51 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Grants the specified user the specified permissions to the specified dataset
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset id
+        /// </param>
+        /// </param>
+        /// <param name='accessRight'>
+        /// Details of user access right
+        /// </param>
+        public static void PostDatasetUser(this IDatasetsOperations operations, Guid groupId, string datasetId, DatasetUserAccess accessRight)
+        {
+            operations.PostDatasetUserAsync(groupId, datasetId, accessRight).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Grants the specified user the specified permissions to the specified dataset
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset id
+        /// </param>
+        /// </param>
+        /// <param name='accessRight'>
+        /// Details of user access right
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task PostDatasetUserAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, DatasetUserAccess accessRight, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.PostDatasetUserInGroupWithHttpMessagesAsync(groupId, datasetId, accessRight, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
+
+        /// <summary>
         /// Updates the dataset datasources using the specified datasource selectors
         /// </summary>
         /// <param name='operations'>

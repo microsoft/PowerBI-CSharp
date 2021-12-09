@@ -80,8 +80,8 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
-        /// <param name='userGraphId'>
-        /// The graph ID of user
+        /// <param name='userId'>
+        /// The graph ID or UPN of user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -98,15 +98,16 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(System.Guid userGraphId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of subscriptions that the given user has subscribed
         /// to (Preview).
         /// </summary>
         /// <remarks>
         ///
-        /// ### userId
-        /// - The UserId can be userGraphId or UserPrincipalName
         /// ### Permissions
         ///
         /// - The user must have administrator rights (such as Office 365
@@ -126,7 +127,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID of user or User Principal Name of the user
+        /// The graph ID or UPN of user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -143,6 +144,9 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -19,10 +19,21 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of gateways for which the user is an admin.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -36,10 +47,21 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of gateways for which the user is an admin.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -59,10 +81,21 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -81,10 +114,21 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -106,13 +150,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources from the specified gateway.
+            /// Returns a list of data sources from the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -128,13 +183,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasources from the specified gateway.
+            /// Returns a list of data sources from the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -156,16 +222,27 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new datasource on the specified gateway.
+            /// Creates a new data source on the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
-            /// encrypt credentials, see [Encrypt
-            /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
+            ///
+            /// To encrypt credentials, see [Configure credentials
+            /// programmatically](/power-bi/developer/automation/configure-credentials).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -184,16 +261,27 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new datasource on the specified gateway.
+            /// Creates a new data source on the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
-            /// encrypt credentials, see [Encrypt
-            /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
+            ///
+            /// To encrypt credentials, see [Configure credentials
+            /// programmatically](/power-bi/developer/automation/configure-credentials).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -218,13 +306,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified datasource from the specified gateway.
+            /// Returns the specified data source from the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -243,13 +342,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the specified datasource from the specified gateway.
+            /// Returns the specified data source from the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All &lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -274,13 +384,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deletes the specified datasource from the specified gateway.
+            /// Deletes the specified data source from the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -299,13 +420,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Deletes the specified datasource from the specified gateway.
+            /// Deletes the specified data source from the specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -327,23 +459,38 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates the credentials of the specified datasource from the specified
+            /// Updates the credentials of the specified data source from the specified
             /// gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:**&lt;li&gt;This API requires gateway admin
-            /// permissions.&lt;/li&gt;&lt;li&gt;It is required to set
-            /// *useEndUserOAuth2Credentials* to *False* when changing from SSO to other
-            /// types, such as basic or OAuth2. See the [Basic credentials
-            /// example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).&lt;/li&gt;&lt;li&gt;With
-            /// OAuth2 token credentials, make sure the generated OAuth2 token audience was
-            /// set correctly according to the datasource
-            /// type.&lt;/li&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
-            /// encrypt credentials, see [Encrypt
-            /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
+            ///
+            /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
+            /// from single sign-on to other credential types, such as **Basic** or
+            /// **OAuth2**. See the [Basic credentials
+            /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
+            /// - To encrypt credentials, see [Configure credentials
+            /// programmatically](/power-bi/developer/automation/configure-credentials).
+            /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
+            /// audience was set correctly according to the data source type.
+            /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
+            /// `true`. To set **OAuth2** credentials for other data sources, send the
+            /// OAuth2 token in the payload as shown in the [OAuth2 credentials
+            /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -365,23 +512,38 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Updates the credentials of the specified datasource from the specified
+            /// Updates the credentials of the specified data source from the specified
             /// gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:**&lt;li&gt;This API requires gateway admin
-            /// permissions.&lt;/li&gt;&lt;li&gt;It is required to set
-            /// *useEndUserOAuth2Credentials* to *False* when changing from SSO to other
-            /// types, such as basic or OAuth2. See the [Basic credentials
-            /// example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).&lt;/li&gt;&lt;li&gt;With
-            /// OAuth2 token credentials, make sure the generated OAuth2 token audience was
-            /// set correctly according to the datasource
-            /// type.&lt;/li&gt;&lt;br/&gt;&lt;br/&gt;**Required scope**:
-            /// Dataset.ReadWrite.All&lt;li&gt;To set the permissions scope, see [Register
-            /// an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app)&lt;/li&gt;&lt;li&gt;To
-            /// encrypt credentials, see [Encrypt
-            /// credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)&lt;/li&gt;
+            ///
+            /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
+            /// from single sign-on to other credential types, such as **Basic** or
+            /// **OAuth2**. See the [Basic credentials
+            /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
+            /// - To encrypt credentials, see [Configure credentials
+            /// programmatically](/power-bi/developer/automation/configure-credentials).
+            /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
+            /// audience was set correctly according to the data source type.
+            /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
+            /// `true`. To set **OAuth2** credentials for other data sources, send the
+            /// OAuth2 token in the payload as shown in the [OAuth2 credentials
+            /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -406,14 +568,25 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Checks the connectivity status of the specified datasource from the
+            /// Checks the connectivity status of the specified data source from the
             /// specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -432,14 +605,25 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Checks the connectivity status of the specified datasource from the
+            /// Checks the connectivity status of the specified data source from the
             /// specified gateway.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -461,13 +645,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users who have access to the specified datasource.
+            /// Returns a list of users who have access to the specified data source.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -486,13 +681,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users who have access to the specified datasource.
+            /// Returns a list of users who have access to the specified data source.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// or Dataset.Read.All&lt;br/&gt;To set the permissions scope, see [Register
-            /// an app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -517,14 +723,25 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Grants or updates the permissions required to use the specified datasource
+            /// Grants or updates the permissions required to use the specified data source
             /// for the specified user.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -546,14 +763,25 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Grants or updates the permissions required to use the specified datasource
+            /// Grants or updates the permissions required to use the specified data source
             /// for the specified user.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -578,13 +806,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Removes the specified user from the specified datasource.
+            /// Removes the specified user from the specified data source.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -606,13 +845,24 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Removes the specified user from the specified datasource.
+            /// Removes the specified user from the specified data source.
             /// </summary>
             /// <remarks>
-            /// &lt;br/&gt;**Note:** This API requires gateway admin
-            /// permissions.&lt;br/&gt;&lt;br/&gt;**Required scope**: Dataset.ReadWrite.All
-            /// &lt;br/&gt;To set the permissions scope, see [Register an
-            /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+            ///
+            /// ## Permissions
+            ///
+            /// The user must have gateway admin permissions.
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ## Limitations
+            ///
+            /// Virtual network (VNet) gateways aren't supported.
+            ///
+            /// ######
+            ///
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

@@ -29,9 +29,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="id">The dataset ID</param>
-        public GenerateTokenRequestV2Dataset(string id)
+        /// <param name="xmlaPermissions">XMLA Permissions. Possible values
+        /// include: 'Off', 'ReadOnly'</param>
+        public GenerateTokenRequestV2Dataset(string id, XmlaPermissions? xmlaPermissions = default(XmlaPermissions?))
         {
             Id = id;
+            XmlaPermissions = xmlaPermissions;
             CustomInit();
         }
 
@@ -45,6 +48,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets XMLA Permissions. Possible values include: 'Off',
+        /// 'ReadOnly'
+        /// </summary>
+        [JsonProperty(PropertyName = "xmlaPermissions")]
+        public XmlaPermissions? XmlaPermissions { get; set; }
 
         /// <summary>
         /// Validate the object.
