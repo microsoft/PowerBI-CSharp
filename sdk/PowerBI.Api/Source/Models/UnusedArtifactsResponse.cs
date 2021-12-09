@@ -29,9 +29,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="unusedArtifactEntities">The unused artifact
         /// entities</param>
-        public UnusedArtifactsResponse(IList<UnusedArtifactEntity> unusedArtifactEntities = default(IList<UnusedArtifactEntity>))
+        /// <param name="continuationUri">The URI for the next chunk in the
+        /// result set</param>
+        /// <param name="continuationToken">Token to get the next chunk of the
+        /// result set</param>
+        public UnusedArtifactsResponse(IList<UnusedArtifactEntity> unusedArtifactEntities = default(IList<UnusedArtifactEntity>), string continuationUri = default(string), string continuationToken = default(string))
         {
             UnusedArtifactEntities = unusedArtifactEntities;
+            ContinuationUri = continuationUri;
+            ContinuationToken = continuationToken;
             CustomInit();
         }
 
@@ -45,6 +51,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "unusedArtifactEntities")]
         public IList<UnusedArtifactEntity> UnusedArtifactEntities { get; set; }
+
+        /// <summary>
+        /// Gets or sets the URI for the next chunk in the result set
+        /// </summary>
+        [JsonProperty(PropertyName = "continuationUri")]
+        public string ContinuationUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets token to get the next chunk of the result set
+        /// </summary>
+        [JsonProperty(PropertyName = "continuationToken")]
+        public string ContinuationToken { get; set; }
 
     }
 }

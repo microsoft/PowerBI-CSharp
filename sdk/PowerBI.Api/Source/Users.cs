@@ -198,8 +198,8 @@ namespace Microsoft.PowerBI.Api
         /// ######
         ///
         /// </remarks>
-        /// <param name='userGraphId'>
-        /// The graph ID of user
+        /// <param name='userId'>
+        /// The graph ID or UPN of user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -216,11 +216,21 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(System.Guid userGraphId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (userId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "userId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -228,15 +238,15 @@ namespace Microsoft.PowerBI.Api
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("userGraphId", userGraphId);
+                tracingParameters.Add("userId", userId);
                 tracingParameters.Add("continuationToken", continuationToken);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetUserArtifactAccessAsAdmin", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
-            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/users/{userGraphId}/artifactAccess").ToString();
-            _url = _url.Replace("{userGraphId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(userGraphId, Client.SerializationSettings).Trim('"')));
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/users/{userId}/artifactAccess").ToString();
+            _url = _url.Replace("{userId}", System.Uri.EscapeDataString(userId));
             List<string> _queryParameters = new List<string>();
             if (continuationToken != null)
             {
@@ -345,8 +355,6 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ### userId
-        /// - The UserId can be userGraphId or UserPrincipalName
         /// ### Permissions
         ///
         /// - The user must have administrator rights (such as Office 365 Global
@@ -366,7 +374,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID of user or User Principal Name of the user
+        /// The graph ID or UPN of user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -383,11 +391,21 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<SubscriptionsByUserResponse>> GetUserSubscriptionsAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (userId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "userId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -403,7 +421,7 @@ namespace Microsoft.PowerBI.Api
             // Construct URL
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/users/{userId}/subscriptions").ToString();
-            _url = _url.Replace("{userId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(userId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{userId}", System.Uri.EscapeDataString(userId));
             List<string> _queryParameters = new List<string>();
             if (continuationToken != null)
             {

@@ -1347,8 +1347,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of datasets that have not been used within 30 days for the
-            /// specified workspace (Preview).
+            /// Returns a list of datasets, reports, and dashboards that have not been used
+            /// within 30 days for the specified workspace (Preview).
             /// </summary>
             /// <remarks>
             ///
@@ -1376,14 +1376,17 @@ namespace Microsoft.PowerBI.Api
             /// <param name='groupId'>
             /// The workspace ID
             /// </param>
-            public static UnusedArtifactsResponse GetUnusedArtifactsAsAdmin(this IGroupsOperations operations, System.Guid groupId)
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
+            /// </param>
+            public static UnusedArtifactsResponse GetUnusedArtifactsAsAdmin(this IGroupsOperations operations, System.Guid groupId, string continuationToken = default(string))
             {
-                return operations.GetUnusedArtifactsAsAdminAsync(groupId).GetAwaiter().GetResult();
+                return operations.GetUnusedArtifactsAsAdminAsync(groupId, continuationToken).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Returns a list of datasets that have not been used within 30 days for the
-            /// specified workspace (Preview).
+            /// Returns a list of datasets, reports, and dashboards that have not been used
+            /// within 30 days for the specified workspace (Preview).
             /// </summary>
             /// <remarks>
             ///
@@ -1410,13 +1413,16 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             /// <param name='groupId'>
             /// The workspace ID
+            /// </param>
+            /// <param name='continuationToken'>
+            /// Token required to get the next chunk of the result set
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UnusedArtifactsResponse> GetUnusedArtifactsAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UnusedArtifactsResponse> GetUnusedArtifactsAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string continuationToken = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetUnusedArtifactsAsAdminWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetUnusedArtifactsAsAdminWithHttpMessagesAsync(groupId, continuationToken, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
