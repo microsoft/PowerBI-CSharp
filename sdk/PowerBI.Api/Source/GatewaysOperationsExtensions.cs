@@ -464,12 +464,19 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// &gt; [!NOTE]
+            /// &gt; To encrypt credentials, see [Configure credentials
+            /// programmatically](/power-bi/developer/embedded/configure-credentials) for
+            /// Power BI and review the EncryptCredentials [.NET
+            /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
+            /// and
+            /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+            /// examples.
+            ///
             /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
             /// from single sign-on to other credential types, such as **Basic** or
             /// **OAuth2**. See the [Basic credentials
             /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
-            /// - To encrypt credentials, see [Configure credentials
-            /// programmatically](/power-bi/developer/automation/configure-credentials).
             /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
             /// audience was set correctly according to the data source type.
             /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
@@ -517,12 +524,19 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// &gt; [!NOTE]
+            /// &gt; To encrypt credentials, see [Configure credentials
+            /// programmatically](/power-bi/developer/embedded/configure-credentials) for
+            /// Power BI and review the EncryptCredentials [.NET
+            /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
+            /// and
+            /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+            /// examples.
+            ///
             /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
             /// from single sign-on to other credential types, such as **Basic** or
             /// **OAuth2**. See the [Basic credentials
             /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
-            /// - To encrypt credentials, see [Configure credentials
-            /// programmatically](/power-bi/developer/automation/configure-credentials).
             /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
             /// audience was set correctly according to the data source type.
             /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
