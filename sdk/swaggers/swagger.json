@@ -1745,6 +1745,150 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/users": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Grants the specified user the specified permissions to the specified dataset.",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- This API only supports adding permissions to principals who don't have permissions to the dataset. It cannot be used to change existing dataset permissions.\n- Adding permissions to service principals (app principalType) is not supported\n\n######\n",
+                "operationId": "Datasets_PostDatasetUserInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accessRight",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DatasetUserAccess"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "accessRight": {
+                                "identifier": "john@contoso.com",
+                                "principalType": "User",
+                                "groupUserAccessRight": "Read"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "example for giving ReadExplore right to a security group": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "userDetails": {
+                                "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                "groupUserAccessRight": "ReadReshare",
+                                "principalType": "Group"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetId}/users": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Grants the specified user the specified permissions to the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Limitations\n\nThis API only supports adding permissions to principals who doesn't have permissions to the dataset. It cannot be used to change existing dataset permissions.\n\n######\n",
+                "operationId": "Datasets_PostDatasetUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accessRight",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DatasetUserAccess"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "accessRight": {
+                                "identifier": "john@contoso.com",
+                                "principalType": "User",
+                                "groupUserAccessRight": "Read"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "example for giving ReadExplore right to a security group": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "userDetails": {
+                                "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                "groupUserAccessRight": "ReadReshare",
+                                "principalType": "Group"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/RefreshUserPermissions": {
             "post": {
                 "tags": [
@@ -8317,7 +8461,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns a list of gateways for which the user is an admin.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_GetGateways",
                 "consumes": [],
                 "produces": [
@@ -8363,7 +8507,7 @@
                     "Gateways"
                 ],
                 "summary": "Returns the specified gateway.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_GetGateway",
                 "consumes": [],
                 "produces": [
@@ -8415,8 +8559,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Returns a list of datasources from the specified gateway.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of data sources from the specified gateway.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_GetDatasources",
                 "consumes": [],
                 "produces": [
@@ -8477,8 +8621,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Creates a new datasource on the specified gateway.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "summary": "Creates a new data source on the specified gateway.",
+                "description": "\nTo encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/automation/configure-credentials).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"
@@ -8565,8 +8709,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Returns the specified datasource from the specified gateway.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified data source from the specified gateway.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_GetDatasource",
                 "consumes": [],
                 "produces": [
@@ -8624,8 +8768,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Deletes the specified datasource from the specified gateway.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Deletes the specified data source from the specified gateway.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_DeleteDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8669,8 +8813,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Updates the credentials of the specified datasource from the specified gateway.",
-                "description": "<br/>**Note:**<li>This API requires gateway admin permissions.</li><li>It is required to set *useEndUserOAuth2Credentials* to *False* when changing from SSO to other types, such as basic or OAuth2. See the [Basic credentials example](https://docs.microsoft.com/rest/api/power-bi/gateways/updatedatasource#basic-credentials-example).</li><li>With OAuth2 token credentials, make sure the generated OAuth2 token audience was set correctly according to the datasource type.</li><br/><br/>**Required scope**: Dataset.ReadWrite.All<li>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app)</li><li>To encrypt credentials, see [Encrypt credentials](https://docs.microsoft.com/power-bi/developer/encrypt-credentials)</li>",
+                "summary": "Updates the credentials of the specified data source from the specified gateway.",
+                "description": "\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as **Basic** or **OAuth2**. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/automation/configure-credentials).\n- For the **OAuth2** credential type, make sure the generated OAuth2 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set **OAuth2** credentials for other data sources, send the OAuth2 token in the payload as shown in the [OAuth2 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8807,8 +8951,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Checks the connectivity status of the specified datasource from the specified gateway.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Checks the connectivity status of the specified data source from the specified gateway.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_GetDatasourceStatus",
                 "consumes": [],
                 "produces": [
@@ -8868,8 +9012,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Returns a list of users who have access to the specified datasource.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All or Dataset.Read.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of users who have access to the specified data source.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_GetDatasourceUsers",
                 "consumes": [],
                 "produces": [
@@ -8934,8 +9078,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Grants or updates the permissions required to use the specified datasource for the specified user.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Grants or updates the permissions required to use the specified data source for the specified user.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_AddDatasourceUser",
                 "consumes": [
                     "application/json"
@@ -9010,8 +9154,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Removes the specified user from the specified datasource.",
-                "description": "<br/>**Note:** This API requires gateway admin permissions.<br/><br/>**Required scope**: Dataset.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Removes the specified user from the specified data source.",
+                "description": "\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_DeleteDatasourceUser",
                 "consumes": [
                     "application/json"
@@ -13795,7 +13939,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of datasets that have not been used within 30 days for the specified workspace (Preview).",
+                "summary": "Returns a list of datasets, reports, and dashboards that have not been used within 30 days for the specified workspace (Preview).",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Groups_GetUnusedArtifactsAsAdmin",
                 "consumes": [],
@@ -13810,6 +13954,13 @@
                         "required": true,
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -13836,7 +13987,9 @@
                                         "createdDateTime": "2020-09-01T22:40:52.197Z",
                                         "lastAccessedDateTime": "2021-07-01T22:40:52.953Z"
                                     }
-                                ]
+                                ],
+                                "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/groups/f089354e-8366-4e18-aea3-4cb4a3a50b48/unused?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                "continuationToken": "LDEsMTAwMDAwLDA%3D"
                             }
                         }
                     }
@@ -15861,7 +16014,7 @@
                 "deprecated": false
             }
         },
-        "/v1.0/myorg/admin/users/{userGraphId}/artifactAccess": {
+        "/v1.0/myorg/admin/users/{userId}/artifactAccess": {
             "get": {
                 "tags": [
                     "Admin"
@@ -15875,12 +16028,11 @@
                 ],
                 "parameters": [
                     {
-                        "name": "userGraphId",
+                        "name": "userId",
                         "in": "path",
-                        "description": "The graph ID of user",
+                        "description": "The graph ID or UPN of user",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "continuationToken",
@@ -15901,7 +16053,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "userGraphId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                            "userId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
                         "responses": {
                             "200": {
@@ -15930,7 +16082,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of subscriptions that the given user has subscribed to (Preview).",
-                "description": "\n### userId\n- The UserId can be userGraphId or UserPrincipalName\n### Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "description": "\n### Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Users_GetUserSubscriptionsAsAdmin",
                 "consumes": [],
                 "produces": [
@@ -15940,10 +16092,9 @@
                     {
                         "name": "userId",
                         "in": "path",
-                        "description": "The graph ID of user or User Principal Name of the user",
+                        "description": "The graph ID or UPN of user",
                         "required": true,
-                        "type": "string",
-                        "format": "uuid"
+                        "type": "string"
                     },
                     {
                         "name": "continuationToken",
@@ -15964,7 +16115,7 @@
                 "x-ms-examples": {
                     "example": {
                         "parameters": {
-                            "userGraphId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
+                            "userId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
                         "responses": {
                             "200": {
@@ -20213,6 +20364,55 @@
                 }
             }
         },
+        "DatasetUserAccess": {
+            "required": [
+                "identifier",
+                "principalType",
+                "accessRight"
+            ],
+            "description": "A Power BI user access right entry for a dataset",
+            "properties": {
+                "accessRight": {
+                    "type": "string",
+                    "description": "(Required) The access right a user has for the dataset",
+                    "enum": [
+                        "Read",
+                        "ReadReshare",
+                        "ReadExplore",
+                        "ReadReshareExplore"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetUserAccessRightEntry",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in dataset"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to content in dataset"
+                            },
+                            {
+                                "value": "ReadExplore",
+                                "description": "Grants Read and Explore access to content in dataset"
+                            },
+                            {
+                                "value": "ReadReshareExplore",
+                                "description": "Grants Read, Reshare and Explore access to content in dataset"
+                            }
+                        ]
+                    }
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "For principal type `User`, enter *UPN*. Otherwise provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
         "DataflowUser": {
             "required": [
                 "dataflowUserAccessRight"
@@ -20693,6 +20893,28 @@
                 "id": {
                     "type": "string",
                     "description": "The dataset ID"
+                },
+                "xmlaPermissions": {
+                    "type": "string",
+                    "description": "XMLA Permissions",
+                    "enum": [
+                        "Off",
+                        "ReadOnly"
+                    ],
+                    "x-ms-enum": {
+                        "name": "XmlaPermissions",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Off",
+                                "description": "Indicates that the generated embed token doesn't grant access permissions to the dataset's XMLA endpoint."
+                            },
+                            {
+                                "value": "ReadOnly",
+                                "description": "Indicates that the generated embed token grants Read access permissions to the dataset's XMLA endpoint."
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -21156,7 +21378,7 @@
             "properties": {
                 "Usage": {
                     "type": "integer",
-                    "description": "The token generation usage (in %) from the limitation on shared capacity"
+                    "description": "Workspaces that aren’t assigned to a capacity get a limited amount of [embed tokens](/power-bi/developer/embedded/embed-tokens#embed-token), to allow experimenting with the APIs. The `Usage` value represents the percentage of embed tokens that have been consumed. The `Usage` value only applies to the **embed trial** feature. For more information, see [Development testing](/power-bi/developer/embedded/move-to-production#development-testing)."
                 }
             }
         },
@@ -21748,6 +21970,14 @@
                     "items": {
                         "$ref": "#/definitions/UnusedArtifactEntity"
                     }
+                },
+                "continuationUri": {
+                    "type": "string",
+                    "description": "The URI for the next chunk in the result set"
+                },
+                "continuationToken": {
+                    "type": "string",
+                    "description": "Token to get the next chunk of the result set"
                 }
             }
         },
