@@ -991,6 +991,107 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Gateways>> DiscoverGatewaysWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Grants the specified user the specified permissions to the
+        /// specified dataset.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// When user permissions to a dataset have been recently updated, the
+        /// new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace, that is to say a V2 workspace, are supported.
+        /// - This API only supports adding permissions to principals who don't
+        /// have permissions to the dataset. It cannot be used to change
+        /// existing dataset permissions.
+        /// - Adding permissions to service principals (app principalType) is
+        /// not supported
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='accessRight'>
+        /// Details of user access right
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> PostDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetUserAccess accessRight, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Grants the specified user the specified permissions to the
+        /// specified dataset from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// When user permissions to a dataset have been recently updated, the
+        /// new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace, that is to say a V2 workspace, are supported.
+        /// - This API only supports adding permissions to principals who don't
+        /// have permissions to the dataset. It cannot be used to change
+        /// existing dataset permissions.
+        /// - Adding permissions to service principals (app principalType) is
+        /// not supported
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='accessRight'>
+        /// Details of user access right
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> PostDatasetUserWithHttpMessagesAsync(string datasetId, DatasetUserAccess accessRight, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of datasets from the specified workspace.
         /// </summary>
         /// <remarks>

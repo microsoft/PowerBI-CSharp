@@ -749,8 +749,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> RestoreDeletedGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, GroupRestoreRequest groupRestoreRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasets that have not been used within 30 days
-        /// for the specified workspace (Preview).
+        /// Returns a list of datasets, reports, and dashboards that have not
+        /// been used within 30 days for the specified workspace (Preview).
         /// </summary>
         /// <remarks>
         ///
@@ -775,6 +775,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='groupId'>
         /// The workspace ID
         /// </param>
+        /// <param name='continuationToken'>
+        /// Token required to get the next chunk of the result set
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -787,6 +790,6 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<UnusedArtifactsResponse>> GetUnusedArtifactsAsAdminWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<UnusedArtifactsResponse>> GetUnusedArtifactsAsAdminWithHttpMessagesAsync(System.Guid groupId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

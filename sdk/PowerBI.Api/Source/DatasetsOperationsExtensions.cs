@@ -1738,6 +1738,190 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Grants the specified user the specified permissions to the specified
+            /// dataset.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// When user permissions to a dataset have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// ## Limitations
+            ///
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
+            /// permissions to the dataset. It cannot be used to change existing dataset
+            /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='accessRight'>
+            /// Details of user access right
+            /// </param>
+            public static void PostDatasetUserInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, DatasetUserAccess accessRight)
+            {
+                operations.PostDatasetUserInGroupAsync(groupId, datasetId, accessRight).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Grants the specified user the specified permissions to the specified
+            /// dataset.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// When user permissions to a dataset have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// ## Limitations
+            ///
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
+            /// permissions to the dataset. It cannot be used to change existing dataset
+            /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='accessRight'>
+            /// Details of user access right
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task PostDatasetUserInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, DatasetUserAccess accessRight, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.PostDatasetUserInGroupWithHttpMessagesAsync(groupId, datasetId, accessRight, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
+            /// Grants the specified user the specified permissions to the specified
+            /// dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// When user permissions to a dataset have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// ## Limitations
+            ///
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
+            /// permissions to the dataset. It cannot be used to change existing dataset
+            /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='accessRight'>
+            /// Details of user access right
+            /// </param>
+            public static void PostDatasetUser(this IDatasetsOperations operations, string datasetId, DatasetUserAccess accessRight)
+            {
+                operations.PostDatasetUserAsync(datasetId, accessRight).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Grants the specified user the specified permissions to the specified
+            /// dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// When user permissions to a dataset have been recently updated, the new
+            /// permissions might not be immediately available through API calls. To
+            /// refresh user permissions, use the [Refresh User
+            /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// ## Limitations
+            ///
+            /// - Only datasets in a [new workspace
+            /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+            /// that is to say a V2 workspace, are supported.
+            /// - This API only supports adding permissions to principals who don't have
+            /// permissions to the dataset. It cannot be used to change existing dataset
+            /// permissions.
+            /// - Adding permissions to service principals (app principalType) is not
+            /// supported
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='accessRight'>
+            /// Details of user access right
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task PostDatasetUserAsync(this IDatasetsOperations operations, string datasetId, DatasetUserAccess accessRight, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.PostDatasetUserWithHttpMessagesAsync(datasetId, accessRight, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Returns a list of datasets from the specified workspace.
             /// </summary>
             /// <remarks>
