@@ -9909,7 +9909,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns a list of refreshables for all capacities that the user has access to.",
-                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetRefreshables",
                 "consumes": [
                 ],
@@ -10130,7 +10130,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
-                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetRefreshablesForCapacity",
                 "consumes": [
                 ],
@@ -10359,7 +10359,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
-                "description": "\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetRefreshableForCapacity",
                 "consumes": [
                 ],
@@ -15127,7 +15127,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Admin_GetRefreshablesForCapacity",
                 "consumes": [
                 ],
@@ -15355,7 +15355,7 @@
                     "Admin"
                 ],
                 "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Admin_GetRefreshableForCapacity",
                 "consumes": [
                 ],
@@ -22063,7 +22063,7 @@
             }
         },
         "Refreshable": {
-            "description": "A Power BI refreshable",
+            "description": "A Power BI refreshable. Power BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.",
             "properties": {
                 "id": {
                     "type": "string",

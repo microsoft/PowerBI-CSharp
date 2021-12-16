@@ -274,6 +274,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Required scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
@@ -308,6 +311,9 @@ namespace Microsoft.PowerBI.Api
             /// to.
             /// </summary>
             /// <remarks>
+            ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
             ///
             /// ## Required scope
             ///
@@ -350,6 +356,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Required scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
@@ -387,6 +396,9 @@ namespace Microsoft.PowerBI.Api
             /// access to.
             /// </summary>
             /// <remarks>
+            ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
             ///
             /// ## Required scope
             ///
@@ -432,6 +444,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Required scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
@@ -462,6 +477,9 @@ namespace Microsoft.PowerBI.Api
             /// has access to.
             /// </summary>
             /// <remarks>
+            ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
             ///
             /// ## Required scope
             ///
