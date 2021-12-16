@@ -41,7 +41,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -215,7 +215,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -265,7 +265,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -445,7 +445,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product",
@@ -536,7 +536,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product",
@@ -608,7 +608,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product"
@@ -659,7 +659,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "in progress refresh example": {
+                    "In-progress refresh example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "$top": 1
@@ -679,7 +679,7 @@
                             }
                         }
                     },
-                    "completed refresh example": {
+                    "Completed refresh example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "$top": 1
@@ -760,7 +760,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "refreshRequest": {
@@ -805,7 +805,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Refresh Schedule example": {
+                    "Refresh schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -860,7 +860,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "change notification option": {
+                    "Change the notification option of a refresh schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
@@ -873,7 +873,7 @@
                             "200": {}
                         }
                     },
-                    "change days and times": {
+                    "Change the days and times of a refresh schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
@@ -888,7 +888,7 @@
                             "200": {}
                         }
                     },
-                    "update times": {
+                    "Update the times of a refresh schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
@@ -901,7 +901,7 @@
                             "200": {}
                         }
                     },
-                    "disable scheduled refresh": {
+                    "Disable a scheduled refresh example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
@@ -948,7 +948,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "By Days Schedule example": {
+                    "Days and times schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -962,7 +962,7 @@
                             }
                         }
                     },
-                    "By Frequency Schedule example": {
+                    "Frequency schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -1016,7 +1016,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "change to frequency based schedule": {
+                    "Set a frequency based schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
@@ -1029,7 +1029,7 @@
                             "200": {}
                         }
                     },
-                    "switch to days and times based schedule": {
+                    "Set a days and times based schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
@@ -1044,7 +1044,7 @@
                             "200": {}
                         }
                     },
-                    "update the times of existing days based schedule": {
+                    "Update the times of a days and times based schedule example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
@@ -1057,7 +1057,7 @@
                             "200": {}
                         }
                     },
-                    "disable scheduled refresh": {
+                    "Disable a scheduled refresh example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
@@ -1104,7 +1104,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -1194,7 +1194,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "updateMashupParametersRequest": {
@@ -1250,7 +1250,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Analysis Services": {
+                    "Analysis Services example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1271,28 +1271,7 @@
                             }
                         }
                     },
-                    "Azure Analysis Services": {
-                        "parameters": {},
-                        "responses": {
-                            "200": {
-                                "body": {
-                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
-                                    "value": [
-                                        {
-                                            "datasourceType": "AnalysisServices",
-                                            "connectionDetails": {
-                                                "server": "My-As-Server",
-                                                "database": "My-As-Database"
-                                            },
-                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "SQL": {
+                    "SQL example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1313,28 +1292,7 @@
                             }
                         }
                     },
-                    "Azure SQL": {
-                        "parameters": {},
-                        "responses": {
-                            "200": {
-                                "body": {
-                                    "@odata.context": "http://api.powerbi.com/v1.0/myorg/groups/222f0f33-3abc-4a57-9f98-ff01bd2aaabb/$metadata#datasources",
-                                    "value": [
-                                        {
-                                            "datasourceType": "Sql",
-                                            "connectionDetails": {
-                                                "server": "My-As-Server",
-                                                "database": "My-As-Database"
-                                            },
-                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
-                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "Excel": {
+                    "Excel example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1354,7 +1312,7 @@
                             }
                         }
                     },
-                    "OData": {
+                    "OData example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1374,7 +1332,7 @@
                             }
                         }
                     },
-                    "SharePoint": {
+                    "SharePoint example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1394,7 +1352,7 @@
                             }
                         }
                     },
-                    "SAP HANA": {
+                    "SAP HANA example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1413,7 +1371,7 @@
                             }
                         }
                     },
-                    "Oracle": {
+                    "Oracle example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -1473,7 +1431,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "updateDatasourcesRequest": {
@@ -1551,7 +1509,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "parameters": {
@@ -1604,7 +1562,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example without datasourceIds": {
+                    "Example without 'datasourceObjectIds'": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
@@ -1615,7 +1573,7 @@
                             "200": {}
                         }
                     },
-                    "example with datasourceIds": {
+                    "Example with 'datasourceObjectIds'": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
@@ -1663,7 +1621,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -1718,7 +1676,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
                         },
@@ -1909,7 +1867,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                         },
                         "responses": {
@@ -1948,7 +1906,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -2113,7 +2071,7 @@
                             }
                         }
                     },
-                    "Post import with skipReport example": {
+                    "Post import with 'skipReport' example": {
                         "parameters": {
                             "consumes": "multipart/form-data;",
                             "boundary": "f05e5244-f876-43b9-bc87-d71598f6b32a",
@@ -2190,7 +2148,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "in progress import example": {
+                    "In-progress import example": {
                         "parameters": {
                             "importId": "82d9a37a-2b45-4221-b012-cb109b8e30c7"
                         },
@@ -2215,7 +2173,7 @@
                             }
                         }
                     },
-                    "completed import example": {
+                    "Completed import example": {
                         "parameters": {
                             "importId": "82d9a37a-2b45-4221-b012-cb109b8e30c7"
                         },
@@ -2307,7 +2265,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -2359,7 +2317,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715"
                         },
@@ -2407,7 +2365,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715"
                         },
@@ -2538,7 +2496,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
                             "requestParameters": {
@@ -2631,7 +2589,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11"
                         },
@@ -2698,7 +2656,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11",
                             "pageName": "ReportSection"
@@ -2750,7 +2708,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff228"
                         },
@@ -2815,7 +2773,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -3010,7 +2968,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -3063,7 +3021,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "requestParameters": {
                                 "name": "SalesMarketing"
@@ -3117,7 +3075,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
                         },
@@ -3169,7 +3127,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
                         },
@@ -3236,7 +3194,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
                             "tileId": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b"
@@ -3345,7 +3303,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -3573,7 +3531,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -3632,7 +3590,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -3743,7 +3701,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -3843,7 +3801,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -3924,7 +3882,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -3984,7 +3942,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "in progress refresh example": {
+                    "In-progress refresh example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4005,7 +3963,7 @@
                             }
                         }
                     },
-                    "completed refresh example": {
+                    "Completed refresh example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4095,7 +4053,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4149,7 +4107,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Refresh Schedule example": {
+                    "Refresh schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -4213,7 +4171,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "change notification option": {
+                    "Change the notification option of a refresh schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4227,7 +4185,7 @@
                             "200": {}
                         }
                     },
-                    "change days and times": {
+                    "Change the days and times of a refresh schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4243,7 +4201,7 @@
                             "200": {}
                         }
                     },
-                    "update times": {
+                    "Update the times of a refresh schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4257,7 +4215,7 @@
                             "200": {}
                         }
                     },
-                    "disable scheduled refresh": {
+                    "Disable a scheduled refresh example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4313,7 +4271,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "By Days Schedule example": {
+                    "Days and times schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -4328,7 +4286,7 @@
                             }
                         }
                     },
-                    "By Frequency Schedule example": {
+                    "Frequency schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -4391,7 +4349,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "change to frequency based schedule": {
+                    "Set a frequency based schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4405,7 +4363,7 @@
                             "200": {}
                         }
                     },
-                    "switch to days and times based schedule": {
+                    "Set a days and times based schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4421,7 +4379,7 @@
                             "200": {}
                         }
                     },
-                    "update the times of existing days based schedule": {
+                    "Update the times of an existing days and times based schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4478,7 +4436,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -4576,7 +4534,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4640,7 +4598,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "direct query model example": {
+                    "DirectQuery model example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -4665,7 +4623,7 @@
                             }
                         }
                     },
-                    "cached model example": {
+                    "Cached model example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -4744,7 +4702,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4831,7 +4789,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4893,7 +4851,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example without datasourceIds": {
+                    "Example without 'datasourceObjectIds'": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4905,7 +4863,7 @@
                             "200": {}
                         }
                     },
-                    "example with datasourceIds": {
+                    "Example with 'datasourceObjectIds'": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4962,7 +4920,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -5026,7 +4984,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -5086,7 +5044,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -5133,7 +5091,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -5397,7 +5355,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "in progress import example": {
+                    "In-progress import example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "importId": "82d9a37a-2b45-4221-b012-cb109b8e30c7"
@@ -5423,7 +5381,7 @@
                             }
                         }
                     },
-                    "completed import example": {
+                    "Completed import example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "importId": "82d9a37a-2b45-4221-b012-cb109b8e30c7"
@@ -5530,7 +5488,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -5592,7 +5550,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715"
@@ -5649,7 +5607,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715"
@@ -5805,7 +5763,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -5915,7 +5873,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11"
@@ -5991,7 +5949,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "879445d6-3a9e-4a74-b5ae-7c0ddabf0f11",
@@ -6051,7 +6009,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -6124,7 +6082,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -6350,7 +6308,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -6413,7 +6371,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "requestParameters": {
@@ -6476,7 +6434,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
@@ -6537,7 +6495,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
@@ -6613,7 +6571,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
                             "tileId": "312fbfe9-2eda-44e0-9ed0-ab5dc571bb4b"
@@ -6739,7 +6697,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate EmbedToken for report creation based on specified dataset": {
+                    "Generate an embed token for report creation based on a specified dataset example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "requestParameters": {
@@ -6757,7 +6715,7 @@
                             }
                         }
                     },
-                    "Generate EmbedToken for report creation based on specified dataset, with EffectiveIdentity": {
+                    "Generate an embed token for report creation based on a specified dataset example. The embed token uses an effective identity.": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "requestParameters": {
@@ -6836,7 +6794,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate report EmbedToken with EffectiveIdentity": {
+                    "Generate a report embed token using an effective identity example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -6861,7 +6819,7 @@
                             }
                         }
                     },
-                    "Generate report EmbedToken with EffectiveIdentity (Using CustomData for Azure AS)": {
+                    "Generate a report embed token using an effective identity with custom data for Azure Analysis Services example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -6887,7 +6845,7 @@
                             }
                         }
                     },
-                    "Generate report EmbedToken using EffectiveIdentity with multiple roles": {
+                    "Generate a report embed token using an effective identity with multiple roles example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -6912,7 +6870,7 @@
                             }
                         }
                     },
-                    "Generate report EmbedToken using EffectiveIdentity with IdentityBlob": {
+                    "Generate a report embed token using an effective identity with an identity blob example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -6938,7 +6896,7 @@
                             }
                         }
                     },
-                    "Generate report EmbedToken for editing, using EffectiveIdentity": {
+                    "Generate a report embed token for editing example. The embed token uses an effective identity.": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -6963,7 +6921,7 @@
                             }
                         }
                     },
-                    "Generate report EmbedToken for view and allow saving as new report": {
+                    "Generate a report embed token for viewing a report and saving to a new report example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -6982,7 +6940,7 @@
                             }
                         }
                     },
-                    "Generate paginated report EmbedToken with EffectiveIdentity": {
+                    "Generate a paginated report embed token using an effective identity example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "5b218778-e7a5-4d73-8187-f10824047715",
@@ -7059,7 +7017,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -7131,7 +7089,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate dashboard EmbedToken with multiple identities": {
+                    "Generate a dashboard embed token with multiple identities example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
@@ -7161,7 +7119,7 @@
                             }
                         }
                     },
-                    "Generate dashboard EmbedToken using EffectiveIdentity with IdentityBlob": {
+                    "Generate a dashboard embed token using an effective identity with an identity blob example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
@@ -7249,7 +7207,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate tile EmbedToken with effective identity": {
+                    "Generate a tile embed token using an effective identity example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
@@ -7275,7 +7233,7 @@
                             }
                         }
                     },
-                    "Generate tile EmbedToken with effective identity (Using CustomData for Azure AS)": {
+                    "Generate a tile embed token using an effective identity with custom data for Azure Analysis Services example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
@@ -7302,7 +7260,7 @@
                             }
                         }
                     },
-                    "Generate tile EmbedToken using EffectiveIdentity with IdentityBlob": {
+                    "Generate a tile embed token using an effective identity with an identity blob example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dashboardId": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
@@ -7359,7 +7317,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -7421,7 +7379,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -7474,7 +7432,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
                         },
@@ -7541,7 +7499,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
                         },
@@ -7596,7 +7554,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd"
                         },
@@ -7662,7 +7620,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                             "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
@@ -7725,7 +7683,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                             "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af"
@@ -7802,7 +7760,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "3d9b93c6-7b6d-4801-a491-1738910904fd",
                             "dashboardKey": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
@@ -7900,7 +7858,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
@@ -7956,7 +7914,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
@@ -8033,7 +7991,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
@@ -8089,7 +8047,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
@@ -8155,7 +8113,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "a2f89923-421a-464e-bf4c-25eab39bb09f"
                         },
@@ -8266,7 +8224,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Every day schedule example": {
+                    "Daily refresh schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
@@ -8295,7 +8253,7 @@
                             "200": {}
                         }
                     },
-                    "Update times schedule example": {
+                    "Update refresh schedule times example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
@@ -8314,7 +8272,7 @@
                             "200": {}
                         }
                     },
-                    "Disable schedule example": {
+                    "Disable refresh schedule example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce",
@@ -8371,7 +8329,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "51e47fc5-48fd-4826-89f0-021bd3a80abd",
                             "dataflowId": "928228ba-008d-4fd9-864a-92d2752ee5ce"
@@ -8436,7 +8394,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "51e47fc5-48fd-4826-89f0-021111110abd",
                             "transactionId": "2020-09-11T19:21:52.8778432Z@9cc7a369-6112-4dba-97b6-b07ff5699568$1374282"
@@ -8477,7 +8435,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -8532,7 +8490,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"
                         },
@@ -8585,7 +8543,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934"
                         },
@@ -8658,7 +8616,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "SQL": {
+                    "SQL example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
@@ -8679,7 +8637,7 @@
                             "200": {}
                         }
                     },
-                    "Analysis Services": {
+                    "Azure Analysis Services example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
@@ -8743,7 +8701,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970"
@@ -8797,7 +8755,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970"
@@ -8906,7 +8864,7 @@
                             "200": {}
                         }
                     },
-                    "OAuth2 credentials example": {
+                    "OAuth 2.0 credentials example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
@@ -9046,7 +9004,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970"
@@ -9119,7 +9077,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
@@ -9132,7 +9090,7 @@
                             "200": {}
                         }
                     },
-                    "example for giving ReadOverrideEffectiveIdentity access right to a service principal": {
+                    "Assign the ReadOverrideEffectiveIdentity user access right to a service principal example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
@@ -9193,7 +9151,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                             "datasourceId": "252b9de8-d915-4788-aaeb-ec8c2395f970",
@@ -9256,7 +9214,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -9284,7 +9242,7 @@
                             }
                         }
                     },
-                    "example with filter": {
+                    "Get a list of workspaces using a filter example": {
                         "parameters": {
                             "$filter": "$filter=contains(name,'marketing')%20or%20name%20eq%20'contoso'"
                         },
@@ -9351,7 +9309,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "requestParameters": {
                                 "name": "sample group"
@@ -9370,7 +9328,7 @@
                             }
                         }
                     },
-                    "example creating a workspace V2": {
+                    "Create a workspace in the new workspace experience example": {
                         "parameters": {
                             "requestParameters": {
                                 "name": "sample workspace V2"
@@ -9421,7 +9379,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -9464,7 +9422,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -9535,7 +9493,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "userDetails": {
@@ -9547,7 +9505,7 @@
                             "200": {}
                         }
                     },
-                    "example for giving Admin access right to a service principal": {
+                    "Assign administrator user access rights to a service principal example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "userDetails": {
@@ -9600,7 +9558,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "userDetails": {
@@ -9612,7 +9570,7 @@
                             "200": {}
                         }
                     },
-                    "example for giving Admin access right to a service principal": {
+                    "Assign administrator user access rights to a service principal example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "userDetails": {
@@ -9664,7 +9622,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "user": "john@contoso.com"
@@ -9704,7 +9662,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -9759,7 +9717,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2"
                         },
@@ -9823,7 +9781,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
                             "workloadName": "Dataflows"
@@ -9886,7 +9844,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2",
                             "workloadName": "Dataflows",
@@ -10008,7 +9966,7 @@
                             }
                         }
                     },
-                    "Get refreshables with capacities and groups expanded": {
+                    "Get refreshables with their 'capacity' and 'group' expanded example": {
                         "parameters": {
                             "$expand": "capacity,group"
                         },
@@ -10068,7 +10026,7 @@
                             }
                         }
                     },
-                    "Get refreshes with an average duration greater than thirty minutes": {
+                    "Get refreshables, filtering for an average refresh duration of greater than 30 minutes example.": {
                         "parameters": {
                             "$filter": "averageDuration gt 1800"
                         },
@@ -10237,7 +10195,7 @@
                             }
                         }
                     },
-                    "Get refreshables with capacities and groups expanded": {
+                    "Get refreshables with their 'capacity' and 'group' expanded example": {
                         "parameters": {
                             "$expand": "capacity,group"
                         },
@@ -10297,7 +10255,7 @@
                             }
                         }
                     },
-                    "Get refreshes with an average duration greater than thirty minutes": {
+                    "Get refreshables, filtering for an average refresh duration of greater than 30 minutes example.": {
                         "parameters": {
                             "$filter": "averageDuration gt 1800"
                         },
@@ -10449,7 +10407,7 @@
                             }
                         }
                     },
-                    "Get refreshable with capacity and group expanded": {
+                    "Get refreshables with their 'capacity' and 'group' expanded example": {
                         "parameters": {
                             "$expand": "capacity,group"
                         },
@@ -10543,7 +10501,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "requestParameters": {
                                 "capacityId": "0f084df7-c13d-451b-af5f-ed0c466403b2"
@@ -10595,7 +10553,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "requestParameters": {
@@ -10634,7 +10592,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Assignment to shared capacity status example": {
+                    "Completed assignment status example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -10648,7 +10606,7 @@
                             }
                         }
                     },
-                    "Assignment in progress status example": {
+                    "In-progress assignment status example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -10696,7 +10654,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Assignment completed successfully status example": {
+                    "Completed assignment status example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -10712,7 +10670,7 @@
                             }
                         }
                     },
-                    "Assignment in progress status example": {
+                    "In-progress assignment status example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -10754,7 +10712,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -10809,7 +10767,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "featureName": "embedTrial"
                         },
@@ -10857,7 +10815,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -10907,7 +10865,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Create a deployment pipeline": {
+                    "Create a deployment pipeline example": {
                         "parameters": {
                             "createPipelineRequest": {
                                 "displayName": "My Deployment Pipeline Name",
@@ -10969,7 +10927,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get pipeline without using expand stages": {
+                    "Get a deployment pipeline without its 'stages' expanded example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
                         },
@@ -10983,7 +10941,7 @@
                             }
                         }
                     },
-                    "Get pipeline using expand stages": {
+                    "Get a deployment pipeline with its 'stages' expanded example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "$expand": "stages"
@@ -11056,7 +11014,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Updates a deployment pipeline": {
+                    "Update a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "updatePipelineRequest": {
@@ -11106,7 +11064,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Delete a deployment pipeline": {
+                    "Delete a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
                         },
@@ -11150,7 +11108,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get users of a deployment pipeline": {
+                    "Get users of a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
                         },
@@ -11216,7 +11174,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Add user to a deployment pipeline": {
+                    "Add a user to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "userDetails": {
@@ -11229,7 +11187,7 @@
                             "200": {}
                         }
                     },
-                    "Add group to a deployment pipeline": {
+                    "Add a group to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "userDetails": {
@@ -11242,7 +11200,7 @@
                             "200": {}
                         }
                     },
-                    "Add service principal to a deployment pipeline": {
+                    "Add a service principal to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "userDetails": {
@@ -11294,7 +11252,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Delete user access from a deployment pipeline": {
+                    "Remove user access to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "john@contoso.com"
@@ -11303,7 +11261,7 @@
                             "200": {}
                         }
                     },
-                    "Delete group access from a deployment pipeline": {
+                    "Remove group access to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a"
@@ -11312,7 +11270,7 @@
                             "200": {}
                         }
                     },
-                    "Delete service principal access from a deployment pipeline": {
+                    "Remove service principal access to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d"
@@ -11357,7 +11315,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get stages of a deployment pipeline": {
+                    "Get the stages of a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
                         },
@@ -11433,7 +11391,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Assign a workspace to a deployment pipeline": {
+                    "Assign a workspace to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "stageOrder": 0,
@@ -11487,7 +11445,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Unassign a workspace from a deployment pipeline": {
+                    "Unassign a workspace from a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "stageOrder": 0
@@ -11541,7 +11499,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get test stage artifacts": {
+                    "Get test stage artifacts example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "stageOrder": 1
@@ -11621,7 +11579,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get pipeline Operations": {
+                    "Get pipeline operations example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824"
                         },
@@ -11687,7 +11645,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get pipeline operation": {
+                    "Get a pipeline operation example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "operationId": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5"
@@ -11793,7 +11751,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Deploy all artifacts from Development stage": {
+                    "Deploy all artifacts from the 'development' source stage example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "deployRequest": {
@@ -11868,7 +11826,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Deploy specific artifacts from Development stage": {
+                    "Deploy specific artifacts from the 'development' stage example": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "deployRequest": {
@@ -11949,7 +11907,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -12005,7 +11963,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "requestParameters": {
@@ -12799,7 +12757,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get workspaces with users expanded (only applicable for workspaces in the new workspace experience)": {
+                    "Get workspaces with their 'users' expanded example. Only applicable for workspaces in the new workspace experience.": {
                         "parameters": {
                             "$expand": "users",
                             "$top": 100
@@ -12838,7 +12796,7 @@
                             }
                         }
                     },
-                    "Get orphaned workspaces (only applicable for workspaces in the new workspace experience)": {
+                    "Get orphaned workspaces example. Only applicable for workspaces in the new workspace experience.": {
                         "parameters": {
                             "$expand": "users",
                             "$top": 100,
@@ -12863,7 +12821,7 @@
                             }
                         }
                     },
-                    "Get workspaces with reports expanded": {
+                    "Get workspaces with their 'reports' expanded example": {
                         "parameters": {
                             "$expand": "reports",
                             "$top": 100,
@@ -12913,7 +12871,7 @@
                             }
                         }
                     },
-                    "Get workspaces with dashboards expanded": {
+                    "Get workspaces with their 'dashboards' expanded example": {
                         "parameters": {
                             "$expand": "dashboards",
                             "$top": 100,
@@ -12950,7 +12908,7 @@
                             }
                         }
                     },
-                    "Get workspaces with datasets expanded": {
+                    "Get workspaces with their 'datasets' expanded example": {
                         "parameters": {
                             "$expand": "datasets",
                             "$top": 100,
@@ -13003,7 +12961,7 @@
                             }
                         }
                     },
-                    "Get deleted workspaces (only applicable for workspaces in the new workspace experience)": {
+                    "Get deleted workspaces example. Only applicable for workspaces in the new workspace experience.": {
                         "parameters": {
                             "$top": 100,
                             "$filter": "state eq 'Deleted'"
@@ -13026,7 +12984,7 @@
                             }
                         }
                     },
-                    "Get workspaces with datasets expanded (only applicable for workspaces in the new workspace experience)": {
+                    "Get workspaces with their 'datasets' expanded example. Only applicable for workspaces in the new workspace experience.": {
                         "parameters": {
                             "$expand": "datasets"
                         },
@@ -13074,7 +13032,7 @@
                             }
                         }
                     },
-                    "Get workspaces with workbooks expanded": {
+                    "Get workspaces with their 'workbooks' expanded example": {
                         "parameters": {
                             "$expand": "workbooks",
                             "$top": 100,
@@ -13148,7 +13106,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get workspaces with users expanded (only applicable for workspaces in the new workspace experience)": {
+                    "Get workspaces with their 'users' expanded example. Only applicable for workspaces in the new workspace experience.": {
                         "parameters": {
                             "$expand": "users"
                         },
@@ -13258,7 +13216,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -13972,7 +13930,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -15006,7 +14964,7 @@
                             }
                         }
                     },
-                    "Get refreshables with capacities and groups expanded": {
+                    "Get refreshables with their 'capacity' and 'group' expanded example": {
                         "parameters": {
                             "$expand": "capacity,group"
                         },
@@ -15066,7 +15024,7 @@
                             }
                         }
                     },
-                    "Get refreshes with an average duration greater than thirty minutes": {
+                    "Get refreshables, filtering for an average refresh duration of greater than 30 minutes example.": {
                         "parameters": {
                             "$filter": "averageDuration gt 1800"
                         },
@@ -15234,7 +15192,7 @@
                             }
                         }
                     },
-                    "Get refreshables with capacities and groups expanded": {
+                    "Get refreshables with their 'capacity' and 'group' expanded example": {
                         "parameters": {
                             "$expand": "capacity,group"
                         },
@@ -15294,7 +15252,7 @@
                             }
                         }
                     },
-                    "Get refreshes with an average duration greater than thirty minutes": {
+                    "Get refreshables, filtering for an average refresh duration of greater than 30 minutes example.": {
                         "parameters": {
                             "$filter": "averageDuration gt 1800"
                         },
@@ -15445,7 +15403,7 @@
                             }
                         }
                     },
-                    "Get refreshable with capacity and group expanded": {
+                    "Get a refreshable with its 'capacity' and 'group' expanded example": {
                         "parameters": {
                             "$expand": "capacity,group"
                         },
@@ -15736,7 +15694,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets, and target workspaces.",
-                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n\n## Required scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n\n######\n",
+                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n\n## Required scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n\n######\n",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -15764,7 +15722,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate EmbedToken for two datasets with RLS identities and a single report with read-only permissions. This token allows to view the report dynamically bound to two different datasets": {
+                    "Generate an embed token for two datasets with RLS identities and a single report with read-only permissions example. The embed token lets you view the report, which is dynamically bound to two different datasets.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -15804,7 +15762,7 @@
                             }
                         }
                     },
-                    "Generate EmbedToken for a dataset and two reports. Editing is allowed for only one of the two reports": {
+                    "Generate an embed token for a dataset and two reports example. Only one of the reports can be edited.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -15833,7 +15791,7 @@
                             }
                         }
                     },
-                    "Generate an Embed Token expiring in 10 minutes": {
+                    "Example of generating an embed token that expires no later than ten minutes from the API call": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -15866,7 +15824,7 @@
                             }
                         }
                     },
-                    "Generate an EmbedToken for a Power BI report with a paginated visual. The paginated Report ID \"(f904e89a-7ebe-4aa0-8647-e409063b4850)\" of the paginated visual has to be included in the report IDs section.": {
+                    "Generate an embed token for a Power BI report with a paginated visual example. The paginated report ID ('...4850') of the paginated visual must be included in the 'reports' section of the request.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -15929,7 +15887,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "$top": 10
                         },
@@ -15991,7 +15949,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "appId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -16051,7 +16009,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "userId": "f089354e-8366-4e18-aea3-4cb4a3a50b48"
                         },
@@ -16201,7 +16159,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get audit activity events between a time window": {
+                    "Get audit activity events within a time window example": {
                         "parameters": {
                             "startDateTime": "'2019-08-13T07:55:00.000Z'",
                             "endDateTime": "'2019-08-13T08:55:00.000Z'"
@@ -16239,7 +16197,7 @@
                             }
                         }
                     },
-                    "Get audit activity events between a time window and with a specific activity type": {
+                    "Get audit activity events within a time window and for a specific activity type example": {
                         "parameters": {
                             "startDateTime": "'2019-08-13T07:55:00.000Z'",
                             "endDateTime": "'2019-08-13T08:55:00.000Z'",
@@ -16278,7 +16236,7 @@
                             }
                         }
                     },
-                    "Get audit activity events within a time window for a specific user ID": {
+                    "Get audit activity events within a time window and for a specific user ID example": {
                         "parameters": {
                             "startDateTime": "'2019-08-13T07:55:00.000Z'",
                             "endDateTime": "'2019-08-13T08:55:00.000Z'",
@@ -16317,7 +16275,7 @@
                             }
                         }
                     },
-                    "Get audit activity events within a time window for a specific activity type and user ID": {
+                    "Get audit activity events within a time window and for a specific activity type and user ID example": {
                         "parameters": {
                             "startDateTime": "'2019-08-13T07:55:00.000Z'",
                             "endDateTime": "'2019-08-13T08:55:00.000Z'",
@@ -16356,7 +16314,7 @@
                             }
                         }
                     },
-                    "Get the next set of audit activity events by sending the continuation token to the API": {
+                    "Get the next set of audit activity events by sending the continuation token to the API example": {
                         "parameters": {
                             "continuationToken": "%2BRID%3A244SAKlHY7YQAAAAAAAAAA%3D%3D%23RT%3A1%23TRC%3A5%23FPC%3AARAAAAAAAAAAFwAAAAAAAAA%3D"
                         },
@@ -16677,7 +16635,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get deployment pipelines": {
+                    "Get deployment pipelines example": {
                         "parameters": {},
                         "responses": {
                             "200": {
@@ -16696,7 +16654,7 @@
                             }
                         }
                     },
-                    "Get deployment pipelines with users expanded": {
+                    "Get deployment pipelines with their 'users' expanded example": {
                         "parameters": {
                             "$expand": "users",
                             "$top": 100
@@ -16738,7 +16696,7 @@
                             }
                         }
                     },
-                    "Get orphaned deployment pipelines": {
+                    "Get orphaned deployment pipelines example": {
                         "parameters": {
                             "$expand": "users",
                             "$top": 100,
@@ -16759,7 +16717,7 @@
                             }
                         }
                     },
-                    "Get deployment pipelines with stages expanded": {
+                    "Get deployment pipelines with their 'stages' expanded example": {
                         "parameters": {
                             "$expand": "stages",
                             "$top": 100,
@@ -16832,7 +16790,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get users of a deployment pipeline": {
+                    "Get users of a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523"
                         },
@@ -16898,7 +16856,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Add user to a deployment pipeline": {
+                    "Add a user to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "userDetails": {
@@ -16911,7 +16869,7 @@
                             "200": {}
                         }
                     },
-                    "Add group to a deployment pipeline": {
+                    "Add a group to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "userDetails": {
@@ -16924,7 +16882,7 @@
                             "200": {}
                         }
                     },
-                    "Add service principal to a deployment pipeline": {
+                    "Add a service principal to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "userDetails": {
@@ -16976,7 +16934,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Delete user access from a deployment pipeline": {
+                    "Remove user access to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "john@contoso.com"
@@ -16985,7 +16943,7 @@
                             "200": {}
                         }
                     },
-                    "Delete group access from a deployment pipeline": {
+                    "Remove group access to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a"
@@ -16994,7 +16952,7 @@
                             "200": {}
                         }
                     },
-                    "Delete service principal access from a deployment pipeline": {
+                    "Remove service principal access to a deployment pipeline example": {
                         "parameters": {
                             "pipelineId": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
                             "identifier": "a35d842b-90d5-59a1-c56a-5f8fcff0bf9d"
@@ -17041,7 +16999,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Create install ticket for Template app with 2 query parameters to set": {
+                    "Create an install ticket for a template app, specifying two query parameters example.": {
                         "parameters": {
                             "requestParameters": {
                                 "appId": "91ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
@@ -17129,7 +17087,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"

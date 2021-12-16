@@ -72,7 +72,7 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum 50 target workspaces.
         /// - For Azure Analysis Services or Analysis Services on-premises live
         /// connection reports, generating an embed token with row-level
-        /// security might not work for several minutes after a
+        /// security (RLS) might not work for several minutes after a
         /// [rebind](/rest/api/power-bi/reports/rebind-report).
         ///
         /// ######
