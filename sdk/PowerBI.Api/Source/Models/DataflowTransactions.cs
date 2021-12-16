@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A dataflow transaction odata list wrapper
+    /// Odata response wrapper for dataflow transactions
     /// </summary>
     public partial class DataflowTransactions
     {

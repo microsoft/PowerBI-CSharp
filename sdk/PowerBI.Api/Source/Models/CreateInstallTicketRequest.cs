@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Create Install Ticket Request
+    /// A request to create a Power BI install ticket
     /// </summary>
     public partial class CreateInstallTicketRequest
     {

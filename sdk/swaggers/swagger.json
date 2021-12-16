@@ -22191,7 +22191,7 @@
             }
         },
         "DataflowTransactions": {
-            "description": "A dataflow transaction odata list wrapper",
+            "description": "Odata response wrapper for dataflow transactions",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -22222,27 +22222,27 @@
                 },
                 "startTime": {
                     "type": "string",
-                    "description": "Start time of the transaction"
+                    "description": "The start time of the transaction"
                 },
                 "endTime": {
                     "type": "string",
-                    "description": "End time of the transaction"
+                    "description": "The end time of the transaction"
                 },
                 "status": {
                     "type": "string",
-                    "description": "Status of the transaction"
+                    "description": "The status of the transaction"
                 }
             }
         },
         "DataflowTransactionStatus": {
-            "description": "Status of dataflow refresh transaction",
+            "description": "The status of a dataflow refresh transaction",
             "properties": {
                 "transactionId": {
                     "description": "The transaction ID",
                     "type": "string"
                 },
                 "status": {
-                    "description": "Status of transaction",
+                    "description": "The transaction status",
                     "type": "string",
                     "enum": [
                         "invalid",
@@ -22254,22 +22254,22 @@
             }
         },
         "DataflowUpdateRequestMessage": {
-            "description": "Request payload for updating dataflow information",
+            "description": "A request to update dataflow information",
             "properties": {
                 "name": {
-                    "description": "New name of the dataflow",
+                    "description": "The new name for the dataflow",
                     "type": "string"
                 },
                 "description": {
-                    "description": "New description for the dataflow",
+                    "description": "The new description for the dataflow",
                     "type": "string"
                 },
                 "allowNativeQueries": {
-                    "description": "Allow native queries",
+                    "description": "Whether to allow native queries",
                     "type": "boolean"
                 },
                 "computeEngineBehavior": {
-                    "description": "Compute Engine Behavior",
+                    "description": "The behavior of the compute engine",
                     "type": "string",
                     "enum": [
                         "computeOptimized",
@@ -22280,7 +22280,7 @@
             }
         },
         "CreateInstallTicketRequest": {
-            "description": "Power BI Create Install Ticket Request",
+            "description": "A request to create a Power BI install ticket",
             "properties": {
                 "installDetails": {
                     "type": "array",
@@ -22297,30 +22297,30 @@
                 "packageKey",
                 "ownerTenantId"
             ],
-            "description": "Power BI Template App Install Details",
+            "description": "The install details for a Power BI template app",
             "properties": {
                 "appId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The unique ID of the application"
+                    "description": "The unique ID of the Power BI template app"
                 },
                 "packageKey": {
                     "type": "string",
-                    "description": "Application version secure key"
+                    "description": "The secure key for the Power BI template app version"
                 },
                 "ownerTenantId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The object ID for the application owner's tenant"
+                    "description": "The tenant ID of the Power BI template app owner"
                 },
                 "config": {
                     "$ref": "#/definitions/TemplateAppConfigurationRequest",
-                    "description": "Automated install configuration."
+                    "description": "The automated install configuration"
                 }
             }
         },
         "TemplateAppConfigurationRequest": {
-            "description": "Power BI Template App Automated install configuration. Dictionary of name-value pairs",
+            "description": "An automated install configuration for a Power BI template app (dictionary of name-value pairs)",
             "properties": {
                 "configuration": {
                     "type": "object",
@@ -22340,7 +22340,7 @@
                 "ticketId",
                 "expiration"
             ],
-            "description": "Power BI Template Apps automated install token",
+            "description": "An automated install ticket for a Power BI template app",
             "properties": {
                 "ticket": {
                     "type": "string",
@@ -22349,17 +22349,17 @@
                 "ticketId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The unique ID of a ticket, which can be used to correlate operations that use this ticket with the generate operation through audit logs"
+                    "description": "The unique ID of an install ticket. Audit logs can be used to correlate operations that use this ticket with the generate ticket operation."
                 },
                 "expiration": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Expiration time of token. In UTC."
+                    "description": "The expiration date and time (UTC) of the ticket"
                 }
             }
         },
         "ArtifactId": {
-            "description": "The unique ID of an artifact, which is in UUID format for dashboards, reports, and dataflows",
+            "description": "The unique ID of a Power BI item in UUID format. Dashboard, report, and dataflow IDs are in UUID format, and dataset IDs can be in UUID or string format.",
             "required": [
                 "id"
             ],
@@ -22367,49 +22367,49 @@
                 "id": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "ID"
+                    "description": "An ID in UUID format"
                 }
             }
         },
         "ArtifactStringId": {
-            "description": "The unique ID of an artifact, which is in string or UUID format for datasets",
+            "description": "The unique ID of a Power BI item in string or UUID format. Dashboard, report, and dataflow IDs are in UUID format, and dataset IDs can be in UUID or string format.",
             "required": [
                 "id"
             ],
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "ID"
+                    "description": "An ID in string or UUID format"
                 }
             }
         },
         "InformationProtectionArtifactsChangeLabel": {
-            "description": "A composite of artifact IDs that will be used to update the information protection labels of those artifacts",
+            "description": "A composite of Power BI item IDs for each item type. The IDs specify which Power BI items require an information protection label update.",
             "properties": {
                 "dashboards": {
                     "type": "array",
-                    "description": "List of unique dashboard IDs.",
+                    "description": "A list of unique dashboard IDs",
                     "items": {
                         "$ref": "#/definitions/ArtifactId"
                     }
                 },
                 "reports": {
                     "type": "array",
-                    "description": "List of unique report IDs.",
+                    "description": "A list of unique report IDs",
                     "items": {
                         "$ref": "#/definitions/ArtifactId"
                     }
                 },
                 "datasets": {
                     "type": "array",
-                    "description": "List of unique dataset IDs.",
+                    "description": "A list of unique dataset IDs",
                     "items": {
                         "$ref": "#/definitions/ArtifactStringId"
                     }
                 },
                 "dataflows": {
                     "type": "array",
-                    "description": "List of unique dataflow IDs.",
+                    "description": "A list of unique dataflow IDs",
                     "items": {
                         "$ref": "#/definitions/ArtifactId"
                     }
@@ -22417,32 +22417,32 @@
             }
         },
         "InformationProtectionChangeLabelResponse": {
-            "description": "A composite of artifact IDs and label change status",
+            "description": "A composite of the ID and information protection label change status for one or more Power BI items organized by type",
             "properties": {
                 "dashboards": {
                     "type": "array",
-                    "description": "List of unique dashboard IDs with label change status.",
+                    "description": "A list containing the unique ID and information protection label change status of one or more dashboards",
                     "items": {
                         "$ref": "#/definitions/ChangeLabelStatus"
                     }
                 },
                 "reports": {
                     "type": "array",
-                    "description": "List of unique report IDs with label change status.",
+                    "description": "A list containing the unique ID and information protection label change status of one or more reports",
                     "items": {
                         "$ref": "#/definitions/ChangeLabelStatus"
                     }
                 },
                 "dataflows": {
                     "type": "array",
-                    "description": "List of unique dataflow IDs with label change status.",
+                    "description": "A list containing the unique ID and information protection label change status of one or more dataflows",
                     "items": {
                         "$ref": "#/definitions/ChangeLabelStatus"
                     }
                 },
                 "datasets": {
                     "type": "array",
-                    "description": "List of unique dataset IDs with label change status.",
+                    "description": "A list containing the unique ID and information protection label change status of one or more datasets",
                     "items": {
                         "$ref": "#/definitions/ChangeLabelStatus"
                     }
@@ -22450,7 +22450,7 @@
             }
         },
         "ChangeLabelStatus": {
-            "description": "Artifact ID with information protection label status",
+            "description": "The unique ID and information protection label change status of a Power BI item",
             "required": [
                 "id",
                 "status"
@@ -22458,11 +22458,11 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The unique ID of an artifact, which is in UUID format for dashboards, reports, and dataflows, and string format for datasets"
+                    "description": "The unique ID of a Power BI item. The ID is in UUID format for dashboards, reports, and dataflows; and in UUID or string format for datasets."
                 },
                 "status": {
                     "type": "string",
-                    "description": "Indicates the result of the label change operation",
+                    "description": "The status of an information protection label change operation",
                     "enum": [
                         "Failed",
                         "FailedToGetUsageRights",
@@ -22476,23 +22476,23 @@
                         "values": [
                             {
                                 "value": "Failed",
-                                "description": "Label was not changed. Please retry."
+                                "description": "Failed to set a new label. Please retry."
                             },
                             {
                                 "value": "FailedToGetUsageRights",
-                                "description": "Failed to set new label. Artifact has a sensitivity label with protection settings. Power BI could not verify if user has sufficient usage rights to change label."
+                                "description": "Failed to set a new label. The Power BI item has a sensitivity label with protection settings, and Power BI was unable to verify that the user has sufficient usage rights to change the label."
                             },
                             {
                                 "value": "InsufficientUsageRights",
-                                "description": "Failed to set new label. Artifact has a sensitivity label with protection settings that the admin, or both the admin and the delegated user, do not have sufficient usage rights to update label."
+                                "description": "Failed to set a new label. The Power BI item has a sensitivity label with protection settings, and the admin user (and the delegated user, if provided) doesn't have sufficient usage rights to change the label."
                             },
                             {
                                 "value": "NotFound",
-                                "description": "Artifact ID or label was not found."
+                                "description": "The Power BI item ID or label wasn't found"
                             },
                             {
                                 "value": "Succeeded",
-                                "description": "Label was changed on the given artifact."
+                                "description": "The Power BI item label was changed"
                             }
                         ]
                     }
@@ -22500,23 +22500,23 @@
             }
         },
         "InformationProtectionChangeLabelDetails": {
-            "description": "Set label details.",
+            "description": "A composite of label information required to update an information protection label",
             "required": [
                 "artifacts",
                 "labelId"
             ],
             "properties": {
                 "artifacts": {
-                    "description": "A composite of artifact ID lists for each type",
+                    "description": "A composite of Power BI item IDs for each item type",
                     "$ref": "#/definitions/InformationProtectionArtifactsChangeLabel"
                 },
                 "labelId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "Label ID (must be in the user’s policy)."
+                    "description": "The label ID, which must be in the user's label policy."
                 },
                 "delegatedUser": {
-                    "description": "Delegated user details. A delegated user is a user in the admin’s organization on whose behalf the admin sets a label. Although the admin sets the label, the delegated user is marked as the label issuer.",
+                    "description": "Delegated user details. A delegated user is a user within an organization whose admin sets a label on behalf of the user. Although the admin sets the label, the delegated user is marked as the label issuer.",
                     "$ref": "#/definitions/DelegatedUser"
                 },
                 "assignmentMethod": {
@@ -22531,26 +22531,26 @@
                         "values": [
                             {
                                 "value": "Standard",
-                                "description": "Specifies that the label was set as part of an automatic process."
+                                "description": "The label was set by an automated process (default value)"
                             },
                             {
                                 "value": "Priviledged",
-                                "description": "Specifies that the label was set manually."
+                                "description": "The label was set manually"
                             }
                         ]
                     },
-                    "description": "Specifies whether the assigned label is to be regarded as having been set manually or as the result of automatic labeling. (default value is Standard)."
+                    "description": "Specifies whether the assigned label was set by an automated process or manually."
                 }
             }
         },
         "DelegatedUser": {
-            "description": "Delegated user details. The user must be an existing user in Power BI and Azure AAD, who has signed in to Power BI during the last 3 months.",
+            "description": "Delegated user details. The user must be an existing user in Power BI and Azure AAD, and must have signed in to Power BI during the last three months.",
             "required": [
                 "emailAddress"
             ],
             "properties": {
                 "emailAddress": {
-                    "description": "Delegated user email address.",
+                    "description": "The email address of the delegated user",
                     "type": "string"
                 }
             }

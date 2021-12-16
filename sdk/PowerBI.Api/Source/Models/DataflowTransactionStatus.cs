@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Status of dataflow refresh transaction
+    /// The status of a dataflow refresh transaction
     /// </summary>
     public partial class DataflowTransactionStatus
     {
@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DataflowTransactionStatus class.
         /// </summary>
         /// <param name="transactionId">The transaction ID</param>
-        /// <param name="status">Status of transaction. Possible values
+        /// <param name="status">The transaction status. Possible values
         /// include: 'invalid', 'successfullyMarked', 'alreadyConcluded',
         /// 'notFound'</param>
         public DataflowTransactionStatus(string transactionId = default(string), string status = default(string))
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string TransactionId { get; set; }
 
         /// <summary>
-        /// Gets or sets status of transaction. Possible values include:
+        /// Gets or sets the transaction status. Possible values include:
         /// 'invalid', 'successfullyMarked', 'alreadyConcluded', 'notFound'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
