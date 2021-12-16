@@ -14907,7 +14907,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of refreshables for the organization within a capacity.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
+                "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Admin_GetRefreshables",
                 "consumes": [
                 ],
@@ -22093,28 +22093,28 @@
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The start time of the window for which summary data exists"
+                    "description": "The start time of the window for which refresh data exists"
                 },
                 "endTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The end time of the window for which summary data exists"
+                    "description": "The end time of the window for which refresh data exists"
                 },
                 "refreshCount": {
                     "type": "integer",
-                    "description": "The number of refreshes within the summary time window"
+                    "description": "The number of refreshes within the time window for which refresh data exists"
                 },
                 "refreshFailures": {
                     "type": "integer",
-                    "description": "The number of refresh failures within the summary time window"
+                    "description": "The number of refresh failures within the time window for which refresh data exists"
                 },
                 "averageDuration": {
                     "type": "number",
-                    "description": "The average duration in seconds of a refresh within the summary time window"
+                    "description": "The average duration in seconds of a refresh during the time window for which refresh data exists"
                 },
                 "medianDuration": {
                     "type": "number",
-                    "description": "The median duration in seconds of a refresh within the summary time window"
+                    "description": "The median duration in seconds of a refresh within the time window for which refresh data exists"
                 },
                 "refreshesPerDay": {
                     "type": "integer",

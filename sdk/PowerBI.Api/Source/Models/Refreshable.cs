@@ -32,17 +32,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="kind">The refreshable kind. Possible values include:
         /// 'Dataset'</param>
         /// <param name="startTime">The start time of the window for which
-        /// summary data exists</param>
-        /// <param name="endTime">The end time of the window for which summary
+        /// refresh data exists</param>
+        /// <param name="endTime">The end time of the window for which refresh
         /// data exists</param>
-        /// <param name="refreshCount">The number of refreshes within the
-        /// summary time window</param>
+        /// <param name="refreshCount">The number of refreshes within the time
+        /// window for which refresh data exists</param>
         /// <param name="refreshFailures">The number of refresh failures within
-        /// the summary time window</param>
+        /// the time window for which refresh data exists</param>
         /// <param name="averageDuration">The average duration in seconds of a
-        /// refresh within the summary time window</param>
+        /// refresh during the time window for which refresh data
+        /// exists</param>
         /// <param name="medianDuration">The median duration in seconds of a
-        /// refresh within the summary time window</param>
+        /// refresh within the time window for which refresh data
+        /// exists</param>
         /// <param name="refreshesPerDay">The number of refreshes per day
         /// (scheduled and on-demand) within the time window for which refresh
         /// data exists</param>
@@ -100,42 +102,43 @@ namespace Microsoft.PowerBI.Api.Models
         public RefreshableKind? Kind { get; set; }
 
         /// <summary>
-        /// Gets or sets the start time of the window for which summary data
+        /// Gets or sets the start time of the window for which refresh data
         /// exists
         /// </summary>
         [JsonProperty(PropertyName = "startTime")]
         public System.DateTime? StartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the end time of the window for which summary data
+        /// Gets or sets the end time of the window for which refresh data
         /// exists
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public System.DateTime? EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of refreshes within the summary time window
+        /// Gets or sets the number of refreshes within the time window for
+        /// which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "refreshCount")]
         public int? RefreshCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of refresh failures within the summary time
-        /// window
+        /// Gets or sets the number of refresh failures within the time window
+        /// for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "refreshFailures")]
         public int? RefreshFailures { get; set; }
 
         /// <summary>
-        /// Gets or sets the average duration in seconds of a refresh within
-        /// the summary time window
+        /// Gets or sets the average duration in seconds of a refresh during
+        /// the time window for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "averageDuration")]
         public double? AverageDuration { get; set; }
 
         /// <summary>
         /// Gets or sets the median duration in seconds of a refresh within the
-        /// summary time window
+        /// time window for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "medianDuration")]
         public double? MedianDuration { get; set; }

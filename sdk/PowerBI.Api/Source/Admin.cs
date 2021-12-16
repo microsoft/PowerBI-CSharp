@@ -826,6 +826,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// Power BI retains a seven-day refresh history for each dataset, up to a
+        /// maximum of sixty refreshes.
+        ///
         /// ## Permissions
         ///
         /// - The user must have administrator rights (such as Office 365 Global
