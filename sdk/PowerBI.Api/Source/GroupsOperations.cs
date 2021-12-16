@@ -1086,11 +1086,11 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns **My Workspace** to the specified capacity.
+        /// Assigns **My workspace** to the specified capacity.
         /// </summary>
         /// <remarks>
         ///
-        /// To unassign **My Workspace** from a capacity, provide an empty Guid
+        /// To unassign **My workspace** from a capacity, provide an empty GUID
         /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
         ///
         /// ## Permissions
@@ -1236,7 +1236,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// To unassign **My Workspace** from a capacity, provide an empty Guid
+        /// To unassign **My workspace** from a capacity, provide an empty GUID
         /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
         ///
         /// ## Permissions
@@ -1383,7 +1383,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the status of the **My Workspace** assignment-to-capacity operation.
+        /// Gets the status of the **My workspace** assignment-to-capacity operation.
         /// </summary>
         /// <remarks>
         ///

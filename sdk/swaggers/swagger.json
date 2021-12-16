@@ -9732,7 +9732,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the current state of the specified capacity workloads. If the workload is enabled, the percentage of maximum memory that the workloads can consume is also returned.",
-                "description": "\nWorkload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
+                "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [
 
@@ -9789,7 +9789,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns the current state of a workload. If the workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
-                "description": "\nWorkload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
+                "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetWorkload",
                 "consumes": [
 
@@ -9846,7 +9846,7 @@
                     "Capacities"
                 ],
                 "summary": "Changes the state of a specific workload to *Enabled* or *Disabled*. When enabling a workload, specify the percentage of maximum memory that the workload can consume.",
-                "description": "\nWorkload APIs are not relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.ReadWrite.All\n\n######\n",
+                "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_PatchWorkload",
                 "consumes": [
                     "application/json"
@@ -10518,8 +10518,8 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Assigns **My Workspace** to the specified capacity.",
-                "description": "\nTo unassign **My Workspace** from a capacity, provide an empty Guid (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
+                "summary": "Assigns **My workspace** to the specified capacity.",
+                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_AssignMyWorkspaceToCapacity",
                 "consumes": [
                     "application/json"
@@ -10563,7 +10563,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns the specified workspace to the specified capacity.",
-                "description": "\nTo unassign **My Workspace** from a capacity, provide an empty Guid (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
+                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_AssignToCapacity",
                 "consumes": [
                     "application/json"
@@ -10615,7 +10615,7 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Gets the status of the **My Workspace** assignment-to-capacity operation.",
+                "summary": "Gets the status of the **My workspace** assignment-to-capacity operation.",
                 "description": "\n## Required scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n\n######\n",
                 "operationId": "Groups_CapacityAssignmentStatusMyWorkspace",
                 "consumes": [
