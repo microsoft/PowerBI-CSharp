@@ -46,8 +46,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// report</param>
         /// <param name="createdDateTime">The report creation date and
         /// time</param>
-        /// <param name="modifiedDateTime">The report modified date
-        /// time.</param>
+        /// <param name="modifiedDateTime">The date and time that the report
+        /// was last modified</param>
         /// <param name="users">(Empty value) The artifact user access details.
         /// This property will be removed from the payload response in an
         /// upcoming release. You can retrieve user information on a Power BI
@@ -156,7 +156,7 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the report modified date time.
+        /// Gets or sets the date and time that the report was last modified
         /// </summary>
         [JsonProperty(PropertyName = "modifiedDateTime")]
         public System.DateTime? ModifiedDateTime { get; set; }

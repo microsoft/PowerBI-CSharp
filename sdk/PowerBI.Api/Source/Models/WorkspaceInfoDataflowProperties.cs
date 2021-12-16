@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="datasourceUsages">The datasource usages</param>
-        /// <param name="upstreamDataflows">Upstream Dataflows</param>
+        /// <param name="upstreamDataflows">The upstream dataflows</param>
         public WorkspaceInfoDataflowProperties(IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>))
         {
             DatasourceUsages = datasourceUsages;
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DatasourceUsage> DatasourceUsages { get; set; }
 
         /// <summary>
-        /// Gets or sets upstream Dataflows
+        /// Gets or sets the upstream dataflows
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }

@@ -13,8 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request body for migrating workspaces to shared capacity as tenant
-    /// admin
+    /// A request for migrating workspaces to a shared capacity as tenant admin
     /// </summary>
     public partial class UnassignWorkspacesCapacityRequest
     {
@@ -31,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the UnassignWorkspacesCapacityRequest
         /// class.
         /// </summary>
-        /// <param name="workspacesToUnassign">Workspaces to be migrated to
+        /// <param name="workspacesToUnassign">The workspaces to migrate to a
         /// shared capacity</param>
         public UnassignWorkspacesCapacityRequest(IList<string> workspacesToUnassign)
         {
@@ -45,7 +44,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets workspaces to be migrated to shared capacity
+        /// Gets or sets the workspaces to migrate to a shared capacity
         /// </summary>
         [JsonProperty(PropertyName = "workspacesToUnassign")]
         public IList<string> WorkspacesToUnassign { get; set; }

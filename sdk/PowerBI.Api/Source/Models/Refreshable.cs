@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Refreshable class.
         /// </summary>
         /// <param name="id">The object ID of the refreshable</param>
-        /// <param name="name">Display name of refreshable</param>
+        /// <param name="name">The display name of the refreshable</param>
         /// <param name="kind">The refreshable kind. Possible values include:
         /// 'Dataset'</param>
         /// <param name="startTime">The start time of the window for which
@@ -53,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// for the refreshable item</param>
         /// <param name="refreshSchedule">The refresh schedule for the
         /// refreshable item</param>
-        /// <param name="configuredBy">Refreshable owners</param>
+        /// <param name="configuredBy">The refreshable owners</param>
         /// <param name="capacity">The capacity for the refreshable
         /// item</param>
         /// <param name="group">The associated group for the refreshable
@@ -90,7 +90,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets display name of refreshable
+        /// Gets or sets the display name of the refreshable
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
@@ -165,7 +165,7 @@ namespace Microsoft.PowerBI.Api.Models
         public RefreshSchedule RefreshSchedule { get; set; }
 
         /// <summary>
-        /// Gets or sets refreshable owners
+        /// Gets or sets the refreshable owners
         /// </summary>
         [JsonProperty(PropertyName = "configuredBy")]
         public IList<string> ConfiguredBy { get; set; }

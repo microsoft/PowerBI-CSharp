@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI refreshable list
+    /// A Power BI refreshables list
     /// </summary>
     public partial class Refreshables
     {

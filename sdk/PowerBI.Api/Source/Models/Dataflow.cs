@@ -35,9 +35,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="modelUrl">A URL to the dataflow definition file
         /// (model.json)</param>
         /// <param name="configuredBy">The dataflow owner</param>
-        /// <param name="modifiedBy">The user that modified this
+        /// <param name="modifiedBy">The user that modified the
         /// dataflow</param>
-        /// <param name="modifiedDateTime">modification date time</param>
+        /// <param name="modifiedDateTime">The date and time that the dataflow
+        /// was last modified</param>
         /// <param name="users">The Dataflow User Access Details. This value
         /// will be empty. It will be removed from the payload response in an
         /// upcoming release. To retrieve user information on an artifact,

@@ -9731,7 +9731,7 @@
                 "tags": [
                     "Capacities"
                 ],
-                "summary": "Returns the current state of the specified capacity workloads. If the workload is enabled, the percentage of maximum memory that the workloads can consume is also returned.",
+                "summary": "Returns the current state of the specified capacity workloads. If a workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
                 "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n\n######\n",
                 "operationId": "Capacities_GetWorkloads",
                 "consumes": [
@@ -18746,7 +18746,7 @@
                 "modifiedDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The report modified date time."
+                    "description": "The date and time that the report was last modified"
                 }
             }
         },
@@ -21125,7 +21125,7 @@
             "required": [
                 "sourceReportId"
             ],
-            "description": "Source from existing report",
+            "description": "An existing source report",
             "properties": {
                 "sourceReportId": {
                     "type": "string",
@@ -21144,11 +21144,11 @@
                 "sourceType",
                 "sourceReport"
             ],
-            "description": "Power BI update report content request",
+            "description": "A Power BI request to update the content of a report",
             "properties": {
                 "sourceType": {
                     "type": "string",
-                    "description": "The source type for the content update.",
+                    "description": "The source type of the content update",
                     "enum": [
                         "ExistingReport"
                     ],
@@ -21158,7 +21158,7 @@
                         "values": [
                             {
                                 "value": "ExistingReport",
-                                "description": "Use an existing report as a source for updating the content of a target report."
+                                "description": "Use an existing report as the source of the content used to update a target report"
                             }
                         ]
                     }
@@ -21183,18 +21183,18 @@
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "The capacity display name"
+                    "description": "The display name of the capacity"
                 },
                 "admins": {
                     "type": "array",
-                    "description": "An array of capacity admins.",
+                    "description": "An array of capacity admins",
                     "items": {
                         "type": "string"
                     }
                 },
                 "sku": {
                     "type": "string",
-                    "description": "The capacity SKU."
+                    "description": "The capacity SKU"
                 },
                 "state": {
                     "type": "string",
@@ -21217,50 +21217,50 @@
                         "values": [
                             {
                                 "value": "NotActivated",
-                                "description": "Not Supported"
+                                "description": "Unsupported"
                             },
                             {
                                 "value": "Active",
-                                "description": "Capacity ready for use"
+                                "description": "The capacity is ready to use"
                             },
                             {
                                 "value": "Provisioning",
-                                "description": "Capacity in activation process"
+                                "description": "Activation of the capacity is in progress"
                             },
                             {
                                 "value": "ProvisionFailed",
-                                "description": "Capacity failed to provisioned"
+                                "description": "Provisioning of the capacity failed"
                             },
                             {
                                 "value": "Suspended",
-                                "description": "Capacity suspended for use"
+                                "description": "Use of the capacity is suspended"
                             },
                             {
                                 "value": "PreSuspended",
-                                "description": "Not Supported"
+                                "description": "Unsupported"
                             },
                             {
                                 "value": "Deleting",
-                                "description": "Capacity in process of being deleted"
+                                "description": "Deletion of the capacity is in progress"
                             },
                             {
                                 "value": "Deleted",
-                                "description": "Capacity has been deleted and is not available"
+                                "description": "The capacity was deleted and is unavailable"
                             },
                             {
                                 "value": "Invalid",
-                                "description": "Capacity can not be used"
+                                "description": "The capacity can't be used"
                             },
                             {
                                 "value": "UpdatingSku",
-                                "description": "Capacity Sku change is in progress"
+                                "description": "A capacity SKU change is in progress"
                             }
                         ]
                     }
                 },
                 "capacityUserAccessRight": {
                     "type": "string",
-                    "description": "Access right user has on the capacity",
+                    "description": "The access right a user has on the capacity",
                     "enum": [
                         "None",
                         "Assign",
@@ -21287,7 +21287,7 @@
                 },
                 "region": {
                     "type": "string",
-                    "description": "The Azure region where the capacity is provisioned"
+                    "description": "The Azure region where the capacity was provisioned"
                 },
                 "tenantKeyId": {
                     "type": "string",
@@ -21296,7 +21296,7 @@
                 },
                 "tenantKey": {
                     "$ref": "#/definitions/TenantKey",
-                    "description": "Encryption key information (Only applicable for admin route)"
+                    "description": "Encryption key information (only applies to admin routes)"
                 }
             }
         },
@@ -21308,7 +21308,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The Capacity List",
+                    "description": "The capacity list",
                     "items": {
                         "$ref": "#/definitions/Capacity"
                     }
@@ -21336,7 +21336,7 @@
                 "state",
                 "extendedState"
             ],
-            "description": "Power BI available feature",
+            "description": "A Power BI available feature",
             "properties": {
                 "name": {
                     "type": "string",
@@ -21378,7 +21378,7 @@
             "properties": {
                 "Usage": {
                     "type": "integer",
-                    "description": "Workspaces that aren’t assigned to a capacity get a limited amount of [embed tokens](/power-bi/developer/embedded/embed-tokens#embed-token), to allow experimenting with the APIs. The `Usage` value represents the percentage of embed tokens that have been consumed. The `Usage` value only applies to the **embed trial** feature. For more information, see [Development testing](/power-bi/developer/embedded/move-to-production#development-testing)."
+                    "description": "Workspaces that aren't assigned to a capacity get a limited amount of [embed tokens](/power-bi/developer/embedded/embed-tokens#embed-token), to allow experimenting with the APIs. The `Usage` value represents the percentage of embed tokens that have been consumed. The `Usage` value only applies to the **embed trial** feature. For more information, see [Development testing](/power-bi/developer/embedded/move-to-production#development-testing)."
                 }
             }
         },
@@ -21386,12 +21386,12 @@
             "required": [
                 "capacityId"
             ],
-            "description": "Power BI assign to capacity request",
+            "description": "A Power BI assign-to-capacity request",
             "properties": {
                 "capacityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The capacity ID. To unassign from capacity, use an Empty Guid (`00000000-0000-0000-0000-000000000000`)."
+                    "description": "The capacity ID. To unassign from a capacity, use an empty GUID (`00000000-0000-0000-0000-000000000000`)."
                 }
             }
         },
@@ -21399,11 +21399,11 @@
             "required": [
                 "status"
             ],
-            "description": "Power BI workspace assignment status to capacity response",
+            "description": "A Power BI response with the status of a workspace assign-to-capacity operation",
             "properties": {
                 "status": {
                     "type": "string",
-                    "description": "Workspace assignment status",
+                    "description": "The status of a workspace assign-to-capacity operation",
                     "enum": [
                         "Pending",
                         "InProgress",
@@ -21416,19 +21416,19 @@
                         "values": [
                             {
                                 "value": "Pending",
-                                "description": "Assignment request was initiated, but was not started yet"
+                                "description": "The assignment request was received, but the assignment operation hasn't started."
                             },
                             {
                                 "value": "InProgress",
-                                "description": "Assignment operation is in progress"
+                                "description": "The assignment operation is in progress"
                             },
                             {
                                 "value": "CompletedSuccessfully",
-                                "description": "Assignment operation was completed successfully"
+                                "description": "The assignment operation has completed successfully"
                             },
                             {
                                 "value": "AssignmentFailed",
-                                "description": "Assignment failed"
+                                "description": "The assignment operation failed"
                             }
                         ]
                     }
@@ -21436,12 +21436,12 @@
                 "startTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Start time of workspace assignment operation"
+                    "description": "The start date and time of a workspace assignment operation"
                 },
                 "endTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "End time of workspace assignment operation"
+                    "description": "The end date and time of a workspace assignment operation"
                 },
                 "capacityId": {
                     "type": "string",
@@ -21451,7 +21451,7 @@
                 "activityId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The activity ID of the assignment operation, which can be provided in case of assignment failures"
+                    "description": "The activity ID of the assignment operation (provided in case of an assignment failure)."
                 }
             }
         },
@@ -21460,16 +21460,16 @@
                 "Url",
                 "ExpirationTime"
             ],
-            "description": "Power BI update report content request",
+            "description": "A Power BI update report content request",
             "properties": {
                 "Url": {
                     "type": "string",
-                    "description": "The shared access signature (SAS) url for the temporary blob storage"
+                    "description": "The shared access signature URL for the temporary blob storage"
                 },
                 "ExpirationTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The expiration time of the shared access signature (SAS) url"
+                    "description": "The expiration date and time of the shared access signature URL"
                 }
             }
         },
@@ -21481,7 +21481,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The capacity workload settings list",
+                    "description": "The list of capacity workload settings",
                     "items": {
                         "$ref": "#/definitions/Workload"
                     }
@@ -21509,7 +21509,7 @@
                     },
                     {
                         "value": "Unsupported",
-                        "description": "The workload is unsupported by the current capacity SKU and cannot be enabled. This value cannot be set by the user in the [Patch Workload](/rest/api/power-bi/capacities/patchworkload)"
+                        "description": "The workload is unsupported by the current capacity SKU and cannot be enabled. This value cannot be set by the user in a [Patch Workload](/rest/api/power-bi/capacities/patch-workload) API call."
                     }
                 ]
             },
@@ -21519,7 +21519,7 @@
             "required": [
                 "state"
             ],
-            "description": "Capacity workload setting",
+            "description": "A capacity workload setting",
             "properties": {
                 "name": {
                     "type": "string",
@@ -21530,7 +21530,7 @@
                 },
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",
-                    "description": "The memory percentage maximum Limit set by the user"
+                    "description": "The percentage of the maximum memory that a workload can consume (set by the user)"
                 }
             }
         },
@@ -21545,7 +21545,7 @@
                 },
                 "maxMemoryPercentageSetByUser": {
                     "type": "integer",
-                    "description": "The memory percentage maximum Limit set by the user"
+                    "description": "The percentage of the maximum memory that a workload can consume (set by the user)"
                 }
             }
         },
@@ -21553,7 +21553,7 @@
             "required": [
                 "objectId"
             ],
-            "description": "The metadata of a dataflow. Below is a list of properties that may be returned for a dataflow. Only a subset of the properties will be returned depending on the API called, the caller permissions and the availability of the data in the Power BI database.",
+            "description": "The metadata of a dataflow. The API returns a subset of the following list of dataflow properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
             "properties": {
                 "objectId": {
                     "type": "string",
@@ -21578,12 +21578,12 @@
                 },
                 "modifiedBy": {
                     "type": "string",
-                    "description": "The user that modified this dataflow"
+                    "description": "The user that modified the dataflow"
                 },
                 "modifiedDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "modification date time"
+                    "description": "The date and time that the dataflow was last modified"
                 },
                 "users": {
                     "type": "array",
@@ -21605,7 +21605,7 @@
                 },
                 "upstreamDataflows": {
                     "type": "array",
-                    "description": "Upstream Dataflows",
+                    "description": "The upstream dataflows",
                     "items": {
                         "$ref": "#/definitions/DependentDataflow"
                     }
@@ -21665,7 +21665,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The dataflow metadata List",
+                    "description": "The dataflow metadata list",
                     "items": {
                         "$ref": "#/definitions/Dataflow"
                     }
@@ -21690,7 +21690,7 @@
                 },
                 "isEnabled": {
                     "type": "boolean",
-                    "description": "Indicates if workspaces can be assigned to this storage account"
+                    "description": "Whether workspaces can be assigned to this storage account"
                 }
             }
         },
@@ -21713,7 +21713,7 @@
             "required": [
                 "dataflowStorageId"
             ],
-            "description": "Power BI assign to Power BI dataflow storage account request",
+            "description": "A Power BI assign to dataflow storage account request",
             "properties": {
                 "dataflowStorageId": {
                     "type": "string",
@@ -21723,21 +21723,21 @@
             }
         },
         "Export": {
-            "description": "An object describing Export to file details and current state",
+            "description": "An object describing the details and current state of an export to file job",
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "The Export to file job ID"
+                    "description": "The export to file job ID"
                 },
                 "createdDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The start time of the Export to file job"
+                    "description": "The start date and time of the export to file job"
                 },
                 "lastActionDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The time of last change in the Export to file job"
+                    "description": "The date and time of the last change to the export to file job"
                 },
                 "reportId": {
                     "type": "string",
@@ -21750,7 +21750,7 @@
                 },
                 "status": {
                     "type": "string",
-                    "description": "The current state of the Export to file job",
+                    "description": "The current state of the export to file job",
                     "enum": [
                         "Undefined",
                         "NotStarted",
@@ -21763,37 +21763,37 @@
                         "values": [
                             {
                                 "value": "Undefined",
-                                "description": "Indicates that the state of the Export to file job is undefined"
+                                "description": "The state of the export to file job is undefined"
                             },
                             {
                                 "value": "NotStarted",
-                                "description": "Indicates that the Export to file job did not start"
+                                "description": "The export to file job did not start"
                             },
                             {
                                 "value": "Running",
-                                "description": "Indicates that the Export to file job is running"
+                                "description": "The export to file job is running"
                             },
                             {
                                 "value": "Succeeded",
-                                "description": "Indicates that the Export to file job finished succesfully"
+                                "description": "The export to file job finished succesfully"
                             },
                             {
                                 "value": "Failed",
-                                "description": "Indicates that the Export to file job failed"
+                                "description": "The export to file job failed"
                             }
                         ]
                     }
                 },
                 "percentComplete": {
                     "type": "integer",
-                    "description": "Indicate job progress as percentage",
+                    "description": "Job progress as a percentage",
                     "format": "int32",
                     "minimum": 0,
                     "maximum": 100
                 },
                 "resourceLocation": {
                     "type": "string",
-                    "description": "The URL for retrieving the exported file"
+                    "description": "The retrieval URL for the exported file"
                 },
                 "ResourceFileExtension": {
                     "type": "string",
@@ -21802,7 +21802,7 @@
                 "expirationTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The expiration time of the URL"
+                    "description": "The expiration date and time of the retrieval URL"
                 }
             }
         },
@@ -21815,7 +21815,7 @@
                 },
                 "keyVaultKeyIdentifier": {
                     "type": "string",
-                    "description": "The URI that uniquely specifies an encryption key in Azure Key Vault."
+                    "description": "The URI that uniquely specifies an encryption key in Azure Key Vault"
                 },
                 "isDefault": {
                     "type": "boolean",
@@ -21823,7 +21823,7 @@
                 },
                 "activate": {
                     "type": "boolean",
-                    "description": "Indicates to activate any inactivated capacities to use this key for its encryption"
+                    "description": "Whether to activate any inactivated capacities and to use this key for its encryption"
                 }
             }
         },
@@ -21865,17 +21865,17 @@
                 "createdAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The creation time of the encryption key"
+                    "description": "The creation date and time of the encryption key"
                 },
                 "updatedAt": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The last update time of the encryption key"
+                    "description": "The last update date and time of the encryption key"
                 }
             }
         },
         "TenantKeyRotationRequest": {
-            "description": "Request to rotate an encryption key",
+            "description": "A request to rotate an encryption key",
             "properties": {
                 "keyVaultKeyIdentifier": {
                     "type": "string",
@@ -21884,7 +21884,7 @@
             }
         },
         "CapacityPatchRequest": {
-            "description": "Patch capacity request",
+            "description": "A patch capacity request",
             "properties": {
                 "tenantKeyId": {
                     "type": "string",
@@ -21894,7 +21894,7 @@
             }
         },
         "AssignWorkspacesToCapacityRequest": {
-            "description": "Request body for assigning workspaces to a premium capacity as tenant admin",
+            "description": "A request to assign workspaces to a premium capacity",
             "properties": {
                 "capacityMigrationAssignments": {
                     "type": "array",
@@ -21909,11 +21909,11 @@
                 "workspacesToAssign",
                 "targetCapacityObjectId"
             ],
-            "description": "Assignment contract for migrating workspaces to premium capacity as tenant admin",
+            "description": "Assignment contract for migrating workspaces to a premium capacity as tenant admin",
             "properties": {
                 "workspacesToAssign": {
                     "type": "array",
-                    "description": "The workspace IDs to be migrated to premium capacity",
+                    "description": "The workspace IDs to migrate to a premium capacity",
                     "items": {
                         "type": "string",
                         "description": "The workspace ID"
@@ -21929,11 +21929,11 @@
             "required": [
                 "workspacesToUnassign"
             ],
-            "description": "Request body for migrating workspaces to shared capacity as tenant admin",
+            "description": "A request for migrating workspaces to a shared capacity as tenant admin",
             "properties": {
                 "workspacesToUnassign": {
                     "type": "array",
-                    "description": "Workspaces to be migrated to shared capacity",
+                    "description": "The workspaces to migrate to a shared capacity",
                     "items": {
                         "type": "string",
                         "description": "The workspace ID"
@@ -21962,11 +21962,11 @@
             }
         },
         "UnusedArtifactsResponse": {
-            "description": "OData response wrapper for unused artifact entities",
+            "description": "OData response wrapper for unused Power BI item (such as a report or a dashboard) entities",
             "properties": {
                 "unusedArtifactEntities": {
                     "type": "array",
-                    "description": "The unused artifact entities",
+                    "description": "The unused Power BI item entities",
                     "items": {
                         "$ref": "#/definitions/UnusedArtifactEntity"
                     }
@@ -21987,38 +21987,38 @@
                 "displayName",
                 "artifactType"
             ],
-            "description": "Unused artifact entity",
+            "description": "The unused Power BI item entity",
             "properties": {
                 "artifactId": {
                     "type": "string",
-                    "description": "Artifact ID"
+                    "description": "The ID of the Power BI item"
                 },
                 "displayName": {
                     "type": "string",
-                    "description": "Display name of the artifact"
+                    "description": "The display name of the Power BI item"
                 },
                 "artifactType": {
                     "type": "string",
-                    "description": "Type of the artifact"
+                    "description": "The Power BI item type"
                 },
                 "artifactSizeInMB": {
                     "type": "integer",
-                    "description": "Artifact size in MB if applicable"
+                    "description": "The size of the Power BI item in megabytes (if applicable)"
                 },
                 "createdDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Artifact created time if applicable"
+                    "description": "The creation time of the Power BI item (if applicable)"
                 },
                 "lastAccessedDateTime": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "Artifact last accessed time if applicable"
+                    "description": "The last access time of the Power BI item (if applicable)"
                 }
             }
         },
         "Workbooks": {
-            "description": "Power BI workbook list",
+            "description": "A Power BI workbook list",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -22042,12 +22042,12 @@
                 },
                 "datasetId": {
                     "type": "string",
-                    "description": "DatasetId for workbooks. Only applies for workbooks that has an associated dataset."
+                    "description": "The ID of the dataset associated with a workbook. Only applies if the workbook has an associated dataset."
                 }
             }
         },
         "Refreshables": {
-            "description": "Power BI refreshable list",
+            "description": "A Power BI refreshables list",
             "properties": {
                 "odata.context": {
                     "type": "string",
@@ -22071,7 +22071,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Display name of refreshable"
+                    "description": "The display name of the refreshable"
                 },
                 "kind": {
                     "type": "string",
@@ -22130,7 +22130,7 @@
                 },
                 "configuredBy": {
                     "type": "array",
-                    "description": "Refreshable owners",
+                    "description": "The refreshable owners",
                     "items": {
                         "type": "string"
                     }
@@ -22149,11 +22149,11 @@
             "required": [
                 "updateDetails"
             ],
-            "description": "A paginated report datasources update request.",
+            "description": "A request to update the data sources of a paginated report",
             "properties": {
                 "updateDetails": {
                     "type": "array",
-                    "description": "The paginated report datasources update details.",
+                    "description": "The update details for the data sources of the paginated report",
                     "items": {
                         "$ref": "#/definitions/UpdateRdlDatasourceDetails"
                     }
@@ -22165,28 +22165,28 @@
                 "connectionDetails",
                 "datasourceName"
             ],
-            "description": "The new connection details and the target datasource name to be updated.",
+            "description": "Update details for a paginated report data source",
             "properties": {
                 "connectionDetails": {
                     "$ref": "#/definitions/RdlDatasourceConnectionDetails",
-                    "description": "The new server and database name."
+                    "description": "The new connection details for the paginated report data source"
                 },
                 "datasourceName": {
                     "type": "string",
-                    "description": "The target datasource name to be updated."
+                    "description": "The name of the paginated report data source"
                 }
             }
         },
         "RdlDatasourceConnectionDetails": {
-            "description": "A paginated report datasource connection details.",
+            "description": "The connection details for a paginated report data source",
             "properties": {
                 "server": {
                     "type": "string",
-                    "description": "The connection server."
+                    "description": "The connection server"
                 },
                 "database": {
                     "type": "string",
-                    "description": "The connection database."
+                    "description": "The connection database"
                 }
             }
         },

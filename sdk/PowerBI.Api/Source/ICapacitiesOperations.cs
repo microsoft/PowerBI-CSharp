@@ -44,9 +44,9 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Capacities>> GetCapacitiesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the current state of the specified capacity workloads. If
-        /// the workload is enabled, the percentage of maximum memory that the
-        /// workloads can consume is also returned.
+        /// Returns the current state of the specified capacity workloads. If a
+        /// workload is enabled, the percentage of maximum memory that the
+        /// workload can consume is also returned.
         /// </summary>
         /// <remarks>
         ///

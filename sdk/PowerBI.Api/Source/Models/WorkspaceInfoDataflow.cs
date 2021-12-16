@@ -37,16 +37,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="modelUrl">A URL to the dataflow definition file
         /// (model.json)</param>
         /// <param name="configuredBy">The dataflow owner</param>
-        /// <param name="modifiedBy">The user that modified this
+        /// <param name="modifiedBy">The user that modified the
         /// dataflow</param>
-        /// <param name="modifiedDateTime">modification date time</param>
+        /// <param name="modifiedDateTime">The date and time that the dataflow
+        /// was last modified</param>
         /// <param name="users">The Dataflow User Access Details. This value
         /// will be empty. It will be removed from the payload response in an
         /// upcoming release. To retrieve user information on an artifact,
         /// please consider using the Get Dataflow User as Admin APIs, or the
         /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
         /// <param name="datasourceUsages">The datasource usages</param>
-        /// <param name="upstreamDataflows">Upstream Dataflows</param>
+        /// <param name="upstreamDataflows">The upstream dataflows</param>
         /// <param name="endorsementDetails">The endorsement details</param>
         /// <param name="sensitivityLabel">The sensitivity label</param>
         public WorkspaceInfoDataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel))
@@ -102,13 +103,13 @@ namespace Microsoft.PowerBI.Api.Models
         public string ConfiguredBy { get; set; }
 
         /// <summary>
-        /// Gets or sets the user that modified this dataflow
+        /// Gets or sets the user that modified the dataflow
         /// </summary>
         [JsonProperty(PropertyName = "modifiedBy")]
         public string ModifiedBy { get; set; }
 
         /// <summary>
-        /// Gets or sets modification date time
+        /// Gets or sets the date and time that the dataflow was last modified
         /// </summary>
         [JsonProperty(PropertyName = "modifiedDateTime")]
         public System.DateTime? ModifiedDateTime { get; set; }
@@ -130,7 +131,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DatasourceUsage> DatasourceUsages { get; set; }
 
         /// <summary>
-        /// Gets or sets upstream Dataflows
+        /// Gets or sets the upstream dataflows
         /// </summary>
         [JsonProperty(PropertyName = "upstreamDataflows")]
         public IList<DependentDataflow> UpstreamDataflows { get; set; }

@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DataflowStorageAccount class.
         /// </summary>
         /// <param name="id">The Power BI dataflow storage account ID</param>
-        /// <param name="isEnabled">Indicates if workspaces can be assigned to
-        /// this storage account</param>
+        /// <param name="isEnabled">Whether workspaces can be assigned to this
+        /// storage account</param>
         /// <param name="name">The Power BI dataflow storage account
         /// name</param>
         public DataflowStorageAccount(System.Guid id, bool isEnabled, string name = default(string))
@@ -56,8 +56,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets indicates if workspaces can be assigned to this
-        /// storage account
+        /// Gets or sets whether workspaces can be assigned to this storage
+        /// account
         /// </summary>
         [JsonProperty(PropertyName = "isEnabled")]
         public bool IsEnabled { get; set; }

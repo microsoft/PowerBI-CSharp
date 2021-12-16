@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Capacity workload setting
+    /// A capacity workload setting
     /// </summary>
     public partial class Workload
     {
@@ -28,8 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="state">Possible values include: 'Disabled', 'Enabled',
         /// 'Unsupported'</param>
         /// <param name="name">The workload name</param>
-        /// <param name="maxMemoryPercentageSetByUser">The memory percentage
-        /// maximum Limit set by the user</param>
+        /// <param name="maxMemoryPercentageSetByUser">The percentage of the
+        /// maximum memory that a workload can consume (set by the
+        /// user)</param>
         public Workload(WorkloadState state, string name = default(string), int? maxMemoryPercentageSetByUser = default(int?))
         {
             Name = name;
@@ -57,7 +58,8 @@ namespace Microsoft.PowerBI.Api.Models
         public WorkloadState State { get; set; }
 
         /// <summary>
-        /// Gets or sets the memory percentage maximum Limit set by the user
+        /// Gets or sets the percentage of the maximum memory that a workload
+        /// can consume (set by the user)
         /// </summary>
         [JsonProperty(PropertyName = "maxMemoryPercentageSetByUser")]
         public int? MaxMemoryPercentageSetByUser { get; set; }
