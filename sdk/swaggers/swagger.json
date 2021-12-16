@@ -18179,7 +18179,7 @@
                 },
                 "credentialType": {
                     "type": "string",
-                    "description": "The type of data source credentials",
+                    "description": "The type of data source [credential](/en-us/power-bi/developer/automation/configure-credentials)",
                     "enum": [
                         "Basic",
                         "Windows",
