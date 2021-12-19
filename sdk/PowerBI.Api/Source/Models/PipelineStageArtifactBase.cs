@@ -86,7 +86,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the last deployment date and time of the Power BI item
         /// </summary>
-        [JsonProperty(PropertyName = "lastDeploymentTime ")]
+        [JsonProperty(PropertyName = "lastDeploymentTime")]
         public System.DateTime? LastDeploymentTime { get; set; }
 
         /// <summary>

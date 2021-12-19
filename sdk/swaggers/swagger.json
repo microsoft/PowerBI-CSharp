@@ -11512,7 +11512,7 @@
                                             "artifactId": "527700ab-3cdb-4637-8402-912a129b2a92",
                                             "artifactDisplayName": "Sales Dataflow",
                                             "sourceArtifactId": "29efcfb0-0063-44af-a4ed-6c0bee3417d3",
-                                            "lastDeploymentTime ": "2021-06-06T11:55:59.057Z"
+                                            "lastDeploymentTime": "2021-06-06T11:55:59.057Z"
                                         }
                                     ],
                                     "datasets": [
@@ -11521,7 +11521,7 @@
                                             "artifactName": "Sales Dataset",
                                             "sourceArtifactId": "1a201f2a-d1d8-45c0-8c61-1676338517de",
                                             "targetArtifactId": "a5cf347e-7b49-4198-8a2b-0aa92c37d8f8",
-                                            "lastDeploymentTime ": "2020-12-13T09:26:41.153Z"
+                                            "lastDeploymentTime": "2020-12-13T09:26:41.153Z"
                                         }
                                     ],
                                     "reports": [
@@ -11529,7 +11529,7 @@
                                             "artifactId": "9d5c1f0f-f85c-48f4-8a8e-4c77547116b3",
                                             "artifactName": "Sales Report",
                                             "sourceArtifactId": "2d225191-65f8-4ec3-b77d-06100602b1f7",
-                                            "lastDeploymentTime ": "2020-12-13T09:26:41.153Z"
+                                            "lastDeploymentTime": "2020-12-13T09:26:41.153Z"
                                         }
                                     ],
                                     "dashboards": [
@@ -11589,10 +11589,10 @@
                                     {
                                         "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
                                         "type": "Deploy",
-                                        "status ": "Succeeded",
+                                        "status": "Succeeded",
                                         "lastUpdatedTime": "2020-12-13T09:26:43.153",
-                                        "executionStartTime ": "2020-12-13T09:25:43.153Z",
-                                        "executionEndTime ": "2020-12-13T09:26:43.153Z",
+                                        "executionStartTime": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime": "2020-12-13T09:26:43.153Z",
                                         "sourceStageOrder": 0,
                                         "targetStageOrder": 1
                                     }
@@ -11655,10 +11655,10 @@
                                 "body": {
                                     "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
                                     "type": "Deploy",
-                                    "status ": "Succeeded",
+                                    "status": "Succeeded",
                                     "lastUpdatedTime": "2020-12-13T09:26:43.153",
-                                    "executionStartTime ": "2020-12-13T09:25:43.153Z",
-                                    "executionEndTime ": "2020-12-13T09:26:43.153Z",
+                                    "executionStartTime": "2020-12-13T09:25:43.153Z",
+                                    "executionEndTime": "2020-12-13T09:26:43.153Z",
 
                                     "sourceStageOrder": 0,
                                     "targetStageOrder": 1,
@@ -11676,7 +11676,7 @@
                                             {
                                                 "index": 1,
                                                 "type": "DatasetDeployment",
-                                                "status ": "Succeeded",
+                                                "status": "Succeeded",
                                                 "sourceAndTarget": {
                                                     "source": "1a201f2a-d1d8-45c0-8c61-1676338517de",
                                                     "target": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee"
@@ -11685,7 +11685,7 @@
                                             {
                                                 "index": 2,
                                                 "type": "ReportDeployment",
-                                                "status ": "Succeeded",
+                                                "status": "Succeeded",
                                                 "sourceAndTarget": {
                                                     "source": "2d225191-65f8-4ec3-b77d-06100602b1f7",
                                                     "target": "9d5c1f0f-f85c-48f4-8a8e-4c77547116b3"
@@ -11694,7 +11694,7 @@
                                             {
                                                 "index": 3,
                                                 "type": "DashboardDeployment",
-                                                "status ": "Succeeded",
+                                                "status": "Succeeded",
                                                 "sourceAndTarget": {
                                                     "source": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82"
                                                 }
@@ -11768,10 +11768,10 @@
                                     {
                                         "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
                                         "type": "Deploy",
-                                        "status ": "NotStarted",
+                                        "status": "NotStarted",
                                         "lastUpdatedTime": "2020-12-13T09:26:43.153",
-                                        "executionStartTime ": "2020-12-13T09:25:43.153Z",
-                                        "executionEndTime ": "2020-12-13T09:26:43.153Z",
+                                        "executionStartTime": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime": "2020-12-13T09:26:43.153Z",
 
                                         "sourceStageOrder": 0,
                                         "targetStageOrder": 1
@@ -11866,10 +11866,10 @@
                                     {
                                         "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
                                         "type": "Deploy",
-                                        "status ": "NotStarted",
+                                        "status": "NotStarted",
                                         "lastUpdatedTime": "2020-12-13T09:26:43.153",
-                                        "executionStartTime ": "2020-12-13T09:25:43.153Z",
-                                        "executionEndTime ": "2020-12-13T09:26:43.153Z",
+                                        "executionStartTime": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime": "2020-12-13T09:26:43.153Z",
 
                                         "sourceStageOrder": 0,
                                         "targetStageOrder": 1
@@ -22697,7 +22697,7 @@
                     "format": "uuid",
                     "description": "The artifact ID from the workspace of the target stage, which will be updated by the current artifact upon deployment. Applicable only when the user has at least contributor access to the target stage workspace."
                 },
-                "lastDeploymentTime ": {
+                "lastDeploymentTime": {
                     "type": "string",
                     "format": "date-time",
                     "description": "The last deployment date and time of the Power BI item"
