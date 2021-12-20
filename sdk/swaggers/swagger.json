@@ -2244,8 +2244,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns a list of reports from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br>**Note:** Paginated reports (rdl) don’t have a dataset. As a result, in the API response for paginated reports, the dataset ID value isn’t displayed.",
+                "summary": "Returns a list of reports from **My workspace**.",
+                "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetReports",
                 "consumes": [
 
@@ -2292,8 +2292,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the specified report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified report from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetReport",
                 "produces": [
                     "application/json"
@@ -2340,8 +2340,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Deletes the specified report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Deletes the specified report from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All\n\n######\n",
                 "operationId": "Reports_DeleteReport",
                 "consumes": [
 
@@ -2382,8 +2382,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Clones the specified report from **\"My Workspace\"**.",
-                "description": "<br/>If after cloning the report and its dataset reside in two different upgraded workspaces or \"My Workspace\", a shared dataset will be created in the report's workspace. <br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset (if provided) - Build permissions.",
+                "summary": "Clones the specified report from **My workspace**.",
+                "description": "\n- If the dataset for a cloned report resides in two different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following, unless a requirement doesn't apply:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n## Required scope\n\nContent.Create\n\n######\n",
                 "operationId": "Reports_CloneReport",
                 "consumes": [
                     "application/json"
@@ -2426,8 +2426,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from **\"My Workspace\"** to a .pbix file.",
-                "description": "<br/>**Note**: As a [workaround for fixing timeout issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis), you can set `preferClientRouting` to true.<br/>Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded PBIX file.<br/><br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Export of a report with [Power BI service live connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets) after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is not supported. Refer to [Download a report from the Power BI service to Power BI Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix) for requirements and limitations.<br/>",
+                "summary": "Exports the specified report from **My workspace** to a .pbix file.",
+                "description": "\n- As a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nAfter calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n\n######\n",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -2459,8 +2459,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the specified report from **\"My Workspace\"** to have the same content as the report in the request body.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the content of the specified report from **My workspace** with the content of a specified source report.",
+                "description": "\nSpecify the source report in the request body.\n\n## Required scope\n\nReport.ReadWrite.All\n\n######\n",
                 "operationId": "Reports_UpdateReportContent",
                 "consumes": [
                     "application/json"
@@ -2520,8 +2520,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Rebinds the specified report from **\"My Workspace\"** to the requested dataset.",
-                "description": "<br/>If the dataset resides in a different upgraded workspace, a shared dataset will be created in \"My Workspace\".<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions.",
+                "summary": "Rebinds the specified report from **My workspace** to the specified dataset.",
+                "description": "\n- If the specified dataset resides in a different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace from the report, then a shared dataset will be created in **My workspace**.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset.\n\n## Required scope\n\nReport.ReadWrite.All\n\n######\n",
                 "operationId": "Reports_RebindReport",
                 "consumes": [
                     "application/json"
@@ -2561,8 +2561,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns a list of pages within the specified report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of pages within the specified report from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetPages",
                 "consumes": [
 
@@ -2621,8 +2621,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the specified page within the specified report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the specified page within the specified report from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetPage",
                 "consumes": [
 
@@ -2680,8 +2680,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns a list of datasources for the specified RDL report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of data sources for the specified paginated report (RDL) from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetDatasources",
                 "consumes": [
 
@@ -2740,8 +2740,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the datasources of the specified paginated report from **\"My Workspace\"**. (Preview)",
-                "description": "<br/>**Important**: The original datasource and the new datasource must have the exact same schema.<br/>**Required scope**: Reports.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the datasource owner</li><li>Update datasources supports only paginated reports</li><li>Changing datasource type is not supported</li></ul>",
+                "summary": "Updates the data sources of the specified paginated report (RDL) from **My workspace**. This is a preview API call.",
+                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n\n######\n",
                 "operationId": "Reports_UpdateDatasources",
                 "consumes": [
                     "application/json"
@@ -2809,8 +2809,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from **\"My Workspace\"** to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Check the limitations in the [Export to File API article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).",
+                "summary": "Exports the specified report from **My workspace** to the requested [file format](/rest/api/power-bi/reports/export-to-file#fileformat).",
+                "description": "\n## Required scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations).\n\n######\n",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -2853,8 +2853,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the status of the Export to file job from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the current status of the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetExportToFileStatus",
                 "consumes": [
 
@@ -2901,8 +2901,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the file of the Export to file job of the specified report from **\"My Workspace\"**.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the file from the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetFileOfExportToFile",
                 "consumes": [
 
@@ -5461,7 +5461,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br>**Note:** Paginated reports (rdl) don’t have a dataset. As a result, in the API response for paginated reports, the dataset ID value isn’t displayed.",
+                "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetReportsInGroup",
                 "consumes": [
 
@@ -5518,7 +5518,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the specified report from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetReportInGroup",
                 "produces": [
                     "application/json"
@@ -5575,7 +5575,7 @@
                     "Reports"
                 ],
                 "summary": "Deletes the specified report from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All\n\n######\n",
                 "operationId": "Reports_DeleteReportInGroup",
                 "consumes": [
 
@@ -5626,7 +5626,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from the specified workspace.",
-                "description": "<br/>If after cloning the report and its dataset reside in two different upgraded workspaces or \"My Workspace\", a shared dataset will be created in the report's workspace. <br/>Reports with live connection will lose the live connection when cloning, and will have a direct binding to the target dataset.<br/>**Required scope**: Content.Create <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset (if provided) - Build permissions",
+                "description": "\n- If the dataset for a cloned report resides in two different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following, unless a requirement doesn't apply:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n## Required scope\n\nContent.Create\n\n######\n",
                 "operationId": "Reports_CloneReportInGroup",
                 "consumes": [
                     "application/json"
@@ -5677,8 +5677,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from the specified workspace to a .pbix file.",
-                "description": "<br/>**Note**: As a [workaround for fixing timeout issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis), you can set `preferClientRouting` to true.<br/>Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded PBIX file.<br/><br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <h2>Restrictions</h2>Export of a report with [Power BI service live connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets) after calling [rebind report](/rest/api/power-bi/reports/RebindReport) is not supported. Refer to [Download a report from the Power BI service to Power BI Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix) for requirements and limitations.<br/>",
+                "summary": "Exports the specified report from the specified workspace to a PBIX file.",
+                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded PBIX file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n\n######\n",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -5718,8 +5718,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the specified report from the specified workspace to have the same content as the specified report in the request body.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Updates the content of the specified report from the specified workspace with the content of a specified source report.",
+                "description": "\nSpecify the source report in the request body.\n\n## Required scope\n\nReport.ReadWrite.All\n\n######\n",
                 "operationId": "Reports_UpdateReportContentInGroup",
                 "consumes": [
                     "application/json"
@@ -5788,8 +5788,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Rebinds the specified report from the specified workspace to the requested dataset.",
-                "description": "<br/>If the dataset resides in a different upgraded workspace or in \"My Workspace\", a shared dataset will be created in the report's workspace.<br/>Reports with live connection will lose the live connection when rebinding, and will have a direct binding to the target dataset.<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app). <br/>**Required permissions**: Report - Write permissions. Target dataset - Build permissions",
+                "summary": "Rebinds the specified report from the specified workspace to the specified dataset.",
+                "description": "\n- If the specified dataset resides in a different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace from the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset.\n\n## Required scope\n\nReport.ReadWrite.All\n\n######\n",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"
@@ -5838,7 +5838,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of pages within the specified report from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetPagesInGroup",
                 "consumes": [
 
@@ -5907,7 +5907,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the specified page within the specified report from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetPageInGroup",
                 "consumes": [
 
@@ -5974,8 +5974,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns a list of datasources for the specified RDL report from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Reportt.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns a list of data sources for the specified paginated report (RDL) from the specified workspace.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetDatasourcesInGroup",
                 "consumes": [
 
@@ -6041,8 +6041,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the datasources of the specified paginated report from the specified workspace. (Preview)",
-                "description": "<br/>**Important**: The original datasource and the new datasource must have the exact same schema.<br/>**Required scope**: Reports.ReadWrite.All<br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<h2>Restrictions</h2><ul><li>This operation is only supported for the datasource owner</li><li>Update datasources supports only paginated reports</li><li>Changing datasource type is not supported</li></ul>",
+                "summary": "Updates the data sources of the specified paginated report (RDL) from the specified workspace. This is a preview API call.",
+                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n\n######\n",
                 "operationId": "Reports_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -6118,8 +6118,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from the specified workspace to the requested format.",
-                "description": "<br/>**Required scope**: (all of the below) <ul><li>Report.ReadWrite.All or Report.Read.All</li><li>Dataset.ReadWrite.All or Dataset.Read.All</li></ul>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<br/><br/>**Limitations:** Check the limitations in the [Export to File API article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).",
+                "summary": "Exports the specified report from the specified workspace to the requested [file format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).",
+                "description": "\n## Required scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations).\n\n######\n",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -6170,8 +6170,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the status of the Export to file job from the specified workspace.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the current status of the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetExportToFileStatusInGroup",
                 "consumes": [
 
@@ -6226,8 +6226,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Returns the file of the Export to file job of the specified report from the specified group.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All or Report.Read.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).",
+                "summary": "Returns the file from the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All or Report.Read.All\n\n######\n",
                 "operationId": "Reports_GetFileOfExportToFileInGroup",
                 "consumes": [
 
@@ -17058,8 +17058,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Transfers ownership over the specified paginated report datasources to the current authorized user.",
-                "description": "<br/>**Required scope**: Report.ReadWrite.All <br/>To set the permissions scope, see [Register an app](https://docs.microsoft.com/power-bi/developer/register-app).<li>TakeOver report datasources supports only paginated reports</li>",
+                "summary": "Transfers ownership of the data sources for the specified paginated report (RDL) to the current authorized user.",
+                "description": "\n## Required scope\n\nReport.ReadWrite.All\n\n## Limitations\n\nOnly supports paginated reports.\n\n######\n",
                 "operationId": "Reports_TakeOverInGroup",
                 "consumes": [],
                 "produces": [],
