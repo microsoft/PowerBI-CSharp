@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// an upcoming release. You can retrieve user information on a Power
         /// BI item (such as a report or a dashboard) by using the [Get
         /// Dashboard Users as
-        /// Admin](/rest/api/power-bi/admin/datasets-get-dashboard-users-as-admin)
+        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.</param>
@@ -119,7 +119,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// property will be removed from the payload response in an upcoming
         /// release. You can retrieve user information on a Power BI item (such
         /// as a report or a dashboard) by using the [Get Dashboard Users as
-        /// Admin](/rest/api/power-bi/admin/datasets-get-dashboard-users-as-admin)
+        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
         /// API, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API with the `getArtifactUsers` parameter.
