@@ -15882,7 +15882,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Apps"
+                            "$ref": "#/definitions/AdminApps"
                         }
                     }
                 },
@@ -18423,6 +18423,22 @@
                 }
             }
         },
+        "AdminApps": {
+            "description": "The OData response wrapper for a list of Power BI installed apps for Admin APIs",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The list of installed apps",
+                    "items": {
+                        "$ref": "#/definitions/AdminApp"
+                    }
+                }
+            }
+        },
         "Gateways": {
             "description": "The OData response wrapper for a list of Power BI gateways",
             "properties": {
@@ -19228,6 +19244,19 @@
                     "description": "The app publisher"
                 }
 
+            }
+        },
+        "AdminApp": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/App"
+                }
+            ],
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "description": "Associated workspace for the app"
+                }
             }
         },
         "Subscription": {
@@ -22021,7 +22050,7 @@
             }
         },
         "Refreshable": {
-            "description": "A Power BI refreshable. Power BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.",
+            "description": "A Power BI refreshable is a dataset that's been refreshed at least once, or for which a valid refresh schedule exists. If a dataset doesn't meet either of these conditions, then it won't show up in the API response. Power BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.",
             "properties": {
                 "id": {
                     "type": "string",

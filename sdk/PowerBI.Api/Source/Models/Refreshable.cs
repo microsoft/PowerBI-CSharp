@@ -12,8 +12,11 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI refreshable. Power BI retains a seven-day refresh history
-    /// for each dataset, up to a maximum of sixty refreshes.
+    /// A Power BI refreshable is a dataset that's been refreshed at least
+    /// once, or for which a valid refresh schedule exists. If a dataset
+    /// doesn't meet either of these conditions, then it won't show up in the
+    /// API response. Power BI retains a seven-day refresh history for each
+    /// dataset, up to a maximum of sixty refreshes.
     /// </summary>
     public partial class Refreshable
     {

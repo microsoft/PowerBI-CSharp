@@ -558,7 +558,7 @@ namespace Microsoft.PowerBI.Api
             /// The requested number of entries in the refresh history. If not provided,
             /// the default is all available entries.
             /// </param>
-            public static Apps GetAppsAsAdmin(this IAppsOperations operations, int top)
+            public static AdminApps GetAppsAsAdmin(this IAppsOperations operations, int top)
             {
                 return operations.GetAppsAsAdminAsync(top).GetAwaiter().GetResult();
             }
@@ -595,7 +595,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Apps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminApps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, null, cancellationToken).ConfigureAwait(false))
                 {
