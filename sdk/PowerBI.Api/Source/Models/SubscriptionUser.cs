@@ -6,14 +6,12 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    using Microsoft.Rest;
-    using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
     /// A Power BI email subscription user
     /// </summary>
-    public partial class SubscriptionUser
+    public partial class SubscriptionUser : User
     {
         /// <summary>
         /// Initializes a new instance of the SubscriptionUser class.
@@ -34,12 +32,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
         public SubscriptionUser(string emailAddress, string identifier, PrincipalType principalType, string displayName = default(string), string graphId = default(string))
+            : base(emailAddress, identifier, principalType, displayName, graphId)
         {
-            EmailAddress = emailAddress;
-            DisplayName = displayName;
-            Identifier = identifier;
-            GraphId = graphId;
-            PrincipalType = principalType;
             CustomInit();
         }
 
@@ -49,53 +43,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets email address of the user
-        /// </summary>
-        [JsonProperty(PropertyName = "emailAddress")]
-        public string EmailAddress { get; set; }
-
-        /// <summary>
-        /// Gets or sets display name of the principal
-        /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or sets identifier of the principal
-        /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets identifier of the principal in Microsoft Graph. Only
-        /// available for admin APIs.
-        /// </summary>
-        [JsonProperty(PropertyName = "graphId")]
-        public string GraphId { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'None', 'User', 'Group',
-        /// 'App'
-        /// </summary>
-        [JsonProperty(PropertyName = "principalType")]
-        public PrincipalType PrincipalType { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
+        /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
-            if (EmailAddress == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "EmailAddress");
-            }
-            if (Identifier == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Identifier");
-            }
+            base.Validate();
         }
     }
 }

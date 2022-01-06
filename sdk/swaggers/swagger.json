@@ -12706,7 +12706,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of workspaces for the organization.",
-                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 50 requests per hour, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n\n######\n",
                 "operationId": "Groups_GetGroupsAsAdmin",
                 "consumes": [
 
@@ -14407,6 +14407,133 @@
                                             ]
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        
+        "/v1.0/myorg/admin/widelySharedArtifacts/linksSharedToWholeOrganization": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of artifacts shared to the whole organization through links.",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "WidelySharedArtifacts_LinksSharedToWholeOrganization",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ArtifactAccessResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "artifactAccessEntities": [
+                                        {
+                                            "artifactId": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "displayName": "test report",
+                                            "artifactType": "Report",
+                                            "accessRight": "ReadWrite",
+                                            "shareType": "Link",
+                                            "sharer": {
+                                                "displayName": "John Nick",
+                                                "emailAddress": "john@contoso.com",
+                                                "identifier": "john@contoso.com",
+                                                "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                "principalType": "User"
+                                            }
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/widelySharedArtifacts/linksSharedToWholeOrganization?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/widelySharedArtifacts/publishedToWeb": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of artifacts shared through published to web.",
+                "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
+                "operationId": "WidelySharedArtifacts_PublishedToWeb",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "continuationToken",
+                        "in": "query",
+                        "description": "Token required to get the next chunk of the result set",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ArtifactAccessResponse"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "artifactAccessEntities": [
+                                        {
+                                            "artifactId": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "displayName": "test report",
+                                            "artifactType": "Report",
+                                            "accessRight": "None",
+                                            "shareType": "PublishToWeb",
+                                            "sharer": {
+                                                "displayName": "John Nick",
+                                                "emailAddress": "john@contoso.com",
+                                                "identifier": "john@contoso.com",
+                                                "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                "principalType": "User"
+                                            }
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/widelySharedArtifacts/linksSharedToWholeOrganization?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
                                 }
                             }
                         }
@@ -19846,6 +19973,35 @@
                 }
             }
         },
+        "User": {
+            "required": [
+                "emailAddress",
+                "principalType",
+                "identifier"
+            ],
+            "description": "A Power BI user",
+            "properties": {
+                "emailAddress": {
+                    "type": "string",
+                    "description": "Email address of the user"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "Display name of the principal"
+                },
+                "identifier": {
+                    "type": "string",
+                    "description": "Identifier of the principal"
+                },
+                "graphId": {
+                    "type": "string",
+                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
         "DatasourceUser": {
             "required": [
                 "datasourceAccessRight"
@@ -19938,27 +20094,13 @@
                             }
                         ]
                     }
-                },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "The email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "The display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "The [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "The identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
         },
         "AppUser": {
             "required": [
@@ -20107,27 +20249,13 @@
                             }
                         ]
                     }
-                },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "Display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Identifier of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
         },
         "ReportUser": {
             "required": [
@@ -20176,27 +20304,13 @@
                             }
                         ]
                     }
-                },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "Display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Identifier of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
         },
         "DashboardUser": {
             "required": [
@@ -20245,27 +20359,13 @@
                             }
                         ]
                     }
-                },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "Display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Identifier of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
         },
         "DatasetUser": {
             "required": [
@@ -20329,27 +20429,13 @@
                             }
                         ]
                     }
-                },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "Display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Identifier of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
         },
         "DatasetUserAccess": {
             "required": [
@@ -20442,27 +20528,13 @@
                             }
                         ]
                     }
-                },
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "Display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Identifier of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
-            }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
         },
         "SubscriptionUser": {
             "required": [
@@ -20471,27 +20543,11 @@
                 "identifier"
             ],
             "description": "A Power BI email subscription user",
-            "properties": {
-                "emailAddress": {
-                    "type": "string",
-                    "description": "Email address of the user"
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "Display name of the principal"
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "Identifier of the principal"
-                },
-                "graphId": {
-                    "type": "string",
-                    "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
                 }
-            }
+            ]
         },
         "ArtifactAccessEntry": {
             "required": [
@@ -20517,6 +20573,14 @@
                 "accessRight": {
                     "type": "string",
                     "description": "The access right that the user has for the Power BI item"
+                },
+                "shareType": {
+                    "type": "string",
+                    "description": "The type of how the access is given to the Power BI item. Only available for widely shared artifacts APIs."
+                },
+                "sharer": {
+                    "$ref": "#/definitions/User",
+                    "description": "The user who shared the PowerBI item. Only available for widely shared artifacts APIs."
                 }
             }
         },

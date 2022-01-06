@@ -456,7 +456,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Maximum 200 requests per hour.
+        /// Maximum 50 requests per hour, per tenant. This call will also time
+        /// out after 30 seconds to prevent adverse effect on the Power BI
+        /// service.
         ///
         /// ######
         ///

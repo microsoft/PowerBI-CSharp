@@ -162,13 +162,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (DatasourceUsages != null)
+            if (Users != null)
             {
-                foreach (var element in DatasourceUsages)
+                foreach (var element in Users)
                 {
                     if (element != null)
                     {
                         element.Validate();
+                    }
+                }
+            }
+            if (DatasourceUsages != null)
+            {
+                foreach (var element1 in DatasourceUsages)
+                {
+                    if (element1 != null)
+                    {
+                        element1.Validate();
                     }
                 }
             }

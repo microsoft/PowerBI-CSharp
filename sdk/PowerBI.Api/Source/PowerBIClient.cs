@@ -113,6 +113,11 @@ namespace Microsoft.PowerBI.Api
         public virtual IWorkspaceInfoOperations WorkspaceInfo { get; private set; }
 
         /// <summary>
+        /// Gets the IWidelySharedArtifacts.
+        /// </summary>
+        public virtual IWidelySharedArtifacts WidelySharedArtifacts { get; private set; }
+
+        /// <summary>
         /// Gets the IAdmin.
         /// </summary>
         public virtual IAdmin Admin { get; private set; }
@@ -348,6 +353,7 @@ namespace Microsoft.PowerBI.Api
             Pipelines = new PipelinesOperations(this);
             DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
             WorkspaceInfo = new WorkspaceInfoOperations(this);
+            WidelySharedArtifacts = new WidelySharedArtifacts(this);
             Admin = new Admin(this);
             EmbedToken = new EmbedTokenOperations(this);
             InformationProtection = new InformationProtection(this);

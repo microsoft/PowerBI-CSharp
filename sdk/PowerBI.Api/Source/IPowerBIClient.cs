@@ -112,6 +112,11 @@ namespace Microsoft.PowerBI.Api
         IWorkspaceInfoOperations WorkspaceInfo { get; }
 
         /// <summary>
+        /// Gets the IWidelySharedArtifacts.
+        /// </summary>
+        IWidelySharedArtifacts WidelySharedArtifacts { get; }
+
+        /// <summary>
         /// Gets the IAdmin.
         /// </summary>
         IAdmin Admin { get; }
