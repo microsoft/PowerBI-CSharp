@@ -57,8 +57,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> RefreshUserPermissionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of artifacts that the given user have access to
-        /// (Preview).
+        /// Returns a list of Power BI items (such as reports or dashboards)
+        /// that the specified user has access to. (Preview)
         /// </summary>
         /// <remarks>
         ///

@@ -47,7 +47,8 @@ namespace Microsoft.PowerBI.Api
         public PowerBIClient Client { get; private set; }
 
         /// <summary>
-        /// Remove sensitivity labels from artifacts by artifact ID.
+        /// Remove sensitivity labels from Power BI items (such as reports or
+        /// dashboards) by item ID.
         /// </summary>
         /// <remarks>
         ///
@@ -69,7 +70,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Maximum 25 requests per hour.
-        /// - Each request can update up to 2000 artifacts.
+        /// - Each request can update up to 2,000 Power BI items.
         ///
         /// ######
         ///
@@ -218,7 +219,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Set sensitivity labels on content in Power BI by artifact ID.
+        /// Set sensitivity labels on Power BI items (such as reports or dashboards) by
+        /// item ID.
         /// </summary>
         /// <remarks>
         ///
@@ -243,7 +245,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Maximum 25 requests per hour.
-        /// - Each request can update up to 2000 artifacts.
+        /// - Each request can update up to 2,000 Power BI items.
         ///
         /// ######
         ///

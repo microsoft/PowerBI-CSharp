@@ -46,11 +46,11 @@ namespace Microsoft.PowerBI.Api
         /// Required workspace IDs to get info for
         /// </param>
         /// <param name='lineage'>
-        /// Whether to return lineage info (upstream dataflows, tiles,
-        /// datasource IDs)​
+        /// Whether to return lineage info (upstream dataflows, tiles, data
+        /// source IDs)​
         /// </param>
         /// <param name='datasourceDetails'>
-        /// Whether to return datasource details​
+        /// Whether to return data source details​
         /// </param>
         /// <param name='datasetSchema'>
         /// Whether to return dataset schema (Tables, Columns and Measures)​
@@ -59,8 +59,8 @@ namespace Microsoft.PowerBI.Api
         /// Whether to return dataset expressions (Dax query and Mashup)​
         /// </param>
         /// <param name='getArtifactUsers'>
-        /// Whether to return artifact user details​ (Preview) (Permission
-        /// level)
+        /// Whether to return user details for a Power BI item (such as a
+        /// report or a dashboard)
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

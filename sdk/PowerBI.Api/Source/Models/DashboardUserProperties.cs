@@ -27,12 +27,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="users">(Empty value) The dashboard user access
         /// details. This property will be removed from the payload response in
         /// an upcoming release. You can retrieve user information on a Power
-        /// BI item (such as a report or a dashboard) by using the [Get
-        /// Dashboard Users as
+        /// BI dashboard by using the [Get Dashboard Users as
         /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.</param>
+        /// API call with the `getArtifactUsers` parameter.</param>
         public DashboardUserProperties(IList<DashboardUser> users = default(IList<DashboardUser>))
         {
             Users = users;
@@ -47,12 +46,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets (Empty value) The dashboard user access details. This
         /// property will be removed from the payload response in an upcoming
-        /// release. You can retrieve user information on a Power BI item (such
-        /// as a report or a dashboard) by using the [Get Dashboard Users as
+        /// release. You can retrieve user information on a Power BI dashboard
+        /// by using the [Get Dashboard Users as
         /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.
+        /// API call with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DashboardUser> Users { get; set; }

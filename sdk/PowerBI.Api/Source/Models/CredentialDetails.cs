@@ -45,14 +45,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// when combining data from multiple sources. Possible values include:
         /// 'None', 'Public', 'Organizational', 'Private'</param>
         /// <param name="useCallerAADIdentity">Use to indicate that the Azure
-        /// AD identity (OAuth2 credentials) of the API caller (which must be
-        /// the data source owner) will be used to configure data source
+        /// AD identity (OAuth 2.0 credentials) of the API caller (which must
+        /// be the data source owner) will be used to configure data source
         /// credentials (the owner OAuth access token). Typically, you’d either
         /// use this flag or `useEndUserOAuth2Credentials`.</param>
         /// <param name="useEndUserOAuth2Credentials">Use with data sources
         /// that support [single sign-on
         /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth2
+        /// to indicate that the end-user Azure AD identity (OAuth 2.0
         /// credentials) is used for connecting to the data source in
         /// DirectQuery mode. Typically, you’d either use this flag or
         /// `useCallerAADIdentity`.</param>
@@ -116,7 +116,7 @@ namespace Microsoft.PowerBI.Api.Models
         public PrivacyLevel PrivacyLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets use to indicate that the Azure AD identity (OAuth2
+        /// Gets or sets use to indicate that the Azure AD identity (OAuth 2.0
         /// credentials) of the API caller (which must be the data source
         /// owner) will be used to configure data source credentials (the owner
         /// OAuth access token). Typically, you’d either use this flag or
@@ -128,7 +128,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets use with data sources that support [single sign-on
         /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth2
+        /// to indicate that the end-user Azure AD identity (OAuth 2.0
         /// credentials) is used for connecting to the data source in
         /// DirectQuery mode. Typically, you’d either use this flag or
         /// `useCallerAADIdentity`.

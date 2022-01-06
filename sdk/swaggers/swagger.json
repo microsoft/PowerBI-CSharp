@@ -8600,7 +8600,7 @@
                     {
                         "name": "datasourceToGatewayRequest",
                         "in": "body",
-                        "description": "The datasource requested to create",
+                        "description": "A request to create a new data source on a gateway",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/PublishDatasourceToGatewayRequest"
@@ -8686,7 +8686,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8743,7 +8743,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8772,7 +8772,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified data source from the specified gateway.",
-                "description": "\n> [!NOTE]\r\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\r\n\r\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as **Basic** or **OAuth2**. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the **OAuth2** credential type, make sure the generated OAuth2 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set **OAuth2** credentials for other data sources, send the OAuth2 token in the payload as shown in the [OAuth2 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
+                "description": "\n> [!NOTE]\r\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\r\n\r\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n\n######\n",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -8788,7 +8788,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8796,7 +8796,7 @@
                     {
                         "name": "updateDatasourceRequest",
                         "in": "body",
-                        "description": "The update datasource request",
+                        "description": "The update data source request",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/UpdateDatasourceRequest"
@@ -8928,7 +8928,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -8989,7 +8989,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9056,7 +9056,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -9132,7 +9132,7 @@
                     {
                         "name": "datasourceId",
                         "in": "path",
-                        "description": "The datasource ID",
+                        "description": "The data source ID",
                         "required": true,
                         "type": "string",
                         "format": "uuid"
@@ -11499,7 +11499,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get test stage artifacts example": {
+                    "Example of getting 'Test' stage Power BI items (such as reports or dashboards)": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "stageOrder": 1
@@ -11751,7 +11751,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Deploy all artifacts from the 'development' source stage example": {
+                    "Example of deploying all Power BI items (such as reports or dashboards) from the 'Development' stage": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "deployRequest": {
@@ -11826,7 +11826,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Deploy specific artifacts from the 'development' stage example": {
+                    "Example of deploying specific Power BI items (such as reports or dashboards) from the 'Development' stage": {
                         "parameters": {
                             "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
                             "deployRequest": {
@@ -12006,14 +12006,14 @@
                     {
                         "name": "lineage",
                         "in": "query",
-                        "description": "Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​",
+                        "description": "Whether to return lineage info (upstream dataflows, tiles, data source IDs)​",
                         "required": false,
                         "type": "boolean"
                     },
                     {
                         "name": "datasourceDetails",
                         "in": "query",
-                        "description": "Whether to return datasource details​",
+                        "description": "Whether to return data source details​",
                         "required": false,
                         "type": "boolean"
                     },
@@ -12034,7 +12034,7 @@
                     {
                         "name": "getArtifactUsers",
                         "in": "query",
-                        "description": "Whether to return artifact user details​ (Preview) (Permission level)",
+                        "description": "Whether to return user details for a Power BI item (such as a report or a dashboard)",
                         "required": false,
                         "type": "boolean"
                     }
@@ -15576,7 +15576,7 @@
                     "Admin"
                 ],
                 "summary": "Returns a list of data sources for the specified dataflow.",
-                "description": "\nDeleted datasources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
+                "description": "\nDeleted data sources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n######\n",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
                 "consumes": [
 
@@ -15977,7 +15977,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of artifacts that the given user have access to (Preview).",
+                "summary": "Returns a list of Power BI items (such as reports or dashboards) that the specified user has access to. (Preview)",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n\n######\n",
                 "operationId": "Users_GetUserArtifactAccessAsAdmin",
                 "consumes": [],
@@ -16360,8 +16360,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Remove sensitivity labels from artifacts by artifact ID.",
-                "description": "\nFor a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to delete labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2000 artifacts.\n\n######\n",
+                "summary": "Remove sensitivity labels from Power BI items (such as reports or dashboards) by item ID.",
+                "description": "\nFor a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to delete labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2,000 Power BI items.\n\n######\n",
                 "operationId": "InformationProtection_RemoveLabelsAsAdmin",
                 "consumes": [
                     "application/json"
@@ -16468,8 +16468,8 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Set sensitivity labels on content in Power BI by artifact ID.",
-                "description": "\nTo set a sensitivity label using this API, the admin user or the delegated user (if provided) must have the label included in their [label policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). For a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user and the delegated user (if provided) must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to set labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2000 artifacts.\n\n######\n",
+                "summary": "Set sensitivity labels on Power BI items (such as reports or dashboards) by item ID.",
+                "description": "\nTo set a sensitivity label using this API, the admin user or the delegated user (if provided) must have the label included in their [label policy](/microsoft-365/compliance/create-sensitivity-labels?view=o365-worldwide). For a usage example, see [Set or remove sensitivity labels](/power-bi/admin/service-security-sensitivity-label-inheritance-set-remove-api).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- The admin user and the delegated user (if provided) must have sufficient [usage rights](/azure/information-protection/configure-usage-rights) to set labels.\n\n## Required scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 25 requests per hour.\n- Each request can update up to 2,000 Power BI items.\n\n######\n",
                 "operationId": "InformationProtection_SetLabelsAsAdmin",
                 "consumes": [
                     "application/json"
@@ -17111,7 +17111,7 @@
                 },
                 "certifiedBy": {
                     "type": "string",
-                    "description": "The user that certified the artifact"
+                    "description": "The user that certified the Power BI item (such as a report or a dashboard)"
                 }
             }
         },
@@ -17132,7 +17132,7 @@
             "required": [
                 "labelId"
             ],
-            "description": "Artifact sensitivity label info",
+            "description": "Sensitivity label info for a Power BI item (such as a report or a dashboard)",
             "properties": {
                 "labelId": {
                     "type": "string",
@@ -18590,7 +18590,7 @@
             }
         },
         "ArtifactAccessResponse": {
-            "description": "The OData response wrapper for a list of Power BI items (such as a report or a dashboard) that a user can access",
+            "description": "The OData response wrapper for a list of Power BI items (such as reports or dashboards) that a user can access",
             "properties": {
                 "odata.context": {
                     "type": "string"
@@ -18613,7 +18613,7 @@
             }
         },
         "EndorsmentProperties": {
-            "description": "A list of properties returned for an artifact by WorkspaceInfo APIs.",
+            "description": "A list of properties returned for a Power BI item (such as a report or a dashboard) by WorkspaceInfo APIs",
             "properties": {
                 "endorsementDetails": {
                     "$ref": "#/definitions/EndorsementDetails",
@@ -18622,7 +18622,7 @@
             }
         },
         "SensitivityProperties": {
-            "description": "A list of properties returned for an artifact by WorkspaceInfo APIs.",
+            "description": "A list of properties returned for a Power BI item (such as a report or a dashboard) by WorkspaceInfo APIs",
             "properties": {
                 "sensitivityLabel": {
                     "$ref": "#/definitions/SensitivityLabel",
@@ -18740,7 +18740,7 @@
             "properties": {
                 "users": {
                     "type": "array",
-                    "description": "(Empty value) The artifact user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
+                    "description": "(Empty value) The user access details for a Power BI report. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI report by using the [Get Report Users as Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/ReportUser"
                     }
@@ -18751,7 +18751,7 @@
             "properties": {
                 "subscriptions": {
                     "type": "array",
-                    "description": "(Empty Value)The artifact subscription Details. It will be removed from the payload response in an upcoming release. To retrieve subscription information for report, please consider using the Get Report Subscriptions as Admin API.",
+                    "description": "(Empty Value) The subscription details for a Power BI item (such as a report or a dashboard). This property will be removed from the payload response in an upcoming release. You can retrieve subscription information for a Power BI report by using the [Get Report Subscriptions as Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin) API call.",
                     "items": {
                         "$ref": "#/definitions/Subscription"
                     }
@@ -18890,7 +18890,7 @@
             "properties": {
                 "users": {
                     "type": "array",
-                    "description": "(Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
+                    "description": "(Empty value) The dashboard user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI dashboard by using the [Get Dashboard Users as Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/DashboardUser"
                     }
@@ -18901,7 +18901,7 @@
             "properties": {
                 "dataClassification": {
                     "type": "string",
-                    "description": "The data classification tag of the artifact"
+                    "description": "The data classification tag of a Power BI item (such as a report or a dashboard)"
                 }
             }
         },
@@ -19135,7 +19135,7 @@
                 },
                 "users": {
                     "type": "array",
-                    "description": "(Empty value) The users that belong to the group and their access rights. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Group Users As Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin) API, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API with the `getArtifactUsers` parameter.",
+                    "description": "(Empty value) The users that belong to the group and their access rights. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI item (such as a report or a dashboard) by using the [Get Group Users As Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUsers` parameter.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
@@ -19263,7 +19263,7 @@
             "required": [
                 "id"
             ],
-            "description": "artifact email subscription",
+            "description": "An email subscription for a Power BI item (such as a report or a dashboard)",
             "properties": {
                 "id": {
                     "type": "string",
@@ -19277,19 +19277,19 @@
                 "artifactId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The subscribed artifact ID"
+                    "description": "The ID of the subscribed Power BI item (such as a report or a dashboard)"
                 },
                 "artifactDisplayName": {
                     "type": "string",
-                    "description": "The subscribed artifact Name"
+                    "description": "The name of the subscribed Power BI item (such as a report or a dashboard)"
                 },
                 "subArtifactDisplayName": {
                     "type": "string",
-                    "description": "Page Name in case of Reports only"
+                    "description": "The page name of the subscribed Power BI item, if it's a report."
                 },
                 "artifactType": {
                     "type": "string",
-                    "description": "artifactType"
+                    "description": "The type of Power BI item (for example a `Report`, `Dashboard`, or `Dataset`)"
                 },
                 "isEnabled": {
                     "type": "boolean",
@@ -19319,11 +19319,11 @@
                 },
                 "attachmentFormat": {
                     "type": "string",
-                    "description": "Format of the report attached in the eamil subscription"
+                    "description": "Format of the report attached in the email subscription"
                 },
                 "users": {
                     "type": "array",
-                    "description": "The Email subscribee Details. This value can be null when Get Subscirpions By User As Admin API is called. It will be removed from the payload response in an upcoming release. To retrieve subscription information on an artifact please consider using the Get Dashboard or Report Subscriptions as Admin API. ",
+                    "description": "The details of each email subscriber. When using the [Get User Subscriptions As Admin](/rest/api/power-bi/admin/users-get-user-subscriptions-as-admin) API call, the returned value is an empty array (null). This property will be removed from the payload response in an upcoming release. You can retrieve subscription information on a Power BI report or dashboard by using the [Get Report Subscriptions As Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin) or [Get Dashboard Subscriptions As Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-subscriptions-as-admin) API calls.",
                     "items": {
                         "$ref": "#/definitions/SubscriptionUser"
                     }
@@ -19486,11 +19486,11 @@
                 },
                 "useCallerAADIdentity": {
                     "type": "boolean",
-                    "description": "Use to indicate that the Azure AD identity (OAuth2 credentials) of the API caller (which must be the data source owner) will be used to configure data source credentials (the owner OAuth access token). Typically, you’d either use this flag or `useEndUserOAuth2Credentials`."
+                    "description": "Use to indicate that the Azure AD identity (OAuth 2.0 credentials) of the API caller (which must be the data source owner) will be used to configure data source credentials (the owner OAuth access token). Typically, you’d either use this flag or `useEndUserOAuth2Credentials`."
                 },
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth2 credentials) is used for connecting to the data source in DirectQuery mode. Typically, you’d either use this flag or `useCallerAADIdentity`."
+                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth 2.0 credentials) is used for connecting to the data source in DirectQuery mode. Typically, you’d either use this flag or `useCallerAADIdentity`."
                 }
             }
         },
@@ -19499,7 +19499,7 @@
             "properties": {
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth2 credentials) is used for connecting to the data source in DirectQuery mode."
+                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth 2.0 credentials) is used for connecting to the data source in DirectQuery mode."
                 }
             }
         },
@@ -19527,7 +19527,7 @@
                 },
                 "datasourceObjectIds": {
                     "type": "array",
-                    "description": "The unique identifiers for the datasources in the gateway",
+                    "description": "The unique identifiers for the data sources in the gateway",
                     "items": {
                         "type": "string",
                         "format": "uuid",
@@ -21061,7 +21061,7 @@
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "(Optional) A parameter for specifying a target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates 'My Workspace'. If this parameter isn't provided, the tile will be cloned within the same workspace as the source tile."
+                    "description": "(Optional) A parameter for specifying a target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates **My workspace**. If this parameter isn't provided, the tile will be cloned within the same workspace as the source tile."
                 },
                 "targetReportId": {
                     "type": "string",
@@ -21574,7 +21574,7 @@
                 },
                 "users": {
                     "type": "array",
-                    "description": "The Dataflow User Access Details. This value will be empty. It will be removed from the payload response in an upcoming release. To retrieve user information on an artifact, please consider using the Get Dataflow User as Admin APIs, or the PostWorkspaceInfo API with the getArtifactUser parameter.",
+                    "description": "(Empty value) The dataflow user access details. This property will be removed from the payload response in an upcoming release. You can retrieve user information on a Power BI dataflow by using the [Get Dataflow Users as Admin](/rest/api/power-bi/admin/dataflows-get-dataflow-users-as-admin) API call, or the [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call with the `getArtifactUser` parameter.",
                     "items": {
                         "$ref": "#/definitions/DataflowUser"
                     }
@@ -21585,7 +21585,7 @@
             "properties": {
                 "datasourceUsages": {
                     "type": "array",
-                    "description": "The datasource usages",
+                    "description": "The data source usages",
                     "items": {
                         "$ref": "#/definitions/DatasourceUsage"
                     }
@@ -22719,12 +22719,12 @@
                 "sourceArtifactId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The ID of the Power BI item from the workspace assigned to the source stage, which will update the current artifact upon deployment. Applicable only when the user has at least contributor access to the source stage workspace."
+                    "description": "The ID of the Power BI item (such as a report or a dashboard) from the workspace assigned to the source stage, which will update the current Power BI item upon deployment. Applicable only when the user has at least contributor access to the source stage workspace."
                 },
                 "targetArtifactId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The artifact ID from the workspace of the target stage, which will be updated by the current artifact upon deployment. Applicable only when the user has at least contributor access to the target stage workspace."
+                    "description": "The ID of the Power BI item (such as a report or a dashboard) from the workspace of the target stage, which will be updated by the current Power BI item upon deployment. Applicable only when the user has at least contributor access to the target stage workspace."
                 },
                 "lastDeploymentTime": {
                     "type": "string",
@@ -23108,12 +23108,12 @@
             "required": [
                 "sourceId"
             ],
-            "description": "The artifact to be deployed",
+            "description": "A request to deploy a Power BI item (such as a report or a dashboard)",
             "properties": {
                 "sourceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The artifact ID"
+                    "description": "The ID of the Power BI item (such as a report or a dashboard) to be deployed"
                 },
                 "options": {
                     "description": "The deployment configuration options for a specific Power BI item (such as a report or a dashboard)",

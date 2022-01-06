@@ -24,15 +24,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ReportUserProperties class.
         /// </summary>
-        /// <param name="users">(Empty value) The artifact user access details.
-        /// This property will be removed from the payload response in an
-        /// upcoming release. You can retrieve user information on a Power BI
-        /// item (such as a report or a dashboard) by using the [Get Report
-        /// Users as
+        /// <param name="users">(Empty value) The user access details for a
+        /// Power BI report. This property will be removed from the payload
+        /// response in an upcoming release. You can retrieve user information
+        /// on a Power BI report by using the [Get Report Users as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.</param>
+        /// API call with the `getArtifactUsers` parameter.</param>
         public ReportUserProperties(IList<ReportUser> users = default(IList<ReportUser>))
         {
             Users = users;
@@ -45,14 +44,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Empty value) The artifact user access details. This
-        /// property will be removed from the payload response in an upcoming
-        /// release. You can retrieve user information on a Power BI item (such
-        /// as a report or a dashboard) by using the [Get Report Users as
+        /// Gets or sets (Empty value) The user access details for a Power BI
+        /// report. This property will be removed from the payload response in
+        /// an upcoming release. You can retrieve user information on a Power
+        /// BI report by using the [Get Report Users as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.
+        /// API call with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<ReportUser> Users { get; set; }

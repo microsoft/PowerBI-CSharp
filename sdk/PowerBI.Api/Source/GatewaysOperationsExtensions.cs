@@ -253,7 +253,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceToGatewayRequest'>
-            /// The datasource requested to create
+            /// A request to create a new data source on a gateway
             /// </param>
             public static GatewayDatasource CreateDatasource(this IGatewaysOperations operations, System.Guid gatewayId, PublishDatasourceToGatewayRequest datasourceToGatewayRequest)
             {
@@ -292,7 +292,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceToGatewayRequest'>
-            /// The datasource requested to create
+            /// A request to create a new data source on a gateway
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -334,7 +334,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             public static GatewayDatasource GetDatasource(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -370,7 +370,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -412,7 +412,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             public static void DeleteDatasource(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -448,7 +448,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -474,14 +474,14 @@ namespace Microsoft.PowerBI.Api
             /// examples.
             ///
             /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
-            /// from single sign-on to other credential types, such as **Basic** or
-            /// **OAuth2**. See the [Basic credentials
+            /// from single sign-on to other credential types, such as `Basic` or `OAuth2`.
+            /// See the [Basic credentials
             /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
-            /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
-            /// audience was set correctly according to the data source type.
+            /// - For the OAuth 2.0 credential type, make sure the generated OAuth 2.0
+            /// token audience was set correctly according to the data source type.
             /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
-            /// `true`. To set **OAuth2** credentials for other data sources, send the
-            /// OAuth2 token in the payload as shown in the [OAuth2 credentials
+            /// `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth
+            /// 2.0 token in the payload as shown in the [OAuth 2.0 credentials
             /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
             ///
             /// ## Permissions
@@ -508,10 +508,10 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='updateDatasourceRequest'>
-            /// The update datasource request
+            /// The update data source request
             /// </param>
             public static void UpdateDatasource(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, UpdateDatasourceRequest updateDatasourceRequest)
             {
@@ -534,14 +534,14 @@ namespace Microsoft.PowerBI.Api
             /// examples.
             ///
             /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
-            /// from single sign-on to other credential types, such as **Basic** or
-            /// **OAuth2**. See the [Basic credentials
+            /// from single sign-on to other credential types, such as `Basic` or `OAuth2`.
+            /// See the [Basic credentials
             /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
-            /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
-            /// audience was set correctly according to the data source type.
+            /// - For the OAuth 2.0 credential type, make sure the generated OAuth 2.0
+            /// token audience was set correctly according to the data source type.
             /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
-            /// `true`. To set **OAuth2** credentials for other data sources, send the
-            /// OAuth2 token in the payload as shown in the [OAuth2 credentials
+            /// `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth
+            /// 2.0 token in the payload as shown in the [OAuth 2.0 credentials
             /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
             ///
             /// ## Permissions
@@ -568,10 +568,10 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='updateDatasourceRequest'>
-            /// The update datasource request
+            /// The update data source request
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -611,7 +611,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             public static void GetDatasourceStatus(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -648,7 +648,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -687,7 +687,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             public static DatasourceUsers GetDatasourceUsers(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId)
             {
@@ -723,7 +723,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -766,7 +766,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='addUserToDatasourceRequest'>
             /// The add user to datasource request
@@ -806,7 +806,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='addUserToDatasourceRequest'>
             /// The add user to datasource request
@@ -848,7 +848,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='emailAdress'>
             /// The user's email address or the object ID of the service principal
@@ -887,7 +887,7 @@ namespace Microsoft.PowerBI.Api
             /// similar to gateway cluster ID.
             /// </param>
             /// <param name='datasourceId'>
-            /// The datasource ID
+            /// The data source ID
             /// </param>
             /// <param name='emailAdress'>
             /// The user's email address or the object ID of the service principal

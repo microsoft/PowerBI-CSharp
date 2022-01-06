@@ -40,11 +40,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// dataflow</param>
         /// <param name="modifiedDateTime">The date and time that the dataflow
         /// was last modified</param>
-        /// <param name="users">The Dataflow User Access Details. This value
-        /// will be empty. It will be removed from the payload response in an
-        /// upcoming release. To retrieve user information on an artifact,
-        /// please consider using the Get Dataflow User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.</param>
+        /// <param name="users">(Empty value) The dataflow user access details.
+        /// This property will be removed from the payload response in an
+        /// upcoming release. You can retrieve user information on a Power BI
+        /// dataflow by using the [Get Dataflow Users as
+        /// Admin](/rest/api/power-bi/admin/dataflows-get-dataflow-users-as-admin)
+        /// API call, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API call with the `getArtifactUser` parameter.</param>
         public DataflowBaseProperties(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>))
         {
             ObjectId = objectId;
@@ -106,11 +109,14 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? ModifiedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the Dataflow User Access Details. This value will be
-        /// empty. It will be removed from the payload response in an upcoming
-        /// release. To retrieve user information on an artifact, please
-        /// consider using the Get Dataflow User as Admin APIs, or the
-        /// PostWorkspaceInfo API with the getArtifactUser parameter.
+        /// Gets or sets (Empty value) The dataflow user access details. This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve user information on a Power BI dataflow
+        /// by using the [Get Dataflow Users as
+        /// Admin](/rest/api/power-bi/admin/dataflows-get-dataflow-users-as-admin)
+        /// API call, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API call with the `getArtifactUser` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<DataflowUser> Users { get; set; }
