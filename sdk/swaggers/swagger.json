@@ -2740,7 +2740,7 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the data sources of the specified paginated report (RDL) from **My workspace**. This is a preview API call.",
+                "summary": "Updates the data sources of the specified paginated report (RDL) from **My workspace**.",
                 "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n\n######\n",
                 "operationId": "Reports_UpdateDatasources",
                 "consumes": [
@@ -6041,7 +6041,7 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Updates the data sources of the specified paginated report (RDL) from the specified workspace. This is a preview API call.",
+                "summary": "Updates the data sources of the specified paginated report (RDL) from the specified workspace.",
                 "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n\n######\n",
                 "operationId": "Reports_UpdateDatasourcesInGroup",
                 "consumes": [

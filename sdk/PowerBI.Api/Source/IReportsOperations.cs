@@ -380,7 +380,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the data sources of the specified paginated report (RDL)
-        /// from **My workspace**. This is a preview API call.
+        /// from **My workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -927,7 +927,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the data sources of the specified paginated report (RDL)
-        /// from the specified workspace. This is a preview API call.
+        /// from the specified workspace.
         /// </summary>
         /// <remarks>
         ///

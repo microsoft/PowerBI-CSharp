@@ -1530,7 +1530,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Updates the data sources of the specified paginated report (RDL) from **My
-        /// workspace**. This is a preview API call.
+        /// workspace**.
         /// </summary>
         /// <remarks>
         ///
@@ -3711,7 +3711,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Updates the data sources of the specified paginated report (RDL) from the
-        /// specified workspace. This is a preview API call.
+        /// specified workspace.
         /// </summary>
         /// <remarks>
         ///
