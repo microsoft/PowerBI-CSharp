@@ -23273,7 +23273,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "For the service principal type `User`, enter *UPN*. Otherwise provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the service principal."
+                    "description": "For the principal type `User`, enter UPN. Otherwise, provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
