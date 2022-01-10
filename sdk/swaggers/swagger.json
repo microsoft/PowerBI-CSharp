@@ -16156,6 +16156,27 @@
                                 }
                             }
                         }
+                    },
+                    "Example with UPN": {
+                        "parameters": {
+                            "userId": "testUser@microsoft.com"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "artifactAccessEntities": [
+                                        {
+                                            "artifactId": "41ce06d1-d81b-4ea0-bc6d-2ce3dd2f8e87",
+                                            "displayName": "test report",
+                                            "artifactType": "Report",
+                                            "accessRight": "ReadWrite"
+                                        }
+                                    ],
+                                    "continuationUri": "https://api.powerbi.com/v1.0/myorg/admin/users/testUser%40microsoft.com/artifactAccess?continuationToken='LDEsMTAwMDAwLDA%3D'",
+                                    "continuationToken": "LDEsMTAwMDAwLDA%3D"
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
