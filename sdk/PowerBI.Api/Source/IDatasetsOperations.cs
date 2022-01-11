@@ -1044,7 +1044,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> PostDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetUserAccess accessRight, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Grants the specified user the specified permissions to the
-        /// specified dataset from **My workspace**.
+        /// specified dataset.
         /// </summary>
         /// <remarks>
         ///
@@ -1062,7 +1062,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Only datasets in a [new workspace
         /// experience](/power-bi/collaborate-share/service-new-workspaces)
-        /// workspace, that is to say a V2 workspace, are supported.
+        /// workspace, that is to say a V2 workspace, or **My workspace** are
+        /// supported.
         /// - This API only supports adding permissions to principals who don't
         /// have permissions to the dataset. It cannot be used to change
         /// existing dataset permissions.

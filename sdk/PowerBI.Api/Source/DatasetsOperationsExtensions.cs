@@ -1834,7 +1834,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Grants the specified user the specified permissions to the specified
-            /// dataset from **My workspace**.
+            /// dataset.
             /// </summary>
             /// <remarks>
             ///
@@ -1851,7 +1851,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Only datasets in a [new workspace
             /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
-            /// that is to say a V2 workspace, are supported.
+            /// that is to say a V2 workspace, or **My workspace** are supported.
             /// - This API only supports adding permissions to principals who don't have
             /// permissions to the dataset. It cannot be used to change existing dataset
             /// permissions.
@@ -1877,7 +1877,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Grants the specified user the specified permissions to the specified
-            /// dataset from **My workspace**.
+            /// dataset.
             /// </summary>
             /// <remarks>
             ///
@@ -1894,7 +1894,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Only datasets in a [new workspace
             /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
-            /// that is to say a V2 workspace, are supported.
+            /// that is to say a V2 workspace, or **My workspace** are supported.
             /// - This API only supports adding permissions to principals who don't have
             /// permissions to the dataset. It cannot be used to change existing dataset
             /// permissions.
