@@ -11984,7 +11984,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Initiates a call to receive metadata for the requested list of workspaces. This is a preview API call.",
+                "summary": "Initiates a call to receive metadata for the requested list of workspaces.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n\n######\n",
                 "operationId": "WorkspaceInfo_PostWorkspaceInfo",
                 "consumes": [
@@ -12081,7 +12081,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets the scan status for the specified scan. This is a preview API call.",
+                "summary": "Gets the scan status for the specified scan.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 10,000 requests per hour.\n\n######\n",
                 "operationId": "WorkspaceInfo_GetScanStatus",
                 "consumes": [
@@ -12133,7 +12133,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets the scan result for the specified scan. This is a preview API call.",
+                "summary": "Gets the scan result for the specified scan.",
                 "description": "\nOnly make this API call after a successful [GetScanStatus](/rest/api/power-bi/admin/workspace-info-get-scan-status) API call. The scan result will remain available for 24 hours.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 500 requests per hour.\n\n######\n",
                 "operationId": "WorkspaceInfo_GetScanResult",
                 "consumes": [
@@ -12367,7 +12367,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Gets a list of workspace IDs in the organization. This is a preview API call.",
+                "summary": "Gets a list of workspace IDs in the organization.",
                 "description": "\nIf the optional `modifiedSince` parameter is set to a date-time, only the IDs of workspaces that changed after that date-time are returned. If the `modifiedSince` parameter isn't used, the IDs of all workspaces in the organization are returned. The date-time specified by the `modifiedSince` parameter must be in the range of 30 minutes (to allow workspace changes to take effect) to 30 days prior to the current time.\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 30 requests per hour.\n\n######\n",
                 "operationId": "WorkspaceInfo_GetModifiedWorkspaces",
                 "consumes": [

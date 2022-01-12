@@ -19,7 +19,6 @@ namespace Microsoft.PowerBI.Api
     {
             /// <summary>
             /// Initiates a call to receive metadata for the requested list of workspaces.
-            /// This is a preview API call.
             /// </summary>
             /// <remarks>
             ///
@@ -71,7 +70,6 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Initiates a call to receive metadata for the requested list of workspaces.
-            /// This is a preview API call.
             /// </summary>
             /// <remarks>
             ///
@@ -128,7 +126,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan status for the specified scan. This is a preview API call.
+            /// Gets the scan status for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -162,7 +160,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan status for the specified scan. This is a preview API call.
+            /// Gets the scan status for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -202,7 +200,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan result for the specified scan. This is a preview API call.
+            /// Gets the scan result for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -240,7 +238,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan result for the specified scan. This is a preview API call.
+            /// Gets the scan result for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -284,8 +282,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets a list of workspace IDs in the organization. This is a preview API
-            /// call.
+            /// Gets a list of workspace IDs in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -328,8 +325,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets a list of workspace IDs in the organization. This is a preview API
-            /// call.
+            /// Gets a list of workspace IDs in the organization.
             /// </summary>
             /// <remarks>
             ///

@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
     {
         /// <summary>
         /// Initiates a call to receive metadata for the requested list of
-        /// workspaces. This is a preview API call.
+        /// workspaces.
         /// </summary>
         /// <remarks>
         ///
@@ -79,8 +79,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<ScanRequest>> PostWorkspaceInfoWithHttpMessagesAsync(RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets the scan status for the specified scan. This is a preview API
-        /// call.
+        /// Gets the scan status for the specified scan.
         /// </summary>
         /// <remarks>
         ///
@@ -119,8 +118,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<ScanRequest>> GetScanStatusWithHttpMessagesAsync(System.Guid scanId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets the scan result for the specified scan. This is a preview API
-        /// call.
+        /// Gets the scan result for the specified scan.
         /// </summary>
         /// <remarks>
         ///
@@ -163,8 +161,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<WorkspaceInfoResponse>> GetScanResultWithHttpMessagesAsync(System.Guid scanId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets a list of workspace IDs in the organization. This is a preview
-        /// API call.
+        /// Gets a list of workspace IDs in the organization.
         /// </summary>
         /// <remarks>
         ///
