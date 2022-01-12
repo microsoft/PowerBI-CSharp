@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> RefreshUserPermissionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of Power BI items (such as reports or dashboards)
-        /// that the specified user has access to. (Preview)
+        /// that the specified user has access to. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -104,7 +104,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of subscriptions that the given user has subscribed
-        /// to (Preview).
+        /// to. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

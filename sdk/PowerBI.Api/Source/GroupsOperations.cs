@@ -2935,7 +2935,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Returns a list of datasets, reports, and dashboards that have not been used
-        /// within 30 days for the specified workspace (Preview).
+        /// within 30 days for the specified workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

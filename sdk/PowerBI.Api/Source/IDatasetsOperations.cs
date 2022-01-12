@@ -143,10 +143,10 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> DeleteDatasetWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Executes Data Analysis Expressions (DAX) queries against the
-        /// provided dataset (Preview). The dataset must reside in **My
-        /// workspace** or another [new workspace
+        /// provided dataset. The dataset must reside in **My workspace** or
+        /// another [new workspace
         /// experience](/power-bi/collaborate-share/service-new-workspaces)
-        /// workspace.
+        /// workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

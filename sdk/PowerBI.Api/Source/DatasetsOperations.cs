@@ -656,9 +656,9 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Executes Data Analysis Expressions (DAX) queries against the provided
-        /// dataset (Preview). The dataset must reside in **My workspace** or another
-        /// [new workspace
-        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace.
+        /// dataset. The dataset must reside in **My workspace** or another [new
+        /// workspace experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

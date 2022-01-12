@@ -177,7 +177,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Returns a list of Power BI items (such as reports or dashboards) that the
-        /// specified user has access to. (Preview)
+        /// specified user has access to. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -351,8 +351,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of subscriptions that the given user has subscribed to
-        /// (Preview).
+        /// Returns a list of subscriptions that the given user has subscribed to. This
+        /// is a preview API call.
         /// </summary>
         /// <remarks>
         ///

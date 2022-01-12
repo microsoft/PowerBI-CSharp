@@ -752,7 +752,8 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> RestoreDeletedGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, GroupRestoreRequest groupRestoreRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasets, reports, and dashboards that have not
-        /// been used within 30 days for the specified workspace (Preview).
+        /// been used within 30 days for the specified workspace. This is a
+        /// preview API call.
         /// </summary>
         /// <remarks>
         ///
