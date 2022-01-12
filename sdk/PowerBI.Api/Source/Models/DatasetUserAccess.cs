@@ -29,8 +29,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="accessRight">(Required) The access right a user has
         /// for the dataset. Possible values include: 'Read', 'ReadReshare',
         /// 'ReadExplore', 'ReadReshareExplore'</param>
-        /// <param name="identifier">For principal type `User`, enter *UPN*.
-        /// Otherwise provide the [object
+        /// <param name="identifier">For the principal type `User`, provide the
+        /// user principal name (UPN). Otherwise, provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
@@ -57,8 +57,8 @@ namespace Microsoft.PowerBI.Api.Models
         public DatasetUserAccessRightEntry AccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets for principal type `User`, enter *UPN*. Otherwise
-        /// provide the [object
+        /// Gets or sets for the principal type `User`, provide the user
+        /// principal name (UPN). Otherwise, provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.
         /// </summary>

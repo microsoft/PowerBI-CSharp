@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PipelineUser class.
         /// </summary>
-        /// <param name="identifier">For the principal type `User`, enter UPN.
-        /// Otherwise, provide the [object
+        /// <param name="identifier">For the principal type `User`, provide the
+        /// user principal name (UPN). Otherwise, provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
@@ -56,8 +56,8 @@ namespace Microsoft.PowerBI.Api.Models
         public PipelineUserAccessRight? AccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets for the principal type `User`, enter UPN. Otherwise,
-        /// provide the [object
+        /// Gets or sets for the principal type `User`, provide the user
+        /// principal name (UPN). Otherwise, provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.
         /// </summary>

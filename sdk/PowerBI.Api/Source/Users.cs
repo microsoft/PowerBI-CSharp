@@ -200,7 +200,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID or UPN of user
+        /// The graph ID or user principal name (UPN) of the user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -375,7 +375,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID or UPN of user
+        /// The graph ID or user principal name (UPN) of the user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set

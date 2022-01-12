@@ -11242,7 +11242,7 @@
                         "name": "identifier",
                         "in": "path",
                         "required": true,
-                        "description": "To delete user pipeline permissions, provide the user's User Principal Name (UPN). To delete a service principal or a security group's pipeline permissions, provide the Object ID of the service principal or security group.",
+                        "description": "To delete user pipeline permissions, provide the user principal name (UPN) of the user. To delete a service principal or a security group's pipeline permissions, provide the Object ID of the service principal or security group.",
                         "type": "string"
                     }
                 ],
@@ -13334,7 +13334,7 @@
                         "name": "user",
                         "in": "path",
                         "required": true,
-                        "description": "The user principal name (UPN) of the user to remove (usually the user's email).",
+                        "description": "The user principal name (UPN) of the user to remove",
                         "type": "string"
                     }
                 ],
@@ -16115,7 +16115,7 @@
                     {
                         "name": "userId",
                         "in": "path",
-                        "description": "The graph ID or UPN of user",
+                        "description": "The graph ID or user principal name (UPN) of the user",
                         "required": true,
                         "type": "string"
                     },
@@ -16198,7 +16198,7 @@
                     {
                         "name": "userId",
                         "in": "path",
-                        "description": "The graph ID or UPN of user",
+                        "description": "The graph ID or user principal name (UPN) of the user",
                         "required": true,
                         "type": "string"
                     },
@@ -17072,7 +17072,7 @@
                         "name": "identifier",
                         "in": "path",
                         "required": true,
-                        "description": "For Principal type 'User' provide UPN , otherwise provide [Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal",
+                        "description": "For the principal type `User`, provide the user principal name (UPN). Otherwise, provide the [Object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal.",
                         "type": "string"
                     }
                 ],
@@ -20500,7 +20500,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "For principal type `User`, enter *UPN*. Otherwise provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
+                    "description": "For the principal type `User`, provide the user principal name (UPN). Otherwise, provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
@@ -23294,7 +23294,7 @@
                 },
                 "identifier": {
                     "type": "string",
-                    "description": "For the principal type `User`, enter UPN. Otherwise, provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
+                    "description": "For the principal type `User`, provide the user principal name (UPN). Otherwise, provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"

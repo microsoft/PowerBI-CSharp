@@ -691,8 +691,7 @@ namespace Microsoft.PowerBI.Api
         /// The workspace ID
         /// </param>
         /// <param name='user'>
-        /// The user principal name (UPN) of the user to remove (usually the
-        /// user's email).
+        /// The user principal name (UPN) of the user to remove
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

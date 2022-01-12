@@ -1219,8 +1219,7 @@ namespace Microsoft.PowerBI.Api
             /// The workspace ID
             /// </param>
             /// <param name='user'>
-            /// The user principal name (UPN) of the user to remove (usually the user's
-            /// email).
+            /// The user principal name (UPN) of the user to remove
             /// </param>
             public static void DeleteUserAsAdmin(this IGroupsOperations operations, System.Guid groupId, string user)
             {
@@ -1258,8 +1257,7 @@ namespace Microsoft.PowerBI.Api
             /// The workspace ID
             /// </param>
             /// <param name='user'>
-            /// The user principal name (UPN) of the user to remove (usually the user's
-            /// email).
+            /// The user principal name (UPN) of the user to remove
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

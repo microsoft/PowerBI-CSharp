@@ -416,8 +416,8 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// To delete user pipeline permissions, provide the user's User Principal Name
-            /// (UPN). To delete a service principal or a security group's pipeline
+            /// To delete user pipeline permissions, provide the user principal name (UPN)
+            /// of the user. To delete a service principal or a security group's pipeline
             /// permissions, provide the Object ID of the service principal or security
             /// group.
             /// </param>
@@ -445,8 +445,8 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// To delete user pipeline permissions, provide the user's User Principal Name
-            /// (UPN). To delete a service principal or a security group's pipeline
+            /// To delete user pipeline permissions, provide the user principal name (UPN)
+            /// of the user. To delete a service principal or a security group's pipeline
             /// permissions, provide the Object ID of the service principal or security
             /// group.
             /// </param>
@@ -1286,9 +1286,10 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// For Principal type 'User' provide UPN , otherwise provide [Object
+            /// For the principal type `User`, provide the user principal name (UPN).
+            /// Otherwise, provide the [Object
             /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-            /// of the principal
+            /// of the principal.
             /// </param>
             public static void DeleteUserAsAdmin(this IPipelinesOperations operations, System.Guid pipelineId, string identifier)
             {
@@ -1322,9 +1323,10 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// For Principal type 'User' provide UPN , otherwise provide [Object
+            /// For the principal type `User`, provide the user principal name (UPN).
+            /// Otherwise, provide the [Object
             /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-            /// of the principal
+            /// of the principal.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
