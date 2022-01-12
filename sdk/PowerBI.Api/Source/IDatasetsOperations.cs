@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -87,7 +87,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -118,7 +118,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -173,7 +173,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have [Manage dataset access
         /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -227,7 +227,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -263,7 +263,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -305,7 +305,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -346,7 +346,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -382,7 +382,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -421,7 +421,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -461,7 +461,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -503,7 +503,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the dataset owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -544,7 +544,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -588,7 +588,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the dataset owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -621,7 +621,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -676,7 +676,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the dataset owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -728,7 +728,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -803,7 +803,7 @@ namespace Microsoft.PowerBI.Api
         /// Parameters](/rest/api/power-bi/datasets/update-parameters) API
         /// call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -849,7 +849,7 @@ namespace Microsoft.PowerBI.Api
         /// Datasources](/rest/api/power-bi/datasets/update-datasources) to
         /// connections for other data sources.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -888,7 +888,7 @@ namespace Microsoft.PowerBI.Api
         /// &gt; Add the API caller principal as a data source user on the
         /// gateway.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -928,7 +928,7 @@ namespace Microsoft.PowerBI.Api
         /// &gt; This API is deprecated, use [Get
         /// Datasources](/rest/api/power-bi/datasets/get-datasources) instead.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -964,7 +964,7 @@ namespace Microsoft.PowerBI.Api
         /// on-premises connection. For datasets with cloud-only connections,
         /// this API call returns an empty list.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All
         ///
@@ -1003,7 +1003,7 @@ namespace Microsoft.PowerBI.Api
         /// call.
         ///
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// ## Limitations
@@ -1055,7 +1055,7 @@ namespace Microsoft.PowerBI.Api
         /// call.
         ///
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// ## Limitations
@@ -1097,7 +1097,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1125,7 +1125,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1168,7 +1168,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1196,7 +1196,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1230,7 +1230,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1262,7 +1262,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// ## Limitations
         ///
@@ -1299,7 +1299,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1344,7 +1344,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1388,7 +1388,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1427,7 +1427,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1470,7 +1470,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1513,7 +1513,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1558,7 +1558,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the dataset owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1602,7 +1602,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1649,7 +1649,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the dataset owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1685,7 +1685,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1742,7 +1742,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the dataset owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1796,7 +1796,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1875,7 +1875,7 @@ namespace Microsoft.PowerBI.Api
         /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API
         /// call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1924,7 +1924,7 @@ namespace Microsoft.PowerBI.Api
         /// Group](/rest/api/power-bi/datasets/update-datasources-in-group) to
         /// connections for other data sources.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1970,7 +1970,7 @@ namespace Microsoft.PowerBI.Api
         /// &gt; Add the API caller principal as a data source user on the
         /// gateway.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -2014,7 +2014,7 @@ namespace Microsoft.PowerBI.Api
         /// Group](/rest/api/power-bi/datasets/get-datasources-in-group)
         /// instead.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -2053,7 +2053,7 @@ namespace Microsoft.PowerBI.Api
         /// on-premises connection. For datasets with cloud-only connections,
         /// this API call returns an empty list.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All
         ///
@@ -2088,7 +2088,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -2139,7 +2139,7 @@ namespace Microsoft.PowerBI.Api
         /// [Considerations and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -2186,7 +2186,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2230,7 +2230,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2268,7 +2268,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2307,7 +2307,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2359,7 +2359,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

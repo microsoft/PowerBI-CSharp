@@ -24,7 +24,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -52,7 +52,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -86,7 +86,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -119,7 +119,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -158,7 +158,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -191,7 +191,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -233,7 +233,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -272,7 +272,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -314,7 +314,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -350,7 +350,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -392,7 +392,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -428,7 +428,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -488,7 +488,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -548,7 +548,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -591,7 +591,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -628,7 +628,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -667,7 +667,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -703,7 +703,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
             ///
@@ -746,7 +746,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -786,7 +786,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -828,7 +828,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///
@@ -867,7 +867,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have gateway admin permissions.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             ///

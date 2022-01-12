@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Read.All or Pipeline.ReadWrite.All
             ///
@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Read.All or Pipeline.ReadWrite.All
             ///
@@ -66,7 +66,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -89,7 +89,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -118,7 +118,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -145,7 +145,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -178,7 +178,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -204,7 +204,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -236,7 +236,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -263,7 +263,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -294,7 +294,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -318,7 +318,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -347,7 +347,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -373,7 +373,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -402,7 +402,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -431,7 +431,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -463,7 +463,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -486,7 +486,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -515,7 +515,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -552,7 +552,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -593,7 +593,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -625,7 +625,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
@@ -670,7 +670,7 @@ namespace Microsoft.PowerBI.Api
             /// specified stage. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -708,7 +708,7 @@ namespace Microsoft.PowerBI.Api
             /// specified stage. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -742,7 +742,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -766,7 +766,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -798,7 +798,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Use to track the status of a deploy operation.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -827,7 +827,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Use to track the status of a deploy operation.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
             ///
@@ -870,7 +870,7 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
@@ -911,7 +911,7 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
@@ -954,7 +954,7 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
@@ -991,7 +991,7 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
@@ -1032,7 +1032,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1076,7 +1076,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1127,7 +1127,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1160,7 +1160,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1197,7 +1197,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1231,7 +1231,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1268,7 +1268,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1305,7 +1305,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///

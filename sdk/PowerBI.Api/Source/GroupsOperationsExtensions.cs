@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
             ///
@@ -59,7 +59,7 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
             ///
@@ -94,7 +94,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -120,7 +120,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -152,7 +152,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -175,7 +175,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -208,7 +208,7 @@ namespace Microsoft.PowerBI.Api
             /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
             /// call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
             ///
@@ -238,7 +238,7 @@ namespace Microsoft.PowerBI.Api
             /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
             /// call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
             ///
@@ -273,7 +273,7 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -305,7 +305,7 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -339,7 +339,7 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -370,7 +370,7 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -399,7 +399,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -426,7 +426,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
             ///
@@ -464,7 +464,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or assign permissions on the
             /// capacity.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -495,7 +495,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or assign permissions on the
             /// capacity.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -529,7 +529,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or assign permissions on the
             /// capacity.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -563,7 +563,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or assign permissions on the
             /// capacity.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -592,7 +592,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
             ///
@@ -612,7 +612,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
             ///
@@ -644,7 +644,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or assign permissions on the
             /// capacity.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
             ///
@@ -673,7 +673,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or assign permissions on the
             /// capacity.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
             ///
@@ -709,7 +709,7 @@ namespace Microsoft.PowerBI.Api
             /// account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as
             /// the `dataflowStorageId`.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -742,7 +742,7 @@ namespace Microsoft.PowerBI.Api
             /// account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as
             /// the `dataflowStorageId`.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
             ///
@@ -778,7 +778,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -826,7 +826,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -880,7 +880,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -919,7 +919,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -966,7 +966,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1005,7 +1005,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1046,7 +1046,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1081,7 +1081,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1122,7 +1122,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1160,7 +1160,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1201,7 +1201,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1239,7 +1239,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1280,7 +1280,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1318,7 +1318,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
@@ -1359,7 +1359,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -1397,7 +1397,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///

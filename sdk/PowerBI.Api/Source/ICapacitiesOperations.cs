@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
         ///
@@ -54,7 +54,7 @@ namespace Microsoft.PowerBI.Api
         /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
         ///
@@ -88,7 +88,7 @@ namespace Microsoft.PowerBI.Api
         /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
         ///
@@ -128,7 +128,7 @@ namespace Microsoft.PowerBI.Api
         /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All
         ///
@@ -166,7 +166,7 @@ namespace Microsoft.PowerBI.Api
         /// Power BI retains a seven-day refresh history for each dataset, up
         /// to a maximum of sixty refreshes.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
         ///
@@ -209,7 +209,7 @@ namespace Microsoft.PowerBI.Api
         /// Power BI retains a seven-day refresh history for each dataset, up
         /// to a maximum of sixty refreshes.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
         ///
@@ -255,7 +255,7 @@ namespace Microsoft.PowerBI.Api
         /// Power BI retains a seven-day refresh history for each dataset, up
         /// to a maximum of sixty refreshes.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
         ///
@@ -298,7 +298,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -331,7 +331,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -366,7 +366,7 @@ namespace Microsoft.PowerBI.Api
         /// Global Administrator or Power BI Service Administrator).
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

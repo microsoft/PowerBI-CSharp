@@ -35,7 +35,7 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Since it takes about two minutes for the permissions to get
         /// refreshed, wait for two minutes before making other API calls.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
         ///
@@ -69,7 +69,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -115,7 +115,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

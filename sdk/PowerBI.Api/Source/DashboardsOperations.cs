@@ -51,7 +51,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -186,7 +186,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
         ///
@@ -345,7 +345,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -489,7 +489,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an entire
         /// report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -633,7 +633,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an entire
         /// report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -789,7 +789,7 @@ namespace Microsoft.PowerBI.Api
         /// - If you're cloning a tile within a different workspace, report and dataset
         /// links will be removed, and the tile will be broken.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
         ///
@@ -958,7 +958,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -1098,7 +1098,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
         ///
@@ -1262,7 +1262,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -1411,7 +1411,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an entire
         /// report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -1560,7 +1560,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an entire
         /// report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -1721,7 +1721,7 @@ namespace Microsoft.PowerBI.Api
         /// - If you're cloning a tile within a different workspace, report and dataset
         /// links will be removed, and the tile will be broken.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
         ///
@@ -1910,7 +1910,7 @@ namespace Microsoft.PowerBI.Api
         /// and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
@@ -2086,7 +2086,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2266,7 +2266,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2450,7 +2450,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2602,7 +2602,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2754,7 +2754,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

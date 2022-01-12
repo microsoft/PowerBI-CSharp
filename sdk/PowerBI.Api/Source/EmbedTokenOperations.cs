@@ -74,7 +74,7 @@ namespace Microsoft.PowerBI.Api
         /// ID in the API call. For more information, see
         /// [example](/rest/api/power-bi/embed-token/generate-token#examples).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following, unless a requirement doesn't apply:
         ///

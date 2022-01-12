@@ -51,7 +51,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// StorageAccount.Read.All or StorageAccount.ReadWrite.All
         ///

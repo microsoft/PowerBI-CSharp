@@ -63,7 +63,7 @@ namespace Microsoft.PowerBI.Api
         /// rights](/azure/information-protection/configure-usage-rights) to delete
         /// labels.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
@@ -238,7 +238,7 @@ namespace Microsoft.PowerBI.Api
         /// [usage rights](/azure/information-protection/configure-usage-rights) to set
         /// labels.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///

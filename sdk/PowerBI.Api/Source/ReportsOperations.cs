@@ -54,7 +54,7 @@ namespace Microsoft.PowerBI.Api
         /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
         /// the API response for paginated reports isn't displayed.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -189,7 +189,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -329,7 +329,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///
@@ -465,7 +465,7 @@ namespace Microsoft.PowerBI.Api
         /// - **Build** permission on the target dataset, required if the
         /// `targetModelId` parameter is used.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
         ///
@@ -638,7 +638,7 @@ namespace Microsoft.PowerBI.Api
         /// report from the Power BI service to Power BI
         /// Desktop](/power-bi/create-reports/service-export-to-pbix).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -774,7 +774,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// Specify the source report in the request body.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///
@@ -953,7 +953,7 @@ namespace Microsoft.PowerBI.Api
         /// - **Write** permission on the specified report.
         /// - **Build** permission on the target dataset.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///
@@ -1096,7 +1096,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -1237,7 +1237,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -1393,7 +1393,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -1542,7 +1542,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the data source owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Reports.ReadWrite.All
         ///
@@ -1690,7 +1690,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
@@ -1864,7 +1864,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -2039,7 +2039,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -2184,7 +2184,7 @@ namespace Microsoft.PowerBI.Api
         /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
         /// the API response for paginated reports isn't displayed.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -2324,7 +2324,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -2469,7 +2469,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///
@@ -2610,7 +2610,7 @@ namespace Microsoft.PowerBI.Api
         /// - **Build** permission on the target dataset, required if the
         /// `targetModelId` parameter is used.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
         ///
@@ -2788,7 +2788,7 @@ namespace Microsoft.PowerBI.Api
         /// report from the Power BI service to Power BI
         /// Desktop](/power-bi/create-reports/service-export-to-pbix).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -2929,7 +2929,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// Specify the source report in the request body.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///
@@ -3114,7 +3114,7 @@ namespace Microsoft.PowerBI.Api
         /// - **Write** permission on the specified report.
         /// - **Build** permission on the target dataset.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///
@@ -3263,7 +3263,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -3409,7 +3409,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -3570,7 +3570,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -3723,7 +3723,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must be the data source owner.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Reports.ReadWrite.All
         ///
@@ -3877,7 +3877,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
@@ -4056,7 +4056,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -4236,7 +4236,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -4398,7 +4398,7 @@ namespace Microsoft.PowerBI.Api
         /// and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
@@ -4584,7 +4584,7 @@ namespace Microsoft.PowerBI.Api
         /// and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following, unless a requirement doesn't apply:
         ///
@@ -4768,7 +4768,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -4948,7 +4948,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -5124,7 +5124,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -5276,7 +5276,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -5421,7 +5421,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All
         ///

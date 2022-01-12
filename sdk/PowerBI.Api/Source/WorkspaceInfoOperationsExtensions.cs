@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -98,7 +98,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -162,7 +162,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -196,7 +196,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -240,7 +240,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -278,7 +278,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -325,7 +325,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -368,7 +368,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
