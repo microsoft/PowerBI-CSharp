@@ -24,6 +24,13 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; If you set the `datasetSchema` or `datasetExpressions`
+        /// parameters to `true`, you must fully enable metadata scanning in
+        /// order for data to be returned. For more information, see [Enable
+        /// tenant settings for metadata
+        /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
+        ///
         /// ## Permissions
         ///
         /// The user must have administrator rights (such as Microsoft 365
@@ -47,16 +54,24 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='lineage'>
         /// Whether to return lineage info (upstream dataflows, tiles, data
-        /// source IDs)​
+        /// source IDs)
         /// </param>
         /// <param name='datasourceDetails'>
-        /// Whether to return data source details​
+        /// Whether to return data source details
         /// </param>
         /// <param name='datasetSchema'>
-        /// Whether to return dataset schema (Tables, Columns and Measures)​
+        /// Whether to return dataset schema (tables, columns and measures). If
+        /// you set this parameter to `true`, you must fully enable metadata
+        /// scanning in order for data to be returned. For more information,
+        /// see [Enable tenant settings for metadata
+        /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
         /// </param>
         /// <param name='datasetExpressions'>
-        /// Whether to return dataset expressions (Dax query and Mashup)​
+        /// Whether to return dataset expressions (DAX and Mashup queries). If
+        /// you set this parameter to `true`, you must fully enable metadata
+        /// scanning in order for data to be returned. For more information,
+        /// see [Enable tenant settings for metadata
+        /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
         /// </param>
         /// <param name='getArtifactUsers'>
         /// Whether to return user details for a Power BI item (such as a

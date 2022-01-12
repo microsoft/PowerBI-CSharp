@@ -11985,7 +11985,7 @@
                     "Admin"
                 ],
                 "summary": "Initiates a call to receive metadata for the requested list of workspaces.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n\n######\n",
+                "description": "\n> [!IMPORTANT]\n> If you set the `datasetSchema` or `datasetExpressions` parameters to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).\n\n## Permissions\n\nThe user must have administrator rights (such as Microsoft 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n\n## Required scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 500 requests per hour.\n- Maximum 16 simultaneous requests.\n\n######\n",
                 "operationId": "WorkspaceInfo_PostWorkspaceInfo",
                 "consumes": [
                     "application/json"
@@ -12006,28 +12006,28 @@
                     {
                         "name": "lineage",
                         "in": "query",
-                        "description": "Whether to return lineage info (upstream dataflows, tiles, data source IDs)​",
+                        "description": "Whether to return lineage info (upstream dataflows, tiles, data source IDs)",
                         "required": false,
                         "type": "boolean"
                     },
                     {
                         "name": "datasourceDetails",
                         "in": "query",
-                        "description": "Whether to return data source details​",
+                        "description": "Whether to return data source details",
                         "required": false,
                         "type": "boolean"
                     },
                     {
                         "name": "datasetSchema",
                         "in": "query",
-                        "description": "Whether to return dataset schema (Tables, Columns and Measures)​",
+                        "description": "Whether to return dataset schema (tables, columns and measures). If you set this parameter to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).",
                         "required": false,
                         "type": "boolean"
                     },
                     {
                         "name": "datasetExpressions",
                         "in": "query",
-                        "description": "Whether to return dataset expressions (Dax query and Mashup)​",
+                        "description": "Whether to return dataset expressions (DAX and Mashup queries). If you set this parameter to `true`, you must fully enable metadata scanning in order for data to be returned. For more information, see [Enable tenant settings for metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).",
                         "required": false,
                         "type": "boolean"
                     },
