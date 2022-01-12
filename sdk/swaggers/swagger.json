@@ -11343,7 +11343,7 @@
                 },
                 "deprecated": false
             }
-            },
+        },
         "/v1.0/myorg/pipelines/{pipelineId}/stages/{stageOrder}/assignWorkspace": {
             "post": {
                 "tags": [
@@ -13112,19 +13112,19 @@
                         },
                         "responses": {
                             "200": {
-                                        "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
-                                        "isReadOnly": false,
-                                        "isOnDedicatedCapacity": false,
-                                        "name": "Sample Group 1",
-                                        "description": "Sample group",
-                                        "type": "Workspace",
-                                        "state": "Active",
-                                        "users": [
-                                            {
-                                                "emailAddress": "john@contoso.com",
-                                                "groupUserAccessRight": "Admin"
-                                            }
-                                        ]
+                                "id": "e380d1d0-1fa6-460b-9a90-1a5c6b02414c",
+                                "isReadOnly": false,
+                                "isOnDedicatedCapacity": false,
+                                "name": "Sample Group 1",
+                                "description": "Sample group",
+                                "type": "Workspace",
+                                "state": "Active",
+                                "users": [
+                                    {
+                                        "emailAddress": "john@contoso.com",
+                                        "groupUserAccessRight": "Admin"
+                                    }
+                                ]
                             }
                         }
                     }
@@ -14080,7 +14080,7 @@
                 },
                 "deprecated": false
             }
-        },    
+        },
         "/v1.0/myorg/admin/reports/{reportId}/subscriptions": {
             "get": {
                 "tags": [
@@ -14120,7 +14120,7 @@
                             "200": {
                                 "body": {
                                     "value": [
-                                        {                                
+                                        {
                                             "id": "18b746fe-c6d5-4a00-9523-05dc91424274",
                                             "title": "TestReportSubscription-1",
                                             "artifactId": "7b71b90a-a333-4006-b12c-ef3d767fa4e9",
@@ -14384,7 +14384,7 @@
                             "200": {
                                 "body": {
                                     "value": [
-                                        {                                
+                                        {
                                             "id": "18b746fe-c6d5-4a00-9523-05dc91424275",
                                             "title": "TestDashboardSubscription-1",
                                             "artifactId": "7b71b90a-a333-4006-b12c-ef3d767fa4e9",
@@ -17247,6 +17247,2055 @@
                 },
                 "deprecated": false
             }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards": {
+            "get": {
+                "summary": "Returns a list of scorecards from a workspace.",
+                "operationId": "Scorecards_Get",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n######\n",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list with scorecards",
+                        "schema": {
+                            "$ref": "#/definitions/Scorecards"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "$top": 30
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards",
+                                "@odata.count": 1,
+                                "value": [
+                                    {
+                                        "id": "0059003b-fcd4-45e4-92ea-cafa1ab4938a",
+                                        "name": "Scorecard1",
+                                        "createdTime": "2021-12-10T22:02:51.9130363Z",
+                                        "lastModifiedTime": "2021-12-10T22:03:08.8193962Z",
+                                        "provisioningStatus": "Completed",
+                                        "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                                        "datasetId": "efe32352-b00d-488f-8d7d-049a6f2c93b8",
+                                        "reportId": "f69e63a2-e241-4cf4-a4b3-97f476a425bd",
+                                        "permissions": "ReadWrite",
+                                        "columnSettings": [
+                                            {
+                                                "columnId": 0,
+                                                "show": true
+                                            },
+                                            {
+                                                "columnId": 1,
+                                                "show": true
+                                            },
+                                            {
+                                                "columnId": 2,
+                                                "show": true
+                                            },
+                                            {
+                                                "columnId": 3,
+                                                "show": true
+                                            },
+                                            {
+                                                "columnId": 4,
+                                                "show": true
+                                            },
+                                            {
+                                                "columnId": 5,
+                                                "show": true
+                                            },
+                                            {
+                                                "columnId": 6,
+                                                "show": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creates a new scorecard.",
+                "operationId": "Scorecards_Post",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "name": "scorecard",
+                        "in": "body",
+                        "required": true,
+                        "description": "The new scorecard properties.",
+                        "schema": {
+                            "$ref": "#/definitions/ScorecardCreateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created scorecard properties.",
+                        "schema": {
+                            "$ref": "#/definitions/Scorecard"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "requestMessage": {
+                                "name": "Scorecard2"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards/$entity",
+                                "id": "00b5ee09-e75c-4c48-b8ff-006553007c74",
+                                "name": "Scorecard2",
+                                "createdTime": "2021-12-14T01:37:03.6967868Z",
+                                "lastModifiedTime": "2021-12-14T01:37:03.6967868Z",
+                                "provisioningStatus": "Initialized",
+                                "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                                "permissions": "ReadWrite",
+                                "columnSettings": [
+                                    {
+                                        "columnId": 0,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 1,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 2,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 3,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 4,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 5,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 6,
+                                        "show": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})": {
+            "get": {
+                "summary": "Returns a scorecard with ID.",
+                "operationId": "Scorecards_GetById",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: goals, goalValues, aggregations and notes.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The scorecard object.",
+                        "schema": {
+                            "$ref": "#/definitions/Scorecard"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards/$entity",
+                                "id": "f74738b3-c62d-4487-838c-918d314556ee",
+                                "name": "Scorecard3",
+                                "createdTime": "2021-12-14T01:58:41.2730555Z",
+                                "lastModifiedTime": "2021-12-14T01:58:56.9296326Z",
+                                "provisioningStatus": "Completed",
+                                "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                                "datasetId": "b2ee3867-c9ba-466f-951e-d128dc235262",
+                                "reportId": "b6db5449-a577-4c11-a515-da809fad8063",
+                                "description": "Scorecard3 tracks the performance of our server.",
+                                "permissions": "ReadWrite",
+                                "columnSettings": [
+                                    {
+                                        "columnId": 0,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 1,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 2,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 3,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 4,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 5,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 6,
+                                        "show": true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Updates a scorecard by its ID",
+                "operationId": "Scorecards_PatchById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "name": "scorecard",
+                        "in": "body",
+                        "required": true,
+                        "description": "The scorecard properties to patch",
+                        "schema": {
+                            "$ref": "#/definitions/Scorecard"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The scorecard object after patching.",
+                        "schema": {
+                            "$ref": "#/definitions/Scorecard"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
+                            "requestMessage": {
+                                "columnSettings": [
+                                    {
+                                        "columnId": "0",
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": "1",
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": "2",
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": "3",
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": "4",
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": "5",
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": "6",
+                                        "show": false
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards/$entity",
+                                "id": "f74738b3-c62d-4487-838c-918d314556ee",
+                                "name": "Scorecard3",
+                                "createdTime": "2021-12-14T01:58:41.2730555Z",
+                                "lastModifiedTime": "2021-12-14T02:08:29.9512949Z",
+                                "provisioningStatus": "Completed",
+                                "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                                "datasetId": "b2ee3867-c9ba-466f-951e-d128dc235262",
+                                "reportId": "b6db5449-a577-4c11-a515-da809fad8063",
+                                "description": "Scorecard3 tracks the performance of our server.",
+                                "permissions": "None",
+                                "columnSettings": [
+                                    {
+                                        "columnId": 0,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 1,
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": 2,
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": 3,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 4,
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": 5,
+                                        "show": false
+                                    },
+                                    {
+                                        "columnId": 6,
+                                        "show": false
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletes a scorecard by its ID.",
+                "operationId": "Scorecards_DeleteById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee"
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals": {
+            "get": {
+                "summary": "Returns a list of goals from a scorecard.",
+                "operationId": "Goals_Get",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: goalValues and aggregations.",
+                        "type": "string"
+                    },
+                    {
+                        "name": "$select",
+                        "in": "query",
+                        "description": "Allows the clients to select specific properties from the server.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of scorecard goals",
+                        "schema": {
+                            "$ref": "#/definitions/Goals"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "bc390256-fa54-4bd8-96a1-2c80df0cf704"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(e399e1d9-6d43-4ccf-b5c2-e8f93335be44)/goals",
+                                "value": [
+                                    {
+                                        "id": "7e683d36-fce1-41f3-9151-db65cf095001",
+                                        "name": "Goal2",
+                                        "scorecardId": "e399e1d9-6d43-4ccf-b5c2-e8f93335be44",
+                                        "createdTime": "2021-12-14T17:42:07.805447Z",
+                                        "lastModifiedTime": "2021-12-14T17:42:15.0711664Z",
+                                        "startDate": "2021-12-14T17:42:08Z",
+                                        "notesCount": 0,
+                                        "hasStatusRules": false,
+                                        "permissions": "All",
+                                        "level": 0,
+                                        "rank": 0
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Adds a new goal to a scorecard.",
+                "operationId": "Goals_Post",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "name": "goal",
+                        "in": "body",
+                        "required": true,
+                        "description": "The properties of the new goal.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalCreateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The newly created goal.",
+                        "schema": {
+                            "$ref": "#/definitions/Goal"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "d154070d-e872-4d82-8ad6-eeef96d413ec",
+                            "requestMessage": {
+                                "name": "Goal1"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(d154070d-e872-4d82-8ad6-eeef96d413ec)/goals/$entity",
+                                "id": "c98e22eb-4cee-4989-898e-d84ec4ead046",
+                                "name": "Goal1",
+                                "scorecardId": "d154070d-e872-4d82-8ad6-eeef96d413ec",
+                                "createdTime": "2021-12-14T18:22:02.7875012Z",
+                                "lastModifiedTime": "2021-12-14T18:22:02.7875012Z",
+                                "startDate": "2021-12-14T18:22:03Z",
+                                "notesCount": 0,
+                                "hasStatusRules": false,
+                                "permissions": "All",
+                                "level": 0,
+                                "rank": 0
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})": {
+            "get": {
+                "summary": "Returns a goal by ID from a scorecard.",
+                "operationId": "Goals_GetById",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "description": "description",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The goal object",
+                        "schema": {
+                            "$ref": "#/definitions/Goal"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "bb2b6321-2b84-4b7b-8de3-40f74ca7e586",
+                            "goalId": "62e3794e-6019-4195-8f5e-38d9a6e18c04"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(bb2b6321-2b84-4b7b-8de3-40f74ca7e586)/goals/$entity",
+                                "id": "62e3794e-6019-4195-8f5e-38d9a6e18c04",
+                                "name": "Goal2",
+                                "scorecardId": "bb2b6321-2b84-4b7b-8de3-40f74ca7e586",
+                                "createdTime": "2021-12-14T18:52:39.1066847Z",
+                                "lastModifiedTime": "2021-12-14T18:52:45.6224223Z",
+                                "startDate": "2021-12-14T18:52:39Z",
+                                "notesCount": 0,
+                                "hasStatusRules": false,
+                                "permissions": "All",
+                                "level": 0,
+                                "rank": 0
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Updates a goal by ID.",
+                "operationId": "Goals_PatchById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "name": "goal",
+                        "in": "body",
+                        "required": true,
+                        "description": "The goal properties to patch.",
+                        "schema": {
+                            "$ref": "#/definitions/Goal"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The patched goal object.",
+                        "schema": {
+                            "$ref": "#/definitions/Goal"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
+                            "goalId": "1f482a42-dfc0-44b3-8281-a6f88fb989a3",
+                            "requestMessage": {
+                                "name": "Goal2"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(10fee5d8-0d37-4a50-8691-ea5b3a8fc8f7)/goals/$entity",
+                                "id": "1f482a42-dfc0-44b3-8281-a6f88fb989a3",
+                                "name": "Goal2",
+                                "scorecardId": "10fee5d8-0d37-4a50-8691-ea5b3a8fc8f7",
+                                "createdTime": "2021-12-14T19:23:59.9727686Z",
+                                "lastModifiedTime": "2021-12-14T19:25:58.1460988Z",
+                                "startDate": "2021-12-14T19:24:00Z",
+                                "notesCount": 0,
+                                "hasStatusRules": false,
+                                "permissions": "All",
+                                "level": 0,
+                                "rank": 0
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletes a goal from a scorecard by goal ID.",
+                "operationId": "Goals_DeleteById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
+                            "goalId": "c07b3600-54be-42ef-9154-39e7922c1bb4"
+
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/statusRules": {
+            "get": {
+                "summary": "Returns status rules of a goal.",
+                "operationId": "GoalsStatusRules_Get",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalsStatusRules"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Status rules object.",
+                        "schema": {
+                            "$ref": "#/definitions/Goals.Rules.GoalStatusRules"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "bb2b6321-2b84-4b7b-8de3-40f74ca7e586",
+                            "goalId": "62e3794e-6019-4195-8f5e-38d9a6e18c04"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(fb8a915c-b720-4a77-9e55-3a12fc42efcd)/goals(2bfdeb15-09f7-4bf2-8ab4-c90cbc6b0203)/statusRules",
+                                "rules": [
+                                    {
+                                        "conditions": [
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Timestamp",
+                                                    "operator": "Equal",
+                                                    "value": {
+                                                        "dateTime": "2021-12-13T00:00:00Z"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Value",
+                                                    "operator": "GreaterThan",
+                                                    "value": {
+                                                        "percentOf": {
+                                                            "field": "Target",
+                                                            "percent": 10.0
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "output": 3
+                                    }
+                                ],
+                                "defaultOutput": 2,
+                                "scorecardObjectId": "fb8a915c-b720-4a77-9e55-3a12fc42efcd",
+                                "goalObjectId": "2bfdeb15-09f7-4bf2-8ab4-c90cbc6b0203",
+                                "lastModifiedTime": "2021-12-14T20:28:33.3148884Z"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creates or updates status rules of a goal.",
+                "operationId": "GoalsStatusRules_Post",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalsStatusRules"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "name": "statusRulesUpdateRequest",
+                        "in": "body",
+                        "required": true,
+                        "description": "The status rules definition.",
+                        "schema": {
+                            "$ref": "#/definitions/Goals.Rules.GoalStatusRulesUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Updated status rules definition.",
+                        "schema": {
+                            "$ref": "#/definitions/Goals.Rules.GoalStatusRules"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "3160d25e-5b63-4f4a-8fc2-ccbb9f2c7f99",
+                            "goalId": "f035c3a0-e0f1-4a2a-bd97-86aea708a8d7",
+                            "requestMessage": {
+                                "rules": [
+                                    {
+                                        "conditions": [
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Timestamp",
+                                                    "operator": "Equal",
+                                                    "value": {
+                                                        "dateTime": "2021-12-13T00:00:00Z"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Value",
+                                                    "operator": "GreaterThan",
+                                                    "value": {
+                                                        "percentOf": {
+                                                            "field": "Target",
+                                                            "percent": 10.0
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "output": 3
+                                    },
+                                    {
+                                        "conditions": [
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Change",
+                                                    "operator": "LessThan",
+                                                    "value": {
+                                                        "number": 10.0
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "output": 3
+                                    }
+                                ],
+                                "defaultOutput": 3
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(3160d25e-5b63-4f4a-8fc2-ccbb9f2c7f99)/goals(f035c3a0-e0f1-4a2a-bd97-86aea708a8d7)/statusRules",
+                                "rules": [
+                                    {
+                                        "conditions": [
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Timestamp",
+                                                    "operator": "Equal",
+                                                    "value": {
+                                                        "dateTime": "2021-12-13T00:00:00Z"
+                                                    }
+                                                }
+                                            },
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Value",
+                                                    "operator": "GreaterThan",
+                                                    "value": {
+                                                        "percentOf": {
+                                                            "field": "Target",
+                                                            "percent": 10.0
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "output": 3
+                                    },
+                                    {
+                                        "conditions": [
+                                            {
+                                                "fieldComparison": {
+                                                    "field": "Change",
+                                                    "operator": "LessThan",
+                                                    "value": {
+                                                        "number": 10.0
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "output": 3
+                                    }
+                                ],
+                                "defaultOutput": 3,
+                                "scorecardObjectId": "3160d25e-5b63-4f4a-8fc2-ccbb9f2c7f99",
+                                "goalObjectId": "f035c3a0-e0f1-4a2a-bd97-86aea708a8d7",
+                                "lastModifiedTime": "2021-12-14T20:37:00.0245696Z"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Removes status rule definitions from a goal.",
+                "operationId": "GoalsStatusRules_Delete",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalsStatusRules"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
+                            "goalId": "c07b3600-54be-42ef-9154-39e7922c1bb4"
+
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues": {
+            "get": {
+                "summary": "Reads goal value check-ins.",
+                "operationId": "GoalValues_Get",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalValues"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: notes.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The goal value check-ins.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalValues"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
+                            "goalId": "de3e8b13-1ba6-4806-871f-2fb1658e0837",
+                            "$expand": "notes"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(299759d9-80d3-45a8-8f13-a0624ea7e388)/goals(de3e8b13-1ba6-4806-871f-2fb1658e0837)/goalValues",
+                                "value": [
+                                    {
+                                        "timestamp": "2021-12-14T00:00:00Z",
+                                        "goalId": "de3e8b13-1ba6-4806-871f-2fb1658e0837",
+                                        "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
+                                        "createdTime": "2021-12-14T21:18:44.4173023Z",
+                                        "lastModifiedTime": "2021-12-14T21:18:54.4955734Z",
+                                        "value": 200.0,
+                                        "target": 200.0,
+                                        "status": 2,
+                                        "notes@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(299759d9-80d3-45a8-8f13-a0624ea7e388)/goals(de3e8b13-1ba6-4806-871f-2fb1658e0837)/goalValues(2021-12-14T00%3A00%3A00Z)/notes",
+                                        "notes": [
+                                            {
+                                                "id": "1d6f10ef-5f0d-49c7-a511-5f0d6ce0d64e",
+                                                "valueTimestamp": "2021-12-14T00:00:00Z",
+                                                "goalId": "de3e8b13-1ba6-4806-871f-2fb1658e0837",
+                                                "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
+                                                "lastModifiedTime": "2021-12-14T21:18:59.8863271Z",
+                                                "content": "{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Testing Notes.\"}]}]}}]}",
+                                                "createdTime": "2021-12-14T21:18:59.8863271Z",
+                                                "body": "Testing Notes."
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Creates a new goal value check-in.",
+                "operationId": "GoalValues_Post",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalValues"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "name": "goalValue",
+                        "in": "body",
+                        "required": true,
+                        "description": "Goal value content.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalValueCreateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Created goal value object.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalValue"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "07943a5a-3c1f-424f-8c1c-144fcfe4431b",
+                            "goalId": "85232f60-18f8-4b57-8c34-042ca6a68f5b",
+                            "requestMessage": {
+                                "timestamp": "2021-12-14T00:00:00Z",
+                                "value": 100.0,
+                                "target": 100.0,
+                                "status": 1
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(07943a5a-3c1f-424f-8c1c-144fcfe4431b)/goals(85232f60-18f8-4b57-8c34-042ca6a68f5b)/goalValues/$entity",
+                                "timestamp": "2021-12-14T00:00:00Z",
+                                "goalId": "85232f60-18f8-4b57-8c34-042ca6a68f5b",
+                                "scorecardId": "07943a5a-3c1f-424f-8c1c-144fcfe4431b",
+                                "createdTime": "2021-12-14T21:29:30.3322292Z",
+                                "lastModifiedTime": "2021-12-14T21:29:30.3322292Z",
+                                "value": 100.0,
+                                "target": 100.0,
+                                "status": 1
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})": {
+            "get": {
+                "summary": "Reads a goal value check-in by a UTC date timestamp.",
+                "operationId": "GoalValues_GetById",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalValues"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalValueTimestampParameter"
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: notes.",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The goal value check-in.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalValue"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
+                            "goalId": "de3e8b13-1ba6-4806-871f-2fb1658e0837",
+                            "timestamp": "2021-12-14T00:00:00Z",
+                            "$expand": "notes"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(299759d9-80d3-45a8-8f13-a0624ea7e388)/goals(de3e8b13-1ba6-4806-871f-2fb1658e0837)/goalValues",
+                                "value": [
+                                    {
+                                        "timestamp": "2021-12-14T00:00:00Z",
+                                        "goalId": "de3e8b13-1ba6-4806-871f-2fb1658e0837",
+                                        "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
+                                        "createdTime": "2021-12-14T21:18:44.4173023Z",
+                                        "lastModifiedTime": "2021-12-14T21:18:54.4955734Z",
+                                        "value": 200.0,
+                                        "target": 200.0,
+                                        "status": 2,
+                                        "notes@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(299759d9-80d3-45a8-8f13-a0624ea7e388)/goals(de3e8b13-1ba6-4806-871f-2fb1658e0837)/goalValues(2021-12-14T00%3A00%3A00Z)/notes",
+                                        "notes": [
+                                            {
+                                                "id": "1d6f10ef-5f0d-49c7-a511-5f0d6ce0d64e",
+                                                "valueTimestamp": "2021-12-14T00:00:00Z",
+                                                "goalId": "de3e8b13-1ba6-4806-871f-2fb1658e0837",
+                                                "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
+                                                "lastModifiedTime": "2021-12-14T21:18:59.8863271Z",
+                                                "content": "{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Testing Notes.\"}]}]}}]}",
+                                                "createdTime": "2021-12-14T21:18:59.8863271Z",
+                                                "body": "Testing Notes."
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "patch": {
+                "summary": "Updates a goal value check-in by a UTC date timestamp.",
+                "operationId": "GoalValues_PatchById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalValues"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalValueTimestampParameter"
+                    },
+                    {
+                        "name": "goalValue",
+                        "in": "body",
+                        "required": true,
+                        "description": "The updated content of goal value check-in.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalValue"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The updated goal value check-in.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalValue"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "ecceb276-5d36-4b00-96cb-03f5590ae927",
+                            "goalId": "78a93466-3b30-40d1-8514-875c1464d9c6",
+                            "timestamp": "2021-12-14T00:00:00Z",
+                            "requestMessage": {
+                                "value": 200.0,
+                                "target": 200.0,
+                                "status": 2
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(ecceb276-5d36-4b00-96cb-03f5590ae927)/goals(78a93466-3b30-40d1-8514-875c1464d9c6)/goalValues/$entity",
+                                "timestamp": "2021-12-14T00:00:00Z",
+                                "goalId": "78a93466-3b30-40d1-8514-875c1464d9c6",
+                                "scorecardId": "ecceb276-5d36-4b00-96cb-03f5590ae927",
+                                "createdTime": "2021-12-14T21:41:20.8571366Z",
+                                "lastModifiedTime": "2021-12-14T21:44:00.0154794Z",
+                                "value": 200.0,
+                                "target": 200.0,
+                                "status": 2
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletes a goal value check-in by a UTC day timestamp.",
+                "operationId": "GoalValues_DeleteById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalValues"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalValueTimestampParameter"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
+                            "goalId": "c07b3600-54be-42ef-9154-39e7922c1bb4",
+                            "timestamp": "2021-12-14T00:00:00Z"
+
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes": {
+            "post": {
+                "summary": "Adds a new note to a goal value check-in.",
+                "operationId": "GoalNotes_Post",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalNotes"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalValueTimestampParameter"
+                    },
+                    {
+                        "name": "goalNote",
+                        "in": "body",
+                        "required": true,
+                        "description": "The goal check-in note.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalNoteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The created goal check-in note.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalNote"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "ecb4f7f9-a6f4-422b-a7b8-322a76018546",
+                            "goalId": "039b8d13-332b-475e-ad48-563b40751c16",
+                            "timestamp": "2021-12-14",
+                            "requestMessage": {
+                                "body": "Testing Notes."
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(ecb4f7f9-a6f4-422b-a7b8-322a76018546)/goals(039b8d13-332b-475e-ad48-563b40751c16)/goalValues/$entity",
+                                "@odata.type": "#Microsoft.PowerBI.ServiceContracts.Api.GoalNote",
+                                "id": "81e52c90-7d0f-483e-ac3f-61ddbc19adb9",
+                                "valueTimestamp": "2021-12-14T00:00:00Z",
+                                "goalId": "039b8d13-332b-475e-ad48-563b40751c16",
+                                "scorecardId": "ecb4f7f9-a6f4-422b-a7b8-322a76018546",
+                                "lastModifiedTime": "2021-12-14T23:08:51.9114886Z",
+                                "content": "{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Testing Notes.\"}]}]}}]}",
+                                "createdTime": "2021-12-14T23:08:51.9114886Z",
+                                "body": "Testing Notes."
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes({noteId})": {
+            "patch": {
+                "summary": "Updates a goal value check-in note by ID.",
+                "operationId": "GoalNotes_PatchById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalNotes"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalValueTimestampParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalNoteIdParameter"
+                    },
+                    {
+                        "name": "goalNote",
+                        "in": "body",
+                        "required": true,
+                        "description": "The note content to be updated.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalNoteRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The updated goal value check-in note.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalNote"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "ce4abf44-3c4a-4425-893d-36bcca75a42b",
+                            "goalId": "871f5b6e-e5a3-421f-924d-847b68db239f",
+                            "timestamp": "2021-12-14T00:00:00Z",
+                            "noteId": "4370bfc0-4cad-481d-981f-80848016da97",
+                            "requestMessage": {
+                                "body": "Testing Updated Notes."
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(ce4abf44-3c4a-4425-893d-36bcca75a42b)/goals(871f5b6e-e5a3-421f-924d-847b68db239f)/goalValues(2021-12-14T00%3A00%3A00Z)/notes/$entity",
+                                "id": "4370bfc0-4cad-481d-981f-80848016da97",
+                                "valueTimestamp": "2021-12-14T00:00:00Z",
+                                "goalId": "871f5b6e-e5a3-421f-924d-847b68db239f",
+                                "scorecardId": "ce4abf44-3c4a-4425-893d-36bcca75a42b",
+                                "lastModifiedTime": "2021-12-14T23:18:40.4348502Z",
+                                "content": "{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Testing Updated Notes.\"}]}]}}]}",
+                                "createdTime": "2021-12-14T23:17:14.8087859Z",
+                                "body": "Testing Updated Notes."
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletes a goal value check-in note by ID.",
+                "operationId": "GoalNotes_DeleteById",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "GoalNotes"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalValueTimestampParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalNoteIdParameter"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "ce4abf44-3c4a-4425-893d-36bcca75a42b",
+                            "goalId": "871f5b6e-e5a3-421f-924d-847b68db239f",
+                            "timestamp": "2021-12-14T00:00:00Z",
+                            "noteId": "4370bfc0-4cad-481d-981f-80848016da97"
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards/GetScorecardByReportId(reportId={reportId})": {
+            "get": {
+                "summary": "Reads a scorecard associated with an internal report ID.",
+                "operationId": "Scorecards_GetScorecardByReportId",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "name": "reportId",
+                        "in": "path",
+                        "description": "The id of the internal report associated with the scorecard.",
+                        "type": "string",
+                        "format": "uuid",
+                        "required": true
+                    },
+                    {
+                        "name": "$expand",
+                        "in": "query",
+                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: goals, goalValues and aggregations. ",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The scorecard.",
+                        "schema": {
+                            "$ref": "#/definitions/Scorecard"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "reportId": "312dc8e4-e644-4a3a-93d8-2317c69a86ee",
+                            "$expand": "goals($expand=goalValues, aggregations)"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards/$entity",
+                                "id": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                "name": "Test Project",
+                                "createdTime": "2021-12-07T23:57:30.4151537Z",
+                                "lastModifiedTime": "2021-12-07T23:57:45.5872424Z",
+                                "provisioningStatus": "Completed",
+                                "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                                "datasetId": "d570a5d9-2be3-41b8-8850-97a9e73bbe59",
+                                "reportId": "312dc8e4-e644-4a3a-93d8-2317c69a86ee",
+                                "description": "A test project..",
+                                "permissions": "ReadWrite",
+                                "columnSettings": [
+                                    {
+                                        "columnId": 0,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 1,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 2,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 3,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 4,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 5,
+                                        "show": true
+                                    },
+                                    {
+                                        "columnId": 6,
+                                        "show": true
+                                    }
+                                ],
+                                "goals@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals",
+                                "goals": [
+                                    {
+                                        "id": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "name": "Connected Goal",
+                                        "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                        "createdTime": "2021-12-07T23:58:48.9003783Z",
+                                        "lastModifiedTime": "2021-12-07T23:58:49.6660116Z",
+                                        "startDate": "2021-12-07T00:00:00Z",
+                                        "completionDate": "2022-01-07T00:00:00Z",
+                                        "notesCount": 0,
+                                        "valuesFormatString": "0",
+                                        "hasStatusRules": false,
+                                        "permissions": "All",
+                                        "level": 0,
+                                        "rank": 0,
+                                        "goalValues@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals(c26e60d6-58a4-41d0-a0b1-a24127bbbffb)/goalValues",
+                                        "goalValues": [
+                                            {
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "createdTime": "2021-12-07T23:58:49.1503802Z",
+                                                "lastModifiedTime": "2021-12-14T20:59:01.8078369Z",
+                                                "value": 30.0,
+                                                "target": 100.0,
+                                                "valueDisplayString": "30",
+                                                "targetDisplayString": "100",
+                                                "status": 0
+                                            }
+                                        ],
+                                        "aggregations@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals(c26e60d6-58a4-41d0-a0b1-a24127bbbffb)/aggregations",
+                                        "aggregations": [
+                                            {
+                                                "id": "ff781b1c-9152-4438-9a7b-7af74f5c21b0",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                                "value": 0.0,
+                                                "valueDisplayString": "NotStarted",
+                                                "type": "Status",
+                                                "maxLastModifiedTime": "2021-12-14T20:59:01.8078369Z"
+                                            },
+                                            {
+                                                "id": "42861a20-8e75-44df-9a61-b79ee441ffc8",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                                "value": 30.0,
+                                                "valueDisplayString": "30",
+                                                "type": "Value",
+                                                "maxLastModifiedTime": "2021-12-14T20:59:01.8078369Z"
+                                            },
+                                            {
+                                                "id": "2b0f4205-6a34-4cbe-8706-3dcc17c6de8e",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                                "value": 100.0,
+                                                "valueDisplayString": "100",
+                                                "type": "Target",
+                                                "maxLastModifiedTime": "2021-12-14T20:59:01.8078369Z"
+                                            },
+                                            {
+                                                "id": "2799f252-7d22-42a9-b5b5-78aa4e061c01",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                                "value": 30.0,
+                                                "valueDisplayString": "30",
+                                                "type": "Sparkline",
+                                                "maxLastModifiedTime": "2021-12-14T20:59:01.8078369Z"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                        "name": "Disconnected Goal",
+                                        "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                        "createdTime": "2021-12-07T23:59:39.5260233Z",
+                                        "lastModifiedTime": "2021-12-08T00:42:30.8824199Z",
+                                        "startDate": "2021-12-07T00:00:00Z",
+                                        "completionDate": "2022-01-07T00:00:00Z",
+                                        "notesCount": 0,
+                                        "valuesFormatString": "0",
+                                        "hasStatusRules": false,
+                                        "permissions": "All",
+                                        "level": 0,
+                                        "rank": 2,
+                                        "goalValues@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals(529cc37c-d224-4ff8-9e5e-669c35f3b412)/goalValues",
+                                        "goalValues": [
+                                            {
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "createdTime": "2021-12-07T23:59:39.7447666Z",
+                                                "lastModifiedTime": "2021-12-08T00:42:30.8824199Z",
+                                                "value": 20.0,
+                                                "target": 40.0,
+                                                "valueDisplayString": "20",
+                                                "targetDisplayString": "40",
+                                                "status": 0
+                                            }
+                                        ],
+                                        "aggregations@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals(529cc37c-d224-4ff8-9e5e-669c35f3b412)/aggregations",
+                                        "aggregations": [
+                                            {
+                                                "id": "9f85504c-95f7-4502-9917-ee37a245b24f",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                                "value": 0.0,
+                                                "valueDisplayString": "NotStarted",
+                                                "type": "Status",
+                                                "maxLastModifiedTime": "2021-12-08T00:42:30.8824199Z"
+                                            },
+                                            {
+                                                "id": "f7184b02-37c4-40c1-9c2e-650ea2795487",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                                "value": 20.0,
+                                                "valueDisplayString": "20",
+                                                "type": "Value",
+                                                "maxLastModifiedTime": "2021-12-08T00:42:30.8824199Z"
+                                            },
+                                            {
+                                                "id": "8c5ca165-52ad-493f-8e0e-a815d7e00af6",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                                "value": 40.0,
+                                                "valueDisplayString": "40",
+                                                "type": "Target",
+                                                "maxLastModifiedTime": "2021-12-08T00:42:30.8824199Z"
+                                            },
+                                            {
+                                                "id": "f67b5e3d-cbd7-41e0-b05d-6408508f542b",
+                                                "timestamp": "2021-12-07T00:00:00Z",
+                                                "calculationTime": "2021-12-15T00:30:40.8829019Z",
+                                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                                "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                                "value": 20.0,
+                                                "valueDisplayString": "20",
+                                                "type": "Sparkline",
+                                                "maxLastModifiedTime": "2021-12-08T00:42:30.8824199Z"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/MoveGoals()": {
+            "post": {
+                "summary": "Moves goals within the scorecard. Changes their ranks and parents.",
+                "operationId": "Scorecards_MoveGoals",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Scorecards"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "name": "moveGoalsRequest",
+                        "in": "body",
+                        "description": "The request describing the move operation.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/GoalsMoveRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "Change parent example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "de582f5f-ac1d-4b9d-8232-d1f5781f46ab",
+                            "requestMessage": {
+                                "goalToMove": {
+                                    "goalId": "932d97d2-78f9-46bd-8cbd-4148c241688f"
+                                },
+                                "newParent": {
+                                    "goalId": "b5e8e0cf-8a9e-45b0-9aba-e73fc7cbb72e"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    },
+                    "Reverse goal ranks example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "de582f5f-ac1d-4b9d-8232-d1f5781f46ab",
+                            "requestMessage": {
+                                "goalToMove": {
+                                    "goalId": "ea8021d6-c7bd-4ed4-9852-dba0c30b4188"
+                                },
+                                "newParent": {
+                                    "goalId": "9d7d2ee6-6997-42d9-84b8-60a36bc75d90"
+                                },
+                                "newPrevious": {
+                                    "goalId": "afb487fa-5e29-4f33-bae2-b123cf0976c5",
+                                    "currentParentId": "9d7d2ee6-6997-42d9-84b8-60a36bc75d90"
+                                }
+                            }
+                        },
+                        "responses": {
+                            "204": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/GetRefreshHistory()": {
+            "get": {
+                "summary": "Reads refresh history of a connected goal.",
+                "operationId": "Goals_GetRefreshHistory",
+                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The list of goal refresh history objects.",
+                        "schema": {
+                            "$ref": "#/definitions/GoalRefreshHistories"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                            "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#Collection(Microsoft.PowerBI.ServiceContracts.Api.GoalRefreshHistory)",
+                                "value": [
+                                    {
+                                        "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "connectionType": "Current",
+                                        "status": "Succeeded",
+                                        "timestamp": "2021-12-13T20:14:55.9533333Z",
+                                        "rootActivityId": "d01c3346-2275-453a-8107-c4b8c3687c1d",
+                                        "message": "Goal processing succeeded."
+                                    },
+                                    {
+                                        "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "connectionType": "Target",
+                                        "status": "Succeeded",
+                                        "timestamp": "2021-12-13T20:14:56.7066667Z",
+                                        "rootActivityId": "74f053e9-f055-482f-bb52-fc506d1ff304",
+                                        "message": "Goal processing succeeded."
+                                    },
+                                    {
+                                        "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "connectionType": "Current",
+                                        "status": "Succeeded",
+                                        "timestamp": "2021-12-13T21:18:31.5433333Z",
+                                        "rootActivityId": "5cb886b8-ae64-49f8-8efc-4c3f9aeec892",
+                                        "message": "Goal processing succeeded."
+                                    },
+                                    {
+                                        "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "connectionType": "Target",
+                                        "status": "Succeeded",
+                                        "timestamp": "2021-12-13T21:18:31.8Z",
+                                        "rootActivityId": "d24a78c6-6c3b-4cd8-87b3-500eebffe8f5",
+                                        "message": "Goal processing succeeded."
+                                    },
+                                    {
+                                        "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "connectionType": "Current",
+                                        "status": "Succeeded",
+                                        "timestamp": "2021-12-13T21:41:11.9166667Z",
+                                        "rootActivityId": "85c6cb1c-729e-482d-ba70-0dc42a93f504",
+                                        "message": "Goal processing succeeded."
+                                    },
+                                    {
+                                        "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb",
+                                        "connectionType": "Target",
+                                        "status": "Succeeded",
+                                        "timestamp": "2021-12-13T21:41:12.5033333Z",
+                                        "rootActivityId": "bf040071-9ba0-4830-8835-db847fef1caf",
+                                        "message": "Goal processing succeeded."
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/DeleteGoalCurrentValueConnection()": {
+            "post": {
+                "summary": "Disconnects the current value of a goal.",
+                "operationId": "Goals_DeleteGoalCurrentValueConnection",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The updated goal object after disconnect.",
+                        "schema": {
+                            "$ref": "#/definitions/Goal"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                            "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals/$entity",
+                                "id": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                "name": "Disconnected Goal",
+                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                "createdTime": "2021-12-07T23:59:39.5260233Z",
+                                "lastModifiedTime": "2021-12-15T00:59:43.4061237Z",
+                                "startDate": "2021-12-07T00:00:00Z",
+                                "completionDate": "2022-01-07T00:00:00Z",
+                                "notesCount": 0,
+                                "hasStatusRules": false,
+                                "permissions": "All"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/DeleteGoalTargetValueConnection()": {
+            "post": {
+                "summary": "Disconnects the target value of a goal.",
+                "operationId": "Goals_DeleteGoalTargetValueConnection",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The updated goal object after disconnect.",
+                        "schema": {
+                            "$ref": "#/definitions/Goal"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                            "goalId": "529cc37c-d224-4ff8-9e5e-669c35f3b412"
+                        },
+                        "responses": {
+                            "200": {
+                                "@odata.context": "http://someserver.analysis.windows.net/v1.0/myorg/groups/bc390256-fa54-4bd8-96a1-2c80df0cf704/$metadata#scorecards(c3ac3850-5d7f-4a43-a9db-549e1a44ad62)/goals/$entity",
+                                "id": "529cc37c-d224-4ff8-9e5e-669c35f3b412",
+                                "name": "Disconnected Goal",
+                                "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                                "createdTime": "2021-12-07T23:59:39.5260233Z",
+                                "lastModifiedTime": "2021-12-15T00:59:43.4061237Z",
+                                "startDate": "2021-12-07T00:00:00Z",
+                                "completionDate": "2022-01-07T00:00:00Z",
+                                "notesCount": 0,
+                                "hasStatusRules": false,
+                                "permissions": "All"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/RefreshGoalCurrentValue()": {
+            "post": {
+                "summary": "Schedules a refresh of the connected value of a goal.",
+                "operationId": "Goals_RefreshGoalCurrentValue",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                            "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/RefreshGoalTargetValue()": {
+            "post": {
+                "summary": "Schedules a refresh of the target value of a goal.",
+                "operationId": "Goals_RefreshGoalTargetValue",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
+                "tags": [
+                    "Goals"
+                ],
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/GroupIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/ScorecardIdParameter"
+                    },
+                    {
+                        "$ref": "#/parameters/GoalIdParameter"
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Empty response"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
+                            "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
+                            "goalId": "c26e60d6-58a4-41d0-a0b1-a24127bbbffb"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -18117,7 +20166,7 @@
             "required": [
                 "updateDetails"
             ],
-            "description": "",
+            "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n## ",
             "properties": {
                 "updateDetails": {
                     "type": "array",
@@ -23390,10 +25439,1184 @@
                 "Sales": 100.5
             },
             "description": "A set of key-value pairs representing the column name and a row value. The column name is the key of the pair."
+        },
+        "Scorecards": {
+            "description": "The OData response wrapper for a Power BI scorecard collection",
+            "properties": {
+                "@odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "@odata.count": { "type": "integer" },
+                "@odata.nextLink": {
+                    "type": "string",
+                    "description": "Link to the next page results."
+
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The scorecard collection",
+                    "items": {
+                        "$ref": "#/definitions/Scorecard"
+                    }
+                }
+            }
+        },
+        "ScorecardCreateRequest": {
+            "description": "A request to create a scorecard",
+            "required": ["name"],
+            "properties": {
+                "name": {
+                    "description": "The scorecard name",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "(Optional) The scorecard description",
+                    "type": "string"
+                },
+                "sensitivityLabelId": {
+                    "description": "(Optional) The guid of the sensitivity label. It can be null or all 0s meaning 'not selected'. Users do not have to select a label, but default labels (if enabled  / enforced) will be applied on the scorecard and dataset.",
+                    "type": "string",
+                    "format": "uuid"
+                }
+            }
+        },
+        "Scorecard": {
+            "description": "A Power BI scorecard",
+            "properties": {
+                "id": {
+                    "description": "The scorecard ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "description": "The scorecard name",
+                    "type": "string"
+                },
+                "createdTime": {
+                    "description": "The UTC time at creation",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastModifiedTime": {
+                    "description": "The UTC time at last modification",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "provisioningStatus": {
+                    "type": "string",
+                    "description": "The provisioning status of the scorecard.",
+                    "default": "Initialized",
+                    "enum": [
+                        "Initialized",
+                        "Completed",
+                        "Failed",
+                        "Deprovisioning",
+                        "Deleted"
+                    ]
+                },
+                "groupId": {
+                    "description": "The ID of the workspace",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "datasetId": {
+                    "description": "The ID of the dataset associated with the scorecard",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "reportId": {
+                    "description": "The ID of the internal report associated with the scorecard",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "description": {
+                    "description": "The scorecard description",
+                    "type": "string"
+                },
+                "permissions": {
+                    "description": "The scorecard permissions",
+                    "type": "string",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "Write",
+                        "ReadWrite"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ScorecardPermission",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "No access.",
+                                "name": "None"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Read access.",
+                                "name": "Read"
+                            },
+                            {
+                                "value": "Write",
+                                "description": "Write access.",
+                                "name": "Write"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Read and Write access.",
+                                "name": "ReadWrite"
+                            }
+                        ]
+                    }
+                },
+                "columnSettings": {
+                    "description": "The column settings for the way the goals should be shown on the scorecard",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ScorecardColumnSetting"
+                    }
+                },
+                "goals": {
+                    "description": "The scorecard goals",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Goal"
+                    }
+                }
+            }
+        },
+        "Goals": {
+            "description": "The OData response wrapper for a Power BI goal collection",
+            "properties": {
+                "@odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The goal collection",
+                    "items": {
+                        "$ref": "#/definitions/Goal"
+                    }
+                }
+            }
+        },
+        "GoalRankValidationInfo": {
+            "description": "Power BI goal rank validation information to be used with **MoveGoals** API request. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+            "properties": {
+                "goalId": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "currentParentId": {
+                    "description": "The ID of the parent goal at the current moment",
+                    "type": "string",
+                    "format": "uuid"
+                }
+            }
+        },
+        "GoalsMoveRequest": {
+            "description": "A request object to be used with **MoveGoals** Power BI API request",
+            "required": ["goalToMove"],
+            "properties": {
+                "goalToMove": {
+                    "description": "The validation information for the goal to be moved. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "$ref": "#/definitions/GoalRankValidationInfo"
+                },
+                "newParent": {
+                    "description": "(Optional) The validation information for the goal to be new parent. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "$ref": "#/definitions/GoalRankValidationInfo"
+                },
+                "newPrevious": {
+                    "description": "(Optional) The validation information for the new goal to be 'previous' in the ordered set by rank. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "$ref": "#/definitions/GoalRankValidationInfo"
+                },
+                "newNext": {
+                    "description": "(Optional) The validation information for the new goal to be 'next' in the ordered set by rank. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "$ref": "#/definitions/GoalRankValidationInfo"
+                }
+            }
+        },
+        "GoalCreateRequest": {
+            "description": "A Power BI goal create request",
+            "required": ["name"],
+            "properties": {
+                "name": {
+                    "description": "The goal name",
+                    "type": "string"
+                },
+                "startDate": {
+                    "description": "(Optional) The UTC timestamp for a start date for the goal (time part will be 0).",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "completionDate": {
+                    "description": "(Optional) The UTC timestamp for a completion date for the goal (time part will be 0).",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "parentId": {
+                    "description": "(Optional) The ID of the parent goal, if defined.",
+                    "type": "string"
+                },
+                "valuesFormatString": {
+                    "description": "(Optional) valuesFormatString",
+                    "type": "string"
+                },
+                "datesFormatString": {
+                    "description": "(Optional) datesFormatString",
+                    "type": "string"
+                }
+            }
+        },
+        "Goal": {
+            "description": "A Power BI goal",
+            "properties": {
+                "id": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "description": "The goal name",
+                    "type": "string"
+                },
+                "scorecardId": {
+                    "description": "The scorecard ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "createdTime": {
+                    "description": "The UTC time at creation",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastModifiedTime": {
+                    "description": "The UTC time at last modification",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "startDate": {
+                    "description": "The UTC timestamp for a start date for the goal (time part will be 0).",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "completionDate": {
+                    "description": "The UTC timestamp for a completion date for the goal (time part will be 0).",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "parentId": {
+                    "description": "The ID of the parent goal, if defined.",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "notesCount": {
+                    "description": "notesCount",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "valuesFormatString": {
+                    "description": "valuesFormatString",
+                    "type": "string"
+                },
+                "datesFormatString": {
+                    "description": "datesFormatString",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The goal description",
+                    "type": "string"
+                },
+                "hasStatusRules": {
+                    "description": "True when the goal has status rules defined.",
+                    "type": "boolean"
+                },
+                "statusRules": {
+                    "description": "The goal status rules",
+                    "$ref": "#/definitions/Goals.Rules.GoalRulesContainer"
+                },
+                "permissions": {
+                    "description": "The goal permissions",
+                    "type": "string",
+                    "enum": [
+                        "None",
+                        "View",
+                        "UpdateCurrentValue",
+                        "UpdateTargetValue",
+                        "UpdateNotes",
+                        "UpdateStatus",
+                        "UpdateValues",
+                        "All",
+                        "11",
+                        "13",
+                        "15",
+                        "19",
+                        "21",
+                        "23",
+                        "25",
+                        "27",
+                        "29"
+                    ],
+                    "x-ms-enum": {
+                        "name": "GoalPermissions",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "No access.",
+                                "name": "None"
+                            },
+                            {
+                                "value": "View",
+                                "description": "Can view the goal only.",
+                                "name": "View"
+                            },
+                            {
+                                "value": "UpdateCurrentValue",
+                                "description": "Can update current value.",
+                                "name": "UpdateCurrentValue"
+                            },
+                            {
+                                "value": "UpdateTargetValue",
+                                "description": "Can update target value.",
+                                "name": "UpdateTargetValue"
+                            },
+                            {
+                                "value": "UpdateNotes",
+                                "description": "Can update notes.",
+                                "name": "UpdateNotes"
+                            },
+                            {
+                                "value": "UpdateStatus",
+                                "description": "Can update status.",
+                                "name": "UpdateStatus"
+                            },
+                            {
+                                "value": "UpdateValues",
+                                "description": "Can update current and target value.",
+                                "name": "UpdateValues"
+                            },
+                            {
+                                "value": "All",
+                                "description": "Can update values, notes and status.",
+                                "name": "All"
+                            },
+                            {
+                                "value": "11",
+                                "description": "Can update current value and notes.",
+                                "name": "UpdateCurrentValueAndNotes"
+                            },
+                            {
+                                "value": "13",
+                                "description": "Can update target value and notes.",
+                                "name": "UpdateTargetValueAndNotes"
+                            },
+                            {
+                                "value": "15",
+                                "description": "Can update current, target values and notes.",
+                                "name": "UpdateCurrentValueAndTargetValueAndNotes"
+                            },
+                            {
+                                "value": "19",
+                                "description": "Can update current value and status.",
+                                "name": "UpdateCurrentValueAndStatus"
+                            },
+                            {
+                                "value": "21",
+                                "description": "Can update target value and status.",
+                                "name": "UpdateTargetValueAndStatus"
+                            },
+                            {
+                                "value": "23",
+                                "description": "Can update current, target values and status.",
+                                "name": "UpdateCurrentValueAndTargetValueAndStatus"
+                            },
+                            {
+                                "value": "25",
+                                "description": "Can update notes and status.",
+                                "name": "UpdateNotesAndStatus"
+                            },
+                            {
+                                "value": "27",
+                                "description": "Can update current value, notes and status.",
+                                "name": "UpdateCurrentValueAndNotesAndStatus"
+                            },
+                            {
+                                "value": "29",
+                                "description": "Can update target value, notes and status.",
+                                "name": "UpdateTargetValueAndNotesAndStatus"
+                            }
+                        ]
+                    }
+                },
+                "level": {
+                    "description": "The goal level in parent-child hierarchy of the scorecard goals",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "rank": {
+                    "description": "The rank of the goal within the ordered set of sibling goals",
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "goalValues": {
+                    "description": "The goal value check-ins",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoalValue"
+                    }
+                },
+                "aggregations": {
+                    "description": "The list of aggregated properties of the goal.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoalAggregation"
+                    }
+                }
+            }
+        },
+        "GoalRefreshHistories": {
+            "description": "The OData response wrapper for a Power BI goal refresh history entry collection",
+            "properties": {
+                "@odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The goal refresh history collection",
+                    "items": {
+                        "$ref": "#/definitions/GoalRefreshHistory"
+                    }
+                }
+            }
+        },
+        "GoalRefreshHistory": {
+            "description": "A refresh history entry for a Power BI goal",
+            "properties": {
+                "goalId": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "connectionType": {
+                    "description": "The refresh connection type.",
+                    "type": "string",
+                    "enum": [
+                        "Current",
+                        "Target",
+                        "Status"
+                    ],
+                    "x-ms-enum": {
+                        "name": "GoalValueType",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "Current",
+                                "description": "The information is about current value of the goal.",
+                                "name": "Current"
+                            },
+                            {
+                                "value": "Target",
+                                "description": "The information is about target value of the goal.",
+                                "name": "Target"
+                            },
+                            {
+                                "value": "Status",
+                                "description": "The information is about status of the goal.",
+                                "name": "Status"
+                            }
+                        ]
+                    }
+                },
+                "status": {
+                    "description": "The status of the refresh processing.",
+                    "type": "string",
+                    "enum": [
+                        "NotProcessed",
+                        "Succeeded",
+                        "Failed",
+                        "UserNotFound",
+                        "QueryExecutionError",
+                        "QueryResultError",
+                        "BadQueryResultMetadata",
+                        "EmptyGoalValues",
+                        "ConnectedDatasetDeleted",
+                        "UserNotAuthorized",
+                        "ModelNotFound",
+                        "ScorecardNotFound"
+                    ],
+                    "x-ms-enum": {
+                        "name": "GoalProcessingStatus",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "NotProcessed",
+                                "description": "Not processed",
+                                "name": "NotProcessed"
+                            },
+                            {
+                                "value": "Succeeded",
+                                "description": "Succeeded",
+                                "name": "Succeeded"
+                            },
+                            {
+                                "value": "Failed",
+                                "description": "Failed",
+                                "name": "Failed"
+                            },
+                            {
+                                "value": "UserNotFound",
+                                "description": "User not found",
+                                "name": "UserNotFound"
+                            },
+                            {
+                                "value": "QueryExecutionError",
+                                "description": "Query execution error",
+                                "name": "QueryExecutionError"
+                            },
+                            {
+                                "value": "QueryResultError",
+                                "description": "Query result error",
+                                "name": "QueryResultError"
+                            },
+                            {
+                                "value": "BadQueryResultMetadata",
+                                "description": "Bad query result metadata",
+                                "name": "BadQueryResultMetadata"
+                            },
+                            {
+                                "value": "EmptyGoalValues",
+                                "description": "Empty goal values",
+                                "name": "EmptyGoalValues"
+                            },
+                            {
+                                "value": "ConnectedDatasetDeleted",
+                                "description": "Connected dataset deleted",
+                                "name": "ConnectedDatasetDeleted"
+                            },
+                            {
+                                "value": "UserNotAuthorized",
+                                "description": "User not authorized",
+                                "name": "UserNotAuthorized"
+                            },
+                            {
+                                "value": "ModelNotFound",
+                                "description": "Model not found",
+                                "name": "ModelNotFound"
+                            },
+                            {
+                                "value": "ScorecardNotFound",
+                                "description": "Scorecard not found",
+                                "name": "ScorecardNotFound"
+                            }
+                        ]
+                    }
+                },
+                "timestamp": {
+                    "description": "The UTC timestamp of refresh operation.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "rootActivityId": {
+                    "description": "The root activity ID.",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "message": {
+                    "description": "The verbal description of the status of the refresh operation.",
+                    "type": "string"
+                }
+            }
+        },
+        "ScorecardColumnSetting": {
+            "description": "An entry defining the way the columns should be displayed for a Power BI scorecard",
+            "required": [ "columnId", "show" ],
+            "properties": {
+                "columnId": {
+                    "description": "The id for one of the columns on the scorecard control or scorecard Web UI page.",
+                    "type": "string",
+                    "format": "int32",
+                    "enum": [
+                        "0",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "x-ms-enum": {
+                        "name": "ScorecardColumnId",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "0",
+                                "description": "Name",
+                                "name": "Name"
+                            },
+                            {
+                                "value": "1",
+                                "description": "Owner",
+                                "name": "Owner"
+                            },
+                            {
+                                "value": "2",
+                                "description": "Status",
+                                "name": "Status"
+                            },
+                            {
+                                "value": "3",
+                                "description": "Value",
+                                "name": "Value"
+                            },
+                            {
+                                "value": "4",
+                                "description": "Progress",
+                                "name": "Progress"
+                            },
+                            {
+                                "value": "5",
+                                "description": "DueDate",
+                                "name": "DueDate"
+                            },
+                            {
+                                "value": "6",
+                                "description": "Notes",
+                                "name": "Notes"
+                            }
+                        ]
+                    }
+                },
+                "show": {
+                    "description": "True if the column should be visible on the scorecard.",
+                    "type": "boolean"
+                }
+            }
+        },
+        "GoalValues": {
+            "description": "The OData response wrapper for a Power BI goal value collection",
+            "properties": {
+                "@odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The goal value collection",
+                    "items": {
+                        "$ref": "#/definitions/GoalValue"
+                    }
+                }
+            }
+        },
+        "GoalValueCreateRequest": {
+            "description": "A Power BI goal value check-in creation request",
+            "required": ["timestamp"],
+            "properties": {
+                "timestamp": {
+                    "description": "The UTC day timestamp (time part is 0) of the goal value check-in.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "value": {
+                    "description": "(Optional) The goal current value.",
+                    "type": "number",
+                    "format": "double"
+                },
+                "target": {
+                    "description": "(Optional) The goal target value.",
+                    "type": "number",
+                    "format": "double"
+                },
+                "trend": {
+                    "description": "(Optional) The goal value trend.",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "forecast": {
+                    "description": "(Optional) The goal value trend forecast.",
+                    "type": "number",
+                    "format": "double"
+                },
+                "status": {
+                    "description": "(Optional) The ID of the goal status. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "GoalValue": {
+            "description": "A Power BI goal value check-in",
+            "properties": {
+                "timestamp": {
+                    "description": "The UTC day timestamp (time part is 0) of the goal value check-in.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "goalId": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "scorecardId": {
+                    "description": "The scorecard ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "createdTime": {
+                    "description": "The UTC time at creation",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastModifiedTime": {
+                    "description": "The UTC time at last modification",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "value": {
+                    "description": "The goal current value",
+                    "type": "number",
+                    "format": "double"
+                },
+                "target": {
+                    "description": "The goal target value",
+                    "type": "number",
+                    "format": "double"
+                },
+                "valueDisplayString": {
+                    "description": "The textual representation of the current goal value",
+                    "type": "string"
+                },
+                "targetDisplayString": {
+                    "description": "The textual representation of the goal target",
+                    "type": "string"
+                },
+                "trend": {
+                    "description": "The goal value trend",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "forecast": {
+                    "description": "The goal value trend forecast",
+                    "type": "number",
+                    "format": "double"
+                },
+                "status": {
+                    "description": "The ID of the goal status. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "notes": {
+                    "description": "The notes for the goal.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/GoalNote"
+                    }
+                }
+            }
+        },
+        "GoalAggregation": {
+            "description": "An entry describing the state of various Power BI goal properties at specific time (normally current time)",
+            "required": [ "id", "timestamp", "calculationTime", "scorecardId", "goalId", "value", "type", "maxLastModifiedTime" ],
+            "properties": {
+                "id": {
+                    "description": "The aggregation ID",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "The UTC timestamp of the day (time part is 0) associated with the aggregated property.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "calculationTime": {
+                    "description": "The UTC timestamp of the aggregation calculation",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "scorecardId": {
+                    "description": "The scorecard ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "goalId": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "value": {
+                    "description": "The numeric value of the aggregated property",
+                    "type": "number",
+                    "format": "double"
+                },
+                "valueDisplayString": {
+                    "description": "(Optional) The alternative text representation of the aggregated property value",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The type of the aggregated property.",
+                    "type": "string",
+                    "enum": [
+                        "Value",
+                        "Target",
+                        "Status",
+                        "Sparkline",
+                        "Change"
+                    ],
+                    "x-ms-enum": {
+                        "name": "GoalAggregationType",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "Value",
+                                "description": "The information is about current value of the goal.",
+                                "name": "Value"
+                            },
+                            {
+                                "value": "Target",
+                                "description": "The information is about target value of the goal.",
+                                "name": "Target"
+                            },
+                            {
+                                "value": "Status",
+                                "description": "The information is about status of the goal.",
+                                "name": "Status"
+                            },
+                            {
+                                "value": "Sparkline",
+                                "description": "The information is about the sparkline.",
+                                "name": "Sparkline"
+                            },
+                            {
+                                "value": "Change",
+                                "description": "The information is about the change.",
+                                "name": "Change"
+                            }
+                        ]
+                    }
+                },
+                "maxLastModifiedTime": {
+                    "description": "The UTC timestamp of the latest modification of the aggregated property",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "GoalNotes": {
+            "description": "The OData response wrapper for a Power BI goal value note collection",
+            "properties": {
+                "@odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The goal value note collection",
+                    "items": {
+                        "$ref": "#/definitions/GoalNote"
+                    }
+                }
+            }
+        },
+        "GoalNoteRequest": {
+            "description": "A Power BI goal value check-in note request.",
+            "required": ["body"],
+            "properties": {
+                "body": {
+                    "description": "The note text",
+                    "type": "string"
+                }
+            }
+        },
+        "GoalNote": {
+            "description": "A Power BI goal value check-in note",
+            "properties": {
+                "id": {
+                    "description": "The goal value check-in note ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "valueTimestamp": {
+                    "description": "The UTC day timestamp (time part is 0) of the goal value check-in for which this note was made.",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "goalId": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "scorecardId": {
+                    "description": "The scorecard ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "lastModifiedTime": {
+                    "description": "The UTC time at last modification",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "content": {
+                    "description": "The content of this note in special format.",
+                    "type": "string"
+                },
+                "createdTime": {
+                    "description": "The UTC time at creation",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "body": {
+                    "description": "The note text",
+                    "type": "string"
+                }
+            }
+        },
+        "Goals.Rules.GoalStatusRulesUpdateRequest": {
+            "description": "The request data to be used when updating rules for a Power BI goal",
+            "required": ["defaultOutput"],
+            "properties": {
+                "rules": {
+                    "description": "(Optional) The list of rules.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Goals.Rules.Rule_1OfInt32"
+                    }
+                },
+                "defaultOutput": {
+                    "description": "The status ID when no rule is matching. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Goals.Rules.GoalStatusRules": {
+            "description": "The request data to be used when defining or reporting rules for a Power BI goal status",
+            "properties": {
+                "rules": {
+                    "description": "The list of rules",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Goals.Rules.Rule_1OfInt32"
+                    }
+                },
+                "defaultOutput": {
+                    "description": "The status ID when no rule is matching. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "scorecardObjectId": {
+                    "description": "The scorecard ID",
+                    "type": "string"
+                },
+                "goalObjectId": {
+                    "description": "The goal ID",
+                    "type": "string"
+                },
+                "lastModifiedTime": {
+                    "description": "The UTC time at last modification",
+                    "type": "string",
+                    "format": "date-time"
+                }
+            }
+        },
+        "Goals.Rules.Rule_1OfInt32": {
+            "description": "A status rule object for Power BI goal",
+            "properties": {
+                "conditions": {
+                    "description": "The list of status rule conditions",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Goals.Rules.RuleCondition"
+                    }
+                },
+                "output": {
+                    "description": "The status ID when conditions are met. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "Goals.Rules.GoalRulesContainer": {
+            "description": "A containter for json definitions of status rules on a Power BI goal",
+            "properties": {
+                "scorecardObjectId": {
+                    "description": "The scorecard ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "goalObjectId": {
+                    "description": "The goal ID",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "lastModifiedTime": {
+                    "description": "The UTC time at last modification",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "rules": {
+                    "description": "The list of rules",
+                    "type": "string"
+                }
+            }
+        },
+        "Goals.Rules.RuleCondition": {
+            "description": "A Power BI goal status rule",
+            "properties": {
+                "fieldComparison": {
+                    "description": "The field comparison definition when 'expression' is not defined.",
+                    "$ref": "#/definitions/Goals.Rules.FieldComparison"
+                },
+                "expression": {
+                    "description": "The rule condition expression when 'fieldComparison' is not defined.",
+                    "type": "string"
+                }
+            }
+        },
+        "Goals.Rules.FieldComparison": {
+            "description": "A field comparison specification for Power BI goal status rule",
+            "properties": {
+                "field": {
+                    "description": "The name of the field such as 'Timestamp', 'Value' or 'Change'.",
+                    "type": "string"
+                },
+                "operator": {
+                    "description": "The comparison operator",
+                    "type": "string",
+                    "enum": [
+                        "Equal",
+                        "GreaterThan",
+                        "GreaterThanOrEqual",
+                        "LessThan",
+                        "LessThanOrEqual"
+                    ],
+                    "x-ms-enum": {
+                        "name": "GoalRulesFieldComparisonKind",
+                        "modelAsExtensible": true,
+                        "modelAsString": false,
+                        "values": [
+                            {
+                                "value": "Equal",
+                                "description": "Are equal",
+                                "name": "Equal"
+                            },
+                            {
+                                "value": "GreaterThan",
+                                "description": "Is greater than",
+                                "name": "GreaterThan"
+                            },
+                            {
+                                "value": "GreaterThanOrEqual",
+                                "description": "Is greater than or equal",
+                                "name": "GreaterThanOrEqual"
+                            },
+                            {
+                                "value": "LessThan",
+                                "description": "Is less than",
+                                "name": "LessThan"
+                            },
+                            {
+                                "value": "LessThanOrEqual",
+                                "description": "Is less than or equal",
+                                "name": "LessThanOrEqual"
+                            }
+                        ]
+                    }
+                },
+                "value": {
+                    "description": "The rule value",
+                    "$ref": "#/definitions/Goals.Rules.RuleValue"
+                }
+            }
+        },
+        "Goals.Rules.RuleValue": {
+            "description": "A specification of 'what' to be used in a condition for Power BI goal status rule",
+            "properties": {
+                "percentOf": {
+                    "description": "The percent definition of the field value.",
+                    "$ref": "#/definitions/Goals.Rules.PercentOf"
+                },
+                "field": {
+                    "description": "The rule value field",
+                    "type": "string"
+                },
+                "dateTime": {
+                    "description": "The rule value timestamp",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "number": {
+                    "description": "The rule value number",
+                    "type": "number",
+                    "format": "double"
+                }
+            }
+        },
+        "Goals.Rules.PercentOf": {
+            "description": "An entry defining a percent of 'something' in a condition for Power BI goal status rule",
+            "properties": {
+                "field": {
+                    "description": "The field for which the percent is computed.",
+                    "type": "string"
+                },
+                "percent": {
+                    "description": "The percent value",
+                    "type": "number",
+                    "format": "double"
+                }
+            }
         }
     },
     "parameters": {
-
+        "ScorecardIdParameter": {
+            "name": "scorecardId",
+            "in": "path",
+            "description": "The unique identifier of the scorecard.",
+            "type": "string",
+            "format": "uuid",
+            "required": true
+        },
+        "GoalIdParameter": {
+            "name": "goalId",
+            "in": "path",
+            "description": "The unique identifier of the goal.",
+            "type": "string",
+            "format": "uuid",
+            "required": true
+        },
+        "GroupIdParameter": {
+            "name": "groupId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "format": "uuid",
+            "description": "The unique identifier of the workspace."
+        },
+        "GoalValueTimestampParameter": {
+            "name": "timestamp",
+            "in": "path",
+            "type": "string",
+            "format": "date",
+            "description": "The timestamp for the value of the goal.",
+            "required": true
+        },
+        "GoalNoteIdParameter": {
+            "name": "noteId",
+            "in": "path",
+            "description": "The unique identifier of the note for a goal's check-in.",
+            "type": "string",
+            "format": "uuid",
+            "required": true
+        }
     },
     "responses": {
 

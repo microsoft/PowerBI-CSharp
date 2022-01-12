@@ -30,6 +30,31 @@ namespace Microsoft.PowerBI.Api
         JsonSerializerSettings DeserializationSettings { get; }
 
         /// <summary>
+        /// The unique identifier of the scorecard.
+        /// </summary>
+        System.Guid ScorecardId { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the goal.
+        /// </summary>
+        System.Guid GoalId { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the workspace.
+        /// </summary>
+        System.Guid GroupId { get; set; }
+
+        /// <summary>
+        /// The timestamp for the value of the goal.
+        /// </summary>
+        System.DateTime Timestamp { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the note for a goal's check-in.
+        /// </summary>
+        System.Guid NoteId { get; set; }
+
+        /// <summary>
         /// Subscription credentials which uniquely identify client
         /// subscription.
         /// </summary>
@@ -135,6 +160,31 @@ namespace Microsoft.PowerBI.Api
         /// Gets the ITemplateApps.
         /// </summary>
         ITemplateApps TemplateApps { get; }
+
+        /// <summary>
+        /// Gets the IScorecardsOperations.
+        /// </summary>
+        IScorecardsOperations Scorecards { get; }
+
+        /// <summary>
+        /// Gets the IGoalsOperations.
+        /// </summary>
+        IGoalsOperations Goals { get; }
+
+        /// <summary>
+        /// Gets the IGoalsStatusRules.
+        /// </summary>
+        IGoalsStatusRules GoalsStatusRules { get; }
+
+        /// <summary>
+        /// Gets the IGoalValuesOperations.
+        /// </summary>
+        IGoalValuesOperations GoalValues { get; }
+
+        /// <summary>
+        /// Gets the IGoalNotesOperations.
+        /// </summary>
+        IGoalNotesOperations GoalNotes { get; }
 
     }
 }
