@@ -3092,6 +3092,46 @@
                     }
                 },
                 "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Dashboards"
+                ],
+                "summary": "Deletes the specified dashboard from **My workspace**.",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All\n\n######\n",
+                "operationId": "Dashboards_DeleteDashboard",
+                "consumes": [
+
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "dashboardId",
+                        "description": "The dashboard ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "dashboardId": "7a463f03-22df-48be-9c00-56067f2fb75f"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
             }
         },
         "/v1.0/myorg/dashboards/{dashboardId}/tiles": {
@@ -6448,6 +6488,55 @@
                                     "isReadOnly": false
                                 }
                             }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Dashboards"
+                ],
+                "summary": "Deletes the specified dashboard from the specified workspace.",
+                "description": "\n## Required scope\n\nDashboard.ReadWrite.All\n\n######\n",
+                "operationId": "Dashboards_DeleteDashboardInGroup",
+                "consumes": [
+
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "dashboardId",
+                        "description": "The dashboard ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "d81d5fa5-17d9-4ae4-90a6-d038876c19bd",
+                            "dashboardId": "7a463f03-22df-48be-9c00-56067f2fb75f"
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },

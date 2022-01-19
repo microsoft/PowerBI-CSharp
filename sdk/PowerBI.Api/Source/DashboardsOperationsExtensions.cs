@@ -166,6 +166,55 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Deletes the specified dashboard from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static void DeleteDashboard(this IDashboardsOperations operations, System.Guid dashboardId)
+            {
+                operations.DeleteDashboardAsync(dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified dashboard from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteDashboardAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteDashboardWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Returns a list of tiles within the specified dashboard from **My
             /// workspace**.
             /// </summary>
@@ -543,6 +592,61 @@ namespace Microsoft.PowerBI.Api
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Deletes the specified dashboard from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static void DeleteDashboardInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId)
+            {
+                operations.DeleteDashboardInGroupAsync(groupId, dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified dashboard from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dashboard.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteDashboardInGroupAsync(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteDashboardInGroupWithHttpMessagesAsync(groupId, dashboardId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

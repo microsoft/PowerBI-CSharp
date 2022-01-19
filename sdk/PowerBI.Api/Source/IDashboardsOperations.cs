@@ -103,6 +103,31 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes the specified dashboard from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tiles within the specified dashboard from **My
         /// workspace**.
         /// </summary>
@@ -310,6 +335,34 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when unable to deserialize the response
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> GetDashboardInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deletes the specified dashboard from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDashboardInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of tiles within the specified dashboard from the
         /// specified workspace.
