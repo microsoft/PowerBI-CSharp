@@ -1748,23 +1748,27 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// The permissions for this API call are listed in [Datasets
+            /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
+            ///
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
             /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
             /// that is to say a V2 workspace, are supported.
-            /// - This API only supports adding permissions to principals who don't have
-            /// permissions to the dataset. It cannot be used to change existing dataset
-            /// permissions.
-            /// - Adding permissions to service principals (app principalType) is not
-            /// supported
+            /// - This API call only supports adding permissions to principals who don't
+            /// have permissions to the dataset. It can't be used to change existing
+            /// dataset permissions.
+            /// - Adding permissions to service principals (app principalType) isn't
+            /// supported.
             ///
-            /// ######
-            ///
+            /// &amp;nbsp;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1794,23 +1798,27 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// The permissions for this API call are listed in [Datasets
+            /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
+            ///
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
             /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
             /// that is to say a V2 workspace, are supported.
-            /// - This API only supports adding permissions to principals who don't have
-            /// permissions to the dataset. It cannot be used to change existing dataset
-            /// permissions.
-            /// - Adding permissions to service principals (app principalType) is not
-            /// supported
+            /// - This API call only supports adding permissions to principals who don't
+            /// have permissions to the dataset. It can't be used to change existing
+            /// dataset permissions.
+            /// - Adding permissions to service principals (app principalType) isn't
+            /// supported.
             ///
-            /// ######
-            ///
+            /// &amp;nbsp;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1843,23 +1851,27 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// The permissions for this API call are listed in [Datasets
+            /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
+            ///
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
             /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
             /// that is to say a V2 workspace, or **My workspace** are supported.
-            /// - This API only supports adding permissions to principals who don't have
-            /// permissions to the dataset. It cannot be used to change existing dataset
-            /// permissions.
-            /// - Adding permissions to service principals (app principalType) is not
-            /// supported
+            /// - This API call only supports adding permissions to principals who don't
+            /// have permissions to the dataset. It can't be used to change existing
+            /// dataset permissions.
+            /// - Adding permissions to service principals (app principalType) isn't
+            /// supported.
             ///
-            /// ######
-            ///
+            /// &amp;nbsp;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1886,23 +1898,27 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// The permissions for this API call are listed in [Datasets
+            /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
+            ///
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
             /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
             /// that is to say a V2 workspace, or **My workspace** are supported.
-            /// - This API only supports adding permissions to principals who don't have
-            /// permissions to the dataset. It cannot be used to change existing dataset
-            /// permissions.
-            /// - Adding permissions to service principals (app principalType) is not
-            /// supported
+            /// - This API call only supports adding permissions to principals who don't
+            /// have permissions to the dataset. It can't be used to change existing
+            /// dataset permissions.
+            /// - Adding permissions to service principals (app principalType) isn't
+            /// supported.
             ///
-            /// ######
-            ///
+            /// &amp;nbsp;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -4008,6 +4024,8 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             /// - Delegated permissions are supported.
+            /// - The permissions for this API call are listed in [Datasets
+            /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
             /// ## Required Scope
             ///
@@ -4017,8 +4035,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Maximum 200 requests per hour.
             ///
-            /// ######
-            ///
+            /// &amp;nbsp;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -4043,6 +4060,8 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             /// - Delegated permissions are supported.
+            /// - The permissions for this API call are listed in [Datasets
+            /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
             /// ## Required Scope
             ///
@@ -4052,8 +4071,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Maximum 200 requests per hour.
             ///
-            /// ######
-            ///
+            /// &amp;nbsp;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
