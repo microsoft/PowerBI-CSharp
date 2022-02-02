@@ -26,8 +26,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -50,8 +49,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='statusRulesUpdateRequest'>
         /// The status rules definition.
@@ -80,8 +78,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

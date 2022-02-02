@@ -27,9 +27,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -59,9 +57,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -87,9 +83,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -124,9 +118,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -157,9 +149,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -188,9 +178,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -216,9 +204,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -247,9 +233,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -281,9 +265,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -312,9 +294,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -354,9 +334,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -396,9 +374,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -440,9 +416,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -481,9 +455,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID
@@ -521,9 +493,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID
@@ -561,9 +531,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dataflowId'>
         /// The dataflow ID

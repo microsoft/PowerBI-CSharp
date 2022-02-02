@@ -40,9 +40,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Maximum 25 requests per hour.
             /// - Each request can update up to 2,000 Power BI items.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -80,9 +78,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Maximum 25 requests per hour.
             /// - Each request can update up to 2,000 Power BI items.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -129,9 +125,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Maximum 25 requests per hour.
             /// - Each request can update up to 2,000 Power BI items.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -172,9 +166,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Maximum 25 requests per hour.
             /// - Each request can update up to 2,000 Power BI items.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

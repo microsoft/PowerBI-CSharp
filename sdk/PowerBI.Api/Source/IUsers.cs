@@ -42,9 +42,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum one call per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -76,9 +74,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='userId'>
         /// The graph ID or user principal name (UPN) of the user
@@ -122,9 +118,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='userId'>
         /// The graph ID or user principal name (UPN) of the user

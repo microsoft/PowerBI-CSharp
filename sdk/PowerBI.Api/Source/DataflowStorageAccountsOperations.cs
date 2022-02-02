@@ -54,9 +54,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// StorageAccount.Read.All or StorageAccount.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

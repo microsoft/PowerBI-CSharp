@@ -26,9 +26,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -57,9 +55,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -91,9 +87,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -131,9 +125,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -169,9 +161,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -212,9 +202,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -258,9 +246,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -301,9 +287,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces capacity parameters
@@ -334,9 +318,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces to shared capacity parameters
@@ -369,9 +351,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID

@@ -43,9 +43,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Maximum 25 requests per hour.
         /// - Each request can update up to 2,000 Power BI items.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='artifacts'>
         /// A composite of artifact ID lists for each type
@@ -96,9 +94,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Maximum 25 requests per hour.
         /// - Each request can update up to 2,000 Power BI items.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='informationProtectionChangeLabelDetails'>
         /// Set label details.

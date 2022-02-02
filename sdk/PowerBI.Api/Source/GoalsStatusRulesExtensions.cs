@@ -23,8 +23,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
-            ///
-            /// ##
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -42,8 +41,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
-            ///
-            /// ##
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -67,8 +65,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Dataset.ReadWrite.All
-            ///
-            /// ##
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -89,8 +86,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Dataset.ReadWrite.All
-            ///
-            /// ##
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -117,8 +113,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Dataset.ReadWrite.All
-            ///
-            /// ##
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -136,8 +131,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required scope
             ///
             /// Dataset.ReadWrite.All
-            ///
-            /// ##
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

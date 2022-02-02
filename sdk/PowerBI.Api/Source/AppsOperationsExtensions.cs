@@ -27,9 +27,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -51,9 +49,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -81,9 +77,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -108,9 +102,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -141,9 +133,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -168,9 +158,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -201,9 +189,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -231,9 +217,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -267,9 +251,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -294,9 +276,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -327,9 +307,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -357,9 +335,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -394,9 +370,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -425,9 +399,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -465,9 +437,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -502,9 +472,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -547,9 +515,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -581,9 +547,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -623,9 +587,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -658,9 +620,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

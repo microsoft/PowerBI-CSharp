@@ -70,9 +70,7 @@ namespace Microsoft.PowerBI.Api
             /// connection reports, generating an embed token with row-level security (RLS)
             /// might not work for several minutes after a
             /// [rebind](/rest/api/power-bi/reports/rebind-report).
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -140,9 +138,7 @@ namespace Microsoft.PowerBI.Api
             /// connection reports, generating an embed token with row-level security (RLS)
             /// might not work for several minutes after a
             /// [rebind](/rest/api/power-bi/reports/rebind-report).
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

@@ -26,8 +26,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
@@ -54,8 +53,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goalValue'>
         /// Goal value content.
@@ -84,8 +82,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
@@ -112,8 +109,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goalValue'>
         /// The updated content of goal value check-in.
@@ -142,8 +138,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

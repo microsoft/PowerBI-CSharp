@@ -58,9 +58,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -197,9 +195,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -341,9 +337,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -485,9 +479,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -634,9 +626,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -778,9 +768,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -928,9 +916,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -1081,9 +1067,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -1241,9 +1225,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not provided,
@@ -1403,9 +1385,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID

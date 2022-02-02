@@ -55,8 +55,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goalNote'>
         /// The goal check-in note.
@@ -217,8 +216,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goalNote'>
         /// The note content to be updated.
@@ -376,8 +374,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

@@ -17,8 +17,7 @@ namespace Microsoft.PowerBI.Api.Models
     /// ## Required scope
     ///
     /// Dataset.ReadWrite.All
-    ///
-    /// ##
+    /// &lt;br&gt;&lt;br&gt;
     /// </summary>
     public partial class UpdateDatasourcesRequest
     {

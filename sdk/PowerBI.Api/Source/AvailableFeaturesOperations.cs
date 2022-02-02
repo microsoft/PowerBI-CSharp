@@ -52,9 +52,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// This API doesn't require any scopes.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -185,9 +183,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// This API doesn't require any scopes.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='featureName'>
         /// The feature name

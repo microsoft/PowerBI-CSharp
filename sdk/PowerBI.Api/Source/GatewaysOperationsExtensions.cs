@@ -31,9 +31,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -59,9 +57,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -93,9 +89,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -126,9 +120,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -165,9 +157,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -198,9 +188,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -240,9 +228,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -279,9 +265,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -321,9 +305,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -357,9 +339,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -399,9 +379,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -435,9 +413,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -495,9 +471,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -555,9 +529,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -598,9 +570,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -635,9 +605,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -674,9 +642,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -710,9 +676,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -753,9 +717,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -793,9 +755,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -835,9 +795,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -874,9 +832,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Virtual network (VNet) gateways aren't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

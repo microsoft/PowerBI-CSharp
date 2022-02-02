@@ -46,9 +46,7 @@ namespace Microsoft.PowerBI.Api
         /// - Dashboard.ReadWrite.All or Dashboard.Read.All
         /// - Report.ReadWrite.All or Report.Read.All
         /// - Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

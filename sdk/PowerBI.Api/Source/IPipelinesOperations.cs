@@ -26,9 +26,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.Read.All or Pipeline.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -51,9 +49,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='createPipelineRequest'>
         /// The create pipeline request
@@ -82,9 +78,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All or Pipeline.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -114,9 +108,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -152,9 +144,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// This operation will fail if there's an active deployment operation.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -178,9 +168,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All or Pipeline.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -206,9 +194,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -237,9 +223,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -271,9 +255,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All or Pipeline.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -309,9 +291,7 @@ namespace Microsoft.PowerBI.Api
         /// pipeline.
         /// - This operation will fail if there's an active deployment
         /// operation.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -349,9 +329,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// This operation will fail if there's an active deployment operation.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -389,9 +367,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All or Pipeline.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -422,9 +398,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All or Pipeline.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -454,9 +428,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Pipeline.ReadWrite.All or Pipeline.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -500,9 +472,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 300 deployed items per request.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -545,9 +515,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 300 deployed items per request.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -588,9 +556,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
@@ -638,9 +604,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -674,9 +638,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID
@@ -713,9 +675,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='pipelineId'>
         /// The deployment pipeline ID

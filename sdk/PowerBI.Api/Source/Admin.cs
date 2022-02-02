@@ -63,9 +63,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 600 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='tenantKeyCreationRequest'>
         /// Tenant key information
@@ -225,9 +223,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -369,9 +365,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 600 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='tenantKeyId'>
         /// The tenant key ID
@@ -536,9 +530,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline
@@ -690,9 +682,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -839,9 +829,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -1025,9 +1013,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -1216,9 +1202,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -1401,9 +1385,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Maximum 200 requests per hour.
         /// - Activity logging isn't supported for Microsoft Cloud Deutschland.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='startDateTime'>
         /// Start date and time of the window for audit event results. Must be in ISO

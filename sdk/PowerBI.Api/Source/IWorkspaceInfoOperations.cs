@@ -45,9 +45,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Maximum 500 requests per hour.
         /// - Maximum 16 simultaneous requests.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requiredWorkspaces'>
         /// Required workspace IDs to get info for
@@ -111,9 +109,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 10,000 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='scanId'>
         /// The scan ID, which is included in the response from the workspaces
@@ -154,9 +150,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 500 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='scanId'>
         /// The scan ID, which is included in the response from the workspaces
@@ -201,9 +195,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 30 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='modifiedSince'>
         /// Last modified date​ (must be in ISO 8601 compliant UTC format)

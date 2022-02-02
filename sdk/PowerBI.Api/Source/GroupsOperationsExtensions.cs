@@ -28,9 +28,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -62,9 +60,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -97,9 +93,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -123,9 +117,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -155,9 +147,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -178,9 +168,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -211,9 +199,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -241,9 +227,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -276,9 +260,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -308,9 +290,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -342,9 +322,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -373,9 +351,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -402,9 +378,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -429,9 +403,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -467,9 +439,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -498,9 +468,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -532,9 +500,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -566,9 +532,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -595,9 +559,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -615,9 +577,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -647,9 +607,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -676,9 +634,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// Workspace.Read.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -712,9 +668,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -745,9 +699,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Required Scope
             ///
             /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -786,9 +738,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Maximum 50 requests per hour, per tenant. This call will also time out
             /// after 30 seconds to prevent adverse effect on the Power BI service.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -834,9 +784,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Maximum 50 requests per hour, per tenant. This call will also time out
             /// after 30 seconds to prevent adverse effect on the Power BI service.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -887,9 +835,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -926,9 +872,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -973,9 +917,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1012,9 +954,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1053,9 +993,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1088,9 +1026,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1129,9 +1065,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1167,9 +1101,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1208,9 +1140,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1246,9 +1176,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1287,9 +1215,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1325,9 +1251,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1366,9 +1290,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1404,9 +1326,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

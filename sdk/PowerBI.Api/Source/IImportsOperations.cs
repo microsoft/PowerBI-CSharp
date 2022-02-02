@@ -26,9 +26,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -84,9 +82,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Dataflows with service principal aren't supported.
         /// - Importing a **.pbix** file from OneDrive isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
         /// The display name of the dataset, should include file extension. Not
@@ -138,9 +134,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='importId'>
         /// The import ID
@@ -183,9 +177,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// Importing large .pbix files between 1 GB and 10 GB in size is only
         /// available for Premium capacity workspaces.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -212,9 +204,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Importing .pbix files from OneDrive isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -273,9 +263,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Dataflows with service principal aren't supported.
         /// - Importing a **.pbix** file from OneDrive isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -333,9 +321,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -381,9 +367,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// Importing large .pbix files between 1 GB and 10 GB in size is only
         /// available for Premium capacity workspaces.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -420,9 +404,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline

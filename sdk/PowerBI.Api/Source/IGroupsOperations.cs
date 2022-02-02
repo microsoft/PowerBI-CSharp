@@ -32,9 +32,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -66,9 +64,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Create group request parameters
@@ -101,9 +97,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID to delete
@@ -135,9 +129,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -170,9 +162,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -207,9 +197,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -239,9 +227,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -279,9 +265,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Assign to capacity parameters
@@ -315,9 +299,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -347,9 +329,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.Read.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -378,9 +358,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Workspace.Read.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -415,9 +393,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -459,9 +435,7 @@ namespace Microsoft.PowerBI.Api
         /// Maximum 50 requests per hour, per tenant. This call will also time
         /// out after 30 seconds to prevent adverse effect on the Power BI
         /// service.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results. This parameter is mandatory and
@@ -511,9 +485,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -557,9 +529,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -600,9 +570,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -640,9 +608,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -683,9 +649,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -726,9 +690,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -770,9 +732,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

@@ -26,8 +26,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of
@@ -57,8 +56,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goal'>
         /// The properties of the new goal.
@@ -87,8 +85,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// description
@@ -114,8 +111,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goal'>
         /// The goal properties to patch.
@@ -144,8 +140,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -165,8 +160,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -189,8 +183,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -213,8 +206,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -237,8 +229,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -258,8 +249,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

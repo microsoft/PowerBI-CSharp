@@ -54,9 +54,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
@@ -203,8 +201,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='scorecard'>
         /// The new scorecard properties.
@@ -362,8 +359,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
         /// Expands related entities inline, receives a comma-separated list of data
@@ -512,8 +508,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='scorecard'>
         /// The scorecard properties to patch
@@ -668,8 +663,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -783,8 +777,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The id of the internal report associated with the scorecard.
@@ -937,8 +930,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ##
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='moveGoalsRequest'>
         /// The request describing the move operation.

@@ -62,9 +62,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -205,9 +203,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -355,9 +351,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -508,9 +502,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -682,9 +674,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -837,9 +827,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -992,9 +980,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1147,9 +1133,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1281,9 +1265,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1437,9 +1419,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1595,9 +1575,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the

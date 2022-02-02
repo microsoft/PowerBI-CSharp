@@ -21,9 +21,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// This API doesn't require any scopes.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -39,9 +37,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// This API doesn't require any scopes.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -63,9 +59,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// This API doesn't require any scopes.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -84,9 +78,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// This API doesn't require any scopes.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
