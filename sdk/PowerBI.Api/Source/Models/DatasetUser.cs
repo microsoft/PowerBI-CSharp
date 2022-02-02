@@ -25,7 +25,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasetUser class.
         /// </summary>
-        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
@@ -34,11 +33,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
         /// 'ReadExplore', 'ReadReshareExplore', 'ReadWriteExplore',
         /// 'ReadWriteReshareExplore'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public DatasetUser(string emailAddress, string identifier, PrincipalType principalType, DatasetUserAccessRight datasetUserAccessRight, string displayName = default(string), string graphId = default(string))
-            : base(emailAddress, identifier, principalType, displayName, graphId)
+        public DatasetUser(string identifier, PrincipalType principalType, DatasetUserAccessRight datasetUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             DatasetUserAccessRight = datasetUserAccessRight;
             CustomInit();

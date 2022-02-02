@@ -25,18 +25,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DashboardUser class.
         /// </summary>
-        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
         /// <param name="dashboardUserAccessRight">Access rights user has for
         /// the dashboard (Permission level). Possible values include: 'None',
         /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadCopy', 'Owner'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public DashboardUser(string emailAddress, string identifier, PrincipalType principalType, DashboardUserAccessRight dashboardUserAccessRight, string displayName = default(string), string graphId = default(string))
-            : base(emailAddress, identifier, principalType, displayName, graphId)
+        public DashboardUser(string identifier, PrincipalType principalType, DashboardUserAccessRight dashboardUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             DashboardUserAccessRight = dashboardUserAccessRight;
             CustomInit();

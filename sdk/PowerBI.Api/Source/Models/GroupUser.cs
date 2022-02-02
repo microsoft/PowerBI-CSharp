@@ -25,18 +25,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GroupUser class.
         /// </summary>
-        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
         /// <param name="groupUserAccessRight">The access right (permission
         /// level) that a user has on the workspace. Possible values include:
         /// 'None', 'Member', 'Admin', 'Contributor', 'Viewer'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public GroupUser(string emailAddress, string identifier, PrincipalType principalType, GroupUserAccessRight groupUserAccessRight, string displayName = default(string), string graphId = default(string))
-            : base(emailAddress, identifier, principalType, displayName, graphId)
+        public GroupUser(string identifier, PrincipalType principalType, GroupUserAccessRight groupUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             GroupUserAccessRight = groupUserAccessRight;
             CustomInit();

@@ -24,15 +24,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the SubscriptionUser class.
         /// </summary>
-        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public SubscriptionUser(string emailAddress, string identifier, PrincipalType principalType, string displayName = default(string), string graphId = default(string))
-            : base(emailAddress, identifier, principalType, displayName, graphId)
+        public SubscriptionUser(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             CustomInit();
         }

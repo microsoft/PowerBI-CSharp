@@ -26,14 +26,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the User class.
         /// </summary>
-        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public User(string emailAddress, string identifier, PrincipalType principalType, string displayName = default(string), string graphId = default(string))
+        public User(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
         {
             EmailAddress = emailAddress;
             DisplayName = displayName;
@@ -88,10 +88,6 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
-            if (EmailAddress == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "EmailAddress");
-            }
             if (Identifier == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Identifier");

@@ -25,18 +25,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DataflowUser class.
         /// </summary>
-        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
+        /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
         /// <param name="dataflowUserAccessRight">Access rights user has for
         /// the dataflow (Permission level). Possible values include: 'None',
         /// 'Read', 'ReadWrite', 'ReadReshare', 'Owner'</param>
-        public DataflowUser(string emailAddress, string identifier, PrincipalType principalType, string displayName = default(string), string graphId = default(string), DataflowUserAccessRight? dataflowUserAccessRight = default(DataflowUserAccessRight?))
-            : base(emailAddress, identifier, principalType, displayName, graphId)
+        public DataflowUser(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), DataflowUserAccessRight? dataflowUserAccessRight = default(DataflowUserAccessRight?))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             DataflowUserAccessRight = dataflowUserAccessRight;
             CustomInit();
