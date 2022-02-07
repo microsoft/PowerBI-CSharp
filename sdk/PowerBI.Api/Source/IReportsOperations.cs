@@ -649,8 +649,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Exports the specified report from the specified workspace to a PBIX
-        /// file.
+        /// Exports the specified report from the specified workspace to a
+        /// .pbix file.
         /// </summary>
         /// <remarks>
         ///
@@ -658,7 +658,7 @@ namespace Microsoft.PowerBI.Api
         /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
         /// for timeout issues.
         /// - Large files are downloaded to a temporary blob. Their URL is
-        /// returned in the response and stored in the locally downloaded PBIX
+        /// returned in the response and stored in the locally downloaded .pbix
         /// file.
         /// - For more information on requirements and limitations, see
         /// [Download a report from the Power BI service to Power BI

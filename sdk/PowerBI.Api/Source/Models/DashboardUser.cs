@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for dashboard
+    /// A Power BI user access right entry for a dashboard
     /// </summary>
     public partial class DashboardUser : User
     {
@@ -28,9 +28,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="dashboardUserAccessRight">Access rights user has for
-        /// the dashboard (Permission level). Possible values include: 'None',
-        /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadCopy', 'Owner'</param>
+        /// <param name="dashboardUserAccessRight">The access right that the
+        /// user has for the dashboard (permission level). Possible values
+        /// include: 'None', 'Read', 'ReadWrite', 'ReadReshare', 'ReadCopy',
+        /// 'Owner'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
@@ -48,9 +49,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the dashboard (Permission
-        /// level). Possible values include: 'None', 'Read', 'ReadWrite',
-        /// 'ReadReshare', 'ReadCopy', 'Owner'
+        /// Gets or sets the access right that the user has for the dashboard
+        /// (permission level). Possible values include: 'None', 'Read',
+        /// 'ReadWrite', 'ReadReshare', 'ReadCopy', 'Owner'
         /// </summary>
         [JsonProperty(PropertyName = "dashboardUserAccessRight")]
         public DashboardUserAccessRight DashboardUserAccessRight { get; set; }

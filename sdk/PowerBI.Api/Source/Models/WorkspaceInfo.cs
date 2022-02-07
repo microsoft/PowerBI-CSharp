@@ -34,8 +34,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="state">The workspace state</param>
         /// <param name="dataRetrievalState">The workspace data retrieval
         /// state</param>
-        /// <param name="isOnDedicatedCapacity">Whether the workspace is on
-        /// dedicated capacity</param>
+        /// <param name="isOnDedicatedCapacity">Whether the workspace is
+        /// assigned to a dedicated capacity</param>
         /// <param name="capacityId">The workspace capacity ID</param>
         /// <param name="reports">The reports associated with this workspace.
         /// The list of report properties returned varies for different API
@@ -118,7 +118,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string DataRetrievalState { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the workspace is on dedicated capacity
+        /// Gets or sets whether the workspace is assigned to a dedicated
+        /// capacity
         /// </summary>
         [JsonProperty(PropertyName = "isOnDedicatedCapacity")]
         public bool? IsOnDedicatedCapacity { get; set; }

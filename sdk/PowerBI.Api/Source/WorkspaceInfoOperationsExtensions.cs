@@ -326,10 +326,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='modifiedSince'>
-            /// Last modified date​ (must be in ISO 8601 compliant UTC format)
+            /// Last modified date (must be in ISO 8601 compliant UTC format)
             /// </param>
             /// <param name='excludePersonalWorkspaces'>
-            /// Whether to exclude personal workspaces​
+            /// Whether to exclude personal workspaces
             /// </param>
             public static IList<ModifiedWorkspace> GetModifiedWorkspaces(this IWorkspaceInfoOperations operations, System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?))
             {
@@ -367,10 +367,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='modifiedSince'>
-            /// Last modified date​ (must be in ISO 8601 compliant UTC format)
+            /// Last modified date (must be in ISO 8601 compliant UTC format)
             /// </param>
             /// <param name='excludePersonalWorkspaces'>
-            /// Whether to exclude personal workspaces​
+            /// Whether to exclude personal workspaces
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

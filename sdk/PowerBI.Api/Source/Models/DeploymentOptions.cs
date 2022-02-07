@@ -44,12 +44,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// target Power BI item (such as a report or a dashboard) when there's
         /// a schema mismatch. If this option isn't set to `true` when it's
         /// required for deployment, the deployment will fail.</param>
-        /// <param name="allowTakeOver">Allow overriding the previous paginated
-        /// report owner and becoming the owner of the paginated report.
-        /// Applicable when deploying a paginated report to a stage that
-        /// already contains a copy of the paginated report that isn't owned by
-        /// you. If this option isn't set to `true` when it's required for
-        /// deployment, the deployment will fail.</param>
+        /// <param name="allowTakeOver">Whether to allow overriding the
+        /// previous paginated report owner and becoming the owner of the
+        /// paginated report. Applicable when deploying a paginated report to a
+        /// stage that already contains a copy of the paginated report that
+        /// isn't owned by you. If this option isn't set to `true` when it's
+        /// required for deployment, the deployment will fail.</param>
         /// <param name="allowOverwriteTargetArtifactLabel">Whether the label
         /// of a target Power BI item (such as a report or a dashboard) can be
         /// changed. The label gets changed when the source is protected but
@@ -107,12 +107,12 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? AllowPurgeData { get; set; }
 
         /// <summary>
-        /// Gets or sets allow overriding the previous paginated report owner
-        /// and becoming the owner of the paginated report. Applicable when
-        /// deploying a paginated report to a stage that already contains a
-        /// copy of the paginated report that isn't owned by you. If this
-        /// option isn't set to `true` when it's required for deployment, the
-        /// deployment will fail.
+        /// Gets or sets whether to allow overriding the previous paginated
+        /// report owner and becoming the owner of the paginated report.
+        /// Applicable when deploying a paginated report to a stage that
+        /// already contains a copy of the paginated report that isn't owned by
+        /// you. If this option isn't set to `true` when it's required for
+        /// deployment, the deployment will fail.
         /// </summary>
         [JsonProperty(PropertyName = "allowTakeOver")]
         public bool? AllowTakeOver { get; set; }

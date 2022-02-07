@@ -49,25 +49,24 @@ namespace Microsoft.PowerBI.Api
         /// &gt; [!NOTE]
         /// &gt; Supported content:
         /// &gt;
-        /// &gt; - **.pbix** (Power BI Desktop reports)
-        /// &gt; - **.json** (JSON files)
-        /// &gt; - **.xlsx** (Excel files)
-        /// &gt; - **.rdl** (SQL Server Report Definition Language files)
+        /// &gt; - .pbix files
+        /// &gt; - JSON files (.json)
+        /// &gt; - Excel files (.xlsx)
+        /// &gt; - SQL Server Report Definition Language files (.rdl)
         ///
         /// - To import a file, specify the content type
         /// **multipart/form-data** in the request headers and encode the file
         /// as [form data](https://www.w3.org/TR/html401/interact/forms.html)
         /// in the request body.
-        /// - To import an **.rdl** file, include the file extension in the
-        /// name specified by `datasetDisplayName`, as described in [URI
+        /// - To import an .rdl file, include the file extension in the name
+        /// specified by `datasetDisplayName`, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
-        /// - To import an **.xlsx** file from OneDrive for Business, include
-        /// the content type **application/json** in the request headers.
-        /// Include
+        /// - To import an .xlsx file from OneDrive for Business, include the
+        /// content type **application/json** in the request headers. Include
         /// [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo)
         /// with `filePath` set to the .xlsx file path in the request body.
-        /// - To import large **.pbix** files that are between 1 GB and 10 GB
-        /// in size, see [Create Temporary Upload
+        /// - To import large .pbix files that are between 1 GB and 10 GB in
+        /// size, see [Create Temporary Upload
         /// Location](/rest/api/power-bi/imports/create-temporary-upload-location).
         /// This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set
@@ -81,7 +80,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Dataflows with service principal aren't supported.
-        /// - Importing a **.pbix** file from OneDrive isn't supported.
+        /// - Importing a .pbix file from OneDrive isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
@@ -99,16 +98,16 @@ namespace Microsoft.PowerBI.Api
         /// 'GenerateUniqueName'
         /// </param>
         /// <param name='skipReport'>
-        /// Determines whether to skip report import, if specified value must
-        /// be 'true'. Only supported for PBIX files.
+        /// Whether to skip report import. If specified, the value must be
+        /// `true`. Only supported for .pbix files.
         /// </param>
         /// <param name='overrideReportLabel'>
-        /// Determines whether to override existing label on report during
-        /// republish of PBIX file, service default value is true.
+        /// Whether to override the existing report label when republishing a
+        /// .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='overrideModelLabel'>
-        /// Determines whether to override existing label on model during
-        /// republish of PBIX file, service default value is true.
+        /// Whether to override the existing label on a model when republishing
+        /// a .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -230,25 +229,24 @@ namespace Microsoft.PowerBI.Api
         /// &gt; [!NOTE]
         /// &gt; Supported content:
         /// &gt;
-        /// &gt; - **.pbix** (Power BI Desktop reports)
-        /// &gt; - **.json** (JSON files)
-        /// &gt; - **.xlsx** (Excel files)
-        /// &gt; - **.rdl** (SQL Server Report Definition Language files)
+        /// &gt; - .pbix files
+        /// &gt; - JSON files (.json)
+        /// &gt; - Excel files (.xlsx)
+        /// &gt; - SQL Server Report Definition Language files (.rdl)
         ///
         /// - To import a file, specify the content type
         /// **multipart/form-data** in the request headers and encode the file
         /// as [form data](https://www.w3.org/TR/html401/interact/forms.html)
         /// in the request body.
-        /// - To import an **.rdl** file, include the file extension in the
-        /// name specified by `datasetDisplayName`, as described in [URI
+        /// - To import an .rdl file, include the file extension in the name
+        /// specified by `datasetDisplayName`, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
-        /// - To import an **.xlsx** file from OneDrive for Business, include
-        /// the content type **application/json** in the request headers.
-        /// Include
+        /// - To import an .xlsx file from OneDrive for Business, include the
+        /// content type **application/json** in the request headers. Include
         /// [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo)
         /// with `filePath` set to the .xlsx file path in the request body.
-        /// - To import large **.pbix** files that are between 1 GB and 10 GB
-        /// in size, see [Create Temporary Upload Location In
+        /// - To import large .pbix files that are between 1 GB and 10 GB in
+        /// size, see [Create Temporary Upload Location In
         /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group).
         /// This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set
@@ -262,7 +260,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Dataflows with service principal aren't supported.
-        /// - Importing a **.pbix** file from OneDrive isn't supported.
+        /// - Importing a .pbix file from OneDrive isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -286,16 +284,16 @@ namespace Microsoft.PowerBI.Api
         /// 'CreateOrOverwrite', 'GenerateUniqueName'
         /// </param>
         /// <param name='skipReport'>
-        /// Determines whether to skip report import, if specified value must
-        /// be 'true'. Only supported for PBIX files.
+        /// Whether to skip report import. If specified, the value must be
+        /// `true`. Only supported for .pbix files.
         /// </param>
         /// <param name='overrideReportLabel'>
-        /// Determines whether to override existing label on report during
-        /// republish of PBIX file, service default value is true.
+        /// Whether to override the existing label on a report when
+        /// republishing a .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='overrideModelLabel'>
-        /// Determines whether to override existing label on model during
-        /// republish of PBIX file, service default value is true.
+        /// Determines whether to override the existing label on a model when
+        /// republishing a .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

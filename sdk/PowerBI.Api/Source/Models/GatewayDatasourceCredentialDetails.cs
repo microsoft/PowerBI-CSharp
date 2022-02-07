@@ -27,12 +27,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// GatewayDatasourceCredentialDetails class.
         /// </summary>
-        /// <param name="useEndUserOAuth2Credentials">Use with data sources
-        /// that support [single sign-on
-        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth 2.0
-        /// credentials) is used for connecting to the data source in
-        /// DirectQuery mode.</param>
+        /// <param name="useEndUserOAuth2Credentials">Whether the end-user
+        /// Azure AD identity (OAuth 2.0 credentials) is used when connecting
+        /// to the data source in DirectQuery mode. Use with data sources that
+        /// support [single sign-on
+        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources).</param>
         public GatewayDatasourceCredentialDetails(bool? useEndUserOAuth2Credentials = default(bool?))
         {
             UseEndUserOAuth2Credentials = useEndUserOAuth2Credentials;
@@ -45,11 +44,11 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets use with data sources that support [single sign-on
-        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth 2.0
-        /// credentials) is used for connecting to the data source in
-        /// DirectQuery mode.
+        /// Gets or sets whether the end-user Azure AD identity (OAuth 2.0
+        /// credentials) is used when connecting to the data source in
+        /// DirectQuery mode. Use with data sources that support [single
+        /// sign-on
+        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources).
         /// </summary>
         [JsonProperty(PropertyName = "useEndUserOAuth2Credentials")]
         public bool? UseEndUserOAuth2Credentials { get; set; }

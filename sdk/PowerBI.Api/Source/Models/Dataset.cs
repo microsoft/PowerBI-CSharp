@@ -48,10 +48,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// [GenerateToken](/rest/api/power-bi/embed-token/generate-token) API
         /// call.</param>
         /// <param name="isEffectiveIdentityRolesRequired">Whether row-level
-        /// security is defined inside the Power BI Desktop report (.pbix)
-        /// file. If so, you must specify a role.</param>
-        /// <param name="isOnPremGatewayRequired">The dataset requires an
-        /// on-premises data gateway</param>
+        /// security is defined inside the .pbix file. If so, you must specify
+        /// a role.</param>
+        /// <param name="isOnPremGatewayRequired">Whether the dataset requires
+        /// an on-premises data gateway</param>
         /// <param name="encryption">Dataset encryption information. Only
         /// applicable when `$expand` is specified.</param>
         /// <param name="users">(Empty value) The dataset user access details.
@@ -164,14 +164,15 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? IsEffectiveIdentityRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets whether row-level security is defined inside the Power
-        /// BI Desktop report (.pbix) file. If so, you must specify a role.
+        /// Gets or sets whether row-level security is defined inside the .pbix
+        /// file. If so, you must specify a role.
         /// </summary>
         [JsonProperty(PropertyName = "IsEffectiveIdentityRolesRequired")]
         public bool? IsEffectiveIdentityRolesRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataset requires an on-premises data gateway
+        /// Gets or sets whether the dataset requires an on-premises data
+        /// gateway
         /// </summary>
         [JsonProperty(PropertyName = "IsOnPremGatewayRequired")]
         public bool? IsOnPremGatewayRequired { get; set; }

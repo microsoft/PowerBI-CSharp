@@ -26,14 +26,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the ImportInfo class.
         /// </summary>
         /// <param name="filePath">The path of the OneDrive for Business Excel
-        /// (.xlsx) file to import, which can be absolute or relative. Power BI
-        /// Desktop report (.pbix) files aren't supported.</param>
+        /// (.xlsx) file to import, which can be absolute or relative. .pbix
+        /// files aren't supported.</param>
         /// <param name="connectionType">The import connection type for a
         /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
         /// <param name="fileUrl">The shared access signature URL of the
-        /// temporary blob storage used to import large Power BI Desktop report
-        /// (.pbix) files between 1 GB and 10 GB in size.</param>
+        /// temporary blob storage used to import large .pbix files between 1
+        /// GB and 10 GB in size.</param>
         public ImportInfo(string filePath = default(string), ConnectionType? connectionType = default(ConnectionType?), string fileUrl = default(string))
         {
             FilePath = filePath;
@@ -49,8 +49,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the path of the OneDrive for Business Excel (.xlsx)
-        /// file to import, which can be absolute or relative. Power BI Desktop
-        /// report (.pbix) files aren't supported.
+        /// file to import, which can be absolute or relative. .pbix files
+        /// aren't supported.
         /// </summary>
         [JsonProperty(PropertyName = "filePath")]
         public string FilePath { get; set; }
@@ -64,8 +64,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the shared access signature URL of the temporary blob
-        /// storage used to import large Power BI Desktop report (.pbix) files
-        /// between 1 GB and 10 GB in size.
+        /// storage used to import large .pbix files between 1 GB and 10 GB in
+        /// size.
         /// </summary>
         [JsonProperty(PropertyName = "fileUrl")]
         public string FileUrl { get; set; }

@@ -70,8 +70,10 @@ namespace Microsoft.PowerBI.Api
         /// Create group request parameters
         /// </param>
         /// <param name='workspaceV2'>
-        /// Preview feature: Create a workspace V2. The only supported value is
-        /// true.
+        /// (Preview feature) Whether to create a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace, that is to say a **V2** workspace. The only supported
+        /// value is `true`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

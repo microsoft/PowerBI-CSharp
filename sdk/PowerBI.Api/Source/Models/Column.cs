@@ -36,8 +36,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dataCategory">(Optional) String value to be used for
         /// the data category which describes the data within this
         /// column</param>
-        /// <param name="isHidden">(Optional) Property indicating if the column
-        /// is hidden from view. Default is false.</param>
+        /// <param name="isHidden">(Optional) Whether the column is hidden. The
+        /// default is `false`.</param>
         /// <param name="summarizeBy">(Optional) Aggregate Function to use for
         /// summarizing this column</param>
         public Column(string name, string dataType, string formatString = default(string), string sortByColumn = default(string), string dataCategory = default(string), bool? isHidden = default(bool?), string summarizeBy = default(string))
@@ -91,8 +91,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string DataCategory { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) Property indicating if the column is hidden
-        /// from view. Default is false.
+        /// Gets or sets (Optional) Whether the column is hidden. The default
+        /// is `false`.
         /// </summary>
         [JsonProperty(PropertyName = "isHidden")]
         public bool? IsHidden { get; set; }

@@ -32,7 +32,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// value should be formatted when it is displayed as specified in
         /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)</param>
         /// <param name="description">(Optional) Measure description</param>
-        /// <param name="isHidden">(Optional) Is measure hidden</param>
+        /// <param name="isHidden">(Optional) Whether the measure is
+        /// hidden</param>
         public Measure(string name, string expression, string formatString = default(string), string description = default(string), bool? isHidden = default(bool?))
         {
             Name = name;
@@ -75,7 +76,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) Is measure hidden
+        /// Gets or sets (Optional) Whether the measure is hidden
         /// </summary>
         [JsonProperty(PropertyName = "isHidden")]
         public bool? IsHidden { get; set; }

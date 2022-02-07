@@ -38,16 +38,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// subscribed Power BI item, if it's a report.</param>
         /// <param name="artifactType">The type of Power BI item (for example a
         /// `Report`, `Dashboard`, or `Dataset`)</param>
-        /// <param name="isEnabled">subscription Enabled or not</param>
-        /// <param name="frequency">Frequency of Email Subscription</param>
-        /// <param name="startDate">The start date and time of
+        /// <param name="isEnabled">Whether the email subscription is
+        /// enabled</param>
+        /// <param name="frequency">The frequency of the email
         /// subscription</param>
-        /// <param name="endDate">The start date and time of
+        /// <param name="startDate">The start date and time of the email
         /// subscription</param>
-        /// <param name="linkToContent">subscription link exists in email
+        /// <param name="endDate">The end date and time of the email
         /// subscription</param>
-        /// <param name="previewImage">screenshot of the report exists in email
-        /// subscription</param>
+        /// <param name="linkToContent">Whether a subscription link exists in
+        /// the email subscription</param>
+        /// <param name="previewImage">Whether a screenshot of the report
+        /// exists in the email subscription</param>
         /// <param name="attachmentFormat">Format of the report attached in the
         /// email subscription</param>
         /// <param name="users">The details of each email subscriber. When
@@ -126,37 +128,39 @@ namespace Microsoft.PowerBI.Api.Models
         public string ArtifactType { get; set; }
 
         /// <summary>
-        /// Gets or sets subscription Enabled or not
+        /// Gets or sets whether the email subscription is enabled
         /// </summary>
         [JsonProperty(PropertyName = "isEnabled")]
         public bool? IsEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets frequency of Email Subscription
+        /// Gets or sets the frequency of the email subscription
         /// </summary>
         [JsonProperty(PropertyName = "frequency")]
         public string Frequency { get; set; }
 
         /// <summary>
-        /// Gets or sets the start date and time of subscription
+        /// Gets or sets the start date and time of the email subscription
         /// </summary>
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the start date and time of subscription
+        /// Gets or sets the end date and time of the email subscription
         /// </summary>
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// Gets or sets subscription link exists in email subscription
+        /// Gets or sets whether a subscription link exists in the email
+        /// subscription
         /// </summary>
         [JsonProperty(PropertyName = "linkToContent")]
         public bool? LinkToContent { get; set; }
 
         /// <summary>
-        /// Gets or sets screenshot of the report exists in email subscription
+        /// Gets or sets whether a screenshot of the report exists in the email
+        /// subscription
         /// </summary>
         [JsonProperty(PropertyName = "previewImage")]
         public bool? PreviewImage { get; set; }

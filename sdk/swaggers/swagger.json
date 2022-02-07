@@ -1529,7 +1529,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from **My workspace** to the specified gateway, optionally with a given set of data source IDs. If you don’t supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
+                "summary": "Binds the specified dataset from **My workspace** to the specified gateway, optionally with a given set of data source IDs. If you don't supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
                 "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n<br><br>",
                 "operationId": "Datasets_BindToGateway",
                 "consumes": [
@@ -1949,7 +1949,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in **My workspace**.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - **.pbix** (Power BI Desktop reports)\n> - **.json** (JSON files)\n> - **.xlsx** (Excel files)\n> - **.rdl** (SQL Server Report Definition Language files)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an **.rdl** file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an **.xlsx** file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large **.pbix** files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a **.pbix** file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a .pbix file from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -2010,21 +2010,21 @@
                         "name": "skipReport",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.",
+                        "description": "Whether to skip report import. If specified, the value must be `true`. Only supported for .pbix files.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideReportLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to override existing label on report during republish of PBIX file, service default value is true.",
+                        "description": "Whether to override the existing report label when republishing a .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideModelLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to override existing label on model during republish of PBIX file, service default value is true.",
+                        "description": "Whether to override the existing label on a model when republishing a .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
@@ -4850,7 +4850,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of data source IDs. If you don’t supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
+                "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of data source IDs. If you don't supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
                 "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n<br><br>",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
@@ -5176,7 +5176,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in the specified workspace.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - **.pbix** (Power BI Desktop reports)\n> - **.json** (JSON files)\n> - **.xlsx** (Excel files)\n> - **.rdl** (SQL Server Report Definition Language files)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an **.rdl** file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an **.xlsx** file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large **.pbix** files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a **.pbix** file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a .pbix file from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -5245,21 +5245,21 @@
                         "name": "skipReport",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to skip report import, if specified value must be 'true'. Only supported for PBIX files.",
+                        "description": "Whether to skip report import. If specified, the value must be `true`. Only supported for .pbix files.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideReportLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to override existing label on report during republish of PBIX file, service default value is true.",
+                        "description": "Whether to override the existing label on a report when republishing a .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideModelLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to override existing label on model during republish of PBIX file, service default value is true.",
+                        "description": "Determines whether to override the existing label on a model when republishing a .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
@@ -5717,8 +5717,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from the specified workspace to a PBIX file.",
-                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded PBIX file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "summary": "Exports the specified report from the specified workspace to a .pbix file.",
+                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -9385,7 +9385,7 @@
                         "name": "workspaceV2",
                         "in": "query",
                         "required": false,
-                        "description": "Preview feature: Create a workspace V2. The only supported value is true.",
+                        "description": "(Preview feature) Whether to create a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace. The only supported value is `true`.",
                         "type": "boolean"
                     }
                 ],
@@ -12469,7 +12469,7 @@
                     {
                         "name": "modifiedSince",
                         "in": "query",
-                        "description": "Last modified date​ (must be in ISO 8601 compliant UTC format)",
+                        "description": "Last modified date (must be in ISO 8601 compliant UTC format)",
                         "required": false,
                         "type": "string",
                         "format": "date-time"
@@ -12477,7 +12477,7 @@
                     {
                         "name": "excludePersonalWorkspaces",
                         "in": "query",
-                        "description": "Whether to exclude personal workspaces​",
+                        "description": "Whether to exclude personal workspaces",
                         "required": false,
                         "type": "boolean"
                     }
@@ -19583,7 +19583,7 @@
                 },
                 "isOnDedicatedCapacity": {
                     "type": "boolean",
-                    "description": "Whether the workspace is on dedicated capacity"
+                    "description": "Whether the workspace is assigned to a dedicated capacity"
                 },
                 "capacityId": {
                     "type": "string",
@@ -19681,7 +19681,7 @@
             "properties": {
                 "filePath": {
                     "type": "string",
-                    "description": "The path of the OneDrive for Business Excel (.xlsx) file to import, which can be absolute or relative. Power BI Desktop report (.pbix) files aren't supported."
+                    "description": "The path of the OneDrive for Business Excel (.xlsx) file to import, which can be absolute or relative. .pbix files aren't supported."
                 },
                 "connectionType": {
                     "type": "string",
@@ -19697,7 +19697,7 @@
                 },
                 "fileUrl": {
                     "type": "string",
-                    "description": "The shared access signature URL of the temporary blob storage used to import large Power BI Desktop report (.pbix) files between 1 GB and 10 GB in size."
+                    "description": "The shared access signature URL of the temporary blob storage used to import large .pbix files between 1 GB and 10 GB in size."
                 }
             }
         },
@@ -19817,11 +19817,11 @@
                 },
                 "IsEffectiveIdentityRolesRequired": {
                     "type": "boolean",
-                    "description": "Whether row-level security is defined inside the Power BI Desktop report (.pbix) file. If so, you must specify a role."
+                    "description": "Whether row-level security is defined inside the .pbix file. If so, you must specify a role."
                 },
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
-                    "description": "The dataset requires an on-premises data gateway"
+                    "description": "Whether the dataset requires an on-premises data gateway"
                 },
                 "Encryption": {
                     "$ref": "#/definitions/Encryption",
@@ -20349,7 +20349,7 @@
                 },
                 "isHidden": {
                     "type": "boolean",
-                    "description": "(Optional) Property indicating if the column is hidden from view. Default is false."
+                    "description": "(Optional) Whether the column is hidden. The default is `false`."
                 },
                 "summarizeBy": {
                     "type": "string",
@@ -20392,7 +20392,7 @@
                 },
                 "isHidden": {
                     "type": "boolean",
-                    "description": "(Optional) Is measure hidden"
+                    "description": "(Optional) Whether the measure is hidden"
                 }
             }
         },
@@ -21424,11 +21424,11 @@
             "properties": {
                 "isReadOnly": {
                     "type": "boolean",
-                    "description": "Is the group read only"
+                    "description": "Whether the group is read-only"
                 },
                 "isOnDedicatedCapacity": {
                     "type": "boolean",
-                    "description": "Is the group on dedicated capacity"
+                    "description": "Whether the group is assigned to a dedicated capacity"
                 },
                 "capacityId": {
                     "type": "string",
@@ -21616,29 +21616,29 @@
                 },
                 "isEnabled": {
                     "type": "boolean",
-                    "description": "subscription Enabled or not"
+                    "description": "Whether the email subscription is enabled"
                 },
                 "frequency": {
                     "type": "string",
-                    "description": "Frequency of Email Subscription"
+                    "description": "The frequency of the email subscription"
                 },
                 "startDate": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The start date and time of subscription"
+                    "description": "The start date and time of the email subscription"
                 },
                 "endDate": {
                     "type": "string",
                     "format": "date-time",
-                    "description": "The start date and time of subscription"
+                    "description": "The end date and time of the email subscription"
                 },
                 "linkToContent": {
                     "type": "boolean",
-                    "description": "subscription link exists in email subscription"
+                    "description": "Whether a subscription link exists in the email subscription"
                 },
                 "previewImage": {
                     "type": "boolean",
-                    "description": "screenshot of the report exists in email subscription"
+                    "description": "Whether a screenshot of the report exists in the email subscription"
                 },
                 "attachmentFormat": {
                     "type": "string",
@@ -21809,11 +21809,11 @@
                 },
                 "useCallerAADIdentity": {
                     "type": "boolean",
-                    "description": "Use to indicate that the Azure AD identity (OAuth 2.0 credentials) of the API caller (which must be the data source owner) will be used to configure data source credentials (the owner OAuth access token). Typically, you’d either use this flag or `useEndUserOAuth2Credentials`."
+                    "description": "Whether the Azure AD identity (OAuth 2.0 credentials) of the API caller (which must be the data source owner) will be used to configure data source credentials (the owner OAuth access token). Typically, you would either use this flag or `useEndUserOAuth2Credentials`."
                 },
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth 2.0 credentials) is used for connecting to the data source in DirectQuery mode. Typically, you’d either use this flag or `useCallerAADIdentity`."
+                    "description": "Whether the end-user Azure AD identity (OAuth 2.0 credentials) is used when connecting to the data source in DirectQuery mode. Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources). Typically, you would either use this flag or `useCallerAADIdentity`."
                 }
             }
         },
@@ -21822,7 +21822,7 @@
             "properties": {
                 "useEndUserOAuth2Credentials": {
                     "type": "boolean",
-                    "description": "Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources) to indicate that the end-user Azure AD identity (OAuth 2.0 credentials) is used for connecting to the data source in DirectQuery mode."
+                    "description": "Whether the end-user Azure AD identity (OAuth 2.0 credentials) is used when connecting to the data source in DirectQuery mode. Use with data sources that support [single sign-on (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)."
                 }
             }
         },
@@ -22301,11 +22301,11 @@
             "required": [
                 "appUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for app",
+            "description": "A Power BI user access right entry for an app",
             "properties": {
                 "appUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the app",
+                    "description": "The access right that the user has for the app",
                     "enum": [
                         "None",
                         "Read",
@@ -22416,11 +22416,11 @@
             "required": [
                 "capacityUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for capacity",
+            "description": "A Power BI user access right entry for a capacity",
             "properties": {
                 "capacityUserAccessRight": {
                     "type": "string",
-                    "description": "Access right user has on the capacity",
+                    "description": "The access right that the user has on the capacity",
                     "enum": [
                         "None",
                         "Assign",
@@ -22456,11 +22456,11 @@
             "required": [
                 "reportUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for report",
+            "description": "A Power BI user access right entry for a report",
             "properties": {
                 "reportUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the report (Permission level)",
+                    "description": "The access right that the user has for the report (permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -22511,11 +22511,11 @@
             "required": [
                 "dashboardUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for dashboard",
+            "description": "A Power BI user access right entry for a dashboard",
             "properties": {
                 "dashboardUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the dashboard (Permission level)",
+                    "description": "The access right that the user has for the dashboard (permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -22566,11 +22566,11 @@
             "required": [
                 "datasetUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for dataset",
+            "description": "A Power BI user access right entry for a dataset",
             "properties": {
                 "datasetUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the dataset (Permission level)",
+                    "description": "The access right that the user has for the dataset (permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -22642,7 +22642,7 @@
             "properties": {
                 "accessRight": {
                     "type": "string",
-                    "description": "(Required) The access right a user has for the dataset",
+                    "description": "(Required) The access right that a user has for the dataset",
                     "enum": [
                         "Read",
                         "ReadReshare",
@@ -22685,11 +22685,11 @@
             "required": [
                 "dataflowUserAccessRight"
             ],
-            "description": "A Power BI user access right entry for dataflow",
+            "description": "A Power BI user access right entry for a dataflow",
             "properties": {
                 "DataflowUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights user has for the dataflow (Permission level)",
+                    "description": "The access right that a user has for the dataflow (permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -25355,7 +25355,7 @@
                 },
                 "allowTakeOver": {
                     "type": "boolean",
-                    "description": "Allow overriding the previous paginated report owner and becoming the owner of the paginated report. Applicable when deploying a paginated report to a stage that already contains a copy of the paginated report that isn't owned by you. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
+                    "description": "Whether to allow overriding the previous paginated report owner and becoming the owner of the paginated report. Applicable when deploying a paginated report to a stage that already contains a copy of the paginated report that isn't owned by you. If this option isn't set to `true` when it's required for deployment, the deployment will fail."
                 },
                 "allowOverwriteTargetArtifactLabel": {
                     "type": "boolean",
@@ -25857,7 +25857,7 @@
                     "type": "string"
                 },
                 "hasStatusRules": {
-                    "description": "True when the goal has status rules defined.",
+                    "description": "Whether the goal has status rules defined",
                     "type": "boolean"
                 },
                 "statusRules": {
@@ -26222,7 +26222,7 @@
                     }
                 },
                 "show": {
-                    "description": "True if the column should be visible on the scorecard.",
+                    "description": "Whether the column should be visible on the scorecard",
                     "type": "boolean"
                 }
             }

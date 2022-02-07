@@ -43,8 +43,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="valuesFormatString">valuesFormatString</param>
         /// <param name="datesFormatString">datesFormatString</param>
         /// <param name="description">The goal description</param>
-        /// <param name="hasStatusRules">True when the goal has status rules
-        /// defined.</param>
+        /// <param name="hasStatusRules">Whether the goal has status rules
+        /// defined</param>
         /// <param name="statusRules">The goal status rules</param>
         /// <param name="permissions">The goal permissions. Possible values
         /// include: 'None', 'View', 'UpdateCurrentValue', 'UpdateTargetValue',
@@ -166,7 +166,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets true when the goal has status rules defined.
+        /// Gets or sets whether the goal has status rules defined
         /// </summary>
         [JsonProperty(PropertyName = "hasStatusRules")]
         public bool? HasStatusRules { get; set; }

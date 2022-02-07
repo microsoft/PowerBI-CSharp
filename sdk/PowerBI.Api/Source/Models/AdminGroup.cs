@@ -29,9 +29,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="id">The workspace ID</param>
         /// <param name="name">The group name</param>
-        /// <param name="isReadOnly">Is the group read only</param>
-        /// <param name="isOnDedicatedCapacity">Is the group on dedicated
-        /// capacity</param>
+        /// <param name="isReadOnly">Whether the group is read-only</param>
+        /// <param name="isOnDedicatedCapacity">Whether the group is assigned
+        /// to a dedicated capacity</param>
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
@@ -97,13 +97,13 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets is the group read only
+        /// Gets or sets whether the group is read-only
         /// </summary>
         [JsonProperty(PropertyName = "isReadOnly")]
         public bool? IsReadOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets is the group on dedicated capacity
+        /// Gets or sets whether the group is assigned to a dedicated capacity
         /// </summary>
         [JsonProperty(PropertyName = "isOnDedicatedCapacity")]
         public bool? IsOnDedicatedCapacity { get; set; }

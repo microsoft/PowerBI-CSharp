@@ -26,9 +26,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasetUserAccess class.
         /// </summary>
-        /// <param name="accessRight">(Required) The access right a user has
-        /// for the dataset. Possible values include: 'Read', 'ReadReshare',
-        /// 'ReadExplore', 'ReadReshareExplore'</param>
+        /// <param name="accessRight">(Required) The access right that a user
+        /// has for the dataset. Possible values include: 'Read',
+        /// 'ReadReshare', 'ReadExplore', 'ReadReshareExplore'</param>
         /// <param name="identifier">For the principal type `User`, provide the
         /// user principal name (UPN). Otherwise, provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Required) The access right a user has for the
+        /// Gets or sets (Required) The access right that a user has for the
         /// dataset. Possible values include: 'Read', 'ReadReshare',
         /// 'ReadExplore', 'ReadReshareExplore'
         /// </summary>

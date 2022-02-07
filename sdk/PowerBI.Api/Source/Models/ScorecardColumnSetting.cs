@@ -30,8 +30,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// scorecard control or scorecard Web UI page. Possible values
         /// include: 'Name', 'Owner', 'Status', 'Value', 'Progress', 'DueDate',
         /// 'Notes'</param>
-        /// <param name="show">True if the column should be visible on the
-        /// scorecard.</param>
+        /// <param name="show">Whether the column should be visible on the
+        /// scorecard</param>
         public ScorecardColumnSetting(ScorecardColumnId columnId, bool show)
         {
             ColumnId = columnId;
@@ -53,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Models
         public ScorecardColumnId ColumnId { get; set; }
 
         /// <summary>
-        /// Gets or sets true if the column should be visible on the scorecard.
+        /// Gets or sets whether the column should be visible on the scorecard
         /// </summary>
         [JsonProperty(PropertyName = "show")]
         public bool Show { get; set; }

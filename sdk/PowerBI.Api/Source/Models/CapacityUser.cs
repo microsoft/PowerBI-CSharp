@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for capacity
+    /// A Power BI user access right entry for a capacity
     /// </summary>
     public partial class CapacityUser : User
     {
@@ -28,9 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="identifier">Identifier of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="capacityUserAccessRight">Access right user has on the
-        /// capacity. Possible values include: 'None', 'Assign',
-        /// 'Admin'</param>
+        /// <param name="capacityUserAccessRight">The access right that the
+        /// user has on the capacity. Possible values include: 'None',
+        /// 'Assign', 'Admin'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
@@ -48,8 +48,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access right user has on the capacity. Possible values
-        /// include: 'None', 'Assign', 'Admin'
+        /// Gets or sets the access right that the user has on the capacity.
+        /// Possible values include: 'None', 'Assign', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]
         public CapacityUserAccessRight CapacityUserAccessRight { get; set; }

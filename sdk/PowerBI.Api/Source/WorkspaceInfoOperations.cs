@@ -600,10 +600,10 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='modifiedSince'>
-        /// Last modified date​ (must be in ISO 8601 compliant UTC format)
+        /// Last modified date (must be in ISO 8601 compliant UTC format)
         /// </param>
         /// <param name='excludePersonalWorkspaces'>
-        /// Whether to exclude personal workspaces​
+        /// Whether to exclude personal workspaces
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
