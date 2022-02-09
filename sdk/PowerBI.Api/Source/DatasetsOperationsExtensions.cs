@@ -262,8 +262,8 @@ namespace Microsoft.PowerBI.Api
             /// - One table request per query.
             /// - Maximum of 100,000 table rows per query.
             /// - Service Principals are not supported for datasets with RLS per [RLS
-            /// limitations](/admin/service-admin-rls#limitations) and user impersonation
-            /// is not supported.
+            /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
+            /// and user impersonation is not supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -330,8 +330,8 @@ namespace Microsoft.PowerBI.Api
             /// - One table request per query.
             /// - Maximum of 100,000 table rows per query.
             /// - Service Principals are not supported for datasets with RLS per [RLS
-            /// limitations](/admin/service-admin-rls#limitations) and user impersonation
-            /// is not supported.
+            /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
+            /// and user impersonation is not supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
