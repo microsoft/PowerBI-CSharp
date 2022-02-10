@@ -729,7 +729,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from **My workspace**.",
+                "summary": "Triggers a refresh for the specified dataset from **My workspace**. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has response headers which could be used to [get refresh execution details](/rest/api/power-bi/datasets/get-refresh-execution-details) or [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDataset",
                 "consumes": [
@@ -746,17 +746,29 @@
                         "type": "string"
                     },
                     {
-                        "name": "refreshRequest",
+                        "name": "datasetRefreshRequest",
                         "in": "body",
                         "required": false,
                         "schema": {
-                            "$ref": "#/definitions/RefreshRequest"
+                            "$ref": "#/definitions/DatasetRefreshRequest"
                         }
                     }
                 ],
                 "responses": {
                     "202": {
-                        "description": "Accepted"
+                        "description": "Accepted",
+                        "headers": {
+                            "x-ms-request-id": {
+                                "description": "The `refreshId` for [getting refresh execution details](#/operationId/Datasets_GetRefreshExecutionDetails) or [cancelling refresh](/rest/api/power-bi/datasets/cancel-refresh). This would be returned only if any request payload except `notifyOption` is set.",
+                                "type": "string",
+                                "format": "uuid"
+                            },
+                            "Location": {
+                                "description": "The full URI for [getting refresh execution details](#/operationId/Datasets_GetRefreshExecutionDetails) or [cancelling refresh](/rest/api/power-bi/datasets/cancel-refresh). This would be returned only if any request payload except `notifyOption` is set.",
+                                "type": "string",
+                                "format": "url"
+                            }
+                        }
                     }
                 },
                 "x-ms-examples": {
@@ -764,11 +776,267 @@
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "refreshRequest": {
-                                "notifyOption": "MailOnFailure"
+                                "notifyOption": "MailOnFailure",
+                                "retryCount": 3
                             }
                         },
                         "responses": {
-                            "202": {}
+                            "202": {
+                                "headers": {
+                                    "x-ms-request-id": "03f22bb5-2e98-4ae8-8113-329bec3987b1",
+                                    "Location": "https://api.powerbi.com/v1.0/myorg/datasets/cfafbeb1-8037-4d0c-896e-a46fb27ff229/refreshes/03f22bb5-2e98-4ae8-8113-329bec3987b1"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/datasets/{datasetId}/refreshes/{refreshId}": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
+                "operationId": "Datasets_GetRefreshExecutionDetails",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "refreshId",
+                        "description": "The refresh ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK (this response is returned when the refresh operation has completed or failed)",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetRefreshDetail"
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted (this response is returned when the refresh operation is still in progress)",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetRefreshDetail"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "In progress refresh example": {
+                        "parameters": {
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "630110f5-8f93-49c2-afee-bfc87072460c"
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "startTime": "2021-12-14T03:46:04.833",
+                                    "type": "Full",
+                                    "commitMode": "Transactional",
+                                    "status": "Unknown",
+                                    "extendedStatus": "NotStarted",
+                                    "currentRefreshType": "Full",
+                                    "numberOfAttempts": 0
+                                }
+                            }
+                        }
+                    },
+                    "Completed refresh example": {
+                        "parameters": {
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "87f31ef7-1e3a-4006-9b0b-191693e79e9e"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "startTime": "2021-12-10T08:40:31.57",
+                                    "endTime": "2021-12-10T08:40:43.87",
+                                    "type": "Full",
+                                    "commitMode": "Transactional",
+                                    "status": "Completed",
+                                    "extendedStatus": "Completed",
+                                    "currentRefreshType": "Full",
+                                    "numberOfAttempts": 0,
+                                    "objects": [
+                                        {
+                                            "table": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067",
+                                            "partition": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067-ae306fb4-3b7e-4a41-824d-cb3b452fedfc",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051",
+                                            "partition": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051-59bc07f8-85c9-456a-ad36-18e1de4d77ed",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e",
+                                            "partition": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e-d95ae7f7-19c9-48a8-9c16-fcab26558bc2",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c",
+                                            "partition": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c-6606fc4c-4cda-49e1-8acd-e55a6ec36cb3",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimCurrency",
+                                            "partition": "DimCurrency-e5524cc4-a898-433b-91aa-c001b9a6d676",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimCustomer",
+                                            "partition": "DimCustomer-a31bbd93-e20a-4dee-a33c-7afa27785953",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d",
+                                            "partition": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d-06a48a0a-a32b-48a3-b113-924aafd6363c",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2",
+                                            "partition": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2-5b3ba715-7c84-4e52-b310-485b93cfbe6d",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimDate",
+                                            "partition": "DimDate-62e2f91b-53e5-4ed3-8618-fec74dba5e0d",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3",
+                                            "partition": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3-891a0e68-d414-4ba3-9c4b-e6f1ec73d4f3",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimProduct",
+                                            "partition": "DimProduct-3d07cc89-2bd7-4a98-bb37-3368c1562f98",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92",
+                                            "partition": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92-8596ebb8-418f-4e50-a921-dac88c6f1339",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0",
+                                            "partition": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0-13795c4e-708f-4ddc-8ea3-5a2f39ae2253",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimPromotion",
+                                            "partition": "DimPromotion-21e6c333-430e-4350-8c94-cdceb362c4c7",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8",
+                                            "partition": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8-395de144-ad53-41c0-9ec0-68bab6158d99",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71",
+                                            "partition": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71-891737ee-c46c-4b9f-bfa8-e4555004e20f",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimSalesTerritory",
+                                            "partition": "DimSalesTerritory-6d88f938-13d5-49f8-899c-d11b3d346ad5",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "FactInternetSales",
+                                            "status": "Completed"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Failed refresh example": {
+                        "parameters": {
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "351f7113-59bb-4e5e-8c1e-e15ae7414121"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "startTime": "2021-12-10T08:39:28.517",
+                                    "endTime": "2021-12-10T08:39:30.04",
+                                    "type": "Full",
+                                    "commitMode": "PartialBatch",
+                                    "status": "Failed",
+                                    "extendedStatus": "Failed",
+                                    "currentRefreshType": "Full",
+                                    "numberOfAttempts": 0,
+                                    "messages": [
+                                        {
+                                            "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
+                                            "type": "Error"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
+                "operationId": "Datasets_CancelRefresh",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "refreshId",
+                        "description": "The refresh ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "87f31ef7-1e3a-4006-9b0b-191693e79e9e"
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -4054,7 +4322,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from the specified workspace.",
+                "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has a response header, `Location`, which includes the `refreshId` and could be used to [get refresh execution details in group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group) or [cancel refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group).",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
@@ -4079,17 +4347,29 @@
                         "type": "string"
                     },
                     {
-                        "name": "refreshRequest",
+                        "name": "datasetRefreshRequest",
                         "in": "body",
                         "required": false,
                         "schema": {
-                            "$ref": "#/definitions/RefreshRequest"
+                            "$ref": "#/definitions/DatasetRefreshRequest"
                         }
                     }
                 ],
                 "responses": {
                     "202": {
-                        "description": "Accepted"
+                        "description": "Accepted",
+                        "headers": {
+                            "x-ms-request-id": {
+                                "description": "The `refreshId` for [getting refresh execution details in group](#/operationId/Datasets_GetRefreshExecutionDetailsInGroup) or [cancelling refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group). This would be returned only if any request payload except `notifyOption` is set.",
+                                "type": "string",
+                                "format": "url"
+                            },
+                            "Location": {
+                                "description": "The full URI for [getting refresh execution details in group](#/operationId/Datasets_GetRefreshExecutionDetailsInGroup) or [cancelling refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group). This would be returned only if any request payload except `notifyOption` is set.",
+                                "type": "string",
+                                "format": "url"
+                            }
+                        }
                     }
                 },
                 "x-ms-examples": {
@@ -4097,12 +4377,288 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "refreshRequest": {
-                                "notifyOption": "MailOnFailure"
+                            "datasetRefreshRequest": {
+                                "notifyOption": "MailOnFailure",
+                                "retryCount": 3
                             }
                         },
                         "responses": {
-                            "202": {}
+                            "202": {
+                                "headers": {
+                                    "x-ms-request-id": "87f31ef7-1e3a-4006-9b0b-191693e79e9e",
+                                    "Location": "https://api.powerbi.com/v1.0/myorg/groups/f089354e-8366-4e18-aea3-4cb4a3a50b48/datasets/cfafbeb1-8037-4d0c-896e-a46fb27ff229/refreshes/87f31ef7-1e3a-4006-9b0b-191693e79e9e"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshes/{refreshId}": {
+            "get": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
+                "operationId": "Datasets_GetRefreshExecutionDetailsInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "description": "The workspace ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "refreshId",
+                        "description": "The refresh ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK (this response is returned when the refresh operation has completed or failed)",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetRefreshDetail"
+                        }
+                    },
+                    "202": {
+                        "description": "Accepted (this response is returned when the refresh operation is still in progress)",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetRefreshDetail"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "In progress refresh example": {
+                        "parameters": {
+                            "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "630110f5-8f93-49c2-afee-bfc87072460c"
+                        },
+                        "responses": {
+                            "202": {
+                                "body": {
+                                    "startTime": "2021-12-14T03:46:04.833",
+                                    "type": "Full",
+                                    "commitMode": "Transactional",
+                                    "status": "Unknown",
+                                    "extendedStatus": "NotStarted",
+                                    "currentRefreshType": "Full",
+                                    "numberOfAttempts": 0
+                                }
+                            }
+                        }
+                    },
+                    "Completed refresh example": {
+                        "parameters": {
+                            "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "87f31ef7-1e3a-4006-9b0b-191693e79e9e"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "startTime": "2021-12-10T08:40:31.57",
+                                    "endTime": "2021-12-10T08:40:43.87",
+                                    "type": "Full",
+                                    "commitMode": "Transactional",
+                                    "status": "Completed",
+                                    "extendedStatus": "Completed",
+                                    "currentRefreshType": "Full",
+                                    "numberOfAttempts": 0,
+                                    "objects": [
+                                        {
+                                            "table": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067",
+                                            "partition": "DateTableTemplate_78e78207-b3fb-41b5-8b95-e5efca989067-ae306fb4-3b7e-4a41-824d-cb3b452fedfc",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051",
+                                            "partition": "LocalDateTable_e9d8a66b-4018-4d16-be8c-402b2037c051-59bc07f8-85c9-456a-ad36-18e1de4d77ed",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e",
+                                            "partition": "LocalDateTable_55935f6b-04d1-4cfe-8856-ed9f9e73ab2e-d95ae7f7-19c9-48a8-9c16-fcab26558bc2",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c",
+                                            "partition": "LocalDateTable_ff25f80e-eb04-4229-986d-b40223c04f1c-6606fc4c-4cda-49e1-8acd-e55a6ec36cb3",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimCurrency",
+                                            "partition": "DimCurrency-e5524cc4-a898-433b-91aa-c001b9a6d676",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimCustomer",
+                                            "partition": "DimCustomer-a31bbd93-e20a-4dee-a33c-7afa27785953",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d",
+                                            "partition": "LocalDateTable_fa65a206-f320-4d5d-abcc-1dc0f051ca7d-06a48a0a-a32b-48a3-b113-924aafd6363c",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2",
+                                            "partition": "LocalDateTable_78a4e1b7-a2e5-4bbf-ab68-7c87961b68a2-5b3ba715-7c84-4e52-b310-485b93cfbe6d",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimDate",
+                                            "partition": "DimDate-62e2f91b-53e5-4ed3-8618-fec74dba5e0d",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3",
+                                            "partition": "LocalDateTable_e72c294f-0a06-4051-b943-e6bf8389e2c3-891a0e68-d414-4ba3-9c4b-e6f1ec73d4f3",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimProduct",
+                                            "partition": "DimProduct-3d07cc89-2bd7-4a98-bb37-3368c1562f98",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92",
+                                            "partition": "LocalDateTable_e37e4431-8c1a-449c-8796-b704df200a92-8596ebb8-418f-4e50-a921-dac88c6f1339",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0",
+                                            "partition": "LocalDateTable_73faffeb-a0c7-4ea1-83dc-530823b0fea0-13795c4e-708f-4ddc-8ea3-5a2f39ae2253",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimPromotion",
+                                            "partition": "DimPromotion-21e6c333-430e-4350-8c94-cdceb362c4c7",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8",
+                                            "partition": "LocalDateTable_9c19746b-db7d-4b7e-b95d-c66e4b8fefc8-395de144-ad53-41c0-9ec0-68bab6158d99",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71",
+                                            "partition": "LocalDateTable_d96435dd-6110-4246-996c-616c96125e71-891737ee-c46c-4b9f-bfa8-e4555004e20f",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "DimSalesTerritory",
+                                            "partition": "DimSalesTerritory-6d88f938-13d5-49f8-899c-d11b3d346ad5",
+                                            "status": "Completed"
+                                        },
+                                        {
+                                            "table": "FactInternetSales",
+                                            "status": "Completed"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Failed refresh example": {
+                        "parameters": {
+                            "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "351f7113-59bb-4e5e-8c1e-e15ae7414121"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "startTime": "2021-12-10T08:39:28.517",
+                                    "endTime": "2021-12-10T08:39:30.04",
+                                    "type": "Full",
+                                    "commitMode": "PartialBatch",
+                                    "status": "Failed",
+                                    "extendedStatus": "Failed",
+                                    "currentRefreshType": "Full",
+                                    "numberOfAttempts": 0,
+                                    "messages": [
+                                        {
+                                            "message": "RefreshApiRequest for table refresh using refresh policy must have the property 'CommitMode' = 'Transactional' instead of 'PartialBatch'.",
+                                            "type": "Error"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
+                "operationId": "Datasets_CancelRefreshInGroup",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "description": "The workspace ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "refreshId",
+                        "description": "The refresh ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "example": {
+                        "parameters": {
+                            "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
+                            "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
+                            "refreshId": "87f31ef7-1e3a-4006-9b0b-191693e79e9e"
+                        },
+                        "responses": {
+                            "200": {}
                         }
                     }
                 },
@@ -21959,6 +22515,185 @@
             "required": [
                 "notifyOption"
             ]
+        },
+        "DatasetRefreshRequest": {
+            "description": "Power BI dataset refresh request",
+            "properties": {
+                "notifyOption": {
+                    "type": "string",
+                    "description": "Mail notification options",
+                    "enum": [
+                        "NoNotification",
+                        "MailOnFailure",
+                        "MailOnCompletion"
+                    ],
+                    "x-ms-enum": {
+                        "name": "NotifyOption",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "NoNotification",
+                                "description": "No notification will be sent"
+                            },
+                            {
+                                "value": "MailOnFailure",
+                                "description": "A mail notification will be sent on refresh failure"
+                            },
+                            {
+                                "value": "MailOnCompletion",
+                                "description": "A mail notification indicating success or failure will be sent on refresh completion"
+                            }
+                        ]
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of processing to perform",
+                    "enum": [
+                        "Full",
+                        "ClearValues",
+                        "Calculate",
+                        "DataOnly",
+                        "Automatic",
+                        "Defragment"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetRefreshType",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Full",
+                                "description": "For all partitions in the specified partition, table, or database, refresh data and recalculate all dependents. For a calculation partition, recalculate the partition and all its dependents."
+                            },
+                            {
+                                "value": "ClearValues",
+                                "description": "Clear values in this object and all its dependents"
+                            },
+                            {
+                                "value": "Calculate",
+                                "description": "Recalculate this object and all its dependents, but only if needed. This value does not force recalculation, except for volatile formulas."
+                            },
+                            {
+                                "value": "DataOnly",
+                                "description": "Refresh data in this object and clear all dependents"
+                            },
+                            {
+                                "value": "Automatic",
+                                "description": "If the object needs to be refreshed and recalculated, refresh and recalculate the object and all its dependents. Applies if the partition is in a state other than Ready."
+                            },
+                            {
+                                "value": "Defragment",
+                                "description": "Defragment the data in the specified table. As data is added to or removed from a table, the dictionaries of each column can become polluted with values that no longer exist in the actual column values. The defragment option will clean up the values in the dictionaries that are no longer used."
+                            }
+                        ]
+                    }
+                },
+                "commitMode": {
+                    "type": "string",
+                    "description": "Determines if objects will be committed in batches or only when complete",
+                    "enum": [
+                        "Transactional",
+                        "PartialBatch"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetCommitMode",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Transactional",
+                                "description": "Commit the whole refresh operation as a transaction"
+                            },
+                            {
+                                "value": "PartialBatch",
+                                "description": "Commit the refresh operation in batches"
+                            }
+                        ]
+                    }
+                },
+                "maxParallelism": {
+                    "type": "integer",
+                    "description": "The maximum number of threads on which to run parallel processing commands"
+                },
+                "retryCount": {
+                    "type": "integer",
+                    "description": "Number of times the operation will retry before failing"
+                },
+                "objects": {
+                    "type": "array",
+                    "description": "An array of objects to be processed",
+                    "items": {
+                        "$ref": "#/definitions/DatasetRefreshObjects"
+                    }
+                },
+                "applyRefreshPolicy": {
+                    "type": "boolean",
+                    "description": "Determine if the policy is applied or not"
+                },
+                "effectiveDate": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "If an incremental refresh policy is applied, the `effectiveDate` parameter overrides the current date."
+                }
+            },
+            "required": [
+                "notifyOption"
+            ]
+        },
+        "DatasetRefreshObjects": {
+            "description": "Power BI dataset refresh target",
+            "properties": {
+                "table": {
+                    "type": "string",
+                    "description": "Table to refresh"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Partition to refresh"
+                }
+            }
+        },
+        "DatasetRefreshDetail": {
+            "description": "A Power BI refresh detail entry",
+            "properties": {
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start date and time of the refresh"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The end date and time of the refresh (may be empty if a refresh is in progress)"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of processing to perform",
+                    "enum": [
+                        "Full",
+                        "ClearValues",
+                        "Calculate",
+                        "DataOnly",
+                        "Automatic",
+                        "Defragment"
+                    ]
+                },
+                "commitMode": {
+                    "type": "string",
+                    "description": "Determines if objects will be committed in batches or only when complete",
+                    "enum": [
+                        "Transactional",
+                        "PartialBatch"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "description": "- `Unknown` if the completion state is unknown or a refresh is in progress.\n- `Completed` for a successfully completed refresh.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh."
+                },
+                "extendedStatus": {
+                    "type": "string",
+                    "description": "- `Unknown` if the completion state is unknown.\n- `NotStarted` if the refresh operation is not started.\n- `InProgress` if the refresh operation is in progress.\n- `Completed` for a successfully completed refresh.\n- `TimedOut` if the refresh operation is timed out.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh.\n- `Cancelled` if the refresh operation has been cancelled by customer."
+                }
+            }
         },
         "RefreshScheduleRequest": {
             "required": [

@@ -681,7 +681,13 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataset from **My workspace**.
+            /// Triggers a refresh for the specified dataset from **My workspace**. An
+            /// [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would
+            /// be triggered only if any request payload except `notifyOption` is set.
+            /// Asynchronous refresh has response headers which could be used to [get
+            /// refresh execution
+            /// details](/rest/api/power-bi/datasets/get-refresh-execution-details) or
+            /// [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).
             /// </summary>
             /// <remarks>
             ///
@@ -705,15 +711,21 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasetId'>
             /// The dataset ID
             /// </param>
-            /// <param name='refreshRequest'>
+            /// <param name='datasetRefreshRequest'>
             /// </param>
-            public static void RefreshDataset(this IDatasetsOperations operations, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest))
+            public static DatasetsRefreshDatasetHeaders RefreshDataset(this IDatasetsOperations operations, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest))
             {
-                operations.RefreshDatasetAsync(datasetId, refreshRequest).GetAwaiter().GetResult();
+                return operations.RefreshDatasetAsync(datasetId, datasetRefreshRequest).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Triggers a refresh for the specified dataset from **My workspace**.
+            /// Triggers a refresh for the specified dataset from **My workspace**. An
+            /// [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would
+            /// be triggered only if any request payload except `notifyOption` is set.
+            /// Asynchronous refresh has response headers which could be used to [get
+            /// refresh execution
+            /// details](/rest/api/power-bi/datasets/get-refresh-execution-details) or
+            /// [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).
             /// </summary>
             /// <remarks>
             ///
@@ -737,14 +749,138 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasetId'>
             /// The dataset ID
             /// </param>
-            /// <param name='refreshRequest'>
+            /// <param name='datasetRefreshRequest'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RefreshDatasetAsync(this IDatasetsOperations operations, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DatasetsRefreshDatasetHeaders> RefreshDatasetAsync(this IDatasetsOperations operations, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RefreshDatasetWithHttpMessagesAsync(datasetId, refreshRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.RefreshDatasetWithHttpMessagesAsync(datasetId, datasetRefreshRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Headers;
+                }
+            }
+
+            /// <summary>
+            /// Returns execution details of an [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            public static DatasetRefreshDetail GetRefreshExecutionDetails(this IDatasetsOperations operations, System.Guid datasetId, System.Guid refreshId)
+            {
+                return operations.GetRefreshExecutionDetailsAsync(datasetId, refreshId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns execution details of an [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DatasetRefreshDetail> GetRefreshExecutionDetailsAsync(this IDatasetsOperations operations, System.Guid datasetId, System.Guid refreshId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshExecutionDetailsWithHttpMessagesAsync(datasetId, refreshId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Cancels the specified [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            public static void CancelRefresh(this IDatasetsOperations operations, System.Guid datasetId, System.Guid refreshId)
+            {
+                operations.CancelRefreshAsync(datasetId, refreshId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Cancels the specified [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task CancelRefreshAsync(this IDatasetsOperations operations, System.Guid datasetId, System.Guid refreshId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.CancelRefreshWithHttpMessagesAsync(datasetId, refreshId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -2466,6 +2602,13 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Triggers a refresh for the specified dataset from the specified workspace.
+            /// An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh)
+            /// would be triggered only if any request payload except `notifyOption` is
+            /// set. Asynchronous refresh has a response header, `Location`, which includes
+            /// the `refreshId` and could be used to [get refresh execution details in
+            /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group)
+            /// or [cancel refresh in
+            /// group](/rest/api/power-bi/datasets/cancel-refresh-in-group).
             /// </summary>
             /// <remarks>
             ///
@@ -2492,15 +2635,22 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasetId'>
             /// The dataset ID
             /// </param>
-            /// <param name='refreshRequest'>
+            /// <param name='datasetRefreshRequest'>
             /// </param>
-            public static void RefreshDatasetInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest))
+            public static DatasetsRefreshDatasetInGroupHeaders RefreshDatasetInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest))
             {
-                operations.RefreshDatasetInGroupAsync(groupId, datasetId, refreshRequest).GetAwaiter().GetResult();
+                return operations.RefreshDatasetInGroupAsync(groupId, datasetId, datasetRefreshRequest).GetAwaiter().GetResult();
             }
 
             /// <summary>
             /// Triggers a refresh for the specified dataset from the specified workspace.
+            /// An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh)
+            /// would be triggered only if any request payload except `notifyOption` is
+            /// set. Asynchronous refresh has a response header, `Location`, which includes
+            /// the `refreshId` and could be used to [get refresh execution details in
+            /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group)
+            /// or [cancel refresh in
+            /// group](/rest/api/power-bi/datasets/cancel-refresh-in-group).
             /// </summary>
             /// <remarks>
             ///
@@ -2527,14 +2677,150 @@ namespace Microsoft.PowerBI.Api
             /// <param name='datasetId'>
             /// The dataset ID
             /// </param>
-            /// <param name='refreshRequest'>
+            /// <param name='datasetRefreshRequest'>
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RefreshDatasetInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<DatasetsRefreshDatasetInGroupHeaders> RefreshDatasetInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, refreshRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, datasetRefreshRequest, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Headers;
+                }
+            }
+
+            /// <summary>
+            /// Returns execution details of an [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            public static DatasetRefreshDetail GetRefreshExecutionDetailsInGroup(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId)
+            {
+                return operations.GetRefreshExecutionDetailsInGroupAsync(groupId, datasetId, refreshId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns execution details of an [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All or Dataset.Read.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<DatasetRefreshDetail> GetRefreshExecutionDetailsInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.GetRefreshExecutionDetailsInGroupWithHttpMessagesAsync(groupId, datasetId, refreshId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Cancels the specified [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            public static void CancelRefreshInGroup(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId)
+            {
+                operations.CancelRefreshInGroupAsync(groupId, datasetId, refreshId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Cancels the specified [asynchronous refresh
+            /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+            /// dataset from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required scope
+            ///
+            /// Dataset.ReadWrite.All
+            ///
+            /// ######
+            ///
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='refreshId'>
+            /// The refresh ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task CancelRefreshInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.CancelRefreshInGroupWithHttpMessagesAsync(groupId, datasetId, refreshId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

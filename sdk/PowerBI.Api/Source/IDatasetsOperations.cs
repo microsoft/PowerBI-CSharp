@@ -399,6 +399,13 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryWithHttpMessagesAsync(string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Triggers a refresh for the specified dataset from **My workspace**.
+        /// An [asynchronous
+        /// refresh](/power-bi/connect-data/asynchronous-refresh) would be
+        /// triggered only if any request payload except `notifyOption` is set.
+        /// Asynchronous refresh has response headers which could be used to
+        /// [get refresh execution
+        /// details](/rest/api/power-bi/datasets/get-refresh-execution-details)
+        /// or [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).
         /// </summary>
         /// <remarks>
         ///
@@ -419,7 +426,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasetId'>
         /// The dataset ID
         /// </param>
-        /// <param name='refreshRequest'>
+        /// <param name='datasetRefreshRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -433,7 +440,70 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> RefreshDatasetWithHttpMessagesAsync(string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<DatasetsRefreshDatasetHeaders>> RefreshDatasetWithHttpMessagesAsync(string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns execution details of an [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the
+        /// specified dataset from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsWithHttpMessagesAsync(System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Cancels the specified [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the
+        /// specified dataset from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> CancelRefreshWithHttpMessagesAsync(System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh schedule for the specified dataset from **My
         /// workspace**.
@@ -1407,7 +1477,15 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Triggers a refresh for the specified dataset from the specified
-        /// workspace.
+        /// workspace. An [asynchronous
+        /// refresh](/power-bi/connect-data/asynchronous-refresh) would be
+        /// triggered only if any request payload except `notifyOption` is set.
+        /// Asynchronous refresh has a response header, `Location`, which
+        /// includes the `refreshId` and could be used to [get refresh
+        /// execution details in
+        /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group)
+        /// or [cancel refresh in
+        /// group](/rest/api/power-bi/datasets/cancel-refresh-in-group).
         /// </summary>
         /// <remarks>
         ///
@@ -1431,7 +1509,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasetId'>
         /// The dataset ID
         /// </param>
-        /// <param name='refreshRequest'>
+        /// <param name='datasetRefreshRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1445,7 +1523,76 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationHeaderResponse<DatasetsRefreshDatasetInGroupHeaders>> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns execution details of an [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the
+        /// specified dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Cancels the specified [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the
+        /// specified dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> CancelRefreshInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the refresh schedule for the specified dataset from the
         /// specified workspace.

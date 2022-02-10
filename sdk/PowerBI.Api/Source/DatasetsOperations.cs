@@ -1659,7 +1659,13 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Triggers a refresh for the specified dataset from **My workspace**.
+        /// Triggers a refresh for the specified dataset from **My workspace**. An
+        /// [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would
+        /// be triggered only if any request payload except `notifyOption` is set.
+        /// Asynchronous refresh has response headers which could be used to [get
+        /// refresh execution
+        /// details](/rest/api/power-bi/datasets/get-refresh-execution-details) or
+        /// [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).
         /// </summary>
         /// <remarks>
         ///
@@ -1680,7 +1686,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasetId'>
         /// The dataset ID
         /// </param>
-        /// <param name='refreshRequest'>
+        /// <param name='datasetRefreshRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1700,15 +1706,15 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> RefreshDatasetWithHttpMessagesAsync(string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationHeaderResponse<DatasetsRefreshDatasetHeaders>> RefreshDatasetWithHttpMessagesAsync(string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
             }
-            if (refreshRequest != null)
+            if (datasetRefreshRequest != null)
             {
-                refreshRequest.Validate();
+                datasetRefreshRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1718,7 +1724,7 @@ namespace Microsoft.PowerBI.Api
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("datasetId", datasetId);
-                tracingParameters.Add("refreshRequest", refreshRequest);
+                tracingParameters.Add("datasetRefreshRequest", datasetRefreshRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RefreshDataset", tracingParameters);
             }
@@ -1748,9 +1754,9 @@ namespace Microsoft.PowerBI.Api
 
             // Serialize Request
             string _requestContent = null;
-            if(refreshRequest != null)
+            if(datasetRefreshRequest != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(refreshRequest, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetRefreshRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1775,6 +1781,312 @@ namespace Microsoft.PowerBI.Api
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
             if ((int)_statusCode != 202)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationHeaderResponse<DatasetsRefreshDatasetHeaders>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            try
+            {
+                _result.Headers = _httpResponse.GetHeadersAsJson().ToObject<DatasetsRefreshDatasetHeaders>(JsonSerializer.Create(Client.DeserializationSettings));
+            }
+            catch (JsonException ex)
+            {
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw new SerializationException("Unable to deserialize the headers.", _httpResponse.GetHeadersAsJson().ToString(), ex);
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns execution details of an [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+        /// dataset from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsWithHttpMessagesAsync(System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("refreshId", refreshId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetRefreshExecutionDetails", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/refreshes/{refreshId}").ToString();
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{refreshId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(refreshId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200 && (int)_statusCode != 202)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<DatasetRefreshDetail>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DatasetRefreshDetail>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 202)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DatasetRefreshDetail>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Cancels the specified [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+        /// dataset from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// The limit on the number of time slots per day depends on whether a
+        /// [Premium](/power-bi/admin/service-premium-what-is) or Shared capacity is
+        /// used.
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse> CancelRefreshWithHttpMessagesAsync(System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("refreshId", refreshId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "CancelRefresh", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/refreshes/{refreshId}").ToString();
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{refreshId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(refreshId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("DELETE");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 if (_httpResponse.Content != null) {
@@ -1975,12 +2287,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// The limit on the number of time slots per day depends on whether a
-        /// [Premium](/power-bi/admin/service-premium-what-is) or Shared capacity is
-        /// used.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2125,7 +2431,13 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Datasets with SQL, Oracle, Teradata, and SAP HANA
+        /// [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections
+        /// aren't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2286,6 +2598,24 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Datasets created using the public [XMLA
+        /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
+        /// To make changes to those data sources, the admin must use the Azure
+        /// Analysis Services client library for Tabular Object Model.
+        /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
+        /// connections are only supported with [enhanced dataset
+        /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
+        /// - Datasets with Azure Analysis Services live connections aren't supported.
+        /// - Maximum of 100 parameters per request.
+        /// - All specified parameters must exist in the dataset.
+        /// - Parameters values should be of the expected type.
+        /// - The parameter list cannot be empty or include duplicate parameters.
+        /// - Parameters names are case-sensitive.
+        /// - Parameter `IsRequired` must have a non-empty value.
+        /// - The parameter types `Any` and `Binary` cannot be updated.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2428,13 +2758,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// Datasets with SQL, Oracle, Teradata, and SAP HANA
-        /// [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections
-        /// aren't supported.
+        /// Dataset.ReadWrite.All or Dataset.Read.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2611,14 +2935,14 @@ namespace Microsoft.PowerBI.Api
         /// - [DirectQuery](/power-bi/connect-data/desktop-directquery-about)
         /// connections are only supported with [enhanced dataset
         /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
-        /// - Datasets with Azure Analysis Services live connections aren't supported.
-        /// - Maximum of 100 parameters per request.
-        /// - All specified parameters must exist in the dataset.
-        /// - Parameters values should be of the expected type.
-        /// - The parameter list cannot be empty or include duplicate parameters.
-        /// - Parameters names are case-sensitive.
-        /// - Parameter `IsRequired` must have a non-empty value.
-        /// - The parameter types `Any` and `Binary` cannot be updated.
+        /// - For an Advanced Query that references multiple data sources, only the
+        /// first data source will be updated. To overcome this limitation, define the
+        /// data source as a parameter and use the [Update
+        /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2763,7 +3087,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2905,7 +3229,10 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Updates the data sources of the specified dataset from **My workspace**.
+        /// Binds the specified dataset from **My workspace** to the specified gateway,
+        /// optionally with a given set of data source IDs. If you don't supply a
+        /// specific data source ID, the dataset will be bound to the first matching
+        /// data source in the gateway.
         /// </summary>
         /// <remarks>
         ///
@@ -2930,28 +3257,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - Datasets created using the public [XMLA
-        /// endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported.
-        /// To make changes to those data sources, the admin must use the Azure
-        /// Analysis Services client library for Tabular Object Model.
-        /// - Only these data sources are supported: SQL Server, Azure SQL Server,
-        /// Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and
-        /// SAP HANA. For other data sources, use the [Update
-        /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
-        /// - Changing the data source type isn't supported.
-        /// - Data sources that contain parameters in the connection string aren't
-        /// supported.
-        /// - Updating data sources that are part of merged or joined tables is only
-        /// supported if you're using [enhanced dataset
-        /// metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).
-        /// - For an Advanced Query that references multiple data sources, only the
-        /// first data source will be updated. To overcome this limitation, define the
-        /// data source as a parameter and use the [Update
-        /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
-        ///
-        /// ## Required Scope
-        ///
-        /// Dataset.ReadWrite.All
+        /// Only supports the on-premises data gateway
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -3109,7 +3415,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All
+        /// Dataset.ReadWrite.All or Dataset.Read.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -3250,7 +3556,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Binds the specified dataset from **My workspace** to the specified gateway,
-        /// optionally with a given set of data source IDs. If you don't supply a
+        /// optionally with a given set of data source IDs. If you don’t supply a
         /// specific data source ID, the dataset will be bound to the first matching
         /// data source in the gateway.
         /// </summary>
@@ -3266,7 +3572,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Only supports the on-premises data gateway
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -3416,7 +3724,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -3569,7 +3879,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.Read.All
-        /// &lt;br&gt;&lt;br&gt;
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -3720,25 +4032,10 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Permissions
-        ///
-        /// The permissions for this API call are listed in [Datasets
-        /// permissions](/power-bi/developer/embedded/datasets-permissions).
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// - Only datasets in a [new workspace
-        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
-        /// that is to say a V2 workspace, are supported.
-        /// - This API call only supports adding permissions to principals who don't
-        /// have permissions to the dataset. It can't be used to change existing
-        /// dataset permissions.
-        /// - Adding permissions to service principals (app principalType) isn't
-        /// supported.
+        /// Dataset.Read.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -3892,26 +4189,23 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Permissions
-        ///
-        /// The permissions for this API call are listed in [Datasets
-        /// permissions](/power-bi/developer/embedded/datasets-permissions).
         ///
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
-        ///
         /// ## Limitations
         ///
         /// - Only datasets in a [new workspace
         /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
         /// that is to say a V2 workspace, or **My workspace** are supported.
-        /// - This API call only supports adding permissions to principals who don't
-        /// have permissions to the dataset. It can't be used to change existing
-        /// dataset permissions.
-        /// - Adding permissions to service principals (app principalType) isn't
-        /// supported.
-        /// &lt;br&gt;&lt;br&gt;
+        /// - This API only supports adding permissions to principals who don't have
+        /// permissions to the dataset. It cannot be used to change existing dataset
+        /// permissions.
+        /// - Adding permissions to service principals (app principalType) is not
+        /// supported
+        ///
+        /// ######
+        ///
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -4053,9 +4347,30 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// When user permissions to a dataset have been recently updated, the new
+        /// permissions might not be immediately available through API calls. To
+        /// refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        ///
+        /// ## Permissions
+        ///
+        /// The permissions for this API call are listed in [Datasets
+        /// permissions](/power-bi/developer/embedded/datasets-permissions).
+        ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+        /// that is to say a V2 workspace, are supported.
+        /// - This API call only supports adding permissions to principals who don't
+        /// have permissions to the dataset. It can't be used to change existing
+        /// dataset permissions.
+        /// - Adding permissions to service principals (app principalType) isn't
+        /// supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -4191,13 +4506,30 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// When user permissions to a dataset have been recently updated, the new
+        /// permissions might not be immediately available through API calls. To
+        /// refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        ///
+        /// ## Permissions
+        ///
+        /// The permissions for this API call are listed in [Datasets
+        /// permissions](/power-bi/developer/embedded/datasets-permissions).
+        ///
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
-        /// This API only supports **push datasets**.
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+        /// that is to say a V2 workspace, or **My workspace** are supported.
+        /// - This API call only supports adding permissions to principals who don't
+        /// have permissions to the dataset. It can't be used to change existing
+        /// dataset permissions.
+        /// - Adding permissions to service principals (app principalType) isn't
+        /// supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -4529,7 +4861,11 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All or Dataset.Read.All
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// This API only supports **push datasets**.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -4682,7 +5018,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All
+        /// Dataset.ReadWrite.All or Dataset.Read.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -4815,9 +5151,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// ## Limitations
-        ///
-        /// This API only supports **push datasets**.
+        /// Dataset.ReadWrite.All or Dataset.Read.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -4972,10 +5306,6 @@ namespace Microsoft.PowerBI.Api
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// This API only supports **push datasets**.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -5160,9 +5490,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - This API only supports **push datasets**.
-        /// - See [Power BI REST API
-        /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
+        /// This API only supports **push datasets**.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -5468,7 +5796,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// OneDrive refresh history isn't returned.
+        /// - This API only supports **push datasets**.
+        /// - See [Power BI REST API
+        /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -5634,6 +5964,13 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Triggers a refresh for the specified dataset from the specified workspace.
+        /// An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh)
+        /// would be triggered only if any request payload except `notifyOption` is
+        /// set. Asynchronous refresh has a response header, `Location`, which includes
+        /// the `refreshId` and could be used to [get refresh execution details in
+        /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group)
+        /// or [cancel refresh in
+        /// group](/rest/api/power-bi/datasets/cancel-refresh-in-group).
         /// </summary>
         /// <remarks>
         ///
@@ -5643,12 +5980,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day, which
-        /// includes refreshes executed using a scheduled refresh.
-        /// - For Premium capacities, the maximum requests per day is only limited by
-        /// the available resources in the capacity. If available resources are
-        /// overloaded, refreshes are throttled until the load is reduced. The refresh
-        /// will fail if throttling exceeds 1 hour.
+        /// This API only supports **push datasets**.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -5657,7 +5989,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasetId'>
         /// The dataset ID
         /// </param>
-        /// <param name='refreshRequest'>
+        /// <param name='datasetRefreshRequest'>
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5677,15 +6009,15 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, RefreshRequest refreshRequest = default(RefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationHeaderResponse<DatasetsRefreshDatasetInGroupHeaders>> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
             }
-            if (refreshRequest != null)
+            if (datasetRefreshRequest != null)
             {
-                refreshRequest.Validate();
+                datasetRefreshRequest.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -5696,7 +6028,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("datasetId", datasetId);
-                tracingParameters.Add("refreshRequest", refreshRequest);
+                tracingParameters.Add("datasetRefreshRequest", datasetRefreshRequest);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RefreshDatasetInGroup", tracingParameters);
             }
@@ -5727,9 +6059,9 @@ namespace Microsoft.PowerBI.Api
 
             // Serialize Request
             string _requestContent = null;
-            if(refreshRequest != null)
+            if(datasetRefreshRequest != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(refreshRequest, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(datasetRefreshRequest, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -5754,6 +6086,329 @@ namespace Microsoft.PowerBI.Api
             cancellationToken.ThrowIfCancellationRequested();
             string _responseContent = null;
             if ((int)_statusCode != 202)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationHeaderResponse<DatasetsRefreshDatasetInGroupHeaders>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            try
+            {
+                _result.Headers = _httpResponse.GetHeadersAsJson().ToObject<DatasetsRefreshDatasetInGroupHeaders>(JsonSerializer.Create(Client.DeserializationSettings));
+            }
+            catch (JsonException ex)
+            {
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw new SerializationException("Unable to deserialize the headers.", _httpResponse.GetHeadersAsJson().ToString(), ex);
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Returns execution details of an [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+        /// dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// OneDrive refresh history isn't returned.
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("refreshId", refreshId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "GetRefreshExecutionDetailsInGroup", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshes/{refreshId}").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{refreshId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(refreshId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("GET");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200 && (int)_statusCode != 202)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse<DatasetRefreshDetail>();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DatasetRefreshDetail>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            // Deserialize Response
+            if ((int)_statusCode == 202)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<DatasetRefreshDetail>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Cancels the specified [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+        /// dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - For Shared capacities, a maximum of eight requests per day, which
+        /// includes refreshes executed using a scheduled refresh.
+        /// - For Premium capacities, the maximum requests per day is only limited by
+        /// the available resources in the capacity. If available resources are
+        /// overloaded, refreshes are throttled until the load is reduced. The refresh
+        /// will fail if throttling exceeds 1 hour.
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse> CancelRefreshInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("refreshId", refreshId);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "CancelRefreshInGroup", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/refreshes/{refreshId}").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasetId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{refreshId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(refreshId, Client.SerializationSettings).Trim('"')));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("DELETE");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
             {
                 var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
                 if (_httpResponse.Content != null) {

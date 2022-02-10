@@ -556,42 +556,222 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Start a dataset refresh
+        /// Triggers a refresh for the specified dataset from the specified workspace.
+        /// An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh)
+        /// would be triggered only if any request payload except `notifyOption` is
+        /// set. Asynchronous refresh has a response header, `Location`, which is an
+        /// URI to [get refresh execution details in
+        /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group).
         /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - For Shared capacities, a maximum of eight requests per day, which
+        /// includes refreshes executed using a scheduled refresh.
+        /// - For Premium capacities, the maximum requests per day is only limited by
+        /// the available resources in the capacity. If available resources are
+        /// overloaded, refreshes are throttled until the load is reduced. The refresh
+        /// will fail if throttling exceeds 1 hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
         /// <param name='operations'>
         /// The operations group for this extension method.
         /// </param>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
-        /// <param name='refreshRequest'>
-        public static void RefreshDataset(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshRequest refreshRequest = null)
+        /// <param name='datasetRefreshRequest'>
+        /// </param>
+        public static DatasetsRefreshDatasetInGroupHeaders RefreshDataset(this IDatasetsOperations operations, System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest))
         {
-            operations.RefreshDatasetAsync(groupId, datasetId, refreshRequest).GetAwaiter().GetResult();
+            return operations.RefreshDatasetAsync(groupId, datasetId, datasetRefreshRequest).GetAwaiter().GetResult();
         }
 
-        /// <summary>
-        /// Start a dataset refresh
+        /// <summary>GetDatasources
+        /// Triggers a refresh for the specified dataset from the specified workspace.
+        /// An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh)
+        /// would be triggered only if any request payload except `notifyOption` is
+        /// set. Asynchronous refresh has a response header, `Location`, which is an
+        /// URI to [get refresh execution details in
+        /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group).
         /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - For Shared capacities, a maximum of eight requests per day, which
+        /// includes refreshes executed using a scheduled refresh.
+        /// - For Premium capacities, the maximum requests per day is only limited by
+        /// the available resources in the capacity. If available resources are
+        /// overloaded, refreshes are throttled until the load is reduced. The refresh
+        /// will fail if throttling exceeds 1 hour.
+        ///
+        /// ######
+        ///
+        /// </remarks>
         /// <param name='operations'>
         /// The operations group for this extension method.
         /// </param>
         /// <param name='groupId'>
-        /// The group id
+        /// The workspace ID
         /// </param>
         /// <param name='datasetId'>
-        /// The dataset id
+        /// The dataset ID
         /// </param>
-        /// <param name='refreshRequest'>
+        /// <param name='datasetRefreshRequest'>
+        /// </param>
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task RefreshDatasetAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, RefreshRequest refreshRequest = null, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task<DatasetsRefreshDatasetInGroupHeaders> RefreshDatasetAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), CancellationToken cancellationToken = default(CancellationToken))
         {
-            (await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, refreshRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            using (var _result = await operations.RefreshDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, datasetRefreshRequest, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Headers;
+            }
+        }
+
+        /// <summary>
+        /// Returns execution details of an [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+        /// dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        public static DatasetRefreshDetail GetRefreshExecutionDetails(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId)
+        {
+            return operations.GetRefreshExecutionDetailsAsync(groupId, datasetId, refreshId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns execution details of an [asynchronous refresh
+        /// operation](/power-bi/connect-data/asynchronous-refresh) for the specified
+        /// dataset from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<DatasetRefreshDetail> GetRefreshExecutionDetailsAsync(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetRefreshExecutionDetailsInGroupWithHttpMessagesAsync(groupId, datasetId, refreshId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
+        }
+
+        /// <summary>
+        /// Cancels the specified refresh operation.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        public static void CancelRefresh(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId)
+        {
+            operations.CancelRefreshAsync(groupId, datasetId, refreshId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Cancels the specified refresh operation.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='refreshId'>
+        /// The refresh ID
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task CancelRefreshAsync(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, System.Guid refreshId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.CancelRefreshInGroupWithHttpMessagesAsync(groupId, datasetId, refreshId, null, cancellationToken).ConfigureAwait(false)).Dispose();
         }
 
         /// <summary>
