@@ -24,22 +24,22 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// No access.
+        /// No access
         /// </summary>
         public static readonly ScorecardPermission None = "None";
 
         /// <summary>
-        /// Read access.
+        /// Read access
         /// </summary>
         public static readonly ScorecardPermission Read = "Read";
 
         /// <summary>
-        /// Write access.
+        /// Write access
         /// </summary>
         public static readonly ScorecardPermission Write = "Write";
 
         /// <summary>
-        /// Read and Write access.
+        /// Read and Write access
         /// </summary>
         public static readonly ScorecardPermission ReadWrite = "ReadWrite";
 

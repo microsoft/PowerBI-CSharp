@@ -11,7 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A request object to be used with **MoveGoals** Power BI API request
+    /// A request object to be used with the [Move
+    /// Goals](/rest/api/power-bi/scorecards/move-goals) API request
     /// </summary>
     public partial class GoalsMoveRequest
     {
@@ -26,24 +27,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GoalsMoveRequest class.
         /// </summary>
-        /// <param name="goalToMove">The validation information for the goal to
-        /// be moved. The validation information is where the client confirms
-        /// that it knows at the moment of the call how the goal is positioned
-        /// in the hierarchy of the goals.</param>
-        /// <param name="newParent">(Optional) The validation information for
-        /// the goal to be new parent. The validation information is where the
-        /// client confirms that it knows at the moment of the call how the
-        /// goal is positioned in the hierarchy of the goals.</param>
-        /// <param name="newPrevious">(Optional) The validation information for
-        /// the new goal to be 'previous' in the ordered set by rank. The
-        /// validation information is where the client confirms that it knows
-        /// at the moment of the call how the goal is positioned in the
-        /// hierarchy of the goals.</param>
-        /// <param name="newNext">(Optional) The validation information for the
-        /// new goal to be 'next' in the ordered set by rank. The validation
-        /// information is where the client confirms that it knows at the
-        /// moment of the call how the goal is positioned in the hierarchy of
-        /// the goals.</param>
+        /// <param name="goalToMove">The rank validation information for the
+        /// goal to be moved. The caller provides validation information to
+        /// confirm that they know the existing position of a goal within the
+        /// hierarchy of goals.</param>
+        /// <param name="newParent">(Optional) The rank validation information
+        /// for the new parent of the goal to be moved. The caller provides
+        /// validation information to confirm that they know the existing
+        /// position of a goal within the hierarchy of goals.</param>
+        /// <param name="newPrevious">(Optional) The rank validation
+        /// information for the new previous-sibling of the goal to be moved.
+        /// The caller provides validation information to confirm that they
+        /// know the existing position of a goal within the hierarchy of
+        /// goals.</param>
+        /// <param name="newNext">(Optional) The rank validation information
+        /// for the new next-sibling of the goal to be moved. The caller
+        /// provides validation information to confirm that they know the
+        /// existing position of a goal within the hierarchy of goals.</param>
         public GoalsMoveRequest(GoalRankValidationInfo goalToMove, GoalRankValidationInfo newParent = default(GoalRankValidationInfo), GoalRankValidationInfo newPrevious = default(GoalRankValidationInfo), GoalRankValidationInfo newNext = default(GoalRankValidationInfo))
         {
             GoalToMove = goalToMove;
@@ -59,38 +59,37 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the validation information for the goal to be moved.
-        /// The validation information is where the client confirms that it
-        /// knows at the moment of the call how the goal is positioned in the
-        /// hierarchy of the goals.
+        /// Gets or sets the rank validation information for the goal to be
+        /// moved. The caller provides validation information to confirm that
+        /// they know the existing position of a goal within the hierarchy of
+        /// goals.
         /// </summary>
         [JsonProperty(PropertyName = "goalToMove")]
         public GoalRankValidationInfo GoalToMove { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The validation information for the goal to
-        /// be new parent. The validation information is where the client
-        /// confirms that it knows at the moment of the call how the goal is
-        /// positioned in the hierarchy of the goals.
+        /// Gets or sets (Optional) The rank validation information for the new
+        /// parent of the goal to be moved. The caller provides validation
+        /// information to confirm that they know the existing position of a
+        /// goal within the hierarchy of goals.
         /// </summary>
         [JsonProperty(PropertyName = "newParent")]
         public GoalRankValidationInfo NewParent { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The validation information for the new goal
-        /// to be 'previous' in the ordered set by rank. The validation
-        /// information is where the client confirms that it knows at the
-        /// moment of the call how the goal is positioned in the hierarchy of
-        /// the goals.
+        /// Gets or sets (Optional) The rank validation information for the new
+        /// previous-sibling of the goal to be moved. The caller provides
+        /// validation information to confirm that they know the existing
+        /// position of a goal within the hierarchy of goals.
         /// </summary>
         [JsonProperty(PropertyName = "newPrevious")]
         public GoalRankValidationInfo NewPrevious { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The validation information for the new goal
-        /// to be 'next' in the ordered set by rank. The validation information
-        /// is where the client confirms that it knows at the moment of the
-        /// call how the goal is positioned in the hierarchy of the goals.
+        /// Gets or sets (Optional) The rank validation information for the new
+        /// next-sibling of the goal to be moved. The caller provides
+        /// validation information to confirm that they know the existing
+        /// position of a goal within the hierarchy of goals.
         /// </summary>
         [JsonProperty(PropertyName = "newNext")]
         public GoalRankValidationInfo NewNext { get; set; }

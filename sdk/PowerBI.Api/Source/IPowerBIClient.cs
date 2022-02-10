@@ -30,27 +30,27 @@ namespace Microsoft.PowerBI.Api
         JsonSerializerSettings DeserializationSettings { get; }
 
         /// <summary>
-        /// The unique identifier of the scorecard.
+        /// The unique identifier of the scorecard
         /// </summary>
         System.Guid ScorecardId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the goal.
+        /// The unique identifier of the goal
         /// </summary>
         System.Guid GoalId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the workspace.
+        /// The unique identifier of the workspace
         /// </summary>
         System.Guid GroupId { get; set; }
 
         /// <summary>
-        /// The timestamp for the value of the goal.
+        /// The timestamp for the value of the goal
         /// </summary>
         System.DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// The unique identifier of the note for a goal's check-in.
+        /// The unique identifier of the goal check-in note
         /// </summary>
         System.Guid NoteId { get; set; }
 

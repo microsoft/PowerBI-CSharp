@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -29,8 +29,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: notes.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `notes`.
             /// </param>
             public static GoalValues Get(this IGoalValuesOperations operations, string expand = default(string))
             {
@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -51,8 +51,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: notes.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `notes`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -70,7 +70,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -91,7 +91,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -118,7 +118,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -127,8 +127,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: notes.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `notes`.
             /// </param>
             public static GoalValue GetById(this IGoalValuesOperations operations, string expand = default(string))
             {
@@ -140,7 +140,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -149,8 +149,8 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: notes.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `notes`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -168,7 +168,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -189,7 +189,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -216,7 +216,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -234,7 +234,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;

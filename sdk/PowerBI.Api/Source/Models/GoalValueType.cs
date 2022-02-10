@@ -24,17 +24,17 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// The information is about current value of the goal.
+        /// Information about the current value of the goal
         /// </summary>
         public static readonly GoalValueType Current = "Current";
 
         /// <summary>
-        /// The information is about target value of the goal.
+        /// Information about the target value of the goal
         /// </summary>
         public static readonly GoalValueType Target = "Target";
 
         /// <summary>
-        /// The information is about status of the goal.
+        /// Information about the status of the goal
         /// </summary>
         public static readonly GoalValueType Status = "Status";
 

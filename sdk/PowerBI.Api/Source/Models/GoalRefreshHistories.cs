@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The OData response wrapper for a Power BI goal refresh history entry
-    /// collection
+    /// The OData response wrapper for a collection of Power BI goal refresh
+    /// history entries
     /// </summary>
     public partial class GoalRefreshHistories
     {
@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalRefreshHistories class.
         /// </summary>
         /// <param name="odatacontext">OData context</param>
-        /// <param name="value">The goal refresh history collection</param>
+        /// <param name="value">The goal refresh history entries</param>
         public GoalRefreshHistories(string odatacontext = default(string), IList<GoalRefreshHistory> value = default(IList<GoalRefreshHistory>))
         {
             Odatacontext = odatacontext;
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the goal refresh history collection
+        /// Gets or sets the goal refresh history entries
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<GoalRefreshHistory> Value { get; set; }

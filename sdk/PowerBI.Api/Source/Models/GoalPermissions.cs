@@ -29,82 +29,82 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly GoalPermissions None = "None";
 
         /// <summary>
-        /// Can view the goal only.
+        /// View access only.
         /// </summary>
         public static readonly GoalPermissions View = "View";
 
         /// <summary>
-        /// Can update current value.
+        /// Current value can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateCurrentValue = "UpdateCurrentValue";
 
         /// <summary>
-        /// Can update target value.
+        /// Target value can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateTargetValue = "UpdateTargetValue";
 
         /// <summary>
-        /// Can update notes.
+        /// Notes can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateNotes = "UpdateNotes";
 
         /// <summary>
-        /// Can update status.
+        /// Status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateStatus = "UpdateStatus";
 
         /// <summary>
-        /// Can update current and target value.
+        /// Current and target values can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateValues = "UpdateValues";
 
         /// <summary>
-        /// Can update values, notes and status.
+        /// Values, notes, and status can be updated.
         /// </summary>
         public static readonly GoalPermissions All = "All";
 
         /// <summary>
-        /// Can update current value and notes.
+        /// Current value and notes can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateCurrentValueAndNotes = "11";
 
         /// <summary>
-        /// Can update target value and notes.
+        /// Target value and notes can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateTargetValueAndNotes = "13";
 
         /// <summary>
-        /// Can update current, target values and notes.
+        /// Current value, target value, and notes can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateCurrentValueAndTargetValueAndNotes = "15";
 
         /// <summary>
-        /// Can update current value and status.
+        /// Current value and status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateCurrentValueAndStatus = "19";
 
         /// <summary>
-        /// Can update target value and status.
+        /// Target value and status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateTargetValueAndStatus = "21";
 
         /// <summary>
-        /// Can update current, target values and status.
+        /// Current value, target value, and status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateCurrentValueAndTargetValueAndStatus = "23";
 
         /// <summary>
-        /// Can update notes and status.
+        /// Notes and status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateNotesAndStatus = "25";
 
         /// <summary>
-        /// Can update current value, notes and status.
+        /// Current value, notes, and status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateCurrentValueAndNotesAndStatus = "27";
 
         /// <summary>
-        /// Can update target value, notes and status.
+        /// Target value, notes, and status can be updated.
         /// </summary>
         public static readonly GoalPermissions UpdateTargetValueAndNotesAndStatus = "29";
 

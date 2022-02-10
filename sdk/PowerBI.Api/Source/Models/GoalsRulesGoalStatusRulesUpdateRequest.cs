@@ -29,10 +29,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// GoalsRulesGoalStatusRulesUpdateRequest class.
         /// </summary>
-        /// <param name="defaultOutput">The status ID when no rule is matching.
-        /// 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .</param>
-        /// <param name="rules">(Optional) The list of rules.</param>
+        /// <param name="defaultOutput">The status ID when no rule matches
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |</param>
+        /// <param name="rules">(Optional) The list of rules</param>
         public GoalsRulesGoalStatusRulesUpdateRequest(int defaultOutput, IList<GoalsRulesRule1OfInt32> rules = default(IList<GoalsRulesRule1OfInt32>))
         {
             Rules = rules;
@@ -46,15 +53,22 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Optional) The list of rules.
+        /// Gets or sets (Optional) The list of rules
         /// </summary>
         [JsonProperty(PropertyName = "rules")]
         public IList<GoalsRulesRule1OfInt32> Rules { get; set; }
 
         /// <summary>
-        /// Gets or sets the status ID when no rule is matching. 0 - 'Not
-        /// started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .
+        /// Gets or sets the status ID when no rule matches
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |
         /// </summary>
         [JsonProperty(PropertyName = "defaultOutput")]
         public int DefaultOutput { get; set; }

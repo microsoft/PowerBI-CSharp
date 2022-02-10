@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The request data to be used when defining or reporting rules for a
-    /// Power BI goal status
+    /// The request data to be used when defining or reporting rules for the
+    /// status of a Power BI goal
     /// </summary>
     public partial class GoalsRulesGoalStatusRules
     {
@@ -29,9 +29,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalsRulesGoalStatusRules class.
         /// </summary>
         /// <param name="rules">The list of rules</param>
-        /// <param name="defaultOutput">The status ID when no rule is matching.
-        /// 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .</param>
+        /// <param name="defaultOutput">The status ID when no rule matches
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |</param>
         /// <param name="scorecardObjectId">The scorecard ID</param>
         /// <param name="goalObjectId">The goal ID</param>
         /// <param name="lastModifiedTime">The UTC time at last
@@ -58,9 +65,16 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<GoalsRulesRule1OfInt32> Rules { get; set; }
 
         /// <summary>
-        /// Gets or sets the status ID when no rule is matching. 0 - 'Not
-        /// started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .
+        /// Gets or sets the status ID when no rule matches
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |
         /// </summary>
         [JsonProperty(PropertyName = "defaultOutput")]
         public int? DefaultOutput { get; set; }

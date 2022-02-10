@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -49,7 +49,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -78,14 +78,15 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: goals, goalValues, aggregations and notes.
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `goals`, `goalValues`,
+        /// `aggregations`, and `notes`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -105,7 +106,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -134,7 +135,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -154,17 +155,18 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
-        /// The id of the internal report associated with the scorecard.
+        /// The ID of the internal report associated with the scorecard
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: goals, goalValues and aggregations.
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `goals`, `goalValues`,
+        /// and `aggregations`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -184,7 +186,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;

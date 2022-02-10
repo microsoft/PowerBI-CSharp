@@ -10,10 +10,10 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI goal rank validation information to be used with **MoveGoals**
-    /// API request. The validation information is where the client confirms
-    /// that it knows at the moment of the call how the goal is positioned in
-    /// the hierarchy of the goals.
+    /// The rank validation information for a Power BI goal, to be used with
+    /// the [Move Goals](/rest/api/power-bi/scorecards/move-goals) API request.
+    /// The caller provides validation information to confirm that they know
+    /// the existing position of the goal within the hierarchy of goals.
     /// </summary>
     public partial class GoalRankValidationInfo
     {
@@ -29,8 +29,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalRankValidationInfo class.
         /// </summary>
         /// <param name="goalId">The goal ID</param>
-        /// <param name="currentParentId">The ID of the parent goal at the
-        /// current moment</param>
+        /// <param name="currentParentId">The ID of the current parent
+        /// goal</param>
         public GoalRankValidationInfo(System.Guid? goalId = default(System.Guid?), System.Guid? currentParentId = default(System.Guid?))
         {
             GoalId = goalId;
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? GoalId { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the parent goal at the current moment
+        /// Gets or sets the ID of the current parent goal
         /// </summary>
         [JsonProperty(PropertyName = "currentParentId")]
         public System.Guid? CurrentParentId { get; set; }

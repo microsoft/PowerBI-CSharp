@@ -17934,7 +17934,7 @@
             "get": {
                 "summary": "Returns a list of scorecards from a workspace.",
                 "operationId": "Scorecards_Get",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -17960,7 +17960,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "$top": 30
@@ -18020,7 +18020,7 @@
             "post": {
                 "summary": "Creates a new scorecard.",
                 "operationId": "Scorecards_Post",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -18047,7 +18047,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "requestMessage": {
@@ -18104,7 +18104,7 @@
             "get": {
                 "summary": "Returns a scorecard with ID.",
                 "operationId": "Scorecards_GetById",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -18118,7 +18118,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: goals, goalValues, aggregations and notes.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `goals`, `goalValues`, `aggregations`, and `notes`.",
                         "type": "string"
                     }
                 ],
@@ -18131,7 +18131,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee"
@@ -18187,7 +18187,7 @@
             "patch": {
                 "summary": "Updates a scorecard by its ID",
                 "operationId": "Scorecards_PatchById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -18217,7 +18217,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
@@ -18305,7 +18305,7 @@
             "delete": {
                 "summary": "Deletes a scorecard by its ID.",
                 "operationId": "Scorecards_DeleteById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -18323,7 +18323,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee"
@@ -18339,7 +18339,7 @@
             "get": {
                 "summary": "Returns a list of goals from a scorecard.",
                 "operationId": "Goals_Get",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -18353,7 +18353,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: goalValues and aggregations.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `goalValues` and `aggregations`.",
                         "type": "string"
                     },
                     {
@@ -18372,7 +18372,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "bc390256-fa54-4bd8-96a1-2c80df0cf704"
@@ -18403,7 +18403,7 @@
             "post": {
                 "summary": "Adds a new goal to a scorecard.",
                 "operationId": "Goals_Post",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -18433,7 +18433,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "d154070d-e872-4d82-8ad6-eeef96d413ec",
@@ -18465,7 +18465,7 @@
             "get": {
                 "summary": "Returns a goal by ID from a scorecard.",
                 "operationId": "Goals_GetById",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -18495,7 +18495,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "bb2b6321-2b84-4b7b-8de3-40f74ca7e586",
@@ -18523,7 +18523,7 @@
             "patch": {
                 "summary": "Updates a goal by ID.",
                 "operationId": "Goals_PatchById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -18556,7 +18556,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
@@ -18587,7 +18587,7 @@
             "delete": {
                 "summary": "Deletes a goal from a scorecard by goal ID.",
                 "operationId": "Goals_DeleteById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -18608,7 +18608,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
@@ -18626,7 +18626,7 @@
             "get": {
                 "summary": "Returns status rules of a goal.",
                 "operationId": "GoalsStatusRules_Get",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalsStatusRules"
                 ],
@@ -18650,7 +18650,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "bb2b6321-2b84-4b7b-8de3-40f74ca7e586",
@@ -18699,7 +18699,7 @@
             "post": {
                 "summary": "Creates or updates status rules of a goal.",
                 "operationId": "GoalsStatusRules_Post",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalsStatusRules"
                 ],
@@ -18732,7 +18732,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "3160d25e-5b63-4f4a-8fc2-ccbb9f2c7f99",
@@ -18840,7 +18840,7 @@
             "delete": {
                 "summary": "Removes status rule definitions from a goal.",
                 "operationId": "GoalsStatusRules_Delete",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalsStatusRules"
                 ],
@@ -18861,7 +18861,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
@@ -18879,7 +18879,7 @@
             "get": {
                 "summary": "Reads goal value check-ins.",
                 "operationId": "GoalValues_Get",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
                 ],
@@ -18896,7 +18896,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: notes.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `notes`.",
                         "type": "string"
                     }
                 ],
@@ -18909,7 +18909,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
@@ -18952,7 +18952,7 @@
             "post": {
                 "summary": "Creates a new goal value check-in.",
                 "operationId": "GoalValues_Post",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
                 ],
@@ -18985,7 +18985,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "07943a5a-3c1f-424f-8c1c-144fcfe4431b",
@@ -19018,7 +19018,7 @@
             "get": {
                 "summary": "Reads a goal value check-in by a UTC date timestamp.",
                 "operationId": "GoalValues_GetById",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
                 ],
@@ -19038,7 +19038,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: notes.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `notes`.",
                         "type": "string"
                     }
                 ],
@@ -19051,7 +19051,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "299759d9-80d3-45a8-8f13-a0624ea7e388",
@@ -19095,7 +19095,7 @@
             "patch": {
                 "summary": "Updates a goal value check-in by a UTC date timestamp.",
                 "operationId": "GoalValues_PatchById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
                 ],
@@ -19131,7 +19131,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "ecceb276-5d36-4b00-96cb-03f5590ae927",
@@ -19162,7 +19162,7 @@
             "delete": {
                 "summary": "Deletes a goal value check-in by a UTC day timestamp.",
                 "operationId": "GoalValues_DeleteById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
                 ],
@@ -19186,7 +19186,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
@@ -19205,7 +19205,7 @@
             "post": {
                 "summary": "Adds a new note to a goal value check-in.",
                 "operationId": "GoalNotes_Post",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalNotes"
                 ],
@@ -19241,7 +19241,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "ecb4f7f9-a6f4-422b-a7b8-322a76018546",
@@ -19273,7 +19273,7 @@
             "patch": {
                 "summary": "Updates a goal value check-in note by ID.",
                 "operationId": "GoalNotes_PatchById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalNotes"
                 ],
@@ -19312,7 +19312,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "ce4abf44-3c4a-4425-893d-36bcca75a42b",
@@ -19342,7 +19342,7 @@
             "delete": {
                 "summary": "Deletes a goal value check-in note by ID.",
                 "operationId": "GoalNotes_DeleteById",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalNotes"
                 ],
@@ -19369,7 +19369,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "ce4abf44-3c4a-4425-893d-36bcca75a42b",
@@ -19388,7 +19388,7 @@
             "get": {
                 "summary": "Reads a scorecard associated with an internal report ID.",
                 "operationId": "Scorecards_GetScorecardByReportId",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -19399,7 +19399,7 @@
                     {
                         "name": "reportId",
                         "in": "path",
-                        "description": "The id of the internal report associated with the scorecard.",
+                        "description": "The ID of the internal report associated with the scorecard",
                         "type": "string",
                         "format": "uuid",
                         "required": true
@@ -19407,7 +19407,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: goals, goalValues and aggregations. ",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `goals`, `goalValues`, and `aggregations`.",
                         "type": "string"
                     }
                 ],
@@ -19420,7 +19420,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "reportId": "312dc8e4-e644-4a3a-93d8-2317c69a86ee",
@@ -19636,7 +19636,7 @@
             "post": {
                 "summary": "Moves goals within the scorecard. Changes their ranks and parents.",
                 "operationId": "Scorecards_MoveGoals",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
                 ],
@@ -19708,7 +19708,7 @@
             "get": {
                 "summary": "Reads refresh history of a connected goal.",
                 "operationId": "Goals_GetRefreshHistory",
-                "description": "\n## Required scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -19732,7 +19732,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
@@ -19801,7 +19801,7 @@
             "post": {
                 "summary": "Disconnects the current value of a goal.",
                 "operationId": "Goals_DeleteGoalCurrentValueConnection",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -19825,7 +19825,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
@@ -19854,7 +19854,7 @@
             "post": {
                 "summary": "Disconnects the target value of a goal.",
                 "operationId": "Goals_DeleteGoalTargetValueConnection",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -19878,7 +19878,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
@@ -19907,7 +19907,7 @@
             "post": {
                 "summary": "Schedules a refresh of the connected value of a goal.",
                 "operationId": "Goals_RefreshGoalCurrentValue",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -19928,7 +19928,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
@@ -19945,7 +19945,7 @@
             "post": {
                 "summary": "Schedules a refresh of the target value of a goal.",
                 "operationId": "Goals_RefreshGoalTargetValue",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
                 ],
@@ -19966,7 +19966,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "c3ac3850-5d7f-4a43-a9db-549e1a44ad62",
@@ -26335,7 +26335,7 @@
                     "type": "string"
                 },
                 "sensitivityLabelId": {
-                    "description": "(Optional) The guid of the sensitivity label. It can be null or all 0s meaning 'not selected'. Users do not have to select a label, but default labels (if enabled  / enforced) will be applied on the scorecard and dataset.",
+                    "description": "(Optional) The GUID of a sensitivity label. If you don't want to select a sensitivity label, use a null or empty GUID (`00000000-0000-0000-0000-000000000000`). If default labels are enabled and/or enforced, they will be applied on the scorecard and dataset.",
                     "type": "string",
                     "format": "uuid"
                 }
@@ -26410,29 +26410,29 @@
                         "values": [
                             {
                                 "value": "None",
-                                "description": "No access.",
+                                "description": "No access",
                                 "name": "None"
                             },
                             {
                                 "value": "Read",
-                                "description": "Read access.",
+                                "description": "Read access",
                                 "name": "Read"
                             },
                             {
                                 "value": "Write",
-                                "description": "Write access.",
+                                "description": "Write access",
                                 "name": "Write"
                             },
                             {
                                 "value": "ReadWrite",
-                                "description": "Read and Write access.",
+                                "description": "Read and Write access",
                                 "name": "ReadWrite"
                             }
                         ]
                     }
                 },
                 "columnSettings": {
-                    "description": "The column settings for the way the goals should be shown on the scorecard",
+                    "description": "The display settings for columns on a scorecard",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/ScorecardColumnSetting"
@@ -26464,7 +26464,7 @@
             }
         },
         "GoalRankValidationInfo": {
-            "description": "Power BI goal rank validation information to be used with **MoveGoals** API request. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+            "description": "The rank validation information for a Power BI goal, to be used with the [Move Goals](/rest/api/power-bi/scorecards/move-goals) API request. The caller provides validation information to confirm that they know the existing position of the goal within the hierarchy of goals.",
             "properties": {
                 "goalId": {
                     "description": "The goal ID",
@@ -26472,30 +26472,30 @@
                     "format": "uuid"
                 },
                 "currentParentId": {
-                    "description": "The ID of the parent goal at the current moment",
+                    "description": "The ID of the current parent goal",
                     "type": "string",
                     "format": "uuid"
                 }
             }
         },
         "GoalsMoveRequest": {
-            "description": "A request object to be used with **MoveGoals** Power BI API request",
+            "description": "A request object to be used with the [Move Goals](/rest/api/power-bi/scorecards/move-goals) API request",
             "required": ["goalToMove"],
             "properties": {
                 "goalToMove": {
-                    "description": "The validation information for the goal to be moved. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "description": "The rank validation information for the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 },
                 "newParent": {
-                    "description": "(Optional) The validation information for the goal to be new parent. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "description": "(Optional) The rank validation information for the new parent of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 },
                 "newPrevious": {
-                    "description": "(Optional) The validation information for the new goal to be 'previous' in the ordered set by rank. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "description": "(Optional) The rank validation information for the new previous-sibling of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 },
                 "newNext": {
-                    "description": "(Optional) The validation information for the new goal to be 'next' in the ordered set by rank. The validation information is where the client confirms that it knows at the moment of the call how the goal is positioned in the hierarchy of the goals.",
+                    "description": "(Optional) The rank validation information for the new next-sibling of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 }
             }
@@ -26509,12 +26509,12 @@
                     "type": "string"
                 },
                 "startDate": {
-                    "description": "(Optional) The UTC timestamp for a start date for the goal (time part will be 0).",
+                    "description": "(Optional) The UTC timestamp for the start date of the goal. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
                 "completionDate": {
-                    "description": "(Optional) The UTC timestamp for a completion date for the goal (time part will be 0).",
+                    "description": "(Optional) The UTC timestamp for the completion date of the goal. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
@@ -26523,11 +26523,11 @@
                     "type": "string"
                 },
                 "valuesFormatString": {
-                    "description": "(Optional) valuesFormatString",
+                    "description": "(Optional) The [custom format string](/power-bi/create-reports/desktop-custom-format-strings) for values",
                     "type": "string"
                 },
                 "datesFormatString": {
-                    "description": "(Optional) datesFormatString",
+                    "description": "(Optional) The [custom format string](/power-bi/create-reports/desktop-custom-format-strings) for dates",
                     "type": "string"
                 }
             }
@@ -26560,12 +26560,12 @@
                     "format": "date-time"
                 },
                 "startDate": {
-                    "description": "The UTC timestamp for a start date for the goal (time part will be 0).",
+                    "description": "The UTC timestamp for the start date of the goal. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
                 "completionDate": {
-                    "description": "The UTC timestamp for a completion date for the goal (time part will be 0).",
+                    "description": "The UTC timestamp for the completion date of the goal. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
@@ -26633,89 +26633,89 @@
                             },
                             {
                                 "value": "View",
-                                "description": "Can view the goal only.",
+                                "description": "View access only.",
                                 "name": "View"
                             },
                             {
                                 "value": "UpdateCurrentValue",
-                                "description": "Can update current value.",
+                                "description": "Current value can be updated.",
                                 "name": "UpdateCurrentValue"
                             },
                             {
                                 "value": "UpdateTargetValue",
-                                "description": "Can update target value.",
+                                "description": "Target value can be updated.",
                                 "name": "UpdateTargetValue"
                             },
                             {
                                 "value": "UpdateNotes",
-                                "description": "Can update notes.",
+                                "description": "Notes can be updated.",
                                 "name": "UpdateNotes"
                             },
                             {
                                 "value": "UpdateStatus",
-                                "description": "Can update status.",
+                                "description": "Status can be updated.",
                                 "name": "UpdateStatus"
                             },
                             {
                                 "value": "UpdateValues",
-                                "description": "Can update current and target value.",
+                                "description": "Current and target values can be updated.",
                                 "name": "UpdateValues"
                             },
                             {
                                 "value": "All",
-                                "description": "Can update values, notes and status.",
+                                "description": "Values, notes, and status can be updated.",
                                 "name": "All"
                             },
                             {
                                 "value": "11",
-                                "description": "Can update current value and notes.",
+                                "description": "Current value and notes can be updated.",
                                 "name": "UpdateCurrentValueAndNotes"
                             },
                             {
                                 "value": "13",
-                                "description": "Can update target value and notes.",
+                                "description": "Target value and notes can be updated.",
                                 "name": "UpdateTargetValueAndNotes"
                             },
                             {
                                 "value": "15",
-                                "description": "Can update current, target values and notes.",
+                                "description": "Current value, target value, and notes can be updated.",
                                 "name": "UpdateCurrentValueAndTargetValueAndNotes"
                             },
                             {
                                 "value": "19",
-                                "description": "Can update current value and status.",
+                                "description": "Current value and status can be updated.",
                                 "name": "UpdateCurrentValueAndStatus"
                             },
                             {
                                 "value": "21",
-                                "description": "Can update target value and status.",
+                                "description": "Target value and status can be updated.",
                                 "name": "UpdateTargetValueAndStatus"
                             },
                             {
                                 "value": "23",
-                                "description": "Can update current, target values and status.",
+                                "description": "Current value, target value, and status can be updated.",
                                 "name": "UpdateCurrentValueAndTargetValueAndStatus"
                             },
                             {
                                 "value": "25",
-                                "description": "Can update notes and status.",
+                                "description": "Notes and status can be updated.",
                                 "name": "UpdateNotesAndStatus"
                             },
                             {
                                 "value": "27",
-                                "description": "Can update current value, notes and status.",
+                                "description": "Current value, notes, and status can be updated.",
                                 "name": "UpdateCurrentValueAndNotesAndStatus"
                             },
                             {
                                 "value": "29",
-                                "description": "Can update target value, notes and status.",
+                                "description": "Target value, notes, and status can be updated.",
                                 "name": "UpdateTargetValueAndNotesAndStatus"
                             }
                         ]
                     }
                 },
                 "level": {
-                    "description": "The goal level in parent-child hierarchy of the scorecard goals",
+                    "description": "The nested level of the goal in the parent-child hierarchy of scorecard goals",
                     "type": "integer",
                     "format": "int32"
                 },
@@ -26725,14 +26725,14 @@
                     "format": "int64"
                 },
                 "goalValues": {
-                    "description": "The goal value check-ins",
+                    "description": "The list of goal value check-ins",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/GoalValue"
                     }
                 },
                 "aggregations": {
-                    "description": "The list of aggregated properties of the goal.",
+                    "description": "The list of aggregated properties of the goal",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/GoalAggregation"
@@ -26741,7 +26741,7 @@
             }
         },
         "GoalRefreshHistories": {
-            "description": "The OData response wrapper for a Power BI goal refresh history entry collection",
+            "description": "The OData response wrapper for a collection of Power BI goal refresh history entries",
             "properties": {
                 "@odata.context": {
                     "type": "string",
@@ -26749,7 +26749,7 @@
                 },
                 "value": {
                     "type": "array",
-                    "description": "The goal refresh history collection",
+                    "description": "The goal refresh history entries",
                     "items": {
                         "$ref": "#/definitions/GoalRefreshHistory"
                     }
@@ -26765,7 +26765,7 @@
                     "format": "uuid"
                 },
                 "connectionType": {
-                    "description": "The refresh connection type.",
+                    "description": "The refresh connection type",
                     "type": "string",
                     "enum": [
                         "Current",
@@ -26779,17 +26779,17 @@
                         "values": [
                             {
                                 "value": "Current",
-                                "description": "The information is about current value of the goal.",
+                                "description": "Information about the current value of the goal",
                                 "name": "Current"
                             },
                             {
                                 "value": "Target",
-                                "description": "The information is about target value of the goal.",
+                                "description": "Information about the target value of the goal",
                                 "name": "Target"
                             },
                             {
                                 "value": "Status",
-                                "description": "The information is about status of the goal.",
+                                "description": "Information about the status of the goal",
                                 "name": "Status"
                             }
                         ]
@@ -26881,27 +26881,27 @@
                     }
                 },
                 "timestamp": {
-                    "description": "The UTC timestamp of refresh operation.",
+                    "description": "The UTC timestamp of the refresh operation",
                     "type": "string",
                     "format": "date-time"
                 },
                 "rootActivityId": {
-                    "description": "The root activity ID.",
+                    "description": "The root activity ID",
                     "type": "string",
                     "format": "uuid"
                 },
                 "message": {
-                    "description": "The verbal description of the status of the refresh operation.",
+                    "description": "The verbal description of the status of the refresh operation",
                     "type": "string"
                 }
             }
         },
         "ScorecardColumnSetting": {
-            "description": "An entry defining the way the columns should be displayed for a Power BI scorecard",
+            "description": "An entry defining the display settings for columns on a Power BI scorecard",
             "required": [ "columnId", "show" ],
             "properties": {
                 "columnId": {
-                    "description": "The id for one of the columns on the scorecard control or scorecard Web UI page.",
+                    "description": "The ID for one of the columns on the scorecard control or scorecard Web UI page",
                     "type": "string",
                     "format": "int32",
                     "enum": [
@@ -26979,36 +26979,36 @@
             }
         },
         "GoalValueCreateRequest": {
-            "description": "A Power BI goal value check-in creation request",
+            "description": "A creation request for a Power BI goal value check-in",
             "required": ["timestamp"],
             "properties": {
                 "timestamp": {
-                    "description": "The UTC day timestamp (time part is 0) of the goal value check-in.",
+                    "description": "The UTC timestamp of the goal value check-in. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
                 "value": {
-                    "description": "(Optional) The goal current value.",
+                    "description": "(Optional) The current value of the goal",
                     "type": "number",
                     "format": "double"
                 },
                 "target": {
-                    "description": "(Optional) The goal target value.",
+                    "description": "(Optional) The target value of the goal",
                     "type": "number",
                     "format": "double"
                 },
                 "trend": {
-                    "description": "(Optional) The goal value trend.",
+                    "description": "(Optional) The value trend of the goal",
                     "type": "integer",
                     "format": "int32"
                 },
                 "forecast": {
-                    "description": "(Optional) The goal value trend forecast.",
+                    "description": "(Optional) The value trend forecast of the goal",
                     "type": "number",
                     "format": "double"
                 },
                 "status": {
-                    "description": "(Optional) The ID of the goal status. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "description": "(Optional) The goal status ID\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
                     "type": "integer",
                     "format": "int32"
                 }
@@ -27018,7 +27018,7 @@
             "description": "A Power BI goal value check-in",
             "properties": {
                 "timestamp": {
-                    "description": "The UTC day timestamp (time part is 0) of the goal value check-in.",
+                    "description": "The UTC timestamp of the goal value check-in. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
@@ -27071,12 +27071,12 @@
                     "format": "double"
                 },
                 "status": {
-                    "description": "The ID of the goal status. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "description": "The ID of the goal status\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
                     "type": "integer",
                     "format": "int32"
                 },
                 "notes": {
-                    "description": "The notes for the goal.",
+                    "description": "The notes for the goal",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/GoalNote"
@@ -27085,7 +27085,7 @@
             }
         },
         "GoalAggregation": {
-            "description": "An entry describing the state of various Power BI goal properties at specific time (normally current time)",
+            "description": "An entry describing the state of various Power BI goal properties at a specific time (normally current time)",
             "required": [ "id", "timestamp", "calculationTime", "scorecardId", "goalId", "value", "type", "maxLastModifiedTime" ],
             "properties": {
                 "id": {
@@ -27093,7 +27093,7 @@
                     "type": "string"
                 },
                 "timestamp": {
-                    "description": "The UTC timestamp of the day (time part is 0) associated with the aggregated property.",
+                    "description": "The UTC timestamp associated with the aggregated property. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
@@ -27122,7 +27122,7 @@
                     "type": "string"
                 },
                 "type": {
-                    "description": "The type of the aggregated property.",
+                    "description": "The type of the aggregated property",
                     "type": "string",
                     "enum": [
                         "Value",
@@ -27138,34 +27138,34 @@
                         "values": [
                             {
                                 "value": "Value",
-                                "description": "The information is about current value of the goal.",
+                                "description": "Information about the current value of the goal",
                                 "name": "Value"
                             },
                             {
                                 "value": "Target",
-                                "description": "The information is about target value of the goal.",
+                                "description": "Information about the target value of the goal",
                                 "name": "Target"
                             },
                             {
                                 "value": "Status",
-                                "description": "The information is about status of the goal.",
+                                "description": "Information about the status of the goal",
                                 "name": "Status"
                             },
                             {
                                 "value": "Sparkline",
-                                "description": "The information is about the sparkline.",
+                                "description": "Information about the sparkline",
                                 "name": "Sparkline"
                             },
                             {
                                 "value": "Change",
-                                "description": "The information is about the change.",
+                                "description": "Information about the change",
                                 "name": "Change"
                             }
                         ]
                     }
                 },
                 "maxLastModifiedTime": {
-                    "description": "The UTC timestamp of the latest modification of the aggregated property",
+                    "description": "The UTC timestamp of the latest modification to the aggregated property",
                     "type": "string",
                     "format": "date-time"
                 }
@@ -27188,7 +27188,7 @@
             }
         },
         "GoalNoteRequest": {
-            "description": "A Power BI goal value check-in note request.",
+            "description": "A Power BI goal value check-in note request",
             "required": ["body"],
             "properties": {
                 "body": {
@@ -27206,7 +27206,7 @@
                     "format": "uuid"
                 },
                 "valueTimestamp": {
-                    "description": "The UTC day timestamp (time part is 0) of the goal value check-in for which this note was made.",
+                    "description": "The UTC timestamp of the goal value check-in that this note belongs to. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
@@ -27226,7 +27226,7 @@
                     "format": "date-time"
                 },
                 "content": {
-                    "description": "The content of this note in special format.",
+                    "description": "The content of this note in special format",
                     "type": "string"
                 },
                 "createdTime": {
@@ -27245,21 +27245,21 @@
             "required": ["defaultOutput"],
             "properties": {
                 "rules": {
-                    "description": "(Optional) The list of rules.",
+                    "description": "(Optional) The list of rules",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Goals.Rules.Rule_1OfInt32"
                     }
                 },
                 "defaultOutput": {
-                    "description": "The status ID when no rule is matching. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "description": "The status ID when no rule matches\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
                     "type": "integer",
                     "format": "int32"
                 }
             }
         },
         "Goals.Rules.GoalStatusRules": {
-            "description": "The request data to be used when defining or reporting rules for a Power BI goal status",
+            "description": "The request data to be used when defining or reporting rules for the status of a Power BI goal",
             "properties": {
                 "rules": {
                     "description": "The list of rules",
@@ -27269,7 +27269,7 @@
                     }
                 },
                 "defaultOutput": {
-                    "description": "The status ID when no rule is matching. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "description": "The status ID when no rule matches\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
                     "type": "integer",
                     "format": "int32"
                 },
@@ -27289,7 +27289,7 @@
             }
         },
         "Goals.Rules.Rule_1OfInt32": {
-            "description": "A status rule object for Power BI goal",
+            "description": "A status rule object for the Power BI goal",
             "properties": {
                 "conditions": {
                     "description": "The list of status rule conditions",
@@ -27299,14 +27299,14 @@
                     }
                 },
                 "output": {
-                    "description": "The status ID when conditions are met. 0 - 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed' .",
+                    "description": "The status ID when conditions are met\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
                     "type": "integer",
                     "format": "int32"
                 }
             }
         },
         "Goals.Rules.GoalRulesContainer": {
-            "description": "A containter for json definitions of status rules on a Power BI goal",
+            "description": "A container for JSON definitions of status rules on a Power BI goal",
             "properties": {
                 "scorecardObjectId": {
                     "description": "The scorecard ID",
@@ -27333,11 +27333,11 @@
             "description": "A Power BI goal status rule",
             "properties": {
                 "fieldComparison": {
-                    "description": "The field comparison definition when 'expression' is not defined.",
+                    "description": "The field comparison definition when `expression` is not defined",
                     "$ref": "#/definitions/Goals.Rules.FieldComparison"
                 },
                 "expression": {
-                    "description": "The rule condition expression when 'fieldComparison' is not defined.",
+                    "description": "The rule condition expression when `fieldComparison` is not defined",
                     "type": "string"
                 }
             }
@@ -27346,7 +27346,7 @@
             "description": "A field comparison specification for Power BI goal status rule",
             "properties": {
                 "field": {
-                    "description": "The name of the field such as 'Timestamp', 'Value' or 'Change'.",
+                    "description": "The name of the field, such as `Timestamp`, `Value`, or `Change`.",
                     "type": "string"
                 },
                 "operator": {
@@ -27399,14 +27399,14 @@
             }
         },
         "Goals.Rules.RuleValue": {
-            "description": "A specification of 'what' to be used in a condition for Power BI goal status rule",
+            "description": "A specification for a condition in a Power BI goal status rule",
             "properties": {
                 "percentOf": {
-                    "description": "The percent definition of the field value.",
+                    "description": "An entry defining a percentage of some target metric",
                     "$ref": "#/definitions/Goals.Rules.PercentOf"
                 },
                 "field": {
-                    "description": "The rule value field",
+                    "description": "The rule value",
                     "type": "string"
                 },
                 "dateTime": {
@@ -27422,10 +27422,10 @@
             }
         },
         "Goals.Rules.PercentOf": {
-            "description": "An entry defining a percent of 'something' in a condition for Power BI goal status rule",
+            "description": "An entry defining a percentage of some target metric in a condition for Power BI goal status rule",
             "properties": {
                 "field": {
-                    "description": "The field for which the percent is computed.",
+                    "description": "The field for which the percent value is computed",
                     "type": "string"
                 },
                 "percent": {
@@ -27440,7 +27440,7 @@
         "ScorecardIdParameter": {
             "name": "scorecardId",
             "in": "path",
-            "description": "The unique identifier of the scorecard.",
+            "description": "The unique identifier of the scorecard",
             "type": "string",
             "format": "uuid",
             "required": true
@@ -27448,7 +27448,7 @@
         "GoalIdParameter": {
             "name": "goalId",
             "in": "path",
-            "description": "The unique identifier of the goal.",
+            "description": "The unique identifier of the goal",
             "type": "string",
             "format": "uuid",
             "required": true
@@ -27459,20 +27459,20 @@
             "required": true,
             "type": "string",
             "format": "uuid",
-            "description": "The unique identifier of the workspace."
+            "description": "The unique identifier of the workspace"
         },
         "GoalValueTimestampParameter": {
             "name": "timestamp",
             "in": "path",
             "type": "string",
             "format": "date",
-            "description": "The timestamp for the value of the goal.",
+            "description": "The timestamp for the value of the goal",
             "required": true
         },
         "GoalNoteIdParameter": {
             "name": "noteId",
             "in": "path",
-            "description": "The unique identifier of the note for a goal's check-in.",
+            "description": "The unique identifier of the goal check-in note",
             "type": "string",
             "format": "uuid",
             "required": true

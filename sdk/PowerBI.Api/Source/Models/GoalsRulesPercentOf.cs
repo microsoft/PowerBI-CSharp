@@ -10,8 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// An entry defining a percent of 'something' in a condition for Power BI
-    /// goal status rule
+    /// An entry defining a percentage of some target metric in a condition for
+    /// Power BI goal status rule
     /// </summary>
     public partial class GoalsRulesPercentOf
     {
@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GoalsRulesPercentOf class.
         /// </summary>
-        /// <param name="field">The field for which the percent is
-        /// computed.</param>
+        /// <param name="field">The field for which the percent value is
+        /// computed</param>
         /// <param name="percent">The percent value</param>
         public GoalsRulesPercentOf(string field = default(string), double? percent = default(double?))
         {
@@ -42,7 +42,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the field for which the percent is computed.
+        /// Gets or sets the field for which the percent value is computed
         /// </summary>
         [JsonProperty(PropertyName = "field")]
         public string Field { get; set; }

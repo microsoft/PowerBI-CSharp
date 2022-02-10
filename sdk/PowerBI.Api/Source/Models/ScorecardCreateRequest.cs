@@ -29,10 +29,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="name">The scorecard name</param>
         /// <param name="description">(Optional) The scorecard
         /// description</param>
-        /// <param name="sensitivityLabelId">(Optional) The guid of the
-        /// sensitivity label. It can be null or all 0s meaning 'not selected'.
-        /// Users do not have to select a label, but default labels (if enabled
-        /// / enforced) will be applied on the scorecard and dataset.</param>
+        /// <param name="sensitivityLabelId">(Optional) The GUID of a
+        /// sensitivity label. If you don't want to select a sensitivity label,
+        /// use a null or empty GUID (`00000000-0000-0000-0000-000000000000`).
+        /// If default labels are enabled and/or enforced, they will be applied
+        /// on the scorecard and dataset.</param>
         public ScorecardCreateRequest(string name, string description = default(string), System.Guid? sensitivityLabelId = default(System.Guid?))
         {
             Name = name;
@@ -59,10 +60,11 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The guid of the sensitivity label. It can
-        /// be null or all 0s meaning 'not selected'. Users do not have to
-        /// select a label, but default labels (if enabled  / enforced) will be
-        /// applied on the scorecard and dataset.
+        /// Gets or sets (Optional) The GUID of a sensitivity label. If you
+        /// don't want to select a sensitivity label, use a null or empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`). If default labels are
+        /// enabled and/or enforced, they will be applied on the scorecard and
+        /// dataset.
         /// </summary>
         [JsonProperty(PropertyName = "sensitivityLabelId")]
         public System.Guid? SensitivityLabelId { get; set; }

@@ -10,8 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// An entry defining the way the columns should be displayed for a Power
-    /// BI scorecard
+    /// An entry defining the display settings for columns on a Power BI
+    /// scorecard
     /// </summary>
     public partial class ScorecardColumnSetting
     {
@@ -26,7 +26,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ScorecardColumnSetting class.
         /// </summary>
-        /// <param name="columnId">The id for one of the columns on the
+        /// <param name="columnId">The ID for one of the columns on the
         /// scorecard control or scorecard Web UI page. Possible values
         /// include: 'Name', 'Owner', 'Status', 'Value', 'Progress', 'DueDate',
         /// 'Notes'</param>
@@ -45,7 +45,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the id for one of the columns on the scorecard control
+        /// Gets or sets the ID for one of the columns on the scorecard control
         /// or scorecard Web UI page. Possible values include: 'Name', 'Owner',
         /// 'Status', 'Value', 'Progress', 'DueDate', 'Notes'
         /// </summary>

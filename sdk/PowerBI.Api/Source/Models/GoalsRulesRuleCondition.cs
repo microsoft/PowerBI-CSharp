@@ -26,9 +26,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalsRulesRuleCondition class.
         /// </summary>
         /// <param name="fieldComparison">The field comparison definition when
-        /// 'expression' is not defined.</param>
+        /// `expression` is not defined</param>
         /// <param name="expression">The rule condition expression when
-        /// 'fieldComparison' is not defined.</param>
+        /// `fieldComparison` is not defined</param>
         public GoalsRulesRuleCondition(GoalsRulesFieldComparison fieldComparison = default(GoalsRulesFieldComparison), string expression = default(string))
         {
             FieldComparison = fieldComparison;
@@ -42,15 +42,15 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the field comparison definition when 'expression' is
-        /// not defined.
+        /// Gets or sets the field comparison definition when `expression` is
+        /// not defined
         /// </summary>
         [JsonProperty(PropertyName = "fieldComparison")]
         public GoalsRulesFieldComparison FieldComparison { get; set; }
 
         /// <summary>
-        /// Gets or sets the rule condition expression when 'fieldComparison'
-        /// is not defined.
+        /// Gets or sets the rule condition expression when `fieldComparison`
+        /// is not defined
         /// </summary>
         [JsonProperty(PropertyName = "expression")]
         public string Expression { get; set; }

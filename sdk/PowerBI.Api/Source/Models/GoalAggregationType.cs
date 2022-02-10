@@ -24,27 +24,27 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// The information is about current value of the goal.
+        /// Information about the current value of the goal
         /// </summary>
         public static readonly GoalAggregationType Value = "Value";
 
         /// <summary>
-        /// The information is about target value of the goal.
+        /// Information about the target value of the goal
         /// </summary>
         public static readonly GoalAggregationType Target = "Target";
 
         /// <summary>
-        /// The information is about status of the goal.
+        /// Information about the status of the goal
         /// </summary>
         public static readonly GoalAggregationType Status = "Status";
 
         /// <summary>
-        /// The information is about the sparkline.
+        /// Information about the sparkline
         /// </summary>
         public static readonly GoalAggregationType Sparkline = "Sparkline";
 
         /// <summary>
-        /// The information is about the change.
+        /// Information about the change
         /// </summary>
         public static readonly GoalAggregationType Change = "Change";
 

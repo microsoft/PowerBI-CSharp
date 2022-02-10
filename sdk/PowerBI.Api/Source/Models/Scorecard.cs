@@ -43,8 +43,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="description">The scorecard description</param>
         /// <param name="permissions">The scorecard permissions. Possible
         /// values include: 'None', 'Read', 'Write', 'ReadWrite'</param>
-        /// <param name="columnSettings">The column settings for the way the
-        /// goals should be shown on the scorecard</param>
+        /// <param name="columnSettings">The display settings for columns on a
+        /// scorecard</param>
         /// <param name="goals">The scorecard goals</param>
         public Scorecard(System.Guid? id = default(System.Guid?), string name = default(string), System.DateTime? createdTime = default(System.DateTime?), System.DateTime? lastModifiedTime = default(System.DateTime?), string provisioningStatus = default(string), System.Guid? groupId = default(System.Guid?), System.Guid? datasetId = default(System.Guid?), System.Guid? reportId = default(System.Guid?), string description = default(string), ScorecardPermission? permissions = default(ScorecardPermission?), IList<ScorecardColumnSetting> columnSettings = default(IList<ScorecardColumnSetting>), IList<Goal> goals = default(IList<Goal>))
         {
@@ -133,8 +133,7 @@ namespace Microsoft.PowerBI.Api.Models
         public ScorecardPermission? Permissions { get; set; }
 
         /// <summary>
-        /// Gets or sets the column settings for the way the goals should be
-        /// shown on the scorecard
+        /// Gets or sets the display settings for columns on a scorecard
         /// </summary>
         [JsonProperty(PropertyName = "columnSettings")]
         public IList<ScorecardColumnSetting> ColumnSettings { get; set; }

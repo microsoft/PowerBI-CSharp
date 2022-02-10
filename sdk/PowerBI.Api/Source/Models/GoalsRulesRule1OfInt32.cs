@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A status rule object for Power BI goal
+    /// A status rule object for the Power BI goal
     /// </summary>
     public partial class GoalsRulesRule1OfInt32
     {
@@ -28,9 +28,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalsRulesRule1OfInt32 class.
         /// </summary>
         /// <param name="conditions">The list of status rule conditions</param>
-        /// <param name="output">The status ID when conditions are met. 0 -
-        /// 'Not started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .</param>
+        /// <param name="output">The status ID when conditions are met
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |</param>
         public GoalsRulesRule1OfInt32(IList<GoalsRulesRuleCondition> conditions = default(IList<GoalsRulesRuleCondition>), int? output = default(int?))
         {
             Conditions = conditions;
@@ -50,9 +57,16 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<GoalsRulesRuleCondition> Conditions { get; set; }
 
         /// <summary>
-        /// Gets or sets the status ID when conditions are met. 0 - 'Not
-        /// started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .
+        /// Gets or sets the status ID when conditions are met
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |
         /// </summary>
         [JsonProperty(PropertyName = "output")]
         public int? Output { get; set; }

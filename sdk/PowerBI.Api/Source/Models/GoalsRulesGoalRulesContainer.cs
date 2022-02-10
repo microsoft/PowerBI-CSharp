@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A containter for json definitions of status rules on a Power BI goal
+    /// A container for JSON definitions of status rules on a Power BI goal
     /// </summary>
     public partial class GoalsRulesGoalRulesContainer
     {

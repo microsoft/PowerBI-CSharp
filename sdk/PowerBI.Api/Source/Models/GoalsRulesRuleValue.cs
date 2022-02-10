@@ -10,8 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A specification of 'what' to be used in a condition for Power BI goal
-    /// status rule
+    /// A specification for a condition in a Power BI goal status rule
     /// </summary>
     public partial class GoalsRulesRuleValue
     {
@@ -26,9 +25,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GoalsRulesRuleValue class.
         /// </summary>
-        /// <param name="percentOf">The percent definition of the field
-        /// value.</param>
-        /// <param name="field">The rule value field</param>
+        /// <param name="percentOf">An entry defining a percentage of some
+        /// target metric</param>
+        /// <param name="field">The rule value</param>
         /// <param name="dateTime">The rule value timestamp</param>
         /// <param name="number">The rule value number</param>
         public GoalsRulesRuleValue(GoalsRulesPercentOf percentOf = default(GoalsRulesPercentOf), string field = default(string), System.DateTime? dateTime = default(System.DateTime?), double? number = default(double?))
@@ -46,13 +45,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the percent definition of the field value.
+        /// Gets or sets an entry defining a percentage of some target metric
         /// </summary>
         [JsonProperty(PropertyName = "percentOf")]
         public GoalsRulesPercentOf PercentOf { get; set; }
 
         /// <summary>
-        /// Gets or sets the rule value field
+        /// Gets or sets the rule value
         /// </summary>
         [JsonProperty(PropertyName = "field")]
         public string Field { get; set; }

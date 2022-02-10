@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -41,7 +41,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -89,7 +89,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -116,7 +116,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -134,7 +134,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;

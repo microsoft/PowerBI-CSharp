@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -41,7 +41,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -89,7 +89,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -116,7 +116,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -125,8 +125,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: goals, goalValues, aggregations and notes.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `goals`, `goalValues`, `aggregations`, and
+            /// `notes`.
             /// </param>
             public static Scorecard GetById(this IScorecardsOperations operations, string expand = default(string))
             {
@@ -138,7 +139,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -147,8 +148,9 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: goals, goalValues, aggregations and notes.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `goals`, `goalValues`, `aggregations`, and
+            /// `notes`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -166,7 +168,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -187,7 +189,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -214,7 +216,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -232,7 +234,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -253,7 +255,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -262,11 +264,11 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The id of the internal report associated with the scorecard.
+            /// The ID of the internal report associated with the scorecard
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: goals, goalValues and aggregations.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `goals`, `goalValues`, and `aggregations`.
             /// </param>
             public static Scorecard GetScorecardByReportId(this IScorecardsOperations operations, System.Guid reportId, string expand = default(string))
             {
@@ -278,7 +280,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All or Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -287,11 +289,11 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='reportId'>
-            /// The id of the internal report associated with the scorecard.
+            /// The ID of the internal report associated with the scorecard
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: goals, goalValues and aggregations.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `goals`, `goalValues`, and `aggregations`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -309,7 +311,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
@@ -330,7 +332,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;

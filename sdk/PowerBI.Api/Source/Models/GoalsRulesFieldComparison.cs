@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GoalsRulesFieldComparison class.
         /// </summary>
-        /// <param name="field">The name of the field such as 'Timestamp',
-        /// 'Value' or 'Change'.</param>
+        /// <param name="field">The name of the field, such as `Timestamp`,
+        /// `Value`, or `Change`.</param>
         /// <param name="operatorProperty">The comparison operator. Possible
         /// values include: 'Equal', 'GreaterThan', 'GreaterThanOrEqual',
         /// 'LessThan', 'LessThanOrEqual'</param>
@@ -45,8 +45,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the name of the field such as 'Timestamp', 'Value' or
-        /// 'Change'.
+        /// Gets or sets the name of the field, such as `Timestamp`, `Value`,
+        /// or `Change`.
         /// </summary>
         [JsonProperty(PropertyName = "field")]
         public string Field { get; set; }

@@ -23,14 +23,15 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: goalValues and aggregations.
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `goalValues` and
+        /// `aggregations`.
         /// </param>
         /// <param name='select'>
         /// Allows the clients to select specific properties from the server.
@@ -53,7 +54,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -82,7 +83,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -108,7 +109,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -137,7 +138,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -157,7 +158,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.Read.All or Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -180,7 +181,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -203,7 +204,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -226,7 +227,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -246,7 +247,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI goal value check-in creation request
+    /// A creation request for a Power BI goal value check-in
     /// </summary>
     public partial class GoalValueCreateRequest
     {
@@ -25,16 +25,25 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GoalValueCreateRequest class.
         /// </summary>
-        /// <param name="timestamp">The UTC day timestamp (time part is 0) of
-        /// the goal value check-in.</param>
-        /// <param name="value">(Optional) The goal current value.</param>
-        /// <param name="target">(Optional) The goal target value.</param>
-        /// <param name="trend">(Optional) The goal value trend.</param>
-        /// <param name="forecast">(Optional) The goal value trend
-        /// forecast.</param>
-        /// <param name="status">(Optional) The ID of the goal status. 0 - 'Not
-        /// started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .</param>
+        /// <param name="timestamp">The UTC timestamp of the goal value
+        /// check-in. The time portion of the timestamp is zero.</param>
+        /// <param name="value">(Optional) The current value of the
+        /// goal</param>
+        /// <param name="target">(Optional) The target value of the
+        /// goal</param>
+        /// <param name="trend">(Optional) The value trend of the goal</param>
+        /// <param name="forecast">(Optional) The value trend forecast of the
+        /// goal</param>
+        /// <param name="status">(Optional) The goal status ID
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |</param>
         public GoalValueCreateRequest(System.DateTime timestamp, double? value = default(double?), double? target = default(double?), int? trend = default(int?), double? forecast = default(double?), int? status = default(int?))
         {
             Timestamp = timestamp;
@@ -52,40 +61,47 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the UTC day timestamp (time part is 0) of the goal
-        /// value check-in.
+        /// Gets or sets the UTC timestamp of the goal value check-in. The time
+        /// portion of the timestamp is zero.
         /// </summary>
         [JsonProperty(PropertyName = "timestamp")]
         public System.DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The goal current value.
+        /// Gets or sets (Optional) The current value of the goal
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public double? Value { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The goal target value.
+        /// Gets or sets (Optional) The target value of the goal
         /// </summary>
         [JsonProperty(PropertyName = "target")]
         public double? Target { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The goal value trend.
+        /// Gets or sets (Optional) The value trend of the goal
         /// </summary>
         [JsonProperty(PropertyName = "trend")]
         public int? Trend { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The goal value trend forecast.
+        /// Gets or sets (Optional) The value trend forecast of the goal
         /// </summary>
         [JsonProperty(PropertyName = "forecast")]
         public double? Forecast { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The ID of the goal status. 0 - 'Not
-        /// started', 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 -
-        /// 'Overdue', 5 - 'Completed' .
+        /// Gets or sets (Optional) The goal status ID
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public int? Status { get; set; }

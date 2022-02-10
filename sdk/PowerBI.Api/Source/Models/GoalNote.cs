@@ -26,14 +26,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalNote class.
         /// </summary>
         /// <param name="id">The goal value check-in note ID</param>
-        /// <param name="valueTimestamp">The UTC day timestamp (time part is 0)
-        /// of the goal value check-in for which this note was made.</param>
+        /// <param name="valueTimestamp">The UTC timestamp of the goal value
+        /// check-in that this note belongs to. The time portion of the
+        /// timestamp is zero.</param>
         /// <param name="goalId">The goal ID</param>
         /// <param name="scorecardId">The scorecard ID</param>
         /// <param name="lastModifiedTime">The UTC time at last
         /// modification</param>
         /// <param name="content">The content of this note in special
-        /// format.</param>
+        /// format</param>
         /// <param name="createdTime">The UTC time at creation</param>
         /// <param name="body">The note text</param>
         public GoalNote(System.Guid? id = default(System.Guid?), System.DateTime? valueTimestamp = default(System.DateTime?), System.Guid? goalId = default(System.Guid?), System.Guid? scorecardId = default(System.Guid?), System.DateTime? lastModifiedTime = default(System.DateTime?), string content = default(string), System.DateTime? createdTime = default(System.DateTime?), string body = default(string))
@@ -61,8 +62,8 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the UTC day timestamp (time part is 0) of the goal
-        /// value check-in for which this note was made.
+        /// Gets or sets the UTC timestamp of the goal value check-in that this
+        /// note belongs to. The time portion of the timestamp is zero.
         /// </summary>
         [JsonProperty(PropertyName = "valueTimestamp")]
         public System.DateTime? ValueTimestamp { get; set; }
@@ -86,7 +87,7 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? LastModifiedTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the content of this note in special format.
+        /// Gets or sets the content of this note in special format
         /// </summary>
         [JsonProperty(PropertyName = "content")]
         public string Content { get; set; }

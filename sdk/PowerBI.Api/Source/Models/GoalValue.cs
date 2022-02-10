@@ -27,8 +27,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the GoalValue class.
         /// </summary>
-        /// <param name="timestamp">The UTC day timestamp (time part is 0) of
-        /// the goal value check-in.</param>
+        /// <param name="timestamp">The UTC timestamp of the goal value
+        /// check-in. The time portion of the timestamp is zero.</param>
         /// <param name="goalId">The goal ID</param>
         /// <param name="scorecardId">The scorecard ID</param>
         /// <param name="createdTime">The UTC time at creation</param>
@@ -42,10 +42,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// goal target</param>
         /// <param name="trend">The goal value trend</param>
         /// <param name="forecast">The goal value trend forecast</param>
-        /// <param name="status">The ID of the goal status. 0 - 'Not started',
-        /// 1 - 'On track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 -
-        /// 'Completed' .</param>
-        /// <param name="notes">The notes for the goal.</param>
+        /// <param name="status">The ID of the goal status
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |</param>
+        /// <param name="notes">The notes for the goal</param>
         public GoalValue(System.DateTime? timestamp = default(System.DateTime?), System.Guid? goalId = default(System.Guid?), System.Guid? scorecardId = default(System.Guid?), System.DateTime? createdTime = default(System.DateTime?), System.DateTime? lastModifiedTime = default(System.DateTime?), double? value = default(double?), double? target = default(double?), string valueDisplayString = default(string), string targetDisplayString = default(string), int? trend = default(int?), double? forecast = default(double?), int? status = default(int?), IList<GoalNote> notes = default(IList<GoalNote>))
         {
             Timestamp = timestamp;
@@ -70,8 +77,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the UTC day timestamp (time part is 0) of the goal
-        /// value check-in.
+        /// Gets or sets the UTC timestamp of the goal value check-in. The time
+        /// portion of the timestamp is zero.
         /// </summary>
         [JsonProperty(PropertyName = "timestamp")]
         public System.DateTime? Timestamp { get; set; }
@@ -137,15 +144,22 @@ namespace Microsoft.PowerBI.Api.Models
         public double? Forecast { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the goal status. 0 - 'Not started', 1 - 'On
-        /// track', 2 - 'At risk', 3 - 'Behind', 4 - 'Overdue', 5 - 'Completed'
-        /// .
+        /// Gets or sets the ID of the goal status
+        ///
+        /// | ID | Description |
+        /// |-|-|
+        /// | 0 | Not started |
+        /// | 1 | On track |
+        /// | 2 | At risk |
+        /// | 3 | Behind |
+        /// | 4 | Overdue |
+        /// | 5 | Completed |
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public int? Status { get; set; }
 
         /// <summary>
-        /// Gets or sets the notes for the goal.
+        /// Gets or sets the notes for the goal
         /// </summary>
         [JsonProperty(PropertyName = "notes")]
         public IList<GoalNote> Notes { get; set; }

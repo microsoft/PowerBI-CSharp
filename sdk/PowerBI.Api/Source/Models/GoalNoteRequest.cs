@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI goal value check-in note request.
+    /// A Power BI goal value check-in note request
     /// </summary>
     public partial class GoalNoteRequest
     {

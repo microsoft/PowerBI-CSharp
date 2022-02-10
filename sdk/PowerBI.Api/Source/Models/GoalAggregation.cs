@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// An entry describing the state of various Power BI goal properties at
+    /// An entry describing the state of various Power BI goal properties at a
     /// specific time (normally current time)
     /// </summary>
     public partial class GoalAggregation
@@ -28,8 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalAggregation class.
         /// </summary>
         /// <param name="id">The aggregation ID</param>
-        /// <param name="timestamp">The UTC timestamp of the day (time part is
-        /// 0) associated with the aggregated property.</param>
+        /// <param name="timestamp">The UTC timestamp associated with the
+        /// aggregated property. The time portion of the timestamp is
+        /// zero.</param>
         /// <param name="calculationTime">The UTC timestamp of the aggregation
         /// calculation</param>
         /// <param name="scorecardId">The scorecard ID</param>
@@ -40,7 +41,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// values include: 'Value', 'Target', 'Status', 'Sparkline',
         /// 'Change'</param>
         /// <param name="maxLastModifiedTime">The UTC timestamp of the latest
-        /// modification of the aggregated property</param>
+        /// modification to the aggregated property</param>
         /// <param name="valueDisplayString">(Optional) The alternative text
         /// representation of the aggregated property value</param>
         public GoalAggregation(string id, System.DateTime timestamp, System.DateTime calculationTime, System.Guid scorecardId, System.Guid goalId, double value, GoalAggregationType type, System.DateTime maxLastModifiedTime, string valueDisplayString = default(string))
@@ -69,8 +70,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the UTC timestamp of the day (time part is 0)
-        /// associated with the aggregated property.
+        /// Gets or sets the UTC timestamp associated with the aggregated
+        /// property. The time portion of the timestamp is zero.
         /// </summary>
         [JsonProperty(PropertyName = "timestamp")]
         public System.DateTime Timestamp { get; set; }
@@ -114,7 +115,7 @@ namespace Microsoft.PowerBI.Api.Models
         public GoalAggregationType Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the UTC timestamp of the latest modification of the
+        /// Gets or sets the UTC timestamp of the latest modification to the
         /// aggregated property
         /// </summary>
         [JsonProperty(PropertyName = "maxLastModifiedTime")]

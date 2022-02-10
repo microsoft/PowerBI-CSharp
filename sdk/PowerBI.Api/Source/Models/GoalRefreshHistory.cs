@@ -34,11 +34,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'BadQueryResultMetadata', 'EmptyGoalValues',
         /// 'ConnectedDatasetDeleted', 'UserNotAuthorized', 'ModelNotFound',
         /// 'ScorecardNotFound'</param>
-        /// <param name="timestamp">The UTC timestamp of refresh
-        /// operation.</param>
-        /// <param name="rootActivityId">The root activity ID.</param>
+        /// <param name="timestamp">The UTC timestamp of the refresh
+        /// operation</param>
+        /// <param name="rootActivityId">The root activity ID</param>
         /// <param name="message">The verbal description of the status of the
-        /// refresh operation.</param>
+        /// refresh operation</param>
         public GoalRefreshHistory(System.Guid? goalId = default(System.Guid?), GoalValueType? connectionType = default(GoalValueType?), GoalProcessingStatus? status = default(GoalProcessingStatus?), System.DateTime? timestamp = default(System.DateTime?), System.Guid? rootActivityId = default(System.Guid?), string message = default(string))
         {
             GoalId = goalId;
@@ -80,20 +80,20 @@ namespace Microsoft.PowerBI.Api.Models
         public GoalProcessingStatus? Status { get; set; }
 
         /// <summary>
-        /// Gets or sets the UTC timestamp of refresh operation.
+        /// Gets or sets the UTC timestamp of the refresh operation
         /// </summary>
         [JsonProperty(PropertyName = "timestamp")]
         public System.DateTime? Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or sets the root activity ID.
+        /// Gets or sets the root activity ID
         /// </summary>
         [JsonProperty(PropertyName = "rootActivityId")]
         public System.Guid? RootActivityId { get; set; }
 
         /// <summary>
         /// Gets or sets the verbal description of the status of the refresh
-        /// operation.
+        /// operation
         /// </summary>
         [JsonProperty(PropertyName = "message")]
         public string Message { get; set; }
