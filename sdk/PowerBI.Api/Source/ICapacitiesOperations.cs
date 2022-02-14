@@ -167,8 +167,9 @@ namespace Microsoft.PowerBI.Api
         /// Returns only the first n results.
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: capacities and groups
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `capacities` and
+        /// `groups`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -211,8 +212,9 @@ namespace Microsoft.PowerBI.Api
         /// Returns only the first n results.
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: capacities and groups
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `capacities` and
+        /// `groups`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -255,8 +257,9 @@ namespace Microsoft.PowerBI.Api
         /// The refreshable ID
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: capacities and groups
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `capacities` and
+        /// `groups`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

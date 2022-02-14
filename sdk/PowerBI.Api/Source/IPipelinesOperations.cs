@@ -84,8 +84,8 @@ namespace Microsoft.PowerBI.Api
         /// The deployment pipeline ID
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: stages
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `stages`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -559,8 +559,8 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: users, stages.
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `users` and `stages`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition.

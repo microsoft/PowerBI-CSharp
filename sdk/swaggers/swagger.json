@@ -799,7 +799,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetails",
                 "consumes": [],
                 "produces": [
@@ -1002,7 +1002,7 @@
                     "Datasets"
                 ],
                 "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefresh",
                 "consumes": [],
                 "produces": [],
@@ -1030,7 +1030,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
                             "refreshId": "87f31ef7-1e3a-4006-9b0b-191693e79e9e"
@@ -2217,7 +2217,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in **My workspace**.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a .pbix file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - RDL files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a .pbix file from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -2238,7 +2238,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.",
+                        "description": "Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -2253,23 +2253,23 @@
                             "values": [
                                 {
                                     "value": "Ignore",
-                                    "description": "If dataset with the same name already exists, Import operation will create a new dataset with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will create a new dataset with the same name."
                                 },
                                 {
                                     "value": "Abort",
-                                    "description": "If dataset with the same name already exists, Import operation will be aborted."
+                                    "description": "If a dataset with the same name already exists, the import operation will be cancelled."
                                 },
                                 {
                                     "value": "Overwrite",
-                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there is no conflict or if there are more than one datasets with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is no conflict or if there is more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "CreateOrOverwrite",
-                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "GenerateUniqueName",
-                                    "description": "If a dataflow with the same name already exists, Import operation will generate a new unique name for the dataflow."
+                                    "description": "If a dataflow with the same name already exists, the import operation will generate a new unique name for the new dataflow."
                                 }
                             ]
                         }
@@ -3366,7 +3366,7 @@
                     "Dashboards"
                 ],
                 "summary": "Deletes the specified dashboard from **My workspace**.",
-                "description": "\n## Required scope\n\nDashboard.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
                 "operationId": "Dashboards_DeleteDashboard",
                 "consumes": [
 
@@ -3390,7 +3390,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "dashboardId": "7a463f03-22df-48be-9c00-56067f2fb75f"
                         },
@@ -4401,7 +4401,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n######\n",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetailsInGroup",
                 "consumes": [],
                 "produces": [
@@ -4615,7 +4615,7 @@
                     "Datasets"
                 ],
                 "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
-                "description": "\n## Required scope\n\nDataset.ReadWrite.All\n\n######\n",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefreshInGroup",
                 "consumes": [],
                 "produces": [],
@@ -4651,7 +4651,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "fdb91b8f-0a9b-44c1-b6c0-0cb185c6ebfb",
                             "datasetId": "f7fc6510-e151-42a3-850b-d0805a391db0",
@@ -5761,7 +5761,7 @@
                         "name": "nameConflict",
                         "in": "query",
                         "required": false,
-                        "description": "Determines what to do if a dataset with the same name already exists. Default value is 'Ignore'.<br/>Only Abort and Overwrite are supported with Rdl files.<br/>Only Abort and GenerateUniqueName are supported with dataflow model.json files.",
+                        "description": "Specifies what to do if a dataset with the same name already exists. The default value is `Ignore`. For RDL files, `Abort` and `Overwrite` are the only supported options. For dataflow model.json files, `Abort` and `GenerateUniqueName` are the only supported options.",
                         "type": "string",
                         "enum": [
                             "Ignore",
@@ -5776,23 +5776,23 @@
                             "values": [
                                 {
                                     "value": "Ignore",
-                                    "description": "If dataset with the same name already exists, Import operation will create a new dataset with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will create a new dataset with the same name."
                                 },
                                 {
                                     "value": "Abort",
-                                    "description": "If dataset or dataflow with the same name already exists, Import operation will be aborted."
+                                    "description": "If dataset or dataflow with the same name already exists, the import operation will be cancelled."
                                 },
                                 {
                                     "value": "Overwrite",
-                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there is no conflict or if there are more than one datasets with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is no conflict or if there is more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "CreateOrOverwrite",
-                                    "description": "If dataset with the same name already exists, Import operation will replace the existing dataset with the new one.<br/>Import operation will fail if there are more than one datasets with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "GenerateUniqueName",
-                                    "description": "If a dataflow with the same name already exists, Import operation will generate a new unique name for the dataflow."
+                                    "description": "If a dataflow with the same name already exists, the import operation will generate a new unique name for the new dataflow."
                                 }
                             ]
                         }
@@ -7054,7 +7054,7 @@
                     "Dashboards"
                 ],
                 "summary": "Deletes the specified dashboard from the specified workspace.",
-                "description": "\n## Required scope\n\nDashboard.ReadWrite.All\n<br><br>",
+                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
                 "operationId": "Dashboards_DeleteDashboardInGroup",
                 "consumes": [
 
@@ -7086,7 +7086,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "example": {
+                    "Example": {
                         "parameters": {
                             "groupId": "d81d5fa5-17d9-4ae4-90a6-d038876c19bd",
                             "dashboardId": "7a463f03-22df-48be-9c00-56067f2fb75f"
@@ -10523,7 +10523,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -10752,7 +10752,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -10988,7 +10988,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     }
@@ -11122,7 +11122,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns **My workspace** to the specified capacity.",
-                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or Assign permission on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_AssignMyWorkspaceToCapacity",
                 "consumes": [
                     "application/json"
@@ -11556,7 +11556,7 @@
                     },
                     {
                         "name": "$expand",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: stages",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `stages`.",
                         "in": "query",
                         "type": "string",
                         "required": false,
@@ -13363,7 +13363,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `users`, `reports`, `dashboards`, `datasets`, `dataflows`, and `workbooks`.",
                         "required": false,
                         "type": "string"
                     },
@@ -13737,7 +13737,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, reports, dashboards, datasets, dataflows, workbooks",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `users`, `reports`, `dashboards`, `datasets`, `dataflows`, and `workbooks`.",
                         "required": false,
                         "type": "string"
                     }
@@ -14731,7 +14731,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of subscriptions along with subscribees that the report subscribed to. This is a preview API call.",
+                "summary": "Returns a list of report subscriptions along with subscriber details. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportSubscriptionsAsAdmin",
                 "consumes": [
@@ -14817,7 +14817,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: tiles",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `tiles`.",
                         "required": false,
                         "type": "string"
                     },
@@ -14995,7 +14995,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of subscriptions along with subscribees that the dashboard subscribed to. This is a preview API call.",
+                "summary": "Returns a list of dashboard subscriptions along with subscriber details. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardSubscriptionsAsAdmin",
                 "consumes": [
@@ -15648,7 +15648,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -15876,7 +15876,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     },
@@ -16111,7 +16111,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: capacities and groups",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `capacities` and `groups`.",
                         "required": false,
                         "type": "string"
                     }
@@ -17426,7 +17426,7 @@
                     {
                         "name": "$expand",
                         "in": "query",
-                        "description": "Expands related entities inline, receives a comma-separated list of data types. Supported: users, stages.",
+                        "description": "Accepts a comma-separated list of data types, which will be expanded inline in the response. Supports `users` and `stages`.",
                         "required": false,
                         "type": "string"
                     },
@@ -19297,7 +19297,7 @@
                         "name": "goalNote",
                         "in": "body",
                         "required": true,
-                        "description": "The note content to be updated.",
+                        "description": "The note content to be updated",
                         "schema": {
                             "$ref": "#/definitions/GoalNoteRequest"
                         }
@@ -19305,7 +19305,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "The updated goal value check-in note.",
+                        "description": "The updated goal value check-in note",
                         "schema": {
                             "$ref": "#/definitions/GoalNote"
                         }
@@ -20237,7 +20237,7 @@
             "properties": {
                 "filePath": {
                     "type": "string",
-                    "description": "The path of the OneDrive for Business Excel (.xlsx) file to import, which can be absolute or relative. .pbix files aren't supported."
+                    "description": "The path of the OneDrive for Business Excel (.xlsx) file to import, which can be absolute or relative. Power BI .pbix files aren't supported."
                 },
                 "connectionType": {
                     "type": "string",
@@ -24083,7 +24083,7 @@
                             },
                             {
                                 "value": "Abort",
-                                "description": "In the event of position conflict, the request will be aborted."
+                                "description": "In the event of position conflict, the request will be cancelled."
                             }
                         ]
                     }
@@ -26196,7 +26196,7 @@
                         "values": [
                             {
                                 "value": "Admin",
-                                "description": "Grants administrator rights to a deployment pipeine"
+                                "description": "Grants administrator rights to a deployment pipeline"
                             }
                         ]
                     }

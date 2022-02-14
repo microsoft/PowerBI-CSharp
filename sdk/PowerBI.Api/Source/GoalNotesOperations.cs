@@ -219,7 +219,7 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='goalNote'>
-        /// The note content to be updated.
+        /// The note content to be updated
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

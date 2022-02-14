@@ -48,11 +48,10 @@ namespace Microsoft.PowerBI.Api
         ///
         /// &gt; [!NOTE]
         /// &gt; Supported content:
-        /// &gt;
-        /// &gt; - .pbix files
+        /// &gt; - Power BI .pbix files
         /// &gt; - JSON files (.json)
         /// &gt; - Excel files (.xlsx)
-        /// &gt; - SQL Server Report Definition Language files (.rdl)
+        /// &gt; - RDL files (.rdl)
         ///
         /// - To import a file, specify the content type
         /// **multipart/form-data** in the request headers and encode the file
@@ -91,10 +90,10 @@ namespace Microsoft.PowerBI.Api
         /// The import to post
         /// </param>
         /// <param name='nameConflict'>
-        /// Determines what to do if a dataset with the same name already
-        /// exists. Default value is 'Ignore'.&lt;br/&gt;Only Abort and
-        /// Overwrite are supported with Rdl files. Possible values include:
-        /// 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite',
+        /// Specifies what to do if a dataset with the same name already
+        /// exists. The default value is `Ignore`. For RDL files, `Abort` and
+        /// `Overwrite` are the only supported options. Possible values
+        /// include: 'Ignore', 'Abort', 'Overwrite', 'CreateOrOverwrite',
         /// 'GenerateUniqueName'
         /// </param>
         /// <param name='skipReport'>
@@ -276,11 +275,11 @@ namespace Microsoft.PowerBI.Api
         /// The import to post
         /// </param>
         /// <param name='nameConflict'>
-        /// Determines what to do if a dataset with the same name already
-        /// exists. Default value is 'Ignore'.&lt;br/&gt;Only Abort and
-        /// Overwrite are supported with Rdl files.&lt;br/&gt;Only Abort and
-        /// GenerateUniqueName are supported with dataflow model.json files.
-        /// Possible values include: 'Ignore', 'Abort', 'Overwrite',
+        /// Specifies what to do if a dataset with the same name already
+        /// exists. The default value is `Ignore`. For RDL files, `Abort` and
+        /// `Overwrite` are the only supported options. For dataflow model.json
+        /// files, `Abort` and `GenerateUniqueName` are the only supported
+        /// options. Possible values include: 'Ignore', 'Abort', 'Overwrite',
         /// 'CreateOrOverwrite', 'GenerateUniqueName'
         /// </param>
         /// <param name='skipReport'>

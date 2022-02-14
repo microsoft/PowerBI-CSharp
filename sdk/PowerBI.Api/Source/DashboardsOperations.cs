@@ -479,7 +479,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -1506,7 +1506,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
         /// &lt;br&gt;&lt;br&gt;
@@ -2487,8 +2487,8 @@ namespace Microsoft.PowerBI.Api
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of data
-        /// types. Supported: tiles
+        /// Accepts a comma-separated list of data types, which will be expanded inline
+        /// in the response. Supports `tiles`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -2947,8 +2947,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of subscriptions along with subscribees that the dashboard
-        /// subscribed to. This is a preview API call.
+        /// Returns a list of dashboard subscriptions along with subscriber details.
+        /// This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

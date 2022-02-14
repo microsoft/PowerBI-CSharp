@@ -448,12 +448,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -481,12 +479,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
         /// The dataset ID
@@ -1531,12 +1527,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1567,12 +1561,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

@@ -437,7 +437,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or assign permissions on the
+            /// The user must have administrator rights or Assign permission on the
             /// capacity.
             ///
             /// ## Required Scope
@@ -466,7 +466,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or assign permissions on the
+            /// The user must have administrator rights or Assign permission on the
             /// capacity.
             ///
             /// ## Required Scope
@@ -752,9 +752,9 @@ namespace Microsoft.PowerBI.Api
             /// in the range of 1-5000.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, reports, dashboards, datasets, dataflows,
-            /// workbooks
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `users`, `reports`, `dashboards`, `datasets`,
+            /// `dataflows`, and `workbooks`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -798,9 +798,9 @@ namespace Microsoft.PowerBI.Api
             /// in the range of 1-5000.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, reports, dashboards, datasets, dataflows,
-            /// workbooks
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `users`, `reports`, `dashboards`, `datasets`,
+            /// `dataflows`, and `workbooks`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -848,9 +848,9 @@ namespace Microsoft.PowerBI.Api
             /// The workspace ID
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, reports, dashboards, datasets, dataflows,
-            /// workbooks
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `users`, `reports`, `dashboards`, `datasets`,
+            /// `dataflows`, and `workbooks`.
             /// </param>
             public static AdminGroup GetGroupAsAdmin(this IGroupsOperations operations, System.Guid groupId, string expand = default(string))
             {
@@ -885,9 +885,9 @@ namespace Microsoft.PowerBI.Api
             /// The workspace ID
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, reports, dashboards, datasets, dataflows,
-            /// workbooks
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `users`, `reports`, `dashboards`, `datasets`,
+            /// `dataflows`, and `workbooks`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

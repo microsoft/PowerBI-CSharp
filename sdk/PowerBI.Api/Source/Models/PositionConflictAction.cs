@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly PositionConflictAction Tail = "Tail";
 
         /// <summary>
-        /// In the event of position conflict, the request will be aborted.
+        /// In the event of position conflict, the request will be cancelled.
         /// </summary>
         public static readonly PositionConflictAction Abort = "Abort";
 

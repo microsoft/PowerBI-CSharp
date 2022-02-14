@@ -24,7 +24,7 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Grants administrator rights to a deployment pipeine
+        /// Grants administrator rights to a deployment pipeline
         /// </summary>
         public static readonly PipelineUserAccessRight Admin = "Admin";
 

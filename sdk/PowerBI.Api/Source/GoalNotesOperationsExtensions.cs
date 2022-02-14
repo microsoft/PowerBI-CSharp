@@ -77,7 +77,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='goalNote'>
-            /// The note content to be updated.
+            /// The note content to be updated
             /// </param>
             public static GoalNote PatchById(this IGoalNotesOperations operations, GoalNoteRequest goalNote)
             {
@@ -98,7 +98,7 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='goalNote'>
-            /// The note content to be updated.
+            /// The note content to be updated
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

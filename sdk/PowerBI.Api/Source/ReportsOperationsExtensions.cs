@@ -2297,8 +2297,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions along with subscribees that the report
-            /// subscribed to. This is a preview API call.
+            /// Returns a list of report subscriptions along with subscriber details. This
+            /// is a preview API call.
             /// </summary>
             /// <remarks>
             ///
@@ -2330,8 +2330,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions along with subscribees that the report
-            /// subscribed to. This is a preview API call.
+            /// Returns a list of report subscriptions along with subscriber details. This
+            /// is a preview API call.
             /// </summary>
             /// <remarks>
             ///
