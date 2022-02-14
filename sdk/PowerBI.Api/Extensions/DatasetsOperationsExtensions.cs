@@ -287,6 +287,47 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Updates the dataset with the specified id
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset id
+        /// </param>
+        /// <param name='updateDatasetRequest'>
+        /// Update dataset request parameters
+        /// </param>
+        public static void UpdateDataset(this IDatasetsOperations operations, Guid groupId, string datasetId, UpdateDatasetRequest updateDatasetRequest)
+        {
+            operations.UpdateDatasetAsync(groupId, datasetId, updateDatasetRequest).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Updates the dataset with the specified id
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset id
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task UpdateDatasetAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, UpdateDatasetRequest updateDatasetRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.UpdateDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, updateDatasetRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
+
+
+        /// <summary>
         /// Deletes the dataset with the specified id
         /// </summary>
         /// <param name='operations'>

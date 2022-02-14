@@ -67,7 +67,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// new rows</param>
         /// <param name="isRefreshable">Whether the dataset can be
         /// refreshed</param>
-        public Dataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?))
+        /// <param name="targetStorageMode">The dataset storage mode</param>
+        public Dataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), string targetStorageMode = default(string))
         {
             Id = id;
             Name = name;
@@ -86,6 +87,7 @@ namespace Microsoft.PowerBI.Api.Models
             Users = users;
             AddRowsAPIEnabled = addRowsAPIEnabled;
             IsRefreshable = isRefreshable;
+            TargetStorageMode = targetStorageMode;
             CustomInit();
         }
 
@@ -208,6 +210,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "IsRefreshable")]
         public bool? IsRefreshable { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset storage mode
+        /// </summary>
+        [JsonProperty(PropertyName = "targetStorageMode")]
+        public string TargetStorageMode { get; set; }
 
         /// <summary>
         /// Validate the object.

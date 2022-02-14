@@ -168,6 +168,65 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Updates the properties for the specified dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must be the dataset owner.
+            ///
+            /// ## Required Scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='updateDatasetRequest'>
+            /// Update dataset request parameters
+            /// </param>
+            public static void UpdateDataset(this IDatasetsOperations operations, string datasetId, UpdateDatasetRequest updateDatasetRequest)
+            {
+                operations.UpdateDatasetAsync(datasetId, updateDatasetRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the properties for the specified dataset from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must be the dataset owner.
+            ///
+            /// ## Required Scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='updateDatasetRequest'>
+            /// Update dataset request parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdateDatasetAsync(this IDatasetsOperations operations, string datasetId, UpdateDatasetRequest updateDatasetRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdateDatasetWithHttpMessagesAsync(datasetId, updateDatasetRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Deletes the specified dataset from **My workspace**.
             /// </summary>
             /// <remarks>
@@ -2187,6 +2246,73 @@ namespace Microsoft.PowerBI.Api
                 {
                     return _result.Body;
                 }
+            }
+
+            /// <summary>
+            /// Updates the properties for the specified dataset from the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must be the dataset owner.
+            ///
+            /// ## Required Scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='updateDatasetRequest'>
+            /// Update dataset request parameters
+            /// </param>
+            public static void UpdateDatasetInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, UpdateDatasetRequest updateDatasetRequest)
+            {
+                operations.UpdateDatasetInGroupAsync(groupId, datasetId, updateDatasetRequest).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Updates the properties for the specified dataset from the specified
+            /// workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// The user must be the dataset owner.
+            ///
+            /// ## Required Scope
+            ///
+            /// Dataset.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='datasetId'>
+            /// The dataset ID
+            /// </param>
+            /// <param name='updateDatasetRequest'>
+            /// Update dataset request parameters
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task UpdateDatasetInGroupAsync(this IDatasetsOperations operations, System.Guid groupId, string datasetId, UpdateDatasetRequest updateDatasetRequest, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.UpdateDatasetInGroupWithHttpMessagesAsync(groupId, datasetId, updateDatasetRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

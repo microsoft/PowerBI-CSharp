@@ -237,6 +237,67 @@
                 },
                 "deprecated": false
             },
+            "patch": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the properties for the specified dataset from **My workspace**.",
+                "description": "\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "operationId": "Datasets_UpdateDataset",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateDatasetRequest",
+                        "in": "body",
+                        "description": "Update dataset request parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateDatasetRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Changes the dataset storage mode to support large datasets": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "targetStorageMode": "PremiumFiles"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                   "Changes the dataset storage mode to support small datasets": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "targetStorageMode": "Abf"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    } 
+                },
+                "deprecated": false
+            },
             "delete": {
                 "tags": [
                     "Datasets"
@@ -3854,11 +3915,83 @@
                                     "isRefreshable": true,
                                     "isEffectiveIdentityRequired": true,
                                     "isEffectiveIdentityRolesRequired": true,
-                                    "isOnPremGatewayRequired": false
+                                    "isOnPremGatewayRequired": false,
+                                    "targetStorageMode": "Abf"
                                 }
                             }
                         }
                     }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the properties for the specified dataset from the specified workspace.",
+                "description": "\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "operationId": "Datasets_UpdateDatasetInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "updateDatasetRequest",
+                        "in": "body",
+                        "description": "Update dataset request parameters",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateDatasetRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Changes the dataset storage mode to support large datasets": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "targetStorageMode": "PremiumFiles"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                   "Changes the dataset storage mode to support small datasets": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateDatasetRequest": {
+                                "targetStorageMode": "Abf"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    } 
                 },
                 "deprecated": false
             },
@@ -20424,6 +20557,14 @@
                 }
             }
         },
+        "UpdateDatasetRequest": {
+            "description": "Update dataset request",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DatasetStorageMode"
+                }
+            ]
+        },
         "UpstreamDatasetsProperties": {
             "properties": {
                 "upstreamDatasets": {
@@ -20452,6 +20593,9 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetMiscProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetStorageMode"
                 }
             ]
         },
