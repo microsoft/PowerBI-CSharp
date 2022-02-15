@@ -329,7 +329,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace. This is a preview API call.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 table rows per query.\n- Service Principals are not supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) and user impersonation is not supported. \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 table rows per query.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) and user impersonation isn't supported. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -1509,7 +1509,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from **My workspace**.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list cannot be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` cannot be updated.\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
                 "operationId": "Datasets_UpdateParameters",
                 "consumes": [
                     "application/json"
@@ -2315,11 +2315,11 @@
                                 },
                                 {
                                     "value": "Overwrite",
-                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is no conflict or if there is more than one existing dataset with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there's no conflict or if there's more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "CreateOrOverwrite",
-                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is more than one existing dataset with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there's more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "GenerateUniqueName",
@@ -5190,7 +5190,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list cannot be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` cannot be updated.\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -5868,11 +5868,11 @@
                                 },
                                 {
                                     "value": "Overwrite",
-                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is no conflict or if there is more than one existing dataset with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there's no conflict or if there's more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "CreateOrOverwrite",
-                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there is more than one existing dataset with the same name."
+                                    "description": "If a dataset with the same name already exists, the import operation will replace the existing dataset with the new one. The import operation will fail if there's more than one existing dataset with the same name."
                                 },
                                 {
                                     "value": "GenerateUniqueName",
@@ -12010,7 +12010,7 @@
                     "Pipelines"
                 ],
                 "summary": "Assigns the specified workspace to the specified deployment pipeline stage.",
-                "description": "\n## Required Scope\n\nPipeline.ReadWrite.All and Workspace.ReadWrite.All\n\n## Limitations\n\n- The specified deployment pipeline stage is not already assigned.\n- You must be an admin of the specified workspace.\n- The specified workspace is not assigned to any other deployment pipeline.\n- This operation will fail if there's an active deployment operation.\n<br><br>",
+                "description": "\n## Required Scope\n\nPipeline.ReadWrite.All and Workspace.ReadWrite.All\n\n## Limitations\n\n- The specified deployment pipeline stage isn't already assigned.\n- You must be an admin of the specified workspace.\n- The specified workspace isn't assigned to any other deployment pipeline.\n- This operation will fail if there's an active deployment operation.\n<br><br>",
                 "operationId": "Pipelines_AssignWorkspace",
                 "consumes": [
                     "application/json"
@@ -20457,7 +20457,7 @@
                             },
                             {
                                 "value": "NotSupported",
-                                "description": "Encryption is not supported for this dataset"
+                                "description": "Encryption isn't supported for this dataset"
                             },
                             {
                                 "value": "InSyncWithWorkspace",
@@ -20871,7 +20871,7 @@
                 },
                 "formatString": {
                     "type": "string",
-                    "description": "(Optional) A string describing how the value should be formatted when it is displayed as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                    "description": "(Optional) A string describing how the value should be formatted when it's displayed as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
                 },
                 "description": {
                     "type": "string",
@@ -22501,7 +22501,7 @@
                             },
                             {
                                 "value": "Calculate",
-                                "description": "Recalculate this object and all its dependents, but only if needed. This value does not force recalculation, except for volatile formulas."
+                                "description": "Recalculate this object and all its dependents, but only if needed. This value doesn't force recalculation, except for volatile formulas."
                             },
                             {
                                 "value": "DataOnly",
@@ -22621,7 +22621,7 @@
                 },
                 "extendedStatus": {
                     "type": "string",
-                    "description": "- `Unknown` if the completion state is unknown.\n- `NotStarted` if the refresh operation is not started.\n- `InProgress` if the refresh operation is in progress.\n- `Completed` for a successfully completed refresh.\n- `TimedOut` if the refresh operation is timed out.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh.\n- `Cancelled` if the refresh operation has been cancelled by customer."
+                    "description": "- `Unknown` if the completion state is unknown.\n- `NotStarted` if the refresh operation isn't started.\n- `InProgress` if the refresh operation is in progress.\n- `Completed` for a successfully completed refresh.\n- `TimedOut` if the refresh operation is timed out.\n- `Failed` for an unsuccessful refresh.\n- `Disabled` if the refresh is disabled by a selective refresh.\n- `Cancelled` if the refresh operation has been cancelled by customer."
                 }
             }
         },
@@ -24419,7 +24419,7 @@
                     },
                     {
                         "value": "Unsupported",
-                        "description": "The workload is unsupported by the current capacity SKU and cannot be enabled. This value cannot be set by the user in a [Patch Workload](/rest/api/power-bi/capacities/patch-workload) API call."
+                        "description": "The workload is unsupported by the current capacity SKU and can't be enabled. This value can't be set by the user in a [Patch Workload](/rest/api/power-bi/capacities/patch-workload) API call."
                     }
                 ]
             },
@@ -24677,7 +24677,7 @@
                             },
                             {
                                 "value": "NotStarted",
-                                "description": "The export to file job did not start"
+                                "description": "The export to file job didn't start"
                             },
                             {
                                 "value": "Running",
@@ -25940,7 +25940,7 @@
                     "description": "Whether the deployment will be from a later stage in the deployment pipeline, to an earlier one. The default value is `false`."
                 },
                 "newWorkspace": {
-                    "description": "The configuration details for creating a new workspace. Required when deploying to a stage that has no assigned workspaces. The deployment will fail if the new workspace configuration details are not provided when required.",
+                    "description": "The configuration details for creating a new workspace. Required when deploying to a stage that has no assigned workspaces. The deployment will fail if the new workspace configuration details aren't provided when required.",
                     "$ref": "#/definitions/PipelineNewWorkspaceRequest"
                 },
                 "updateAppSettings": {
@@ -27311,11 +27311,11 @@
             "description": "A Power BI goal status rule",
             "properties": {
                 "fieldComparison": {
-                    "description": "The field comparison definition when `expression` is not defined",
+                    "description": "The field comparison definition when `expression` isn't defined",
                     "$ref": "#/definitions/Goals.Rules.FieldComparison"
                 },
                 "expression": {
-                    "description": "The rule condition expression when `fieldComparison` is not defined",
+                    "description": "The rule condition expression when `fieldComparison` isn't defined",
                     "type": "string"
                 }
             }

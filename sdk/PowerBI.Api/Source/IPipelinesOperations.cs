@@ -285,9 +285,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - The specified deployment pipeline stage is not already assigned.
+        /// - The specified deployment pipeline stage isn't already assigned.
         /// - You must be an admin of the specified workspace.
-        /// - The specified workspace is not assigned to any other deployment
+        /// - The specified workspace isn't assigned to any other deployment
         /// pipeline.
         /// - This operation will fail if there's an active deployment
         /// operation.

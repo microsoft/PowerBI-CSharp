@@ -38,7 +38,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// If a dataset with the same name already exists, the import
         /// operation will replace the existing dataset with the new one. The
-        /// import operation will fail if there is no conflict or if there is
+        /// import operation will fail if there's no conflict or if there's
         /// more than one existing dataset with the same name.
         /// </summary>
         public static readonly ImportConflictHandlerMode Overwrite = "Overwrite";
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// If a dataset with the same name already exists, the import
         /// operation will replace the existing dataset with the new one. The
-        /// import operation will fail if there is more than one existing
+        /// import operation will fail if there's more than one existing
         /// dataset with the same name.
         /// </summary>
         public static readonly ImportConflictHandlerMode CreateOrOverwrite = "CreateOrOverwrite";

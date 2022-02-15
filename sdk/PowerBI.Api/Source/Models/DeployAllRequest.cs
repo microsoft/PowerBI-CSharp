@@ -34,7 +34,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="newWorkspace">The configuration details for creating a
         /// new workspace. Required when deploying to a stage that has no
         /// assigned workspaces. The deployment will fail if the new workspace
-        /// configuration details are not provided when required.</param>
+        /// configuration details aren't provided when required.</param>
         /// <param name="updateAppSettings">Update org app in the target
         /// workspace settings</param>
         /// <param name="options">Options that control the behavior of the

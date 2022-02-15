@@ -840,9 +840,9 @@ namespace Microsoft.PowerBI.Api
         /// - One query per API call.
         /// - One table request per query.
         /// - Maximum of 100,000 table rows per query.
-        /// - Service Principals are not supported for datasets with RLS per [RLS
+        /// - Service Principals aren't supported for datasets with RLS per [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-        /// and user impersonation is not supported.
+        /// and user impersonation isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -3066,10 +3066,10 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum of 100 parameters per request.
         /// - All specified parameters must exist in the dataset.
         /// - Parameters values should be of the expected type.
-        /// - The parameter list cannot be empty or include duplicate parameters.
+        /// - The parameter list can't be empty or include duplicate parameters.
         /// - Parameters names are case-sensitive.
         /// - Parameter `IsRequired` must have a non-empty value.
-        /// - The parameter types `Any` and `Binary` cannot be updated.
+        /// - The parameter types `Any` and `Binary` can't be updated.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -7537,10 +7537,10 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum of 100 parameters per request.
         /// - All specified parameters must exist in the dataset.
         /// - Parameters values should be of the expected type.
-        /// - The parameter list cannot be empty or include duplicate parameters.
+        /// - The parameter list can't be empty or include duplicate parameters.
         /// - Parameters names are case-sensitive.
         /// - Parameter `IsRequired` must have a non-empty value.
-        /// - The parameter types `Any` and `Binary` cannot be updated.
+        /// - The parameter types `Any` and `Binary` can't be updated.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>

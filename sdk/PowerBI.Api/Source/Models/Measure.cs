@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="name">The measure name</param>
         /// <param name="expression">A valid DAX expression</param>
         /// <param name="formatString">(Optional) A string describing how the
-        /// value should be formatted when it is displayed as specified in
+        /// value should be formatted when it's displayed as specified in
         /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)</param>
         /// <param name="description">(Optional) Measure description</param>
         /// <param name="isHidden">(Optional) Whether the measure is
@@ -63,7 +63,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets (Optional) A string describing how the value should be
-        /// formatted when it is displayed as specified in
+        /// formatted when it's displayed as specified in
         /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)
         /// </summary>
         [JsonProperty(PropertyName = "formatString")]

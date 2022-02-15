@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// refresh.</param>
         /// <param name="extendedStatus">- `Unknown` if the completion state is
         /// unknown.
-        /// - `NotStarted` if the refresh operation is not started.
+        /// - `NotStarted` if the refresh operation isn't started.
         /// - `InProgress` if the refresh operation is in progress.
         /// - `Completed` for a successfully completed refresh.
         /// - `TimedOut` if the refresh operation is timed out.
@@ -108,7 +108,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets - `Unknown` if the completion state is unknown.
-        /// - `NotStarted` if the refresh operation is not started.
+        /// - `NotStarted` if the refresh operation isn't started.
         /// - `InProgress` if the refresh operation is in progress.
         /// - `Completed` for a successfully completed refresh.
         /// - `TimedOut` if the refresh operation is timed out.

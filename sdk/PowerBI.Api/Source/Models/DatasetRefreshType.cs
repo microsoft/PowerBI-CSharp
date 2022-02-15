@@ -37,7 +37,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Recalculate this object and all its dependents, but only if needed.
-        /// This value does not force recalculation, except for volatile
+        /// This value doesn't force recalculation, except for volatile
         /// formulas.
         /// </summary>
         public static readonly DatasetRefreshType Calculate = "Calculate";

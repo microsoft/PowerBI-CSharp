@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api.Models
         [EnumMember(Value = "Undefined")]
         Undefined,
         /// <summary>
-        /// The export to file job did not start
+        /// The export to file job didn't start
         /// </summary>
         [EnumMember(Value = "NotStarted")]
         NotStarted,
