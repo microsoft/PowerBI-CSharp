@@ -8,12 +8,8 @@
     "schemes": [
         "https"
     ],
-    "consumes": [
-
-    ],
-    "produces": [
-
-    ],
+    "consumes": [],
+    "produces": [],
     "paths": {
         "/v1.0/myorg/datasets": {
             "get": {
@@ -23,15 +19,11 @@
                 "summary": "Returns a list of datasets from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasets",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -191,9 +183,7 @@
                 "summary": "Returns the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDataset",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -247,8 +237,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -284,7 +273,7 @@
                             "200": {}
                         }
                     },
-                   "Changes the dataset storage mode to support small datasets": {
+                    "Changes the dataset storage mode to support small datasets": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "updateDatasetRequest": {
@@ -294,7 +283,7 @@
                         "responses": {
                             "200": {}
                         }
-                    } 
+                    }
                 },
                 "deprecated": false
             },
@@ -305,12 +294,8 @@
                 "summary": "Deletes the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_DeleteDataset",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -432,9 +417,7 @@
                 "summary": "Returns a list of tables within the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_GetTables",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -469,9 +452,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -563,9 +544,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -641,12 +620,8 @@
                 "summary": "Deletes all rows from the specified table within the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_DeleteRows",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -796,8 +771,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1141,8 +1115,17 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "days": [ "Sunday", "Friday", "Saturday" ],
-                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "05:00",
+                                        "11:30",
+                                        "17:30",
+                                        "23:00"
+                                    ],
                                     "enabled": true,
                                     "localTimeZoneId": "UTC",
                                     "notifyOption": "MailOnFailure"
@@ -1163,8 +1146,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1207,8 +1189,18 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
                                 "value": {
-                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
-                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Tuesday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "07:00",
+                                        "11:30",
+                                        "16:00",
+                                        "23:30"
+                                    ],
                                     "localTimeZoneId": "UTC"
                                 }
                             }
@@ -1222,7 +1214,10 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
                                 "value": {
-                                    "times": [ "08:00", "16:00" ]
+                                    "times": [
+                                        "08:00",
+                                        "16:00"
+                                    ]
                                 }
                             }
                         },
@@ -1284,8 +1279,17 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "days": [ "Sunday", "Friday", "Saturday" ],
-                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "05:00",
+                                        "11:30",
+                                        "17:30",
+                                        "23:00"
+                                    ],
                                     "localTimeZoneId": "UTC"
                                 }
                             }
@@ -1319,8 +1323,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1363,8 +1366,18 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
                                 "value": {
-                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
-                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Tuesday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "07:00",
+                                        "11:30",
+                                        "16:00",
+                                        "23:30"
+                                    ],
                                     "localTimeZoneId": "UTC"
                                 }
                             }
@@ -1378,7 +1391,11 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
                                 "value": {
-                                    "times": [ "07:00", "16:30", "23:30" ]
+                                    "times": [
+                                        "07:00",
+                                        "16:30",
+                                        "23:30"
+                                    ]
                                 }
                             }
                         },
@@ -1497,9 +1514,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1555,9 +1570,7 @@
                 "summary": "Returns a list of data sources for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasources",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -1734,9 +1747,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1811,9 +1822,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1864,9 +1873,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -1907,7 +1914,10 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
                                 "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-                                "datasourceObjectIds": [ "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb", "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5" ]
+                                "datasourceObjectIds": [
+                                    "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb",
+                                    "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"
+                                ]
                             }
                         },
                         "responses": {
@@ -1926,9 +1936,7 @@
                 "summary": "Returns a list of gateway data sources for the specified dataset from **My workspace**.",
                 "description": "\n> [!IMPORTANT]\n> This API is deprecated, use [Get Datasources](/rest/api/power-bi/datasets/get-datasources) instead.\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetGatewayDatasources",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -1981,9 +1989,7 @@
                 "summary": "Returns a list of gateways that the specified dataset from **My workspace** can be bound to.",
                 "description": "\nThis API call is only relevant to datasets that have at least one on-premises connection. For datasets with cloud-only connections, this API call returns an empty list.\n\n## Required Scope\n\nDataset.Read.All\n<br><br>",
                 "operationId": "Datasets_DiscoverGateways",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -2022,7 +2028,6 @@
                                                 "modulus": "o6j2....cLk="
                                             }
                                         }
-
                                     ]
                                 }
                             }
@@ -2043,8 +2048,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -2120,8 +2124,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "datasetId",
@@ -2184,12 +2187,9 @@
                 "summary": "Refreshes user permissions in Power BI.",
                 "description": "\nWhen a user is granted permissions to a workspace, app, or Power BI item (such as a report or a dashboard), the new permissions might not be immediately available through API calls. This operation refreshes user permissions to ensure they're fully updated.\n\n> [!IMPORTANT]\n>\n> - Call **Refresh User Permissions** before making other API calls.\n> - Since it takes about two minutes for the permissions to get refreshed, wait for two minutes before making other API calls.\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\nMaximum one call per hour.\n<br><br>",
                 "operationId": "Users_RefreshUserPermissions",
-                "consumes": [
-                ],
-                "produces": [
-                ],
-                "parameters": [
-                ],
+                "consumes": [],
+                "produces": [],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -2197,18 +2197,15 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
-                            "200": {
-                            }
+                            "200": {}
                         }
                     }
                 },
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/imports": {
             "get": {
                 "tags": [
@@ -2217,15 +2214,11 @@
                 "summary": "Returns a list of imports from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Imports_GetImports",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2452,9 +2445,7 @@
                 "summary": "Returns the specified import from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Imports_GetImport",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -2491,13 +2482,8 @@
                                     "name": "SalesMarketing",
                                     "connectionType": "import",
                                     "source": "Upload",
-                                    "datasets": [
-
-                                    ],
-                                    "reports": [
-
-                                    ]
-
+                                    "datasets": [],
+                                    "reports": []
                                 }
                             }
                         }
@@ -2547,15 +2533,11 @@
                 "summary": "Creates a temporary blob storage upload location for importing large .pbix files that are between 1 GB and 10 GB in size.",
                 "description": "\nTo import large .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
                 "operationId": "Imports_CreateTemporaryUploadLocation",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2567,7 +2549,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/reports": {
             "get": {
                 "tags": [
@@ -2576,15 +2557,11 @@
                 "summary": "Returns a list of reports from **My workspace**.",
                 "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReports",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -2672,12 +2649,8 @@
                 "summary": "Deletes the specified report from **My workspace**.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_DeleteReport",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "reportId",
@@ -2855,9 +2828,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "reportId",
@@ -2893,9 +2864,7 @@
                 "summary": "Returns a list of pages within the specified report from **My workspace**.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetPages",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -2953,9 +2922,7 @@
                 "summary": "Returns the specified page within the specified report from **My workspace**.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetPage",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -3012,9 +2979,7 @@
                 "summary": "Returns a list of data sources for the specified paginated report (RDL) from **My workspace**.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetDatasources",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -3075,9 +3040,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "reportId",
@@ -3185,9 +3148,7 @@
                 "summary": "Returns the current status of the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetExportToFileStatus",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -3233,9 +3194,7 @@
                 "summary": "Returns the file from the [Export to File](/rest/api/power-bi/reports/export-to-file) job for the specified report from **My workspace**.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetFileOfExportToFile",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/*",
                     "image/*",
@@ -3279,15 +3238,11 @@
                 "summary": "Returns a list of dashboards from **My workspace**.",
                 "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboards",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -3429,12 +3384,8 @@
                 "summary": "Deletes the specified dashboard from **My workspace**.",
                 "description": "\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
                 "operationId": "Dashboards_DeleteDashboard",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "dashboardId",
@@ -3638,7 +3589,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/groups/{groupId}/datasets": {
             "get": {
                 "tags": [
@@ -3647,9 +3597,7 @@
                 "summary": "Returns a list of datasets from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetsInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -3833,9 +3781,7 @@
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -3868,9 +3814,7 @@
                 "summary": "Returns the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -3934,8 +3878,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -3980,7 +3923,7 @@
                             "200": {}
                         }
                     },
-                   "Changes the dataset storage mode to support small datasets": {
+                    "Changes the dataset storage mode to support small datasets": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -3991,7 +3934,7 @@
                         "responses": {
                             "200": {}
                         }
-                    } 
+                    }
                 },
                 "deprecated": false
             },
@@ -4002,12 +3945,8 @@
                 "summary": "Deletes the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_DeleteDatasetInGroup",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -4052,9 +3991,7 @@
                 "summary": "Returns a list of tables within the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_GetTablesInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -4094,12 +4031,8 @@
                 "summary": "Updates the metadata and schema for the specified table within the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_PutTableInGroup",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -4197,12 +4130,8 @@
                 "summary": "Adds new data rows to the specified table within the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n<br><br>",
                 "operationId": "Datasets_PostRowsInGroup",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -4287,12 +4216,8 @@
                 "summary": "Deletes all rows from the specified table within the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_DeleteRowsInGroup",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -4461,8 +4386,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -4844,8 +4768,17 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "days": [ "Sunday", "Friday", "Saturday" ],
-                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "05:00",
+                                        "11:30",
+                                        "17:30",
+                                        "23:00"
+                                    ],
                                     "enabled": true,
                                     "localTimeZoneId": "UTC",
                                     "notifyOption": "MailOnFailure"
@@ -4866,8 +4799,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -4920,8 +4852,18 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
                                 "value": {
-                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
-                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Tuesday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "07:00",
+                                        "11:30",
+                                        "16:00",
+                                        "23:30"
+                                    ],
                                     "localTimeZoneId": "UTC"
                                 }
                             }
@@ -4936,7 +4878,10 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetModelRefreshScheduleRequest": {
                                 "value": {
-                                    "times": [ "08:00", "16:00" ]
+                                    "times": [
+                                        "08:00",
+                                        "16:00"
+                                    ]
                                 }
                             }
                         },
@@ -5008,8 +4953,17 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "days": [ "Sunday", "Friday", "Saturday" ],
-                                    "times": [ "05:00", "11:30", "17:30", "23:00" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "05:00",
+                                        "11:30",
+                                        "17:30",
+                                        "23:00"
+                                    ],
                                     "localTimeZoneId": "UTC"
                                 }
                             }
@@ -5044,8 +4998,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -5098,8 +5051,18 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
                                 "value": {
-                                    "days": [ "Sunday", "Tuesday", "Friday", "Saturday" ],
-                                    "times": [ "07:00", "11:30", "16:00", "23:30" ],
+                                    "days": [
+                                        "Sunday",
+                                        "Tuesday",
+                                        "Friday",
+                                        "Saturday"
+                                    ],
+                                    "times": [
+                                        "07:00",
+                                        "11:30",
+                                        "16:00",
+                                        "23:30"
+                                    ],
                                     "localTimeZoneId": "UTC"
                                 }
                             }
@@ -5114,7 +5077,11 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "datasetDQRefreshScheduleRequest": {
                                 "value": {
-                                    "times": [ "07:00", "16:30", "23:30" ]
+                                    "times": [
+                                        "07:00",
+                                        "16:30",
+                                        "23:30"
+                                    ]
                                 }
                             }
                         },
@@ -5134,9 +5101,7 @@
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParametersInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -5230,9 +5195,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -5296,9 +5259,7 @@
                 "summary": "Returns a list of data sources for the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasourcesInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -5398,9 +5359,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -5483,9 +5442,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -5545,9 +5502,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -5598,7 +5553,10 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "bindToGatewayRequest": {
                                 "gatewayObjectId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
-                                "datasourceObjectIds": [ "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb", "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5" ]
+                                "datasourceObjectIds": [
+                                    "dc2f2dac-e5e2-4c37-af76-2a0bc10f16cb",
+                                    "3bfe5d33-ab7d-4d24-b0b5-e2bb8eb01cf5"
+                                ]
                             }
                         },
                         "responses": {
@@ -5617,9 +5575,7 @@
                 "summary": "Returns a list of gateway data sources for the specified dataset from the specified workspace.",
                 "description": "\n> [!IMPORTANT]\n> This API is deprecated, use [Get Datasources In Group](/rest/api/power-bi/datasets/get-datasources-in-group) instead.\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetGatewayDatasourcesInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -5681,9 +5637,7 @@
                 "summary": "Returns a list of gateways that the specified dataset from the specified workspace can be bound to.",
                 "description": "\nThis API call is only relevant to datasets that have at least one on-premises connection. For datasets with cloud-only connections, this API call returns an empty list.\n\n## Required Scope\n\nDataset.Read.All\n<br><br>",
                 "operationId": "Datasets_DiscoverGatewaysInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -5786,7 +5740,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/groups/{groupId}/imports": {
             "get": {
                 "tags": [
@@ -5795,9 +5748,7 @@
                 "summary": "Returns a list of imports from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nImporting .pbix files from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_GetImportsInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6051,9 +6002,7 @@
                 "summary": "Returns the specified import from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Imports_GetImportInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6099,13 +6048,8 @@
                                     "name": "SalesMarketing",
                                     "connectionType": "import",
                                     "source": "Upload",
-                                    "datasets": [
-
-                                    ],
-                                    "reports": [
-
-                                    ]
-
+                                    "datasets": [],
+                                    "reports": []
                                 }
                             }
                         }
@@ -6156,9 +6100,7 @@
                 "summary": "Creates a temporary blob storage upload location for importing large .pbix files that are between 1 GB and 10 GB in size.",
                 "description": "\nTo import large .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import-in-group), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import-in-group#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
                 "operationId": "Imports_CreateTemporaryUploadLocationInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6183,7 +6125,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/groups/{groupId}/reports": {
             "get": {
                 "tags": [
@@ -6192,9 +6133,7 @@
                 "summary": "Returns a list of reports from the specified workspace.",
                 "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReportsInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6306,12 +6245,8 @@
                 "summary": "Deletes the specified report from the specified workspace.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_DeleteReportInGroup",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -6523,9 +6458,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -6569,9 +6502,7 @@
                 "summary": "Returns a list of pages within the specified report from the specified workspace.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetPagesInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6638,9 +6569,7 @@
                 "summary": "Returns the specified page within the specified report from the specified workspace.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetPageInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6706,9 +6635,7 @@
                 "summary": "Returns a list of data sources for the specified paginated report (RDL) from the specified workspace.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetDatasourcesInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6776,9 +6703,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -6902,9 +6827,7 @@
                 "summary": "Returns the current status of the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetExportToFileStatusInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -6958,9 +6881,7 @@
                 "summary": "Returns the file from the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetFileOfExportToFileInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/*",
                     "image/*",
@@ -7012,9 +6933,7 @@
                 "summary": "Returns a list of dashboards from the specified workspace.",
                 "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -7189,12 +7108,8 @@
                 "summary": "Deletes the specified dashboard from the specified workspace.",
                 "description": "\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
                 "operationId": "Dashboards_DeleteDashboardInGroup",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -7432,7 +7347,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/groups/{groupId}/reports/GenerateToken": {
             "post": {
                 "tags": [
@@ -7502,8 +7416,12 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -7581,8 +7499,12 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -7607,8 +7529,12 @@
                                     {
                                         "username": "john@contoso.com",
                                         "customData": "john_contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -7632,8 +7558,13 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales", "marketing" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales",
+                                            "marketing"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -7656,7 +7587,9 @@
                                 "accessLevel": "View",
                                 "identities": [
                                     {
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ],
                                         "identityBlob": {
                                             "value": "eyJ0eX....AAA="
                                         }
@@ -7683,8 +7616,12 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -7727,7 +7664,9 @@
                                 "identities": [
                                     {
                                         "username": "John Smith",
-                                        "reports": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "reports": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -7876,13 +7815,21 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     },
                                     {
                                         "username": "john_contoso",
-                                        "roles": [ "product" ],
-                                        "datasets": [ "a8b062ca-5730-468f-9df7-43c2ba76bf5e" ]
+                                        "roles": [
+                                            "product"
+                                        ],
+                                        "datasets": [
+                                            "a8b062ca-5730-468f-9df7-43c2ba76bf5e"
+                                        ]
                                     }
                                 ]
                             }
@@ -7905,7 +7852,9 @@
                                 "accessLevel": "View",
                                 "identities": [
                                     {
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ],
                                         "identityBlob": {
                                             "value": "eyJ0eX....AAA="
                                         }
@@ -7995,8 +7944,12 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -8022,8 +7975,12 @@
                                     {
                                         "username": "john@contoso.com",
                                         "customData": "john_contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ]
                             }
@@ -8047,7 +8004,9 @@
                                 "accessLevel": "View",
                                 "identities": [
                                     {
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ],
                                         "identityBlob": {
                                             "value": "eyJ0eX....AAA="
                                         }
@@ -8069,7 +8028,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/apps": {
             "get": {
                 "tags": [
@@ -8078,14 +8036,11 @@
                 "summary": "Returns a list of installed apps.",
                 "description": "\n## Required Scope\n\nApp.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n<br><br>",
                 "operationId": "Apps_GetApps",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -8132,9 +8087,7 @@
                 "summary": "Returns the specified installed app.",
                 "description": "\n## Required Scope\n\nApp.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n<br><br>",
                 "operationId": "Apps_GetApp",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -8185,9 +8138,7 @@
                 "summary": "Returns a list of reports from the specified app.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n<br><br>",
                 "operationId": "Apps_GetReports",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -8235,7 +8186,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/apps/{appId}/reports/{reportId}": {
             "get": {
                 "tags": [
@@ -8244,9 +8194,7 @@
                 "summary": "Returns the specified report from the specified app.",
                 "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n<br><br>",
                 "operationId": "Apps_GetReport",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -8298,7 +8246,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/apps/{appId}/dashboards": {
             "get": {
                 "tags": [
@@ -8307,9 +8254,7 @@
                 "summary": "Returns a list of dashboards from the specified app.",
                 "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n<br><br>",
                 "operationId": "Apps_GetDashboards",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -8356,7 +8301,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}": {
             "get": {
                 "tags": [
@@ -8365,9 +8309,7 @@
                 "summary": "Returns the specified dashboard from the specified app.",
                 "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n\n## Limitations\n\nService principal authentication isn't supported.\n<br><br>",
                 "operationId": "Apps_GetDashboard",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -8419,7 +8361,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles": {
             "get": {
                 "tags": [
@@ -8488,7 +8429,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/apps/{appId}/dashboards/{dashboardId}/tiles/{tileId}": {
             "get": {
                 "tags": [
@@ -8562,7 +8502,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/groups/{groupId}/dataflows/{dataflowId}": {
             "get": {
                 "tags": [
@@ -8922,9 +8861,7 @@
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
                 "description": "\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroup",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -9190,7 +9127,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/gateways": {
             "get": {
                 "tags": [
@@ -9820,8 +9756,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "gatewayId",
@@ -9896,8 +9831,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "gatewayId",
@@ -9943,7 +9877,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/groups": {
             "get": {
                 "tags": [
@@ -9952,9 +9885,7 @@
                 "summary": "Returns a list of workspaces the user has access to.",
                 "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_GetGroups",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -10137,10 +10068,8 @@
                 "summary": "Deletes the specified workspace.",
                 "description": "\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_DeleteGroup",
-                "consumes": [
-                ],
-                "produces": [
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -10244,8 +10173,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -10309,8 +10237,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -10373,10 +10300,8 @@
                 "summary": "Deletes the specified user permissions from the specified workspace.",
                 "description": "\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_DeleteUserInGroup",
-                "consumes": [
-                ],
-                "produces": [
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -10413,7 +10338,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/capacities": {
             "get": {
                 "tags": [
@@ -10422,15 +10346,11 @@
                 "summary": "Returns a list of capacities that the user has access to.",
                 "description": "\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetCapacities",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -10448,7 +10368,9 @@
                                     {
                                         "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
                                         "displayName": "MyCapacity",
-                                        "admins": [ "john@contoso.com" ],
+                                        "admins": [
+                                            "john@contoso.com"
+                                        ],
                                         "sku": "A1",
                                         "state": "Active",
                                         "region": "West Central US",
@@ -10470,9 +10392,7 @@
                 "summary": "Returns the current state of the specified capacity workloads. If a workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
                 "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetWorkloads",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -10527,9 +10447,7 @@
                 "summary": "Returns the current state of a workload. If the workload is enabled, the percentage of maximum memory that the workload can consume is also returned.",
                 "description": "\nWorkload APIs aren't relevant for [Embedded Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2) capacities.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetWorkload",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -10587,9 +10505,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "capacityId",
@@ -10647,8 +10563,7 @@
                 "summary": "Returns a list of refreshables for all capacities that the user has access to.",
                 "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetRefreshables",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -10695,8 +10610,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -10855,7 +10769,6 @@
                             }
                         }
                     }
-
                 },
                 "deprecated": false
             }
@@ -10868,8 +10781,7 @@
                 "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
                 "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetRefreshablesForCapacity",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -10924,8 +10836,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -11084,7 +10995,6 @@
                             }
                         }
                     }
-
                 },
                 "deprecated": false
             }
@@ -11097,8 +11007,7 @@
                 "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
                 "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetRefreshableForCapacity",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -11136,8 +11045,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -11260,8 +11168,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "requestParameters",
@@ -11304,8 +11211,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -11354,13 +11260,11 @@
                 "summary": "Gets the status of the **My workspace** assignment-to-capacity operation.",
                 "description": "\n## Required Scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_CapacityAssignmentStatusMyWorkspace",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -11408,8 +11312,7 @@
                 "summary": "Gets the status of the assignment-to-capacity operation for the specified workspace.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required Scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_CapacityAssignmentStatus",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -11466,7 +11369,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/availableFeatures": {
             "get": {
                 "tags": [
@@ -11475,9 +11377,7 @@
                 "summary": "Returns a list of available features for the user.",
                 "description": "\nThis API doesn't require any scopes.\n<br><br>",
                 "operationId": "AvailableFeatures_GetAvailableFeatures",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -11521,9 +11421,7 @@
                 "summary": "Returns the specified available feature for the user by name.",
                 "description": "\nThis API doesn't require any scopes.\n<br><br>",
                 "operationId": "AvailableFeatures_GetAvailableFeatureByName",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -11566,7 +11464,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/pipelines": {
             "get": {
                 "tags": [
@@ -11575,15 +11472,11 @@
                 "summary": "Returns a list of deployment pipelines that the user has access to.",
                 "description": "\n## Required Scope\n\nPipeline.Read.All or Pipeline.ReadWrite.All\n<br><br>",
                 "operationId": "Pipelines_GetPipelines",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -11672,9 +11565,7 @@
                 "summary": "Returns the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n<br><br>",
                 "operationId": "Pipelines_GetPipeline",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -11820,12 +11711,8 @@
                 "summary": "Deletes the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All\n\n## Limitations\n\nThis operation will fail if there's an active deployment operation.\n<br><br>",
                 "operationId": "Pipelines_DeletePipeline",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -11862,8 +11749,7 @@
                 "summary": "Returns a list of users that have access to the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n<br><br>",
                 "operationId": "Pipelines_GetPipelineUsers",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -11925,8 +11811,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -12003,10 +11888,8 @@
                 "summary": "Removes user permissions from the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All\n<br><br>",
                 "operationId": "Pipelines_DeletePipelineUser",
-                "consumes": [
-                ],
-                "produces": [
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -12069,8 +11952,7 @@
                 "summary": "Returns the stages of the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n<br><br>",
                 "operationId": "Pipelines_GetPipelineStages",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -12133,9 +12015,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -12193,12 +12073,8 @@
                 "summary": "Unassigns the workspace from the specified stage in the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All\n\n## Limitations\n\nThis operation will fail if there's an active deployment operation.\n<br><br>",
                 "operationId": "Pipelines_UnassignWorkspace",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -12244,9 +12120,7 @@
                 "summary": "Returns the supported items from the workspace assigned to the specified stage of the specified deployment pipeline.",
                 "description": "\nTo learn about items that aren't supported in deployment pipelines, see [Unsupported items](/power-bi/create-reports/deployment-pipelines-process#unsupported-items).\n\n## Permissions\n\nThe user must at least be a contributor on the workspace assigned to the specified stage. For more information, see [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).\n\n## Required Scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n<br><br>",
                 "operationId": "Pipelines_GetPipelineStageArtifacts",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -12332,9 +12206,7 @@
                 "summary": "Returns a list of the up-to-20 most recent deploy operations performed on the specified deployment pipeline.",
                 "description": "\n## Required Scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n<br><br>",
                 "operationId": "Pipelines_GetPipelineOperations",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -12390,9 +12262,7 @@
                 "summary": "Returns the details of the specified deploy operation performed on the specified deployment pipeline, including the deployment execution plan.",
                 "description": "\nUse to track the status of a deploy operation.\n\n## Required Scope\n\nPipeline.ReadWrite.All or Pipeline.Read.All\n<br><br>",
                 "operationId": "Pipelines_GetPipelineOperation",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -12437,10 +12307,8 @@
                                     "lastUpdatedTime": "2020-12-13T09:26:43.153",
                                     "executionStartTime": "2020-12-13T09:25:43.153Z",
                                     "executionEndTime": "2020-12-13T09:26:43.153Z",
-
                                     "sourceStageOrder": 0,
                                     "targetStageOrder": 1,
-
                                     "executionPlan": {
                                         "Steps": [
                                             {
@@ -12550,7 +12418,6 @@
                                         "lastUpdatedTime": "2020-12-13T09:26:43.153",
                                         "executionStartTime": "2020-12-13T09:25:43.153Z",
                                         "executionEndTime": "2020-12-13T09:26:43.153Z",
-
                                         "sourceStageOrder": 0,
                                         "targetStageOrder": 1
                                     }
@@ -12648,7 +12515,6 @@
                                         "lastUpdatedTime": "2020-12-13T09:26:43.153",
                                         "executionStartTime": "2020-12-13T09:25:43.153Z",
                                         "executionEndTime": "2020-12-13T09:26:43.153Z",
-
                                         "sourceStageOrder": 0,
                                         "targetStageOrder": 1
                                     }
@@ -12660,7 +12526,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/dataflowStorageAccounts": {
             "get": {
                 "tags": [
@@ -12669,13 +12534,11 @@
                 "summary": "Returns a list of dataflow storage accounts that the user has access to.",
                 "description": "\n## Required Scope\n\nStorageAccount.Read.All or StorageAccount.ReadWrite.All\n<br><br>",
                 "operationId": "DataflowStorageAccounts_GetDataflowStorageAccounts",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -12714,8 +12577,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -12756,7 +12618,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/workspaces/getInfo": {
             "post": {
                 "tags": [
@@ -13206,7 +13067,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/capacities/AssignWorkspaces": {
             "post": {
                 "tags": [
@@ -13218,8 +13078,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "requestParameters",
@@ -13243,7 +13102,9 @@
                                 "capacityMigrationAssignments": [
                                     {
                                         "targetCapacityObjectId": "FA5923C2-A23f-4C0B-8345-9BA8645F883E",
-                                        "workspacesToAssign": [ "0ebb517c-c6f5-4aa8-9f1d-42bd547e6297" ]
+                                        "workspacesToAssign": [
+                                            "0ebb517c-c6f5-4aa8-9f1d-42bd547e6297"
+                                        ]
                                     }
                                 ]
                             }
@@ -13256,7 +13117,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/capacities/UnassignWorkspaces": {
             "post": {
                 "tags": [
@@ -13268,8 +13128,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "requestParameters",
@@ -13289,7 +13148,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/datasets": {
             "get": {
                 "tags": [
@@ -13298,9 +13156,7 @@
                 "summary": "Returns a list of datasets for the organization.",
                 "description": "\nEach request takes two seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -13371,9 +13227,7 @@
                 "summary": "Returns a list of data sources for the specified dataset.",
                 "description": "\nEach request takes 0.5 seconds to process, during which time other requests are queued.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal. \n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_GetDatasourcesAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -13430,9 +13284,7 @@
                 "summary": "Returns a list of users that have access to the specified dataset. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n- The permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -13486,9 +13338,7 @@
                 "summary": "Returns a list of workspaces for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 50 requests per hour, per tenant. This call will also time out after 30 seconds to prevent adverse effect on the Power BI service.\n<br><br>",
                 "operationId": "Groups_GetGroupsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -13852,9 +13702,7 @@
                 "summary": "Returns a workspace for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_GetGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -13916,12 +13764,8 @@
                 "summary": "Updates the properties of the specified workspace.",
                 "description": "\nThis API call call only updates workspaces in the new workspace experience. Only the name and description can be updated. The name must be unique inside an organization.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -14041,9 +13885,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -14093,12 +13935,8 @@
                 "summary": "Removes user permissions from the specified workspace.",
                 "description": "\nThis API call only supports updating workspaces in the new workspace experience and adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_DeleteUserAsAdmin",
-                "consumes": [
-
-                ],
-                "produces": [
-
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -14146,9 +13984,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "groupId",
@@ -14198,9 +14034,7 @@
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14221,7 +14055,6 @@
                         "type": "string",
                         "format": "uuid"
                     }
-
                 ],
                 "responses": {
                     "200": {
@@ -14266,9 +14099,7 @@
                 "summary": "Returns a list of dashboards from the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsInGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14345,9 +14176,7 @@
                 "summary": "Returns a list of reports from the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportsInGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14425,9 +14254,7 @@
                 "summary": "Returns a list of datasets from the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetsInGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14543,9 +14370,7 @@
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14598,9 +14423,7 @@
                 "summary": "Returns a list of dataflows from the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowsInGroupAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14741,9 +14564,7 @@
                 "summary": "Returns a list of reports for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14811,9 +14632,7 @@
                 "summary": "Returns a list of users that have access to the specified report. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportUsersAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14867,9 +14686,7 @@
                 "summary": "Returns a list of report subscriptions along with subscriber details. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportSubscriptionsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -14931,7 +14748,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/dashboards": {
             "get": {
                 "tags": [
@@ -14940,9 +14756,7 @@
                 "summary": "Returns a list of dashboards for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15016,9 +14830,7 @@
                 "summary": "Returns a list of tiles within the specified dashboard.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetTilesAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15075,9 +14887,7 @@
                 "summary": "Returns a list of users that have access to the specified dashboard. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardUsersAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15131,9 +14941,7 @@
                 "summary": "Returns a list of dashboard subscriptions along with subscriber details. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardSubscriptionsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15193,7 +15001,6 @@
                 "deprecated": false
             }
         },
-        
         "/v1.0/myorg/admin/widelySharedArtifacts/linksSharedToWholeOrganization": {
             "get": {
                 "tags": [
@@ -15202,9 +15009,7 @@
                 "summary": "Returns a list of artifacts shared to the whole organization through links.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_LinksSharedToWholeOrganization",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15265,9 +15070,7 @@
                 "summary": "Returns a list of artifacts shared through published to web.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_PublishedToWeb",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15320,7 +15123,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/admin/imports": {
             "get": {
                 "tags": [
@@ -15329,9 +15131,7 @@
                 "summary": "Returns a list of imports for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Imports_GetImportsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15481,13 +15281,11 @@
                 "summary": "Returns the encryption keys for the tenant.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Admin_GetPowerBIEncryptionKeys",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
-                "parameters": [
-                ],
+                "parameters": [],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -15498,8 +15296,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -15595,8 +15392,7 @@
                 "summary": "Returns a list of capacities for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Admin_GetCapacitiesAsAdmin",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15619,8 +15415,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -15628,7 +15423,9 @@
                                         {
                                             "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
                                             "displayName": "MyCapacity",
-                                            "admins": [ "john@contoso.com" ],
+                                            "admins": [
+                                                "john@contoso.com"
+                                            ],
                                             "sku": "A1",
                                             "state": "Active",
                                             "region": "West Central US",
@@ -15651,7 +15448,9 @@
                                         {
                                             "id": "0f084df7-c13d-451b-af5f-ed0c466403b2",
                                             "displayName": "MyCapacity",
-                                            "admins": [ "john@contoso.com" ],
+                                            "admins": [
+                                                "john@contoso.com"
+                                            ],
                                             "sku": "A1",
                                             "state": "Active",
                                             "region": "West Central US",
@@ -15722,8 +15521,7 @@
                             }
                         },
                         "responses": {
-                            "200": {
-                            }
+                            "200": {}
                         }
                     }
                 },
@@ -15741,8 +15539,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "capacityId",
@@ -15772,8 +15569,7 @@
                 "summary": "Returns a list of refreshables for the organization within a capacity.",
                 "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Admin_GetRefreshables",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -15820,8 +15616,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -15992,8 +15787,7 @@
                 "summary": "Returns a list of refreshables for the specified capacity that the user has access to.",
                 "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Admin_GetRefreshablesForCapacity",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -16048,8 +15842,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -16220,8 +16013,7 @@
                 "summary": "Returns the specified refreshable for the specified capacity that the user has access to.",
                 "description": "\nPower BI retains a seven-day refresh history for each dataset, up to a maximum of sixty refreshes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Admin_GetRefreshableForCapacity",
-                "consumes": [
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -16259,8 +16051,7 @@
                 },
                 "x-ms-examples": {
                     "Example": {
-                        "parameters": {
-                        },
+                        "parameters": {},
                         "responses": {
                             "200": {
                                 "body": {
@@ -16380,9 +16171,7 @@
                 "summary": "Returns a list of dataflows for the organization.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Dataflows_GetDataflowsAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -16483,9 +16272,7 @@
                 "summary": "Returns a list of data sources for the specified dataflow.",
                 "description": "\nDeleted data sources will still appear in the response. This may include both cloud and on-premise data gateway sources. For more information see [Dataflows considerations and limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Dataflows_GetDataflowDatasourcesAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -16544,9 +16331,7 @@
                 "summary": "Returns a list of users that have access to the specified dataflow. This is a preview API call.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowUsersAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -16592,7 +16377,6 @@
                 "deprecated": false
             }
         },
-
         "/v1.0/myorg/GenerateToken": {
             "post": {
                 "tags": [
@@ -16646,13 +16430,21 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     },
                                     {
                                         "username": "iris@contoso.com",
-                                        "roles": [ "executive" ],
-                                        "datasets": [ "e75afc47-1150-45e0-aba7-4eb04e4876e5" ]
+                                        "roles": [
+                                            "executive"
+                                        ],
+                                        "datasets": [
+                                            "e75afc47-1150-45e0-aba7-4eb04e4876e5"
+                                        ]
                                     }
                                 ]
                             }
@@ -16712,8 +16504,12 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     }
                                 ],
                                 "lifetimeInMinutes": 10
@@ -16774,12 +16570,18 @@
                                 "identities": [
                                     {
                                         "username": "john@contoso.com",
-                                        "roles": [ "sales" ],
-                                        "datasets": [ "cfafbeb1-8037-4d0c-896e-a46fb27ff229" ]
+                                        "roles": [
+                                            "sales"
+                                        ],
+                                        "datasets": [
+                                            "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                                        ]
                                     },
                                     {
                                         "username": "john@contoso.com",
-                                        "reports": [ "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd" ]
+                                        "reports": [
+                                            "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                        ]
                                     }
                                 ]
                             }
@@ -17077,9 +16879,7 @@
                 "summary": "Returns a list of audit activity events for a tenant.",
                 "description": "\nProvide either a continuation token or both a start and end date time. `StartDateTime` and `EndDateTime` must be in the same UTC day and should be wrapped in single quotes.\n\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\n- Maximum 200 requests per hour.\n- Activity logging isn't supported for Microsoft Cloud Deutschland.\n<br><br>",
                 "operationId": "Admin_GetActivityEvents",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -17549,9 +17349,7 @@
                 "summary": "Returns a list of deployment pipelines for the organization.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Pipelines_GetPipelinesAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -17699,7 +17497,6 @@
                                                     "order": "0",
                                                     "workspaceId": "5dba60b0-d9a7-42a3-b12c-6d9d51e7739a",
                                                     "workspaceName": "SQlAzure-Refresh"
-
                                                 },
                                                 {
                                                     "order": "1",
@@ -17728,9 +17525,7 @@
                 "summary": "Returns a list of users that have access to a specified deployment pipeline.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Pipelines_GetPipelineUsersAsAdmin",
-                "consumes": [
-
-                ],
+                "consumes": [],
                 "produces": [
                     "application/json"
                 ],
@@ -17792,8 +17587,7 @@
                 "consumes": [
                     "application/json"
                 ],
-                "produces": [
-                ],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -17870,10 +17664,8 @@
                 "summary": "Removes user permissions from a specified deployment pipeline.",
                 "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Pipelines_DeleteUserAsAdmin",
-                "consumes": [
-                ],
-                "produces": [
-                ],
+                "consumes": [],
+                "produces": [],
                 "parameters": [
                     {
                         "name": "pipelineId",
@@ -18746,7 +18538,6 @@
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
                             "goalId": "c07b3600-54be-42ef-9154-39e7922c1bb4"
-
                         },
                         "responses": {
                             "204": {}
@@ -18999,7 +18790,6 @@
                             "groupId": "bc390256-fa54-4bd8-96a1-2c80df0cf704",
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
                             "goalId": "c07b3600-54be-42ef-9154-39e7922c1bb4"
-
                         },
                         "responses": {
                             "204": {}
@@ -19325,7 +19115,6 @@
                             "scorecardId": "f74738b3-c62d-4487-838c-918d314556ee",
                             "goalId": "c07b3600-54be-42ef-9154-39e7922c1bb4",
                             "timestamp": "2021-12-14T00:00:00Z"
-
                         },
                         "responses": {
                             "204": {}
@@ -20391,9 +20180,7 @@
             }
         },
         "Object": {
-            "properties": {
-
-            }
+            "properties": {}
         },
         "Datasets": {
             "description": "A dataset OData list wrapper",
@@ -22266,7 +22053,6 @@
                     "type": "string",
                     "description": "The app publisher"
                 }
-
             }
         },
         "AdminApp": {
@@ -23201,7 +22987,6 @@
                         "ReadWriteExploreCopy",
                         "ReadReshareCopy",
                         "All"
-
                     ],
                     "x-ms-enum": {
                         "name": "AppUserAccessRight",
@@ -25873,19 +25658,35 @@
         },
         "PipelineStageDataflow": {
             "description": "The metadata for a deployment pipeline dataflow",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineStageArtifactBase"
+                }
+            ]
         },
         "PipelineStageDataset": {
             "description": "The metadata for a deployment pipeline dataset",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineStageArtifactBase"
+                }
+            ]
         },
         "PipelineStageReport": {
             "description": "The metadata for a deployment pipeline report",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineStageArtifactBase"
+                }
+            ]
         },
         "PipelineStageDashboard": {
             "description": "The metadata for a deployment pipeline dashboard",
-            "allOf": [ { "$ref": "#/definitions/PipelineStageArtifactBase" } ]
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineStageArtifactBase"
+                }
+            ]
         },
         "PipelineOperations": {
             "description": "OData response wrapper for a collection of Power BI deployment pipeline operations",
@@ -26154,11 +25955,19 @@
         },
         "DeployAllRequest": {
             "description": "A request to deploy all supported items from a deployment pipeline stage",
-            "allOf": [ { "$ref": "#/definitions/DeployRequestBase" } ]
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DeployRequestBase"
+                }
+            ]
         },
         "SelectiveDeployRequest": {
             "description": "A request to selectively deploy items from a deployment pipeline stage",
-            "allOf": [ { "$ref": "#/definitions/DeployRequestBase" } ],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DeployRequestBase"
+                }
+            ],
             "properties": {
                 "datasets": {
                     "type": "array",
@@ -26451,11 +26260,12 @@
                     "type": "string",
                     "description": "OData context"
                 },
-                "@odata.count": { "type": "integer" },
+                "@odata.count": {
+                    "type": "integer"
+                },
                 "@odata.nextLink": {
                     "type": "string",
                     "description": "Link to the next page results."
-
                 },
                 "value": {
                     "type": "array",
@@ -26468,7 +26278,9 @@
         },
         "ScorecardCreateRequest": {
             "description": "A request to create a scorecard",
-            "required": ["name"],
+            "required": [
+                "name"
+            ],
             "properties": {
                 "name": {
                     "description": "The scorecard name",
@@ -26624,7 +26436,9 @@
         },
         "GoalsMoveRequest": {
             "description": "A request object to be used with the [Move Goals](/rest/api/power-bi/scorecards/move-goals) API request",
-            "required": ["goalToMove"],
+            "required": [
+                "goalToMove"
+            ],
             "properties": {
                 "goalToMove": {
                     "description": "The rank validation information for the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
@@ -26646,7 +26460,9 @@
         },
         "GoalCreateRequest": {
             "description": "A Power BI goal create request",
-            "required": ["name"],
+            "required": [
+                "name"
+            ],
             "properties": {
                 "name": {
                     "description": "The goal name",
@@ -27042,7 +26858,10 @@
         },
         "ScorecardColumnSetting": {
             "description": "An entry defining the display settings for columns on a Power BI scorecard",
-            "required": [ "columnId", "show" ],
+            "required": [
+                "columnId",
+                "show"
+            ],
             "properties": {
                 "columnId": {
                     "description": "The ID for one of the columns on the scorecard control or scorecard Web UI page",
@@ -27124,7 +26943,9 @@
         },
         "GoalValueCreateRequest": {
             "description": "A creation request for a Power BI goal value check-in",
-            "required": ["timestamp"],
+            "required": [
+                "timestamp"
+            ],
             "properties": {
                 "timestamp": {
                     "description": "The UTC timestamp of the goal value check-in. The time portion of the timestamp is zero.",
@@ -27230,7 +27051,16 @@
         },
         "GoalAggregation": {
             "description": "An entry describing the state of various Power BI goal properties at a specific time (normally current time)",
-            "required": [ "id", "timestamp", "calculationTime", "scorecardId", "goalId", "value", "type", "maxLastModifiedTime" ],
+            "required": [
+                "id",
+                "timestamp",
+                "calculationTime",
+                "scorecardId",
+                "goalId",
+                "value",
+                "type",
+                "maxLastModifiedTime"
+            ],
             "properties": {
                 "id": {
                     "description": "The aggregation ID",
@@ -27333,7 +27163,9 @@
         },
         "GoalNoteRequest": {
             "description": "A Power BI goal value check-in note request",
-            "required": ["body"],
+            "required": [
+                "body"
+            ],
             "properties": {
                 "body": {
                     "description": "The note text",
@@ -27386,7 +27218,9 @@
         },
         "Goals.Rules.GoalStatusRulesUpdateRequest": {
             "description": "The request data to be used when updating rules for a Power BI goal",
-            "required": ["defaultOutput"],
+            "required": [
+                "defaultOutput"
+            ],
             "properties": {
                 "rules": {
                     "description": "(Optional) The list of rules",
@@ -27622,12 +27456,7 @@
             "required": true
         }
     },
-    "responses": {
-
-    },
-    "security": [
-    ],
-    "tags": [
-
-    ]
+    "responses": {},
+    "security": [],
+    "tags": []
 }
