@@ -22269,7 +22269,7 @@
                 },
                 "encryptionAlgorithm": {
                     "type": "string",
-                    "description": "The encryption algorithm. For a cloud data source, specify *None*. For an on-premises data source, specify *RSA-OAEP* and use the gateway public key.",
+                    "description": "The encryption algorithm. For a cloud data source, specify `None`. For an on-premises data source, specify `RSA-OAEP` and use the gateway public key to encrypt the credentials.",
                     "enum": [
                         "None",
                         "RSA-OAEP"

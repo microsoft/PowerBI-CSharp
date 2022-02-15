@@ -38,9 +38,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// the data source. Possible values include: 'Encrypted',
         /// 'NotEncrypted'</param>
         /// <param name="encryptionAlgorithm">The encryption algorithm. For a
-        /// cloud data source, specify *None*. For an on-premises data source,
-        /// specify *RSA-OAEP* and use the gateway public key. Possible values
-        /// include: 'None', 'RSA-OAEP'</param>
+        /// cloud data source, specify `None`. For an on-premises data source,
+        /// specify `RSA-OAEP` and use the gateway public key to encrypt the
+        /// credentials. Possible values include: 'None', 'RSA-OAEP'</param>
         /// <param name="privacyLevel">The privacy level, which is relevant
         /// when combining data from multiple sources. Possible values include:
         /// 'None', 'Public', 'Organizational', 'Private'</param>
@@ -100,9 +100,9 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the encryption algorithm. For a cloud data source,
-        /// specify *None*. For an on-premises data source, specify *RSA-OAEP*
-        /// and use the gateway public key. Possible values include: 'None',
-        /// 'RSA-OAEP'
+        /// specify `None`. For an on-premises data source, specify `RSA-OAEP`
+        /// and use the gateway public key to encrypt the credentials. Possible
+        /// values include: 'None', 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
         public EncryptionAlgorithm EncryptionAlgorithm { get; set; }
