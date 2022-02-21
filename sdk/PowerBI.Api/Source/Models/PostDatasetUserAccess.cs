@@ -10,20 +10,20 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for a deployment pipeline
+    /// A Power BI user access right entry for a dataset
     /// </summary>
-    public partial class PipelineUser : Principal
+    public partial class PostDatasetUserAccess : Principal
     {
         /// <summary>
-        /// Initializes a new instance of the PipelineUser class.
+        /// Initializes a new instance of the PostDatasetUserAccess class.
         /// </summary>
-        public PipelineUser()
+        public PostDatasetUserAccess()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PipelineUser class.
+        /// Initializes a new instance of the PostDatasetUserAccess class.
         /// </summary>
         /// <param name="identifier">For principal type `User`, provide the
         /// *UPN*. Otherwise provide the [object
@@ -31,10 +31,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="accessRight">(Required) The access right a user has
-        /// for the deployment pipeline. Possible values include:
-        /// 'Admin'</param>
-        public PipelineUser(string identifier, PrincipalType principalType, PipelineUserAccessRight? accessRight = default(PipelineUserAccessRight?))
+        /// <param name="accessRight">(Required) The access right to grant to
+        /// the user for the dataset. Possible values include: 'Read',
+        /// 'ReadReshare', 'ReadExplore', 'ReadReshareExplore'</param>
+        public PostDatasetUserAccess(string identifier, PrincipalType principalType, DatasetUserAccessRightEntry accessRight)
             : base(identifier, principalType)
         {
             AccessRight = accessRight;
@@ -47,11 +47,12 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Required) The access right a user has for the
-        /// deployment pipeline. Possible values include: 'Admin'
+        /// Gets or sets (Required) The access right to grant to the user for
+        /// the dataset. Possible values include: 'Read', 'ReadReshare',
+        /// 'ReadExplore', 'ReadReshareExplore'
         /// </summary>
         [JsonProperty(PropertyName = "accessRight")]
-        public PipelineUserAccessRight? AccessRight { get; set; }
+        public DatasetUserAccessRightEntry AccessRight { get; set; }
 
         /// <summary>
         /// Validate the object.

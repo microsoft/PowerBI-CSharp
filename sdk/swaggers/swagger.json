@@ -2042,8 +2042,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Grants the specified user the specified permissions to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- This API call only supports adding permissions to principals who don't have permissions to the dataset. It can't be used to change existing dataset permissions.\n- Adding permissions to service principals (app principalType) isn't supported.\n<br><br>",
+                "summary": "Grants the specified user's permissions to the specified dataset.",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API can't be used to grant dataset Write permission on the dataset\n######\n",
                 "operationId": "Datasets_PostDatasetUserInGroup",
                 "consumes": [
                     "application/json"
@@ -2066,12 +2066,12 @@
                         "type": "string"
                     },
                     {
-                        "name": "accessRight",
+                        "name": "userDetails",
                         "in": "body",
                         "description": "Details of user access right",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DatasetUserAccess"
+                            "$ref": "#/definitions/PostDatasetUserAccess"
                         }
                     }
                 ],
@@ -2085,10 +2085,85 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "accessRight": {
+                            "userDetails": {
                                 "identifier": "john@contoso.com",
                                 "principalType": "User",
-                                "groupUserAccessRight": "Read"
+                                "accessRight": "Read"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Example for giving ReadExplore right to a security group": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "userDetails": {
+                                "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                "accessRight": "ReadReshare",
+                                "principalType": "Group"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the existing dataset permissions of the specified user to the specified permissions.",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API can be used to remove all the dataset permissions of the specified users by using `accessRight: None`\n\n## Required scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API cannot be used to add or remove *write* permission.\n- This API cannot be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n######\n",
+                "operationId": "Datasets_PutDatasetUserInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "description": "The workspace ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PutDatasetUserAccess"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "userDetails": {
+                                "identifier": "john@contoso.com",
+                                "principalType": "User",
+                                "accessRight": "Read"
                             }
                         },
                         "responses": {
@@ -2118,8 +2193,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Grants the specified user the specified permissions to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- This API call only supports adding permissions to principals who don't have permissions to the dataset. It can't be used to change existing dataset permissions.\n- Adding permissions to service principals (app principalType) isn't supported.\n<br><br>",
+                "summary": "Grants the specified user's permissions to the specified dataset.",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API can't be used to grant dataset Write permission on the dataset\n\n######\n",
                 "operationId": "Datasets_PostDatasetUser",
                 "consumes": [
                     "application/json"
@@ -2134,12 +2209,12 @@
                         "type": "string"
                     },
                     {
-                        "name": "accessRight",
+                        "name": "userDetails",
                         "in": "body",
                         "description": "Details of user access right",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/DatasetUserAccess"
+                            "$ref": "#/definitions/PostDatasetUserAccess"
                         }
                     }
                 ],
@@ -2152,10 +2227,10 @@
                     "Example": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
-                            "accessRight": {
+                            "userDetails": {
                                 "identifier": "john@contoso.com",
                                 "principalType": "User",
-                                "groupUserAccessRight": "Read"
+                                "accessRight": "Read"
                             }
                         },
                         "responses": {
@@ -2167,7 +2242,74 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "userDetails": {
                                 "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
-                                "groupUserAccessRight": "ReadReshare",
+                                "accessRight": "ReadReshare",
+                                "principalType": "Group"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the existing dataset permissions of the specified user to the specified permissions.",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API can be used to remove all the dataset permissions of the specified user by using `accessRight: None`\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API cannot be used to add or remove *write* permission.\n- This API cannot be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n######\n",
+                "operationId": "Datasets_PutDatasetUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                ],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userDetails",
+                        "in": "body",
+                        "description": "Details of user access right",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PutDatasetUserAccess"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "userDetails": {
+                                "identifier": "john@contoso.com",
+                                "principalType": "User",
+                                "accessRight": "Read"
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    },
+                    "Example for giving ReadExplore right to a security group": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "userDetails": {
+                                "identifier": "154aef10-47b8-48c4-ab97-f0bf9d5f8fcf",
+                                "accessRight": "ReadReshare",
                                 "principalType": "Group"
                             }
                         },
@@ -22862,6 +23004,22 @@
                 }
             }
         },
+        "Principal": {
+            "required": [
+                "identifier",
+                "principalType"
+            ],
+            "description": "A Power BI principal with access to the artifact",
+            "properties": {
+                "identifier": {
+                    "type": "string",
+                    "description": "For principal type `User`, provide the *UPN*. Otherwise provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
+                },
+                "principalType": {
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
         "DatasourceUser": {
             "required": [
                 "datasourceAccessRight"
@@ -23252,39 +23410,39 @@
                         "values": [
                             {
                                 "value": "None",
-                                "description": "Removes permission to content in dataset"
+                                "description": "Removes permission to the content in the dataset"
                             },
                             {
                                 "value": "Read",
-                                "description": "Grants Read access to content in dataset"
+                                "description": "Grants Read access to the content in the dataset"
                             },
                             {
                                 "value": "ReadWrite",
-                                "description": "Grants Read and Write access to content in dataset"
+                                "description": "Grants Read and Write access to the content in the dataset"
                             },
                             {
                                 "value": "ReadReshare",
-                                "description": "Grants Read and Reshare access to content in dataset"
+                                "description": "Grants Read and Reshare access to the content in the dataset"
                             },
                             {
                                 "value": "ReadWriteReshare",
-                                "description": "Grants Read, Write and Reshare access to content in dataset"
+                                "description": "Grants Read, Write, and Reshare access to the content in the dataset"
                             },
                             {
                                 "value": "ReadExplore",
-                                "description": "Grants Read and Explore access to content in dataset"
+                                "description": "Grants Read and Explore access to the content in the dataset"
                             },
                             {
                                 "value": "ReadReshareExplore",
-                                "description": "Grants Read, Reshare and Explore access to content in dataset"
+                                "description": "Grants Read, Reshare, and Explore access to the content in the dataset"
                             },
                             {
                                 "value": "ReadWriteExplore",
-                                "description": "Grants Read, Write and Explore access to content in dataset"
+                                "description": "Grants Read, Write, and Explore access to the content in the dataset"
                             },
                             {
                                 "value": "ReadWriteReshareExplore",
-                                "description": "Grants Read, Write, Reshare and Explore access to content in dataset"
+                                "description": "Grants Read, Write, Reshare, and Explore access to the content in the dataset"
                             }
                         ]
                     }
@@ -23296,17 +23454,22 @@
                 }
             ]
         },
-        "DatasetUserAccess": {
+        "PostDatasetUserAccess": {
             "required": [
                 "identifier",
                 "principalType",
                 "accessRight"
             ],
             "description": "A Power BI user access right entry for a dataset",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Principal"
+                }
+            ],
             "properties": {
                 "accessRight": {
                     "type": "string",
-                    "description": "(Required) The access right that a user has for the dataset",
+                    "description": "(Required) The access right to grant to the user for the dataset",
                     "enum": [
                         "Read",
                         "ReadReshare",
@@ -23319,29 +23482,94 @@
                         "values": [
                             {
                                 "value": "Read",
-                                "description": "Grants Read access to content in dataset"
+                                "description": "Grants Read access to the content in the dataset"
                             },
                             {
                                 "value": "ReadReshare",
-                                "description": "Grants Read and Reshare access to content in dataset"
+                                "description": "Grants Read and Reshare access to the content in the dataset"
                             },
                             {
                                 "value": "ReadExplore",
-                                "description": "Grants Read and Explore access to content in dataset"
+                                "description": "Grants Read and Explore access to the content in the dataset"
                             },
                             {
                                 "value": "ReadReshareExplore",
-                                "description": "Grants Read, Reshare and Explore access to content in dataset"
+                                "description": "Grants Read, Reshare, and Explore access to the content in the dataset"
                             }
                         ]
                     }
-                },
-                "identifier": {
+                }
+            }
+        },
+        "PutDatasetUserAccess": {
+            "required": [
+                "identifier",
+                "principalType",
+                "accessRight"
+            ],
+            "description": "A Power BI user access right entry for a dataset",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Principal"
+                }
+            ],
+            "properties": {
+                "accessRight": {
                     "type": "string",
-                    "description": "For the principal type `User`, provide the user principal name (UPN). Otherwise, provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
+                    "description": "Access rights to set to the user for the dataset (permission level)",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "ReadWriteReshare",
+                        "ReadExplore",
+                        "ReadReshareExplore",
+                        "ReadWriteExplore",
+                        "ReadWriteReshareExplore"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatasetUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "Removes permission to content in dataset"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants Read and Write access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants Read and Reshare access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadWriteReshare",
+                                "description": "Grants Read, Write and Reshare access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadExplore",
+                                "description": "Grants Read and Explore access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadReshareExplore",
+                                "description": "Grants Read, Reshare and Explore access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadWriteExplore",
+                                "description": "Grants Read, Write and Explore access to the content in the dataset"
+                            },
+                            {
+                                "value": "ReadWriteReshareExplore",
+                                "description": "Grants Read, Write, Reshare and Explore access to the content in the dataset"
+                            }
+                        ]
+                    }
                 }
             }
         },
@@ -26136,6 +26364,11 @@
                 "principalType"
             ],
             "description": "A Power BI user access right entry for a deployment pipeline",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Principal"
+                }
+            ],
             "properties": {
                 "accessRight": {
                     "type": "string",
@@ -26153,13 +26386,6 @@
                             }
                         ]
                     }
-                },
-                "identifier": {
-                    "type": "string",
-                    "description": "For the principal type `User`, provide the user principal name (UPN). Otherwise, provide the [object ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id) of the principal."
-                },
-                "principalType": {
-                    "$ref": "#/definitions/PrincipalType"
                 }
             }
         },

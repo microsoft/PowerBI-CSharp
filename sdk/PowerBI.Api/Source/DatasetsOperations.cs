@@ -4012,7 +4012,6 @@ namespace Microsoft.PowerBI.Api
         /// can be bound to.
         /// </summary>
         /// <remarks>
-        ///
         /// This API call is only relevant to datasets that have at least one
         /// on-premises connection. For datasets with cloud-only connections, this API
         /// call returns an empty list.
@@ -4161,8 +4160,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Grants the specified user the specified permissions to the specified
-        /// dataset.
+        /// Grants the specified user's permissions to the specified dataset.
         /// </summary>
         /// <remarks>
         ///
@@ -4171,26 +4169,21 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Permissions
         ///
-        /// The permissions for this API call are listed in [Datasets
-        /// permissions](/power-bi/developer/embedded/datasets-permissions).
-        ///
-        /// ## Required Scope
+        /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
         /// ## Limitations
         ///
         /// - Only datasets in a [new workspace
         /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
-        /// that is to say a V2 workspace, are supported.
-        /// - This API call only supports adding permissions to principals who don't
-        /// have permissions to the dataset. It can't be used to change existing
-        /// dataset permissions.
+        /// that is to say a V2 workspace, or **My workspace** are supported.
         /// - Adding permissions to service principals (app principalType) isn't
-        /// supported.
-        /// &lt;br&gt;&lt;br&gt;
+        /// supported
+        /// - Caller must have ReadReshare permissions on the dataset.
+        /// - This API can't be used to grant dataset Write permission on the dataset
+        /// ######
+        ///
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -4198,7 +4191,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='datasetId'>
         /// The dataset ID
         /// </param>
-        /// <param name='accessRight'>
+        /// <param name='userDetails'>
         /// Details of user access right
         /// </param>
         /// <param name='customHeaders'>
@@ -4219,19 +4212,19 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetUserAccess accessRight, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PostDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, PostDatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
             }
-            if (accessRight == null)
+            if (userDetails == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "accessRight");
+                throw new ValidationException(ValidationRules.CannotBeNull, "userDetails");
             }
-            if (accessRight != null)
+            if (userDetails != null)
             {
-                accessRight.Validate();
+                userDetails.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4242,7 +4235,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("datasetId", datasetId);
-                tracingParameters.Add("accessRight", accessRight);
+                tracingParameters.Add("userDetails", userDetails);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostDatasetUserInGroup", tracingParameters);
             }
@@ -4273,9 +4266,9 @@ namespace Microsoft.PowerBI.Api
 
             // Serialize Request
             string _requestContent = null;
-            if(accessRight != null)
+            if(userDetails != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(accessRight, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -4333,8 +4326,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Grants the specified user the specified permissions to the specified
-        /// dataset.
+        /// Updates the existing dataset permissions of the specified user to the
+        /// specified permissions.
         /// </summary>
         /// <remarks>
         ///
@@ -4342,32 +4335,43 @@ namespace Microsoft.PowerBI.Api
         /// permissions might not be immediately available through API calls. To
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        /// This API can be used to remove all the dataset permissions of the specified
+        /// user by using `accessRight: None`
         ///
         /// ## Permissions
         ///
         /// The permissions for this API call are listed in [Datasets
         /// permissions](/power-bi/developer/embedded/datasets-permissions).
         ///
-        /// ## Required Scope
+        /// ## Required scope
         ///
         /// Dataset.ReadWrite.All
-        ///
         /// ## Limitations
         ///
         /// - Only datasets in a [new workspace
         /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
         /// that is to say a V2 workspace, or **My workspace** are supported.
-        /// - This API call only supports adding permissions to principals who don't
-        /// have permissions to the dataset. It can't be used to change existing
-        /// dataset permissions.
-        /// - Adding permissions to service principals (app principalType) isn't
-        /// supported.
-        /// &lt;br&gt;&lt;br&gt;
+        /// - Updating permissions to service principals (app principalType) isn't
+        /// supported
+        /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
+        /// folder admins, members and contributors with Reshare permissions, or
+        /// dataset owners.
+        /// - This API cannot be used to add or remove *write* permission.
+        /// - This API cannot be used to remove folder-level inherited permissions. For
+        /// folder admins and members, the ReadWriteReshareExplore permission on the
+        /// folder's datasets is inherited. For folder contributors, the
+        /// ReadWriteExplore permission on the folder's datasets is inherited. For
+        /// folder viewers, the Read permission on the folder's datasets is inherited.
+        /// ######
+        ///
         /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
         /// <param name='datasetId'>
         /// The dataset ID
         /// </param>
-        /// <param name='accessRight'>
+        /// <param name='userDetails'>
         /// Details of user access right
         /// </param>
         /// <param name='customHeaders'>
@@ -4388,19 +4392,184 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> PostDatasetUserWithHttpMessagesAsync(string datasetId, DatasetUserAccess accessRight, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> PutDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, PutDatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (datasetId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
             }
-            if (accessRight == null)
+            if (userDetails == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "accessRight");
+                throw new ValidationException(ValidationRules.CannotBeNull, "userDetails");
             }
-            if (accessRight != null)
+            if (userDetails != null)
             {
-                accessRight.Validate();
+                userDetails.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("userDetails", userDetails);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "PutDatasetUserInGroup", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/datasets/{datasetId}/users").ToString();
+            _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("PUT");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(userDetails != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Grants the specified user's permissions to the specified dataset from **My
+        /// workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// When user permissions to a dataset have been recently updated, the new
+        /// permissions might not be immediately available through API calls. To
+        /// refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        ///
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+        /// that is to say a V2 workspace, are supported.
+        /// - Adding permissions to service principals (app principalType) isn't
+        /// supported
+        /// - Caller must have ReadReshare permissions on the dataset.
+        /// - This API can't be used to grant dataset Write permission on the dataset
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='userDetails'>
+        /// Details of user access right
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse> PostDatasetUserWithHttpMessagesAsync(string datasetId, PostDatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
+            if (userDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "userDetails");
+            }
+            if (userDetails != null)
+            {
+                userDetails.Validate();
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -4410,7 +4579,7 @@ namespace Microsoft.PowerBI.Api
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("datasetId", datasetId);
-                tracingParameters.Add("accessRight", accessRight);
+                tracingParameters.Add("userDetails", userDetails);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "PostDatasetUser", tracingParameters);
             }
@@ -4440,9 +4609,179 @@ namespace Microsoft.PowerBI.Api
 
             // Serialize Request
             string _requestContent = null;
-            if(accessRight != null)
+            if(userDetails != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(accessRight, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
+                _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
+                _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
+            }
+            // Set Credentials
+            if (Client.Credentials != null)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+                await Client.Credentials.ProcessHttpRequestAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            }
+            // Send Request
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.SendRequest(_invocationId, _httpRequest);
+            }
+            cancellationToken.ThrowIfCancellationRequested();
+            _httpResponse = await Client.HttpClient.SendAsync(_httpRequest, cancellationToken).ConfigureAwait(false);
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.ReceiveResponse(_invocationId, _httpResponse);
+            }
+            HttpStatusCode _statusCode = _httpResponse.StatusCode;
+            cancellationToken.ThrowIfCancellationRequested();
+            string _responseContent = null;
+            if ((int)_statusCode != 200)
+            {
+                var ex = new HttpOperationException(string.Format("Operation returned an invalid status code '{0}'", _statusCode));
+                if (_httpResponse.Content != null) {
+                    _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                }
+                else {
+                    _responseContent = string.Empty;
+                }
+                ex.Request = new HttpRequestMessageWrapper(_httpRequest, _requestContent);
+                ex.Response = new HttpResponseMessageWrapper(_httpResponse, _responseContent);
+                if (_shouldTrace)
+                {
+                    ServiceClientTracing.Error(_invocationId, ex);
+                }
+                _httpRequest.Dispose();
+                if (_httpResponse != null)
+                {
+                    _httpResponse.Dispose();
+                }
+                throw ex;
+            }
+            // Create Result
+            var _result = new HttpOperationResponse();
+            _result.Request = _httpRequest;
+            _result.Response = _httpResponse;
+            if (_shouldTrace)
+            {
+                ServiceClientTracing.Exit(_invocationId, _result);
+            }
+            return _result;
+        }
+
+        /// <summary>
+        /// Updates the existing dataset permissions of the specified user to the
+        /// specified permissions.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// When user permissions to a dataset have been recently updated, the new
+        /// permissions might not be immediately available through API calls. To
+        /// refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        /// This API can be used to remove all of the specified users's dataset
+        /// permissions by using `accessRight: None`
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+        /// that is to say a V2 workspace, are supported.
+        /// - Updating permissions to service principals (app principalType) isn't
+        /// supported
+        /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
+        /// folder admins, members and contributors with Reshare permissions, or
+        /// dataset owners.
+        /// - This API cannot be used to add or remove *write* permission.
+        /// - This API cannot be used to remove folder-level inherited permissions. For
+        /// folder admins and members, the ReadWriteReshareExplore permission on the
+        /// folder's datasets is inherited. For folder contributors, the
+        /// ReadWriteExplore permission on the folder's datasets is inherited. And for
+        /// folder viewers, the Read permission on the folder's datasets is inherited.
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='userDetails'>
+        /// Details of user access right
+        /// </param>
+        /// <param name='customHeaders'>
+        /// Headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <return>
+        /// A response object containing the response body and response headers.
+        /// </return>
+        public async Task<HttpOperationResponse> PutDatasetUserWithHttpMessagesAsync(string datasetId, PutDatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (datasetId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "datasetId");
+            }
+            if (userDetails == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "userDetails");
+            }
+            if (userDetails != null)
+            {
+                userDetails.Validate();
+            }
+            // Tracing
+            bool _shouldTrace = ServiceClientTracing.IsEnabled;
+            string _invocationId = null;
+            if (_shouldTrace)
+            {
+                _invocationId = ServiceClientTracing.NextInvocationId.ToString();
+                Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("datasetId", datasetId);
+                tracingParameters.Add("userDetails", userDetails);
+                tracingParameters.Add("cancellationToken", cancellationToken);
+                ServiceClientTracing.Enter(_invocationId, this, "PutDatasetUser", tracingParameters);
+            }
+            // Construct URL
+            var _baseUrl = Client.BaseUri.AbsoluteUri;
+            var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/datasets/{datasetId}/users").ToString();
+            _url = _url.Replace("{datasetId}", System.Uri.EscapeDataString(datasetId));
+            // Create HTTP transport objects
+            var _httpRequest = new HttpRequestMessage();
+            HttpResponseMessage _httpResponse = null;
+            _httpRequest.Method = new HttpMethod("PUT");
+            _httpRequest.RequestUri = new System.Uri(_url);
+            // Set Headers
+
+
+            if (customHeaders != null)
+            {
+                foreach(var _header in customHeaders)
+                {
+                    if (_httpRequest.Headers.Contains(_header.Key))
+                    {
+                        _httpRequest.Headers.Remove(_header.Key);
+                    }
+                    _httpRequest.Headers.TryAddWithoutValidation(_header.Key, _header.Value);
+                }
+            }
+
+            // Serialize Request
+            string _requestContent = null;
+            if(userDetails != null)
+            {
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userDetails, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

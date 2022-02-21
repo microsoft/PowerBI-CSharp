@@ -11,33 +11,29 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for a dataset
+    /// A Power BI principal with access to the artifact
     /// </summary>
-    public partial class DatasetUserAccess
+    public partial class Principal
     {
         /// <summary>
-        /// Initializes a new instance of the DatasetUserAccess class.
+        /// Initializes a new instance of the Principal class.
         /// </summary>
-        public DatasetUserAccess()
+        public Principal()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the DatasetUserAccess class.
+        /// Initializes a new instance of the Principal class.
         /// </summary>
-        /// <param name="accessRight">(Required) The access right that a user
-        /// has for the dataset. Possible values include: 'Read',
-        /// 'ReadReshare', 'ReadExplore', 'ReadReshareExplore'</param>
-        /// <param name="identifier">For the principal type `User`, provide the
-        /// user principal name (UPN). Otherwise, provide the [object
+        /// <param name="identifier">For principal type `User`, provide the
+        /// *UPN*. Otherwise provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        public DatasetUserAccess(DatasetUserAccessRightEntry accessRight, string identifier, PrincipalType principalType)
+        public Principal(string identifier, PrincipalType principalType)
         {
-            AccessRight = accessRight;
             Identifier = identifier;
             PrincipalType = principalType;
             CustomInit();
@@ -49,16 +45,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Required) The access right that a user has for the
-        /// dataset. Possible values include: 'Read', 'ReadReshare',
-        /// 'ReadExplore', 'ReadReshareExplore'
-        /// </summary>
-        [JsonProperty(PropertyName = "accessRight")]
-        public DatasetUserAccessRightEntry AccessRight { get; set; }
-
-        /// <summary>
-        /// Gets or sets for the principal type `User`, provide the user
-        /// principal name (UPN). Otherwise, provide the [object
+        /// Gets or sets for principal type `User`, provide the *UPN*.
+        /// Otherwise provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.
         /// </summary>
