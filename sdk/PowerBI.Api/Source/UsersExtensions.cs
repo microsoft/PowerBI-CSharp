@@ -163,8 +163,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions that the given user has subscribed to. This
-            /// is a preview API call.
+            /// Returns a list of subscriptions for the specified user. This is a preview
+            /// API call.
             /// </summary>
             /// <remarks>
             ///
@@ -199,8 +199,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions that the given user has subscribed to. This
-            /// is a preview API call.
+            /// Returns a list of subscriptions for the specified user. This is a preview
+            /// API call.
             /// </summary>
             /// <remarks>
             ///
