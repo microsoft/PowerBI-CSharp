@@ -15006,7 +15006,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of artifacts shared to the whole organization through links.",
+                "summary": "Returns a list of Power BI items (such as reports or dashboards) that are shared with the whole organization through links.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_LinksSharedToWholeOrganization",
                 "consumes": [],
@@ -15067,7 +15067,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of artifacts shared through published to web.",
+                "summary": "Returns a list of Power BI items (such as reports or dashboards) that are published to the web.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "WidelySharedArtifacts_PublishedToWeb",
                 "consumes": [],

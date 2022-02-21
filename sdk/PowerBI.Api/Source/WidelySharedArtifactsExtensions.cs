@@ -16,7 +16,8 @@ namespace Microsoft.PowerBI.Api
     public static partial class WidelySharedArtifactsExtensions
     {
             /// <summary>
-            /// Returns a list of artifacts shared to the whole organization through links.
+            /// Returns a list of Power BI items (such as reports or dashboards) that are
+            /// shared with the whole organization through links.
             /// </summary>
             /// <remarks>
             ///
@@ -48,7 +49,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of artifacts shared to the whole organization through links.
+            /// Returns a list of Power BI items (such as reports or dashboards) that are
+            /// shared with the whole organization through links.
             /// </summary>
             /// <remarks>
             ///
@@ -86,7 +88,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of artifacts shared through published to web.
+            /// Returns a list of Power BI items (such as reports or dashboards) that are
+            /// published to the web.
             /// </summary>
             /// <remarks>
             ///
@@ -118,7 +121,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of artifacts shared through published to web.
+            /// Returns a list of Power BI items (such as reports or dashboards) that are
+            /// published to the web.
             /// </summary>
             /// <remarks>
             ///
