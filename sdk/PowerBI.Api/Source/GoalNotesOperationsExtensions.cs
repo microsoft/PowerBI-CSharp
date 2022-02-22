@@ -79,9 +79,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='goalNote'>
             /// The note content to be updated
             /// </param>
-            public static GoalNote PatchById(this IGoalNotesOperations operations, GoalNoteRequest goalNote)
+            public static GoalNote PatchByID(this IGoalNotesOperations operations, GoalNoteRequest goalNote)
             {
-                return operations.PatchByIdAsync(goalNote).GetAwaiter().GetResult();
+                return operations.PatchByIDAsync(goalNote).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -103,9 +103,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GoalNote> PatchByIdAsync(this IGoalNotesOperations operations, GoalNoteRequest goalNote, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GoalNote> PatchByIDAsync(this IGoalNotesOperations operations, GoalNoteRequest goalNote, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchByIdWithHttpMessagesAsync(goalNote, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PatchByIDWithHttpMessagesAsync(goalNote, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -124,9 +124,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static void DeleteById(this IGoalNotesOperations operations)
+            public static void DeleteByID(this IGoalNotesOperations operations)
             {
-                operations.DeleteByIdAsync().GetAwaiter().GetResult();
+                operations.DeleteByIDAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -145,9 +145,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteByIdAsync(this IGoalNotesOperations operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteByIDAsync(this IGoalNotesOperations operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteByIdWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteByIDWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

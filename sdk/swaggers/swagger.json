@@ -18170,7 +18170,7 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})": {
             "get": {
                 "summary": "Returns a scorecard with ID.",
-                "operationId": "Scorecards_GetById",
+                "operationId": "Scorecards_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
@@ -18253,7 +18253,7 @@
             },
             "patch": {
                 "summary": "Updates a scorecard by its ID",
-                "operationId": "Scorecards_PatchById",
+                "operationId": "Scorecards_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
@@ -18371,7 +18371,7 @@
             },
             "delete": {
                 "summary": "Deletes a scorecard by its ID.",
-                "operationId": "Scorecards_DeleteById",
+                "operationId": "Scorecards_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Scorecards"
@@ -18531,7 +18531,7 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})": {
             "get": {
                 "summary": "Returns a goal by ID from a scorecard.",
-                "operationId": "Goals_GetById",
+                "operationId": "Goals_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
@@ -18589,7 +18589,7 @@
             },
             "patch": {
                 "summary": "Updates a goal by ID.",
-                "operationId": "Goals_PatchById",
+                "operationId": "Goals_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
@@ -18653,7 +18653,7 @@
             },
             "delete": {
                 "summary": "Deletes a goal from a scorecard by goal ID.",
-                "operationId": "Goals_DeleteById",
+                "operationId": "Goals_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "Goals"
@@ -19082,7 +19082,7 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})": {
             "get": {
                 "summary": "Reads a goal value check-in by a UTC date timestamp.",
-                "operationId": "GoalValues_GetById",
+                "operationId": "GoalValues_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
@@ -19159,7 +19159,7 @@
             },
             "patch": {
                 "summary": "Updates a goal value check-in by a UTC date timestamp.",
-                "operationId": "GoalValues_PatchById",
+                "operationId": "GoalValues_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
@@ -19226,7 +19226,7 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in by a UTC day timestamp.",
-                "operationId": "GoalValues_DeleteById",
+                "operationId": "GoalValues_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalValues"
@@ -19336,7 +19336,7 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes({noteId})": {
             "patch": {
                 "summary": "Updates a goal value check-in note by ID.",
-                "operationId": "GoalNotes_PatchById",
+                "operationId": "GoalNotes_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalNotes"
@@ -19405,7 +19405,7 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in note by ID.",
-                "operationId": "GoalNotes_DeleteById",
+                "operationId": "GoalNotes_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
                     "GoalNotes"

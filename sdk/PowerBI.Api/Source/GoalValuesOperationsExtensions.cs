@@ -130,9 +130,9 @@ namespace Microsoft.PowerBI.Api
             /// Accepts a comma-separated list of data types, which will be expanded inline
             /// in the response. Supports `notes`.
             /// </param>
-            public static GoalValue GetById(this IGoalValuesOperations operations, string expand = default(string))
+            public static GoalValue GetByID(this IGoalValuesOperations operations, string expand = default(string))
             {
-                return operations.GetByIdAsync(expand).GetAwaiter().GetResult();
+                return operations.GetByIDAsync(expand).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -155,9 +155,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GoalValue> GetByIdAsync(this IGoalValuesOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GoalValue> GetByIDAsync(this IGoalValuesOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetByIdWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetByIDWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -179,9 +179,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='goalValue'>
             /// The updated content of goal value check-in.
             /// </param>
-            public static GoalValue PatchById(this IGoalValuesOperations operations, GoalValue goalValue)
+            public static GoalValue PatchByID(this IGoalValuesOperations operations, GoalValue goalValue)
             {
-                return operations.PatchByIdAsync(goalValue).GetAwaiter().GetResult();
+                return operations.PatchByIDAsync(goalValue).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -203,9 +203,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GoalValue> PatchByIdAsync(this IGoalValuesOperations operations, GoalValue goalValue, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GoalValue> PatchByIDAsync(this IGoalValuesOperations operations, GoalValue goalValue, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchByIdWithHttpMessagesAsync(goalValue, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PatchByIDWithHttpMessagesAsync(goalValue, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -224,9 +224,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static void DeleteById(this IGoalValuesOperations operations)
+            public static void DeleteByID(this IGoalValuesOperations operations)
             {
-                operations.DeleteByIdAsync().GetAwaiter().GetResult();
+                operations.DeleteByIDAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -245,9 +245,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteByIdAsync(this IGoalValuesOperations operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteByIDAsync(this IGoalValuesOperations operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteByIdWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteByIDWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

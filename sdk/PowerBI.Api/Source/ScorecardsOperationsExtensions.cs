@@ -129,9 +129,9 @@ namespace Microsoft.PowerBI.Api
             /// in the response. Supports `goals`, `goalValues`, `aggregations`, and
             /// `notes`.
             /// </param>
-            public static Scorecard GetById(this IScorecardsOperations operations, string expand = default(string))
+            public static Scorecard GetByID(this IScorecardsOperations operations, string expand = default(string))
             {
-                return operations.GetByIdAsync(expand).GetAwaiter().GetResult();
+                return operations.GetByIDAsync(expand).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -155,9 +155,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Scorecard> GetByIdAsync(this IScorecardsOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Scorecard> GetByIDAsync(this IScorecardsOperations operations, string expand = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetByIdWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetByIDWithHttpMessagesAsync(expand, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -179,9 +179,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='scorecard'>
             /// The scorecard properties to patch
             /// </param>
-            public static Scorecard PatchById(this IScorecardsOperations operations, Scorecard scorecard)
+            public static Scorecard PatchByID(this IScorecardsOperations operations, Scorecard scorecard)
             {
-                return operations.PatchByIdAsync(scorecard).GetAwaiter().GetResult();
+                return operations.PatchByIDAsync(scorecard).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -203,9 +203,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Scorecard> PatchByIdAsync(this IScorecardsOperations operations, Scorecard scorecard, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Scorecard> PatchByIDAsync(this IScorecardsOperations operations, Scorecard scorecard, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PatchByIdWithHttpMessagesAsync(scorecard, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PatchByIDWithHttpMessagesAsync(scorecard, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -224,9 +224,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static void DeleteById(this IScorecardsOperations operations)
+            public static void DeleteByID(this IScorecardsOperations operations)
             {
-                operations.DeleteByIdAsync().GetAwaiter().GetResult();
+                operations.DeleteByIDAsync().GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -245,9 +245,9 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteByIdAsync(this IScorecardsOperations operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteByIDAsync(this IScorecardsOperations operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteByIdWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteByIDWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
