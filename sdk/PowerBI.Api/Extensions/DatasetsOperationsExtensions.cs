@@ -914,7 +914,7 @@ namespace Microsoft.PowerBI.Api
         /// <param name='userDetails'>
         /// Details of user access right
         /// </param>
-        public static void PutDatasetUser(this IDatasetsOperations operations, Guid groupId, string datasetId, PutDatasetUserAccess userDetails)
+        public static void PutDatasetUser(this IDatasetsOperations operations, Guid groupId, string datasetId, DatasetUserAccess userDetails)
         {
             operations.PutDatasetUserAsync(groupId, datasetId, userDetails).GetAwaiter().GetResult();
         }
@@ -938,9 +938,43 @@ namespace Microsoft.PowerBI.Api
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        public static async Task PutDatasetUserAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, PutDatasetUserAccess userDetails, CancellationToken cancellationToken = default(CancellationToken))
+        public static async Task PutDatasetUserAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, DatasetUserAccess userDetails, CancellationToken cancellationToken = default(CancellationToken))
         {
             (await operations.PutDatasetUserInGroupWithHttpMessagesAsync(groupId, datasetId, userDetails, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
+
+        /// <summary>
+        /// Returns a list of principals that have access to the specified dataset.
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        public static DatasetUsersAccess GetDatasetUsers(this IDatasetsOperations operations, Guid groupId, string datasetId)
+        {
+            return operations.GetDatasetUsersAsync(groupId, datasetId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Returns a list of principals that have access to the specified dataset.
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task<DatasetUsersAccess> GetDatasetUsersAsync(this IDatasetsOperations operations, Guid groupId, string datasetId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            using (var _result = await operations.GetDatasetUsersInGroupWithHttpMessagesAsync(groupId, datasetId, null, cancellationToken).ConfigureAwait(false))
+            {
+                return _result.Body;
+            }
         }
 
         /// <summary>

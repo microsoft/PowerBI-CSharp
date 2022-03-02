@@ -1107,7 +1107,7 @@ namespace Microsoft.PowerBI.Api
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         /// This API can be used to remove all the dataset permissions of the
-        /// specified users by using `accessRight: None`
+        /// specified user by using `datasetUserAccessRight: None`
         ///
         /// ## Required scope
         ///
@@ -1157,7 +1157,60 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, PutDatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDatasetUserInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of principals that have access to the specified
+        /// dataset.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// When user permissions to a dataset have been recently updated, the
+        /// new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        /// ## Permissions
+        ///
+        /// The permissions for this API call are listed in [Datasets
+        /// permissions](/power-bi/developer/embedded/datasets-permissions).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.Read.All
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace, that is to say a V2 workspace are supported.
+        /// - Caller must have ReadWriteReshare permissions on the dataset.
+        /// That is, folder admins, members and contributors with Reshare
+        /// permissions, or dataset owners.
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetUsersAccess>> GetDatasetUsersInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Grants the specified user's permissions to the specified dataset.
         /// </summary>
@@ -1219,16 +1272,16 @@ namespace Microsoft.PowerBI.Api
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         /// This API can be used to remove all the dataset permissions of the
-        /// specified user by using `accessRight: None`
+        /// specified user by using `datasetUserAccessRight: None`
         ///
+        /// ## Required scope
+        ///
+        /// Dataset.ReadWrite.All
         /// ## Permissions
         ///
         /// The permissions for this API call are listed in [Datasets
         /// permissions](/power-bi/developer/embedded/datasets-permissions).
         ///
-        /// ## Required scope
-        ///
-        /// Dataset.ReadWrite.All
         /// ## Limitations
         ///
         /// - Only datasets in a [new workspace
@@ -1268,7 +1321,58 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> PutDatasetUserWithHttpMessagesAsync(string datasetId, PutDatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PutDatasetUserWithHttpMessagesAsync(string datasetId, DatasetUserAccess userDetails, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of principals that have access to the specified
+        /// dataset.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// When user permissions to a dataset have been recently updated, the
+        /// new permissions might not be immediately available through API
+        /// calls. To refresh user permissions, use the [Refresh User
+        /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
+        /// call.
+        ///
+        /// ## Permissions
+        ///
+        /// The permissions for this API call are listed in [Datasets
+        /// permissions](/power-bi/developer/embedded/datasets-permissions).
+        ///
+        /// ## Required scope
+        ///
+        /// Dataset.Read.All
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace, that is to say a V2 workspace, or **My workspace** are
+        /// supported.
+        /// - Caller must have ReadWriteReshare permissions on the dataset.
+        /// That is, folder admins, members and contributors with Reshare
+        /// permissions, or dataset owners.
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetUsersAccess>> GetDatasetUsersWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of datasets from the specified workspace.
         /// </summary>

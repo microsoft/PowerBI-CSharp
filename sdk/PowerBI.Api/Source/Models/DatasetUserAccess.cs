@@ -10,20 +10,20 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for a dataset
+    /// A Power BI principal access right entry for a dataset
     /// </summary>
-    public partial class PutDatasetUserAccess : Principal
+    public partial class DatasetUserAccess : Principal
     {
         /// <summary>
-        /// Initializes a new instance of the PutDatasetUserAccess class.
+        /// Initializes a new instance of the DatasetUserAccess class.
         /// </summary>
-        public PutDatasetUserAccess()
+        public DatasetUserAccess()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the PutDatasetUserAccess class.
+        /// Initializes a new instance of the DatasetUserAccess class.
         /// </summary>
         /// <param name="identifier">For principal type `User`, provide the
         /// *UPN*. Otherwise provide the [object
@@ -31,15 +31,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="accessRight">Access rights to set to the user for the
-        /// dataset (permission level). Possible values include: 'None',
-        /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
+        /// <param name="datasetUserAccessRight">Access rights to set to the
+        /// user for the dataset (permission level). Possible values include:
+        /// 'None', 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
         /// 'ReadExplore', 'ReadReshareExplore', 'ReadWriteExplore',
         /// 'ReadWriteReshareExplore'</param>
-        public PutDatasetUserAccess(string identifier, PrincipalType principalType, DatasetUserAccessRight accessRight)
+        public DatasetUserAccess(string identifier, PrincipalType principalType, DatasetUserAccessRight datasetUserAccessRight)
             : base(identifier, principalType)
         {
-            AccessRight = accessRight;
+            DatasetUserAccessRight = datasetUserAccessRight;
             CustomInit();
         }
 
@@ -54,8 +54,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'ReadWrite', 'ReadReshare', 'ReadWriteReshare', 'ReadExplore',
         /// 'ReadReshareExplore', 'ReadWriteExplore', 'ReadWriteReshareExplore'
         /// </summary>
-        [JsonProperty(PropertyName = "accessRight")]
-        public DatasetUserAccessRight AccessRight { get; set; }
+        [JsonProperty(PropertyName = "datasetUserAccessRight")]
+        public DatasetUserAccessRight DatasetUserAccessRight { get; set; }
 
         /// <summary>
         /// Validate the object.
