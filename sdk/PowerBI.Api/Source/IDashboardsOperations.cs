@@ -646,7 +646,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<AdminTiles>> GetTilesAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
-        /// dashboard. This is a preview API call.
+        /// dashboard.
         /// </summary>
         /// <remarks>
         ///

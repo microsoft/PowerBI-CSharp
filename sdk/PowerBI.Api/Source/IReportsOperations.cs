@@ -1255,7 +1255,6 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<AdminReports>> GetReportsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified report.
-        /// This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

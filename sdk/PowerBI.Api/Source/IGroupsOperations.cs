@@ -554,7 +554,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> UpdateGroupAsAdminWithHttpMessagesAsync(System.Guid groupId, AdminGroup groupProperties, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
-        /// workspace. This is a preview API call.
+        /// workspace.
         /// </summary>
         /// <remarks>
         ///

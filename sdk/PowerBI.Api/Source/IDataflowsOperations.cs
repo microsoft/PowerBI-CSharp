@@ -513,7 +513,6 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Datasources>> GetDataflowDatasourcesAsAdminWithHttpMessagesAsync(System.Guid dataflowId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified dataflow.
-        /// This is a preview API call.
         /// </summary>
         /// <remarks>
         ///

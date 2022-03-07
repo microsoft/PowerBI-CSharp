@@ -2797,8 +2797,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of users that have access to the specified dashboard. This
-        /// is a preview API call.
+        /// Returns a list of users that have access to the specified dashboard.
         /// </summary>
         /// <remarks>
         ///

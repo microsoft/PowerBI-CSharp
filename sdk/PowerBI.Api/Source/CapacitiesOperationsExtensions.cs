@@ -595,8 +595,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified workspace. This
-            /// is a preview API call.
+            /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
             ///
@@ -623,8 +622,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified workspace. This
-            /// is a preview API call.
+            /// Returns a list of users that have access to the specified workspace.
             /// </summary>
             /// <remarks>
             ///

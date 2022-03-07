@@ -341,7 +341,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> UnassignWorkspacesFromCapacityWithHttpMessagesAsync(UnassignWorkspacesCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
-        /// workspace. This is a preview API call.
+        /// workspace.
         /// </summary>
         /// <remarks>
         ///

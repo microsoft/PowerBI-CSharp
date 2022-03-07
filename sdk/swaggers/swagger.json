@@ -13550,7 +13550,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified dataset. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified dataset.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n- The permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersAsAdmin",
                 "consumes": [],
@@ -14081,7 +14081,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified workspace. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_GetGroupUsersAsAdmin",
                 "consumes": [],
@@ -14898,7 +14898,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified report. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified report.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Reports_GetReportUsersAsAdmin",
                 "consumes": [],
@@ -15153,7 +15153,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified dashboard. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified dashboard.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dashboards_GetDashboardUsersAsAdmin",
                 "consumes": [],
@@ -15802,7 +15802,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified workspace. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified workspace.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetCapacityUsersAsAdmin",
                 "consumes": [
@@ -16597,7 +16597,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified dataflow. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified dataflow.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Dataflows_GetDataflowUsersAsAdmin",
                 "consumes": [],
@@ -16874,7 +16874,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of apps in the organization. This is a preview API call.",
+                "summary": "Returns a list of apps in the organization.",
                 "description": "\nThe query parameter $top is required.\n\n## Permissions\n\nDelegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Apps_GetAppsAsAdmin",
                 "consumes": [],
@@ -16936,7 +16936,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of users that have access to the specified app. This is a preview API call.",
+                "summary": "Returns a list of users that have access to the specified app.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Apps_GetAppUsersAsAdmin",
                 "consumes": [],
@@ -16990,7 +16990,7 @@
                 "tags": [
                     "Admin"
                 ],
-                "summary": "Returns a list of Power BI items (such as reports or dashboards) that the specified user has access to. This is a preview API call.",
+                "summary": "Returns a list of Power BI items (such as reports or dashboards) that the specified user has access to.",
                 "description": "\n## Permissions\n\n- The user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator) or authenticate using a service principal.\n- Delegated permissions are supported.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Users_GetUserArtifactAccessAsAdmin",
                 "consumes": [],

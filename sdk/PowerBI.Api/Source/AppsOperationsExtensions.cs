@@ -498,7 +498,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of apps in the organization. This is a preview API call.
+            /// Returns a list of apps in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -530,7 +530,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of apps in the organization. This is a preview API call.
+            /// Returns a list of apps in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -568,8 +568,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified app. This is a
-            /// preview API call.
+            /// Returns a list of users that have access to the specified app.
             /// </summary>
             /// <remarks>
             ///
@@ -601,8 +600,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified app. This is a
-            /// preview API call.
+            /// Returns a list of users that have access to the specified app.
             /// </summary>
             /// <remarks>
             ///

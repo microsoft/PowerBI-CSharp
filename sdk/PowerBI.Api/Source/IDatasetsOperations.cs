@@ -2594,7 +2594,6 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Datasources>> GetDatasourcesAsAdminWithHttpMessagesAsync(string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified dataset.
-        /// This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
