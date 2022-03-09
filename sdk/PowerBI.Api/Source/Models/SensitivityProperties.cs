@@ -10,7 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A list of properties returned for an artifact by WorkspaceInfo APIs.
+    /// A list of properties returned for a Power BI item (such as a report or
+    /// a dashboard) by WorkspaceInfo APIs
     /// </summary>
     public partial class SensitivityProperties
     {

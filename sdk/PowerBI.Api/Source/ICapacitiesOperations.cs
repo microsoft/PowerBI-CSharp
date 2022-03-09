@@ -23,12 +23,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -44,22 +42,20 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Capacities>> GetCapacitiesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the current state of the specified capacity workloads. If
-        /// the workload is enabled, the percentage of maximum memory that the
-        /// workloads can consume is also returned.
+        /// Returns the current state of the specified capacity workloads. If a
+        /// workload is enabled, the percentage of maximum memory that the
+        /// workload can consume is also returned.
         /// </summary>
         /// <remarks>
         ///
-        /// Workload APIs are not relevant for [Embedded
+        /// Workload APIs aren't relevant for [Embedded
         /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -84,16 +80,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Workload APIs are not relevant for [Embedded
+        /// Workload APIs aren't relevant for [Embedded
         /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -124,16 +118,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// Workload APIs are not relevant for [Embedded
+        /// Workload APIs aren't relevant for [Embedded
         /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
         /// capacities.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -163,19 +155,21 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// Power BI retains a seven-day refresh history for each dataset, up
+        /// to a maximum of sixty refreshes.
+        ///
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results.
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: capacities and groups
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `capacities` and
+        /// `groups`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -203,12 +197,13 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// Power BI retains a seven-day refresh history for each dataset, up
+        /// to a maximum of sixty refreshes.
+        ///
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -217,8 +212,9 @@ namespace Microsoft.PowerBI.Api
         /// Returns only the first n results.
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: capacities and groups
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `capacities` and
+        /// `groups`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -246,12 +242,13 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// Power BI retains a seven-day refresh history for each dataset, up
+        /// to a maximum of sixty refreshes.
+        ///
+        /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID
@@ -260,8 +257,9 @@ namespace Microsoft.PowerBI.Api
         /// The refreshable ID
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: capacities and groups
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `capacities` and
+        /// `groups`.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -289,12 +287,10 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces capacity parameters
@@ -322,12 +318,10 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Admin assign workspaces to shared capacity parameters
@@ -347,7 +341,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> UnassignWorkspacesFromCapacityWithHttpMessagesAsync(UnassignWorkspacesCapacityRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
-        /// workspace. This is a preview API call.
+        /// workspace.
         /// </summary>
         /// <remarks>
         ///
@@ -357,12 +351,10 @@ namespace Microsoft.PowerBI.Api
         /// Global Administrator or Power BI Service Administrator).
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='capacityId'>
         /// The capacity ID

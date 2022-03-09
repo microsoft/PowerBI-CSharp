@@ -22,7 +22,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is only relevant to the [embed for your
+            /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
             /// learn more about using this API, see [Considerations when generating an
             /// embed token](/power-bi/developer/embedded/generate-embed-token).
@@ -35,16 +35,14 @@ namespace Microsoft.PowerBI.Api
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following:
             ///
             /// - Dashboard.ReadWrite.All or Dashboard.Read.All
             /// - Report.ReadWrite.All or Report.Read.All
             /// - Dataset.ReadWrite.All or Dataset.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -73,7 +71,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is only relevant to the [embed for your
+            /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
             /// learn more about using this API, see [Considerations when generating an
             /// embed token](/power-bi/developer/embedded/generate-embed-token).
@@ -86,16 +84,14 @@ namespace Microsoft.PowerBI.Api
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following:
             ///
             /// - Dashboard.ReadWrite.All or Dashboard.Read.All
             /// - Report.ReadWrite.All or Report.Read.All
             /// - Dataset.ReadWrite.All or Dataset.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

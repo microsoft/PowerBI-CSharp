@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request to rotate an encryption key
+    /// A request to rotate an encryption key
     /// </summary>
     public partial class TenantKeyRotationRequest
     {

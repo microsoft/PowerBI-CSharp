@@ -37,9 +37,7 @@ namespace Microsoft.PowerBI.Api
             /// both the ticket creator and the end-user installing with the ticket must
             /// have explicit access to the app.
             /// - All query parameters in the install ticket *must* be configured.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -74,9 +72,7 @@ namespace Microsoft.PowerBI.Api
             /// both the ticket creator and the end-user installing with the ticket must
             /// have explicit access to the app.
             /// - All query parameters in the install ticket *must* be configured.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

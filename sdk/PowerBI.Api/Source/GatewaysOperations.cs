@@ -55,16 +55,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -198,16 +196,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -348,16 +344,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -501,16 +495,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -518,7 +510,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceToGatewayRequest'>
-        /// The datasource requested to create
+        /// A request to create a new data source on a gateway
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -675,16 +667,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -692,7 +682,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -830,16 +820,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -847,7 +835,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -961,33 +949,38 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// &gt; [!NOTE]
+        /// &gt; To encrypt credentials, see [Configure credentials
+        /// programmatically](/power-bi/developer/embedded/configure-credentials) for
+        /// Power BI and review the EncryptCredentials [.NET
+        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
+        /// and
+        /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+        /// examples.
+        ///
         /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
-        /// from single sign-on to other credential types, such as **Basic** or
-        /// **OAuth2**. See the [Basic credentials
+        /// from single sign-on to other credential types, such as `Basic` or `OAuth2`.
+        /// See the [Basic credentials
         /// example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).
-        /// - To encrypt credentials, see [Configure credentials
-        /// programmatically](/power-bi/developer/automation/configure-credentials).
-        /// - For the **OAuth2** credential type, make sure the generated OAuth2 token
-        /// audience was set correctly according to the data source type.
+        /// - For the OAuth 2.0 credential type, make sure the generated OAuth 2.0
+        /// token audience was set correctly according to the data source type.
         /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
-        /// `true`. To set **OAuth2** credentials for other data sources, send the
-        /// OAuth2 token in the payload as shown in the [OAuth2 credentials
+        /// `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth
+        /// 2.0 token in the payload as shown in the [OAuth 2.0 credentials
         /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
         ///
         /// ## Permissions
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -995,10 +988,10 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='updateDatasourceRequest'>
-        /// The update datasource request
+        /// The update data source request
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1133,16 +1126,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1150,7 +1141,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1267,16 +1258,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1284,7 +1273,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1423,16 +1412,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1440,7 +1427,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='addUserToDatasourceRequest'>
         /// The add user to datasource request
@@ -1581,16 +1568,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// The user must have gateway admin permissions.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Virtual network (VNet) gateways aren't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
         /// The gateway ID. When using a gateway cluster, the gateway ID refers to the
@@ -1598,7 +1583,7 @@ namespace Microsoft.PowerBI.Api
         /// similar to gateway cluster ID.
         /// </param>
         /// <param name='datasourceId'>
-        /// The datasource ID
+        /// The data source ID
         /// </param>
         /// <param name='emailAdress'>
         /// The user's email address or the object ID of the service principal

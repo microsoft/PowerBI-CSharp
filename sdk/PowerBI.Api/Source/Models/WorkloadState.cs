@@ -34,9 +34,9 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly WorkloadState Enabled = "Enabled";
 
         /// <summary>
-        /// The workload is unsupported by the current capacity SKU and cannot
-        /// be enabled. This value cannot be set by the user in the [Patch
-        /// Workload](/rest/api/power-bi/capacities/patchworkload)
+        /// The workload is unsupported by the current capacity SKU and can't
+        /// be enabled. This value can't be set by the user in a [Patch
+        /// Workload](/rest/api/power-bi/capacities/patch-workload) API call.
         /// </summary>
         public static readonly WorkloadState Unsupported = "Unsupported";
 

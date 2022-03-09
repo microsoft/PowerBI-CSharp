@@ -29,9 +29,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="id">The workspace ID</param>
         /// <param name="name">The group name</param>
-        /// <param name="isReadOnly">Is the group read only</param>
-        /// <param name="isOnDedicatedCapacity">Is the group on dedicated
-        /// capacity</param>
+        /// <param name="isReadOnly">Whether the group is read-only</param>
+        /// <param name="isOnDedicatedCapacity">Whether the group is assigned
+        /// to a dedicated capacity</param>
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="dataflowStorageId">The Power BI dataflow storage
         /// account ID</param>
@@ -44,9 +44,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// information on a Power BI item (such as a report or a dashboard) by
         /// using the [Get Group Users As
         /// Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.</param>
+        /// API call with the `getArtifactUsers` parameter.</param>
         /// <param name="reports">The reports that belong to the group</param>
         /// <param name="dashboards">The dashboards that belong to the
         /// group</param>
@@ -97,13 +97,13 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets is the group read only
+        /// Gets or sets whether the group is read-only
         /// </summary>
         [JsonProperty(PropertyName = "isReadOnly")]
         public bool? IsReadOnly { get; set; }
 
         /// <summary>
-        /// Gets or sets is the group on dedicated capacity
+        /// Gets or sets whether the group is assigned to a dedicated capacity
         /// </summary>
         [JsonProperty(PropertyName = "isOnDedicatedCapacity")]
         public bool? IsOnDedicatedCapacity { get; set; }
@@ -145,9 +145,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// on a Power BI item (such as a report or a dashboard) by using the
         /// [Get Group Users As
         /// Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.
+        /// API call with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }

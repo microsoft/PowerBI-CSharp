@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// artifact email subscription
+    /// An email subscription for a Power BI item (such as a report or a
+    /// dashboard)
     /// </summary>
     public partial class Subscription
     {
@@ -29,30 +30,39 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="id">The subscription ID</param>
         /// <param name="title">The app name</param>
-        /// <param name="artifactId">The subscribed artifact ID</param>
-        /// <param name="artifactDisplayName">The subscribed artifact
-        /// Name</param>
-        /// <param name="subArtifactDisplayName">Page Name in case of Reports
-        /// only</param>
-        /// <param name="artifactType">artifactType</param>
-        /// <param name="isEnabled">subscription Enabled or not</param>
-        /// <param name="frequency">Frequency of Email Subscription</param>
-        /// <param name="startDate">The start date and time of
+        /// <param name="artifactId">The ID of the subscribed Power BI item
+        /// (such as a report or a dashboard)</param>
+        /// <param name="artifactDisplayName">The name of the subscribed Power
+        /// BI item (such as a report or a dashboard)</param>
+        /// <param name="subArtifactDisplayName">The page name of the
+        /// subscribed Power BI item, if it's a report.</param>
+        /// <param name="artifactType">The type of Power BI item (for example a
+        /// `Report`, `Dashboard`, or `Dataset`)</param>
+        /// <param name="isEnabled">Whether the email subscription is
+        /// enabled</param>
+        /// <param name="frequency">The frequency of the email
         /// subscription</param>
-        /// <param name="endDate">The start date and time of
+        /// <param name="startDate">The start date and time of the email
         /// subscription</param>
-        /// <param name="linkToContent">subscription link exists in email
+        /// <param name="endDate">The end date and time of the email
         /// subscription</param>
-        /// <param name="previewImage">screenshot of the report exists in email
-        /// subscription</param>
+        /// <param name="linkToContent">Whether a subscription link exists in
+        /// the email subscription</param>
+        /// <param name="previewImage">Whether a screenshot of the report
+        /// exists in the email subscription</param>
         /// <param name="attachmentFormat">Format of the report attached in the
-        /// eamil subscription</param>
-        /// <param name="users">The Email subscribee Details. This value can be
-        /// null when Get Subscirpions By User As Admin API is called. It will
-        /// be removed from the payload response in an upcoming release. To
-        /// retrieve subscription information on an artifact please consider
-        /// using the Get Dashboard or Report Subscriptions as Admin API.
-        /// </param>
+        /// email subscription</param>
+        /// <param name="users">The details of each email subscriber. When
+        /// using the [Get User Subscriptions As
+        /// Admin](/rest/api/power-bi/admin/users-get-user-subscriptions-as-admin)
+        /// API call, the returned value is an empty array (null). This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve subscription information on a Power BI
+        /// report or dashboard by using the [Get Report Subscriptions As
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// or [Get Dashboard Subscriptions As
+        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-subscriptions-as-admin)
+        /// API calls.</param>
         public Subscription(System.Guid id, string title = default(string), System.Guid? artifactId = default(System.Guid?), string artifactDisplayName = default(string), string subArtifactDisplayName = default(string), string artifactType = default(string), bool? isEnabled = default(bool?), string frequency = default(string), System.DateTime? startDate = default(System.DateTime?), System.DateTime? endDate = default(System.DateTime?), bool? linkToContent = default(bool?), bool? previewImage = default(bool?), string attachmentFormat = default(string), IList<SubscriptionUser> users = default(IList<SubscriptionUser>))
         {
             Id = id;
@@ -90,78 +100,90 @@ namespace Microsoft.PowerBI.Api.Models
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets the subscribed artifact ID
+        /// Gets or sets the ID of the subscribed Power BI item (such as a
+        /// report or a dashboard)
         /// </summary>
         [JsonProperty(PropertyName = "artifactId")]
         public System.Guid? ArtifactId { get; set; }
 
         /// <summary>
-        /// Gets or sets the subscribed artifact Name
+        /// Gets or sets the name of the subscribed Power BI item (such as a
+        /// report or a dashboard)
         /// </summary>
         [JsonProperty(PropertyName = "artifactDisplayName")]
         public string ArtifactDisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets page Name in case of Reports only
+        /// Gets or sets the page name of the subscribed Power BI item, if it's
+        /// a report.
         /// </summary>
         [JsonProperty(PropertyName = "subArtifactDisplayName")]
         public string SubArtifactDisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets artifactType
+        /// Gets or sets the type of Power BI item (for example a `Report`,
+        /// `Dashboard`, or `Dataset`)
         /// </summary>
         [JsonProperty(PropertyName = "artifactType")]
         public string ArtifactType { get; set; }
 
         /// <summary>
-        /// Gets or sets subscription Enabled or not
+        /// Gets or sets whether the email subscription is enabled
         /// </summary>
         [JsonProperty(PropertyName = "isEnabled")]
         public bool? IsEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets frequency of Email Subscription
+        /// Gets or sets the frequency of the email subscription
         /// </summary>
         [JsonProperty(PropertyName = "frequency")]
         public string Frequency { get; set; }
 
         /// <summary>
-        /// Gets or sets the start date and time of subscription
+        /// Gets or sets the start date and time of the email subscription
         /// </summary>
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the start date and time of subscription
+        /// Gets or sets the end date and time of the email subscription
         /// </summary>
         [JsonProperty(PropertyName = "endDate")]
         public System.DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// Gets or sets subscription link exists in email subscription
+        /// Gets or sets whether a subscription link exists in the email
+        /// subscription
         /// </summary>
         [JsonProperty(PropertyName = "linkToContent")]
         public bool? LinkToContent { get; set; }
 
         /// <summary>
-        /// Gets or sets screenshot of the report exists in email subscription
+        /// Gets or sets whether a screenshot of the report exists in the email
+        /// subscription
         /// </summary>
         [JsonProperty(PropertyName = "previewImage")]
         public bool? PreviewImage { get; set; }
 
         /// <summary>
-        /// Gets or sets format of the report attached in the eamil
+        /// Gets or sets format of the report attached in the email
         /// subscription
         /// </summary>
         [JsonProperty(PropertyName = "attachmentFormat")]
         public string AttachmentFormat { get; set; }
 
         /// <summary>
-        /// Gets or sets the Email subscribee Details. This value can be null
-        /// when Get Subscirpions By User As Admin API is called. It will be
-        /// removed from the payload response in an upcoming release. To
-        /// retrieve subscription information on an artifact please consider
-        /// using the Get Dashboard or Report Subscriptions as Admin API.
+        /// Gets or sets the details of each email subscriber. When using the
+        /// [Get User Subscriptions As
+        /// Admin](/rest/api/power-bi/admin/users-get-user-subscriptions-as-admin)
+        /// API call, the returned value is an empty array (null). This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve subscription information on a Power BI
+        /// report or dashboard by using the [Get Report Subscriptions As
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// or [Get Dashboard Subscriptions As
+        /// Admin](/rest/api/power-bi/admin/dashboards-get-dashboard-subscriptions-as-admin)
+        /// API calls.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<SubscriptionUser> Users { get; set; }

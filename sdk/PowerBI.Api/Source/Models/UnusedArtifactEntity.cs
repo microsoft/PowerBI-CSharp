@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Unused artifact entity
+    /// The unused Power BI item entity
     /// </summary>
     public partial class UnusedArtifactEntity
     {
@@ -26,15 +26,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the UnusedArtifactEntity class.
         /// </summary>
-        /// <param name="artifactId">Artifact ID</param>
-        /// <param name="displayName">Display name of the artifact</param>
-        /// <param name="artifactType">Type of the artifact</param>
-        /// <param name="artifactSizeInMB">Artifact size in MB if
-        /// applicable</param>
-        /// <param name="createdDateTime">Artifact created time if
-        /// applicable</param>
-        /// <param name="lastAccessedDateTime">Artifact last accessed time if
-        /// applicable</param>
+        /// <param name="artifactId">The ID of the Power BI item</param>
+        /// <param name="displayName">The display name of the Power BI
+        /// item</param>
+        /// <param name="artifactType">The Power BI item type</param>
+        /// <param name="artifactSizeInMB">The size of the Power BI item in
+        /// megabytes (if applicable)</param>
+        /// <param name="createdDateTime">The creation time of the Power BI
+        /// item (if applicable)</param>
+        /// <param name="lastAccessedDateTime">The last access time of the
+        /// Power BI item (if applicable)</param>
         public UnusedArtifactEntity(string artifactId, string displayName, string artifactType, int? artifactSizeInMB = default(int?), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastAccessedDateTime = default(System.DateTime?))
         {
             ArtifactId = artifactId;
@@ -52,37 +53,39 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets artifact ID
+        /// Gets or sets the ID of the Power BI item
         /// </summary>
         [JsonProperty(PropertyName = "artifactId")]
         public string ArtifactId { get; set; }
 
         /// <summary>
-        /// Gets or sets display name of the artifact
+        /// Gets or sets the display name of the Power BI item
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets type of the artifact
+        /// Gets or sets the Power BI item type
         /// </summary>
         [JsonProperty(PropertyName = "artifactType")]
         public string ArtifactType { get; set; }
 
         /// <summary>
-        /// Gets or sets artifact size in MB if applicable
+        /// Gets or sets the size of the Power BI item in megabytes (if
+        /// applicable)
         /// </summary>
         [JsonProperty(PropertyName = "artifactSizeInMB")]
         public int? ArtifactSizeInMB { get; set; }
 
         /// <summary>
-        /// Gets or sets artifact created time if applicable
+        /// Gets or sets the creation time of the Power BI item (if applicable)
         /// </summary>
         [JsonProperty(PropertyName = "createdDateTime")]
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets artifact last accessed time if applicable
+        /// Gets or sets the last access time of the Power BI item (if
+        /// applicable)
         /// </summary>
         [JsonProperty(PropertyName = "lastAccessedDateTime")]
         public System.DateTime? LastAccessedDateTime { get; set; }

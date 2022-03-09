@@ -6,14 +6,13 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
     /// A Power BI user access right entry for a deployment pipeline
     /// </summary>
-    public partial class PipelineUser
+    public partial class PipelineUser : Principal
     {
         /// <summary>
         /// Initializes a new instance of the PipelineUser class.
@@ -26,20 +25,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the PipelineUser class.
         /// </summary>
-        /// <param name="identifier">For the service principal type `User`,
-        /// enter *UPN*. Otherwise provide the [object
+        /// <param name="identifier">For principal type `User`, provide the
+        /// *UPN*. Otherwise provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the service principal.</param>
+        /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="accessRight">(Required) The access right a user has
-        /// for the deployment pipeline. Possible values include:
-        /// 'Admin'</param>
+        /// <param name="accessRight">Required. The access right a user has for
+        /// the deployment pipeline. Possible values include: 'Admin'</param>
         public PipelineUser(string identifier, PrincipalType principalType, PipelineUserAccessRight? accessRight = default(PipelineUserAccessRight?))
+            : base(identifier, principalType)
         {
             AccessRight = accessRight;
-            Identifier = identifier;
-            PrincipalType = principalType;
             CustomInit();
         }
 
@@ -49,40 +46,21 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Required) The access right a user has for the
+        /// Gets or sets required. The access right a user has for the
         /// deployment pipeline. Possible values include: 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "accessRight")]
         public PipelineUserAccessRight? AccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets for the service principal type `User`, enter *UPN*.
-        /// Otherwise provide the [object
-        /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the service principal.
-        /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'None', 'User', 'Group',
-        /// 'App'
-        /// </summary>
-        [JsonProperty(PropertyName = "principalType")]
-        public PrincipalType PrincipalType { get; set; }
-
-        /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
+        /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
-            if (Identifier == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Identifier");
-            }
+            base.Validate();
         }
     }
 }

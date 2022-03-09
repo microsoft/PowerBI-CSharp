@@ -24,52 +24,52 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Not Supported
+        /// Unsupported
         /// </summary>
         public static readonly CapacityState NotActivated = "NotActivated";
 
         /// <summary>
-        /// Capacity ready for use
+        /// The capacity is ready to use
         /// </summary>
         public static readonly CapacityState Active = "Active";
 
         /// <summary>
-        /// Capacity in activation process
+        /// Activation of the capacity is in progress
         /// </summary>
         public static readonly CapacityState Provisioning = "Provisioning";
 
         /// <summary>
-        /// Capacity failed to provisioned
+        /// Provisioning of the capacity failed
         /// </summary>
         public static readonly CapacityState ProvisionFailed = "ProvisionFailed";
 
         /// <summary>
-        /// Capacity suspended for use
+        /// Use of the capacity is suspended
         /// </summary>
         public static readonly CapacityState Suspended = "Suspended";
 
         /// <summary>
-        /// Not Supported
+        /// Unsupported
         /// </summary>
         public static readonly CapacityState PreSuspended = "PreSuspended";
 
         /// <summary>
-        /// Capacity in process of being deleted
+        /// Deletion of the capacity is in progress
         /// </summary>
         public static readonly CapacityState Deleting = "Deleting";
 
         /// <summary>
-        /// Capacity has been deleted and is not available
+        /// The capacity was deleted and is unavailable
         /// </summary>
         public static readonly CapacityState Deleted = "Deleted";
 
         /// <summary>
-        /// Capacity can not be used
+        /// The capacity can't be used
         /// </summary>
         public static readonly CapacityState Invalid = "Invalid";
 
         /// <summary>
-        /// Capacity Sku change is in progress
+        /// A capacity SKU change is in progress
         /// </summary>
         public static readonly CapacityState UpdatingSku = "UpdatingSku";
 

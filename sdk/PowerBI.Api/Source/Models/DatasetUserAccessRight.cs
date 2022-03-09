@@ -24,48 +24,51 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Removes permission to content in dataset
+        /// Removes permission to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRight None = "None";
 
         /// <summary>
-        /// Grants Read access to content in dataset
+        /// Grants Read access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRight Read = "Read";
 
         /// <summary>
-        /// Grants Read and Write access to content in dataset
+        /// Grants Read and Write access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadWrite = "ReadWrite";
 
         /// <summary>
-        /// Grants Read and Reshare access to content in dataset
+        /// Grants Read and Reshare access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadReshare = "ReadReshare";
 
         /// <summary>
-        /// Grants Read, Write and Reshare access to content in dataset
+        /// Grants Read, Write, and Reshare access to the content in the
+        /// dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadWriteReshare = "ReadWriteReshare";
 
         /// <summary>
-        /// Grants Read and Explore access to content in dataset
+        /// Grants Read and Explore access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadExplore = "ReadExplore";
 
         /// <summary>
-        /// Grants Read, Reshare and Explore access to content in dataset
+        /// Grants Read, Reshare, and Explore access to the content in the
+        /// dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadReshareExplore = "ReadReshareExplore";
 
         /// <summary>
-        /// Grants Read, Write and Explore access to content in dataset
+        /// Grants Read, Write, and Explore access to the content in the
+        /// dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadWriteExplore = "ReadWriteExplore";
 
         /// <summary>
-        /// Grants Read, Write, Reshare and Explore access to content in
-        /// dataset
+        /// Grants Read, Write, Reshare, and Explore access to the content in
+        /// the dataset
         /// </summary>
         public static readonly DatasetUserAccessRight ReadWriteReshareExplore = "ReadWriteReshareExplore";
 

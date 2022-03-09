@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api
         /// `targetWorkspaces` parameter.
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
         /// learn more about using this API, see [Considerations when generating an
         /// embed token](/power-bi/developer/embedded/generate-embed-token).
@@ -74,7 +74,7 @@ namespace Microsoft.PowerBI.Api
         /// ID in the API call. For more information, see
         /// [example](/rest/api/power-bi/embed-token/generate-token#examples).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following, unless a requirement doesn't apply:
         ///
@@ -98,12 +98,10 @@ namespace Microsoft.PowerBI.Api
         /// - Maximum 50 datasets.
         /// - Maximum 50 target workspaces.
         /// - For Azure Analysis Services or Analysis Services on-premises live
-        /// connection reports, generating an embed token with row-level security might
-        /// not work for several minutes after a
+        /// connection reports, generating an embed token with row-level security (RLS)
+        /// might not work for several minutes after a
         /// [rebind](/rest/api/power-bi/reports/rebind-report).
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Generate token parameters

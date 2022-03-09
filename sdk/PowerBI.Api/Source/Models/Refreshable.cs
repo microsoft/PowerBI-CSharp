@@ -12,7 +12,11 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI refreshable
+    /// A Power BI refreshable is a dataset that's been refreshed at least
+    /// once, or for which a valid refresh schedule exists. If a dataset
+    /// doesn't meet either of these conditions, then it won't show up in the
+    /// API response. Power BI retains a seven-day refresh history for each
+    /// dataset, up to a maximum of sixty refreshes.
     /// </summary>
     public partial class Refreshable
     {
@@ -28,21 +32,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Refreshable class.
         /// </summary>
         /// <param name="id">The object ID of the refreshable</param>
-        /// <param name="name">Display name of refreshable</param>
+        /// <param name="name">The display name of the refreshable</param>
         /// <param name="kind">The refreshable kind. Possible values include:
         /// 'Dataset'</param>
         /// <param name="startTime">The start time of the window for which
-        /// summary data exists</param>
-        /// <param name="endTime">The end time of the window for which summary
+        /// refresh data exists</param>
+        /// <param name="endTime">The end time of the window for which refresh
         /// data exists</param>
-        /// <param name="refreshCount">The number of refreshes within the
-        /// summary time window</param>
+        /// <param name="refreshCount">The number of refreshes within the time
+        /// window for which refresh data exists</param>
         /// <param name="refreshFailures">The number of refresh failures within
-        /// the summary time window</param>
+        /// the time window for which refresh data exists</param>
         /// <param name="averageDuration">The average duration in seconds of a
-        /// refresh within the summary time window</param>
+        /// refresh during the time window for which refresh data
+        /// exists</param>
         /// <param name="medianDuration">The median duration in seconds of a
-        /// refresh within the summary time window</param>
+        /// refresh within the time window for which refresh data
+        /// exists</param>
         /// <param name="refreshesPerDay">The number of refreshes per day
         /// (scheduled and on-demand) within the time window for which refresh
         /// data exists</param>
@@ -50,7 +56,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// for the refreshable item</param>
         /// <param name="refreshSchedule">The refresh schedule for the
         /// refreshable item</param>
-        /// <param name="configuredBy">Refreshable owners</param>
+        /// <param name="configuredBy">The refreshable owners</param>
         /// <param name="capacity">The capacity for the refreshable
         /// item</param>
         /// <param name="group">The associated group for the refreshable
@@ -87,7 +93,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets display name of refreshable
+        /// Gets or sets the display name of the refreshable
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
@@ -100,42 +106,43 @@ namespace Microsoft.PowerBI.Api.Models
         public RefreshableKind? Kind { get; set; }
 
         /// <summary>
-        /// Gets or sets the start time of the window for which summary data
+        /// Gets or sets the start time of the window for which refresh data
         /// exists
         /// </summary>
         [JsonProperty(PropertyName = "startTime")]
         public System.DateTime? StartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the end time of the window for which summary data
+        /// Gets or sets the end time of the window for which refresh data
         /// exists
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public System.DateTime? EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of refreshes within the summary time window
+        /// Gets or sets the number of refreshes within the time window for
+        /// which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "refreshCount")]
         public int? RefreshCount { get; set; }
 
         /// <summary>
-        /// Gets or sets the number of refresh failures within the summary time
-        /// window
+        /// Gets or sets the number of refresh failures within the time window
+        /// for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "refreshFailures")]
         public int? RefreshFailures { get; set; }
 
         /// <summary>
-        /// Gets or sets the average duration in seconds of a refresh within
-        /// the summary time window
+        /// Gets or sets the average duration in seconds of a refresh during
+        /// the time window for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "averageDuration")]
         public double? AverageDuration { get; set; }
 
         /// <summary>
         /// Gets or sets the median duration in seconds of a refresh within the
-        /// summary time window
+        /// time window for which refresh data exists
         /// </summary>
         [JsonProperty(PropertyName = "medianDuration")]
         public double? MedianDuration { get; set; }
@@ -161,7 +168,7 @@ namespace Microsoft.PowerBI.Api.Models
         public RefreshSchedule RefreshSchedule { get; set; }
 
         /// <summary>
-        /// Gets or sets refreshable owners
+        /// Gets or sets the refreshable owners
         /// </summary>
         [JsonProperty(PropertyName = "configuredBy")]
         public IList<string> ConfiguredBy { get; set; }

@@ -33,6 +33,31 @@ namespace Microsoft.PowerBI.Api
         public JsonSerializerSettings DeserializationSettings { get; private set; }
 
         /// <summary>
+        /// The unique identifier of the scorecard
+        /// </summary>
+        public System.Guid ScorecardId { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the goal
+        /// </summary>
+        public System.Guid GoalId { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the workspace
+        /// </summary>
+        public System.Guid GroupId { get; set; }
+
+        /// <summary>
+        /// The timestamp for the value of the goal
+        /// </summary>
+        public System.DateTime Timestamp { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the goal check-in note
+        /// </summary>
+        public System.Guid NoteId { get; set; }
+
+        /// <summary>
         /// Subscription credentials which uniquely identify client subscription.
         /// </summary>
         public ServiceClientCredentials Credentials { get; private set; }
@@ -113,6 +138,11 @@ namespace Microsoft.PowerBI.Api
         public virtual IWorkspaceInfoOperations WorkspaceInfo { get; private set; }
 
         /// <summary>
+        /// Gets the IWidelySharedArtifacts.
+        /// </summary>
+        public virtual IWidelySharedArtifacts WidelySharedArtifacts { get; private set; }
+
+        /// <summary>
         /// Gets the IAdmin.
         /// </summary>
         public virtual IAdmin Admin { get; private set; }
@@ -131,6 +161,31 @@ namespace Microsoft.PowerBI.Api
         /// Gets the ITemplateApps.
         /// </summary>
         public virtual ITemplateApps TemplateApps { get; private set; }
+
+        /// <summary>
+        /// Gets the IScorecardsOperations.
+        /// </summary>
+        public virtual IScorecardsOperations Scorecards { get; private set; }
+
+        /// <summary>
+        /// Gets the IGoalsOperations.
+        /// </summary>
+        public virtual IGoalsOperations Goals { get; private set; }
+
+        /// <summary>
+        /// Gets the IGoalsStatusRules.
+        /// </summary>
+        public virtual IGoalsStatusRules GoalsStatusRules { get; private set; }
+
+        /// <summary>
+        /// Gets the IGoalValuesOperations.
+        /// </summary>
+        public virtual IGoalValuesOperations GoalValues { get; private set; }
+
+        /// <summary>
+        /// Gets the IGoalNotesOperations.
+        /// </summary>
+        public virtual IGoalNotesOperations GoalNotes { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the PowerBIClient class.
@@ -348,10 +403,16 @@ namespace Microsoft.PowerBI.Api
             Pipelines = new PipelinesOperations(this);
             DataflowStorageAccounts = new DataflowStorageAccountsOperations(this);
             WorkspaceInfo = new WorkspaceInfoOperations(this);
+            WidelySharedArtifacts = new WidelySharedArtifacts(this);
             Admin = new Admin(this);
             EmbedToken = new EmbedTokenOperations(this);
             InformationProtection = new InformationProtection(this);
             TemplateApps = new TemplateApps(this);
+            Scorecards = new ScorecardsOperations(this);
+            Goals = new GoalsOperations(this);
+            GoalsStatusRules = new GoalsStatusRules(this);
+            GoalValues = new GoalValuesOperations(this);
+            GoalNotes = new GoalNotesOperations(this);
             BaseUri = new System.Uri("https://api.powerbi.com");
             SerializationSettings = new JsonSerializerSettings
             {

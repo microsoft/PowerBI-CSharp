@@ -20,12 +20,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Read.All or Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -40,12 +38,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Read.All or Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -66,12 +62,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -89,12 +83,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -118,12 +110,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -132,8 +122,8 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: stages
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `stages`.
             /// </param>
             public static Pipeline GetPipeline(this IPipelinesOperations operations, System.Guid pipelineId, string expand = "stages")
             {
@@ -145,12 +135,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -159,8 +147,8 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: stages
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `stages`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -178,12 +166,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -204,12 +190,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -236,16 +220,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// This operation will fail if there's an active deployment operation.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -263,16 +245,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// This operation will fail if there's an active deployment operation.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -294,12 +274,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -318,12 +296,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -347,12 +323,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -373,12 +347,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -402,12 +374,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -416,8 +386,8 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// To delete user pipeline permissions, provide the user's User Principal Name
-            /// (UPN). To delete a service principal or a security group's pipeline
+            /// To delete user pipeline permissions, provide the user principal name (UPN)
+            /// of the user. To delete a service principal or a security group's pipeline
             /// permissions, provide the Object ID of the service principal or security
             /// group.
             /// </param>
@@ -431,12 +401,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -445,8 +413,8 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// To delete user pipeline permissions, provide the user's User Principal Name
-            /// (UPN). To delete a service principal or a security group's pipeline
+            /// To delete user pipeline permissions, provide the user principal name (UPN)
+            /// of the user. To delete a service principal or a security group's pipeline
             /// permissions, provide the Object ID of the service principal or security
             /// group.
             /// </param>
@@ -463,12 +431,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -486,12 +452,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -515,19 +479,17 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
             ///
             /// ## Limitations
             ///
-            /// - The specified deployment pipeline stage is not already assigned.
+            /// - The specified deployment pipeline stage isn't already assigned.
             /// - You must be an admin of the specified workspace.
-            /// - The specified workspace is not assigned to any other deployment pipeline.
+            /// - The specified workspace isn't assigned to any other deployment pipeline.
             /// - This operation will fail if there's an active deployment operation.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -552,19 +514,17 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All and Workspace.ReadWrite.All
             ///
             /// ## Limitations
             ///
-            /// - The specified deployment pipeline stage is not already assigned.
+            /// - The specified deployment pipeline stage isn't already assigned.
             /// - You must be an admin of the specified workspace.
-            /// - The specified workspace is not assigned to any other deployment pipeline.
+            /// - The specified workspace isn't assigned to any other deployment pipeline.
             /// - This operation will fail if there's an active deployment operation.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -593,16 +553,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// This operation will fail if there's an active deployment operation.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -625,16 +583,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// This operation will fail if there's an active deployment operation.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -670,12 +626,10 @@ namespace Microsoft.PowerBI.Api
             /// specified stage. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -708,12 +662,10 @@ namespace Microsoft.PowerBI.Api
             /// specified stage. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -742,12 +694,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -766,12 +716,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -798,12 +746,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Use to track the status of a deploy operation.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -827,12 +773,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Use to track the status of a deploy operation.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.ReadWrite.All or Pipeline.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -870,16 +814,14 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
             /// ## Limitations
             ///
             /// Maximum 300 deployed items per request.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -911,16 +853,14 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
             /// ## Limitations
             ///
             /// Maximum 300 deployed items per request.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -954,16 +894,14 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
             /// ## Limitations
             ///
             /// Maximum 300 deployed items per request.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -991,16 +929,14 @@ namespace Microsoft.PowerBI.Api
             /// workspaces. For more information, see
             /// [Permissions](/power-bi/create-reports/deployment-pipelines-process#permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Pipeline.Deploy
             ///
             /// ## Limitations
             ///
             /// Maximum 300 deployed items per request.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1032,23 +968,21 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, stages.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `users` and `stages`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition.
@@ -1076,23 +1010,21 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: users, stages.
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `users` and `stages`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition.
@@ -1127,16 +1059,14 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1160,16 +1090,14 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights or authenticate using a service
             /// principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1197,16 +1125,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1231,16 +1157,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1268,16 +1192,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1286,9 +1208,10 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// For Principal type 'User' provide UPN , otherwise provide [Object
+            /// For the principal type `User`, provide the user principal name (UPN).
+            /// Otherwise, provide the [Object
             /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-            /// of the principal
+            /// of the principal.
             /// </param>
             public static void DeleteUserAsAdmin(this IPipelinesOperations operations, System.Guid pipelineId, string identifier)
             {
@@ -1304,16 +1227,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// The user must have administrator rights.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1322,9 +1243,10 @@ namespace Microsoft.PowerBI.Api
             /// The deployment pipeline ID
             /// </param>
             /// <param name='identifier'>
-            /// For Principal type 'User' provide UPN , otherwise provide [Object
+            /// For the principal type `User`, provide the user principal name (UPN).
+            /// Otherwise, provide the [Object
             /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-            /// of the principal
+            /// of the principal.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

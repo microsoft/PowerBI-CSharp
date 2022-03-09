@@ -25,16 +25,14 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 600 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -57,16 +55,14 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 600 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -97,12 +93,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -124,12 +118,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -155,16 +147,14 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 600 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -190,16 +180,14 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 600 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -233,12 +221,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -263,12 +249,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -298,12 +282,10 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -330,12 +312,10 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -359,6 +339,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -366,12 +349,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -380,8 +361,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns only the first n results.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: capacities and groups
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `capacities` and `groups`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -400,6 +381,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -407,12 +391,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -421,8 +403,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns only the first n results.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: capacities and groups
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `capacities` and `groups`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -448,6 +430,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -455,12 +440,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -472,8 +455,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns only the first n results.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: capacities and groups
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `capacities` and `groups`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -493,6 +476,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -500,12 +486,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -517,8 +501,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns only the first n results.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: capacities and groups
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `capacities` and `groups`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results based on a boolean condition
@@ -544,6 +528,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -551,12 +538,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -568,8 +553,8 @@ namespace Microsoft.PowerBI.Api
             /// The refreshable ID
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: capacities and groups
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `capacities` and `groups`.
             /// </param>
             public static Refreshables GetRefreshableForCapacity(this IAdmin operations, System.Guid capacityId, string refreshableId, string expand = default(string))
             {
@@ -582,6 +567,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
             /// ## Permissions
             ///
             /// - The user must have administrator rights (such as Office 365 Global
@@ -589,12 +577,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -606,8 +592,8 @@ namespace Microsoft.PowerBI.Api
             /// The refreshable ID
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: capacities and groups
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `capacities` and `groups`.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -636,7 +622,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -644,9 +630,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Maximum 200 requests per hour.
             /// - Activity logging isn't supported for Microsoft Cloud Deutschland.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -687,7 +671,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -695,9 +679,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Maximum 200 requests per hour.
             /// - Activity logging isn't supported for Microsoft Cloud Deutschland.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

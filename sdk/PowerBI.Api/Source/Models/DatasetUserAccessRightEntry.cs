@@ -24,22 +24,23 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Grants Read access to content in dataset
+        /// Grants Read access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRightEntry Read = "Read";
 
         /// <summary>
-        /// Grants Read and Reshare access to content in dataset
+        /// Grants Read and Reshare access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRightEntry ReadReshare = "ReadReshare";
 
         /// <summary>
-        /// Grants Read and Explore access to content in dataset
+        /// Grants Read and Explore access to the content in the dataset
         /// </summary>
         public static readonly DatasetUserAccessRightEntry ReadExplore = "ReadExplore";
 
         /// <summary>
-        /// Grants Read, Reshare and Explore access to content in dataset
+        /// Grants Read, Reshare, and Explore access to the content in the
+        /// dataset
         /// </summary>
         public static readonly DatasetUserAccessRightEntry ReadReshareExplore = "ReadReshareExplore";
 

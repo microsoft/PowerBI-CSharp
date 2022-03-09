@@ -10,9 +10,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for dataset
+    /// A Power BI user access right entry for a dataset
     /// </summary>
-    public partial class DatasetUser
+    public partial class DatasetUser : User
     {
         /// <summary>
         /// Initializes a new instance of the DatasetUser class.
@@ -25,26 +25,22 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasetUser class.
         /// </summary>
-        /// <param name="datasetUserAccessRight">Access rights user has for the
-        /// dataset (Permission level). Possible values include: 'None',
-        /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
+        /// <param name="identifier">Identifier of the principal</param>
+        /// <param name="principalType">Possible values include: 'None',
+        /// 'User', 'Group', 'App'</param>
+        /// <param name="datasetUserAccessRight">The access right that the user
+        /// has for the dataset (permission level). Possible values include:
+        /// 'None', 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
         /// 'ReadExplore', 'ReadReshareExplore', 'ReadWriteExplore',
         /// 'ReadWriteReshareExplore'</param>
         /// <param name="emailAddress">Email address of the user</param>
         /// <param name="displayName">Display name of the principal</param>
-        /// <param name="identifier">Identifier of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        /// <param name="principalType">Possible values include: 'None',
-        /// 'User', 'Group', 'App'</param>
-        public DatasetUser(DatasetUserAccessRight datasetUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string graphId = default(string), PrincipalType? principalType = default(PrincipalType?))
+        public DatasetUser(string identifier, PrincipalType principalType, DatasetUserAccessRight datasetUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             DatasetUserAccessRight = datasetUserAccessRight;
-            EmailAddress = emailAddress;
-            DisplayName = displayName;
-            Identifier = identifier;
-            GraphId = graphId;
-            PrincipalType = principalType;
             CustomInit();
         }
 
@@ -54,45 +50,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the dataset (Permission
-        /// level). Possible values include: 'None', 'Read', 'ReadWrite',
-        /// 'ReadReshare', 'ReadWriteReshare', 'ReadExplore',
+        /// Gets or sets the access right that the user has for the dataset
+        /// (permission level). Possible values include: 'None', 'Read',
+        /// 'ReadWrite', 'ReadReshare', 'ReadWriteReshare', 'ReadExplore',
         /// 'ReadReshareExplore', 'ReadWriteExplore', 'ReadWriteReshareExplore'
         /// </summary>
         [JsonProperty(PropertyName = "datasetUserAccessRight")]
         public DatasetUserAccessRight DatasetUserAccessRight { get; set; }
-
-        /// <summary>
-        /// Gets or sets email address of the user
-        /// </summary>
-        [JsonProperty(PropertyName = "emailAddress")]
-        public string EmailAddress { get; set; }
-
-        /// <summary>
-        /// Gets or sets display name of the principal
-        /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or sets identifier of the principal
-        /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets identifier of the principal in Microsoft Graph. Only
-        /// available for admin APIs.
-        /// </summary>
-        [JsonProperty(PropertyName = "graphId")]
-        public string GraphId { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'None', 'User', 'Group',
-        /// 'App'
-        /// </summary>
-        [JsonProperty(PropertyName = "principalType")]
-        public PrincipalType? PrincipalType { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -100,8 +64,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
+            base.Validate();
         }
     }
 }

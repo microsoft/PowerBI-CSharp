@@ -12,7 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI workbook list
+    /// A Power BI workbook list
     /// </summary>
     public partial class Workbooks
     {

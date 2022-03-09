@@ -11,7 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Set label details.
+    /// A composite of label information required to update an information
+    /// protection label
     /// </summary>
     public partial class InformationProtectionChangeLabelDetails
     {
@@ -28,17 +29,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// InformationProtectionChangeLabelDetails class.
         /// </summary>
-        /// <param name="artifacts">A composite of artifact ID lists for each
-        /// type</param>
-        /// <param name="labelId">Label ID (must be in the user’s
-        /// policy).</param>
+        /// <param name="artifacts">A composite of Power BI item IDs for each
+        /// item type</param>
+        /// <param name="labelId">The label ID, which must be in the user's
+        /// label policy.</param>
         /// <param name="delegatedUser">Delegated user details. A delegated
-        /// user is a user in the admin’s organization on whose behalf the
-        /// admin sets a label. Although the admin sets the label, the
+        /// user is a user within an organization whose admin sets a label on
+        /// behalf of the user. Although the admin sets the label, the
         /// delegated user is marked as the label issuer.</param>
         /// <param name="assignmentMethod">Specifies whether the assigned label
-        /// is to be regarded as having been set manually or as the result of
-        /// automatic labeling. (default value is Standard). Possible values
+        /// was set by an automated process or manually. Possible values
         /// include: 'Standard', 'Priviledged'</param>
         public InformationProtectionChangeLabelDetails(InformationProtectionArtifactsChangeLabel artifacts, System.Guid labelId, DelegatedUser delegatedUser = default(DelegatedUser), AssignmentMethod? assignmentMethod = default(AssignmentMethod?))
         {
@@ -55,30 +55,30 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets a composite of artifact ID lists for each type
+        /// Gets or sets a composite of Power BI item IDs for each item type
         /// </summary>
         [JsonProperty(PropertyName = "artifacts")]
         public InformationProtectionArtifactsChangeLabel Artifacts { get; set; }
 
         /// <summary>
-        /// Gets or sets label ID (must be in the user’s policy).
+        /// Gets or sets the label ID, which must be in the user's label
+        /// policy.
         /// </summary>
         [JsonProperty(PropertyName = "labelId")]
         public System.Guid LabelId { get; set; }
 
         /// <summary>
-        /// Gets or sets delegated user details. A delegated user is a user in
-        /// the admin’s organization on whose behalf the admin sets a label.
-        /// Although the admin sets the label, the delegated user is marked as
-        /// the label issuer.
+        /// Gets or sets delegated user details. A delegated user is a user
+        /// within an organization whose admin sets a label on behalf of the
+        /// user. Although the admin sets the label, the delegated user is
+        /// marked as the label issuer.
         /// </summary>
         [JsonProperty(PropertyName = "delegatedUser")]
         public DelegatedUser DelegatedUser { get; set; }
 
         /// <summary>
-        /// Gets or sets specifies whether the assigned label is to be regarded
-        /// as having been set manually or as the result of automatic labeling.
-        /// (default value is Standard). Possible values include: 'Standard',
+        /// Gets or sets specifies whether the assigned label was set by an
+        /// automated process or manually. Possible values include: 'Standard',
         /// 'Priviledged'
         /// </summary>
         [JsonProperty(PropertyName = "assignmentMethod")]

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI assign to Power BI dataflow storage account request
+    /// A Power BI assign to dataflow storage account request
     /// </summary>
     public partial class AssignToDataflowStorageRequest
     {
