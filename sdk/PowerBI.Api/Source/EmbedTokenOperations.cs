@@ -58,7 +58,7 @@ namespace Microsoft.PowerBI.Api
         /// `targetWorkspaces` parameter.
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
         /// learn more about using this API, see [Considerations when generating an
         /// embed token](/power-bi/developer/embedded/generate-embed-token).

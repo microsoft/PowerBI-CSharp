@@ -42,8 +42,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'Change'</param>
         /// <param name="maxLastModifiedTime">The UTC timestamp of the latest
         /// modification to the aggregated property</param>
-        /// <param name="valueDisplayString">(Optional) The alternative text
-        /// representation of the aggregated property value</param>
+        /// <param name="valueDisplayString">Optional. The alternative text
+        /// representation of the aggregated property value.</param>
         public GoalAggregation(string id, System.DateTime timestamp, System.DateTime calculationTime, System.Guid scorecardId, System.Guid goalId, double value, GoalAggregationType type, System.DateTime maxLastModifiedTime, string valueDisplayString = default(string))
         {
             Id = id;
@@ -101,8 +101,8 @@ namespace Microsoft.PowerBI.Api.Models
         public double Value { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The alternative text representation of the
-        /// aggregated property value
+        /// Gets or sets optional. The alternative text representation of the
+        /// aggregated property value.
         /// </summary>
         [JsonProperty(PropertyName = "valueDisplayString")]
         public string ValueDisplayString { get; set; }

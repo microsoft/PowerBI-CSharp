@@ -31,11 +31,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="datasetUserAccessRight">Access rights to set to the
-        /// user for the dataset (permission level). Possible values include:
-        /// 'None', 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
-        /// 'ReadExplore', 'ReadReshareExplore', 'ReadWriteExplore',
-        /// 'ReadWriteReshareExplore'</param>
+        /// <param name="datasetUserAccessRight">The access rights to assign to
+        /// the user for the dataset (permission level). Possible values
+        /// include: 'None', 'Read', 'ReadWrite', 'ReadReshare',
+        /// 'ReadWriteReshare', 'ReadExplore', 'ReadReshareExplore',
+        /// 'ReadWriteExplore', 'ReadWriteReshareExplore'</param>
         public DatasetUserAccess(string identifier, PrincipalType principalType, DatasetUserAccessRight datasetUserAccessRight)
             : base(identifier, principalType)
         {
@@ -49,10 +49,11 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights to set to the user for the dataset
-        /// (permission level). Possible values include: 'None', 'Read',
-        /// 'ReadWrite', 'ReadReshare', 'ReadWriteReshare', 'ReadExplore',
-        /// 'ReadReshareExplore', 'ReadWriteExplore', 'ReadWriteReshareExplore'
+        /// Gets or sets the access rights to assign to the user for the
+        /// dataset (permission level). Possible values include: 'None',
+        /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
+        /// 'ReadExplore', 'ReadReshareExplore', 'ReadWriteExplore',
+        /// 'ReadWriteReshareExplore'
         /// </summary>
         [JsonProperty(PropertyName = "datasetUserAccessRight")]
         public DatasetUserAccessRight DatasetUserAccessRight { get; set; }

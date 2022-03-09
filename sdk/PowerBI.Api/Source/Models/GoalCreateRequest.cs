@@ -27,20 +27,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the GoalCreateRequest class.
         /// </summary>
         /// <param name="name">The goal name</param>
-        /// <param name="startDate">(Optional) The UTC timestamp for the start
+        /// <param name="startDate">Optional. The UTC timestamp for the start
         /// date of the goal. The time portion of the timestamp is
         /// zero.</param>
-        /// <param name="completionDate">(Optional) The UTC timestamp for the
+        /// <param name="completionDate">Optional. The UTC timestamp for the
         /// completion date of the goal. The time portion of the timestamp is
         /// zero.</param>
-        /// <param name="parentId">(Optional) The ID of the parent goal, if
+        /// <param name="parentId">Optional. The ID of the parent goal, if
         /// defined.</param>
-        /// <param name="valuesFormatString">(Optional) The [custom format
+        /// <param name="valuesFormatString">Optional. The [custom format
         /// string](/power-bi/create-reports/desktop-custom-format-strings) for
-        /// values</param>
-        /// <param name="datesFormatString">(Optional) The [custom format
+        /// values.</param>
+        /// <param name="datesFormatString">Optional. The [custom format
         /// string](/power-bi/create-reports/desktop-custom-format-strings) for
-        /// dates</param>
+        /// dates.</param>
         public GoalCreateRequest(string name, System.DateTime? startDate = default(System.DateTime?), System.DateTime? completionDate = default(System.DateTime?), string parentId = default(string), string valuesFormatString = default(string), string datesFormatString = default(string))
         {
             Name = name;
@@ -64,37 +64,37 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The UTC timestamp for the start date of the
+        /// Gets or sets optional. The UTC timestamp for the start date of the
         /// goal. The time portion of the timestamp is zero.
         /// </summary>
         [JsonProperty(PropertyName = "startDate")]
         public System.DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The UTC timestamp for the completion date
-        /// of the goal. The time portion of the timestamp is zero.
+        /// Gets or sets optional. The UTC timestamp for the completion date of
+        /// the goal. The time portion of the timestamp is zero.
         /// </summary>
         [JsonProperty(PropertyName = "completionDate")]
         public System.DateTime? CompletionDate { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The ID of the parent goal, if defined.
+        /// Gets or sets optional. The ID of the parent goal, if defined.
         /// </summary>
         [JsonProperty(PropertyName = "parentId")]
         public string ParentId { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The [custom format
+        /// Gets or sets optional. The [custom format
         /// string](/power-bi/create-reports/desktop-custom-format-strings) for
-        /// values
+        /// values.
         /// </summary>
         [JsonProperty(PropertyName = "valuesFormatString")]
         public string ValuesFormatString { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The [custom format
+        /// Gets or sets optional. The [custom format
         /// string](/power-bi/create-reports/desktop-custom-format-strings) for
-        /// dates
+        /// dates.
         /// </summary>
         [JsonProperty(PropertyName = "datesFormatString")]
         public string DatesFormatString { get; set; }

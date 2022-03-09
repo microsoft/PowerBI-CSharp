@@ -171,8 +171,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan ID, which is included in the response from the workspaces or
-            /// getInfo API that triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or the
+            /// [Admin - WorkspaceInfo
+            /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+            /// API call that triggered the scan.
             /// </param>
             public static ScanRequest GetScanStatus(this IWorkspaceInfoOperations operations, System.Guid scanId)
             {
@@ -203,8 +205,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan ID, which is included in the response from the workspaces or
-            /// getInfo API that triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or the
+            /// [Admin - WorkspaceInfo
+            /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+            /// API call that triggered the scan.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -245,8 +249,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan ID, which is included in the response from the workspaces or
-            /// getInfo API that triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or the
+            /// [Admin - WorkspaceInfo
+            /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+            /// API call that triggered the scan.
             /// </param>
             public static WorkspaceInfoResponse GetScanResult(this IWorkspaceInfoOperations operations, System.Guid scanId)
             {
@@ -281,8 +287,10 @@ namespace Microsoft.PowerBI.Api
             /// The operations group for this extension method.
             /// </param>
             /// <param name='scanId'>
-            /// The scan ID, which is included in the response from the workspaces or
-            /// getInfo API that triggered the scan
+            /// The scan ID, which is included in the response from the workspaces or the
+            /// [Admin - WorkspaceInfo
+            /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+            /// API call that triggered the scan.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

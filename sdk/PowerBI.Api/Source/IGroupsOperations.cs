@@ -257,7 +257,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// To unassign **My workspace** from a capacity, provide an empty GUID
-        /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
+        /// (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.
         ///
         /// ## Permissions
         ///
@@ -291,7 +291,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// To unassign **My workspace** from a capacity, provide an empty GUID
-        /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
+        /// (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.
         ///
         /// ## Permissions
         ///
@@ -390,7 +390,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// To unassign the specified workspace from a Power BI dataflow
         /// storage account, provide an empty GUID
-        /// (00000000-0000-0000-0000-000000000000) as the `dataflowStorageId`.
+        /// (`00000000-0000-0000-0000-000000000000`) as the
+        /// `dataflowStorageId`.
         ///
         /// ## Required Scope
         ///

@@ -27,14 +27,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="timestamp">The UTC timestamp of the goal value
         /// check-in. The time portion of the timestamp is zero.</param>
-        /// <param name="value">(Optional) The current value of the
-        /// goal</param>
-        /// <param name="target">(Optional) The target value of the
-        /// goal</param>
-        /// <param name="trend">(Optional) The value trend of the goal</param>
-        /// <param name="forecast">(Optional) The value trend forecast of the
-        /// goal</param>
-        /// <param name="status">(Optional) The goal status ID
+        /// <param name="value">Optional. The current value of the
+        /// goal.</param>
+        /// <param name="target">Optional. The target value of the
+        /// goal.</param>
+        /// <param name="trend">Optional. The value trend of the goal.</param>
+        /// <param name="forecast">Optional. The value trend forecast of the
+        /// goal.</param>
+        /// <param name="status">Optional. The goal status ID.
         ///
         /// | ID | Description |
         /// |-|-|
@@ -68,31 +68,31 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The current value of the goal
+        /// Gets or sets optional. The current value of the goal.
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public double? Value { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The target value of the goal
+        /// Gets or sets optional. The target value of the goal.
         /// </summary>
         [JsonProperty(PropertyName = "target")]
         public double? Target { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The value trend of the goal
+        /// Gets or sets optional. The value trend of the goal.
         /// </summary>
         [JsonProperty(PropertyName = "trend")]
         public int? Trend { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The value trend forecast of the goal
+        /// Gets or sets optional. The value trend forecast of the goal.
         /// </summary>
         [JsonProperty(PropertyName = "forecast")]
         public double? Forecast { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The goal status ID
+        /// Gets or sets optional. The goal status ID.
         ///
         /// | ID | Description |
         /// |-|-|

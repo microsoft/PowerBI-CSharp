@@ -39,7 +39,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// | 3 | Behind |
         /// | 4 | Overdue |
         /// | 5 | Completed |</param>
-        /// <param name="rules">(Optional) The list of rules</param>
+        /// <param name="rules">Optional. The list of rules.</param>
         public GoalsRulesGoalStatusRulesUpdateRequest(int defaultOutput, IList<GoalsRulesRule1OfInt32> rules = default(IList<GoalsRulesRule1OfInt32>))
         {
             Rules = rules;
@@ -53,7 +53,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Optional) The list of rules
+        /// Gets or sets optional. The list of rules.
         /// </summary>
         [JsonProperty(PropertyName = "rules")]
         public IList<GoalsRulesRule1OfInt32> Rules { get; set; }

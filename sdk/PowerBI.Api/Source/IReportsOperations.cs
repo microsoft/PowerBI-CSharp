@@ -146,7 +146,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportWithHttpMessagesAsync(System.Guid reportId, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Exports the specified report from **My workspace** to a .pbix file.
+        /// Exports the specified report from **My workspace** to a Power BI
+        /// .pbix file.
         /// </summary>
         /// <remarks>
         ///
@@ -156,7 +157,7 @@ namespace Microsoft.PowerBI.Api
         /// `true`.
         /// - Large files are downloaded to a temporary blob. Their URL is
         /// returned in the response, and stored in the locally downloaded
-        /// .pbix file.
+        /// Power BI .pbix file.
         /// - For more information on requirements and limitations, see
         /// [Download a report from the Power BI service to Power BI
         /// Desktop](/power-bi/create-reports/service-export-to-pbix).
@@ -650,7 +651,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Report>> CloneReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Exports the specified report from the specified workspace to a
-        /// .pbix file.
+        /// Power BI .pbix file.
         /// </summary>
         /// <remarks>
         ///
@@ -658,8 +659,8 @@ namespace Microsoft.PowerBI.Api
         /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
         /// for timeout issues.
         /// - Large files are downloaded to a temporary blob. Their URL is
-        /// returned in the response and stored in the locally downloaded .pbix
-        /// file.
+        /// returned in the response and stored in the locally downloaded Power
+        /// BI .pbix file.
         /// - For more information on requirements and limitations, see
         /// [Download a report from the Power BI service to Power BI
         /// Desktop](/power-bi/create-reports/service-export-to-pbix).
@@ -1048,7 +1049,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers)
         /// scenario. To learn more about using this API, see [Considerations
         /// when generating an embed
@@ -1107,7 +1108,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers)
         /// scenario. To learn more about using this API, see [Considerations
         /// when generating an embed

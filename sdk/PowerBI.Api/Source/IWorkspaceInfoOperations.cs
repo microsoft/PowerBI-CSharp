@@ -113,7 +113,9 @@ namespace Microsoft.PowerBI.Api
         /// </remarks>
         /// <param name='scanId'>
         /// The scan ID, which is included in the response from the workspaces
-        /// or getInfo API that triggered the scan
+        /// or the [Admin - WorkspaceInfo
+        /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API call that triggered the scan.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -154,7 +156,9 @@ namespace Microsoft.PowerBI.Api
         /// </remarks>
         /// <param name='scanId'>
         /// The scan ID, which is included in the response from the workspaces
-        /// or getInfo API that triggered the scan
+        /// or the [Admin - WorkspaceInfo
+        /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API call that triggered the scan.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

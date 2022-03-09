@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        /// <param name="datasetUserAccessRight">(Required) The access right to
+        /// <param name="datasetUserAccessRight">Required. The access right to
         /// grant to the user for the dataset. Possible values include: 'Read',
         /// 'ReadReshare', 'ReadExplore', 'ReadReshareExplore'</param>
         public PostDatasetUserAccess(string identifier, PrincipalType principalType, DatasetUserAccessRightEntry datasetUserAccessRight)
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Required) The access right to grant to the user for
+        /// Gets or sets required. The access right to grant to the user for
         /// the dataset. Possible values include: 'Read', 'ReadReshare',
         /// 'ReadExplore', 'ReadReshareExplore'
         /// </summary>

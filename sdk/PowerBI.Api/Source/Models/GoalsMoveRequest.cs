@@ -31,19 +31,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// goal to be moved. The caller provides validation information to
         /// confirm that they know the existing position of a goal within the
         /// hierarchy of goals.</param>
-        /// <param name="newParent">(Optional) The rank validation information
+        /// <param name="newParent">Optional. The rank validation information
         /// for the new parent of the goal to be moved. The caller provides
         /// validation information to confirm that they know the existing
         /// position of a goal within the hierarchy of goals.</param>
-        /// <param name="newPrevious">(Optional) The rank validation
-        /// information for the new previous-sibling of the goal to be moved.
-        /// The caller provides validation information to confirm that they
-        /// know the existing position of a goal within the hierarchy of
-        /// goals.</param>
-        /// <param name="newNext">(Optional) The rank validation information
-        /// for the new next-sibling of the goal to be moved. The caller
+        /// <param name="newPrevious">Optional. The rank validation information
+        /// for the new previous-sibling of the goal to be moved. The caller
         /// provides validation information to confirm that they know the
         /// existing position of a goal within the hierarchy of goals.</param>
+        /// <param name="newNext">Optional. The rank validation information for
+        /// the new next-sibling of the goal to be moved. The caller provides
+        /// validation information to confirm that they know the existing
+        /// position of a goal within the hierarchy of goals.</param>
         public GoalsMoveRequest(GoalRankValidationInfo goalToMove, GoalRankValidationInfo newParent = default(GoalRankValidationInfo), GoalRankValidationInfo newPrevious = default(GoalRankValidationInfo), GoalRankValidationInfo newNext = default(GoalRankValidationInfo))
         {
             GoalToMove = goalToMove;
@@ -68,7 +67,7 @@ namespace Microsoft.PowerBI.Api.Models
         public GoalRankValidationInfo GoalToMove { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The rank validation information for the new
+        /// Gets or sets optional. The rank validation information for the new
         /// parent of the goal to be moved. The caller provides validation
         /// information to confirm that they know the existing position of a
         /// goal within the hierarchy of goals.
@@ -77,7 +76,7 @@ namespace Microsoft.PowerBI.Api.Models
         public GoalRankValidationInfo NewParent { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The rank validation information for the new
+        /// Gets or sets optional. The rank validation information for the new
         /// previous-sibling of the goal to be moved. The caller provides
         /// validation information to confirm that they know the existing
         /// position of a goal within the hierarchy of goals.
@@ -86,7 +85,7 @@ namespace Microsoft.PowerBI.Api.Models
         public GoalRankValidationInfo NewPrevious { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The rank validation information for the new
+        /// Gets or sets optional. The rank validation information for the new
         /// next-sibling of the goal to be moved. The caller provides
         /// validation information to confirm that they know the existing
         /// position of a goal within the hierarchy of goals.

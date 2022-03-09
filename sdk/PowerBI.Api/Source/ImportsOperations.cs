@@ -202,8 +202,8 @@ namespace Microsoft.PowerBI.Api
         /// type **application/json** in the request headers. Include
         /// [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo)
         /// with `filePath` set to the .xlsx file path in the request body.
-        /// - To import large .pbix files that are between 1 GB and 10 GB in size, see
-        /// [Create Temporary Upload
+        /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in
+        /// size, see [Create Temporary Upload
         /// Location](/rest/api/power-bi/imports/create-temporary-upload-location).
         /// This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to
@@ -217,7 +217,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Dataflows with service principal aren't supported.
-        /// - Importing a .pbix file from OneDrive isn't supported.
+        /// - Importing a Power BI .pbix file from OneDrive isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetDisplayName'>
@@ -235,15 +235,15 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='skipReport'>
         /// Whether to skip report import. If specified, the value must be `true`. Only
-        /// supported for .pbix files.
+        /// supported for Power BI .pbix files.
         /// </param>
         /// <param name='overrideReportLabel'>
-        /// Whether to override the existing report label when republishing a .pbix
-        /// file. The service default value is `true`.
+        /// Whether to override the existing report label when republishing a Power BI
+        /// .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='overrideModelLabel'>
-        /// Whether to override the existing label on a model when republishing a .pbix
-        /// file. The service default value is `true`.
+        /// Whether to override the existing label on a model when republishing a Power
+        /// BI .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -576,16 +576,16 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Creates a temporary blob storage upload location for importing large .pbix
-        /// files that are between 1 GB and 10 GB in size.
+        /// Creates a temporary blob storage upload location for importing large Power
+        /// BI .pbix files that are between 1 GB and 10 GB in size.
         /// </summary>
         /// <remarks>
         ///
-        /// To import large .pbix files:
+        /// To import large Power BI .pbix files:
         ///
         /// 1. Create a temporary upload location using this API call.
-        /// 1. Upload the .pbix files using the *shared access signature* URL from the
-        /// API call response.
+        /// 1. Upload the Power BI .pbix files using the *shared access signature* URL
+        /// from the API call response.
         /// 1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import),
         /// specifying the *shared access signature* URL in the `fileUrl` parameter of
         /// the [request body](/rest/api/power-bi/imports/post-import#request-body).
@@ -596,7 +596,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Importing large .pbix files between 1 GB and 10 GB in size is only
+        /// Importing large Power BI .pbix files between 1 GB and 10 GB in size is only
         /// available for Premium capacity workspaces.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
@@ -734,7 +734,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Importing .pbix files from OneDrive isn't supported.
+        /// Importing Power BI .pbix files from OneDrive isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -873,7 +873,7 @@ namespace Microsoft.PowerBI.Api
         /// &gt; [!NOTE]
         /// &gt; Supported content:
         /// &gt;
-        /// &gt; - .pbix files
+        /// &gt; - Power BI .pbix files
         /// &gt; - JSON files (.json)
         /// &gt; - Excel files (.xlsx)
         /// &gt; - SQL Server Report Definition Language files (.rdl)
@@ -889,8 +889,8 @@ namespace Microsoft.PowerBI.Api
         /// type **application/json** in the request headers. Include
         /// [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo)
         /// with `filePath` set to the .xlsx file path in the request body.
-        /// - To import large .pbix files that are between 1 GB and 10 GB in size, see
-        /// [Create Temporary Upload Location In
+        /// - To import large Power BI .pbix files that are between 1 GB and 10 GB in
+        /// size, see [Create Temporary Upload Location In
         /// Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group).
         /// This is only supported for Premium capacity workspaces.
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to
@@ -904,7 +904,7 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// - Dataflows with service principal aren't supported.
-        /// - Importing a .pbix file from OneDrive isn't supported.
+        /// - Importing a Power BI .pbix file from OneDrive isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
@@ -928,15 +928,15 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='skipReport'>
         /// Whether to skip report import. If specified, the value must be `true`. Only
-        /// supported for .pbix files.
+        /// supported for Power BI .pbix files.
         /// </param>
         /// <param name='overrideReportLabel'>
         /// Whether to override the existing label on a report when republishing a
-        /// .pbix file. The service default value is `true`.
+        /// Power BI .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='overrideModelLabel'>
         /// Determines whether to override the existing label on a model when
-        /// republishing a .pbix file. The service default value is `true`.
+        /// republishing a Power BI .pbix file. The service default value is `true`.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1276,16 +1276,16 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Creates a temporary blob storage upload location for importing large .pbix
-        /// files that are between 1 GB and 10 GB in size.
+        /// Creates a temporary blob storage upload location for importing large Power
+        /// BI .pbix files that are between 1 GB and 10 GB in size.
         /// </summary>
         /// <remarks>
         ///
-        /// To import large .pbix files:
+        /// To import large Power BI .pbix files:
         ///
         /// 1. Create a temporary upload location using this API call.
-        /// 1. Upload the .pbix files using the *shared access signature* URL from the
-        /// API call response.
+        /// 1. Upload the Power BI .pbix files using the *shared access signature* URL
+        /// from the API call response.
         /// 1. Call [Post Import In
         /// Group](/rest/api/power-bi/imports/post-import-in-group), specifying the
         /// *shared access signature* URL in the `fileUrl` parameter of the [request
@@ -1297,7 +1297,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Importing large .pbix files between 1 GB and 10 GB in size is only
+        /// Importing large Power BI .pbix files between 1 GB and 10 GB in size is only
         /// available for Premium capacity workspaces.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>

@@ -32,8 +32,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// OneDrive for Business file. Possible values include: 'import',
         /// 'connect'</param>
         /// <param name="fileUrl">The shared access signature URL of the
-        /// temporary blob storage used to import large .pbix files between 1
-        /// GB and 10 GB in size.</param>
+        /// temporary blob storage used to import large Power BI .pbix files
+        /// between 1 GB and 10 GB in size.</param>
         public ImportInfo(string filePath = default(string), ConnectionType? connectionType = default(ConnectionType?), string fileUrl = default(string))
         {
             FilePath = filePath;
@@ -64,8 +64,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the shared access signature URL of the temporary blob
-        /// storage used to import large .pbix files between 1 GB and 10 GB in
-        /// size.
+        /// storage used to import large Power BI .pbix files between 1 GB and
+        /// 10 GB in size.
         /// </summary>
         [JsonProperty(PropertyName = "fileUrl")]
         public string FileUrl { get; set; }

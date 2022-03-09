@@ -62,7 +62,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset on **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_PostDataset",
                 "consumes": [
                     "application/json"
@@ -262,7 +262,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Changes the dataset storage mode to support large datasets": {
+                    "Example of changing the dataset storage mode to support large datasets": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "updateDatasetRequest": {
@@ -273,7 +273,7 @@
                             "200": {}
                         }
                     },
-                    "Changes the dataset storage mode to support small datasets": {
+                    "Example of changing the dataset storage mode to support small datasets": {
                         "parameters": {
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "updateDatasetRequest": {
@@ -415,7 +415,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Returns a list of tables within the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_GetTables",
                 "consumes": [],
                 "produces": [
@@ -447,7 +447,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Updates the metadata and schema for the specified table within the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_PutTable",
                 "consumes": [
                     "application/json"
@@ -539,7 +539,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Adds new data rows to the specified table within the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API call only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n<br><br>",
                 "operationId": "Datasets_PostRows",
                 "consumes": [
                     "application/json"
@@ -618,7 +618,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Deletes all rows from the specified table within the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_DeleteRows",
                 "consumes": [],
                 "produces": [],
@@ -1816,7 +1816,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates all connections for the specified dataset from **My workspace**. This API only supports SQL DirectQuery datasets.",
+                "summary": "Updates all connections for the specified dataset from **My workspace**. This API call only supports SQL DirectQuery datasets.",
                 "description": "\n> [!IMPORTANT]\n> This API call is deprecated and no longer supported. This API call isn't compatible with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n>\n> Instead use:\n>\n> - [Update Parameters](/rest/api/power-bi/datasets/update-parameters) to update connections for SQL, Azure Synapse, OData, and SharePoint data sources.\n> - [Update Datasources](/rest/api/power-bi/datasets/update-datasources) to connections for other data sources.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_SetAllDatasetConnections",
                 "consumes": [
@@ -1934,7 +1934,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of gateway data sources for the specified dataset from **My workspace**.",
-                "description": "\n> [!IMPORTANT]\n> This API is deprecated, use [Get Datasources](/rest/api/power-bi/datasets/get-datasources) instead.\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is deprecated, use [Get Datasources](/rest/api/power-bi/datasets/get-datasources) instead.\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetGatewayDatasources",
                 "consumes": [],
                 "produces": [
@@ -2043,7 +2043,7 @@
                     "Datasets"
                 ],
                 "summary": "Grants the specified user's permissions to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API can't be used to grant dataset Write permission on the dataset\n######\n",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API call can't be used to grant dataset Write permission on the dataset\n<br><br>",
                 "operationId": "Datasets_PostDatasetUserInGroup",
                 "consumes": [
                     "application/json"
@@ -2117,7 +2117,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the existing dataset permissions of the specified user to the specified permissions.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API cannot be used to add or remove *write* permission.\n- This API cannot be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n######\n",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API call can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API can't be used to add or remove *write* permission.\n- This API can't be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n<br><br>",
                 "operationId": "Datasets_PutDatasetUserInGroup",
                 "consumes": [
                     "application/json"
@@ -2192,7 +2192,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n######\n",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersInGroup",
                 "consumes": [],
                 "produces": [
@@ -2263,7 +2263,7 @@
                     "Datasets"
                 ],
                 "summary": "Grants the specified user's permissions to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API can't be used to grant dataset Write permission on the dataset\n\n######\n",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API call can't be used to grant dataset Write permission on the dataset\n<br><br>",
                 "operationId": "Datasets_PostDatasetUser",
                 "consumes": [
                     "application/json"
@@ -2327,7 +2327,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the existing dataset permissions of the specified user to the specified permissions.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API cannot be used to add or remove *write* permission.\n- This API cannot be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n######\n",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API call can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API can't be used to add or remove *write* permission.\n- This API can't be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n<br><br>",
                 "operationId": "Datasets_PutDatasetUser",
                 "consumes": [
                     "application/json"
@@ -2392,7 +2392,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n######\n",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsers",
                 "consumes": [],
                 "produces": [
@@ -2540,7 +2540,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in **My workspace**.",
-                "description": "\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - RDL files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a .pbix file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - RDL files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -2601,21 +2601,21 @@
                         "name": "skipReport",
                         "in": "query",
                         "required": false,
-                        "description": "Whether to skip report import. If specified, the value must be `true`. Only supported for .pbix files.",
+                        "description": "Whether to skip report import. If specified, the value must be `true`. Only supported for Power BI .pbix files.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideReportLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Whether to override the existing report label when republishing a .pbix file. The service default value is `true`.",
+                        "description": "Whether to override the existing report label when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideModelLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Whether to override the existing label on a model when republishing a .pbix file. The service default value is `true`.",
+                        "description": "Whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
@@ -2799,8 +2799,8 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates a temporary blob storage upload location for importing large .pbix files that are between 1 GB and 10 GB in size.",
-                "description": "\nTo import large .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
+                "summary": "Creates a temporary blob storage upload location for importing large Power BI .pbix files that are between 1 GB and 10 GB in size.",
+                "description": "\nTo import large Power BI .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the Power BI .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large Power BI .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
                 "operationId": "Imports_CreateTemporaryUploadLocation",
                 "consumes": [],
                 "produces": [
@@ -2997,8 +2997,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from **My workspace** to a .pbix file.",
-                "description": "\n- As a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nAfter calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
+                "summary": "Exports the specified report from **My workspace** to a Power BI .pbix file.",
+                "description": "\n- As a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nAfter calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -3920,7 +3920,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset in the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_PostDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -4180,7 +4180,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Changes the dataset storage mode to support large datasets": {
+                    "Example of changing the dataset storage mode to support large datasets": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4192,7 +4192,7 @@
                             "200": {}
                         }
                     },
-                    "Changes the dataset storage mode to support small datasets": {
+                    "Example of changing the dataset storage mode to support small datasets": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -4258,7 +4258,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Returns a list of tables within the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_GetTablesInGroup",
                 "consumes": [],
                 "produces": [
@@ -4298,7 +4298,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Updates the metadata and schema for the specified table within the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_PutTableInGroup",
                 "consumes": [],
                 "produces": [],
@@ -4397,7 +4397,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Adds new data rows to the specified table within the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API call only supports **push datasets**.\n- See [Power BI REST API limitations](/power-bi/developer/automation/api-rest-api-limitations).\n<br><br>",
                 "operationId": "Datasets_PostRowsInGroup",
                 "consumes": [],
                 "produces": [],
@@ -4483,7 +4483,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Deletes all rows from the specified table within the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
                 "operationId": "Datasets_DeleteRowsInGroup",
                 "consumes": [],
                 "produces": [],
@@ -5705,7 +5705,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Updates all connections for the specified dataset from the specified workspace. This API only supports SQL DirectQuery datasets.",
+                "summary": "Updates all connections for the specified dataset from the specified workspace. This API call only supports SQL DirectQuery datasets.",
                 "description": "\n> [!IMPORTANT]\n> This API call is deprecated and no longer supported. This API call isn't compatible with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n>\n> Instead use:\n>\n> - [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) to update connections for SQL, Azure Synapse, OData, and SharePoint data sources.\n> - [Update Datasources In Group](/rest/api/power-bi/datasets/update-datasources-in-group) to connections for other data sources.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nSupports SQL DirectQuery datasets.\n<br><br>",
                 "operationId": "Datasets_SetAllDatasetConnectionsInGroup",
                 "consumes": [
@@ -5842,7 +5842,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of gateway data sources for the specified dataset from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API is deprecated, use [Get Datasources In Group](/rest/api/power-bi/datasets/get-datasources-in-group) instead.\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is deprecated, use [Get Datasources In Group](/rest/api/power-bi/datasets/get-datasources-in-group) instead.\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetGatewayDatasourcesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6015,7 +6015,7 @@
                     "Imports"
                 ],
                 "summary": "Returns a list of imports from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nImporting .pbix files from OneDrive isn't supported.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nImporting Power BI .pbix files from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_GetImportsInGroup",
                 "consumes": [],
                 "produces": [
@@ -6085,7 +6085,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in the specified workspace.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a .pbix file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -6154,21 +6154,21 @@
                         "name": "skipReport",
                         "in": "query",
                         "required": false,
-                        "description": "Whether to skip report import. If specified, the value must be `true`. Only supported for .pbix files.",
+                        "description": "Whether to skip report import. If specified, the value must be `true`. Only supported for Power BI .pbix files.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideReportLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Whether to override the existing label on a report when republishing a .pbix file. The service default value is `true`.",
+                        "description": "Whether to override the existing label on a report when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
                         "name": "overrideModelLabel",
                         "in": "query",
                         "required": false,
-                        "description": "Determines whether to override the existing label on a model when republishing a .pbix file. The service default value is `true`.",
+                        "description": "Determines whether to override the existing label on a model when republishing a Power BI .pbix file. The service default value is `true`.",
                         "type": "boolean"
                     },
                     {
@@ -6366,8 +6366,8 @@
                 "tags": [
                     "Imports"
                 ],
-                "summary": "Creates a temporary blob storage upload location for importing large .pbix files that are between 1 GB and 10 GB in size.",
-                "description": "\nTo import large .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import-in-group), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import-in-group#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
+                "summary": "Creates a temporary blob storage upload location for importing large Power BI .pbix files that are between 1 GB and 10 GB in size.",
+                "description": "\nTo import large Power BI .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the Power BI .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import-in-group), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import-in-group#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large Power BI .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
                 "operationId": "Imports_CreateTemporaryUploadLocationInGroup",
                 "consumes": [],
                 "produces": [
@@ -6610,8 +6610,8 @@
                 "tags": [
                     "Reports"
                 ],
-                "summary": "Exports the specified report from the specified workspace to a .pbix file.",
-                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "summary": "Exports the specified report from the specified workspace to a Power BI .pbix file.",
+                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -7622,7 +7622,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to allow report creation in the specified workspace based on the specified dataset.",
-                "description": "\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Content.Create\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report) api call.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Content.Create\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report) api call.\n<br><br>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
                     "application/json"
@@ -7715,7 +7715,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n- Content.Create, required if the `allowSaveAs` flag is specified in [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n- Content.Create, required if the `allowSaveAs` flag is specified in [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -7960,7 +7960,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token based on the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> An embed token can be used to [embed Q&A](/power-bi/developer/qanda) within your application.\n\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!NOTE]\n> An embed token can be used to [embed Q&A](/power-bi/developer/qanda) within your application.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8031,7 +8031,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified dashboard from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8151,7 +8151,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified tile from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -9755,7 +9755,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified data source from the specified gateway.",
-                "description": "\n> [!NOTE]\r\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\r\n\r\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\n\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -11432,7 +11432,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns **My workspace** to the specified capacity.",
-                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or Assign permission on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or Assign permission on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_AssignMyWorkspaceToCapacity",
                 "consumes": [
                     "application/json"
@@ -11475,7 +11475,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns the specified workspace to the specified capacity.",
-                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_AssignToCapacity",
                 "consumes": [
                     "application/json"
@@ -11644,7 +11644,7 @@
                     "AvailableFeatures"
                 ],
                 "summary": "Returns a list of available features for the user.",
-                "description": "\nThis API doesn't require any scopes.\n<br><br>",
+                "description": "\nThis API call doesn't require any scopes.\n<br><br>",
                 "operationId": "AvailableFeatures_GetAvailableFeatures",
                 "consumes": [],
                 "produces": [
@@ -11688,7 +11688,7 @@
                     "AvailableFeatures"
                 ],
                 "summary": "Returns the specified available feature for the user by name.",
-                "description": "\nThis API doesn't require any scopes.\n<br><br>",
+                "description": "\nThis API call doesn't require any scopes.\n<br><br>",
                 "operationId": "AvailableFeatures_GetAvailableFeatureByName",
                 "consumes": [],
                 "produces": [
@@ -12841,7 +12841,7 @@
                     "DataflowStorageAccounts"
                 ],
                 "summary": "Assigns the specified workspace to the specified dataflow storage account.",
-                "description": "\nTo perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled.\n\nTo unassign the specified workspace from a Power BI dataflow storage account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as the `dataflowStorageId`.\n\n## Required Scope\n\nStorageAccount.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nTo perform this operation, the user must be an admin on the specified workspace and the Power BI dataflow storage account must be enabled.\n\nTo unassign the specified workspace from a Power BI dataflow storage account, provide an empty GUID (`00000000-0000-0000-0000-000000000000`) as the `dataflowStorageId`.\n\n## Required Scope\n\nStorageAccount.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_AssignToDataflowStorage",
                 "consumes": [
                     "application/json"
@@ -13001,7 +13001,7 @@
                 "parameters": [
                     {
                         "name": "scanId",
-                        "description": "The scan ID, which is included in the response from the workspaces or getInfo API that triggered the scan",
+                        "description": "The scan ID, which is included in the response from the workspaces or the [Admin - WorkspaceInfo PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call that triggered the scan.",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -13053,7 +13053,7 @@
                 "parameters": [
                     {
                         "name": "scanId",
-                        "description": "The scan ID, which is included in the response from the workspaces or getInfo API that triggered the scan",
+                        "description": "The scan ID, which is included in the response from the workspaces or the [Admin - WorkspaceInfo PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info) API call that triggered the scan.",
                         "in": "path",
                         "required": true,
                         "type": "string",
@@ -16652,7 +16652,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets, and target workspaces.",
-                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -20444,7 +20444,7 @@
                 },
                 "fileUrl": {
                     "type": "string",
-                    "description": "The shared access signature URL of the temporary blob storage used to import large .pbix files between 1 GB and 10 GB in size."
+                    "description": "The shared access signature URL of the temporary blob storage used to import large Power BI .pbix files between 1 GB and 10 GB in size."
                 }
             }
         },
@@ -20562,7 +20562,7 @@
                 },
                 "IsEffectiveIdentityRolesRequired": {
                     "type": "boolean",
-                    "description": "Whether row-level security is defined inside the .pbix file. If so, you must specify a role."
+                    "description": "Whether row-level security is defined inside the Power BI .pbix file. If so, you must specify a role."
                 },
                 "IsOnPremGatewayRequired": {
                     "type": "boolean",
@@ -20847,7 +20847,7 @@
                 },
                 "isHidden": {
                     "type": "boolean",
-                    "description": "(Optional) Whether this dataset table is hidden"
+                    "description": "Optional. Whether this dataset table is hidden."
                 },
                 "description": {
                     "type": "string",
@@ -21093,23 +21093,23 @@
                 },
                 "formatString": {
                     "type": "string",
-                    "description": "(Optional) The format of the column as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                    "description": "Optional. The format of the column as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)."
                 },
                 "sortByColumn": {
                     "type": "string",
-                    "description": "(Optional) String name of a column in the same table to be used to order the current column"
+                    "description": "Optional. String name of a column in the same table to be used to order the current column."
                 },
                 "dataCategory": {
                     "type": "string",
-                    "description": "(Optional) String value to be used for the data category which describes the data within this column"
+                    "description": "Optional. The string value to be used for the data category which describes the data within this column."
                 },
                 "isHidden": {
                     "type": "boolean",
-                    "description": "(Optional) Whether the column is hidden. The default is `false`."
+                    "description": "Optional. Whether the column is hidden. The default is `false`."
                 },
                 "summarizeBy": {
                     "type": "string",
-                    "description": "(Optional) Aggregate Function to use for summarizing this column"
+                    "description": "Optional. The aggregate function to use for summarizing this column."
                 }
             }
         },
@@ -21140,15 +21140,15 @@
                 },
                 "formatString": {
                     "type": "string",
-                    "description": "(Optional) A string describing how the value should be formatted when it's displayed as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)"
+                    "description": "Optional. A string describing how the value should be formatted when it's displayed as specified in [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)."
                 },
                 "description": {
                     "type": "string",
-                    "description": "(Optional) Measure description"
+                    "description": "Optional. The measure description."
                 },
                 "isHidden": {
                     "type": "boolean",
-                    "description": "(Optional) Whether the measure is hidden"
+                    "description": "Optional. Whether the measure is hidden."
                 }
             }
         },
@@ -23611,7 +23611,7 @@
             "properties": {
                 "datasetUserAccessRight": {
                     "type": "string",
-                    "description": "(Required) The access right to grant to the user for the dataset",
+                    "description": "Required. The access right to grant to the user for the dataset.",
                     "enum": [
                         "Read",
                         "ReadReshare",
@@ -23658,7 +23658,7 @@
             "properties": {
                 "datasetUserAccessRight": {
                     "type": "string",
-                    "description": "Access rights to set to the user for the dataset (permission level)",
+                    "description": "The access rights to assign to the user for the dataset (permission level)",
                     "enum": [
                         "None",
                         "Read",
@@ -23692,7 +23692,7 @@
                             },
                             {
                                 "value": "ReadWriteReshare",
-                                "description": "Grants Read, Write and Reshare access to the content in the dataset"
+                                "description": "Grants Read, Write, and Reshare access to the content in the dataset"
                             },
                             {
                                 "value": "ReadExplore",
@@ -23700,15 +23700,15 @@
                             },
                             {
                                 "value": "ReadReshareExplore",
-                                "description": "Grants Read, Reshare and Explore access to the content in the dataset"
+                                "description": "Grants Read, Reshare, and Explore access to the content in the dataset"
                             },
                             {
                                 "value": "ReadWriteExplore",
-                                "description": "Grants Read, Write and Explore access to the content in the dataset"
+                                "description": "Grants Read, Write, and Explore access to the content in the dataset"
                             },
                             {
                                 "value": "ReadWriteReshareExplore",
-                                "description": "Grants Read, Write, Reshare and Explore access to the content in the dataset"
+                                "description": "Grants Read, Write, Reshare, and Explore access to the content in the dataset"
                             }
                         ]
                     }
@@ -23858,11 +23858,11 @@
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "(Optional) Parameter for specifying the target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates **My workspace**. If this parameter isn't provided, the new report will be cloned within the same workspace as the source report."
+                    "description": "Optional. Parameter for specifying the target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates **My workspace**. If this parameter isn't provided, the new report will be cloned within the same workspace as the source report."
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "(Optional) Parameter for specifying the target associated dataset ID. If not provided, the new report will be associated with the same dataset as the source report."
+                    "description": "Optional. Parameter for specifying the target associated dataset ID. If not provided, the new report will be associated with the same dataset as the source report."
                 }
             }
         },
@@ -24354,20 +24354,20 @@
                 "targetWorkspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "(Optional) A parameter for specifying a target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates **My workspace**. If this parameter isn't provided, the tile will be cloned within the same workspace as the source tile."
+                    "description": "Optional. A parameter for specifying a target workspace ID. An empty GUID (`00000000-0000-0000-0000-000000000000`) indicates **My workspace**. If this parameter isn't provided, the tile will be cloned within the same workspace as the source tile."
                 },
                 "targetReportId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "(Optional) A parameter for specifying a target report ID. When cloning a tile linked to a report, pass the target report ID to rebind the new tile to a different report."
+                    "description": "Optional. A parameter for specifying a target report ID. When cloning a tile linked to a report, pass the target report ID to rebind the new tile to a different report."
                 },
                 "targetModelId": {
                     "type": "string",
-                    "description": "(Optional) A parameter for specifying a target model ID. When cloning a tile linked to a dataset, pass the target model ID to rebind the new tile to a different dataset."
+                    "description": "Optional. A parameter for specifying a target model ID. When cloning a tile linked to a dataset, pass the target model ID to rebind the new tile to a different dataset."
                 },
                 "positionConflictAction": {
                     "type": "string",
-                    "description": "(Optional) A parameter for specifying an action in case of a position conflict. If there's a conflict and this parameter isn't provided, then the default value `Tail` will be applied. If there's no conflict, then the cloned tile will have the same position as in the source.",
+                    "description": "Optional. A parameter for specifying an action in case of a position conflict. If there's a conflict and this parameter isn't provided, then the default value `Tail` will be applied. If there's no conflict, then the cloned tile will have the same position as in the source.",
                     "enum": [
                         "Tail",
                         "Abort"
@@ -26514,7 +26514,7 @@
             "properties": {
                 "accessRight": {
                     "type": "string",
-                    "description": "(Required) The access right a user has for the deployment pipeline",
+                    "description": "Required. The access right a user has for the deployment pipeline.",
                     "enum": [
                         "Admin"
                     ],
@@ -26655,11 +26655,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "(Optional) The scorecard description",
+                    "description": "Optional. The scorecard description.",
                     "type": "string"
                 },
                 "sensitivityLabelId": {
-                    "description": "(Optional) The GUID of a sensitivity label. If you don't want to select a sensitivity label, use a null or empty GUID (`00000000-0000-0000-0000-000000000000`). If default labels are enabled and/or enforced, they will be applied on the scorecard and dataset.",
+                    "description": "Optional. The GUID of a sensitivity label. If you don't want to select a sensitivity label, use a null or empty GUID (`00000000-0000-0000-0000-000000000000`). If default labels are enabled and/or enforced, they will be applied on the scorecard and dataset.",
                     "type": "string",
                     "format": "uuid"
                 }
@@ -26813,15 +26813,15 @@
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 },
                 "newParent": {
-                    "description": "(Optional) The rank validation information for the new parent of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
+                    "description": "Optional. The rank validation information for the new parent of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 },
                 "newPrevious": {
-                    "description": "(Optional) The rank validation information for the new previous-sibling of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
+                    "description": "Optional. The rank validation information for the new previous-sibling of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 },
                 "newNext": {
-                    "description": "(Optional) The rank validation information for the new next-sibling of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
+                    "description": "Optional. The rank validation information for the new next-sibling of the goal to be moved. The caller provides validation information to confirm that they know the existing position of a goal within the hierarchy of goals.",
                     "$ref": "#/definitions/GoalRankValidationInfo"
                 }
             }
@@ -26837,25 +26837,25 @@
                     "type": "string"
                 },
                 "startDate": {
-                    "description": "(Optional) The UTC timestamp for the start date of the goal. The time portion of the timestamp is zero.",
+                    "description": "Optional. The UTC timestamp for the start date of the goal. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
                 "completionDate": {
-                    "description": "(Optional) The UTC timestamp for the completion date of the goal. The time portion of the timestamp is zero.",
+                    "description": "Optional. The UTC timestamp for the completion date of the goal. The time portion of the timestamp is zero.",
                     "type": "string",
                     "format": "date-time"
                 },
                 "parentId": {
-                    "description": "(Optional) The ID of the parent goal, if defined.",
+                    "description": "Optional. The ID of the parent goal, if defined.",
                     "type": "string"
                 },
                 "valuesFormatString": {
-                    "description": "(Optional) The [custom format string](/power-bi/create-reports/desktop-custom-format-strings) for values",
+                    "description": "Optional. The [custom format string](/power-bi/create-reports/desktop-custom-format-strings) for values.",
                     "type": "string"
                 },
                 "datesFormatString": {
-                    "description": "(Optional) The [custom format string](/power-bi/create-reports/desktop-custom-format-strings) for dates",
+                    "description": "Optional. The [custom format string](/power-bi/create-reports/desktop-custom-format-strings) for dates.",
                     "type": "string"
                 }
             }
@@ -27321,27 +27321,27 @@
                     "format": "date-time"
                 },
                 "value": {
-                    "description": "(Optional) The current value of the goal",
+                    "description": "Optional. The current value of the goal.",
                     "type": "number",
                     "format": "double"
                 },
                 "target": {
-                    "description": "(Optional) The target value of the goal",
+                    "description": "Optional. The target value of the goal.",
                     "type": "number",
                     "format": "double"
                 },
                 "trend": {
-                    "description": "(Optional) The value trend of the goal",
+                    "description": "Optional. The value trend of the goal.",
                     "type": "integer",
                     "format": "int32"
                 },
                 "forecast": {
-                    "description": "(Optional) The value trend forecast of the goal",
+                    "description": "Optional. The value trend forecast of the goal.",
                     "type": "number",
                     "format": "double"
                 },
                 "status": {
-                    "description": "(Optional) The goal status ID\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
+                    "description": "Optional. The goal status ID.\n\n| ID | Description |\n|-|-|\n| 0 | Not started |\n| 1 | On track |\n| 2 | At risk |\n| 3 | Behind |\n| 4 | Overdue |\n| 5 | Completed |",
                     "type": "integer",
                     "format": "int32"
                 }
@@ -27460,7 +27460,7 @@
                     "format": "double"
                 },
                 "valueDisplayString": {
-                    "description": "(Optional) The alternative text representation of the aggregated property value",
+                    "description": "Optional. The alternative text representation of the aggregated property value.",
                     "type": "string"
                 },
                 "type": {
@@ -27591,7 +27591,7 @@
             ],
             "properties": {
                 "rules": {
-                    "description": "(Optional) The list of rules",
+                    "description": "Optional. The list of rules.",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Goals.Rules.Rule_1OfInt32"

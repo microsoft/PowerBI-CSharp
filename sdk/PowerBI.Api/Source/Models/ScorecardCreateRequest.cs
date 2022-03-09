@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the ScorecardCreateRequest class.
         /// </summary>
         /// <param name="name">The scorecard name</param>
-        /// <param name="description">(Optional) The scorecard
-        /// description</param>
-        /// <param name="sensitivityLabelId">(Optional) The GUID of a
+        /// <param name="description">Optional. The scorecard
+        /// description.</param>
+        /// <param name="sensitivityLabelId">Optional. The GUID of a
         /// sensitivity label. If you don't want to select a sensitivity label,
         /// use a null or empty GUID (`00000000-0000-0000-0000-000000000000`).
         /// If default labels are enabled and/or enforced, they will be applied
@@ -54,13 +54,13 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The scorecard description
+        /// Gets or sets optional. The scorecard description.
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The GUID of a sensitivity label. If you
+        /// Gets or sets optional. The GUID of a sensitivity label. If you
         /// don't want to select a sensitivity label, use a null or empty GUID
         /// (`00000000-0000-0000-0000-000000000000`). If default labels are
         /// enabled and/or enforced, they will be applied on the scorecard and

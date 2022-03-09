@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -96,7 +96,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -425,7 +425,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -451,7 +451,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -483,7 +483,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -515,7 +515,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -553,7 +553,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - This API only supports **push datasets**.
+            /// - This API call only supports **push datasets**.
             /// - See [Power BI REST API
             /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
             /// &lt;br&gt;&lt;br&gt;
@@ -587,7 +587,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - This API only supports **push datasets**.
+            /// - This API call only supports **push datasets**.
             /// - See [Power BI REST API
             /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
             /// &lt;br&gt;&lt;br&gt;
@@ -624,7 +624,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -653,7 +653,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -1566,7 +1566,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Updates all connections for the specified dataset from **My workspace**.
-            /// This API only supports SQL DirectQuery datasets.
+            /// This API call only supports SQL DirectQuery datasets.
             /// </summary>
             /// <remarks>
             ///
@@ -1605,7 +1605,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Updates all connections for the specified dataset from **My workspace**.
-            /// This API only supports SQL DirectQuery datasets.
+            /// This API call only supports SQL DirectQuery datasets.
             /// </summary>
             /// <remarks>
             ///
@@ -1723,7 +1723,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is deprecated, use [Get
+            /// &gt; This API call is deprecated, use [Get
             /// Datasources](/rest/api/power-bi/datasets/get-datasources) instead.
             ///
             /// ## Required Scope
@@ -1749,7 +1749,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is deprecated, use [Get
+            /// &gt; This API call is deprecated, use [Get
             /// Datasources](/rest/api/power-bi/datasets/get-datasources) instead.
             ///
             /// ## Required Scope
@@ -1843,7 +1843,7 @@ namespace Microsoft.PowerBI.Api
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Limitations
@@ -1854,9 +1854,9 @@ namespace Microsoft.PowerBI.Api
             /// - Adding permissions to service principals (app principalType) isn't
             /// supported
             /// - Caller must have ReadReshare permissions on the dataset.
-            /// - This API can't be used to grant dataset Write permission on the dataset
-            /// ######
-            ///
+            /// - This API call can't be used to grant dataset Write permission on the
+            /// dataset
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1886,7 +1886,7 @@ namespace Microsoft.PowerBI.Api
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Limitations
@@ -1897,9 +1897,9 @@ namespace Microsoft.PowerBI.Api
             /// - Adding permissions to service principals (app principalType) isn't
             /// supported
             /// - Caller must have ReadReshare permissions on the dataset.
-            /// - This API can't be used to grant dataset Write permission on the dataset
-            /// ######
-            ///
+            /// - This API call can't be used to grant dataset Write permission on the
+            /// dataset
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1931,10 +1931,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            /// This API can be used to remove all the dataset permissions of the specified
-            /// user by using `datasetUserAccessRight: None`
+            /// This API call can be used to remove all the dataset permissions of the
+            /// specified user by using `datasetUserAccessRight: None`
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Permissions
@@ -1951,14 +1951,13 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// - This API cannot be used to add or remove *write* permission.
-            /// - This API cannot be used to remove folder-level inherited permissions. For
+            /// - This API can't be used to add or remove *write* permission.
+            /// - This API can't be used to remove folder-level inherited permissions. For
             /// folder admins and members, the ReadWriteReshareExplore permission on the
             /// folder's datasets is inherited. For folder contributors, the
             /// ReadWriteExplore permission on the folder's datasets is inherited. For
             /// folder viewers, the Read permission on the folder's datasets is inherited.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1987,10 +1986,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            /// This API can be used to remove all the dataset permissions of the specified
-            /// user by using `datasetUserAccessRight: None`
+            /// This API call can be used to remove all the dataset permissions of the
+            /// specified user by using `datasetUserAccessRight: None`
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Permissions
@@ -2007,14 +2006,13 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// - This API cannot be used to add or remove *write* permission.
-            /// - This API cannot be used to remove folder-level inherited permissions. For
+            /// - This API can't be used to add or remove *write* permission.
+            /// - This API can't be used to remove folder-level inherited permissions. For
             /// folder admins and members, the ReadWriteReshareExplore permission on the
             /// folder's datasets is inherited. For folder contributors, the
             /// ReadWriteExplore permission on the folder's datasets is inherited. For
             /// folder viewers, the Read permission on the folder's datasets is inherited.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2051,7 +2049,7 @@ namespace Microsoft.PowerBI.Api
             /// The permissions for this API call are listed in [Datasets
             /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All
             /// ## Limitations
@@ -2062,8 +2060,7 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2094,7 +2091,7 @@ namespace Microsoft.PowerBI.Api
             /// The permissions for this API call are listed in [Datasets
             /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All
             /// ## Limitations
@@ -2105,8 +2102,7 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2139,7 +2135,7 @@ namespace Microsoft.PowerBI.Api
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Limitations
@@ -2150,10 +2146,9 @@ namespace Microsoft.PowerBI.Api
             /// - Adding permissions to service principals (app principalType) isn't
             /// supported
             /// - Caller must have ReadReshare permissions on the dataset.
-            /// - This API can't be used to grant dataset Write permission on the dataset
-            ///
-            /// ######
-            ///
+            /// - This API call can't be used to grant dataset Write permission on the
+            /// dataset
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2180,7 +2175,7 @@ namespace Microsoft.PowerBI.Api
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Limitations
@@ -2191,10 +2186,9 @@ namespace Microsoft.PowerBI.Api
             /// - Adding permissions to service principals (app principalType) isn't
             /// supported
             /// - Caller must have ReadReshare permissions on the dataset.
-            /// - This API can't be used to grant dataset Write permission on the dataset
-            ///
-            /// ######
-            ///
+            /// - This API call can't be used to grant dataset Write permission on the
+            /// dataset
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2223,10 +2217,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            /// This API can be used to remove all the dataset permissions of the specified
-            /// user by using `datasetUserAccessRight: None`
+            /// This API call can be used to remove all the dataset permissions of the
+            /// specified user by using `datasetUserAccessRight: None`
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Permissions
@@ -2244,14 +2238,13 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// - This API cannot be used to add or remove *write* permission.
-            /// - This API cannot be used to remove folder-level inherited permissions. For
+            /// - This API can't be used to add or remove *write* permission.
+            /// - This API can't be used to remove folder-level inherited permissions. For
             /// folder admins and members, the ReadWriteReshareExplore permission on the
             /// folder's datasets is inherited. For folder contributors, the
             /// ReadWriteExplore permission on the folder's datasets is inherited. For
             /// folder viewers, the Read permission on the folder's datasets is inherited.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2277,10 +2270,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
-            /// This API can be used to remove all the dataset permissions of the specified
-            /// user by using `datasetUserAccessRight: None`
+            /// This API call can be used to remove all the dataset permissions of the
+            /// specified user by using `datasetUserAccessRight: None`
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
             /// ## Permissions
@@ -2298,14 +2291,13 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// - This API cannot be used to add or remove *write* permission.
-            /// - This API cannot be used to remove folder-level inherited permissions. For
+            /// - This API can't be used to add or remove *write* permission.
+            /// - This API can't be used to remove folder-level inherited permissions. For
             /// folder admins and members, the ReadWriteReshareExplore permission on the
             /// folder's datasets is inherited. For folder contributors, the
             /// ReadWriteExplore permission on the folder's datasets is inherited. For
             /// folder viewers, the Read permission on the folder's datasets is inherited.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2339,7 +2331,7 @@ namespace Microsoft.PowerBI.Api
             /// The permissions for this API call are listed in [Datasets
             /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All
             /// ## Limitations
@@ -2350,8 +2342,7 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2379,7 +2370,7 @@ namespace Microsoft.PowerBI.Api
             /// The permissions for this API call are listed in [Datasets
             /// permissions](/power-bi/developer/embedded/datasets-permissions).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataset.Read.All
             /// ## Limitations
@@ -2390,8 +2381,7 @@ namespace Microsoft.PowerBI.Api
             /// - Caller must have ReadWriteReshare permissions on the dataset. That is,
             /// folder admins, members and contributors with Reshare permissions, or
             /// dataset owners.
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -2469,7 +2459,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2500,7 +2490,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2758,7 +2748,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2785,7 +2775,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2820,7 +2810,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2855,7 +2845,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -2896,7 +2886,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - This API only supports **push datasets**.
+            /// - This API call only supports **push datasets**.
             /// - See [Power BI REST API
             /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
             /// &lt;br&gt;&lt;br&gt;
@@ -2933,7 +2923,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// - This API only supports **push datasets**.
+            /// - This API call only supports **push datasets**.
             /// - See [Power BI REST API
             /// limitations](/power-bi/developer/automation/api-rest-api-limitations).
             /// &lt;br&gt;&lt;br&gt;
@@ -2973,7 +2963,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -3005,7 +2995,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Limitations
             ///
-            /// This API only supports **push datasets**.
+            /// This API call only supports **push datasets**.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -3989,7 +3979,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Updates all connections for the specified dataset from the specified
-            /// workspace. This API only supports SQL DirectQuery datasets.
+            /// workspace. This API call only supports SQL DirectQuery datasets.
             /// </summary>
             /// <remarks>
             ///
@@ -4036,7 +4026,7 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Updates all connections for the specified dataset from the specified
-            /// workspace. This API only supports SQL DirectQuery datasets.
+            /// workspace. This API call only supports SQL DirectQuery datasets.
             /// </summary>
             /// <remarks>
             ///
@@ -4168,7 +4158,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is deprecated, use [Get Datasources In
+            /// &gt; This API call is deprecated, use [Get Datasources In
             /// Group](/rest/api/power-bi/datasets/get-datasources-in-group) instead.
             ///
             /// ## Required Scope
@@ -4197,7 +4187,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is deprecated, use [Get Datasources In
+            /// &gt; This API call is deprecated, use [Get Datasources In
             /// Group](/rest/api/power-bi/datasets/get-datasources-in-group) instead.
             ///
             /// ## Required Scope
@@ -4353,7 +4343,7 @@ namespace Microsoft.PowerBI.Api
             /// Q&amp;A](/power-bi/developer/qanda) within your application.
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is only relevant to the [embed for your
+            /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
             /// learn more about using this API, see [Considerations when generating an
             /// embed token](/power-bi/developer/embedded/generate-embed-token).
@@ -4399,7 +4389,7 @@ namespace Microsoft.PowerBI.Api
             /// Q&amp;A](/power-bi/developer/qanda) within your application.
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is only relevant to the [embed for your
+            /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
             /// learn more about using this API, see [Considerations when generating an
             /// embed token](/power-bi/developer/embedded/generate-embed-token).
