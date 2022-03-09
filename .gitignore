@@ -6,6 +6,7 @@
 *.user
 *.sln.docstates
 *.dat
+owners.txt
 
 # Build results
 
