@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Source from existing report
+    /// An existing source report
     /// </summary>
     public partial class SourceReport
     {

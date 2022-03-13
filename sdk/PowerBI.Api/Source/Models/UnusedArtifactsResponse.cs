@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// OData response wrapper for unused artifact entities
+    /// OData response wrapper for unused Power BI item (such as a report or a
+    /// dashboard) entities
     /// </summary>
     public partial class UnusedArtifactsResponse
     {
@@ -27,7 +28,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the UnusedArtifactsResponse class.
         /// </summary>
-        /// <param name="unusedArtifactEntities">The unused artifact
+        /// <param name="unusedArtifactEntities">The unused Power BI item
         /// entities</param>
         /// <param name="continuationUri">The URI for the next chunk in the
         /// result set</param>
@@ -47,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unused artifact entities
+        /// Gets or sets the unused Power BI item entities
         /// </summary>
         [JsonProperty(PropertyName = "unusedArtifactEntities")]
         public IList<UnusedArtifactEntity> UnusedArtifactEntities { get; set; }

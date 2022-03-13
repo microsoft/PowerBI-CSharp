@@ -43,7 +43,7 @@ namespace Microsoft.PowerBI.Api
             /// ID in the API call. For more information, see
             /// [example](/rest/api/power-bi/embed-token/generate-token#examples).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following, unless a requirement doesn't apply:
             ///
@@ -67,8 +67,8 @@ namespace Microsoft.PowerBI.Api
             /// - Maximum 50 datasets.
             /// - Maximum 50 target workspaces.
             /// - For Azure Analysis Services or Analysis Services on-premises live
-            /// connection reports, generating an embed token with row-level security might
-            /// not work for several minutes after a
+            /// connection reports, generating an embed token with row-level security (RLS)
+            /// might not work for several minutes after a
             /// [rebind](/rest/api/power-bi/reports/rebind-report).
             ///
             /// ######
@@ -113,7 +113,7 @@ namespace Microsoft.PowerBI.Api
             /// ID in the API call. For more information, see
             /// [example](/rest/api/power-bi/embed-token/generate-token#examples).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following, unless a requirement doesn't apply:
             ///
@@ -137,8 +137,8 @@ namespace Microsoft.PowerBI.Api
             /// - Maximum 50 datasets.
             /// - Maximum 50 target workspaces.
             /// - For Azure Analysis Services or Analysis Services on-premises live
-            /// connection reports, generating an embed token with row-level security might
-            /// not work for several minutes after a
+            /// connection reports, generating an embed token with row-level security (RLS)
+            /// might not work for several minutes after a
             /// [rebind](/rest/api/power-bi/reports/rebind-report).
             ///
             /// ######

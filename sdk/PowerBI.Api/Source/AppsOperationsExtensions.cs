@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
@@ -44,7 +44,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
@@ -74,7 +74,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
@@ -101,7 +101,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
@@ -134,7 +134,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
@@ -161,7 +161,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
@@ -194,7 +194,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
@@ -224,7 +224,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
@@ -260,7 +260,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -287,7 +287,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -320,7 +320,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -350,7 +350,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -387,7 +387,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -418,7 +418,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -458,7 +458,7 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -495,7 +495,7 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
@@ -540,7 +540,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -558,7 +558,7 @@ namespace Microsoft.PowerBI.Api
             /// The requested number of entries in the refresh history. If not provided,
             /// the default is all available entries.
             /// </param>
-            public static Apps GetAppsAsAdmin(this IAppsOperations operations, int top)
+            public static AdminApps GetAppsAsAdmin(this IAppsOperations operations, int top)
             {
                 return operations.GetAppsAsAdminAsync(top).GetAwaiter().GetResult();
             }
@@ -574,7 +574,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -595,7 +595,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Apps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminApps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -616,7 +616,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -651,7 +651,7 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///

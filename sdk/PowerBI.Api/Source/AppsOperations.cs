@@ -51,7 +51,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// App.Read.All
         ///
@@ -190,7 +190,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// App.Read.All
         ///
@@ -334,7 +334,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -478,7 +478,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
@@ -627,7 +627,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -771,7 +771,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -921,7 +921,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -1074,7 +1074,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an entire
         /// report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -1234,7 +1234,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -1264,7 +1264,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<Apps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<AdminApps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (top < 1)
             {
@@ -1355,7 +1355,7 @@ namespace Microsoft.PowerBI.Api
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<Apps>();
+            var _result = new HttpOperationResponse<AdminApps>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1364,7 +1364,7 @@ namespace Microsoft.PowerBI.Api
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<Apps>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<AdminApps>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -1396,7 +1396,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

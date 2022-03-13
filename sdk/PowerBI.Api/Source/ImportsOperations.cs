@@ -51,7 +51,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -213,7 +213,7 @@ namespace Microsoft.PowerBI.Api
         /// *model.json*, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -447,7 +447,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -597,7 +597,7 @@ namespace Microsoft.PowerBI.Api
         /// specifying the *shared access signature* URL in the `fileUrl` parameter of
         /// the [request body](/rest/api/power-bi/imports/post-import#request-body).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -737,7 +737,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -908,7 +908,7 @@ namespace Microsoft.PowerBI.Api
         /// *model.json*, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1149,7 +1149,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -1305,7 +1305,7 @@ namespace Microsoft.PowerBI.Api
         /// *shared access signature* URL in the `fileUrl` parameter of the [request
         /// body](/rest/api/power-bi/imports/post-import-in-group#request-body).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -1457,7 +1457,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

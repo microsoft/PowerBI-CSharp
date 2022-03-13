@@ -20,7 +20,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -40,7 +40,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -62,17 +62,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the current state of the specified capacity workloads. If the
-            /// workload is enabled, the percentage of maximum memory that the workloads
-            /// can consume is also returned.
+            /// Returns the current state of the specified capacity workloads. If a
+            /// workload is enabled, the percentage of maximum memory that the workload can
+            /// consume is also returned.
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs are not relevant for [Embedded
+            /// Workload APIs aren't relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -91,17 +91,17 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns the current state of the specified capacity workloads. If the
-            /// workload is enabled, the percentage of maximum memory that the workloads
-            /// can consume is also returned.
+            /// Returns the current state of the specified capacity workloads. If a
+            /// workload is enabled, the percentage of maximum memory that the workload can
+            /// consume is also returned.
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs are not relevant for [Embedded
+            /// Workload APIs aren't relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -132,11 +132,11 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs are not relevant for [Embedded
+            /// Workload APIs aren't relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -164,11 +164,11 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs are not relevant for [Embedded
+            /// Workload APIs aren't relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -202,11 +202,11 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs are not relevant for [Embedded
+            /// Workload APIs aren't relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All
             ///
@@ -237,11 +237,11 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Workload APIs are not relevant for [Embedded
+            /// Workload APIs aren't relevant for [Embedded
             /// Gen2](/power-bi/developer/embedded/power-bi-embedded-generation-2)
             /// capacities.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Capacity.ReadWrite.All
             ///
@@ -274,7 +274,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -309,7 +312,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -350,7 +356,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -388,7 +397,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -432,7 +444,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -463,7 +478,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// Power BI retains a seven-day refresh history for each dataset, up to a
+            /// maximum of sixty refreshes.
+            ///
+            /// ## Required Scope
             ///
             /// Capacity.Read.All or Capacity.ReadWrite.All
             ///
@@ -504,7 +522,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -532,7 +550,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -563,7 +581,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -591,7 +609,7 @@ namespace Microsoft.PowerBI.Api
             /// The user must have administrator rights (such as Office 365 Global
             /// Administrator or Power BI Service Administrator).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -624,7 +642,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator).
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -654,7 +672,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator).
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///

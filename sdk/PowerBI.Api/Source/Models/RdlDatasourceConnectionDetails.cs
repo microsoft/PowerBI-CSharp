@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A paginated report datasource connection details.
+    /// The connection details for a paginated report data source
     /// </summary>
     public partial class RdlDatasourceConnectionDetails
     {
@@ -27,8 +27,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the RdlDatasourceConnectionDetails
         /// class.
         /// </summary>
-        /// <param name="server">The connection server.</param>
-        /// <param name="database">The connection database.</param>
+        /// <param name="server">The connection server</param>
+        /// <param name="database">The connection database</param>
         public RdlDatasourceConnectionDetails(string server = default(string), string database = default(string))
         {
             Server = server;
@@ -42,13 +42,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the connection server.
+        /// Gets or sets the connection server
         /// </summary>
         [JsonProperty(PropertyName = "server")]
         public string Server { get; set; }
 
         /// <summary>
-        /// Gets or sets the connection database.
+        /// Gets or sets the connection database
         /// </summary>
         [JsonProperty(PropertyName = "database")]
         public string Database { get; set; }

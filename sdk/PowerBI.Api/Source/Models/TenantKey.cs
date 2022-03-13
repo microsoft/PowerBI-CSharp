@@ -32,10 +32,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="isDefault">Whether the encryption key is the default
         /// key for the entire tenant. Any newly created capacity inherits the
         /// default key.</param>
-        /// <param name="createdAt">The creation time of the encryption
-        /// key</param>
-        /// <param name="updatedAt">The last update time of the encryption
-        /// key</param>
+        /// <param name="createdAt">The creation date and time of the
+        /// encryption key</param>
+        /// <param name="updatedAt">The last update date and time of the
+        /// encryption key</param>
         public TenantKey(System.Guid? id = default(System.Guid?), string name = default(string), string keyVaultKeyIdentifier = default(string), bool? isDefault = default(bool?), System.DateTime? createdAt = default(System.DateTime?), System.DateTime? updatedAt = default(System.DateTime?))
         {
             Id = id;
@@ -79,13 +79,13 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? IsDefault { get; set; }
 
         /// <summary>
-        /// Gets or sets the creation time of the encryption key
+        /// Gets or sets the creation date and time of the encryption key
         /// </summary>
         [JsonProperty(PropertyName = "createdAt")]
         public System.DateTime? CreatedAt { get; set; }
 
         /// <summary>
-        /// Gets or sets the last update time of the encryption key
+        /// Gets or sets the last update date and time of the encryption key
         /// </summary>
         [JsonProperty(PropertyName = "updatedAt")]
         public System.DateTime? UpdatedAt { get; set; }

@@ -35,7 +35,7 @@ namespace Microsoft.PowerBI.Api
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following:
             ///
@@ -86,7 +86,7 @@ namespace Microsoft.PowerBI.Api
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following:
             ///

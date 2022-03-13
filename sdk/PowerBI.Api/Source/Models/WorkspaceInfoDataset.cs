@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="endorsementDetails">The endorsement details</param>
         /// <param name="sensitivityLabel">The sensitivity label</param>
         /// <param name="targetStorageMode">The dataset storage mode</param>
-        /// <param name="datasourceUsages">The datasource usages</param>
+        /// <param name="datasourceUsages">The data source usages</param>
         /// <param name="upstreamDatasets">The upstream datasets</param>
         public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>))
         {
@@ -154,7 +154,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string TargetStorageMode { get; set; }
 
         /// <summary>
-        /// Gets or sets the datasource usages
+        /// Gets or sets the data source usages
         /// </summary>
         [JsonProperty(PropertyName = "datasourceUsages")]
         public IList<DatasourceUsage> DatasourceUsages { get; set; }

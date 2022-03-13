@@ -28,14 +28,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="artifactId">The Power BI item ID</param>
         /// <param name="artifactDisplayName">The Power BI item display
         /// name</param>
-        /// <param name="sourceArtifactId">The ID of the Power BI item from the
-        /// workspace assigned to the source stage, which will update the
-        /// current artifact upon deployment. Applicable only when the user has
-        /// at least contributor access to the source stage workspace.</param>
-        /// <param name="targetArtifactId">The artifact ID from the workspace
-        /// of the target stage, which will be updated by the current artifact
-        /// upon deployment. Applicable only when the user has at least
-        /// contributor access to the target stage workspace.</param>
+        /// <param name="sourceArtifactId">The ID of the Power BI item (such as
+        /// a report or a dashboard) from the workspace assigned to the source
+        /// stage, which will update the current Power BI item upon deployment.
+        /// Applicable only when the user has at least contributor access to
+        /// the source stage workspace.</param>
+        /// <param name="targetArtifactId">The ID of the Power BI item (such as
+        /// a report or a dashboard) from the workspace of the target stage,
+        /// which will be updated by the current Power BI item upon deployment.
+        /// Applicable only when the user has at least contributor access to
+        /// the target stage workspace.</param>
         /// <param name="lastDeploymentTime">The last deployment date and time
         /// of the Power BI item</param>
         public PipelineStageArtifactBase(System.Guid artifactId, string artifactDisplayName = default(string), System.Guid? sourceArtifactId = default(System.Guid?), System.Guid? targetArtifactId = default(System.Guid?), System.DateTime? lastDeploymentTime = default(System.DateTime?))
@@ -66,19 +68,21 @@ namespace Microsoft.PowerBI.Api.Models
         public string ArtifactDisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets the ID of the Power BI item from the workspace
-        /// assigned to the source stage, which will update the current
-        /// artifact upon deployment. Applicable only when the user has at
-        /// least contributor access to the source stage workspace.
+        /// Gets or sets the ID of the Power BI item (such as a report or a
+        /// dashboard) from the workspace assigned to the source stage, which
+        /// will update the current Power BI item upon deployment. Applicable
+        /// only when the user has at least contributor access to the source
+        /// stage workspace.
         /// </summary>
         [JsonProperty(PropertyName = "sourceArtifactId")]
         public System.Guid? SourceArtifactId { get; set; }
 
         /// <summary>
-        /// Gets or sets the artifact ID from the workspace of the target
-        /// stage, which will be updated by the current artifact upon
-        /// deployment. Applicable only when the user has at least contributor
-        /// access to the target stage workspace.
+        /// Gets or sets the ID of the Power BI item (such as a report or a
+        /// dashboard) from the workspace of the target stage, which will be
+        /// updated by the current Power BI item upon deployment. Applicable
+        /// only when the user has at least contributor access to the target
+        /// stage workspace.
         /// </summary>
         [JsonProperty(PropertyName = "targetArtifactId")]
         public System.Guid? TargetArtifactId { get; set; }
@@ -86,7 +90,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the last deployment date and time of the Power BI item
         /// </summary>
-        [JsonProperty(PropertyName = "lastDeploymentTime ")]
+        [JsonProperty(PropertyName = "lastDeploymentTime")]
         public System.DateTime? LastDeploymentTime { get; set; }
 
         /// <summary>

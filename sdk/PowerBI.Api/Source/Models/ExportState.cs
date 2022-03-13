@@ -18,27 +18,27 @@ namespace Microsoft.PowerBI.Api.Models
     public enum ExportState
     {
         /// <summary>
-        /// Indicates that the state of the Export to file job is undefined
+        /// The state of the export to file job is undefined
         /// </summary>
         [EnumMember(Value = "Undefined")]
         Undefined,
         /// <summary>
-        /// Indicates that the Export to file job did not start
+        /// The export to file job did not start
         /// </summary>
         [EnumMember(Value = "NotStarted")]
         NotStarted,
         /// <summary>
-        /// Indicates that the Export to file job is running
+        /// The export to file job is running
         /// </summary>
         [EnumMember(Value = "Running")]
         Running,
         /// <summary>
-        /// Indicates that the Export to file job finished succesfully
+        /// The export to file job finished succesfully
         /// </summary>
         [EnumMember(Value = "Succeeded")]
         Succeeded,
         /// <summary>
-        /// Indicates that the Export to file job failed
+        /// The export to file job failed
         /// </summary>
         [EnumMember(Value = "Failed")]
         Failed

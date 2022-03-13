@@ -19,9 +19,14 @@ namespace Microsoft.PowerBI.Api
     {
             /// <summary>
             /// Initiates a call to receive metadata for the requested list of workspaces.
-            /// This is a preview API call.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt; If you set the `datasetSchema` or `datasetExpressions` parameters to
+            /// `true`, you must fully enable metadata scanning in order for data to be
+            /// returned. For more information, see [Enable tenant settings for metadata
+            /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
             ///
             /// ## Permissions
             ///
@@ -29,7 +34,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -48,19 +53,28 @@ namespace Microsoft.PowerBI.Api
             /// Required workspace IDs to get info for
             /// </param>
             /// <param name='lineage'>
-            /// Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​
+            /// Whether to return lineage info (upstream dataflows, tiles, data source IDs)
             /// </param>
             /// <param name='datasourceDetails'>
-            /// Whether to return datasource details​
+            /// Whether to return data source details
             /// </param>
             /// <param name='datasetSchema'>
-            /// Whether to return dataset schema (Tables, Columns and Measures)​
+            /// Whether to return dataset schema (tables, columns and measures). If you set
+            /// this parameter to `true`, you must fully enable metadata scanning in order
+            /// for data to be returned. For more information, see [Enable tenant settings
+            /// for metadata
+            /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
             /// </param>
             /// <param name='datasetExpressions'>
-            /// Whether to return dataset expressions (Dax query and Mashup)​
+            /// Whether to return dataset expressions (DAX and Mashup queries). If you set
+            /// this parameter to `true`, you must fully enable metadata scanning in order
+            /// for data to be returned. For more information, see [Enable tenant settings
+            /// for metadata
+            /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
             /// </param>
             /// <param name='getArtifactUsers'>
-            /// Whether to return artifact user details​ (Preview) (Permission level)
+            /// Whether to return user details for a Power BI item (such as a report or a
+            /// dashboard)
             /// </param>
             public static ScanRequest PostWorkspaceInfo(this IWorkspaceInfoOperations operations, RequiredWorkspaces requiredWorkspaces, bool? lineage = default(bool?), bool? datasourceDetails = default(bool?), bool? datasetSchema = default(bool?), bool? datasetExpressions = default(bool?), bool? getArtifactUsers = default(bool?))
             {
@@ -69,9 +83,14 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Initiates a call to receive metadata for the requested list of workspaces.
-            /// This is a preview API call.
             /// </summary>
             /// <remarks>
+            ///
+            /// &gt; [!IMPORTANT]
+            /// &gt; If you set the `datasetSchema` or `datasetExpressions` parameters to
+            /// `true`, you must fully enable metadata scanning in order for data to be
+            /// returned. For more information, see [Enable tenant settings for metadata
+            /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
             ///
             /// ## Permissions
             ///
@@ -79,7 +98,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -98,19 +117,28 @@ namespace Microsoft.PowerBI.Api
             /// Required workspace IDs to get info for
             /// </param>
             /// <param name='lineage'>
-            /// Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​
+            /// Whether to return lineage info (upstream dataflows, tiles, data source IDs)
             /// </param>
             /// <param name='datasourceDetails'>
-            /// Whether to return datasource details​
+            /// Whether to return data source details
             /// </param>
             /// <param name='datasetSchema'>
-            /// Whether to return dataset schema (Tables, Columns and Measures)​
+            /// Whether to return dataset schema (tables, columns and measures). If you set
+            /// this parameter to `true`, you must fully enable metadata scanning in order
+            /// for data to be returned. For more information, see [Enable tenant settings
+            /// for metadata
+            /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
             /// </param>
             /// <param name='datasetExpressions'>
-            /// Whether to return dataset expressions (Dax query and Mashup)​
+            /// Whether to return dataset expressions (DAX and Mashup queries). If you set
+            /// this parameter to `true`, you must fully enable metadata scanning in order
+            /// for data to be returned. For more information, see [Enable tenant settings
+            /// for metadata
+            /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
             /// </param>
             /// <param name='getArtifactUsers'>
-            /// Whether to return artifact user details​ (Preview) (Permission level)
+            /// Whether to return user details for a Power BI item (such as a report or a
+            /// dashboard)
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -124,7 +152,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan status for the specified scan. This is a preview API call.
+            /// Gets the scan status for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -134,7 +162,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -158,7 +186,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan status for the specified scan. This is a preview API call.
+            /// Gets the scan status for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -168,7 +196,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -198,7 +226,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan result for the specified scan. This is a preview API call.
+            /// Gets the scan result for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -212,7 +240,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -236,7 +264,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets the scan result for the specified scan. This is a preview API call.
+            /// Gets the scan result for the specified scan.
             /// </summary>
             /// <remarks>
             ///
@@ -250,7 +278,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -280,8 +308,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets a list of workspace IDs in the organization. This is a preview API
-            /// call.
+            /// Gets a list of workspace IDs in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -298,7 +325,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
@@ -324,8 +351,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Gets a list of workspace IDs in the organization. This is a preview API
-            /// call.
+            /// Gets a list of workspace IDs in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -342,7 +368,7 @@ namespace Microsoft.PowerBI.Api
             /// Administrator or Power BI Service Administrator) or authenticate using a
             /// service principal.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///

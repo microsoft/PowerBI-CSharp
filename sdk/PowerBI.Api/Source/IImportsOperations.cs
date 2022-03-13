@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -76,7 +76,7 @@ namespace Microsoft.PowerBI.Api
         /// `datasetDisplayName` to *model.json*, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -135,7 +135,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -175,7 +175,7 @@ namespace Microsoft.PowerBI.Api
         /// [request
         /// body](/rest/api/power-bi/imports/post-import#request-body).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -205,7 +205,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -265,7 +265,7 @@ namespace Microsoft.PowerBI.Api
         /// `datasetDisplayName` to *model.json*, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -330,7 +330,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
         ///
@@ -373,7 +373,7 @@ namespace Microsoft.PowerBI.Api
         /// [request
         /// body](/rest/api/power-bi/imports/post-import-in-group#request-body).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All
         ///
@@ -413,7 +413,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

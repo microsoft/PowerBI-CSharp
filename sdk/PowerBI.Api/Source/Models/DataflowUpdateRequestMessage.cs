@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request payload for updating dataflow information
+    /// A request to update dataflow information
     /// </summary>
     public partial class DataflowUpdateRequestMessage
     {
@@ -27,11 +27,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DataflowUpdateRequestMessage
         /// class.
         /// </summary>
-        /// <param name="name">New name of the dataflow</param>
-        /// <param name="description">New description for the dataflow</param>
-        /// <param name="allowNativeQueries">Allow native queries</param>
-        /// <param name="computeEngineBehavior">Compute Engine Behavior.
-        /// Possible values include: 'computeOptimized', 'computeOn',
+        /// <param name="name">The new name for the dataflow</param>
+        /// <param name="description">The new description for the
+        /// dataflow</param>
+        /// <param name="allowNativeQueries">Whether to allow native
+        /// queries</param>
+        /// <param name="computeEngineBehavior">The behavior of the compute
+        /// engine. Possible values include: 'computeOptimized', 'computeOn',
         /// 'computeDisabled'</param>
         public DataflowUpdateRequestMessage(string name = default(string), string description = default(string), bool? allowNativeQueries = default(bool?), string computeEngineBehavior = default(string))
         {
@@ -48,26 +50,26 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets new name of the dataflow
+        /// Gets or sets the new name for the dataflow
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets new description for the dataflow
+        /// Gets or sets the new description for the dataflow
         /// </summary>
         [JsonProperty(PropertyName = "description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets allow native queries
+        /// Gets or sets whether to allow native queries
         /// </summary>
         [JsonProperty(PropertyName = "allowNativeQueries")]
         public bool? AllowNativeQueries { get; set; }
 
         /// <summary>
-        /// Gets or sets compute Engine Behavior. Possible values include:
-        /// 'computeOptimized', 'computeOn', 'computeDisabled'
+        /// Gets or sets the behavior of the compute engine. Possible values
+        /// include: 'computeOptimized', 'computeOn', 'computeDisabled'
         /// </summary>
         [JsonProperty(PropertyName = "computeEngineBehavior")]
         public string ComputeEngineBehavior { get; set; }
