@@ -11,7 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Artifact ID with information protection label status
+    /// The unique ID and information protection label change status of a Power
+    /// BI item
     /// </summary>
     public partial class ChangeLabelStatus
     {
@@ -26,11 +27,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ChangeLabelStatus class.
         /// </summary>
-        /// <param name="id">The unique ID of an artifact, which is in UUID
-        /// format for dashboards, reports, and dataflows, and string format
-        /// for datasets</param>
-        /// <param name="status">Indicates the result of the label change
-        /// operation. Possible values include: 'Failed',
+        /// <param name="id">The unique ID of a Power BI item. The ID is in
+        /// UUID format for dashboards, reports, and dataflows; and in UUID or
+        /// string format for datasets.</param>
+        /// <param name="status">The status of an information protection label
+        /// change operation. Possible values include: 'Failed',
         /// 'FailedToGetUsageRights', 'InsufficientUsageRights', 'NotFound',
         /// 'Succeeded'</param>
         public ChangeLabelStatus(string id, Status status)
@@ -46,17 +47,18 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unique ID of an artifact, which is in UUID format
-        /// for dashboards, reports, and dataflows, and string format for
-        /// datasets
+        /// Gets or sets the unique ID of a Power BI item. The ID is in UUID
+        /// format for dashboards, reports, and dataflows; and in UUID or
+        /// string format for datasets.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets indicates the result of the label change operation.
-        /// Possible values include: 'Failed', 'FailedToGetUsageRights',
-        /// 'InsufficientUsageRights', 'NotFound', 'Succeeded'
+        /// Gets or sets the status of an information protection label change
+        /// operation. Possible values include: 'Failed',
+        /// 'FailedToGetUsageRights', 'InsufficientUsageRights', 'NotFound',
+        /// 'Succeeded'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public Status Status { get; set; }

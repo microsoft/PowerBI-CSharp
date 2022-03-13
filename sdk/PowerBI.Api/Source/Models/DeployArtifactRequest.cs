@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The artifact to be deployed
+    /// A request to deploy a Power BI item (such as a report or a dashboard)
     /// </summary>
     public partial class DeployArtifactRequest
     {
@@ -25,7 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DeployArtifactRequest class.
         /// </summary>
-        /// <param name="sourceId">The artifact ID</param>
+        /// <param name="sourceId">The ID of the Power BI item (such as a
+        /// report or a dashboard) to be deployed</param>
         /// <param name="options">The deployment configuration options for a
         /// specific Power BI item (such as a report or a dashboard)</param>
         public DeployArtifactRequest(System.Guid sourceId, DeploymentOptions options = default(DeploymentOptions))
@@ -41,7 +42,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the artifact ID
+        /// Gets or sets the ID of the Power BI item (such as a report or a
+        /// dashboard) to be deployed
         /// </summary>
         [JsonProperty(PropertyName = "sourceId")]
         public System.Guid SourceId { get; set; }

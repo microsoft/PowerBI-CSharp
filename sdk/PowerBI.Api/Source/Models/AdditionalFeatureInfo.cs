@@ -25,7 +25,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the AdditionalFeatureInfo class.
         /// </summary>
-        /// <param name="usage">Workspaces that aren’t assigned to a capacity
+        /// <param name="usage">Workspaces that aren't assigned to a capacity
         /// get a limited amount of [embed
         /// tokens](/power-bi/developer/embedded/embed-tokens#embed-token), to
         /// allow experimenting with the APIs. The `Usage` value represents the
@@ -45,7 +45,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets workspaces that aren’t assigned to a capacity get a
+        /// Gets or sets workspaces that aren't assigned to a capacity get a
         /// limited amount of [embed
         /// tokens](/power-bi/developer/embedded/embed-tokens#embed-token), to
         /// allow experimenting with the APIs. The `Usage` value represents the

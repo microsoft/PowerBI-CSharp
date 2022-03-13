@@ -23,7 +23,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
         ///
@@ -79,7 +79,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -103,6 +103,31 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes the specified dashboard from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tiles within the specified dashboard from **My
         /// workspace**.
         /// </summary>
@@ -111,7 +136,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -143,7 +168,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -185,7 +210,7 @@ namespace Microsoft.PowerBI.Api
         /// - If you're cloning a tile within a different workspace, report and
         /// dataset links will be removed, and the tile will be broken.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
         ///
@@ -222,7 +247,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -250,7 +275,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
         ///
@@ -284,7 +309,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -311,6 +336,34 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> GetDashboardInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes the specified dashboard from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required scope
+        ///
+        /// Dashboard.ReadWrite.All
+        ///
+        /// ######
+        ///
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDashboardInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tiles within the specified dashboard from the
         /// specified workspace.
         /// </summary>
@@ -319,7 +372,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -354,7 +407,7 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
@@ -399,7 +452,7 @@ namespace Microsoft.PowerBI.Api
         /// - If you're cloning a tile within a different workspace, report and
         /// dataset links will be removed, and the tile will be broken.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
         ///
@@ -455,7 +508,7 @@ namespace Microsoft.PowerBI.Api
         /// [Considerations and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
@@ -503,7 +556,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -551,7 +604,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -600,7 +653,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -640,7 +693,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -680,7 +733,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

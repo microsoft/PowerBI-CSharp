@@ -10,8 +10,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The unique ID of an artifact, which is in UUID format for dashboards,
-    /// reports, and dataflows
+    /// The unique ID of a Power BI item in UUID format. Dashboard, report, and
+    /// dataflow IDs are in UUID format, and dataset IDs can be in UUID or
+    /// string format.
     /// </summary>
     public partial class ArtifactId
     {
@@ -26,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the ArtifactId class.
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="id">An ID in UUID format</param>
         public ArtifactId(System.Guid id)
         {
             Id = id;
@@ -39,7 +40,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets ID
+        /// Gets or sets an ID in UUID format
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

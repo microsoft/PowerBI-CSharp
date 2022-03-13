@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A composite of artifact IDs that will be used to update the information
-    /// protection labels of those artifacts
+    /// A composite of Power BI item IDs for each item type. The IDs specify
+    /// which Power BI items require an information protection label update.
     /// </summary>
     public partial class InformationProtectionArtifactsChangeLabel
     {
@@ -30,10 +30,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// InformationProtectionArtifactsChangeLabel class.
         /// </summary>
-        /// <param name="dashboards">List of unique dashboard IDs.</param>
-        /// <param name="reports">List of unique report IDs.</param>
-        /// <param name="datasets">List of unique dataset IDs.</param>
-        /// <param name="dataflows">List of unique dataflow IDs.</param>
+        /// <param name="dashboards">A list of unique dashboard IDs</param>
+        /// <param name="reports">A list of unique report IDs</param>
+        /// <param name="datasets">A list of unique dataset IDs</param>
+        /// <param name="dataflows">A list of unique dataflow IDs</param>
         public InformationProtectionArtifactsChangeLabel(IList<ArtifactId> dashboards = default(IList<ArtifactId>), IList<ArtifactId> reports = default(IList<ArtifactId>), IList<ArtifactStringId> datasets = default(IList<ArtifactStringId>), IList<ArtifactId> dataflows = default(IList<ArtifactId>))
         {
             Dashboards = dashboards;
@@ -49,25 +49,25 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets list of unique dashboard IDs.
+        /// Gets or sets a list of unique dashboard IDs
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
         public IList<ArtifactId> Dashboards { get; set; }
 
         /// <summary>
-        /// Gets or sets list of unique report IDs.
+        /// Gets or sets a list of unique report IDs
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<ArtifactId> Reports { get; set; }
 
         /// <summary>
-        /// Gets or sets list of unique dataset IDs.
+        /// Gets or sets a list of unique dataset IDs
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<ArtifactStringId> Datasets { get; set; }
 
         /// <summary>
-        /// Gets or sets list of unique dataflow IDs.
+        /// Gets or sets a list of unique dataflow IDs
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
         public IList<ArtifactId> Dataflows { get; set; }

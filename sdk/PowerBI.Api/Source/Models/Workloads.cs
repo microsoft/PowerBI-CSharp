@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Workloads class.
         /// </summary>
-        /// <param name="value">The capacity workload settings list</param>
+        /// <param name="value">The list of capacity workload settings</param>
         public Workloads(string odatacontext = default(string), IList<Workload> value = default(IList<Workload>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity workload settings list
+        /// Gets or sets the list of capacity workload settings
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Workload> Value { get; set; }

@@ -35,7 +35,7 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Since it takes about two minutes for the permissions to get
         /// refreshed, wait for two minutes before making other API calls.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
         ///
@@ -57,8 +57,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> RefreshUserPermissionsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of artifacts that the given user have access to
-        /// (Preview).
+        /// Returns a list of Power BI items (such as reports or dashboards)
+        /// that the specified user has access to. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -69,7 +69,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -81,7 +81,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID or UPN of user
+        /// The graph ID or user principal name (UPN) of the user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -104,7 +104,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<ArtifactAccessResponse>> GetUserArtifactAccessAsAdminWithHttpMessagesAsync(string userId, string continuationToken = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of subscriptions that the given user has subscribed
-        /// to (Preview).
+        /// to. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -115,7 +115,7 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -127,7 +127,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID or UPN of user
+        /// The graph ID or user principal name (UPN) of the user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set

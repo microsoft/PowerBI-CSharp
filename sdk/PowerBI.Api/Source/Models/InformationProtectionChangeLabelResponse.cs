@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A composite of artifact IDs and label change status
+    /// A composite of the ID and information protection label change status
+    /// for one or more Power BI items organized by type
     /// </summary>
     public partial class InformationProtectionChangeLabelResponse
     {
@@ -29,14 +30,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the
         /// InformationProtectionChangeLabelResponse class.
         /// </summary>
-        /// <param name="dashboards">List of unique dashboard IDs with label
-        /// change status.</param>
-        /// <param name="reports">List of unique report IDs with label change
-        /// status.</param>
-        /// <param name="dataflows">List of unique dataflow IDs with label
-        /// change status.</param>
-        /// <param name="datasets">List of unique dataset IDs with label change
-        /// status.</param>
+        /// <param name="dashboards">A list containing the unique ID and
+        /// information protection label change status of one or more
+        /// dashboards</param>
+        /// <param name="reports">A list containing the unique ID and
+        /// information protection label change status of one or more
+        /// reports</param>
+        /// <param name="dataflows">A list containing the unique ID and
+        /// information protection label change status of one or more
+        /// dataflows</param>
+        /// <param name="datasets">A list containing the unique ID and
+        /// information protection label change status of one or more
+        /// datasets</param>
         public InformationProtectionChangeLabelResponse(IList<ChangeLabelStatus> dashboards = default(IList<ChangeLabelStatus>), IList<ChangeLabelStatus> reports = default(IList<ChangeLabelStatus>), IList<ChangeLabelStatus> dataflows = default(IList<ChangeLabelStatus>), IList<ChangeLabelStatus> datasets = default(IList<ChangeLabelStatus>))
         {
             Dashboards = dashboards;
@@ -52,25 +57,29 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets list of unique dashboard IDs with label change status.
+        /// Gets or sets a list containing the unique ID and information
+        /// protection label change status of one or more dashboards
         /// </summary>
         [JsonProperty(PropertyName = "dashboards")]
         public IList<ChangeLabelStatus> Dashboards { get; set; }
 
         /// <summary>
-        /// Gets or sets list of unique report IDs with label change status.
+        /// Gets or sets a list containing the unique ID and information
+        /// protection label change status of one or more reports
         /// </summary>
         [JsonProperty(PropertyName = "reports")]
         public IList<ChangeLabelStatus> Reports { get; set; }
 
         /// <summary>
-        /// Gets or sets list of unique dataflow IDs with label change status.
+        /// Gets or sets a list containing the unique ID and information
+        /// protection label change status of one or more dataflows
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
         public IList<ChangeLabelStatus> Dataflows { get; set; }
 
         /// <summary>
-        /// Gets or sets list of unique dataset IDs with label change status.
+        /// Gets or sets a list containing the unique ID and information
+        /// protection label change status of one or more datasets
         /// </summary>
         [JsonProperty(PropertyName = "datasets")]
         public IList<ChangeLabelStatus> Datasets { get; set; }

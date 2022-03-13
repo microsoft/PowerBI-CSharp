@@ -30,7 +30,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// gateway cluster, the gateway ID refers to the primary (first)
         /// gateway in the cluster and is similar to the gateway cluster
         /// ID.</param>
-        /// <param name="credentialType">The type of data source credentials.
+        /// <param name="credentialType">The type of data source
+        /// [credential](/en-us/power-bi/developer/automation/configure-credentials).
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
         /// <param name="datasourceName">The name of the data source</param>
@@ -132,8 +133,10 @@ namespace Microsoft.PowerBI.Api.Models
         public string ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of data source credentials. Possible values
-        /// include: 'Basic', 'Windows', 'Anonymous', 'OAuth2', 'Key'
+        /// Gets or sets the type of data source
+        /// [credential](/en-us/power-bi/developer/automation/configure-credentials).
+        /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
+        /// 'Key'
         /// </summary>
         [JsonProperty(PropertyName = "credentialType")]
         public CredentialType CredentialType { get; set; }

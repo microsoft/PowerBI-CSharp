@@ -12,8 +12,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Request body for assigning workspaces to a premium capacity as tenant
-    /// admin
+    /// A request to assign workspaces to a premium capacity
     /// </summary>
     public partial class AssignWorkspacesToCapacityRequest
     {

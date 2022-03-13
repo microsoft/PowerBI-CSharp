@@ -56,7 +56,7 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
         ///
@@ -220,7 +220,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
         ///
@@ -392,7 +392,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
         ///
@@ -518,7 +518,7 @@ namespace Microsoft.PowerBI.Api
         /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
         ///
@@ -664,7 +664,7 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
         ///
@@ -812,7 +812,7 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
         ///
@@ -955,7 +955,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
         ///
@@ -1086,11 +1086,11 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns **My Workspace** to the specified capacity.
+        /// Assigns **My workspace** to the specified capacity.
         /// </summary>
         /// <remarks>
         ///
-        /// To unassign **My Workspace** from a capacity, provide an empty Guid
+        /// To unassign **My workspace** from a capacity, provide an empty GUID
         /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
         ///
         /// ## Permissions
@@ -1098,7 +1098,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights or assign permissions on the
         /// capacity.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
         ///
@@ -1236,7 +1236,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// To unassign **My Workspace** from a capacity, provide an empty Guid
+        /// To unassign **My workspace** from a capacity, provide an empty GUID
         /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
         ///
         /// ## Permissions
@@ -1244,7 +1244,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights or assign permissions on the
         /// capacity.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
         ///
@@ -1383,11 +1383,11 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the status of the **My Workspace** assignment-to-capacity operation.
+        /// Gets the status of the **My workspace** assignment-to-capacity operation.
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All and Workspace.ReadWrite.All
         ///
@@ -1528,7 +1528,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights or assign permissions on the
         /// capacity.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All and Workspace.ReadWrite.All
         ///
@@ -1675,7 +1675,7 @@ namespace Microsoft.PowerBI.Api
         /// account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as
         /// the `dataflowStorageId`.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
         ///
@@ -1825,13 +1825,14 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
-        /// Maximum 200 requests per hour.
+        /// Maximum 50 requests per hour, per tenant. This call will also time out
+        /// after 30 seconds to prevent adverse effect on the Power BI service.
         ///
         /// ######
         ///
@@ -2017,7 +2018,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2185,7 +2186,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
@@ -2336,7 +2337,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -2488,7 +2489,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
@@ -2643,7 +2644,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
@@ -2658,8 +2659,7 @@ namespace Microsoft.PowerBI.Api
         /// The workspace ID
         /// </param>
         /// <param name='user'>
-        /// The user principal name (UPN) of the user to remove (usually the user's
-        /// email).
+        /// The user principal name (UPN) of the user to remove
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2790,7 +2790,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
@@ -2934,7 +2934,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Returns a list of datasets, reports, and dashboards that have not been used
-        /// within 30 days for the specified workspace (Preview).
+        /// within 30 days for the specified workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -2945,7 +2945,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

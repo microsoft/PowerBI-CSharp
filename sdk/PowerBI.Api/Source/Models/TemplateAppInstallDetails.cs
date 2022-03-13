@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Template App Install Details
+    /// The install details for a Power BI template app
     /// </summary>
     public partial class TemplateAppInstallDetails
     {
@@ -26,11 +26,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the TemplateAppInstallDetails class.
         /// </summary>
-        /// <param name="appId">The unique ID of the application</param>
-        /// <param name="packageKey">Application version secure key</param>
-        /// <param name="ownerTenantId">The object ID for the application
-        /// owner's tenant</param>
-        /// <param name="config">Automated install configuration.</param>
+        /// <param name="appId">The unique ID of the Power BI template
+        /// app</param>
+        /// <param name="packageKey">The secure key for the Power BI template
+        /// app version</param>
+        /// <param name="ownerTenantId">The tenant ID of the Power BI template
+        /// app owner</param>
+        /// <param name="config">The automated install configuration</param>
         public TemplateAppInstallDetails(System.Guid appId, string packageKey, System.Guid ownerTenantId, TemplateAppConfigurationRequest config = default(TemplateAppConfigurationRequest))
         {
             AppId = appId;
@@ -46,25 +48,25 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the unique ID of the application
+        /// Gets or sets the unique ID of the Power BI template app
         /// </summary>
         [JsonProperty(PropertyName = "appId")]
         public System.Guid AppId { get; set; }
 
         /// <summary>
-        /// Gets or sets application version secure key
+        /// Gets or sets the secure key for the Power BI template app version
         /// </summary>
         [JsonProperty(PropertyName = "packageKey")]
         public string PackageKey { get; set; }
 
         /// <summary>
-        /// Gets or sets the object ID for the application owner's tenant
+        /// Gets or sets the tenant ID of the Power BI template app owner
         /// </summary>
         [JsonProperty(PropertyName = "ownerTenantId")]
         public System.Guid OwnerTenantId { get; set; }
 
         /// <summary>
-        /// Gets or sets automated install configuration.
+        /// Gets or sets the automated install configuration
         /// </summary>
         [JsonProperty(PropertyName = "config")]
         public TemplateAppConfigurationRequest Config { get; set; }

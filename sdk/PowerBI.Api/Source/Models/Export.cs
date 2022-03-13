@@ -11,7 +11,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// An object describing Export to file details and current state
+    /// An object describing the details and current state of an export to file
+    /// job
     /// </summary>
     public partial class Export
     {
@@ -26,23 +27,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Export class.
         /// </summary>
-        /// <param name="id">The Export to file job ID</param>
-        /// <param name="createdDateTime">The start time of the Export to file
-        /// job</param>
-        /// <param name="lastActionDateTime">The time of last change in the
-        /// Export to file job</param>
+        /// <param name="id">The export to file job ID</param>
+        /// <param name="createdDateTime">The start date and time of the export
+        /// to file job</param>
+        /// <param name="lastActionDateTime">The date and time of the last
+        /// change to the export to file job</param>
         /// <param name="reportId">The ID of the exported report</param>
         /// <param name="reportName">The name of the exported report</param>
-        /// <param name="status">The current state of the Export to file job.
+        /// <param name="status">The current state of the export to file job.
         /// Possible values include: 'Undefined', 'NotStarted', 'Running',
         /// 'Succeeded', 'Failed'</param>
-        /// <param name="percentComplete">Indicate job progress as
-        /// percentage</param>
-        /// <param name="resourceLocation">The URL for retrieving the exported
+        /// <param name="percentComplete">Job progress as a percentage</param>
+        /// <param name="resourceLocation">The retrieval URL for the exported
         /// file</param>
         /// <param name="resourceFileExtension">The extension of the exported
         /// file</param>
-        /// <param name="expirationTime">The expiration time of the URL</param>
+        /// <param name="expirationTime">The expiration date and time of the
+        /// retrieval URL</param>
         public Export(string id = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastActionDateTime = default(System.DateTime?), System.Guid? reportId = default(System.Guid?), string reportName = default(string), ExportState? status = default(ExportState?), int? percentComplete = default(int?), string resourceLocation = default(string), string resourceFileExtension = default(string), System.DateTime? expirationTime = default(System.DateTime?))
         {
             Id = id;
@@ -64,19 +65,20 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the Export to file job ID
+        /// Gets or sets the export to file job ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the start time of the Export to file job
+        /// Gets or sets the start date and time of the export to file job
         /// </summary>
         [JsonProperty(PropertyName = "createdDateTime")]
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the time of last change in the Export to file job
+        /// Gets or sets the date and time of the last change to the export to
+        /// file job
         /// </summary>
         [JsonProperty(PropertyName = "lastActionDateTime")]
         public System.DateTime? LastActionDateTime { get; set; }
@@ -94,7 +96,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string ReportName { get; set; }
 
         /// <summary>
-        /// Gets or sets the current state of the Export to file job. Possible
+        /// Gets or sets the current state of the export to file job. Possible
         /// values include: 'Undefined', 'NotStarted', 'Running', 'Succeeded',
         /// 'Failed'
         /// </summary>
@@ -102,13 +104,13 @@ namespace Microsoft.PowerBI.Api.Models
         public ExportState? Status { get; set; }
 
         /// <summary>
-        /// Gets or sets indicate job progress as percentage
+        /// Gets or sets job progress as a percentage
         /// </summary>
         [JsonProperty(PropertyName = "percentComplete")]
         public int? PercentComplete { get; set; }
 
         /// <summary>
-        /// Gets or sets the URL for retrieving the exported file
+        /// Gets or sets the retrieval URL for the exported file
         /// </summary>
         [JsonProperty(PropertyName = "resourceLocation")]
         public string ResourceLocation { get; set; }
@@ -120,7 +122,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string ResourceFileExtension { get; set; }
 
         /// <summary>
-        /// Gets or sets the expiration time of the URL
+        /// Gets or sets the expiration date and time of the retrieval URL
         /// </summary>
         [JsonProperty(PropertyName = "expirationTime")]
         public System.DateTime? ExpirationTime { get; set; }

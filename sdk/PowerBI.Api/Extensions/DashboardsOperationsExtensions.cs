@@ -125,6 +125,43 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Deletes the specified dashboard
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='dashboardId'>
+        /// The dashboard id
+        /// </param>
+        public static void DeleteDashboard(this IDashboardsOperations operations, Guid groupId, Guid dashboardId)
+        {
+            operations.DeleteDashboardAsync(groupId, dashboardId).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Deletes the specified dashboard
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The group id
+        /// </param>
+        /// <param name='dashboardId'>
+        /// The dashboard id
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task DeleteDashboardAsync(this IDashboardsOperations operations, Guid groupId, Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.DeleteDashboardInGroupWithHttpMessagesAsync(groupId, dashboardId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
+
+        /// <summary>
         /// Returns a list of dashboards from the specified workspace for an
         /// organization with an administrative scope.
         /// </summary>

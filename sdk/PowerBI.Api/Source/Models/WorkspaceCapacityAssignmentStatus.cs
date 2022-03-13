@@ -10,7 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI workspace assignment status to capacity response
+    /// A Power BI response with the status of a workspace assign-to-capacity
+    /// operation
     /// </summary>
     public partial class WorkspaceCapacityAssignmentStatus
     {
@@ -27,17 +28,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the WorkspaceCapacityAssignmentStatus
         /// class.
         /// </summary>
-        /// <param name="status">Workspace assignment status. Possible values
-        /// include: 'Pending', 'InProgress', 'CompletedSuccessfully',
-        /// 'AssignmentFailed'</param>
-        /// <param name="startTime">Start time of workspace assignment
-        /// operation</param>
-        /// <param name="endTime">End time of workspace assignment
-        /// operation</param>
+        /// <param name="status">The status of a workspace assign-to-capacity
+        /// operation. Possible values include: 'Pending', 'InProgress',
+        /// 'CompletedSuccessfully', 'AssignmentFailed'</param>
+        /// <param name="startTime">The start date and time of a workspace
+        /// assignment operation</param>
+        /// <param name="endTime">The end date and time of a workspace
+        /// assignment operation</param>
         /// <param name="capacityId">The capacity ID</param>
         /// <param name="activityId">The activity ID of the assignment
-        /// operation, which can be provided in case of assignment
-        /// failures</param>
+        /// operation (provided in case of an assignment failure).</param>
         public WorkspaceCapacityAssignmentStatus(AssignmentStatus status, System.DateTime? startTime = default(System.DateTime?), System.DateTime? endTime = default(System.DateTime?), System.Guid? capacityId = default(System.Guid?), System.Guid? activityId = default(System.Guid?))
         {
             Status = status;
@@ -54,21 +54,23 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets workspace assignment status. Possible values include:
-        /// 'Pending', 'InProgress', 'CompletedSuccessfully',
-        /// 'AssignmentFailed'
+        /// Gets or sets the status of a workspace assign-to-capacity
+        /// operation. Possible values include: 'Pending', 'InProgress',
+        /// 'CompletedSuccessfully', 'AssignmentFailed'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public AssignmentStatus Status { get; set; }
 
         /// <summary>
-        /// Gets or sets start time of workspace assignment operation
+        /// Gets or sets the start date and time of a workspace assignment
+        /// operation
         /// </summary>
         [JsonProperty(PropertyName = "startTime")]
         public System.DateTime? StartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets end time of workspace assignment operation
+        /// Gets or sets the end date and time of a workspace assignment
+        /// operation
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public System.DateTime? EndTime { get; set; }
@@ -80,8 +82,8 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? CapacityId { get; set; }
 
         /// <summary>
-        /// Gets or sets the activity ID of the assignment operation, which can
-        /// be provided in case of assignment failures
+        /// Gets or sets the activity ID of the assignment operation (provided
+        /// in case of an assignment failure).
         /// </summary>
         [JsonProperty(PropertyName = "activityId")]
         public System.Guid? ActivityId { get; set; }

@@ -28,8 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// report</param>
         /// <param name="createdDateTime">The report creation date and
         /// time</param>
-        /// <param name="modifiedDateTime">The report modified date
-        /// time.</param>
+        /// <param name="modifiedDateTime">The date and time that the report
+        /// was last modified</param>
         public ReportAuthoringProperties(string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?))
         {
             CreatedBy = createdBy;
@@ -64,7 +64,7 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the report modified date time.
+        /// Gets or sets the date and time that the report was last modified
         /// </summary>
         [JsonProperty(PropertyName = "modifiedDateTime")]
         public System.DateTime? ModifiedDateTime { get; set; }

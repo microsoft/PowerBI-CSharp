@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Template App Automated install configuration. Dictionary of
-    /// name-value pairs
+    /// An automated install configuration for a Power BI template app
+    /// (dictionary of name-value pairs)
     /// </summary>
     public partial class TemplateAppConfigurationRequest
     {

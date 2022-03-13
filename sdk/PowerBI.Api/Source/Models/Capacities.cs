@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Capacities class.
         /// </summary>
-        /// <param name="value">The Capacity List</param>
+        /// <param name="value">The capacity list</param>
         public Capacities(string odatacontext = default(string), IList<Capacity> value = default(IList<Capacity>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the Capacity List
+        /// Gets or sets the capacity list
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Capacity> Value { get; set; }

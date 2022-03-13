@@ -26,8 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the EndorsementDetails class.
         /// </summary>
         /// <param name="endorsement">The endorsement status</param>
-        /// <param name="certifiedBy">The user that certified the
-        /// artifact</param>
+        /// <param name="certifiedBy">The user that certified the Power BI item
+        /// (such as a report or a dashboard)</param>
         public EndorsementDetails(string endorsement = default(string), string certifiedBy = default(string))
         {
             Endorsement = endorsement;
@@ -47,7 +47,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Endorsement { get; set; }
 
         /// <summary>
-        /// Gets or sets the user that certified the artifact
+        /// Gets or sets the user that certified the Power BI item (such as a
+        /// report or a dashboard)
         /// </summary>
         [JsonProperty(PropertyName = "certifiedBy")]
         public string CertifiedBy { get; set; }

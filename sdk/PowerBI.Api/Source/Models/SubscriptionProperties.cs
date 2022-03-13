@@ -24,11 +24,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the SubscriptionProperties class.
         /// </summary>
-        /// <param name="subscriptions">(Empty Value)The artifact subscription
-        /// Details. It will be removed from the payload response in an
-        /// upcoming release. To retrieve subscription information for report,
-        /// please consider using the Get Report Subscriptions as Admin
-        /// API.</param>
+        /// <param name="subscriptions">(Empty Value) The subscription details
+        /// for a Power BI item (such as a report or a dashboard). This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve subscription information for a Power BI
+        /// report by using the [Get Report Subscriptions as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// API call.</param>
         public SubscriptionProperties(IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Subscriptions = subscriptions;
@@ -41,10 +43,13 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Empty Value)The artifact subscription Details. It
-        /// will be removed from the payload response in an upcoming release.
-        /// To retrieve subscription information for report, please consider
-        /// using the Get Report Subscriptions as Admin API.
+        /// Gets or sets (Empty Value) The subscription details for a Power BI
+        /// item (such as a report or a dashboard). This property will be
+        /// removed from the payload response in an upcoming release. You can
+        /// retrieve subscription information for a Power BI report by using
+        /// the [Get Report Subscriptions as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// API call.
         /// </summary>
         [JsonProperty(PropertyName = "subscriptions")]
         public IList<Subscription> Subscriptions { get; set; }

@@ -12,8 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The OData response wrapper for a list of Power BI items (such as a
-    /// report or a dashboard) that a user can access
+    /// The OData response wrapper for a list of Power BI items (such as
+    /// reports or dashboards) that a user can access
     /// </summary>
     public partial class ArtifactAccessResponse
     {

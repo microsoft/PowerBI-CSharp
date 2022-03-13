@@ -27,7 +27,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the Dataflows class.
         /// </summary>
-        /// <param name="value">The dataflow metadata List</param>
+        /// <param name="value">The dataflow metadata list</param>
         public Dataflows(string odatacontext = default(string), IList<Dataflow> value = default(IList<Dataflow>))
         {
             Odatacontext = odatacontext;
@@ -46,7 +46,7 @@ namespace Microsoft.PowerBI.Api.Models
         public string Odatacontext { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataflow metadata List
+        /// Gets or sets the dataflow metadata list
         /// </summary>
         [JsonProperty(PropertyName = "value")]
         public IList<Dataflow> Value { get; set; }

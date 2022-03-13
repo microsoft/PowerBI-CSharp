@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI assign to capacity request
+    /// A Power BI assign-to-capacity request
     /// </summary>
     public partial class AssignToCapacityRequest
     {
@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the AssignToCapacityRequest class.
         /// </summary>
-        /// <param name="capacityId">The capacity ID. To unassign from
-        /// capacity, use an Empty Guid
+        /// <param name="capacityId">The capacity ID. To unassign from a
+        /// capacity, use an empty GUID
         /// (`00000000-0000-0000-0000-000000000000`).</param>
         public AssignToCapacityRequest(System.Guid capacityId)
         {
@@ -40,8 +40,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the capacity ID. To unassign from capacity, use an
-        /// Empty Guid (`00000000-0000-0000-0000-000000000000`).
+        /// Gets or sets the capacity ID. To unassign from a capacity, use an
+        /// empty GUID (`00000000-0000-0000-0000-000000000000`).
         /// </summary>
         [JsonProperty(PropertyName = "capacityId")]
         public System.Guid CapacityId { get; set; }

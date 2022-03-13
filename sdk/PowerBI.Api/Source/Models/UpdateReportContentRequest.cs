@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI update report content request
+    /// A Power BI request to update the content of a report
     /// </summary>
     public partial class UpdateReportContentRequest
     {
@@ -50,7 +50,7 @@ namespace Microsoft.PowerBI.Api.Models
         public SourceReport SourceReport { get; set; }
 
         /// <summary>
-        /// The source type for the content update.
+        /// The source type of the content update
         /// </summary>
         [JsonProperty(PropertyName = "sourceType")]
         public static string SourceType { get; private set; }

@@ -28,9 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="id">The transaction ID</param>
         /// <param name="refreshType">The type of refresh transaction</param>
-        /// <param name="startTime">Start time of the transaction</param>
-        /// <param name="endTime">End time of the transaction</param>
-        /// <param name="status">Status of the transaction</param>
+        /// <param name="startTime">The start time of the transaction</param>
+        /// <param name="endTime">The end time of the transaction</param>
+        /// <param name="status">The status of the transaction</param>
         public DataflowTransaction(string id, string refreshType = default(string), string startTime = default(string), string endTime = default(string), string status = default(string))
         {
             Id = id;
@@ -59,19 +59,19 @@ namespace Microsoft.PowerBI.Api.Models
         public string RefreshType { get; set; }
 
         /// <summary>
-        /// Gets or sets start time of the transaction
+        /// Gets or sets the start time of the transaction
         /// </summary>
         [JsonProperty(PropertyName = "startTime")]
         public string StartTime { get; set; }
 
         /// <summary>
-        /// Gets or sets end time of the transaction
+        /// Gets or sets the end time of the transaction
         /// </summary>
         [JsonProperty(PropertyName = "endTime")]
         public string EndTime { get; set; }
 
         /// <summary>
-        /// Gets or sets status of the transaction
+        /// Gets or sets the status of the transaction
         /// </summary>
         [JsonProperty(PropertyName = "status")]
         public string Status { get; set; }

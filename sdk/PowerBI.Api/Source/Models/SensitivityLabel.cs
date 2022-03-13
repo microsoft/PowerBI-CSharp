@@ -10,7 +10,8 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Artifact sensitivity label info
+    /// Sensitivity label info for a Power BI item (such as a report or a
+    /// dashboard)
     /// </summary>
     public partial class SensitivityLabel
     {

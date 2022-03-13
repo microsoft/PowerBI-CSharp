@@ -11,8 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The new connection details and the target datasource name to be
-    /// updated.
+    /// Update details for a paginated report data source
     /// </summary>
     public partial class UpdateRdlDatasourceDetails
     {
@@ -27,10 +26,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the UpdateRdlDatasourceDetails class.
         /// </summary>
-        /// <param name="connectionDetails">The new server and database
-        /// name.</param>
-        /// <param name="datasourceName">The target datasource name to be
-        /// updated.</param>
+        /// <param name="connectionDetails">The new connection details for the
+        /// paginated report data source</param>
+        /// <param name="datasourceName">The name of the paginated report data
+        /// source</param>
         public UpdateRdlDatasourceDetails(RdlDatasourceConnectionDetails connectionDetails, string datasourceName)
         {
             ConnectionDetails = connectionDetails;
@@ -44,13 +43,14 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the new server and database name.
+        /// Gets or sets the new connection details for the paginated report
+        /// data source
         /// </summary>
         [JsonProperty(PropertyName = "connectionDetails")]
         public RdlDatasourceConnectionDetails ConnectionDetails { get; set; }
 
         /// <summary>
-        /// Gets or sets the target datasource name to be updated.
+        /// Gets or sets the name of the paginated report data source
         /// </summary>
         [JsonProperty(PropertyName = "datasourceName")]
         public string DatasourceName { get; set; }

@@ -56,7 +56,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -222,7 +222,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -362,7 +362,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -533,7 +533,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -687,7 +687,7 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -826,6 +826,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// Power BI retains a seven-day refresh history for each dataset, up to a
+        /// maximum of sixty refreshes.
+        ///
         /// ## Permissions
         ///
         /// - The user must have administrator rights (such as Office 365 Global
@@ -833,7 +836,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -1009,6 +1012,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// Power BI retains a seven-day refresh history for each dataset, up to a
+        /// maximum of sixty refreshes.
+        ///
         /// ## Permissions
         ///
         /// - The user must have administrator rights (such as Office 365 Global
@@ -1016,7 +1022,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -1197,6 +1203,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// Power BI retains a seven-day refresh history for each dataset, up to a
+        /// maximum of sixty refreshes.
+        ///
         /// ## Permissions
         ///
         /// - The user must have administrator rights (such as Office 365 Global
@@ -1204,7 +1213,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -1384,7 +1393,7 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///

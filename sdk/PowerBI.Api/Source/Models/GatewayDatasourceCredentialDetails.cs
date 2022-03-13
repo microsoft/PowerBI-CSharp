@@ -30,7 +30,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="useEndUserOAuth2Credentials">Use with data sources
         /// that support [single sign-on
         /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth2
+        /// to indicate that the end-user Azure AD identity (OAuth 2.0
         /// credentials) is used for connecting to the data source in
         /// DirectQuery mode.</param>
         public GatewayDatasourceCredentialDetails(bool? useEndUserOAuth2Credentials = default(bool?))
@@ -47,7 +47,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets use with data sources that support [single sign-on
         /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth2
+        /// to indicate that the end-user Azure AD identity (OAuth 2.0
         /// credentials) is used for connecting to the data source in
         /// DirectQuery mode.
         /// </summary>

@@ -32,18 +32,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'NotActivated', 'Active', 'Provisioning', 'ProvisionFailed',
         /// 'Suspended', 'PreSuspended', 'Deleting', 'Deleted', 'Invalid',
         /// 'UpdatingSku'</param>
-        /// <param name="capacityUserAccessRight">Access right user has on the
-        /// capacity. Possible values include: 'None', 'Assign',
+        /// <param name="capacityUserAccessRight">The access right a user has
+        /// on the capacity. Possible values include: 'None', 'Assign',
         /// 'Admin'</param>
-        /// <param name="displayName">The capacity display name</param>
-        /// <param name="admins">An array of capacity admins.</param>
-        /// <param name="sku">The capacity SKU.</param>
-        /// <param name="region">The Azure region where the capacity is
+        /// <param name="displayName">The display name of the capacity</param>
+        /// <param name="admins">An array of capacity admins</param>
+        /// <param name="sku">The capacity SKU</param>
+        /// <param name="region">The Azure region where the capacity was
         /// provisioned</param>
         /// <param name="tenantKeyId">The ID of an encryption key (only
         /// applicable to the admin route)</param>
-        /// <param name="tenantKey">Encryption key information (Only applicable
-        /// for admin route)</param>
+        /// <param name="tenantKey">Encryption key information (only applies to
+        /// admin routes)</param>
         public Capacity(System.Guid id, CapacityState state, CapacityUserAccessRight capacityUserAccessRight, string displayName = default(string), IList<string> admins = default(IList<string>), string sku = default(string), string region = default(string), System.Guid? tenantKeyId = default(System.Guid?), TenantKey tenantKey = default(TenantKey))
         {
             Id = id;
@@ -70,19 +70,19 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity display name
+        /// Gets or sets the display name of the capacity
         /// </summary>
         [JsonProperty(PropertyName = "displayName")]
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or sets an array of capacity admins.
+        /// Gets or sets an array of capacity admins
         /// </summary>
         [JsonProperty(PropertyName = "admins")]
         public IList<string> Admins { get; set; }
 
         /// <summary>
-        /// Gets or sets the capacity SKU.
+        /// Gets or sets the capacity SKU
         /// </summary>
         [JsonProperty(PropertyName = "sku")]
         public string Sku { get; set; }
@@ -97,14 +97,14 @@ namespace Microsoft.PowerBI.Api.Models
         public CapacityState State { get; set; }
 
         /// <summary>
-        /// Gets or sets access right user has on the capacity. Possible values
-        /// include: 'None', 'Assign', 'Admin'
+        /// Gets or sets the access right a user has on the capacity. Possible
+        /// values include: 'None', 'Assign', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]
         public CapacityUserAccessRight CapacityUserAccessRight { get; set; }
 
         /// <summary>
-        /// Gets or sets the Azure region where the capacity is provisioned
+        /// Gets or sets the Azure region where the capacity was provisioned
         /// </summary>
         [JsonProperty(PropertyName = "region")]
         public string Region { get; set; }
@@ -117,8 +117,8 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid? TenantKeyId { get; set; }
 
         /// <summary>
-        /// Gets or sets encryption key information (Only applicable for admin
-        /// route)
+        /// Gets or sets encryption key information (only applies to admin
+        /// routes)
         /// </summary>
         [JsonProperty(PropertyName = "tenantKey")]
         public TenantKey TenantKey { get; set; }

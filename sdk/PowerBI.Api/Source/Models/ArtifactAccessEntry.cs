@@ -32,12 +32,19 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="artifactType">The type of Power BI item</param>
         /// <param name="accessRight">The access right that the user has for
         /// the Power BI item</param>
-        public ArtifactAccessEntry(string artifactId, string displayName, string artifactType, string accessRight)
+        /// <param name="shareType">The type of how the access is given to the
+        /// Power BI item. Only available for widely shared artifacts
+        /// APIs.</param>
+        /// <param name="sharer">The user who shared the PowerBI item. Only
+        /// available for widely shared artifacts APIs.</param>
+        public ArtifactAccessEntry(string artifactId, string displayName, string artifactType, string accessRight, string shareType = default(string), User sharer = default(User))
         {
             ArtifactId = artifactId;
             DisplayName = displayName;
             ArtifactType = artifactType;
             AccessRight = accessRight;
+            ShareType = shareType;
+            Sharer = sharer;
             CustomInit();
         }
 
@@ -72,6 +79,20 @@ namespace Microsoft.PowerBI.Api.Models
         public string AccessRight { get; set; }
 
         /// <summary>
+        /// Gets or sets the type of how the access is given to the Power BI
+        /// item. Only available for widely shared artifacts APIs.
+        /// </summary>
+        [JsonProperty(PropertyName = "shareType")]
+        public string ShareType { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user who shared the PowerBI item. Only available
+        /// for widely shared artifacts APIs.
+        /// </summary>
+        [JsonProperty(PropertyName = "sharer")]
+        public User Sharer { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -94,6 +115,10 @@ namespace Microsoft.PowerBI.Api.Models
             if (AccessRight == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "AccessRight");
+            }
+            if (Sharer != null)
+            {
+                Sharer.Validate();
             }
         }
     }

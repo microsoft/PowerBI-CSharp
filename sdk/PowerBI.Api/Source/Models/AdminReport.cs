@@ -46,22 +46,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// report</param>
         /// <param name="createdDateTime">The report creation date and
         /// time</param>
-        /// <param name="modifiedDateTime">The report modified date
-        /// time.</param>
-        /// <param name="users">(Empty value) The artifact user access details.
-        /// This property will be removed from the payload response in an
-        /// upcoming release. You can retrieve user information on a Power BI
-        /// item (such as a report or a dashboard) by using the [Get Report
-        /// Users as
+        /// <param name="modifiedDateTime">The date and time that the report
+        /// was last modified</param>
+        /// <param name="users">(Empty value) The user access details for a
+        /// Power BI report. This property will be removed from the payload
+        /// response in an upcoming release. You can retrieve user information
+        /// on a Power BI report by using the [Get Report Users as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.</param>
-        /// <param name="subscriptions">(Empty Value)The artifact subscription
-        /// Details. It will be removed from the payload response in an
-        /// upcoming release. To retrieve subscription information for report,
-        /// please consider using the Get Report Subscriptions as Admin
-        /// API.</param>
+        /// API call with the `getArtifactUsers` parameter.</param>
+        /// <param name="subscriptions">(Empty Value) The subscription details
+        /// for a Power BI item (such as a report or a dashboard). This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve subscription information for a Power BI
+        /// report by using the [Get Report Subscriptions as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// API call.</param>
         public AdminReport(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), string webUrl = default(string), string embedUrl = default(string), string createdBy = default(string), string modifiedBy = default(string), System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
@@ -156,29 +157,32 @@ namespace Microsoft.PowerBI.Api.Models
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets the report modified date time.
+        /// Gets or sets the date and time that the report was last modified
         /// </summary>
         [JsonProperty(PropertyName = "modifiedDateTime")]
         public System.DateTime? ModifiedDateTime { get; set; }
 
         /// <summary>
-        /// Gets or sets (Empty value) The artifact user access details. This
-        /// property will be removed from the payload response in an upcoming
-        /// release. You can retrieve user information on a Power BI item (such
-        /// as a report or a dashboard) by using the [Get Report Users as
+        /// Gets or sets (Empty value) The user access details for a Power BI
+        /// report. This property will be removed from the payload response in
+        /// an upcoming release. You can retrieve user information on a Power
+        /// BI report by using the [Get Report Users as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.
+        /// API call with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<ReportUser> Users { get; set; }
 
         /// <summary>
-        /// Gets or sets (Empty Value)The artifact subscription Details. It
-        /// will be removed from the payload response in an upcoming release.
-        /// To retrieve subscription information for report, please consider
-        /// using the Get Report Subscriptions as Admin API.
+        /// Gets or sets (Empty Value) The subscription details for a Power BI
+        /// item (such as a report or a dashboard). This property will be
+        /// removed from the payload response in an upcoming release. You can
+        /// retrieve subscription information for a Power BI report by using
+        /// the [Get Report Subscriptions as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// API call.
         /// </summary>
         [JsonProperty(PropertyName = "subscriptions")]
         public IList<Subscription> Subscriptions { get; set; }

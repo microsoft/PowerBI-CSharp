@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Patch capacity request
+    /// A patch capacity request
     /// </summary>
     public partial class CapacityPatchRequest
     {

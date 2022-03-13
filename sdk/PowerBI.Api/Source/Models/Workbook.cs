@@ -26,8 +26,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Workbook class.
         /// </summary>
         /// <param name="name">The workbook name</param>
-        /// <param name="datasetId">DatasetId for workbooks. Only applies for
-        /// workbooks that has an associated dataset.</param>
+        /// <param name="datasetId">The ID of the dataset associated with a
+        /// workbook. Only applies if the workbook has an associated
+        /// dataset.</param>
         public Workbook(string name = default(string), string datasetId = default(string))
         {
             Name = name;
@@ -47,8 +48,8 @@ namespace Microsoft.PowerBI.Api.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets datasetId for workbooks. Only applies for workbooks
-        /// that has an associated dataset.
+        /// Gets or sets the ID of the dataset associated with a workbook. Only
+        /// applies if the workbook has an associated dataset.
         /// </summary>
         [JsonProperty(PropertyName = "datasetId")]
         public string DatasetId { get; set; }

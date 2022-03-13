@@ -33,9 +33,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// information on a Power BI item (such as a report or a dashboard) by
         /// using the [Get Group Users As
         /// Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.</param>
+        /// API call with the `getArtifactUsers` parameter.</param>
         /// <param name="reports">The reports that belong to the group</param>
         /// <param name="dashboards">The dashboards that belong to the
         /// group</param>
@@ -92,9 +92,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// on a Power BI item (such as a report or a dashboard) by using the
         /// [Get Group Users As
         /// Admin](/rest/api/power-bi/admin/groups-get-group-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.
+        /// API call with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<GroupUser> Users { get; set; }

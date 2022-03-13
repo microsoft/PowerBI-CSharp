@@ -39,20 +39,21 @@ namespace Microsoft.PowerBI.Api.Models
         /// 'PaginatedReport'</param>
         /// <param name="webUrl">The web URL of the report</param>
         /// <param name="embedUrl">The embed URL of the report</param>
-        /// <param name="users">(Empty value) The artifact user access details.
-        /// This property will be removed from the payload response in an
-        /// upcoming release. You can retrieve user information on a Power BI
-        /// item (such as a report or a dashboard) by using the [Get Report
-        /// Users as
+        /// <param name="users">(Empty value) The user access details for a
+        /// Power BI report. This property will be removed from the payload
+        /// response in an upcoming release. You can retrieve user information
+        /// on a Power BI report by using the [Get Report Users as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.</param>
-        /// <param name="subscriptions">(Empty Value)The artifact subscription
-        /// Details. It will be removed from the payload response in an
-        /// upcoming release. To retrieve subscription information for report,
-        /// please consider using the Get Report Subscriptions as Admin
-        /// API.</param>
+        /// API call with the `getArtifactUsers` parameter.</param>
+        /// <param name="subscriptions">(Empty Value) The subscription details
+        /// for a Power BI item (such as a report or a dashboard). This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve subscription information for a Power BI
+        /// report by using the [Get Report Subscriptions as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// API call.</param>
         public Report(System.Guid id, string name = default(string), string datasetId = default(string), string appId = default(string), string description = default(string), string reportType = default(string), string webUrl = default(string), string embedUrl = default(string), IList<ReportUser> users = default(IList<ReportUser>), IList<Subscription> subscriptions = default(IList<Subscription>))
         {
             Id = id;
@@ -124,23 +125,26 @@ namespace Microsoft.PowerBI.Api.Models
         public string EmbedUrl { get; set; }
 
         /// <summary>
-        /// Gets or sets (Empty value) The artifact user access details. This
-        /// property will be removed from the payload response in an upcoming
-        /// release. You can retrieve user information on a Power BI item (such
-        /// as a report or a dashboard) by using the [Get Report Users as
+        /// Gets or sets (Empty value) The user access details for a Power BI
+        /// report. This property will be removed from the payload response in
+        /// an upcoming release. You can retrieve user information on a Power
+        /// BI report by using the [Get Report Users as
         /// Admin](/rest/api/power-bi/admin/reports-get-report-users-as-admin)
-        /// API, or the
+        /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
-        /// API with the `getArtifactUsers` parameter.
+        /// API call with the `getArtifactUsers` parameter.
         /// </summary>
         [JsonProperty(PropertyName = "users")]
         public IList<ReportUser> Users { get; set; }
 
         /// <summary>
-        /// Gets or sets (Empty Value)The artifact subscription Details. It
-        /// will be removed from the payload response in an upcoming release.
-        /// To retrieve subscription information for report, please consider
-        /// using the Get Report Subscriptions as Admin API.
+        /// Gets or sets (Empty Value) The subscription details for a Power BI
+        /// item (such as a report or a dashboard). This property will be
+        /// removed from the payload response in an upcoming release. You can
+        /// retrieve subscription information for a Power BI report by using
+        /// the [Get Report Subscriptions as
+        /// Admin](/rest/api/power-bi/admin/reports-get-report-subscriptions-as-admin)
+        /// API call.
         /// </summary>
         [JsonProperty(PropertyName = "subscriptions")]
         public IList<Subscription> Subscriptions { get; set; }

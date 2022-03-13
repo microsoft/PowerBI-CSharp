@@ -28,9 +28,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="targetDashboardId">The target dashboard ID</param>
         /// <param name="targetWorkspaceId">(Optional) A parameter for
         /// specifying a target workspace ID. An empty GUID
-        /// (`00000000-0000-0000-0000-000000000000`) indicates 'My Workspace'.
-        /// If this parameter isn't provided, the tile will be cloned within
-        /// the same workspace as the source tile.</param>
+        /// (`00000000-0000-0000-0000-000000000000`) indicates **My
+        /// workspace**. If this parameter isn't provided, the tile will be
+        /// cloned within the same workspace as the source tile.</param>
         /// <param name="targetReportId">(Optional) A parameter for specifying
         /// a target report ID. When cloning a tile linked to a report, pass
         /// the target report ID to rebind the new tile to a different
@@ -69,9 +69,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets (Optional) A parameter for specifying a target
         /// workspace ID. An empty GUID
-        /// (`00000000-0000-0000-0000-000000000000`) indicates 'My Workspace'.
-        /// If this parameter isn't provided, the tile will be cloned within
-        /// the same workspace as the source tile.
+        /// (`00000000-0000-0000-0000-000000000000`) indicates **My
+        /// workspace**. If this parameter isn't provided, the tile will be
+        /// cloned within the same workspace as the source tile.
         /// </summary>
         [JsonProperty(PropertyName = "targetWorkspaceId")]
         public System.Guid? TargetWorkspaceId { get; set; }
