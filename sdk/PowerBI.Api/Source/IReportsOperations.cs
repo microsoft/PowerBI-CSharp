@@ -20,16 +20,17 @@ namespace Microsoft.PowerBI.Api
     public partial interface IReportsOperations
     {
         /// <summary>
-        /// Returns a list of reports from **"My Workspace"**.
+        /// Returns a list of reports from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br&gt;**Note:**
-        /// Paginated reports (rdl) don’t have a dataset. As a result, in the
-        /// API response for paginated reports, the dataset ID value isn’t
-        /// displayed.
+        ///
+        /// Since paginated reports (RDL) don't have a dataset, the dataset ID
+        /// value in the API response for paginated reports isn't displayed.
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -45,13 +46,14 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Reports>> GetReportsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified report from **"My Workspace"**.
+        /// Returns the specified report from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -70,12 +72,14 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Report>> GetReportWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the specified report from **"My Workspace"**.
+        /// Deletes the specified report from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -91,20 +95,33 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> DeleteReportWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Clones the specified report from **"My Workspace"**.
+        /// Clones the specified report from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If after cloning the report and its dataset reside in
-        /// two different upgraded workspaces or "My Workspace", a shared
-        /// dataset will be created in the report's workspace.
-        /// &lt;br/&gt;Reports with live connection will lose the live
-        /// connection when cloning, and will have a direct binding to the
-        /// target dataset.&lt;br/&gt;**Required scope**:
-        /// Content.Create&lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
-        /// Target dataset (if provided) - Build permissions.
+        ///
+        /// - If the dataset for a cloned report resides in two different [new
+        /// workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspaces or in **My workspace**, then a shared dataset will be
+        /// created in the report's workspace.
+        /// - When cloned, reports with a [live
+        /// connection](/power-bi/desktop-report-lifecycle-datasets) will lose
+        /// that connection and instead have a direct binding to the target
+        /// dataset.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have all of the following, unless a requirement
+        /// doesn't apply:
+        ///
+        /// - **Write** permission on the specified report.
+        /// - **Build** permission on the target dataset, required if the
+        /// `targetModelId` parameter is used.
+        ///
+        /// ## Required Scope
+        ///
+        /// Content.Create
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -129,27 +146,34 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Report>> CloneReportWithHttpMessagesAsync(System.Guid reportId, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Exports the specified report from **"My Workspace"** to a .pbix
-        /// file.
+        /// Exports the specified report from **My workspace** to a Power BI
+        /// .pbix file.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
-        /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-        /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files
-        /// are downloaded to a temporary blob. Their URL is returned in the
-        /// response and stored in the locally downloaded PBIX
-        /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All
-        /// or Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI
-        /// service live
-        /// connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets)
-        /// after calling [rebind
-        /// report](/rest/api/power-bi/reports/RebindReport) is not supported.
-        /// Refer to [Download a report from the Power BI service to Power BI
-        /// Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix)
-        /// for requirements and limitations.&lt;br/&gt;
+        ///
+        /// - As a
+        /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
+        /// for timeout issues, set the `preferClientRouting` parameter to
+        /// `true`.
+        /// - Large files are downloaded to a temporary blob. Their URL is
+        /// returned in the response, and stored in the locally downloaded
+        /// Power BI .pbix file.
+        /// - For more information on requirements and limitations, see
+        /// [Download a report from the Power BI service to Power BI
+        /// Desktop](/power-bi/create-reports/service-export-to-pbix).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// After calling [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report), export of a
+        /// report with a [Power BI service live
+        /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't
+        /// supported.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -168,13 +192,17 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Stream>> ExportReportWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the specified report from **"My Workspace"** to have the
-        /// same content as the report in the request body.
+        /// Updates the content of the specified report from **My workspace**
+        /// with the content of a specified source report.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// Specify the source report in the request body.
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -199,20 +227,31 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Report>> UpdateReportContentWithHttpMessagesAsync(System.Guid reportId, UpdateReportContentRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Rebinds the specified report from **"My Workspace"** to the
-        /// requested dataset.
+        /// Rebinds the specified report from **My workspace** to the specified
+        /// dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If the dataset resides in a different upgraded
-        /// workspace, a shared dataset will be created in "My
-        /// Workspace".&lt;br/&gt;Reports with live connection will lose the
-        /// live connection when rebinding, and will have a direct binding to
-        /// the target dataset.&lt;br/&gt;**Required scope**:
-        /// Report.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
-        /// Target dataset - Build permissions.
+        ///
+        /// - If the specified dataset resides in a different [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace from the report, then a shared dataset will be created in
+        /// **My workspace**.
+        /// - On rebind, reports with a [live
+        /// connection](/power-bi/desktop-report-lifecycle-datasets) will lose
+        /// that connection and instead have a direct binding to the target
+        /// dataset.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have all of the following:
+        ///
+        /// - **Write** permission on the specified report.
+        /// - **Build** permission on the target dataset.
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -234,14 +273,15 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> RebindReportWithHttpMessagesAsync(System.Guid reportId, RebindReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of pages within the specified report from **"My
-        /// Workspace"**.
+        /// Returns a list of pages within the specified report from **My
+        /// workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -260,14 +300,15 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Pages>> GetPagesWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the specified page within the specified report from **"My
-        /// Workspace"**.
+        /// Returns the specified page within the specified report from **My
+        /// workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -292,14 +333,15 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Page>> GetPageWithHttpMessagesAsync(System.Guid reportId, string pageName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasources for the specified RDL report from
-        /// **"My Workspace"**.
+        /// Returns a list of data sources for the specified paginated report
+        /// (RDL) from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -318,19 +360,28 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the datasources of the specified paginated report from
-        /// **"My Workspace"**. (Preview)
+        /// Updates the data sources of the specified paginated report (RDL)
+        /// from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Important**: The original datasource and the new
-        /// datasource must have the exact same schema.&lt;br/&gt;**Required
-        /// scope**: Reports.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
-        /// operation is only supported for the datasource
-        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports only
-        /// paginated reports&lt;/li&gt;&lt;li&gt;Changing datasource type is
-        /// not supported&lt;/li&gt;&lt;/ul&gt;
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; Both the original data source and the new data source must
+        /// have the exact same schema.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must be the data source owner.
+        ///
+        /// ## Required Scope
+        ///
+        /// Reports.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Only supports paginated reports.
+        /// - Changing the data source type isn't supported.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -351,18 +402,24 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateDatasourcesWithHttpMessagesAsync(System.Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Exports the specified report from **"My Workspace"** to the
-        /// requested format.
+        /// Exports the specified report from **My workspace** to the requested
+        /// [file
+        /// format](/rest/api/power-bi/reports/export-to-file#fileformat).
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
-        /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope,
-        /// see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Check the limitations in the [Export to File API
-        /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
+        ///
+        /// ## Required Scope
+        ///
+        /// All of the following:
+        ///
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Check the limitations in [Export Power BI report to
+        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations).
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -387,14 +444,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Export>> ExportToFileWithHttpMessagesAsync(System.Guid reportId, ExportReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the status of the Export to file job from **"My
-        /// Workspace"**.
+        /// Returns the current status of the [Export to
+        /// File](/rest/api/power-bi/reports/export-to-file) job for the
+        /// specified report from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -419,14 +478,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Export>> GetExportToFileStatusWithHttpMessagesAsync(System.Guid reportId, string exportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the file of the Export to file job of the specified report
-        /// from **"My Workspace"**.
+        /// Returns the file from the [Export to
+        /// File](/rest/api/power-bi/reports/export-to-file) job for the
+        /// specified report from **My workspace**.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -454,13 +515,14 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of reports from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br&gt;**Note:**
-        /// Paginated reports (rdl) don’t have a dataset. As a result, in the
-        /// API response for paginated reports, the dataset ID value isn’t
-        /// displayed.
+        ///
+        /// Since paginated reports (RDL) don't have a dataset, the dataset ID
+        /// value in the API response for paginated reports isn't displayed.
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -482,10 +544,11 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -510,9 +573,11 @@ namespace Microsoft.PowerBI.Api
         /// Deletes the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -534,16 +599,30 @@ namespace Microsoft.PowerBI.Api
         /// Clones the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If after cloning the report and its dataset reside in
-        /// two different upgraded workspaces or "My Workspace", a shared
-        /// dataset will be created in the report's workspace.
-        /// &lt;br/&gt;Reports with live connection will lose the live
-        /// connection when cloning, and will have a direct binding to the
-        /// target dataset.&lt;br/&gt;**Required scope**: Content.Create
-        /// &lt;br/&gt;To set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
-        /// Target dataset (if provided) - Build permissions
+        ///
+        /// - If the dataset for a cloned report resides in two different [new
+        /// workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspaces or in **My workspace**, then a shared dataset will be
+        /// created in the report's workspace.
+        /// - When cloned, reports with a [live
+        /// connection](/power-bi/desktop-report-lifecycle-datasets) will lose
+        /// that connection and instead have a direct binding to the target
+        /// dataset.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have all of the following, unless a requirement
+        /// doesn't apply:
+        ///
+        /// - **Write** permission on the specified report.
+        /// - **Build** permission on the target dataset, required if the
+        /// `targetModelId` parameter is used.
+        ///
+        /// ## Required Scope
+        ///
+        /// Content.Create
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -572,26 +651,31 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Report>> CloneReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, CloneReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Exports the specified report from the specified workspace to a
-        /// .pbix file.
+        /// Power BI .pbix file.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Note**: As a [workaround for fixing timeout
-        /// issues](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis),
-        /// you can set `preferClientRouting` to true.&lt;br/&gt;Large files
-        /// are downloaded to a temporary blob. Their URL is returned in the
-        /// response and stored in the locally downloaded PBIX
-        /// file.&lt;br/&gt;&lt;br/&gt;**Required scope**: Report.ReadWrite.All
-        /// or Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;h2&gt;Restrictions&lt;/h2&gt;Export of a report with [Power BI
-        /// service live
-        /// connection](https://docs.microsoft.com/power-bi/desktop-report-lifecycle-datasets)
-        /// after calling [rebind
-        /// report](/rest/api/power-bi/reports/RebindReport) is not supported.
-        /// Refer to [Download a report from the Power BI service to Power BI
-        /// Desktop](https://docs.microsoft.com/power-bi/create-reports/service-export-to-pbix)
-        /// for requirements and limitations.&lt;br/&gt;
+        ///
+        /// - You can set the `preferClientRouting` parameter to `true` as a
+        /// [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis)
+        /// for timeout issues.
+        /// - Large files are downloaded to a temporary blob. Their URL is
+        /// returned in the response and stored in the locally downloaded Power
+        /// BI .pbix file.
+        /// - For more information on requirements and limitations, see
+        /// [Download a report from the Power BI service to Power BI
+        /// Desktop](/power-bi/create-reports/service-export-to-pbix).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Exporting a report with a [Power BI service live
+        /// connection](/power-bi/desktop-report-lifecycle-datasets) isn't
+        /// supported after calling [Rebind
+        /// Report](/rest/api/power-bi/reports/rebind-report).
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -613,13 +697,17 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Stream>> ExportReportInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the specified report from the specified workspace to have
-        /// the same content as the specified report in the request body.
+        /// Updates the content of the specified report from the specified
+        /// workspace with the content of a specified source report.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// Specify the source report in the request body.
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -648,19 +736,30 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Report>> UpdateReportContentInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, UpdateReportContentRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Rebinds the specified report from the specified workspace to the
-        /// requested dataset.
+        /// specified dataset.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;If the dataset resides in a different upgraded workspace
-        /// or in "My Workspace", a shared dataset will be created in the
-        /// report's workspace.&lt;br/&gt;Reports with live connection will
-        /// lose the live connection when rebinding, and will have a direct
-        /// binding to the target dataset.&lt;br/&gt;**Required scope**:
-        /// Report.ReadWrite.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
-        /// &lt;br/&gt;**Required permissions**: Report - Write permissions.
-        /// Target dataset - Build permissions
+        ///
+        /// - If the specified dataset resides in a different [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace from the report or in **My workspace**, then a shared
+        /// dataset will be created in the report's workspace.
+        /// - On rebind, reports with a [live
+        /// connection](/power-bi/desktop-report-lifecycle-datasets) will lose
+        /// that connection and instead have a direct binding to the target
+        /// dataset.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have all of the following:
+        ///
+        /// - **Write** permission on the specified report.
+        /// - **Build** permission on the target dataset.
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -689,10 +788,11 @@ namespace Microsoft.PowerBI.Api
         /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -718,10 +818,11 @@ namespace Microsoft.PowerBI.Api
         /// specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -749,14 +850,15 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Page>> GetPageInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, string pageName, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of datasources for the specified RDL report from the
-        /// specified workspace.
+        /// Returns a list of data sources for the specified paginated report
+        /// (RDL) from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Reportt.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -777,19 +879,28 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Datasources>> GetDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the datasources of the specified paginated report from the
-        /// specified workspace. (Preview)
+        /// Updates the data sources of the specified paginated report (RDL)
+        /// from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Important**: The original datasource and the new
-        /// datasource must have the exact same schema.&lt;br/&gt;**Required
-        /// scope**: Reports.ReadWrite.All&lt;br/&gt;To set the permissions
-        /// scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;h2&gt;Restrictions&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;This
-        /// operation is only supported for the datasource
-        /// owner&lt;/li&gt;&lt;li&gt;Update datasources supports only
-        /// paginated reports&lt;/li&gt;&lt;li&gt;Changing datasource type is
-        /// not supported&lt;/li&gt;&lt;/ul&gt;
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; Both the original data source and the new data source must
+        /// have the exact same schema.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must be the data source owner.
+        ///
+        /// ## Required Scope
+        ///
+        /// Reports.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Only supports paginated reports.
+        /// - Changing the data source type isn't supported.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -814,17 +925,23 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse> UpdateDatasourcesInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, UpdateRdlDatasourcesRequest updateRdlDatasourcesRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Exports the specified report from the specified workspace to the
-        /// requested format.
+        /// requested [file
+        /// format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: (all of the below)
-        /// &lt;ul&gt;&lt;li&gt;Report.ReadWrite.All or
-        /// Report.Read.All&lt;/li&gt;&lt;li&gt;Dataset.ReadWrite.All or
-        /// Dataset.Read.All&lt;/li&gt;&lt;/ul&gt;To set the permissions scope,
-        /// see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;br/&gt;&lt;br/&gt;**Limitations:**
-        /// Check the limitations in the [Export to File API
-        /// article](https://docs.microsoft.com/power-bi/developer/embedded/export-to#limitations).
+        ///
+        /// ## Required Scope
+        ///
+        /// All of the following:
+        ///
+        /// - Report.ReadWrite.All or Report.Read.All
+        /// - Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// Check the limitations in [Export Power BI report to
+        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations).
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -852,14 +969,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Export>> ExportToFileInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, ExportReportRequest requestParameters, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the status of the Export to file job from the specified
-        /// workspace.
+        /// Returns the current status of the [Export to File In
+        /// Group](/rest/api/power-bi/reports/export-to-file-in-group) job for
+        /// the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -887,14 +1006,16 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Export>> GetExportToFileStatusInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid reportId, string exportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the file of the Export to file job of the specified report
-        /// from the specified group.
+        /// Returns the file from the [Export to File In
+        /// Group](/rest/api/power-bi/reports/export-to-file-in-group) job for
+        /// the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All or
-        /// Report.Read.All &lt;br/&gt;To set the permissions scope, see
-        /// [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All or Report.Read.All
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -928,7 +1049,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers)
         /// scenario. To learn more about using this API, see [Considerations
         /// when generating an embed
@@ -942,7 +1063,7 @@ namespace Microsoft.PowerBI.Api
         /// [Considerations and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
@@ -956,9 +1077,7 @@ namespace Microsoft.PowerBI.Api
         /// connection reports, generating an embed token with row-level
         /// security may not work for several minutes after a [Rebind
         /// Report](/rest/api/power-bi/reports/rebind-report) api call.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -989,7 +1108,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers)
         /// scenario. To learn more about using this API, see [Considerations
         /// when generating an embed
@@ -1003,7 +1122,7 @@ namespace Microsoft.PowerBI.Api
         /// [Considerations and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following, unless a requirement doesn't apply:
         ///
@@ -1019,9 +1138,7 @@ namespace Microsoft.PowerBI.Api
         /// connection reports, generating an embed token with row-level
         /// security may not work for several minutes after a [Rebind
         /// Report](/rest/api/power-bi/reports/rebind-report).
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1060,16 +1177,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1108,16 +1223,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -1143,7 +1256,6 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<AdminReports>> GetReportsAsAdminWithHttpMessagesAsync(string filter = default(string), int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified report.
-        /// This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -1154,16 +1266,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -1182,8 +1292,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<ReportUsers>> GetReportUsersAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of subscriptions along with subscribees that the
-        /// report subscribed to. This is a preview API call.
+        /// Returns a list of report subscriptions along with subscriber
+        /// details. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -1194,16 +1304,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
         /// The report ID
@@ -1222,14 +1330,19 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Subscriptions>> GetReportSubscriptionsAsAdminWithHttpMessagesAsync(System.Guid reportId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Transfers ownership over the specified paginated report datasources
-        /// to the current authorized user.
+        /// Transfers ownership of the data sources for the specified paginated
+        /// report (RDL) to the current authorized user.
         /// </summary>
         /// <remarks>
-        /// &lt;br/&gt;**Required scope**: Report.ReadWrite.All &lt;br/&gt;To
-        /// set the permissions scope, see [Register an
-        /// app](https://docs.microsoft.com/power-bi/developer/register-app).&lt;li&gt;TakeOver
-        /// report datasources supports only paginated reports&lt;/li&gt;
+        ///
+        /// ## Required Scope
+        ///
+        /// Report.ReadWrite.All
+        ///
+        /// ## Limitations
+        ///
+        /// Only supports paginated reports.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

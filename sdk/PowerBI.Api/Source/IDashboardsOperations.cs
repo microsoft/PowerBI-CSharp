@@ -23,12 +23,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -48,12 +46,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Add dashboard parameters
@@ -79,12 +75,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID
@@ -103,6 +97,29 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> GetDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes the specified dashboard from **My workspace**.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required Scope
+        ///
+        /// Dashboard.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDashboardWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tiles within the specified dashboard from **My
         /// workspace**.
         /// </summary>
@@ -111,12 +128,10 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID
@@ -143,12 +158,10 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID
@@ -185,12 +198,10 @@ namespace Microsoft.PowerBI.Api
         /// - If you're cloning a tile within a different workspace, report and
         /// dataset links will be removed, and the tile will be broken.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID
@@ -222,12 +233,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -250,12 +259,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Content.Create
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -284,12 +291,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -311,6 +316,32 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Dashboard>> GetDashboardInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
+        /// Deletes the specified dashboard from the specified workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ## Required Scope
+        ///
+        /// Dashboard.ReadWrite.All
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='dashboardId'>
+        /// The dashboard ID
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        Task<HttpOperationResponse> DeleteDashboardInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
         /// Returns a list of tiles within the specified dashboard from the
         /// specified workspace.
         /// </summary>
@@ -319,12 +350,10 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -354,12 +383,10 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -399,12 +426,10 @@ namespace Microsoft.PowerBI.Api
         /// - If you're cloning a tile within a different workspace, report and
         /// dataset links will be removed, and the tile will be broken.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -441,7 +466,7 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// &gt; [!IMPORTANT]
-        /// &gt; This API is only relevant to the [embed for your
+        /// &gt; This API call is only relevant to the [embed for your
         /// customers](/power-bi/developer/embed-sample-for-customers)
         /// scenario. To learn more about using this API, see [Considerations
         /// when generating an embed
@@ -455,16 +480,14 @@ namespace Microsoft.PowerBI.Api
         /// [Considerations and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// All of the following:
         ///
         /// - Dashboard.ReadWrite.All or Dashboard.Read.All
         /// - Report.ReadWrite.All or Report.Read.All
         /// - Dataset.ReadWrite.All or Dataset.Read.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -503,16 +526,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -551,20 +572,18 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of
-        /// data types. Supported: tiles
+        /// Accepts a comma-separated list of data types, which will be
+        /// expanded inline in the response. Supports `tiles`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -600,16 +619,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID
@@ -629,7 +646,7 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<AdminTiles>> GetTilesAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of users that have access to the specified
-        /// dashboard. This is a preview API call.
+        /// dashboard.
         /// </summary>
         /// <remarks>
         ///
@@ -640,16 +657,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID
@@ -668,8 +683,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DashboardUsers>> GetDashboardUsersAsAdminWithHttpMessagesAsync(System.Guid dashboardId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of subscriptions along with subscribees that the
-        /// dashboard subscribed to. This is a preview API call.
+        /// Returns a list of dashboard subscriptions along with subscriber
+        /// details. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -680,16 +695,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='dashboardId'>
         /// The dashboard ID

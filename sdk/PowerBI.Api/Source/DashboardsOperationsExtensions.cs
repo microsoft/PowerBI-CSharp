@@ -20,12 +20,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -40,12 +38,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -66,12 +62,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Content.Create
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -89,12 +83,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Content.Create
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -118,12 +110,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -141,12 +131,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -166,6 +154,51 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Deletes the specified dashboard from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required Scope
+            ///
+            /// Dashboard.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static void DeleteDashboard(this IDashboardsOperations operations, System.Guid dashboardId)
+            {
+                operations.DeleteDashboardAsync(dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified dashboard from **My workspace**.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required Scope
+            ///
+            /// Dashboard.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteDashboardAsync(this IDashboardsOperations operations, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteDashboardWithHttpMessagesAsync(dashboardId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Returns a list of tiles within the specified dashboard from **My
             /// workspace**.
             /// </summary>
@@ -174,12 +207,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -201,12 +232,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -234,12 +263,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -264,12 +291,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -307,12 +332,10 @@ namespace Microsoft.PowerBI.Api
             /// - If you're cloning a tile within a different workspace, report and dataset
             /// links will be removed, and the tile will be broken.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -347,12 +370,10 @@ namespace Microsoft.PowerBI.Api
             /// - If you're cloning a tile within a different workspace, report and dataset
             /// links will be removed, and the tile will be broken.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -382,12 +403,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -405,12 +424,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -434,12 +451,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Content.Create
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -460,12 +475,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Content.Create
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -492,12 +505,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -518,12 +529,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -546,6 +555,57 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
+            /// Deletes the specified dashboard from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required Scope
+            ///
+            /// Dashboard.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            public static void DeleteDashboardInGroup(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId)
+            {
+                operations.DeleteDashboardInGroupAsync(groupId, dashboardId).GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Deletes the specified dashboard from the specified workspace.
+            /// </summary>
+            /// <remarks>
+            ///
+            /// ## Required Scope
+            ///
+            /// Dashboard.ReadWrite.All
+            /// &lt;br&gt;&lt;br&gt;
+            /// </remarks>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='groupId'>
+            /// The workspace ID
+            /// </param>
+            /// <param name='dashboardId'>
+            /// The dashboard ID
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteDashboardInGroupAsync(this IDashboardsOperations operations, System.Guid groupId, System.Guid dashboardId, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                (await operations.DeleteDashboardInGroupWithHttpMessagesAsync(groupId, dashboardId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+            }
+
+            /// <summary>
             /// Returns a list of tiles within the specified dashboard from the specified
             /// workspace.
             /// </summary>
@@ -554,12 +614,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -584,12 +642,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -620,12 +676,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -653,12 +707,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -699,12 +751,10 @@ namespace Microsoft.PowerBI.Api
             /// - If you're cloning a tile within a different workspace, report and dataset
             /// links will be removed, and the tile will be broken.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -742,12 +792,10 @@ namespace Microsoft.PowerBI.Api
             /// - If you're cloning a tile within a different workspace, report and dataset
             /// links will be removed, and the tile will be broken.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -782,7 +830,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is only relevant to the [embed for your
+            /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
             /// learn more about using this API, see [Considerations when generating an
             /// embed token](/power-bi/developer/embedded/generate-embed-token).
@@ -795,16 +843,14 @@ namespace Microsoft.PowerBI.Api
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following:
             ///
             /// - Dashboard.ReadWrite.All or Dashboard.Read.All
             /// - Report.ReadWrite.All or Report.Read.All
             /// - Dataset.ReadWrite.All or Dataset.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -830,7 +876,7 @@ namespace Microsoft.PowerBI.Api
             /// <remarks>
             ///
             /// &gt; [!IMPORTANT]
-            /// &gt; This API is only relevant to the [embed for your
+            /// &gt; This API call is only relevant to the [embed for your
             /// customers](/power-bi/developer/embed-sample-for-customers) scenario. To
             /// learn more about using this API, see [Considerations when generating an
             /// embed token](/power-bi/developer/embedded/generate-embed-token).
@@ -843,16 +889,14 @@ namespace Microsoft.PowerBI.Api
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// All of the following:
             ///
             /// - Dashboard.ReadWrite.All or Dashboard.Read.All
             /// - Report.ReadWrite.All or Report.Read.All
             /// - Dataset.ReadWrite.All or Dataset.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -889,16 +933,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -932,16 +974,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -981,23 +1021,21 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: tiles
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `tiles`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -1025,23 +1063,21 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='expand'>
-            /// Expands related entities inline, receives a comma-separated list of data
-            /// types. Supported: tiles
+            /// Accepts a comma-separated list of data types, which will be expanded inline
+            /// in the response. Supports `tiles`.
             /// </param>
             /// <param name='filter'>
             /// Filters the results, based on a boolean condition
@@ -1075,16 +1111,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1109,16 +1143,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1138,8 +1170,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified dashboard. This
-            /// is a preview API call.
+            /// Returns a list of users that have access to the specified dashboard.
             /// </summary>
             /// <remarks>
             ///
@@ -1150,16 +1181,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1173,8 +1202,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified dashboard. This
-            /// is a preview API call.
+            /// Returns a list of users that have access to the specified dashboard.
             /// </summary>
             /// <remarks>
             ///
@@ -1185,16 +1213,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1214,8 +1240,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions along with subscribees that the dashboard
-            /// subscribed to. This is a preview API call.
+            /// Returns a list of dashboard subscriptions along with subscriber details.
+            /// This is a preview API call.
             /// </summary>
             /// <remarks>
             ///
@@ -1226,16 +1252,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1249,8 +1273,8 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of subscriptions along with subscribees that the dashboard
-            /// subscribed to. This is a preview API call.
+            /// Returns a list of dashboard subscriptions along with subscriber details.
+            /// This is a preview API call.
             /// </summary>
             /// <remarks>
             ///
@@ -1261,16 +1285,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

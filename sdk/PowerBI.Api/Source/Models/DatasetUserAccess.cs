@@ -6,14 +6,13 @@
 
 namespace Microsoft.PowerBI.Api.Models
 {
-    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for a dataset
+    /// A Power BI principal access right entry for a dataset
     /// </summary>
-    public partial class DatasetUserAccess
+    public partial class DatasetUserAccess : Principal
     {
         /// <summary>
         /// Initializes a new instance of the DatasetUserAccess class.
@@ -26,20 +25,21 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasetUserAccess class.
         /// </summary>
-        /// <param name="accessRight">(Required) The access right a user has
-        /// for the dataset. Possible values include: 'Read', 'ReadReshare',
-        /// 'ReadExplore', 'ReadReshareExplore'</param>
-        /// <param name="identifier">For principal type `User`, enter *UPN*.
-        /// Otherwise provide the [object
+        /// <param name="identifier">For principal type `User`, provide the
+        /// *UPN*. Otherwise provide the [object
         /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
         /// of the principal.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        public DatasetUserAccess(DatasetUserAccessRightEntry accessRight, string identifier, PrincipalType principalType)
+        /// <param name="datasetUserAccessRight">The access rights to assign to
+        /// the user for the dataset (permission level). Possible values
+        /// include: 'None', 'Read', 'ReadWrite', 'ReadReshare',
+        /// 'ReadWriteReshare', 'ReadExplore', 'ReadReshareExplore',
+        /// 'ReadWriteExplore', 'ReadWriteReshareExplore'</param>
+        public DatasetUserAccess(string identifier, PrincipalType principalType, DatasetUserAccessRight datasetUserAccessRight)
+            : base(identifier, principalType)
         {
-            AccessRight = accessRight;
-            Identifier = identifier;
-            PrincipalType = principalType;
+            DatasetUserAccessRight = datasetUserAccessRight;
             CustomInit();
         }
 
@@ -49,41 +49,24 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets (Required) The access right a user has for the
-        /// dataset. Possible values include: 'Read', 'ReadReshare',
-        /// 'ReadExplore', 'ReadReshareExplore'
+        /// Gets or sets the access rights to assign to the user for the
+        /// dataset (permission level). Possible values include: 'None',
+        /// 'Read', 'ReadWrite', 'ReadReshare', 'ReadWriteReshare',
+        /// 'ReadExplore', 'ReadReshareExplore', 'ReadWriteExplore',
+        /// 'ReadWriteReshareExplore'
         /// </summary>
-        [JsonProperty(PropertyName = "accessRight")]
-        public DatasetUserAccessRightEntry AccessRight { get; set; }
-
-        /// <summary>
-        /// Gets or sets for principal type `User`, enter *UPN*. Otherwise
-        /// provide the [object
-        /// ID](/power-bi/developer/embedded/embedded-troubleshoot#what-is-the-difference-between-application-object-id-and-principal-object-id)
-        /// of the principal.
-        /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'None', 'User', 'Group',
-        /// 'App'
-        /// </summary>
-        [JsonProperty(PropertyName = "principalType")]
-        public PrincipalType PrincipalType { get; set; }
+        [JsonProperty(PropertyName = "datasetUserAccessRight")]
+        public DatasetUserAccessRight DatasetUserAccessRight { get; set; }
 
         /// <summary>
         /// Validate the object.
         /// </summary>
-        /// <exception cref="ValidationException">
+        /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
-            if (Identifier == null)
-            {
-                throw new ValidationException(ValidationRules.CannotBeNull, "Identifier");
-            }
+            base.Validate();
         }
     }
 }

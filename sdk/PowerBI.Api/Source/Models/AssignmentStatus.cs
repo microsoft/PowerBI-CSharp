@@ -24,22 +24,23 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Assignment request was initiated, but was not started yet
+        /// The assignment request was received, but the assignment operation
+        /// hasn't started.
         /// </summary>
         public static readonly AssignmentStatus Pending = "Pending";
 
         /// <summary>
-        /// Assignment operation is in progress
+        /// The assignment operation is in progress
         /// </summary>
         public static readonly AssignmentStatus InProgress = "InProgress";
 
         /// <summary>
-        /// Assignment operation was completed successfully
+        /// The assignment operation has completed successfully
         /// </summary>
         public static readonly AssignmentStatus CompletedSuccessfully = "CompletedSuccessfully";
 
         /// <summary>
-        /// Assignment failed
+        /// The assignment operation failed
         /// </summary>
         public static readonly AssignmentStatus AssignmentFailed = "AssignmentFailed";
 

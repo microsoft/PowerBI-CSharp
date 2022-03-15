@@ -21,12 +21,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -47,12 +45,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -79,12 +75,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -106,12 +100,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -135,12 +127,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -164,12 +154,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -199,12 +187,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported email notification options are **MailOnFailure** and
             /// **NoNotification**. **MailOnCompletion** isn't supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -233,12 +219,10 @@ namespace Microsoft.PowerBI.Api
             /// Supported email notification options are **MailOnFailure** and
             /// **NoNotification**. **MailOnCompletion** isn't supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -267,12 +251,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -293,12 +275,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -325,12 +305,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -348,12 +326,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -377,12 +353,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -403,12 +377,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -435,12 +407,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -464,12 +434,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -496,12 +464,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -522,12 +488,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All or Dataflow.Read.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -554,12 +518,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -580,12 +542,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dataflow.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -619,16 +579,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -656,16 +614,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -699,16 +655,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -742,16 +696,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -791,12 +743,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -827,12 +777,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -869,12 +817,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -899,12 +845,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -927,7 +871,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Deleted datasources will still appear in the response. This may include
+            /// Deleted data sources will still appear in the response. This may include
             /// both cloud and on-premise data gateway sources. For more information see
             /// [Dataflows considerations and
             /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).
@@ -939,12 +883,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -962,7 +904,7 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// Deleted datasources will still appear in the response. This may include
+            /// Deleted data sources will still appear in the response. This may include
             /// both cloud and on-premise data gateway sources. For more information see
             /// [Dataflows considerations and
             /// limitations](/power-bi/transform-model/dataflows/dataflows-features-limitations).
@@ -974,12 +916,10 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -999,8 +939,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified dataflow. This is
-            /// a preview API call.
+            /// Returns a list of users that have access to the specified dataflow.
             /// </summary>
             /// <remarks>
             ///
@@ -1011,16 +950,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -1034,8 +971,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified dataflow. This is
-            /// a preview API call.
+            /// Returns a list of users that have access to the specified dataflow.
             /// </summary>
             /// <remarks>
             ///
@@ -1046,16 +982,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

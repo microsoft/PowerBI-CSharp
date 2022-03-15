@@ -56,12 +56,10 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='filter'>
         /// Filters the results, based on a boolean condition
@@ -220,18 +218,18 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Create group request parameters
         /// </param>
         /// <param name='workspaceV2'>
-        /// Preview feature: Create a workspace V2. The only supported value is true.
+        /// (Preview feature) Whether to create a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces) workspace,
+        /// that is to say a **V2** workspace. The only supported value is `true`.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -392,12 +390,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID to delete
@@ -518,12 +514,10 @@ namespace Microsoft.PowerBI.Api
         /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -664,12 +658,10 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -812,12 +804,10 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -955,12 +945,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1086,24 +1074,22 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Assigns **My Workspace** to the specified capacity.
+        /// Assigns **My workspace** to the specified capacity.
         /// </summary>
         /// <remarks>
         ///
-        /// To unassign **My Workspace** from a capacity, provide an empty Guid
-        /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
+        /// To unassign **My workspace** from a capacity, provide an empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights or assign permissions on the
+        /// The user must have administrator rights or Assign permission on the
         /// capacity.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requestParameters'>
         /// Assign to capacity parameters
@@ -1236,20 +1222,18 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// To unassign **My Workspace** from a capacity, provide an empty Guid
-        /// (00000000-0000-0000-0000-000000000000) as the `capacityId`.
+        /// To unassign **My workspace** from a capacity, provide an empty GUID
+        /// (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.
         ///
         /// ## Permissions
         ///
         /// The user must have administrator rights or assign permissions on the
         /// capacity.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Capacity.ReadWrite.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1383,16 +1367,14 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the status of the **My Workspace** assignment-to-capacity operation.
+        /// Gets the status of the **My workspace** assignment-to-capacity operation.
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1528,12 +1510,10 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights or assign permissions on the
         /// capacity.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1672,15 +1652,13 @@ namespace Microsoft.PowerBI.Api
         /// workspace and the Power BI dataflow storage account must be enabled.
         ///
         /// To unassign the specified workspace from a Power BI dataflow storage
-        /// account, provide an empty GUID (00000000-0000-0000-0000-000000000000) as
+        /// account, provide an empty GUID (`00000000-0000-0000-0000-000000000000`) as
         /// the `dataflowStorageId`.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// StorageAccount.ReadWrite.All and Workspace.ReadWrite.All
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -1825,25 +1803,24 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
-        /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// Maximum 50 requests per hour, per tenant. This call will also time out
+        /// after 30 seconds to prevent adverse effect on the Power BI service.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// Returns only the first n results. This parameter is mandatory and must be
         /// in the range of 1-5000.
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of data
-        /// types. Supported: users, reports, dashboards, datasets, dataflows,
-        /// workbooks
+        /// Accepts a comma-separated list of data types, which will be expanded inline
+        /// in the response. Supports `users`, `reports`, `dashboards`, `datasets`,
+        /// `dataflows`, and `workbooks`.
         /// </param>
         /// <param name='filter'>
         /// Filters the results based on a boolean condition
@@ -2017,24 +1994,22 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
         /// </param>
         /// <param name='expand'>
-        /// Expands related entities inline, receives a comma-separated list of data
-        /// types. Supported: users, reports, dashboards, datasets, dataflows,
-        /// workbooks
+        /// Accepts a comma-separated list of data types, which will be expanded inline
+        /// in the response. Supports `users`, `reports`, `dashboards`, `datasets`,
+        /// `dataflows`, and `workbooks`.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2185,16 +2160,14 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -2324,8 +2297,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of users that have access to the specified workspace. This
-        /// is a preview API call.
+        /// Returns a list of users that have access to the specified workspace.
         /// </summary>
         /// <remarks>
         ///
@@ -2336,16 +2308,14 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -2488,16 +2458,14 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -2643,23 +2611,20 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
         /// </param>
         /// <param name='user'>
-        /// The user principal name (UPN) of the user to remove (usually the user's
-        /// email).
+        /// The user principal name (UPN) of the user to remove
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -2790,16 +2755,14 @@ namespace Microsoft.PowerBI.Api
         /// The user must have administrator rights (such as Office 365 Global
         /// Administrator or Power BI Service Administrator).
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
@@ -2934,7 +2897,7 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Returns a list of datasets, reports, and dashboards that have not been used
-        /// within 30 days for the specified workspace (Preview).
+        /// within 30 days for the specified workspace. This is a preview API call.
         /// </summary>
         /// <remarks>
         ///
@@ -2945,16 +2908,14 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID

@@ -20,16 +20,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -44,16 +42,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -74,16 +70,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -101,16 +95,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// App.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -134,16 +126,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -161,16 +151,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -194,16 +182,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -224,16 +210,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Report.ReadWrite.All or Report.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -260,16 +244,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -287,16 +269,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -320,16 +300,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -350,16 +328,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -387,16 +363,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -418,16 +392,14 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -458,16 +430,14 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -495,16 +465,14 @@ namespace Microsoft.PowerBI.Api
             /// Supported tiles include datasets and live tiles that contain an entire
             /// report page.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Dashboard.ReadWrite.All or Dashboard.Read.All
             ///
             /// ## Limitations
             ///
             /// Service principal authentication isn't supported.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -530,7 +498,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of apps in the organization. This is a preview API call.
+            /// Returns a list of apps in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -540,16 +508,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -558,13 +524,13 @@ namespace Microsoft.PowerBI.Api
             /// The requested number of entries in the refresh history. If not provided,
             /// the default is all available entries.
             /// </param>
-            public static Apps GetAppsAsAdmin(this IAppsOperations operations, int top)
+            public static AdminApps GetAppsAsAdmin(this IAppsOperations operations, int top)
             {
                 return operations.GetAppsAsAdminAsync(top).GetAwaiter().GetResult();
             }
 
             /// <summary>
-            /// Returns a list of apps in the organization. This is a preview API call.
+            /// Returns a list of apps in the organization.
             /// </summary>
             /// <remarks>
             ///
@@ -574,16 +540,14 @@ namespace Microsoft.PowerBI.Api
             ///
             /// Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -595,7 +559,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Apps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminApps> GetAppsAsAdminAsync(this IAppsOperations operations, int top, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetAppsAsAdminWithHttpMessagesAsync(top, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -604,8 +568,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified app. This is a
-            /// preview API call.
+            /// Returns a list of users that have access to the specified app.
             /// </summary>
             /// <remarks>
             ///
@@ -616,16 +579,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -639,8 +600,7 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Returns a list of users that have access to the specified app. This is a
-            /// preview API call.
+            /// Returns a list of users that have access to the specified app.
             /// </summary>
             /// <remarks>
             ///
@@ -651,16 +611,14 @@ namespace Microsoft.PowerBI.Api
             /// service principal.
             /// - Delegated permissions are supported.
             ///
-            /// ## Required scope
+            /// ## Required Scope
             ///
             /// Tenant.Read.All or Tenant.ReadWrite.All
             ///
             /// ## Limitations
             ///
             /// Maximum 200 requests per hour.
-            ///
-            /// ######
-            ///
+            /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
             /// The operations group for this extension method.

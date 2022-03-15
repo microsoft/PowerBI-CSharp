@@ -27,12 +27,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The name of the encryption key</param>
         /// <param name="keyVaultKeyIdentifier">The URI that uniquely specifies
-        /// an encryption key in Azure Key Vault.</param>
+        /// an encryption key in Azure Key Vault</param>
         /// <param name="isDefault">Whether an encryption key is the default
         /// key for the entire tenant. Any newly created capacity inherits the
         /// default key.</param>
-        /// <param name="activate">Indicates to activate any inactivated
-        /// capacities to use this key for its encryption</param>
+        /// <param name="activate">Whether to activate any inactivated
+        /// capacities and to use this key for its encryption</param>
         public TenantKeyCreationRequest(string name = default(string), string keyVaultKeyIdentifier = default(string), bool? isDefault = default(bool?), bool? activate = default(bool?))
         {
             Name = name;
@@ -55,7 +55,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the URI that uniquely specifies an encryption key in
-        /// Azure Key Vault.
+        /// Azure Key Vault
         /// </summary>
         [JsonProperty(PropertyName = "keyVaultKeyIdentifier")]
         public string KeyVaultKeyIdentifier { get; set; }
@@ -68,7 +68,7 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? IsDefault { get; set; }
 
         /// <summary>
-        /// Gets or sets indicates to activate any inactivated capacities to
+        /// Gets or sets whether to activate any inactivated capacities and to
         /// use this key for its encryption
         /// </summary>
         [JsonProperty(PropertyName = "activate")]

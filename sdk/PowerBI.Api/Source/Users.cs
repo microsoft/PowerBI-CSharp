@@ -62,16 +62,14 @@ namespace Microsoft.PowerBI.Api
         /// &gt; - Since it takes about two minutes for the permissions to get
         /// refreshed, wait for two minutes before making other API calls.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum one call per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -176,7 +174,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of artifacts that the given user have access to (Preview).
+        /// Returns a list of Power BI items (such as reports or dashboards) that the
+        /// specified user has access to.
         /// </summary>
         /// <remarks>
         ///
@@ -187,19 +186,17 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID or UPN of user
+        /// The graph ID or user principal name (UPN) of the user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set
@@ -350,8 +347,8 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Returns a list of subscriptions that the given user has subscribed to
-        /// (Preview).
+        /// Returns a list of subscriptions for the specified user. This is a preview
+        /// API call.
         /// </summary>
         /// <remarks>
         ///
@@ -362,19 +359,17 @@ namespace Microsoft.PowerBI.Api
         /// service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='userId'>
-        /// The graph ID or UPN of user
+        /// The graph ID or user principal name (UPN) of the user
         /// </param>
         /// <param name='continuationToken'>
         /// Token required to get the next chunk of the result set

@@ -11,7 +11,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// Power BI Template Apps automated install token
+    /// An automated install ticket for a Power BI template app
     /// </summary>
     public partial class InstallTicket
     {
@@ -27,10 +27,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the InstallTicket class.
         /// </summary>
         /// <param name="ticket">Install ticket</param>
-        /// <param name="ticketId">The unique ID of a ticket, which can be used
-        /// to correlate operations that use this ticket with the generate
-        /// operation through audit logs</param>
-        /// <param name="expiration">Expiration time of token. In UTC.</param>
+        /// <param name="ticketId">The unique ID of an install ticket. Audit
+        /// logs can be used to correlate operations that use this ticket with
+        /// the generate ticket operation.</param>
+        /// <param name="expiration">The expiration date and time (UTC) of the
+        /// ticket</param>
         public InstallTicket(string ticket, System.Guid ticketId, System.DateTime expiration)
         {
             Ticket = ticket;
@@ -51,15 +52,15 @@ namespace Microsoft.PowerBI.Api.Models
         public string Ticket { get; set; }
 
         /// <summary>
-        /// Gets or sets the unique ID of a ticket, which can be used to
-        /// correlate operations that use this ticket with the generate
-        /// operation through audit logs
+        /// Gets or sets the unique ID of an install ticket. Audit logs can be
+        /// used to correlate operations that use this ticket with the generate
+        /// ticket operation.
         /// </summary>
         [JsonProperty(PropertyName = "ticketId")]
         public System.Guid TicketId { get; set; }
 
         /// <summary>
-        /// Gets or sets expiration time of token. In UTC.
+        /// Gets or sets the expiration date and time (UTC) of the ticket
         /// </summary>
         [JsonProperty(PropertyName = "expiration")]
         public System.DateTime Expiration { get; set; }

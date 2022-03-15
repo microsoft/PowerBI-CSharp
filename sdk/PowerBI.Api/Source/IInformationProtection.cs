@@ -19,7 +19,8 @@ namespace Microsoft.PowerBI.Api
     public partial interface IInformationProtection
     {
         /// <summary>
-        /// Remove sensitivity labels from artifacts by artifact ID.
+        /// Remove sensitivity labels from Power BI items (such as reports or
+        /// dashboards) by item ID.
         /// </summary>
         /// <remarks>
         ///
@@ -34,17 +35,15 @@ namespace Microsoft.PowerBI.Api
         /// rights](/azure/information-protection/configure-usage-rights) to
         /// delete labels.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// - Maximum 25 requests per hour.
-        /// - Each request can update up to 2000 artifacts.
-        ///
-        /// ######
-        ///
+        /// - Each request can update up to 2,000 Power BI items.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='artifacts'>
         /// A composite of artifact ID lists for each type
@@ -66,7 +65,8 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<InformationProtectionChangeLabelResponse>> RemoveLabelsAsAdminWithHttpMessagesAsync(InformationProtectionArtifactsChangeLabel artifacts, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Set sensitivity labels on content in Power BI by artifact ID.
+        /// Set sensitivity labels on Power BI items (such as reports or
+        /// dashboards) by item ID.
         /// </summary>
         /// <remarks>
         ///
@@ -86,17 +86,15 @@ namespace Microsoft.PowerBI.Api
         /// rights](/azure/information-protection/configure-usage-rights) to
         /// set labels.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// - Maximum 25 requests per hour.
-        /// - Each request can update up to 2000 artifacts.
-        ///
-        /// ######
-        ///
+        /// - Each request can update up to 2,000 Power BI items.
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='informationProtectionChangeLabelDetails'>
         /// Set label details.

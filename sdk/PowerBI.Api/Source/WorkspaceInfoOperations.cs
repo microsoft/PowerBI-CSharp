@@ -48,9 +48,14 @@ namespace Microsoft.PowerBI.Api
 
         /// <summary>
         /// Initiates a call to receive metadata for the requested list of workspaces.
-        /// This is a preview API call.
         /// </summary>
         /// <remarks>
+        ///
+        /// &gt; [!IMPORTANT]
+        /// &gt; If you set the `datasetSchema` or `datasetExpressions` parameters to
+        /// `true`, you must fully enable metadata scanning in order for data to be
+        /// returned. For more information, see [Enable tenant settings for metadata
+        /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
         ///
         /// ## Permissions
         ///
@@ -58,7 +63,7 @@ namespace Microsoft.PowerBI.Api
         /// Administrator or Power BI Service Administrator) or authenticate using a
         /// service principal.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
@@ -66,27 +71,34 @@ namespace Microsoft.PowerBI.Api
         ///
         /// - Maximum 500 requests per hour.
         /// - Maximum 16 simultaneous requests.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='requiredWorkspaces'>
         /// Required workspace IDs to get info for
         /// </param>
         /// <param name='lineage'>
-        /// Whether to return lineage info (upstream dataflows, tiles, datasource IDs)​
+        /// Whether to return lineage info (upstream dataflows, tiles, data source IDs)
         /// </param>
         /// <param name='datasourceDetails'>
-        /// Whether to return datasource details​
+        /// Whether to return data source details
         /// </param>
         /// <param name='datasetSchema'>
-        /// Whether to return dataset schema (Tables, Columns and Measures)​
+        /// Whether to return dataset schema (tables, columns and measures). If you set
+        /// this parameter to `true`, you must fully enable metadata scanning in order
+        /// for data to be returned. For more information, see [Enable tenant settings
+        /// for metadata
+        /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
         /// </param>
         /// <param name='datasetExpressions'>
-        /// Whether to return dataset expressions (Dax query and Mashup)​
+        /// Whether to return dataset expressions (DAX and Mashup queries). If you set
+        /// this parameter to `true`, you must fully enable metadata scanning in order
+        /// for data to be returned. For more information, see [Enable tenant settings
+        /// for metadata
+        /// scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
         /// </param>
         /// <param name='getArtifactUsers'>
-        /// Whether to return artifact user details​ (Preview) (Permission level)
+        /// Whether to return user details for a Power BI item (such as a report or a
+        /// dashboard)
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -259,7 +271,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the scan status for the specified scan. This is a preview API call.
+        /// Gets the scan status for the specified scan.
         /// </summary>
         /// <remarks>
         ///
@@ -269,20 +281,20 @@ namespace Microsoft.PowerBI.Api
         /// Administrator or Power BI Service Administrator) or authenticate using a
         /// service principal.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 10,000 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='scanId'>
-        /// The scan ID, which is included in the response from the workspaces or
-        /// getInfo API that triggered the scan
+        /// The scan ID, which is included in the response from the workspaces or the
+        /// [Admin - WorkspaceInfo
+        /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API call that triggered the scan.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -410,7 +422,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets the scan result for the specified scan. This is a preview API call.
+        /// Gets the scan result for the specified scan.
         /// </summary>
         /// <remarks>
         ///
@@ -424,20 +436,20 @@ namespace Microsoft.PowerBI.Api
         /// Administrator or Power BI Service Administrator) or authenticate using a
         /// service principal.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 500 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='scanId'>
-        /// The scan ID, which is included in the response from the workspaces or
-        /// getInfo API that triggered the scan
+        /// The scan ID, which is included in the response from the workspaces or the
+        /// [Admin - WorkspaceInfo
+        /// PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API call that triggered the scan.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -565,8 +577,7 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
-        /// Gets a list of workspace IDs in the organization. This is a preview API
-        /// call.
+        /// Gets a list of workspace IDs in the organization.
         /// </summary>
         /// <remarks>
         ///
@@ -583,22 +594,20 @@ namespace Microsoft.PowerBI.Api
         /// Administrator or Power BI Service Administrator) or authenticate using a
         /// service principal.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 30 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='modifiedSince'>
-        /// Last modified date​ (must be in ISO 8601 compliant UTC format)
+        /// Last modified date (must be in ISO 8601 compliant UTC format)
         /// </param>
         /// <param name='excludePersonalWorkspaces'>
-        /// Whether to exclude personal workspaces​
+        /// Whether to exclude personal workspaces
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

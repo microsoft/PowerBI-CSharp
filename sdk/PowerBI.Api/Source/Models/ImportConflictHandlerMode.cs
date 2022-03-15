@@ -24,35 +24,36 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// If dataset with the same name already exists, Import operation will
-        /// create a new dataset with the same name.
+        /// If a dataset with the same name already exists, the import
+        /// operation will create a new dataset with the same name.
         /// </summary>
         public static readonly ImportConflictHandlerMode Ignore = "Ignore";
 
         /// <summary>
-        /// If dataset with the same name already exists, Import operation will
-        /// be aborted.
+        /// If a dataset with the same name already exists, the import
+        /// operation will be cancelled.
         /// </summary>
         public static readonly ImportConflictHandlerMode Abort = "Abort";
 
         /// <summary>
-        /// If dataset with the same name already exists, Import operation will
-        /// replace the existing dataset with the new one.<br/>Import operation
-        /// will fail if there is no conflict or if there are more than one
-        /// datasets with the same name.
+        /// If a dataset with the same name already exists, the import
+        /// operation will replace the existing dataset with the new one. The
+        /// import operation will fail if there's no conflict or if there's
+        /// more than one existing dataset with the same name.
         /// </summary>
         public static readonly ImportConflictHandlerMode Overwrite = "Overwrite";
 
         /// <summary>
-        /// If dataset with the same name already exists, Import operation will
-        /// replace the existing dataset with the new one.<br/>Import operation
-        /// will fail if there are more than one datasets with the same name.
+        /// If a dataset with the same name already exists, the import
+        /// operation will replace the existing dataset with the new one. The
+        /// import operation will fail if there's more than one existing
+        /// dataset with the same name.
         /// </summary>
         public static readonly ImportConflictHandlerMode CreateOrOverwrite = "CreateOrOverwrite";
 
         /// <summary>
-        /// If a dataflow with the same name already exists, Import operation
-        /// will generate a new unique name for the dataflow.
+        /// If a dataflow with the same name already exists, the import
+        /// operation will generate a new unique name for the new dataflow.
         /// </summary>
         public static readonly ImportConflictHandlerMode GenerateUniqueName = "GenerateUniqueName";
 

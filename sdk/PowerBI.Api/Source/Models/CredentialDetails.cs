@@ -38,23 +38,23 @@ namespace Microsoft.PowerBI.Api.Models
         /// the data source. Possible values include: 'Encrypted',
         /// 'NotEncrypted'</param>
         /// <param name="encryptionAlgorithm">The encryption algorithm. For a
-        /// cloud data source, specify *None*. For an on-premises data source,
-        /// specify *RSA-OAEP* and use the gateway public key. Possible values
-        /// include: 'None', 'RSA-OAEP'</param>
+        /// cloud data source, specify `None`. For an on-premises data source,
+        /// specify `RSA-OAEP` and use the gateway public key to encrypt the
+        /// credentials. Possible values include: 'None', 'RSA-OAEP'</param>
         /// <param name="privacyLevel">The privacy level, which is relevant
         /// when combining data from multiple sources. Possible values include:
         /// 'None', 'Public', 'Organizational', 'Private'</param>
-        /// <param name="useCallerAADIdentity">Use to indicate that the Azure
-        /// AD identity (OAuth2 credentials) of the API caller (which must be
-        /// the data source owner) will be used to configure data source
-        /// credentials (the owner OAuth access token). Typically, you’d either
-        /// use this flag or `useEndUserOAuth2Credentials`.</param>
-        /// <param name="useEndUserOAuth2Credentials">Use with data sources
-        /// that support [single sign-on
-        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth2
-        /// credentials) is used for connecting to the data source in
-        /// DirectQuery mode. Typically, you’d either use this flag or
+        /// <param name="useCallerAADIdentity">Whether the Azure AD identity
+        /// (OAuth 2.0 credentials) of the API caller (which must be the data
+        /// source owner) will be used to configure data source credentials
+        /// (the owner OAuth access token). Typically, you would either use
+        /// this flag or `useEndUserOAuth2Credentials`.</param>
+        /// <param name="useEndUserOAuth2Credentials">Whether the end-user
+        /// Azure AD identity (OAuth 2.0 credentials) is used when connecting
+        /// to the data source in DirectQuery mode. Use with data sources that
+        /// support [single sign-on
+        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources).
+        /// Typically, you would either use this flag or
         /// `useCallerAADIdentity`.</param>
         public CredentialDetails(string credentials, CredentialType credentialType, EncryptedConnection encryptedConnection, EncryptionAlgorithm encryptionAlgorithm, PrivacyLevel privacyLevel, bool? useCallerAADIdentity = default(bool?), bool? useEndUserOAuth2Credentials = default(bool?))
         {
@@ -100,9 +100,9 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the encryption algorithm. For a cloud data source,
-        /// specify *None*. For an on-premises data source, specify *RSA-OAEP*
-        /// and use the gateway public key. Possible values include: 'None',
-        /// 'RSA-OAEP'
+        /// specify `None`. For an on-premises data source, specify `RSA-OAEP`
+        /// and use the gateway public key to encrypt the credentials. Possible
+        /// values include: 'None', 'RSA-OAEP'
         /// </summary>
         [JsonProperty(PropertyName = "encryptionAlgorithm")]
         public EncryptionAlgorithm EncryptionAlgorithm { get; set; }
@@ -116,21 +116,22 @@ namespace Microsoft.PowerBI.Api.Models
         public PrivacyLevel PrivacyLevel { get; set; }
 
         /// <summary>
-        /// Gets or sets use to indicate that the Azure AD identity (OAuth2
-        /// credentials) of the API caller (which must be the data source
-        /// owner) will be used to configure data source credentials (the owner
-        /// OAuth access token). Typically, you’d either use this flag or
+        /// Gets or sets whether the Azure AD identity (OAuth 2.0 credentials)
+        /// of the API caller (which must be the data source owner) will be
+        /// used to configure data source credentials (the owner OAuth access
+        /// token). Typically, you would either use this flag or
         /// `useEndUserOAuth2Credentials`.
         /// </summary>
         [JsonProperty(PropertyName = "useCallerAADIdentity")]
         public bool? UseCallerAADIdentity { get; set; }
 
         /// <summary>
-        /// Gets or sets use with data sources that support [single sign-on
-        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources)
-        /// to indicate that the end-user Azure AD identity (OAuth2
-        /// credentials) is used for connecting to the data source in
-        /// DirectQuery mode. Typically, you’d either use this flag or
+        /// Gets or sets whether the end-user Azure AD identity (OAuth 2.0
+        /// credentials) is used when connecting to the data source in
+        /// DirectQuery mode. Use with data sources that support [single
+        /// sign-on
+        /// (SSO)](/power-bi/connect-data/power-bi-data-sources#single-sign-on-sso-for-directquery-sources).
+        /// Typically, you would either use this flag or
         /// `useCallerAADIdentity`.
         /// </summary>
         [JsonProperty(PropertyName = "useEndUserOAuth2Credentials")]

@@ -13,7 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A paginated report datasources update request.
+    /// A request to update the data sources of a paginated report
     /// </summary>
     public partial class UpdateRdlDatasourcesRequest
     {
@@ -30,8 +30,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the UpdateRdlDatasourcesRequest
         /// class.
         /// </summary>
-        /// <param name="updateDetails">The paginated report datasources update
-        /// details.</param>
+        /// <param name="updateDetails">The update details for the data sources
+        /// of the paginated report</param>
         public UpdateRdlDatasourcesRequest(IList<UpdateRdlDatasourceDetails> updateDetails)
         {
             UpdateDetails = updateDetails;
@@ -44,7 +44,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the paginated report datasources update details.
+        /// Gets or sets the update details for the data sources of the
+        /// paginated report
         /// </summary>
         [JsonProperty(PropertyName = "updateDetails")]
         public IList<UpdateRdlDatasourceDetails> UpdateDetails { get; set; }

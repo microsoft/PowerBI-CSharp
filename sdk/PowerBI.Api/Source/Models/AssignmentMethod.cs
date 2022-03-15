@@ -24,12 +24,12 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Specifies that the label was set as part of an automatic process.
+        /// The label was set by an automated process (default value)
         /// </summary>
         public static readonly AssignmentMethod Standard = "Standard";
 
         /// <summary>
-        /// Specifies that the label was set manually.
+        /// The label was set manually
         /// </summary>
         public static readonly AssignmentMethod Priviledged = "Priviledged";
 

@@ -12,7 +12,8 @@ namespace Microsoft.PowerBI.Api.Models
 
     /// <summary>
     /// Delegated user details. The user must be an existing user in Power BI
-    /// and Azure AAD, who has signed in to Power BI during the last 3 months.
+    /// and Azure AAD, and must have signed in to Power BI during the last
+    /// three months.
     /// </summary>
     public partial class DelegatedUser
     {
@@ -27,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DelegatedUser class.
         /// </summary>
-        /// <param name="emailAddress">Delegated user email address.</param>
+        /// <param name="emailAddress">The email address of the delegated
+        /// user</param>
         public DelegatedUser(string emailAddress)
         {
             EmailAddress = emailAddress;
@@ -40,7 +42,7 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets delegated user email address.
+        /// Gets or sets the email address of the delegated user
         /// </summary>
         [JsonProperty(PropertyName = "emailAddress")]
         public string EmailAddress { get; set; }

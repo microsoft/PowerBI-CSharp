@@ -10,9 +10,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for capacity
+    /// A Power BI user access right entry for a capacity
     /// </summary>
-    public partial class CapacityUser
+    public partial class CapacityUser : User
     {
         /// <summary>
         /// Initializes a new instance of the CapacityUser class.
@@ -25,24 +25,20 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the CapacityUser class.
         /// </summary>
-        /// <param name="capacityUserAccessRight">Access right user has on the
-        /// capacity. Possible values include: 'None', 'Assign',
-        /// 'Admin'</param>
-        /// <param name="emailAddress">Email address of the user</param>
-        /// <param name="displayName">Display name of the principal</param>
         /// <param name="identifier">Identifier of the principal</param>
-        /// <param name="graphId">Identifier of the principal in Microsoft
-        /// Graph. Only available for admin APIs.</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        public CapacityUser(CapacityUserAccessRight capacityUserAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), string graphId = default(string), PrincipalType? principalType = default(PrincipalType?))
+        /// <param name="capacityUserAccessRight">The access right that the
+        /// user has on the capacity. Possible values include: 'None',
+        /// 'Assign', 'Admin'</param>
+        /// <param name="emailAddress">Email address of the user</param>
+        /// <param name="displayName">Display name of the principal</param>
+        /// <param name="graphId">Identifier of the principal in Microsoft
+        /// Graph. Only available for admin APIs.</param>
+        public CapacityUser(string identifier, PrincipalType principalType, CapacityUserAccessRight capacityUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+            : base(identifier, principalType, emailAddress, displayName, graphId)
         {
             CapacityUserAccessRight = capacityUserAccessRight;
-            EmailAddress = emailAddress;
-            DisplayName = displayName;
-            Identifier = identifier;
-            GraphId = graphId;
-            PrincipalType = principalType;
             CustomInit();
         }
 
@@ -52,43 +48,11 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access right user has on the capacity. Possible values
-        /// include: 'None', 'Assign', 'Admin'
+        /// Gets or sets the access right that the user has on the capacity.
+        /// Possible values include: 'None', 'Assign', 'Admin'
         /// </summary>
         [JsonProperty(PropertyName = "capacityUserAccessRight")]
         public CapacityUserAccessRight CapacityUserAccessRight { get; set; }
-
-        /// <summary>
-        /// Gets or sets email address of the user
-        /// </summary>
-        [JsonProperty(PropertyName = "emailAddress")]
-        public string EmailAddress { get; set; }
-
-        /// <summary>
-        /// Gets or sets display name of the principal
-        /// </summary>
-        [JsonProperty(PropertyName = "displayName")]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or sets identifier of the principal
-        /// </summary>
-        [JsonProperty(PropertyName = "identifier")]
-        public string Identifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets identifier of the principal in Microsoft Graph. Only
-        /// available for admin APIs.
-        /// </summary>
-        [JsonProperty(PropertyName = "graphId")]
-        public string GraphId { get; set; }
-
-        /// <summary>
-        /// Gets or sets possible values include: 'None', 'User', 'Group',
-        /// 'App'
-        /// </summary>
-        [JsonProperty(PropertyName = "principalType")]
-        public PrincipalType? PrincipalType { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -96,8 +60,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <exception cref="Rest.ValidationException">
         /// Thrown if validation fails
         /// </exception>
-        public virtual void Validate()
+        public override void Validate()
         {
+            base.Validate();
         }
     }
 }

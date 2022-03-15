@@ -12,6 +12,13 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    ///
+    /// ## Required scope
+    ///
+    /// Dataset.ReadWrite.All
+    /// &lt;br&gt;&lt;br&gt;
+    /// </summary>
     public partial class UpdateDatasourcesRequest
     {
         /// <summary>

@@ -23,16 +23,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// App.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -52,16 +50,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// App.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -84,16 +80,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -116,16 +110,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -151,16 +143,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -183,16 +173,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -219,16 +207,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -258,16 +244,14 @@ namespace Microsoft.PowerBI.Api
         /// Supported tiles include datasets and live tiles that contain an
         /// entire report page.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
         ///
         /// ## Limitations
         ///
         /// Service principal authentication isn't supported.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID
@@ -292,8 +276,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<Tile>> GetTileWithHttpMessagesAsync(System.Guid appId, System.Guid dashboardId, System.Guid tileId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of apps in the organization. This is a preview API
-        /// call.
+        /// Returns a list of apps in the organization.
         /// </summary>
         /// <remarks>
         ///
@@ -303,16 +286,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not
@@ -330,10 +311,9 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Apps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AdminApps>> GetAppsAsAdminWithHttpMessagesAsync(int top, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns a list of users that have access to the specified app. This
-        /// is a preview API call.
+        /// Returns a list of users that have access to the specified app.
         /// </summary>
         /// <remarks>
         ///
@@ -344,16 +324,14 @@ namespace Microsoft.PowerBI.Api
         /// authenticate using a service principal.
         /// - Delegated permissions are supported.
         ///
-        /// ## Required scope
+        /// ## Required Scope
         ///
         /// Tenant.Read.All or Tenant.ReadWrite.All
         ///
         /// ## Limitations
         ///
         /// Maximum 200 requests per hour.
-        ///
-        /// ######
-        ///
+        /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='appId'>
         /// The app ID

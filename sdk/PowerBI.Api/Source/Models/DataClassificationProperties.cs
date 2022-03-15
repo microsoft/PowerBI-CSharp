@@ -24,8 +24,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DataClassificationProperties
         /// class.
         /// </summary>
-        /// <param name="dataClassification">The data classification tag of the
-        /// artifact</param>
+        /// <param name="dataClassification">The data classification tag of a
+        /// Power BI item (such as a report or a dashboard)</param>
         public DataClassificationProperties(string dataClassification = default(string))
         {
             DataClassification = dataClassification;
@@ -38,7 +38,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the data classification tag of the artifact
+        /// Gets or sets the data classification tag of a Power BI item (such
+        /// as a report or a dashboard)
         /// </summary>
         [JsonProperty(PropertyName = "dataClassification")]
         public string DataClassification { get; set; }

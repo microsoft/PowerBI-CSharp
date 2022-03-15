@@ -29,7 +29,7 @@ namespace Microsoft.PowerBI.Api.Models
         public static readonly EncryptionStatus Unknown = "Unknown";
 
         /// <summary>
-        /// Encryption is not supported for this dataset
+        /// Encryption isn't supported for this dataset
         /// </summary>
         public static readonly EncryptionStatus NotSupported = "NotSupported";
 

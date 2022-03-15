@@ -24,32 +24,32 @@ namespace Microsoft.PowerBI.Api.Models
         }
 
         /// <summary>
-        /// Label was not changed. Please retry.
+        /// Failed to set a new label. Please retry.
         /// </summary>
         public static readonly Status Failed = "Failed";
 
         /// <summary>
-        /// Failed to set new label. Artifact has a sensitivity label with
-        /// protection settings. Power BI could not verify if user has
-        /// sufficient usage rights to change label.
+        /// Failed to set a new label. The Power BI item has a sensitivity
+        /// label with protection settings, and Power BI was unable to verify
+        /// that the user has sufficient usage rights to change the label.
         /// </summary>
         public static readonly Status FailedToGetUsageRights = "FailedToGetUsageRights";
 
         /// <summary>
-        /// Failed to set new label. Artifact has a sensitivity label with
-        /// protection settings that the admin, or both the admin and the
-        /// delegated user, do not have sufficient usage rights to update
-        /// label.
+        /// Failed to set a new label. The Power BI item has a sensitivity
+        /// label with protection settings, and the admin user (and the
+        /// delegated user, if provided) doesn't have sufficient usage rights
+        /// to change the label.
         /// </summary>
         public static readonly Status InsufficientUsageRights = "InsufficientUsageRights";
 
         /// <summary>
-        /// Artifact ID or label was not found.
+        /// The Power BI item ID or label wasn't found
         /// </summary>
         public static readonly Status NotFound = "NotFound";
 
         /// <summary>
-        /// Label was changed on the given artifact.
+        /// The Power BI item label was changed
         /// </summary>
         public static readonly Status Succeeded = "Succeeded";
 

@@ -10,7 +10,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI user access right entry for app
+    /// A Power BI user access right entry for an app
     /// </summary>
     public partial class AppUser
     {
@@ -25,8 +25,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the AppUser class.
         /// </summary>
-        /// <param name="appUserAccessRight">Access rights user has for the
-        /// app. Possible values include: 'None', 'Read', 'ReadWrite',
+        /// <param name="appUserAccessRight">The access right that the user has
+        /// for the app. Possible values include: 'None', 'Read', 'ReadWrite',
         /// 'ReadReshare', 'ReadWriteReshare', 'ReadExplore', 'ReadCopy',
         /// 'ReadExploreCopy', 'ReadReshareExploreCopy', 'ReadReshareExplore',
         /// 'ReadWriteExplore', 'ReadWriteReshareExplore',
@@ -55,12 +55,12 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets access rights user has for the app. Possible values
-        /// include: 'None', 'Read', 'ReadWrite', 'ReadReshare',
-        /// 'ReadWriteReshare', 'ReadExplore', 'ReadCopy', 'ReadExploreCopy',
-        /// 'ReadReshareExploreCopy', 'ReadReshareExplore', 'ReadWriteExplore',
-        /// 'ReadWriteReshareExplore', 'ReadWriteExploreCopy',
-        /// 'ReadReshareCopy', 'All'
+        /// Gets or sets the access right that the user has for the app.
+        /// Possible values include: 'None', 'Read', 'ReadWrite',
+        /// 'ReadReshare', 'ReadWriteReshare', 'ReadExplore', 'ReadCopy',
+        /// 'ReadExploreCopy', 'ReadReshareExploreCopy', 'ReadReshareExplore',
+        /// 'ReadWriteExplore', 'ReadWriteReshareExplore',
+        /// 'ReadWriteExploreCopy', 'ReadReshareCopy', 'All'
         /// </summary>
         [JsonProperty(PropertyName = "appUserAccessRight")]
         public AppUserAccessRight AppUserAccessRight { get; set; }

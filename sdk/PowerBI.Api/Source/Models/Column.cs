@@ -28,18 +28,18 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="name">The column name</param>
         /// <param name="dataType">The column data type</param>
-        /// <param name="formatString">(Optional) The format of the column as
+        /// <param name="formatString">Optional. The format of the column as
         /// specified in
-        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)</param>
-        /// <param name="sortByColumn">(Optional) String name of a column in
-        /// the same table to be used to order the current column</param>
-        /// <param name="dataCategory">(Optional) String value to be used for
-        /// the data category which describes the data within this
-        /// column</param>
-        /// <param name="isHidden">(Optional) Property indicating if the column
-        /// is hidden from view. Default is false.</param>
-        /// <param name="summarizeBy">(Optional) Aggregate Function to use for
-        /// summarizing this column</param>
+        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents).</param>
+        /// <param name="sortByColumn">Optional. String name of a column in the
+        /// same table to be used to order the current column.</param>
+        /// <param name="dataCategory">Optional. The string value to be used
+        /// for the data category which describes the data within this
+        /// column.</param>
+        /// <param name="isHidden">Optional. Whether the column is hidden. The
+        /// default is `false`.</param>
+        /// <param name="summarizeBy">Optional. The aggregate function to use
+        /// for summarizing this column.</param>
         public Column(string name, string dataType, string formatString = default(string), string sortByColumn = default(string), string dataCategory = default(string), bool? isHidden = default(bool?), string summarizeBy = default(string))
         {
             Name = name;
@@ -70,36 +70,36 @@ namespace Microsoft.PowerBI.Api.Models
         public string DataType { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) The format of the column as specified in
-        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents)
+        /// Gets or sets optional. The format of the column as specified in
+        /// [FORMAT_STRING](https://docs.microsoft.com/analysis-services/multidimensional-models/mdx/mdx-cell-properties-format-string-contents).
         /// </summary>
         [JsonProperty(PropertyName = "formatString")]
         public string FormatString { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) String name of a column in the same table
-        /// to be used to order the current column
+        /// Gets or sets optional. String name of a column in the same table to
+        /// be used to order the current column.
         /// </summary>
         [JsonProperty(PropertyName = "sortByColumn")]
         public string SortByColumn { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) String value to be used for the data
-        /// category which describes the data within this column
+        /// Gets or sets optional. The string value to be used for the data
+        /// category which describes the data within this column.
         /// </summary>
         [JsonProperty(PropertyName = "dataCategory")]
         public string DataCategory { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) Property indicating if the column is hidden
-        /// from view. Default is false.
+        /// Gets or sets optional. Whether the column is hidden. The default is
+        /// `false`.
         /// </summary>
         [JsonProperty(PropertyName = "isHidden")]
         public bool? IsHidden { get; set; }
 
         /// <summary>
-        /// Gets or sets (Optional) Aggregate Function to use for summarizing
-        /// this column
+        /// Gets or sets optional. The aggregate function to use for
+        /// summarizing this column.
         /// </summary>
         [JsonProperty(PropertyName = "summarizeBy")]
         public string SummarizeBy { get; set; }
