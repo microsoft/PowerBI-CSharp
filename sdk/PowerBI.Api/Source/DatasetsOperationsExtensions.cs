@@ -319,7 +319,10 @@ namespace Microsoft.PowerBI.Api
             /// be enabled.
             /// - One query per API call.
             /// - One table request per query.
-            /// - Maximum of 100,000 table rows per query.
+            /// - Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit
+            /// first). For example if you query for 5 columns, you can get back max
+            /// 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows
+            /// (1 million divided by 20).
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
             /// and user impersonation isn't supported.
@@ -387,7 +390,10 @@ namespace Microsoft.PowerBI.Api
             /// be enabled.
             /// - One query per API call.
             /// - One table request per query.
-            /// - Maximum of 100,000 table rows per query.
+            /// - Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit
+            /// first). For example if you query for 5 columns, you can get back max
+            /// 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows
+            /// (1 million divided by 20).
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
             /// and user impersonation isn't supported.
