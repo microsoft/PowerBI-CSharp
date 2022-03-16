@@ -24,7 +24,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -44,7 +46,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -70,7 +74,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -93,7 +99,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>

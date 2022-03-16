@@ -893,7 +893,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -921,7 +923,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -952,7 +956,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -980,7 +986,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1014,7 +1022,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1042,7 +1052,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1088,7 +1100,9 @@ namespace Microsoft.PowerBI.Api
             /// - **Build** permission on the target dataset, required if the
             /// `targetModelId` parameter is used.
             ///
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1134,7 +1148,9 @@ namespace Microsoft.PowerBI.Api
             /// - **Build** permission on the target dataset, required if the
             /// `targetModelId` parameter is used.
             ///
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1181,7 +1197,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1225,7 +1243,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1267,7 +1287,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1301,7 +1323,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1352,7 +1376,9 @@ namespace Microsoft.PowerBI.Api
             /// - **Write** permission on the specified report.
             /// - **Build** permission on the target dataset.
             ///
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1397,7 +1423,9 @@ namespace Microsoft.PowerBI.Api
             /// - **Write** permission on the specified report.
             /// - **Build** permission on the target dataset.
             ///
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1432,7 +1460,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1461,7 +1491,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1496,7 +1528,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1528,7 +1562,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1566,7 +1602,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1594,7 +1632,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1633,7 +1673,9 @@ namespace Microsoft.PowerBI.Api
             /// ## Permissions
             ///
             /// - The user must be the data source owner.
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1674,7 +1716,9 @@ namespace Microsoft.PowerBI.Api
             /// ## Permissions
             ///
             /// - The user must be the data source owner.
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1714,7 +1758,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1755,7 +1801,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1802,7 +1850,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1835,7 +1885,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1874,7 +1926,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1907,7 +1961,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -1955,7 +2011,9 @@ namespace Microsoft.PowerBI.Api
             /// principal](/power-bi/developer/embed-service-principal) and [Considerations
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -2006,7 +2064,9 @@ namespace Microsoft.PowerBI.Api
             /// principal](/power-bi/developer/embed-service-principal) and [Considerations
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -2063,7 +2123,9 @@ namespace Microsoft.PowerBI.Api
             /// principal](/power-bi/developer/embed-service-principal) and [Considerations
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -2118,7 +2180,9 @@ namespace Microsoft.PowerBI.Api
             /// principal](/power-bi/developer/embed-service-principal) and [Considerations
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
-            /// - This API call can be called by a service principal profile.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -2480,7 +2544,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -2513,7 +2579,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// This API call can be called by a service principal profile.
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///

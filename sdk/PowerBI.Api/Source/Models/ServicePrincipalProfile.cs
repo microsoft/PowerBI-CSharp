@@ -10,7 +10,9 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// A Power BI service principal profile
+    /// A Power BI service principal profile. Only relevant for [Power BI
+    /// Embedded multi-tenancy
+    /// solution](/power-bi/developer/embedded/embed-multi-tenancy).
     /// </summary>
     public partial class ServicePrincipalProfile
     {
