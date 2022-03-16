@@ -36,8 +36,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public DashboardUser(string identifier, PrincipalType principalType, DashboardUserAccessRight dashboardUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
-            : base(identifier, principalType, emailAddress, displayName, graphId)
+        public DashboardUser(string identifier, PrincipalType principalType, DashboardUserAccessRight dashboardUserAccessRight, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
+            : base(identifier, principalType, emailAddress, displayName, graphId, profile)
         {
             DashboardUserAccessRight = dashboardUserAccessRight;
             CustomInit();

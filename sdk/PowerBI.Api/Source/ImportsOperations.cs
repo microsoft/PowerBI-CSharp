@@ -728,6 +728,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -896,6 +900,10 @@ namespace Microsoft.PowerBI.Api
         /// - To create a dataflow from a model.json file, set `datasetDisplayName` to
         /// *model.json*, as described in [URI
         /// parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///
@@ -1137,6 +1145,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -1290,6 +1302,10 @@ namespace Microsoft.PowerBI.Api
         /// Group](/rest/api/power-bi/imports/post-import-in-group), specifying the
         /// *shared access signature* URL in the `fileUrl` parameter of the [request
         /// body](/rest/api/power-bi/imports/post-import-in-group#request-body).
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///

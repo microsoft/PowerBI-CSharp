@@ -51,6 +51,11 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. The profile
+        /// creator must have capacity permissions.
+        ///
         /// ## Required Scope
         ///
         /// Capacity.Read.All or Capacity.ReadWrite.All

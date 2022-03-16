@@ -25,6 +25,10 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -56,6 +60,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -90,6 +98,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
@@ -115,6 +127,10 @@ namespace Microsoft.PowerBI.Api
             /// Creates a new workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -148,6 +164,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
@@ -168,6 +188,10 @@ namespace Microsoft.PowerBI.Api
             /// Deletes the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -200,6 +224,10 @@ namespace Microsoft.PowerBI.Api
             /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
             /// call.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -211,9 +239,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='groupId'>
             /// The workspace ID
             /// </param>
-            public static GroupUsers GetGroupUsers(this IGroupsOperations operations, System.Guid groupId)
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
+            public static GroupUsers GetGroupUsers(this IGroupsOperations operations, System.Guid groupId, int? top = default(int?), int? skip = default(int?))
             {
-                return operations.GetGroupUsersAsync(groupId).GetAwaiter().GetResult();
+                return operations.GetGroupUsersAsync(groupId, top, skip).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -228,6 +262,10 @@ namespace Microsoft.PowerBI.Api
             /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
             /// call.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -239,12 +277,18 @@ namespace Microsoft.PowerBI.Api
             /// <param name='groupId'>
             /// The workspace ID
             /// </param>
+            /// <param name='top'>
+            /// Returns only the first n results
+            /// </param>
+            /// <param name='skip'>
+            /// Skips the first n results
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<GroupUsers> GetGroupUsersAsync(this IGroupsOperations operations, System.Guid groupId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<GroupUsers> GetGroupUsersAsync(this IGroupsOperations operations, System.Guid groupId, int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetGroupUsersWithHttpMessagesAsync(groupId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetGroupUsersWithHttpMessagesAsync(groupId, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -260,6 +304,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -290,6 +338,10 @@ namespace Microsoft.PowerBI.Api
             /// permissions might not be immediately available through API calls. To
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -323,6 +375,10 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
@@ -352,6 +408,10 @@ namespace Microsoft.PowerBI.Api
             /// refresh user permissions, use the [Refresh User
             /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
@@ -379,6 +439,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
@@ -394,9 +458,12 @@ namespace Microsoft.PowerBI.Api
             /// The email address of the user or object ID of the service principal to
             /// delete
             /// </param>
-            public static void DeleteUserInGroup(this IGroupsOperations operations, System.Guid groupId, string user)
+            /// <param name='profileId'>
+            /// The service principal profile ID to delete
+            /// </param>
+            public static void DeleteUserInGroup(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?))
             {
-                operations.DeleteUserInGroupAsync(groupId, user).GetAwaiter().GetResult();
+                operations.DeleteUserInGroupAsync(groupId, user, profileId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -404,6 +471,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Workspace.ReadWrite.All
@@ -419,12 +490,15 @@ namespace Microsoft.PowerBI.Api
             /// The email address of the user or object ID of the service principal to
             /// delete
             /// </param>
+            /// <param name='profileId'>
+            /// The service principal profile ID to delete
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteUserInGroupAsync(this IGroupsOperations operations, System.Guid groupId, string user, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteUserInGroupAsync(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteUserInGroupWithHttpMessagesAsync(groupId, user, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteUserInGroupWithHttpMessagesAsync(groupId, user, profileId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -498,8 +572,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or assign permissions on the
+            /// - The user must have administrator rights or assign permissions on the
             /// capacity.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -530,8 +605,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or assign permissions on the
+            /// - The user must have administrator rights or assign permissions on the
             /// capacity.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -605,8 +681,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or assign permissions on the
+            /// - The user must have administrator rights or assign permissions on the
             /// capacity.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -632,8 +709,9 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have administrator rights or assign permissions on the
+            /// - The user must have administrator rights or assign permissions on the
             /// capacity.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -1153,9 +1231,12 @@ namespace Microsoft.PowerBI.Api
             /// <param name='user'>
             /// The user principal name (UPN) of the user to remove
             /// </param>
-            public static void DeleteUserAsAdmin(this IGroupsOperations operations, System.Guid groupId, string user)
+            /// <param name='profileId'>
+            /// The service principal profile ID to delete
+            /// </param>
+            public static void DeleteUserAsAdmin(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?))
             {
-                operations.DeleteUserAsAdminAsync(groupId, user).GetAwaiter().GetResult();
+                operations.DeleteUserAsAdminAsync(groupId, user, profileId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -1189,12 +1270,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='user'>
             /// The user principal name (UPN) of the user to remove
             /// </param>
+            /// <param name='profileId'>
+            /// The service principal profile ID to delete
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteUserAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string user, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteUserAsAdminAsync(this IGroupsOperations operations, System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteUserAsAdminWithHttpMessagesAsync(groupId, user, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteUserAsAdminWithHttpMessagesAsync(groupId, user, profileId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

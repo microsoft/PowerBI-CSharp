@@ -971,7 +971,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have gateway admin permissions.
+        /// - The user must have gateway admin permissions.
+        /// - This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///
@@ -1588,6 +1589,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='emailAdress'>
         /// The user's email address or the object ID of the service principal
         /// </param>
+        /// <param name='profileId'>
+        /// The service principal profile ID to delete
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -1606,7 +1610,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteDatasourceUserWithHttpMessagesAsync(System.Guid gatewayId, System.Guid datasourceId, string emailAdress, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteDatasourceUserWithHttpMessagesAsync(System.Guid gatewayId, System.Guid datasourceId, string emailAdress, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (emailAdress == null)
             {
@@ -1622,6 +1626,7 @@ namespace Microsoft.PowerBI.Api
                 tracingParameters.Add("gatewayId", gatewayId);
                 tracingParameters.Add("datasourceId", datasourceId);
                 tracingParameters.Add("emailAdress", emailAdress);
+                tracingParameters.Add("profileId", profileId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteDatasourceUser", tracingParameters);
             }
@@ -1631,6 +1636,15 @@ namespace Microsoft.PowerBI.Api
             _url = _url.Replace("{gatewayId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(gatewayId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{datasourceId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(datasourceId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{emailAdress}", System.Uri.EscapeDataString(emailAdress));
+            List<string> _queryParameters = new List<string>();
+            if (profileId != null)
+            {
+                _queryParameters.Add(string.Format("profileId={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(profileId, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

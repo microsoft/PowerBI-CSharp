@@ -2405,6 +2405,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -2425,6 +2429,10 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of datasets from the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -2522,6 +2530,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -2543,6 +2555,10 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -2571,6 +2587,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -2594,6 +2614,10 @@ namespace Microsoft.PowerBI.Api
             /// Returns the specified dataset from the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -2692,6 +2716,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -2715,6 +2743,10 @@ namespace Microsoft.PowerBI.Api
             /// Deletes the specified dataset from the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3024,6 +3056,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -3056,6 +3092,10 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3102,6 +3142,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -3143,6 +3187,10 @@ namespace Microsoft.PowerBI.Api
             /// group](/rest/api/power-bi/datasets/cancel-refresh-in-group).
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3251,6 +3299,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -3279,6 +3331,10 @@ namespace Microsoft.PowerBI.Api
             /// dataset from the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3311,6 +3367,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -3335,6 +3395,10 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3375,7 +3439,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3420,7 +3485,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3462,6 +3528,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -3488,6 +3558,10 @@ namespace Microsoft.PowerBI.Api
             /// dataset from the specified workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3529,7 +3603,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3569,7 +3644,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3603,6 +3679,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -3632,6 +3712,10 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3684,7 +3768,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3745,7 +3830,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3794,6 +3880,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All or Dataset.Read.All
@@ -3817,6 +3907,10 @@ namespace Microsoft.PowerBI.Api
             /// workspace.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -3865,7 +3959,12 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
+            ///
+            /// ## Required Scope
+            ///
+            /// Dataset.ReadWrite.All
             ///
             /// ## Limitations
             ///
@@ -3887,10 +3986,6 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.
-            ///
-            /// ## Required Scope
-            ///
-            /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -3931,7 +4026,12 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must be the dataset owner.
+            /// - The user must be the dataset owner.
+            /// - This API call can be called by a service principal profile.
+            ///
+            /// ## Required Scope
+            ///
+            /// Dataset.ReadWrite.All
             ///
             /// ## Limitations
             ///
@@ -3953,10 +4053,6 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.
-            ///
-            /// ## Required Scope
-            ///
-            /// Dataset.ReadWrite.All
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4085,6 +4181,10 @@ namespace Microsoft.PowerBI.Api
             /// &gt; [!IMPORTANT]
             /// &gt; Add the API caller principal as a data source user on the gateway.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -4121,6 +4221,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// &gt; [!IMPORTANT]
             /// &gt; Add the API caller principal as a data source user on the gateway.
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -4225,6 +4329,10 @@ namespace Microsoft.PowerBI.Api
             /// on-premises connection. For datasets with cloud-only connections, this API
             /// call returns an empty list.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.Read.All
@@ -4253,6 +4361,10 @@ namespace Microsoft.PowerBI.Api
             /// This API call is only relevant to datasets that have at least one
             /// on-premises connection. For datasets with cloud-only connections, this API
             /// call returns an empty list.
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -4285,6 +4397,10 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
+            ///
             /// ## Required Scope
             ///
             /// Dataset.ReadWrite.All
@@ -4309,6 +4425,10 @@ namespace Microsoft.PowerBI.Api
             /// user.
             /// </summary>
             /// <remarks>
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -4350,11 +4470,12 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// When using a service principal for authentication, refer to [Embed Power BI
-            /// content with service
+            /// - When using a service principal for authentication, refer to [Embed Power
+            /// BI content with service
             /// principal](/power-bi/developer/embed-service-principal) and [Considerations
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///
@@ -4396,11 +4517,12 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// When using a service principal for authentication, refer to [Embed Power BI
-            /// content with service
+            /// - When using a service principal for authentication, refer to [Embed Power
+            /// BI content with service
             /// principal](/power-bi/developer/embed-service-principal) and [Considerations
             /// and
             /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+            /// - This API call can be called by a service principal profile.
             ///
             /// ## Required Scope
             ///

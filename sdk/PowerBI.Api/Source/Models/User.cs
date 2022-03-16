@@ -33,13 +33,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public User(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
+        public User(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
         {
             EmailAddress = emailAddress;
             DisplayName = displayName;
             Identifier = identifier;
             GraphId = graphId;
             PrincipalType = principalType;
+            Profile = profile;
             CustomInit();
         }
 
@@ -81,6 +82,11 @@ namespace Microsoft.PowerBI.Api.Models
         public PrincipalType PrincipalType { get; set; }
 
         /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "profile")]
+        public ServicePrincipalProfile Profile { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -91,6 +97,10 @@ namespace Microsoft.PowerBI.Api.Models
             if (Identifier == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "Identifier");
+            }
+            if (Profile != null)
+            {
+                Profile.Validate();
             }
         }
     }

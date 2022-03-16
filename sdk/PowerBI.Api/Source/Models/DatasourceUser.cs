@@ -35,13 +35,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// of the principal</param>
         /// <param name="principalType">Possible values include: 'None',
         /// 'User', 'Group', 'App'</param>
-        public DatasourceUser(DatasourceUserAccessRight datasourceAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), PrincipalType? principalType = default(PrincipalType?))
+        public DatasourceUser(DatasourceUserAccessRight datasourceAccessRight, string emailAddress = default(string), string displayName = default(string), string identifier = default(string), PrincipalType? principalType = default(PrincipalType?), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
         {
             DatasourceAccessRight = datasourceAccessRight;
             EmailAddress = emailAddress;
             DisplayName = displayName;
             Identifier = identifier;
             PrincipalType = principalType;
+            Profile = profile;
             CustomInit();
         }
 
@@ -86,6 +87,11 @@ namespace Microsoft.PowerBI.Api.Models
         public PrincipalType? PrincipalType { get; set; }
 
         /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "profile")]
+        public ServicePrincipalProfile Profile { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="Rest.ValidationException">
@@ -93,6 +99,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// </exception>
         public virtual void Validate()
         {
+            if (Profile != null)
+            {
+                Profile.Validate();
+            }
         }
     }
 }

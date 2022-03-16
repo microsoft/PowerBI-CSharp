@@ -299,7 +299,9 @@ namespace Microsoft.PowerBI.Api
 
             await UploadFileToBlob(temporaryUploadLocation.Url, file, cancellationToken);
 
-            using (var powerBIClient = new PowerBIClient(Client.BaseUri, Client.Credentials))
+            string profileObjectId = Client.GetServicePrincipalProfileObjectId();
+            using (var powerBIClient = profileObjectId == null ? new PowerBIClient(Client.BaseUri, Client.Credentials) :
+                new PowerBIClient(Client.BaseUri, Client.Credentials, Guid.Parse(profileObjectId)))
             {
                 powerBIClient.HttpClient.Timeout = new TimeSpan(hours: 0, minutes: PostImportTimeoutInMinutes, seconds: 0);
 

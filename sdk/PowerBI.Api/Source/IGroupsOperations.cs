@@ -29,6 +29,10 @@ namespace Microsoft.PowerBI.Api
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -60,6 +64,10 @@ namespace Microsoft.PowerBI.Api
         /// Creates a new workspace.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///
@@ -96,6 +104,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
@@ -128,6 +140,10 @@ namespace Microsoft.PowerBI.Api
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -135,6 +151,12 @@ namespace Microsoft.PowerBI.Api
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -148,7 +170,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<GroupUsers>> GetGroupUsersWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<GroupUsers>> GetGroupUsersWithHttpMessagesAsync(System.Guid groupId, int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Grants the specified user the specified permissions to the
         /// specified workspace.
@@ -160,6 +182,10 @@ namespace Microsoft.PowerBI.Api
         /// calls. To refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///
@@ -196,6 +222,10 @@ namespace Microsoft.PowerBI.Api
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
@@ -226,6 +256,10 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile.
+        ///
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
@@ -237,6 +271,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='user'>
         /// The email address of the user or object ID of the service principal
         /// to delete
+        /// </param>
+        /// <param name='profileId'>
+        /// The service principal profile ID to delete
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -250,7 +287,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteUserInGroupWithHttpMessagesAsync(System.Guid groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteUserInGroupWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Assigns **My workspace** to the specified capacity.
         /// </summary>
@@ -295,8 +332,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights or assign permissions on
+        /// - The user must have administrator rights or assign permissions on
         /// the capacity.
+        /// - This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///
@@ -354,8 +392,9 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights or assign permissions on
+        /// - The user must have administrator rights or assign permissions on
         /// the capacity.
+        /// - This API call can be called by a service principal profile.
         ///
         /// ## Required Scope
         ///
@@ -660,6 +699,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='user'>
         /// The user principal name (UPN) of the user to remove
         /// </param>
+        /// <param name='profileId'>
+        /// The service principal profile ID to delete
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -672,7 +714,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Restores a deleted workspace.
         /// </summary>
