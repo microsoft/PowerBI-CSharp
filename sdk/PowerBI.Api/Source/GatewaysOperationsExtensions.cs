@@ -462,7 +462,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have gateway admin permissions.
+            /// - The user must have gateway admin permissions.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -520,7 +523,10 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Permissions
             ///
-            /// The user must have gateway admin permissions.
+            /// - The user must have gateway admin permissions.
+            /// - This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
@@ -811,9 +817,12 @@ namespace Microsoft.PowerBI.Api
             /// <param name='emailAdress'>
             /// The user's email address or the object ID of the service principal
             /// </param>
-            public static void DeleteDatasourceUser(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, string emailAdress)
+            /// <param name='profileId'>
+            /// The service principal profile ID to delete
+            /// </param>
+            public static void DeleteDatasourceUser(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, string emailAdress, System.Guid? profileId = default(System.Guid?))
             {
-                operations.DeleteDatasourceUserAsync(gatewayId, datasourceId, emailAdress).GetAwaiter().GetResult();
+                operations.DeleteDatasourceUserAsync(gatewayId, datasourceId, emailAdress, profileId).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -848,12 +857,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='emailAdress'>
             /// The user's email address or the object ID of the service principal
             /// </param>
+            /// <param name='profileId'>
+            /// The service principal profile ID to delete
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteDatasourceUserAsync(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, string emailAdress, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteDatasourceUserAsync(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, string emailAdress, System.Guid? profileId = default(System.Guid?), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteDatasourceUserWithHttpMessagesAsync(gatewayId, datasourceId, emailAdress, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteDatasourceUserWithHttpMessagesAsync(gatewayId, datasourceId, emailAdress, profileId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

@@ -73,6 +73,9 @@ namespace Microsoft.PowerBI.Api
         /// - For PowerBI reports with a paginated visual, include the paginated report
         /// ID in the API call. For more information, see
         /// [example](/rest/api/power-bi/embed-token/generate-token#examples).
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///

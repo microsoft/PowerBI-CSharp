@@ -31,8 +31,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public SubscriptionUser(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string))
-            : base(identifier, principalType, emailAddress, displayName, graphId)
+        public SubscriptionUser(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
+            : base(identifier, principalType, emailAddress, displayName, graphId, profile)
         {
             CustomInit();
         }

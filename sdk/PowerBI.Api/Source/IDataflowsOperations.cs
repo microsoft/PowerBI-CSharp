@@ -24,6 +24,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
@@ -53,6 +59,12 @@ namespace Microsoft.PowerBI.Api
         /// definition file and model.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -115,6 +127,12 @@ namespace Microsoft.PowerBI.Api
         /// Supported email notification options are **MailOnFailure** and
         /// **NoNotification**. **MailOnCompletion** isn't supported.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All
@@ -146,6 +164,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
@@ -175,6 +199,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Dataflow.ReadWrite.All or Dataflow.Read.All
@@ -200,6 +230,12 @@ namespace Microsoft.PowerBI.Api
         /// Returns a list of upstream dataflows for the specified dataflow.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -229,6 +265,12 @@ namespace Microsoft.PowerBI.Api
         /// Creates or updates the refresh schedule for a specified dataflow.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///

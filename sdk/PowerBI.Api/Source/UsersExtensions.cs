@@ -31,6 +31,12 @@ namespace Microsoft.PowerBI.Api
             /// &gt; - Since it takes about two minutes for the permissions to get
             /// refreshed, wait for two minutes before making other API calls.
             ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+            ///
             /// ## Required Scope
             ///
             /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -63,6 +69,12 @@ namespace Microsoft.PowerBI.Api
             /// &gt; - Call **Refresh User Permissions** before making other API calls.
             /// &gt; - Since it takes about two minutes for the permissions to get
             /// refreshed, wait for two minutes before making other API calls.
+            ///
+            /// ## Permissions
+            ///
+            /// This API call can be called by a service principal profile. For more
+            /// information see: [Service principal profiles in Power BI
+            /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
             ///
             /// ## Required Scope
             ///
