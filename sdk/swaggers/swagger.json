@@ -329,7 +329,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace. This is a preview API call.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 table rows per query.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) and user impersonation isn't supported. \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) and user impersonation isn't supported. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -2454,7 +2454,7 @@
                     "Users"
                 ],
                 "summary": "Refreshes user permissions in Power BI.",
-                "description": "\nWhen a user is granted permissions to a workspace, app, or Power BI item (such as a report or a dashboard), the new permissions might not be immediately available through API calls. This operation refreshes user permissions to ensure they're fully updated.\n\n> [!IMPORTANT]\n>\n> - Call **Refresh User Permissions** before making other API calls.\n> - Since it takes about two minutes for the permissions to get refreshed, wait for two minutes before making other API calls.\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\nMaximum one call per hour.\n<br><br>",
+                "description": "\nWhen a user is granted permissions to a workspace, app, or Power BI item (such as a report or a dashboard), the new permissions might not be immediately available through API calls. This operation refreshes user permissions to ensure they're fully updated.\n\n> [!IMPORTANT]\n>\n> - Call **Refresh User Permissions** before making other API calls.\n> - Since it takes about two minutes for the permissions to get refreshed, wait for two minutes before making other API calls.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n\n## Limitations\n\nMaximum one call per hour.\n<br><br>",
                 "operationId": "Users_RefreshUserPermissions",
                 "consumes": [],
                 "produces": [],
@@ -3864,7 +3864,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of datasets from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetsInGroup",
                 "consumes": [],
                 "produces": [
@@ -4048,7 +4048,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of upstream dataflows for datasets from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetToDataflowsLinksInGroup",
                 "consumes": [],
                 "produces": [
@@ -4081,7 +4081,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasetInGroup",
                 "consumes": [],
                 "produces": [
@@ -4212,7 +4212,7 @@
                     "Datasets"
                 ],
                 "summary": "Deletes the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_DeleteDatasetInGroup",
                 "consumes": [],
                 "produces": [],
@@ -4537,7 +4537,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh history for the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nOneDrive refresh history isn't returned.\n<br><br>",
                 "operationId": "Datasets_GetRefreshHistoryInGroup",
                 "consumes": [],
                 "produces": [
@@ -4650,7 +4650,7 @@
                     "Datasets"
                 ],
                 "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has a response header, `Location`, which includes the `refreshId` and could be used to [get refresh execution details in group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group) or [cancel refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group).",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -4941,7 +4941,7 @@
                     "Datasets"
                 ],
                 "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefreshInGroup",
                 "consumes": [],
                 "produces": [],
@@ -4997,7 +4997,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh schedule for the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshScheduleInGroup",
                 "consumes": [],
                 "produces": [
@@ -5063,7 +5063,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the refresh schedule for the specified dataset from the specified workspace.",
-                "description": "\nA request that disables the refresh schedule should contain no other changes.\n\nAt least one day must be specified. If no times are specified, then Power BI will use a default single time per day.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThe limit on the number of time slots per day depends on whether a [Premium](/power-bi/admin/service-premium-what-is) or Shared capacity is used.\n<br><br>",
+                "description": "\nA request that disables the refresh schedule should contain no other changes.\n\nAt least one day must be specified. If no times are specified, then Power BI will use a default single time per day.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThe limit on the number of time slots per day depends on whether a [Premium](/power-bi/admin/service-premium-what-is) or Shared capacity is used.\n<br><br>",
                 "operationId": "Datasets_UpdateRefreshScheduleInGroup",
                 "consumes": [
                     "application/json"
@@ -5182,7 +5182,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns the refresh schedule for a specified [DirectQuery](/power-bi/connect-data/desktop-directquery-about) or [LiveConnection](/power-bi/connect-data/desktop-directquery-about#live-connections) dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDirectQueryRefreshScheduleInGroup",
                 "consumes": [],
                 "produces": [
@@ -5262,7 +5262,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the refresh schedule for a specified [DirectQuery](/power-bi/connect-data/desktop-directquery-about) or [LiveConnection](/power-bi/connect-data/desktop-directquery-about#live-connections) dataset from the specified workspace.",
-                "description": "\nA request should contain either a set of days and times *or* a valid frequency, but not both. If you choose a set of days without specifying any times, then Power BI will use a default single time per day. Setting the frequency will automatically overwrite the days and times setting.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\nA request should contain either a set of days and times *or* a valid frequency, but not both. If you choose a set of days without specifying any times, then Power BI will use a default single time per day. Setting the frequency will automatically overwrite the days and times setting.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_UpdateDirectQueryRefreshScheduleInGroup",
                 "consumes": [
                     "application/json"
@@ -5368,7 +5368,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParametersInGroup",
                 "consumes": [],
                 "produces": [
@@ -5459,7 +5459,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the parameters values for the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - If you're using **enhanced dataset metadata**, refresh the dataset to apply the new parameter values.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections are only supported with [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- Datasets with Azure Analysis Services live connections aren't supported.\n- Maximum of 100 parameters per request.\n- All specified parameters must exist in the dataset.\n- Parameters values should be of the expected type.\n- The parameter list can't be empty or include duplicate parameters.\n- Parameters names are case-sensitive.\n- Parameter `IsRequired` must have a non-empty value.\n- The parameter types `Any` and `Binary` can't be updated.\n<br><br>",
                 "operationId": "Datasets_UpdateParametersInGroup",
                 "consumes": [
                     "application/json"
@@ -5526,7 +5526,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of data sources for the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetDatasourcesInGroup",
                 "consumes": [],
                 "produces": [
@@ -5623,7 +5623,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the data sources of the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that reference multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n> [!NOTE]\n> We recommend using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata) with this API call.\n\n> [!IMPORTANT]\n>\n> - The original data source and the new data source must have the exact same schema.\n> - If you're using **enhanced dataset metadata**, refresh the dataset to get data from the new data sources.\n> - If you're not using **enhanced dataset metadata**, wait 30 minutes for the update data sources operation to complete, and then refresh the dataset.\n\n## Permissions\n\n- The user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Datasets created using the public [XMLA endpoint](/power-bi/admin/service-premium-connect-tools) aren't supported. To make changes to those data sources, the admin must use the Azure Analysis Services client library for Tabular Object Model.\n- Only these data sources are supported: SQL Server, Azure SQL Server, Azure Analysis Services, Azure Synapse, OData, SharePoint, Teradata, and SAP HANA. For other data sources, use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n- Changing the data source type isn't supported.\n- Data sources that contain parameters in the connection string aren't supported.\n- Updating data sources that are part of merged or joined tables is only supported if you're using [enhanced dataset metadata](/power-bi/connect-data/desktop-enhanced-dataset-metadata).\n- For an Advanced Query that reference multiple data sources, only the first data source will be updated. To overcome this limitation, define the data source as a parameter and use the [Update Parameters In Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.\n<br><br>",
                 "operationId": "Datasets_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -5766,7 +5766,7 @@
                     "Datasets"
                 ],
                 "summary": "Binds the specified dataset from the specified workspace to the specified gateway, optionally with a given set of data source IDs. If you don't supply a specific data source ID, the dataset will be bound to the first matching data source in the gateway.",
-                "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> Add the API caller principal as a data source user on the gateway.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nOnly supports the on-premises data gateway\n<br><br>",
                 "operationId": "Datasets_BindToGatewayInGroup",
                 "consumes": [
                     "application/json"
@@ -5904,7 +5904,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of gateways that the specified dataset from the specified workspace can be bound to.",
-                "description": "\nThis API call is only relevant to datasets that have at least one on-premises connection. For datasets with cloud-only connections, this API call returns an empty list.\n\n## Required Scope\n\nDataset.Read.All\n<br><br>",
+                "description": "\nThis API call is only relevant to datasets that have at least one on-premises connection. For datasets with cloud-only connections, this API call returns an empty list.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.Read.All\n<br><br>",
                 "operationId": "Datasets_DiscoverGatewaysInGroup",
                 "consumes": [],
                 "produces": [
@@ -5969,7 +5969,7 @@
                     "Datasets"
                 ],
                 "summary": "Transfers ownership over the specified dataset to the current authorized user.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_TakeOverInGroup",
                 "consumes": [],
                 "produces": [],
@@ -6015,7 +6015,7 @@
                     "Imports"
                 ],
                 "summary": "Returns a list of imports from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nImporting Power BI .pbix files from OneDrive isn't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nImporting Power BI .pbix files from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_GetImportsInGroup",
                 "consumes": [],
                 "produces": [
@@ -6085,7 +6085,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in the specified workspace.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n<br><br>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -6269,7 +6269,7 @@
                     "Imports"
                 ],
                 "summary": "Returns the specified import from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Imports_GetImportInGroup",
                 "consumes": [],
                 "produces": [
@@ -6367,7 +6367,7 @@
                     "Imports"
                 ],
                 "summary": "Creates a temporary blob storage upload location for importing large Power BI .pbix files that are between 1 GB and 10 GB in size.",
-                "description": "\nTo import large Power BI .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the Power BI .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import-in-group), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import-in-group#request-body).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large Power BI .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
+                "description": "\nTo import large Power BI .pbix files:\n\n1. Create a temporary upload location using this API call.\n1. Upload the Power BI .pbix files using the *shared access signature* URL from the API call response.\n1. Call [Post Import In Group](/rest/api/power-bi/imports/post-import-in-group), specifying the *shared access signature* URL in the `fileUrl` parameter of the [request body](/rest/api/power-bi/imports/post-import-in-group#request-body).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nImporting large Power BI .pbix files between 1 GB and 10 GB in size is only available for Premium capacity workspaces.\n<br><br>",
                 "operationId": "Imports_CreateTemporaryUploadLocationInGroup",
                 "consumes": [],
                 "produces": [
@@ -6400,7 +6400,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of reports from the specified workspace.",
-                "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReportsInGroup",
                 "consumes": [],
                 "produces": [
@@ -6455,7 +6455,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the specified report from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReportInGroup",
                 "produces": [
                     "application/json"
@@ -6512,7 +6512,7 @@
                     "Reports"
                 ],
                 "summary": "Deletes the specified report from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_DeleteReportInGroup",
                 "consumes": [],
                 "produces": [],
@@ -6559,7 +6559,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from the specified workspace.",
-                "description": "\n- If the dataset for a cloned report resides in two different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following, unless a requirement doesn't apply:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n## Required Scope\n\nContent.Create\n<br><br>",
+                "description": "\n- If the dataset for a cloned report resides in two different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following, unless a requirement doesn't apply:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nContent.Create\n<br><br>",
                 "operationId": "Reports_CloneReportInGroup",
                 "consumes": [
                     "application/json"
@@ -6611,7 +6611,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a Power BI .pbix file.",
-                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -6652,7 +6652,7 @@
                     "Reports"
                 ],
                 "summary": "Updates the content of the specified report from the specified workspace with the content of a specified source report.",
-                "description": "\nSpecify the source report in the request body.\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
+                "description": "\nSpecify the source report in the request body.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_UpdateReportContentInGroup",
                 "consumes": [
                     "application/json"
@@ -6722,7 +6722,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from the specified workspace to the specified dataset.",
-                "description": "\n- If the specified dataset resides in a different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace from the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset.\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
+                "description": "\n- If the specified dataset resides in a different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace from the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"
@@ -6769,7 +6769,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of pages within the specified report from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetPagesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6836,7 +6836,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the specified page within the specified report from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetPageInGroup",
                 "consumes": [],
                 "produces": [
@@ -6902,7 +6902,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of data sources for the specified paginated report (RDL) from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetDatasourcesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6967,7 +6967,7 @@
                     "Reports"
                 ],
                 "summary": "Updates the data sources of the specified paginated report (RDL) from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\nThe user must be the data source owner.\n\n## Required Scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> Both the original data source and the new data source must have the exact same schema.\n\n## Permissions\n\n- The user must be the data source owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReports.ReadWrite.All\n\n## Limitations\n\n- Only supports paginated reports.\n- Changing the data source type isn't supported.\n<br><br>",
                 "operationId": "Reports_UpdateDatasourcesInGroup",
                 "consumes": [
                     "application/json"
@@ -7042,7 +7042,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested [file format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).",
-                "description": "\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations).\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations).\n<br><br>",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -7094,7 +7094,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the current status of the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetExportToFileStatusInGroup",
                 "consumes": [],
                 "produces": [
@@ -7148,7 +7148,7 @@
                     "Reports"
                 ],
                 "summary": "Returns the file from the [Export to File In Group](/rest/api/power-bi/reports/export-to-file-in-group) job for the specified report from the specified workspace.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetFileOfExportToFileInGroup",
                 "consumes": [],
                 "produces": [
@@ -7200,7 +7200,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of dashboards from the specified workspace.",
-                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboardsInGroup",
                 "consumes": [],
                 "produces": [
@@ -7252,7 +7252,7 @@
                     "Dashboards"
                 ],
                 "summary": "Creates a new empty dashboard in the specified workspace.",
-                "description": "\n## Required Scope\n\nContent.Create\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nContent.Create\n<br><br>",
                 "operationId": "Dashboards_AddDashboardInGroup",
                 "consumes": [
                     "application/json"
@@ -7316,7 +7316,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified dashboard from the specified workspace.",
-                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboardInGroup",
                 "consumes": [
                     "application/json"
@@ -7375,7 +7375,7 @@
                     "Dashboards"
                 ],
                 "summary": "Deletes the specified dashboard from the specified workspace.",
-                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
                 "operationId": "Dashboards_DeleteDashboardInGroup",
                 "consumes": [],
                 "produces": [],
@@ -7422,7 +7422,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of tiles within the specified dashboard from the specified workspace.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetTilesInGroup",
                 "consumes": [
                     "application/json"
@@ -7490,7 +7490,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns the specified tile within the specified dashboard from the specified workspace.",
-                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nSupported tiles include datasets and live tiles that contain an entire report page.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetTileInGroup",
                 "consumes": [
                     "application/json"
@@ -7562,7 +7562,7 @@
                     "Dashboards"
                 ],
                 "summary": "Clones the specified tile from the specified workspace.",
-                "description": "\nWhen a tile is cloned to another workspace and bound to another report and dataset, it's cloned as is with its underlying query containing the original report filters.\n\nIf the target report ID and target dataset are missing, the following can occur:\n- If you're cloning a tile within the same workspace, the report and dataset links will be cloned from the source tile.\n- If you're cloning a tile within a different workspace, report and dataset links will be removed, and the tile will be broken.\n\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
+                "description": "\nWhen a tile is cloned to another workspace and bound to another report and dataset, it's cloned as is with its underlying query containing the original report filters.\n\nIf the target report ID and target dataset are missing, the following can occur:\n- If you're cloning a tile within the same workspace, the report and dataset links will be cloned from the source tile.\n- If you're cloning a tile within a different workspace, report and dataset links will be removed, and the tile will be broken.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDashboard.ReadWrite.All\n<br><br>",
                 "operationId": "Dashboards_CloneTileInGroup",
                 "consumes": [
                     "application/json"
@@ -7622,7 +7622,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to allow report creation in the specified workspace based on the specified dataset.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Content.Create\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report) api call.\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Content.Create\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report) api call.\n<br><br>",
                 "operationId": "Reports_GenerateTokenForCreateInGroup",
                 "consumes": [
                     "application/json"
@@ -7715,7 +7715,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view or edit the specified report from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n- Content.Create, required if the `allowSaveAs` flag is specified in [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n- Content.Create, required if the `allowSaveAs` flag is specified in [GenerateTokenRequest](/rest/api/power-bi/embed-token/reports-generate-token-for-create-in-group#generatetokenrequest)\n\n## Limitations\n\nFor Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security may not work for several minutes after a [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -7960,7 +7960,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token based on the specified dataset from the specified workspace.",
-                "description": "\n> [!NOTE]\n> An embed token can be used to [embed Q&A](/power-bi/developer/qanda) within your application.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!NOTE]\n> An embed token can be used to [embed Q&A](/power-bi/developer/qanda) within your application.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8031,7 +8031,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified dashboard from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Dashboards_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8151,7 +8151,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token to view the specified tile from the specified workspace.",
-                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\nWhen using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
+                "description": "\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Dashboard.ReadWrite.All or Dashboard.Read.All\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Tiles_GenerateTokenInGroup",
                 "consumes": [
                     "application/json"
@@ -8777,7 +8777,7 @@
                     "Dataflows"
                 ],
                 "summary": "Exports the specified dataflow definition to a JSON file.",
-                "description": "\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
                 "operationId": "Dataflows_GetDataflow",
                 "consumes": [],
                 "produces": [
@@ -8816,7 +8816,7 @@
                     "Dataflows"
                 ],
                 "summary": "Deletes a dataflow from Power BI data prep storage, including its definition file and model.",
-                "description": "\n## Required Scope\n\nDataflow.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All\n<br><br>",
                 "operationId": "Dataflows_DeleteDataflow",
                 "consumes": [],
                 "produces": [],
@@ -8927,7 +8927,7 @@
                     "Dataflows"
                 ],
                 "summary": "Triggers a refresh for the specified dataflow.",
-                "description": "\nSupported email notification options are **MailOnFailure** and **NoNotification**. **MailOnCompletion** isn't supported.\n\n## Required Scope\n\nDataflow.ReadWrite.All\n<br><br>",
+                "description": "\nSupported email notification options are **MailOnFailure** and **NoNotification**. **MailOnCompletion** isn't supported.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All\n<br><br>",
                 "operationId": "Dataflows_RefreshDataflow",
                 "consumes": [
                     "application/json"
@@ -9000,7 +9000,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of data sources for the specified dataflow.",
-                "description": "\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
                 "operationId": "Dataflows_GetDataflowDataSources",
                 "consumes": [],
                 "produces": [
@@ -9074,7 +9074,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of all dataflows from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
                 "operationId": "Dataflows_GetDataflows",
                 "consumes": [],
                 "produces": [
@@ -9128,7 +9128,7 @@
                     "Dataflows"
                 ],
                 "summary": "Returns a list of upstream dataflows for the specified dataflow.",
-                "description": "\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All or Dataflow.Read.All\n<br><br>",
                 "operationId": "Dataflows_GetUpstreamDataflowsInGroup",
                 "consumes": [],
                 "produces": [
@@ -9169,7 +9169,7 @@
                     "Dataflows"
                 ],
                 "summary": "Creates or updates the refresh schedule for a specified dataflow.",
-                "description": "\n## Required Scope\n\nDataflow.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataflow.ReadWrite.All\n<br><br>",
                 "operationId": "Dataflows_UpdateRefreshSchedule",
                 "consumes": [
                     "application/json"
@@ -9755,7 +9755,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified data source from the specified gateway.",
-                "description": "\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\n\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\n\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\n- The user must have gateway admin permissions.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -10124,6 +10124,14 @@
                         "description": "The user's email address or the object ID of the service principal",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "name": "profileId",
+                        "in": "query",
+                        "description": "The service principal profile ID to delete",
+                        "required": false,
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
                 "responses": {
@@ -10152,7 +10160,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of workspaces the user has access to.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_GetGroups",
                 "consumes": [],
                 "produces": [
@@ -10252,7 +10260,7 @@
                     "Groups"
                 ],
                 "summary": "Creates a new workspace.",
-                "description": "\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_CreateGroup",
                 "consumes": [
                     "application/json"
@@ -10335,7 +10343,7 @@
                     "Groups"
                 ],
                 "summary": "Deletes the specified workspace.",
-                "description": "\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_DeleteGroup",
                 "consumes": [],
                 "produces": [],
@@ -10373,7 +10381,7 @@
                     "Groups"
                 ],
                 "summary": "Returns a list of users that have access to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. As a result, this API call might return an HTTP 401 error when a user has permissions to a workspace. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. As a result, this API call might return an HTTP 401 error when a user has permissions to a workspace. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All or Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_GetGroupUsers",
                 "consumes": [],
                 "produces": [
@@ -10387,6 +10395,22 @@
                         "required": true,
                         "type": "string",
                         "format": "uuid"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
                     }
                 ],
                 "responses": {
@@ -10437,7 +10461,7 @@
                     "Groups"
                 ],
                 "summary": "Grants the specified user the specified permissions to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_AddGroupUser",
                 "consumes": [
                     "application/json"
@@ -10501,7 +10525,7 @@
                     "Groups"
                 ],
                 "summary": "Updates the specified user permissions to the specified workspace.",
-                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\nWhen user permissions to a workspace have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_UpdateGroupUser",
                 "consumes": [
                     "application/json"
@@ -10567,7 +10591,7 @@
                     "Groups"
                 ],
                 "summary": "Deletes the specified user permissions from the specified workspace.",
-                "description": "\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_DeleteUserInGroup",
                 "consumes": [],
                 "produces": [],
@@ -10586,6 +10610,14 @@
                         "required": true,
                         "description": "The email address of the user or object ID of the service principal to delete",
                         "type": "string"
+                    },
+                    {
+                        "name": "profileId",
+                        "in": "query",
+                        "description": "The service principal profile ID to delete",
+                        "required": false,
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
                 "responses": {
@@ -10613,7 +10645,7 @@
                     "Capacities"
                 ],
                 "summary": "Returns a list of capacities that the user has access to.",
-                "description": "\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy). The profile creator must have capacity permissions.\n\n## Required Scope\n\nCapacity.Read.All or Capacity.ReadWrite.All\n<br><br>",
                 "operationId": "Capacities_GetCapacities",
                 "consumes": [],
                 "produces": [
@@ -11475,7 +11507,7 @@
                     "Capacities"
                 ],
                 "summary": "Assigns the specified workspace to the specified capacity.",
-                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.\n\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
+                "description": "\nTo unassign **My workspace** from a capacity, provide an empty GUID (`00000000-0000-0000-0000-000000000000`) as the `capacityId`.\n\n## Permissions\n\n- The user must have administrator rights or assign permissions on the capacity.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nCapacity.ReadWrite.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_AssignToCapacity",
                 "consumes": [
                     "application/json"
@@ -11579,7 +11611,7 @@
                     "Capacities"
                 ],
                 "summary": "Gets the status of the assignment-to-capacity operation for the specified workspace.",
-                "description": "\n## Permissions\n\nThe user must have administrator rights or assign permissions on the capacity.\n\n## Required Scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n<br><br>",
+                "description": "\n## Permissions\n\n- The user must have administrator rights or assign permissions on the capacity.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nWorkspace.Read.All and Workspace.ReadWrite.All\n<br><br>",
                 "operationId": "Groups_CapacityAssignmentStatus",
                 "consumes": [],
                 "produces": [
@@ -11644,7 +11676,7 @@
                     "AvailableFeatures"
                 ],
                 "summary": "Returns a list of available features for the user.",
-                "description": "\nThis API call doesn't require any scopes.\n<br><br>",
+                "description": "\nThis API call doesn't require any scopes.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n<br><br>",
                 "operationId": "AvailableFeatures_GetAvailableFeatures",
                 "consumes": [],
                 "produces": [
@@ -11688,7 +11720,7 @@
                     "AvailableFeatures"
                 ],
                 "summary": "Returns the specified available feature for the user by name.",
-                "description": "\nThis API call doesn't require any scopes.\n<br><br>",
+                "description": "\nThis API call doesn't require any scopes.\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n<br><br>",
                 "operationId": "AvailableFeatures_GetAvailableFeatureByName",
                 "consumes": [],
                 "produces": [
@@ -14221,6 +14253,14 @@
                         "required": true,
                         "description": "The user principal name (UPN) of the user to remove",
                         "type": "string"
+                    },
+                    {
+                        "name": "profileId",
+                        "in": "query",
+                        "description": "The service principal profile ID to delete",
+                        "required": false,
+                        "type": "string",
+                        "format": "uuid"
                     }
                 ],
                 "responses": {
@@ -16652,7 +16692,7 @@
                     "EmbedToken"
                 ],
                 "summary": "Generates an embed token for multiple reports, datasets, and target workspaces.",
-                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- Reports and datasets don't have to be related.\n- You can bind a report to a dataset during embedding.\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n\n> [!IMPORTANT]\n> This API call is only relevant to the [embed for your customers](/power-bi/developer/embed-sample-for-customers) scenario. To learn more about using this API, see [Considerations when generating an embed token](/power-bi/developer/embedded/generate-embed-token).\n\n## Permissions\n\n- When using a service principal for authentication, refer to [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n- For PowerBI reports with a paginated visual, include the paginated report ID in the API call. For more information, see [example](/rest/api/power-bi/embed-token/generate-token#examples).\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following, unless a requirement doesn't apply:\n\n- Content.Create, required if a target workspace is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All or Report.Read.All, required if a report is specified in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Report.ReadWrite.All, required if the `allowEdit` flag is specified for at least one report in [GenerateTokenRequestV2](/rest/api/power-bi/embed-token/generate-token#generatetokenrequestv2).\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- You can only create a report in workspaces specified by the `targetWorkspaces` parameter.\n- All reports and datasets must reside in a **V2** workspace.\n- All target workspaces must be **V2** workspaces.\n- Maximum 50 reports.\n- Maximum 50 datasets.\n- Maximum 50 target workspaces.\n- For Azure Analysis Services or Analysis Services on-premises live connection reports, generating an embed token with row-level security (RLS) might not work for several minutes after a [rebind](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "EmbedToken_GenerateToken",
                 "consumes": [
                     "application/json"
@@ -18083,7 +18123,7 @@
                     "Reports"
                 ],
                 "summary": "Transfers ownership of the data sources for the specified paginated report (RDL) to the current authorized user.",
-                "description": "\n## Required Scope\n\nReport.ReadWrite.All\n\n## Limitations\n\nOnly supports paginated reports.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n\n## Limitations\n\nOnly supports paginated reports.\n<br><br>",
                 "operationId": "Reports_TakeOverInGroup",
                 "consumes": [],
                 "produces": [],
@@ -18115,6 +18155,267 @@
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "reportId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/profiles": {
+            "get": {
+                "tags": [
+                    "Profiles"
+                ],
+                "summary": "Returns a list of service principal profiles.",
+                "description": "<br/>Returns a list of profiles that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "operationId": "Profiles_GetProfiles",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServicePrincipalProfiles"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get service principal profiles": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "3b211778-e7a5-4d73-8187-f10824047724",
+                                            "displayName": "My new profile"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "post": {
+                "tags": [
+                    "Profiles"
+                ],
+                "summary": "Creates a new service principal profile.",
+                "description": "<br/>Creates a new profile that belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "operationId": "Profiles_CreateProfile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "CreateOrUpdateProfileRequest",
+                        "in": "body",
+                        "description": "The create profile request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateOrUpdateProfileRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServicePrincipalProfile"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Create a service principal profile": {
+                        "parameters": {
+                            "CreateOrUpdateProfileRequest": {
+                                "displayName": "My new profile"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "b2ded813-54b7-43f4-b072-ed4c1f9d5824",
+                                    "displayName": "My new profile"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/profiles/{profileId}": {
+            "get": {
+                "tags": [
+                    "Profiles"
+                ],
+                "summary": "Returns the specified service principal profile.",
+                "description": "<br/>Returns the specified profile if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "operationId": "Profiles_GetProfile",
+                "consumes": [
+
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "profileId",
+                        "in": "path",
+                        "description": "The service principal profile ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServicePrincipalProfile"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get service principal profile": {
+                        "parameters": {
+                            "profileId": "b2ded813-54b7-43f4-b072-ed4c1f9d5824"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "b2ded813-54b7-43f4-b072-ed4c1f9d5824",
+                                    "displayName": "My new profile"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Profiles"
+                ],
+                "summary": "Updates the specified service principal profile name.",
+                "description": "<br/>Updates the specified profile name if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "operationId": "Profiles_UpdateProfile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "profileId",
+                        "in": "path",
+                        "description": "The service principal profile ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "CreateOrUpdateProfileRequest",
+                        "in": "body",
+                        "description": "The update profile request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/CreateOrUpdateProfileRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ServicePrincipalProfile"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Updates a service principal profile": {
+                        "parameters": {
+                            "profileId": "b3ded933-57b7-21f4-b072-ed4c1f9d5824",
+                            "CreateOrUpdateProfileRequest": {
+                                "displayName": "My updated profile"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "id": "b3ded933-57b7-21f4-b072-ed4c1f9d5824",
+                                    "displayName": "My updated profile"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Profiles"
+                ],
+                "summary": "Deletes the specified service principal profile.",
+                "description": "<br/>Deletes the specified profile if it exists and belongs to service principal caller.\n\n## Limitations\n\nCan only be called by a service principal.",
+                "operationId": "Profiles_DeleteProfile",
+                "consumes": [
+
+                ],
+                "produces": [
+
+                ],
+                "parameters": [
+                    {
+                        "name": "profileId",
+                        "in": "path",
+                        "description": "The service principal profile ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Delete a service principal profile": {
+                        "parameters": {
+                            "profileId": "b3ded933-57b7-21f4-b072-ed4c1f9d5824"
                         },
                         "responses": {
                             "200": {}
@@ -23143,6 +23444,9 @@
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
+                },
+                "profile": {
+                    "$ref": "#/definitions/ServicePrincipalProfile"
                 }
             }
         },
@@ -23209,6 +23513,54 @@
                 },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
+                },
+                "profile": {
+                    "$ref": "#/definitions/ServicePrincipalProfile"
+                }
+            }
+        },
+        "ServicePrincipalProfiles": {
+            "description": "Odata response wrapper for a Power BI service principal profile collection.",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The service principal profile collection",
+                    "items": {
+                        "$ref": "#/definitions/ServicePrincipalProfile"
+                    }
+                }
+            }
+        },
+        "ServicePrincipalProfile": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI service principal profile. Only relevant for [Power BI Embedded multi-tenancy solution](/power-bi/developer/embedded/embed-multi-tenancy).",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The service principal profile ID"
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The service principal profile name"
+                }
+            }
+        },
+        "CreateOrUpdateProfileRequest": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI service principal profile create or update request",
+            "properties": {
+                "displayName": {
+                    "type": "string",
+                    "description": "The service principal profile name"
                 }
             }
         },

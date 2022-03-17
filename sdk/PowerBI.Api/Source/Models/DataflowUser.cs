@@ -35,8 +35,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dataflowUserAccessRight">The access right that a user
         /// has for the dataflow (permission level). Possible values include:
         /// 'None', 'Read', 'ReadWrite', 'ReadReshare', 'Owner'</param>
-        public DataflowUser(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), DataflowUserAccessRight? dataflowUserAccessRight = default(DataflowUserAccessRight?))
-            : base(identifier, principalType, emailAddress, displayName, graphId)
+        public DataflowUser(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile), DataflowUserAccessRight? dataflowUserAccessRight = default(DataflowUserAccessRight?))
+            : base(identifier, principalType, emailAddress, displayName, graphId, profile)
         {
             DataflowUserAccessRight = dataflowUserAccessRight;
             CustomInit();

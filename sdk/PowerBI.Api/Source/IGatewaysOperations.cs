@@ -271,7 +271,10 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have gateway admin permissions.
+        /// - The user must have gateway admin permissions.
+        /// - This API call can be called by a service principal profile. For
+        /// more information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -455,6 +458,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='emailAdress'>
         /// The user's email address or the object ID of the service principal
         /// </param>
+        /// <param name='profileId'>
+        /// The service principal profile ID to delete
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -467,6 +473,6 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteDatasourceUserWithHttpMessagesAsync(System.Guid gatewayId, System.Guid datasourceId, string emailAdress, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteDatasourceUserWithHttpMessagesAsync(System.Guid gatewayId, System.Guid datasourceId, string emailAdress, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

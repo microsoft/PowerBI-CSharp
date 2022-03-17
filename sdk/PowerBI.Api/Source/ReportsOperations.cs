@@ -2157,6 +2157,12 @@ namespace Microsoft.PowerBI.Api
         /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
         /// the API response for paginated reports isn't displayed.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
@@ -2294,6 +2300,12 @@ namespace Microsoft.PowerBI.Api
         /// Returns the specified report from the specified workspace.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -2438,6 +2450,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All
@@ -2570,12 +2588,16 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have all of the following, unless a requirement doesn't
+        /// - The user must have all of the following, unless a requirement doesn't
         /// apply:
         ///
         /// - **Write** permission on the specified report.
         /// - **Build** permission on the target dataset, required if the
         /// `targetModelId` parameter is used.
+        ///
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -2754,6 +2776,12 @@ namespace Microsoft.PowerBI.Api
         /// report from the Power BI service to Power BI
         /// Desktop](/power-bi/create-reports/service-export-to-pbix).
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
@@ -2892,6 +2920,12 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// Specify the source report in the request body.
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -3071,10 +3105,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have all of the following:
+        /// - The user must have all of the following:
         ///
         /// - **Write** permission on the specified report.
         /// - **Build** permission on the target dataset.
+        ///
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -3223,6 +3261,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
@@ -3366,6 +3410,12 @@ namespace Microsoft.PowerBI.Api
         /// workspace.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -3526,6 +3576,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
@@ -3675,7 +3731,10 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must be the data source owner.
+        /// - The user must be the data source owner.
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -3828,6 +3887,12 @@ namespace Microsoft.PowerBI.Api
         /// format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -4005,6 +4070,12 @@ namespace Microsoft.PowerBI.Api
         /// specified report from the specified workspace.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -4184,6 +4255,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Report.ReadWrite.All or Report.Read.All
@@ -4338,11 +4415,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// When using a service principal for authentication, refer to [Embed Power BI
-        /// content with service
+        /// - When using a service principal for authentication, refer to [Embed Power
+        /// BI content with service
         /// principal](/power-bi/developer/embed-service-principal) and [Considerations
         /// and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -4522,11 +4602,14 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// When using a service principal for authentication, refer to [Embed Power BI
-        /// content with service
+        /// - When using a service principal for authentication, refer to [Embed Power
+        /// BI content with service
         /// principal](/power-bi/developer/embed-service-principal) and [Considerations
         /// and
         /// limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -5353,6 +5436,12 @@ namespace Microsoft.PowerBI.Api
         /// (RDL) to the current authorized user.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///

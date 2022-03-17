@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="AsymmetricKeyEncryptorTests.cs" />
     <Compile Include="CredentialsTests.cs" />
+    <Compile Include="PowerBIClientExtensionTests.cs" />
     <Compile Include="ExtensionsTest.cs" />
     <Compile Include="FakeHttpClientHandler.cs" />
     <Compile Include="ImportsTests.cs" />

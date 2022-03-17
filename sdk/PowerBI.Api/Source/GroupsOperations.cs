@@ -56,6 +56,12 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -217,6 +223,12 @@ namespace Microsoft.PowerBI.Api
         /// Creates a new workspace.
         /// </summary>
         /// <remarks>
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -390,6 +402,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
@@ -514,6 +532,12 @@ namespace Microsoft.PowerBI.Api
         /// User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API
         /// call.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Workspace.Read.All or Workspace.ReadWrite.All
@@ -521,6 +545,12 @@ namespace Microsoft.PowerBI.Api
         /// </remarks>
         /// <param name='groupId'>
         /// The workspace ID
+        /// </param>
+        /// <param name='top'>
+        /// Returns only the first n results
+        /// </param>
+        /// <param name='skip'>
+        /// Skips the first n results
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -537,7 +567,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<GroupUsers>> GetGroupUsersWithHttpMessagesAsync(System.Guid groupId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<GroupUsers>> GetGroupUsersWithHttpMessagesAsync(System.Guid groupId, int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -547,6 +577,8 @@ namespace Microsoft.PowerBI.Api
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
+                tracingParameters.Add("top", top);
+                tracingParameters.Add("skip", skip);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetGroupUsers", tracingParameters);
             }
@@ -554,6 +586,19 @@ namespace Microsoft.PowerBI.Api
             var _baseUrl = Client.BaseUri.AbsoluteUri;
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/users").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
+            List<string> _queryParameters = new List<string>();
+            if (top != null)
+            {
+                _queryParameters.Add(string.Format("$top={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(top, Client.SerializationSettings).Trim('"'))));
+            }
+            if (skip != null)
+            {
+                _queryParameters.Add(string.Format("$skip={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(skip, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -657,6 +702,12 @@ namespace Microsoft.PowerBI.Api
         /// permissions might not be immediately available through API calls. To
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
+        ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -804,6 +855,12 @@ namespace Microsoft.PowerBI.Api
         /// refresh user permissions, use the [Refresh User
         /// Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
@@ -945,6 +1002,12 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// ## Permissions
+        ///
+        /// This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
+        ///
         /// ## Required Scope
         ///
         /// Workspace.ReadWrite.All
@@ -956,6 +1019,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='user'>
         /// The email address of the user or object ID of the service principal to
         /// delete
+        /// </param>
+        /// <param name='profileId'>
+        /// The service principal profile ID to delete
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -975,7 +1041,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteUserInGroupWithHttpMessagesAsync(System.Guid groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteUserInGroupWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (user == null)
             {
@@ -990,6 +1056,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("user", user);
+                tracingParameters.Add("profileId", profileId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteUserInGroup", tracingParameters);
             }
@@ -998,6 +1065,15 @@ namespace Microsoft.PowerBI.Api
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/groups/{groupId}/users/{user}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{user}", System.Uri.EscapeDataString(user));
+            List<string> _queryParameters = new List<string>();
+            if (profileId != null)
+            {
+                _queryParameters.Add(string.Format("profileId={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(profileId, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
@@ -1227,8 +1303,11 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights or assign permissions on the
+        /// - The user must have administrator rights or assign permissions on the
         /// capacity.
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -1507,8 +1586,11 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Permissions
         ///
-        /// The user must have administrator rights or assign permissions on the
+        /// - The user must have administrator rights or assign permissions on the
         /// capacity.
+        /// - This API call can be called by a service principal profile. For more
+        /// information see: [Service principal profiles in Power BI
+        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
         ///
         /// ## Required Scope
         ///
@@ -2626,6 +2708,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='user'>
         /// The user principal name (UPN) of the user to remove
         /// </param>
+        /// <param name='profileId'>
+        /// The service principal profile ID to delete
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -2644,7 +2729,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteUserAsAdminWithHttpMessagesAsync(System.Guid groupId, string user, System.Guid? profileId = default(System.Guid?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (user == null)
             {
@@ -2659,6 +2744,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("groupId", groupId);
                 tracingParameters.Add("user", user);
+                tracingParameters.Add("profileId", profileId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteUserAsAdmin", tracingParameters);
             }
@@ -2667,6 +2753,15 @@ namespace Microsoft.PowerBI.Api
             var _url = new System.Uri(new System.Uri(_baseUrl + (_baseUrl.EndsWith("/") ? "" : "/")), "v1.0/myorg/admin/groups/{groupId}/users/{user}").ToString();
             _url = _url.Replace("{groupId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(groupId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{user}", System.Uri.EscapeDataString(user));
+            List<string> _queryParameters = new List<string>();
+            if (profileId != null)
+            {
+                _queryParameters.Add(string.Format("profileId={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(profileId, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

@@ -162,6 +162,11 @@ namespace Microsoft.PowerBI.Api
         ITemplateApps TemplateApps { get; }
 
         /// <summary>
+        /// Gets the IProfiles.
+        /// </summary>
+        IProfiles Profiles { get; }
+
+        /// <summary>
         /// Gets the IScorecardsOperations.
         /// </summary>
         IScorecardsOperations Scorecards { get; }
