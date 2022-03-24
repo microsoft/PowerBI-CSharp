@@ -1216,7 +1216,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.ReadWrite.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             ///
             /// ## Limitations
             ///
@@ -1244,7 +1244,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.ReadWrite.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             ///
             /// ## Limitations
             ///
@@ -2057,7 +2057,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.Read.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
@@ -2099,7 +2099,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.Read.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
@@ -2339,7 +2339,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.Read.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
@@ -2378,7 +2378,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.Read.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             /// ## Limitations
             ///
             /// - Only datasets in a [new workspace
@@ -3737,7 +3737,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.ReadWrite.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             ///
             /// ## Limitations
             ///
@@ -3773,7 +3773,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Dataset.ReadWrite.All
+            /// Dataset.Read.All or Dataset.ReadWrite.All
             ///
             /// ## Limitations
             ///

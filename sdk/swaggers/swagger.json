@@ -1426,7 +1426,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParameters",
                 "consumes": [],
                 "produces": [
@@ -2192,7 +2192,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersInGroup",
                 "consumes": [],
                 "produces": [
@@ -2392,7 +2392,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsers",
                 "consumes": [],
                 "produces": [
@@ -5368,7 +5368,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParametersInGroup",
                 "consumes": [],
                 "produces": [
