@@ -18034,7 +18034,7 @@
                 "tags": [
                     "TemplateApps"
                 ],
-                "summary": "Generates an installation ticket for the [automated install flow](/power-bi/developer/template-apps/template-apps-auto-install) of the specified template app.",
+                "summary": "Generates an installation ticket for the [automated install flow](/power-bi/connect-data/template-apps-auto-install) of the specified template app.",
                 "description": "\n## Permissions\n\nThe caller must use service principal for authentication. For more information, see [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Limitations\n\n- The tenant making this API call *must* own the specified template app.\n- The template app must either be published to Microsoft AppSource, or, both the ticket creator and the end-user installing with the ticket must have explicit access to the app.\n- All query parameters in the install ticket *must* be configured.\n<br><br>",
                 "operationId": "TemplateApps_CreateInstallTicket",
                 "consumes": [
