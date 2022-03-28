@@ -23264,7 +23264,7 @@
                 },
                 "NotifyOption": {
                     "type": "string",
-                    "description": "The notification option on termination of a scheduled refresh",
+                    "description": "The notification option on termination of a scheduled refresh. Service principals only support the `NoNotification` value.",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure"
