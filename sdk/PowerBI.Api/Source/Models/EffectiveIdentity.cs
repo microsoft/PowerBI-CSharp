@@ -45,8 +45,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// length must not exceed 50 characters.</param>
         /// <param name="customData">[Custom
         /// data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature)
-        /// that's used to apply row-level security rules. Only supported for
-        /// live connections to Azure Analysis Services.</param>
+        /// that's used to apply row-level security rules. Supported for live
+        /// connection to Azure Analysis Services models and cloud models
+        /// only.</param>
         /// <param name="identityBlob">A blob that specifies an
         /// [identity](/power-bi/developer/embedded/embedded-row-level-security#token-based-identity-sdk-additions).
         /// Only supported for datasets with a DirectQuery connection to Azure
@@ -99,8 +100,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets [Custom
         /// data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature)
-        /// that's used to apply row-level security rules. Only supported for
-        /// live connections to Azure Analysis Services.
+        /// that's used to apply row-level security rules. Supported for live
+        /// connection to Azure Analysis Services models and cloud models only.
         /// </summary>
         [JsonProperty(PropertyName = "customData")]
         public string CustomData { get; set; }
