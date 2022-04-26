@@ -452,8 +452,12 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day, which
-        /// includes refreshes executed using a scheduled refresh.
+        /// - For Shared capacities, a maximum of eight requests per day
+        /// (including refreshes executed using a scheduled refresh) can be
+        /// initiated. In the request body, only `notifyOption` can be modified
+        /// for Shared capacities. Therefore, [asynchronous refresh
+        /// operations](/power-bi/connect-data/asynchronous-refresh) cannot be
+        /// triggered.
         /// - For Premium capacities, the maximum requests per day is only
         /// limited by the available resources in the capacity. If available
         /// resources are overloaded, refreshes are throttled until the load is
@@ -1814,8 +1818,12 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day, which
-        /// includes refreshes executed using a scheduled refresh.
+        /// - For Shared capacities, a maximum of eight requests per day
+        /// (including refreshes executed using a scheduled refresh) can be
+        /// initiated. In the request body, only `notifyOption` can be modified
+        /// for Shared capacities. Therefore, [asynchronous refresh
+        /// operations](/power-bi/connect-data/asynchronous-refresh) cannot be
+        /// triggered.
         /// - For Premium capacities, the maximum requests per day is only
         /// limited by the available resources in the capacity. If available
         /// resources are overloaded, refreshes are throttled until the load is
