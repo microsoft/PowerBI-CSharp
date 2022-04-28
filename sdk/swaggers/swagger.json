@@ -328,8 +328,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace. This is a preview API call.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) and user impersonation isn't supported. \n<br><br>",
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations). \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -369,12 +369,13 @@
                             "requestMessage": {
                                 "queries": [
                                     {
-                                        "query": "EVALUATE VALUES(MyTable[Column])"
+                                        "query": "EVALUATE VALUES(MyTable)"
                                     }
                                 ],
                                 "serializerSettings": {
                                     "includeNulls": true
-                                }
+                                },
+								"impersonatedUserName": "someuser@mycompany.com"
                             }
                         },
                         "responses": {
@@ -6007,6 +6008,102 @@
                     }
                 },
                 "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/executeQueries": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations). \n<br><br>",
+                "operationId": "Datasets_ExecuteQueriesInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+					{
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "requestMessage",
+                        "description": "The request message",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DatasetExecuteQueriesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetExecuteQueriesResponse"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Execute queries example": {
+                        "parameters": {
+							"groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "requestMessage": {
+                                "queries": [
+                                    {
+                                        "query": "EVALUATE VALUES(MyTable)"
+                                    }
+                                ],
+                                "serializerSettings": {
+                                    "includeNulls": true
+                                },
+								"impersonatedUserName": "someuser@mycompany.com"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "results": [
+                                        {
+                                            "tables": [
+                                                {
+                                                    "rows": [
+                                                        {
+                                                            "MyTable[Year]": 2010,
+                                                            "MyTable[Quarter]": "Q1"
+                                                        },
+                                                        {
+                                                            "MyTable[Year]": 2010,
+                                                            "MyTable[Quarter]": "Q2"
+                                                        },
+                                                        {
+                                                            "MyTable[Year]": 2011,
+                                                            "MyTable[Quarter]": "Q1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
             }
         },
         "/v1.0/myorg/groups/{groupId}/imports": {
@@ -26899,6 +26996,10 @@
                 "serializerSettings": {
                     "description": "The serialization settings for the result set",
                     "$ref": "#/definitions/DatasetExecuteQueriesSerializationSettings"
+                },
+				"impersonatedUserName": {
+                    "type": "string",
+                    "description": "The UPN of a user to be impersonated."
                 }
             },
             "description": "A request to execute queries against a dataset"
@@ -26929,15 +27030,37 @@
         "DatasetExecuteQueriesResponse": {
             "type": "object",
             "properties": {
+				"informationProtectionLabel": {
+                    "description": "The details of the information protection label, if any, associated with the dataset.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesInformationProtectionLabel"
+                },
                 "results": {
                     "type": "array",
                     "description": "The list of results, one per input query.",
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesQueryResult"
                     }
+                },
+				"error" : {
+                    "description": "The details of an error, if present.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "The response to a dataset execute queries request"
+        },
+		"DatasetExecuteQueriesInformationProtectionLabel": {
+            "type": "object",
+            "properties": {
+				"id":{
+                    "type": "string",
+                    "description": "The identifier (guid) of the information protection label"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the information protection label"
+                }
+            },
+            "description": "The details of the information protection label, if any, associated with the dataset."
         },
         "DatasetExecuteQueriesQueryResult": {
             "type": "object",
@@ -26948,6 +27071,10 @@
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesTableResult"
                     }
+                },
+				"error" : {
+                    "description": "The details of an error, if present.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "The results from a single dataset query"
@@ -26961,6 +27088,10 @@
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesRowResult"
                     }
+                },
+				"error" : {
+                    "description": "The details of an error, if present.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "A table of data"
@@ -26972,6 +27103,20 @@
                 "Sales": 100.5
             },
             "description": "A set of key-value pairs representing the column name and a row value. The column name is the key of the pair."
+        },
+		"DatasetExecuteQueriesError": {
+            "type": "object",
+            "properties": {
+				"code": {
+                    "type": "string",
+                    "description": "The code associated with the error"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The message of the error. If not present here, this information my also be found in details object nested under the error object."
+                }
+            },
+            "description": "The details of an error, if present."
         },
         "Scorecards": {
             "description": "The OData response wrapper for a Power BI scorecard collection",

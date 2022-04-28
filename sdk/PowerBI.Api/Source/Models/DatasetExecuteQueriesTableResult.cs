@@ -30,9 +30,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="rows">A list of rows</param>
-        public DatasetExecuteQueriesTableResult(IList<object> rows = default(IList<object>))
+        /// <param name="error">The details of an error, if present.</param>
+        public DatasetExecuteQueriesTableResult(IList<object> rows = default(IList<object>), DatasetExecuteQueriesError error = default(DatasetExecuteQueriesError))
         {
             Rows = rows;
+            Error = error;
             CustomInit();
         }
 
@@ -46,6 +48,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "rows")]
         public IList<object> Rows { get; set; }
+
+        /// <summary>
+        /// Gets or sets the details of an error, if present.
+        /// </summary>
+        [JsonProperty(PropertyName = "error")]
+        public DatasetExecuteQueriesError Error { get; set; }
 
     }
 }
