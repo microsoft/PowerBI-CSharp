@@ -493,7 +493,7 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product",
                             "requestMessage": {
-                                "tableName": "NewProduct",
+                                "name": "Product",
                                 "columns": [
                                     {
                                         "name": "ProductID",
@@ -525,7 +525,7 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "name": "NewProduct"
+                                    "name": "Product"
                                 }
                             }
                         }
@@ -4351,7 +4351,7 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product",
                             "requestMessage": {
-                                "tableName": "NewProduct",
+                                "name": "Product",
                                 "columns": [
                                     {
                                         "name": "ProductID",
@@ -4383,7 +4383,7 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "name": "NewProduct"
+                                    "name": "Product"
                                 }
                             }
                         }
