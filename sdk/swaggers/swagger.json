@@ -18291,6 +18291,13 @@
                         "required": false,
                         "type": "integer",
                         "format": "int32"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Get a profile by DisplayName",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -18304,6 +18311,23 @@
                 "x-ms-examples": {
                     "Get service principal profiles": {
                         "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "3b211778-e7a5-4d73-8187-f10824047724",
+                                            "displayName": "My new profile"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get a specific profile by displayName using filter": {
+                        "parameters": {
+                            "$filter": "$filter=displayName%20eq%20'My%20new%20profile'"
+                        },
                         "responses": {
                             "200": {
                                 "body": {
