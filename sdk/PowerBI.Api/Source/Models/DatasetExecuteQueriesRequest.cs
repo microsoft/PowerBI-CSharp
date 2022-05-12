@@ -35,7 +35,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="serializerSettings">The serialization settings for the
         /// result set</param>
         /// <param name="impersonatedUserName">The UPN of a user to be
-        /// impersonated.</param>
+        /// impersonated. If the model is not RLS enabled, this will be
+        /// ignored.</param>
         public DatasetExecuteQueriesRequest(IList<DatasetExecuteQueriesQuery> queries, DatasetExecuteQueriesSerializationSettings serializerSettings = default(DatasetExecuteQueriesSerializationSettings), string impersonatedUserName = default(string))
         {
             Queries = queries;
@@ -62,7 +63,8 @@ namespace Microsoft.PowerBI.Api.Models
         public DatasetExecuteQueriesSerializationSettings SerializerSettings { get; set; }
 
         /// <summary>
-        /// Gets or sets the UPN of a user to be impersonated.
+        /// Gets or sets the UPN of a user to be impersonated. If the model is
+        /// not RLS enabled, this will be ignored.
         /// </summary>
         [JsonProperty(PropertyName = "impersonatedUserName")]
         public string ImpersonatedUserName { get; set; }

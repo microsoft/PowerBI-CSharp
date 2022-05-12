@@ -26999,7 +26999,7 @@
                 },
 				"impersonatedUserName": {
                     "type": "string",
-                    "description": "The UPN of a user to be impersonated."
+                    "description": "The UPN of a user to be impersonated. If the model is not RLS enabled, this will be ignored."
                 }
             },
             "description": "A request to execute queries against a dataset"
