@@ -228,7 +228,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// - Virtual network (VNet) gateways aren't supported.
-            /// - This API doesn't support OAuth.
+            /// - OAuth2 as a credential type isn't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -266,7 +266,7 @@ namespace Microsoft.PowerBI.Api
             /// ## Limitations
             ///
             /// - Virtual network (VNet) gateways aren't supported.
-            /// - This API doesn't support OAuth.
+            /// - OAuth2 as a credential type isn't supported.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
