@@ -739,7 +739,7 @@ namespace Microsoft.PowerBI.Api
             /// The data source ID
             /// </param>
             /// <param name='addUserToDatasourceRequest'>
-            /// The add user to datasource request
+            /// The add user to data source request
             /// </param>
             public static void AddDatasourceUser(this IGatewaysOperations operations, System.Guid gatewayId, System.Guid datasourceId, DatasourceUser addUserToDatasourceRequest)
             {
@@ -777,7 +777,7 @@ namespace Microsoft.PowerBI.Api
             /// The data source ID
             /// </param>
             /// <param name='addUserToDatasourceRequest'>
-            /// The add user to datasource request
+            /// The add user to data source request
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

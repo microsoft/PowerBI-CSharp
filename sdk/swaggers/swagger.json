@@ -10143,7 +10143,7 @@
                     {
                         "name": "addUserToDatasourceRequest",
                         "in": "body",
-                        "description": "The add user to datasource request",
+                        "description": "The add user to data source request",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/DatasourceUser"
@@ -16817,7 +16817,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate an embed token for two datasets with RLS identities and a single report with read-only permissions example. The embed token lets you view the report, which is dynamically bound to two different datasets.": {
+                    "Example of generating an embed token for two datasets with RLS identities and a single report with read-only permissions. The embed token lets you view the report, which is dynamically bound to two different datasets.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16865,7 +16865,7 @@
                             }
                         }
                     },
-                    "Generate an embed token for a dataset and two reports example. Only one of the reports can be edited.": {
+                    "Example of generating an embed token for a dataset and two reports example. Only one of the reports can be edited.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16931,7 +16931,7 @@
                             }
                         }
                     },
-                    "Generate an embed token for a Power BI report with a paginated visual example. The paginated report ID ('...4850') of the paginated visual must be included in the 'reports' section of the request.": {
+                    "Example of generating an embed token for a Power BI report with a paginated visual. The paginated report ID ('...4850') of the paginated visual must be included in the 'reports' section of the request.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16959,7 +16959,7 @@
                             }
                         }
                     },
-                    "Generate an embed token for a paginated report which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
+                    "Example of generating a paginated report embed token which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16996,7 +16996,128 @@
                             "200": {
                                 "body": {
                                     "token": "H4sI....AAA=",
-                                    "tokenId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Example of generating a paginated report embed token with a data source identity": {
+                        "parameters": {
+                            "requestParameters": {
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceName": "SqlDatasource",
+                                                "connectionDetails": {
+                                                    "server": "New-Sql-Server",
+                                                    "database": "New-Sql-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Example of generating a paginated report embed token with multiple data source identities and a single identity blob": {
+                        "parameters": {
+                            "requestParameters": {
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceName": "SqlDatasource",
+                                                "connectionDetails": {
+                                                    "server": "New-Sql-Server",
+                                                    "database": "New-Sql-Database"
+                                                }
+                                            },
+                                            {
+                                                "datasourceName": "SqlAzureDatasource",
+                                                "connectionDetails": {
+                                                    "server": "New-SqlAzure-Server.windows.net",
+                                                    "database": "New-SqlAzure-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Example of generating a paginated report embed token with multiple data source identities and multiple identity blobs": {
+                        "parameters": {
+                            "requestParameters": {
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceName": "SqlDatasource",
+                                                "connectionDetails": {
+                                                    "server": "New-Sql-Server",
+                                                    "database": "New-Sql-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    },
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceName": "SqlAzureDatasource",
+                                                "connectionDetails": {
+                                                    "server": "New-SqlAzure-Server.windows.net",
+                                                    "database": "New-SqlAzure-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0dW....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
                                     "expiration": "2028-07-29T17:58:19Z"
                                 }
                             }
@@ -24637,6 +24758,43 @@
                 }
             }
         },
+        "DatasourceIdentity": {
+            "required": [
+                "identityBlob",
+                "datasources"
+            ],
+            "description": "Effective identity for connecting DirectQuery data sources with single sign-on (SSO) enabled.",
+            "properties": {
+                "identityBlob": {
+                    "type":  "string",
+                    "description": "A blob for specifying the identity."
+                },
+                "datasources": {
+                    "type": "array",
+                    "description": "An array of data sources that this identity applies to.",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceSelector"
+                    }
+                }
+            }
+        },
+        "DatasourceSelector": {
+            "required": [
+                "datasourceType",
+                "connectionDetails"
+            ],
+            "description": "An object that uniquely identifies a single data source by its connection details.",
+            "properties": {
+                "datasourceType": {
+                    "type": "string",
+                    "description": "The type of the data source"
+                },
+                "connectionDetails": {
+                    "$ref": "#/definitions/DatasourceConnectionDetails",
+                    "description": "The data source connection details. \nYou can obtain the connection details using [Get Datasources for paginated reports](/rest/api/power-bi/reports/get-datasources-in-group) and [Get Datasources for powerbi reports](/rest/api/power-bi/datasets/get-datasources-in-group) APIs."
+                }
+            }
+        },
         "GenerateTokenRequestV2Dataset": {
             "required": [
                 "id"
@@ -24786,6 +24944,13 @@
                 "lifetimeInMinutes": {
                     "type": "integer",
                     "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token's expiration time, but not to extend it. The value must be a positive integer. Zero (`0`) is equivalent to `null`, and will set the default expiration time."
+                },
+                "datasourceIdentities": {
+                    "type": "array",
+                    "description": "List of identities to use when connecting to data sources with Single Sign-On (SSO) enabled.",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceIdentity"
+                    }
                 }
             }
         },

@@ -38,13 +38,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// shorten the token's expiration time, but not to extend it. The
         /// value must be a positive integer. Zero (`0`) is equivalent to
         /// `null`, and will set the default expiration time.</param>
-        public GenerateTokenRequestV2(IList<GenerateTokenRequestV2Dataset> datasets = default(IList<GenerateTokenRequestV2Dataset>), IList<GenerateTokenRequestV2Report> reports = default(IList<GenerateTokenRequestV2Report>), IList<GenerateTokenRequestV2TargetWorkspace> targetWorkspaces = default(IList<GenerateTokenRequestV2TargetWorkspace>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), int? lifetimeInMinutes = default(int?))
+        /// <param name="datasourceIdentities">List of identities to use when
+        /// connecting to data sources with Single Sign-On (SSO)
+        /// enabled.</param>
+        public GenerateTokenRequestV2(IList<GenerateTokenRequestV2Dataset> datasets = default(IList<GenerateTokenRequestV2Dataset>), IList<GenerateTokenRequestV2Report> reports = default(IList<GenerateTokenRequestV2Report>), IList<GenerateTokenRequestV2TargetWorkspace> targetWorkspaces = default(IList<GenerateTokenRequestV2TargetWorkspace>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>), int? lifetimeInMinutes = default(int?), IList<DatasourceIdentity> datasourceIdentities = default(IList<DatasourceIdentity>))
         {
             Datasets = datasets;
             Reports = reports;
             TargetWorkspaces = targetWorkspaces;
             Identities = identities;
             LifetimeInMinutes = lifetimeInMinutes;
+            DatasourceIdentities = datasourceIdentities;
             CustomInit();
         }
 
@@ -88,6 +92,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "lifetimeInMinutes")]
         public int? LifetimeInMinutes { get; set; }
+
+        /// <summary>
+        /// Gets or sets list of identities to use when connecting to data
+        /// sources with Single Sign-On (SSO) enabled.
+        /// </summary>
+        [JsonProperty(PropertyName = "datasourceIdentities")]
+        public IList<DatasourceIdentity> DatasourceIdentities { get; set; }
 
     }
 }

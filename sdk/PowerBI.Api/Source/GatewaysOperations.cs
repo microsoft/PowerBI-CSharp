@@ -1434,7 +1434,7 @@ namespace Microsoft.PowerBI.Api
         /// The data source ID
         /// </param>
         /// <param name='addUserToDatasourceRequest'>
-        /// The add user to datasource request
+        /// The add user to data source request
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
