@@ -2825,7 +2825,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of reports from **My workspace**.",
-                "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\nThis API also returns shared reports and reports from shared apps.\n\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReports",
                 "consumes": [],
                 "produces": [
@@ -3506,7 +3506,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of dashboards from **My workspace**.",
-                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nThis API also returns shared dashboards and dashboards from shared apps.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboards",
                 "consumes": [],
                 "produces": [

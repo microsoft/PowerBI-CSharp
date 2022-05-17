@@ -51,6 +51,8 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// This API also returns shared reports and reports from shared apps.
+        ///
         /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
         /// the API response for paginated reports isn't displayed.
         ///

@@ -23,6 +23,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
+        /// This API also returns shared dashboards and dashboards from shared
+        /// apps.
+        ///
         /// ## Required Scope
         ///
         /// Dashboard.ReadWrite.All or Dashboard.Read.All
