@@ -16959,7 +16959,7 @@
                             }
                         }
                     },
-                    "Example of generating a paginated report embed token which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
+                    "Example of generating an embed token for a paginated report which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -17002,7 +17002,7 @@
                             }
                         }
                     },
-                    "Example of generating a paginated report embed token with a data source identity": {
+                    "Example of generating an embed token for a paginated report with a data source identity": {
                         "parameters": {
                             "requestParameters": {
                                 "reports": [
@@ -17014,7 +17014,7 @@
                                     {
                                         "datasources": [
                                             {
-                                                "datasourceName": "SqlDatasource",
+                                                "datasourceType": "Sql",
                                                 "connectionDetails": {
                                                     "server": "New-Sql-Server",
                                                     "database": "New-Sql-Database"
@@ -17036,7 +17036,7 @@
                             }
                         }
                     },
-                    "Example of generating a paginated report embed token with multiple data source identities and a single identity blob": {
+                    "Example of generating an embed token for a paginated report with multiple data source identities and a single identity blob": {
                         "parameters": {
                             "requestParameters": {
                                 "reports": [
@@ -17048,17 +17048,17 @@
                                     {
                                         "datasources": [
                                             {
-                                                "datasourceName": "SqlDatasource",
+                                                "datasourceType": "Sql",
                                                 "connectionDetails": {
                                                     "server": "New-Sql-Server",
                                                     "database": "New-Sql-Database"
                                                 }
                                             },
                                             {
-                                                "datasourceName": "SqlAzureDatasource",
+                                                "datasourceType": "MySql",
                                                 "connectionDetails": {
-                                                    "server": "New-SqlAzure-Server.windows.net",
-                                                    "database": "New-SqlAzure-Database"
+                                                    "server": "New-MySql-Server",
+                                                    "database": "New-MySql-Database"
                                                 }
                                             }
                                         ],
@@ -17077,7 +17077,7 @@
                             }
                         }
                     },
-                    "Example of generating a paginated report embed token with multiple data source identities and multiple identity blobs": {
+                    "Example of generating an embed token for a paginated report with multiple data source identities and multiple identity blobs": {
                         "parameters": {
                             "requestParameters": {
                                 "reports": [
@@ -17089,7 +17089,7 @@
                                     {
                                         "datasources": [
                                             {
-                                                "datasourceName": "SqlDatasource",
+                                                "datasourceType": "Sql",
                                                 "connectionDetails": {
                                                     "server": "New-Sql-Server",
                                                     "database": "New-Sql-Database"
@@ -17101,10 +17101,10 @@
                                     {
                                         "datasources": [
                                             {
-                                                "datasourceName": "SqlAzureDatasource",
+                                                "datasourceType": "MySql",
                                                 "connectionDetails": {
-                                                    "server": "New-SqlAzure-Server.windows.net",
-                                                    "database": "New-SqlAzure-Database"
+                                                    "server": "New-MySql-Server",
+                                                    "database": "New-MySql-Database"
                                                 }
                                             }
                                         ],
@@ -24787,7 +24787,7 @@
             "properties": {
                 "datasourceType": {
                     "type": "string",
-                    "description": "The type of the data source"
+                    "description": "The type of the [data source](/power-bi/connect-data/power-bi-data-sources).\n\n\n| API name for the data source | | |\n|-|-|-|\n| ActiveDirectory | AdobeAnalytics | AdoDotNet |\n| AnalysisServices | AzureBlobs | AzureDataLakeStorage |\n| AzureMarketplace | AzureTables | BizTalk |\n| CDPA | CustomConnector | CustomHttpApi |\n| DB2 | Essbase | EventHub |\n| Excel | Exchange | Extension |\n| Facebook | File | Folder |\n| GoogleAnalytics | Hdfs | HDInsight |\n| Informix | MQ | MySql |\n| OData | ODBC | OleDb |\n| Oracle | PostgreSql | PowerQueryMashup \n| PubNub | Salesforce | SAPBW |\n| SAPBWMessageServer | SapErp | SAPHana |\n| SharePoint | SharePointDocLib | SharePointList |\n| Sql | Sybase | Teradata |\n| UIFlow | Web |"
                 },
                 "connectionDetails": {
                     "$ref": "#/definitions/DatasourceConnectionDetails",

@@ -27,7 +27,28 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasourceSelector class.
         /// </summary>
-        /// <param name="datasourceType">The type of the data source</param>
+        /// <param name="datasourceType">The type of the [data
+        /// source](/power-bi/connect-data/power-bi-data-sources).
+        ///
+        ///
+        /// | API name for the data source | | |
+        /// |-|-|-|
+        /// | ActiveDirectory | AdobeAnalytics | AdoDotNet |
+        /// | AnalysisServices | AzureBlobs | AzureDataLakeStorage |
+        /// | AzureMarketplace | AzureTables | BizTalk |
+        /// | CDPA | CustomConnector | CustomHttpApi |
+        /// | DB2 | Essbase | EventHub |
+        /// | Excel | Exchange | Extension |
+        /// | Facebook | File | Folder |
+        /// | GoogleAnalytics | Hdfs | HDInsight |
+        /// | Informix | MQ | MySql |
+        /// | OData | ODBC | OleDb |
+        /// | Oracle | PostgreSql | PowerQueryMashup
+        /// | PubNub | Salesforce | SAPBW |
+        /// | SAPBWMessageServer | SapErp | SAPHana |
+        /// | SharePoint | SharePointDocLib | SharePointList |
+        /// | Sql | Sybase | Teradata |
+        /// | UIFlow | Web |</param>
         /// <param name="connectionDetails">The data source connection details.
         /// You can obtain the connection details using [Get Datasources for
         /// paginated
@@ -48,7 +69,28 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the type of the data source
+        /// Gets or sets the type of the [data
+        /// source](/power-bi/connect-data/power-bi-data-sources).
+        ///
+        ///
+        /// | API name for the data source | | |
+        /// |-|-|-|
+        /// | ActiveDirectory | AdobeAnalytics | AdoDotNet |
+        /// | AnalysisServices | AzureBlobs | AzureDataLakeStorage |
+        /// | AzureMarketplace | AzureTables | BizTalk |
+        /// | CDPA | CustomConnector | CustomHttpApi |
+        /// | DB2 | Essbase | EventHub |
+        /// | Excel | Exchange | Extension |
+        /// | Facebook | File | Folder |
+        /// | GoogleAnalytics | Hdfs | HDInsight |
+        /// | Informix | MQ | MySql |
+        /// | OData | ODBC | OleDb |
+        /// | Oracle | PostgreSql | PowerQueryMashup
+        /// | PubNub | Salesforce | SAPBW |
+        /// | SAPBWMessageServer | SapErp | SAPHana |
+        /// | SharePoint | SharePointDocLib | SharePointList |
+        /// | Sql | Sybase | Teradata |
+        /// | UIFlow | Web |
         /// </summary>
         [JsonProperty(PropertyName = "datasourceType")]
         public string DatasourceType { get; set; }
