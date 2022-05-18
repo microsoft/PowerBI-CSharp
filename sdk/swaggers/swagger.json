@@ -328,8 +328,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace. This is a preview API call.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than 100,000 table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than 100k rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **[Allow XMLA endpoints and Analyze in Excel with on-premises datasets](/power-bi/admin/service-premium-connect-tools)** must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) and user impersonation isn't supported. \n<br><br>",
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations). \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -369,12 +369,13 @@
                             "requestMessage": {
                                 "queries": [
                                     {
-                                        "query": "EVALUATE VALUES(MyTable[Column])"
+                                        "query": "EVALUATE VALUES(MyTable)"
                                     }
                                 ],
                                 "serializerSettings": {
                                     "includeNulls": true
-                                }
+                                },
+								"impersonatedUserName": "someuser@mycompany.com"
                             }
                         },
                         "responses": {
@@ -492,7 +493,7 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product",
                             "requestMessage": {
-                                "tableName": "NewProduct",
+                                "name": "Product",
                                 "columns": [
                                     {
                                         "name": "ProductID",
@@ -524,7 +525,7 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "name": "NewProduct"
+                                    "name": "Product"
                                 }
                             }
                         }
@@ -766,7 +767,7 @@
                     "Datasets"
                 ],
                 "summary": "Triggers a refresh for the specified dataset from **My workspace**. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has response headers which could be used to [get refresh execution details](/rest/api/power-bi/datasets/get-refresh-execution-details) or [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day (including refreshes executed using a scheduled refresh) can be initiated. In the request body, only `notifyOption` can be modified for Shared capacities. Therefore, [asynchronous refresh operations](/power-bi/connect-data/asynchronous-refresh) cannot be triggered.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDataset",
                 "consumes": [
                     "application/json"
@@ -1426,7 +1427,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParameters",
                 "consumes": [],
                 "produces": [
@@ -2192,7 +2193,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersInGroup",
                 "consumes": [],
                 "produces": [
@@ -2392,7 +2393,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsers",
                 "consumes": [],
                 "produces": [
@@ -2824,7 +2825,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of reports from **My workspace**.",
-                "description": "\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\nThis API also returns shared reports and reports from shared apps.\n\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReports",
                 "consumes": [],
                 "produces": [
@@ -2998,7 +2999,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **My workspace** to a Power BI .pbix file.",
-                "description": "\n- As a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nAfter calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
+                "description": "\n- As a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues, set the `preferClientRouting` parameter to `true`.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response, and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nAfter calling [Rebind Report](/rest/api/power-bi/reports/rebind-report), export of a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported.\n<br><br>",
                 "operationId": "Reports_ExportReport",
                 "consumes": [],
                 "produces": [
@@ -3505,7 +3506,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of dashboards from **My workspace**.",
-                "description": "\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nThis API also returns shared dashboards and dashboards from shared apps.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboards",
                 "consumes": [],
                 "produces": [
@@ -4350,7 +4351,7 @@
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "tableName": "Product",
                             "requestMessage": {
-                                "tableName": "NewProduct",
+                                "name": "Product",
                                 "columns": [
                                     {
                                         "name": "ProductID",
@@ -4382,7 +4383,7 @@
                         "responses": {
                             "200": {
                                 "body": {
-                                    "name": "NewProduct"
+                                    "name": "Product"
                                 }
                             }
                         }
@@ -4650,7 +4651,7 @@
                     "Datasets"
                 ],
                 "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has a response header, `Location`, which includes the `refreshId` and could be used to [get refresh execution details in group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group) or [cancel refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group).",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, which includes refreshes executed using a scheduled refresh.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day (including refreshes executed using a scheduled refresh) can be initiated. In the request body, only `notifyOption` can be modified for Shared capacities. Therefore, [asynchronous refresh operations](/power-bi/connect-data/asynchronous-refresh) cannot be triggered.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -5368,7 +5369,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of parameters for the specified dataset from the specified workspace.",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n\n## Limitations\n\nDatasets with SQL, Oracle, Teradata, and SAP HANA [DirectQuery](/power-bi/connect-data/desktop-directquery-about) connections aren't supported.\n<br><br>",
                 "operationId": "Datasets_GetParametersInGroup",
                 "consumes": [],
                 "produces": [
@@ -6009,6 +6010,102 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/executeQueries": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations). \n<br><br>",
+                "operationId": "Datasets_ExecuteQueriesInGroup",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+					{
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "requestMessage",
+                        "description": "The request message",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/DatasetExecuteQueriesRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/DatasetExecuteQueriesResponse"
+                        }
+                    }
+                },
+                "deprecated": false,
+                "x-ms-examples": {
+                    "Execute queries example": {
+                        "parameters": {
+							"groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "requestMessage": {
+                                "queries": [
+                                    {
+                                        "query": "EVALUATE VALUES(MyTable)"
+                                    }
+                                ],
+                                "serializerSettings": {
+                                    "includeNulls": true
+                                },
+								"impersonatedUserName": "someuser@mycompany.com"
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "results": [
+                                        {
+                                            "tables": [
+                                                {
+                                                    "rows": [
+                                                        {
+                                                            "MyTable[Year]": 2010,
+                                                            "MyTable[Quarter]": "Q1"
+                                                        },
+                                                        {
+                                                            "MyTable[Year]": 2010,
+                                                            "MyTable[Quarter]": "Q2"
+                                                        },
+                                                        {
+                                                            "MyTable[Year]": 2011,
+                                                            "MyTable[Quarter]": "Q1"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v1.0/myorg/groups/{groupId}/imports": {
             "get": {
                 "tags": [
@@ -6611,7 +6708,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to a Power BI .pbix file.",
-                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
+                "description": "\n- You can set the `preferClientRouting` parameter to `true` as a [workaround](/power-bi/developer/embedded/embedded-troubleshoot#how-to-fix-timeout-exceptions-when-using-import-and-export-apis) for timeout issues.\n- Large files are downloaded to a temporary blob. Their URL is returned in the response and stored in the locally downloaded Power BI .pbix file.\n- For more information on requirements and limitations, see [Download a report from the Power BI service to Power BI Desktop](/power-bi/create-reports/service-export-to-pbix).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All or both Report.Read.All and Dataset.Read.All\n\n## Limitations\n\nExporting a report with a [Power BI service live connection](/power-bi/desktop-report-lifecycle-datasets) isn't supported after calling [Rebind Report](/rest/api/power-bi/reports/rebind-report).\n<br><br>",
                 "operationId": "Reports_ExportReportInGroup",
                 "consumes": [],
                 "produces": [
@@ -9563,7 +9660,7 @@
                     "Gateways"
                 ],
                 "summary": "Creates a new data source on the specified gateway.",
-                "description": "\nTo encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/automation/configure-credentials).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
+                "description": "\nTo encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/automation/configure-credentials).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"
@@ -10046,7 +10143,7 @@
                     {
                         "name": "addUserToDatasourceRequest",
                         "in": "body",
-                        "description": "The add user to datasource request",
+                        "description": "The add user to data source request",
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/DatasourceUser"
@@ -16720,7 +16817,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Generate an embed token for two datasets with RLS identities and a single report with read-only permissions example. The embed token lets you view the report, which is dynamically bound to two different datasets.": {
+                    "Example of generating an embed token for two datasets with RLS identities and a single report with read-only permissions. The embed token lets you view the report, which is dynamically bound to two different datasets.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16768,7 +16865,7 @@
                             }
                         }
                     },
-                    "Generate an embed token for a dataset and two reports example. Only one of the reports can be edited.": {
+                    "Example of generating an embed token for a dataset and two reports example. Only one of the reports can be edited.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16834,7 +16931,7 @@
                             }
                         }
                     },
-                    "Generate an embed token for a Power BI report with a paginated visual example. The paginated report ID ('...4850') of the paginated visual must be included in the 'reports' section of the request.": {
+                    "Example of generating an embed token for a Power BI report with a paginated visual. The paginated report ID ('...4850') of the paginated visual must be included in the 'reports' section of the request.": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16862,7 +16959,7 @@
                             }
                         }
                     },
-                    "Generate an embed token for a paginated report which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
+                    "Example of generating an embed token for a paginated report which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
                         "parameters": {
                             "requestParameters": {
                                 "datasets": [
@@ -16899,7 +16996,128 @@
                             "200": {
                                 "body": {
                                     "token": "H4sI....AAA=",
-                                    "tokenId": "4b76f5ed-5a06-4150-8d1b-60f8e4c186f4",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Example of generating an embed token for a paginated report with a data source identity": {
+                        "parameters": {
+                            "requestParameters": {
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "New-Sql-Server",
+                                                    "database": "New-Sql-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Example of generating an embed token for a paginated report with multiple data source identities and a single identity blob": {
+                        "parameters": {
+                            "requestParameters": {
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "New-Sql-Server",
+                                                    "database": "New-Sql-Database"
+                                                }
+                                            },
+                                            {
+                                                "datasourceType": "MySql",
+                                                "connectionDetails": {
+                                                    "server": "New-MySql-Server",
+                                                    "database": "New-MySql-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
+                                    "expiration": "2028-07-29T17:58:19Z"
+                                }
+                            }
+                        }
+                    },
+                    "Example of generating an embed token for a paginated report with multiple data source identities and multiple identity blobs": {
+                        "parameters": {
+                            "requestParameters": {
+                                "reports": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "New-Sql-Server",
+                                                    "database": "New-Sql-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    },
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceType": "MySql",
+                                                "connectionDetails": {
+                                                    "server": "New-MySql-Server",
+                                                    "database": "New-MySql-Database"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0dW....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "49ae3742-54c0-4c29-af52-619ff93b5c80",
                                     "expiration": "2028-07-29T17:58:19Z"
                                 }
                             }
@@ -18034,7 +18252,7 @@
                 "tags": [
                     "TemplateApps"
                 ],
-                "summary": "Generates an installation ticket for the [automated install flow](/power-bi/developer/template-apps/template-apps-auto-install) of the specified template app.",
+                "summary": "Generates an installation ticket for the [automated install flow](/power-bi/connect-data/template-apps-auto-install) of the specified template app.",
                 "description": "\n## Permissions\n\nThe caller must use service principal for authentication. For more information, see [Embed Power BI content with service principal](/power-bi/developer/embed-service-principal) and [Considerations and limitations](/power-bi/developer/embedded/embed-service-principal#considerations-and-limitations).\n\n## Limitations\n\n- The tenant making this API call *must* own the specified template app.\n- The template app must either be published to Microsoft AppSource, or, both the ticket creator and the end-user installing with the ticket must have explicit access to the app.\n- All query parameters in the install ticket *must* be configured.\n<br><br>",
                 "operationId": "TemplateApps_CreateInstallTicket",
                 "consumes": [
@@ -18194,6 +18412,13 @@
                         "required": false,
                         "type": "integer",
                         "format": "int32"
+                    },
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Get a profile by DisplayName",
+                        "required": false,
+                        "type": "string"
                     }
                 ],
                 "responses": {
@@ -18207,6 +18432,23 @@
                 "x-ms-examples": {
                     "Get service principal profiles": {
                         "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "3b211778-e7a5-4d73-8187-f10824047724",
+                                            "displayName": "My new profile"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get a specific profile by displayName using filter": {
+                        "parameters": {
+                            "$filter": "$filter=displayName%20eq%20'My%20new%20profile'"
+                        },
                         "responses": {
                             "200": {
                                 "body": {
@@ -23264,7 +23506,7 @@
                 },
                 "NotifyOption": {
                     "type": "string",
-                    "description": "The notification option on termination of a scheduled refresh",
+                    "description": "The notification option on termination of a scheduled refresh. Service principals only support the `NoNotification` value.",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure"
@@ -24501,7 +24743,7 @@
                 },
                 "customData": {
                     "type": "string",
-                    "description": "[Custom data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature) that's used to apply row-level security rules. Only supported for live connections to Azure Analysis Services."
+                    "description": "[Custom data](/power-bi/developer/embedded/embedded-row-level-security#using-the-customdata-feature) that's used to apply row-level security rules. Supported for live connection to Azure Analysis Services models and cloud models only."
                 },
                 "identityBlob": {
                     "$ref": "#/definitions/IdentityBlob",
@@ -24513,6 +24755,43 @@
                     "items": {
                         "type": "string"
                     }
+                }
+            }
+        },
+        "DatasourceIdentity": {
+            "required": [
+                "identityBlob",
+                "datasources"
+            ],
+            "description": "Effective identity for connecting DirectQuery data sources with single sign-on (SSO) enabled.",
+            "properties": {
+                "identityBlob": {
+                    "type":  "string",
+                    "description": "A blob for specifying the identity."
+                },
+                "datasources": {
+                    "type": "array",
+                    "description": "An array of data sources that this identity applies to.",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceSelector"
+                    }
+                }
+            }
+        },
+        "DatasourceSelector": {
+            "required": [
+                "datasourceType",
+                "connectionDetails"
+            ],
+            "description": "An object that uniquely identifies a single data source by its connection details.",
+            "properties": {
+                "datasourceType": {
+                    "type": "string",
+                    "description": "The type of the [data source](/power-bi/connect-data/power-bi-data-sources).\n\n\n| API name for the data source | | |\n|-|-|-|\n| ActiveDirectory | AdobeAnalytics | AdoDotNet |\n| AnalysisServices | AzureBlobs | AzureDataLakeStorage |\n| AzureMarketplace | AzureTables | BizTalk |\n| CDPA | CustomConnector | CustomHttpApi |\n| DB2 | Essbase | EventHub |\n| Excel | Exchange | Extension |\n| Facebook | File | Folder |\n| GoogleAnalytics | Hdfs | HDInsight |\n| Informix | MQ | MySql |\n| OData | ODBC | OleDb |\n| Oracle | PostgreSql | PowerQueryMashup \n| PubNub | Salesforce | SAPBW |\n| SAPBWMessageServer | SapErp | SAPHana |\n| SharePoint | SharePointDocLib | SharePointList |\n| Sql | Sybase | Teradata |\n| UIFlow | Web |"
+                },
+                "connectionDetails": {
+                    "$ref": "#/definitions/DatasourceConnectionDetails",
+                    "description": "The data source connection details. \nYou can obtain the connection details using [Get Datasources for paginated reports](/rest/api/power-bi/reports/get-datasources-in-group) and [Get Datasources for powerbi reports](/rest/api/power-bi/datasets/get-datasources-in-group) APIs."
                 }
             }
         },
@@ -24665,6 +24944,13 @@
                 "lifetimeInMinutes": {
                     "type": "integer",
                     "description": "The maximum lifetime of the token in minutes, starting from the time it was generated. Can be used to shorten the token's expiration time, but not to extend it. The value must be a positive integer. Zero (`0`) is equivalent to `null`, and will set the default expiration time."
+                },
+                "datasourceIdentities": {
+                    "type": "array",
+                    "description": "List of identities to use when connecting to data sources with Single Sign-On (SSO) enabled.",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceIdentity"
+                    }
                 }
             }
         },
@@ -26899,6 +27185,10 @@
                 "serializerSettings": {
                     "description": "The serialization settings for the result set",
                     "$ref": "#/definitions/DatasetExecuteQueriesSerializationSettings"
+                },
+				"impersonatedUserName": {
+                    "type": "string",
+                    "description": "The UPN of a user to be impersonated. If the model is not RLS enabled, this will be ignored."
                 }
             },
             "description": "A request to execute queries against a dataset"
@@ -26929,15 +27219,37 @@
         "DatasetExecuteQueriesResponse": {
             "type": "object",
             "properties": {
+				"informationProtectionLabel": {
+                    "description": "The details of the information protection label, if any, associated with the dataset.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesInformationProtectionLabel"
+                },
                 "results": {
                     "type": "array",
                     "description": "The list of results, one per input query.",
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesQueryResult"
                     }
+                },
+				"error" : {
+                    "description": "The details of an error, if present.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "The response to a dataset execute queries request"
+        },
+		"DatasetExecuteQueriesInformationProtectionLabel": {
+            "type": "object",
+            "properties": {
+				"id":{
+                    "type": "string",
+                    "description": "The identifier (guid) of the information protection label"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The display name of the information protection label"
+                }
+            },
+            "description": "The details of the information protection label, if any, associated with the dataset."
         },
         "DatasetExecuteQueriesQueryResult": {
             "type": "object",
@@ -26948,6 +27260,10 @@
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesTableResult"
                     }
+                },
+				"error" : {
+                    "description": "The details of an error, if present.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "The results from a single dataset query"
@@ -26961,6 +27277,10 @@
                     "items": {
                         "$ref": "#/definitions/DatasetExecuteQueriesRowResult"
                     }
+                },
+				"error" : {
+                    "description": "The details of an error, if present.",
+                    "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "A table of data"
@@ -26972,6 +27292,20 @@
                 "Sales": 100.5
             },
             "description": "A set of key-value pairs representing the column name and a row value. The column name is the key of the pair."
+        },
+		"DatasetExecuteQueriesError": {
+            "type": "object",
+            "properties": {
+				"code": {
+                    "type": "string",
+                    "description": "The code associated with the error"
+                },
+                "message": {
+                    "type": "string",
+                    "description": "The message of the error. If not present here, this information my also be found in details object nested under the error object."
+                }
+            },
+            "description": "The details of an error, if present."
         },
         "Scorecards": {
             "description": "The OData response wrapper for a Power BI scorecard collection",

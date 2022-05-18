@@ -35,6 +35,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='skip'>
         /// Skips the first n results
         /// </param>
+        /// <param name='filter'>
+        /// Get a profile by DisplayName
+        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -47,7 +50,7 @@ namespace Microsoft.PowerBI.Api
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ServicePrincipalProfiles>> GetProfilesWithHttpMessagesAsync(int? top = default(int?), int? skip = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ServicePrincipalProfiles>> GetProfilesWithHttpMessagesAsync(int? top = default(int?), int? skip = default(int?), string filter = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates a new service principal profile.
         /// </summary>

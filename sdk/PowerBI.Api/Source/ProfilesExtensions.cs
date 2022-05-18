@@ -35,9 +35,12 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static ServicePrincipalProfiles GetProfiles(this IProfiles operations, int? top = default(int?), int? skip = default(int?))
+            /// <param name='filter'>
+            /// Get a profile by DisplayName
+            /// </param>
+            public static ServicePrincipalProfiles GetProfiles(this IProfiles operations, int? top = default(int?), int? skip = default(int?), string filter = default(string))
             {
-                return operations.GetProfilesAsync(top, skip).GetAwaiter().GetResult();
+                return operations.GetProfilesAsync(top, skip, filter).GetAwaiter().GetResult();
             }
 
             /// <summary>
@@ -60,12 +63,15 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
+            /// <param name='filter'>
+            /// Get a profile by DisplayName
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ServicePrincipalProfiles> GetProfilesAsync(this IProfiles operations, int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ServicePrincipalProfiles> GetProfilesAsync(this IProfiles operations, int? top = default(int?), int? skip = default(int?), string filter = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetProfilesWithHttpMessagesAsync(top, skip, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetProfilesWithHttpMessagesAsync(top, skip, filter, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

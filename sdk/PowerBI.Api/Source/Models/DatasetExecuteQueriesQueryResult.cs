@@ -30,9 +30,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// class.
         /// </summary>
         /// <param name="tables">A list of tables data for a query</param>
-        public DatasetExecuteQueriesQueryResult(IList<DatasetExecuteQueriesTableResult> tables = default(IList<DatasetExecuteQueriesTableResult>))
+        /// <param name="error">The details of an error, if present.</param>
+        public DatasetExecuteQueriesQueryResult(IList<DatasetExecuteQueriesTableResult> tables = default(IList<DatasetExecuteQueriesTableResult>), DatasetExecuteQueriesError error = default(DatasetExecuteQueriesError))
         {
             Tables = tables;
+            Error = error;
             CustomInit();
         }
 
@@ -46,6 +48,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "tables")]
         public IList<DatasetExecuteQueriesTableResult> Tables { get; set; }
+
+        /// <summary>
+        /// Gets or sets the details of an error, if present.
+        /// </summary>
+        [JsonProperty(PropertyName = "error")]
+        public DatasetExecuteQueriesError Error { get; set; }
 
     }
 }
