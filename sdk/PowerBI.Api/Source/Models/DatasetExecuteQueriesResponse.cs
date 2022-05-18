@@ -29,11 +29,17 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the DatasetExecuteQueriesResponse
         /// class.
         /// </summary>
+        /// <param name="informationProtectionLabel">The details of the
+        /// information protection label, if any, associated with the
+        /// dataset.</param>
         /// <param name="results">The list of results, one per input
         /// query.</param>
-        public DatasetExecuteQueriesResponse(IList<DatasetExecuteQueriesQueryResult> results = default(IList<DatasetExecuteQueriesQueryResult>))
+        /// <param name="error">The details of an error, if present.</param>
+        public DatasetExecuteQueriesResponse(DatasetExecuteQueriesInformationProtectionLabel informationProtectionLabel = default(DatasetExecuteQueriesInformationProtectionLabel), IList<DatasetExecuteQueriesQueryResult> results = default(IList<DatasetExecuteQueriesQueryResult>), DatasetExecuteQueriesError error = default(DatasetExecuteQueriesError))
         {
+            InformationProtectionLabel = informationProtectionLabel;
             Results = results;
+            Error = error;
             CustomInit();
         }
 
@@ -43,10 +49,23 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the details of the information protection label, if
+        /// any, associated with the dataset.
+        /// </summary>
+        [JsonProperty(PropertyName = "informationProtectionLabel")]
+        public DatasetExecuteQueriesInformationProtectionLabel InformationProtectionLabel { get; set; }
+
+        /// <summary>
         /// Gets or sets the list of results, one per input query.
         /// </summary>
         [JsonProperty(PropertyName = "results")]
         public IList<DatasetExecuteQueriesQueryResult> Results { get; set; }
+
+        /// <summary>
+        /// Gets or sets the details of an error, if present.
+        /// </summary>
+        [JsonProperty(PropertyName = "error")]
+        public DatasetExecuteQueriesError Error { get; set; }
 
     }
 }

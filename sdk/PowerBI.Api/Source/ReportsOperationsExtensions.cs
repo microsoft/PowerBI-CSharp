@@ -21,6 +21,8 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
+            /// This API also returns shared reports and reports from shared apps.
+            ///
             /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
             /// the API response for paginated reports isn't displayed.
             ///
@@ -41,6 +43,8 @@ namespace Microsoft.PowerBI.Api
             /// Returns a list of reports from **My workspace**.
             /// </summary>
             /// <remarks>
+            ///
+            /// This API also returns shared reports and reports from shared apps.
             ///
             /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
             /// the API response for paginated reports isn't displayed.
@@ -262,7 +266,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Report.ReadWrite.All or Report.Read.All
+            /// Report.ReadWrite.All or both Report.Read.All and Dataset.Read.All
             ///
             /// ## Limitations
             ///
@@ -299,7 +303,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Report.ReadWrite.All or Report.Read.All
+            /// Report.ReadWrite.All or both Report.Read.All and Dataset.Read.All
             ///
             /// ## Limitations
             ///
@@ -1203,7 +1207,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Report.ReadWrite.All or Report.Read.All
+            /// Report.ReadWrite.All or both Report.Read.All and Dataset.Read.All
             ///
             /// ## Limitations
             ///
@@ -1249,7 +1253,7 @@ namespace Microsoft.PowerBI.Api
             ///
             /// ## Required Scope
             ///
-            /// Report.ReadWrite.All or Report.Read.All
+            /// Report.ReadWrite.All or both Report.Read.All and Dataset.Read.All
             ///
             /// ## Limitations
             ///

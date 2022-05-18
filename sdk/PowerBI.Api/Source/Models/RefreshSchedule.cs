@@ -35,7 +35,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// more information, see [Time zone
         /// info](/dotnet/api/system.timezoneinfo.id).</param>
         /// <param name="notifyOption">The notification option on termination
-        /// of a scheduled refresh. Possible values include: 'NoNotification',
+        /// of a scheduled refresh. Service principals only support the
+        /// `NoNotification` value. Possible values include: 'NoNotification',
         /// 'MailOnFailure'</param>
         public RefreshSchedule(IList<Days?> days = default(IList<Days?>), IList<string> times = default(IList<string>), bool? enabled = default(bool?), string localTimeZoneId = default(string), ScheduleNotifyOption? notifyOption = default(ScheduleNotifyOption?))
         {
@@ -79,7 +80,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the notification option on termination of a scheduled
-        /// refresh. Possible values include: 'NoNotification', 'MailOnFailure'
+        /// refresh. Service principals only support the `NoNotification`
+        /// value. Possible values include: 'NoNotification', 'MailOnFailure'
         /// </summary>
         [JsonProperty(PropertyName = "NotifyOption")]
         public ScheduleNotifyOption? NotifyOption { get; set; }

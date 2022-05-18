@@ -139,7 +139,8 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// Virtual network (VNet) gateways aren't supported.
+        /// - Virtual network (VNet) gateways aren't supported.
+        /// - OAuth2 as a credential type isn't supported.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='gatewayId'>
@@ -414,7 +415,7 @@ namespace Microsoft.PowerBI.Api
         /// The data source ID
         /// </param>
         /// <param name='addUserToDatasourceRequest'>
-        /// The add user to datasource request
+        /// The add user to data source request
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

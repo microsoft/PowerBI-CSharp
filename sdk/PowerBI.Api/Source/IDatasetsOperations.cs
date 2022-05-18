@@ -172,7 +172,7 @@ namespace Microsoft.PowerBI.Api
         /// provided dataset. The dataset must reside in **My workspace** or
         /// another [new workspace
         /// experience](/power-bi/collaborate-share/service-new-workspaces)
-        /// workspace. This is a preview API call.
+        /// workspace.
         /// </summary>
         /// <remarks>
         ///
@@ -181,12 +181,12 @@ namespace Microsoft.PowerBI.Api
         /// - A response error, such as `DAX query failure`.
         /// - A failure HTTP status code (400).
         ///
-        /// A query that requests more than one table, or more than 100,000
-        /// table rows, will result in:
+        /// A query that requests more than one table, or more than the allowed
+        /// number of table rows, will result in:
         ///
         /// - Limited data being returned.
         /// - A response error, such as `More than one result table in a query`
-        /// or `More than 100k rows in a query result`.
+        /// or `More than {allowed number} rows in a query result`.
         /// - A successful HTTP status code (200).
         ///
         /// Columns that are fully qualified in the query will be returned with
@@ -211,10 +211,8 @@ namespace Microsoft.PowerBI.Api
         /// - Datasets that are hosted in Azure Analysis Services or that have
         /// a live connection to an on-premises Azure Analysis Services model
         /// aren't supported.
-        /// - The tenant setting **[Allow XMLA endpoints and Analyze in Excel
-        /// with on-premises
-        /// datasets](/power-bi/admin/service-premium-connect-tools)** must be
-        /// enabled.
+        /// - The tenant setting **Dataset Execute Queries REST API**, found
+        /// under **Integration settings**, must be enabled.
         /// - One query per API call.
         /// - One table request per query.
         /// - Maximum of 100,000 rows or 1,000,000 values per query (whichever
@@ -223,8 +221,7 @@ namespace Microsoft.PowerBI.Api
         /// back max 50,000 rows (1 million divided by 20).
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
-        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-        /// and user impersonation isn't supported.
+        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations).
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -452,8 +449,12 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day, which
-        /// includes refreshes executed using a scheduled refresh.
+        /// - For Shared capacities, a maximum of eight requests per day
+        /// (including refreshes executed using a scheduled refresh) can be
+        /// initiated. In the request body, only `notifyOption` can be modified
+        /// for Shared capacities. Therefore, [asynchronous refresh
+        /// operations](/power-bi/connect-data/asynchronous-refresh) cannot be
+        /// triggered.
         /// - For Premium capacities, the maximum requests per day is only
         /// limited by the available resources in the capacity. If available
         /// resources are overloaded, refreshes are throttled until the load is
@@ -697,7 +698,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All
+        /// Dataset.Read.All or Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
@@ -1178,7 +1179,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.Read.All
+        /// Dataset.Read.All or Dataset.ReadWrite.All
         /// ## Limitations
         ///
         /// - Only datasets in a [new workspace
@@ -1338,7 +1339,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.Read.All
+        /// Dataset.Read.All or Dataset.ReadWrite.All
         /// ## Limitations
         ///
         /// - Only datasets in a [new workspace
@@ -1814,8 +1815,12 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day, which
-        /// includes refreshes executed using a scheduled refresh.
+        /// - For Shared capacities, a maximum of eight requests per day
+        /// (including refreshes executed using a scheduled refresh) can be
+        /// initiated. In the request body, only `notifyOption` can be modified
+        /// for Shared capacities. Therefore, [asynchronous refresh
+        /// operations](/power-bi/connect-data/asynchronous-refresh) cannot be
+        /// triggered.
         /// - For Premium capacities, the maximum requests per day is only
         /// limited by the available resources in the capacity. If available
         /// resources are overloaded, refreshes are throttled until the load is
@@ -2110,7 +2115,7 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Required Scope
         ///
-        /// Dataset.ReadWrite.All
+        /// Dataset.Read.All or Dataset.ReadWrite.All
         ///
         /// ## Limitations
         ///
@@ -2549,6 +2554,87 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse> TakeOverInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Executes Data Analysis Expressions (DAX) queries against the
+        /// provided dataset. The dataset must reside in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace.
+        /// </summary>
+        /// <remarks>
+        ///
+        /// DAX query errors will result in:
+        ///
+        /// - A response error, such as `DAX query failure`.
+        /// - A failure HTTP status code (400).
+        ///
+        /// A query that requests more than one table, or more than the allowed
+        /// number of table rows, will result in:
+        ///
+        /// - Limited data being returned.
+        /// - A response error, such as `More than one result table in a query`
+        /// or `More than {allowed number} rows in a query result`.
+        /// - A successful HTTP status code (200).
+        ///
+        /// Columns that are fully qualified in the query will be returned with
+        /// a fully qualified name, for example, `MyTable[MyColumn]`. Columns
+        /// that are renamed or created in the query will be returned within
+        /// square bracket, for example, `[MyNewColumn]`.
+        ///
+        /// ## Permissions
+        ///
+        /// The user must have [Manage dataset access
+        /// permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).
+        ///
+        /// ## Required Scope
+        ///
+        /// Dataset.ReadWrite.All or Dataset.Read.All
+        ///
+        /// ## Limitations
+        ///
+        /// - Only datasets in a [new workspace
+        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// workspace, that is to say a **V2** workspace, are supported.
+        /// - Datasets that are hosted in Azure Analysis Services or that have
+        /// a live connection to an on-premises Azure Analysis Services model
+        /// aren't supported.
+        /// - The tenant setting **Dataset Execute Queries REST API**, found
+        /// under **Integration settings**, must be enabled.
+        /// - One query per API call.
+        /// - One table request per query.
+        /// - Maximum of 100,000 rows or 1,000,000 values per query (whichever
+        /// is hit first). For example if you query for 5 columns, you can get
+        /// back max 100,000 rows. If you query for 20 columns, you can get
+        /// back max 50,000 rows (1 million divided by 20).
+        /// - Service Principals aren't supported for datasets with RLS per
+        /// [RLS
+        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations).
+        /// &lt;br&gt;&lt;br&gt;
+        /// </remarks>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='requestMessage'>
+        /// The request message
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
+        /// Thrown when the operation returned an invalid status code
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<DatasetExecuteQueriesResponse>> ExecuteQueriesInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetExecuteQueriesRequest requestMessage, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Generates an embed token based on the specified dataset from the
         /// specified workspace.

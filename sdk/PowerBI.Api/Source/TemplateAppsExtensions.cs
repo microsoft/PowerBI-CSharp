@@ -17,8 +17,8 @@ namespace Microsoft.PowerBI.Api
     {
             /// <summary>
             /// Generates an installation ticket for the [automated install
-            /// flow](/power-bi/developer/template-apps/template-apps-auto-install) of the
-            /// specified template app.
+            /// flow](/power-bi/connect-data/template-apps-auto-install) of the specified
+            /// template app.
             /// </summary>
             /// <remarks>
             ///
@@ -52,8 +52,8 @@ namespace Microsoft.PowerBI.Api
 
             /// <summary>
             /// Generates an installation ticket for the [automated install
-            /// flow](/power-bi/developer/template-apps/template-apps-auto-install) of the
-            /// specified template app.
+            /// flow](/power-bi/connect-data/template-apps-auto-install) of the specified
+            /// template app.
             /// </summary>
             /// <remarks>
             ///
