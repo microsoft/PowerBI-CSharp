@@ -13800,6 +13800,7 @@
                                             "description": "Sample group",
                                             "type": "Workspace",
                                             "state": "Active",
+                                            "hasWorkspaceLevelSettings": false,
                                             "users": [
                                                 {
                                                     "emailAddress": "john@contoso.com",
@@ -13840,6 +13841,7 @@
                                             "description": "Sample orphan group",
                                             "type": "Workspace",
                                             "state": "Active",
+                                            "hasWorkspaceLevelSettings": false,
                                             "users": []
                                         }
                                     ]
@@ -13866,6 +13868,7 @@
                                             "type": "Workspace",
                                             "state": "Active",
                                             "name": "WSv2Test12",
+                                            "hasWorkspaceLevelSettings": true,
                                             "reports": []
                                         },
                                         {
@@ -13877,6 +13880,7 @@
                                             "type": "Workspace",
                                             "state": "Removing",
                                             "name": "a",
+                                            "hasWorkspaceLevelSettings": false,
                                             "reports": [
                                                 {
                                                     "id": "5DBA60B0-D9A7-42AE-B12C-6D9D51E7739A",
@@ -13916,6 +13920,7 @@
                                             "type": "Workspace",
                                             "state": "Removing",
                                             "name": "a",
+                                            "hasWorkspaceLevelSettings": false,
                                             "dashboards": [
                                                 {
                                                     "id": "4668133c-ae3f-42fb-ad7c-214a8623280c",
@@ -13953,6 +13958,7 @@
                                             "type": "Workspace",
                                             "state": "Removing",
                                             "name": "a",
+                                            "hasWorkspaceLevelSettings": false,
                                             "datasets": [
                                                 {
                                                     "id": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
@@ -14026,6 +14032,7 @@
                                             "description": "Sample group",
                                             "type": "Workspace",
                                             "state": "Active",
+                                            "hasWorkspaceLevelSettings": true,
                                             "datasets": [
                                                 {
                                                     "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -14075,6 +14082,7 @@
                                             "description": "shorter description",
                                             "type": "Workspace",
                                             "state": "Removing",
+                                            "hasWorkspaceLevelSettings": false,
                                             "name": "a",
                                             "workbooks": [
                                                 {
@@ -22816,6 +22824,10 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The deployment pipeline ID that the workspace is assigned to."
+                },
+                "hasWorkspaceLevelSettings": {
+                    "type": "boolean",
+                    "description": "Whether the workspace has custom settings"
                 }
             }
         },
