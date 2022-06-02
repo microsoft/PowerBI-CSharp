@@ -12565,6 +12565,14 @@
                                             "lastDeploymentTime": "2021-06-06T11:55:59.057Z"
                                         }
                                     ],
+                                    "datamarts": [
+                                        {
+                                            "artifactId": "a7654a17-c5d1-4539-b9ec-022075545e50",
+                                            "artifactDisplayName": "Sales Datamart",
+                                            "sourceArtifactId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b",
+                                            "lastDeploymentTime": "2021-06-06T11:55:59.057Z"
+                                        }
+                                    ],
                                     "datasets": [
                                         {
                                             "artifactId": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee",
@@ -12719,6 +12727,14 @@
                                             },
                                             {
                                                 "index": 1,
+                                                "type": "DatamartDeployment",
+                                                "status": "Succeeded",
+                                                "sourceAndTarget": {
+                                                    "source": "645cd81f-1b21-4006-82b6-54cc7ec0352e"
+                                                }
+                                            },
+                                            {
+                                                "index": 2,
                                                 "type": "DatasetDeployment",
                                                 "status": "Succeeded",
                                                 "sourceAndTarget": {
@@ -12727,7 +12743,7 @@
                                                 }
                                             },
                                             {
-                                                "index": 2,
+                                                "index": 3,
                                                 "type": "ReportDeployment",
                                                 "status": "Succeeded",
                                                 "sourceAndTarget": {
@@ -12736,7 +12752,7 @@
                                                 }
                                             },
                                             {
-                                                "index": 3,
+                                                "index": 4,
                                                 "type": "DashboardDeployment",
                                                 "status": "Succeeded",
                                                 "sourceAndTarget": {
@@ -12879,6 +12895,11 @@
                                         "sourceId": "29efcfb0-0063-44af-a4ed-6c0bee3417d3"
                                     }
                                 ],
+                                "datamarts": [
+                                    {
+                                        "sourceId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b"
+                                    }
+                                ],
                                 "datasets": [
                                     {
                                         "sourceId": "1a201f2a-d1d8-45c0-8c61-1676338517de"
@@ -12901,6 +12922,47 @@
                                     "allowOverwriteArtifact": true,
                                     "allowCreateArtifact": true
                                 }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
+                                        "type": "Deploy",
+                                        "status": "NotStarted",
+                                        "lastUpdatedTime": "2020-12-13T09:26:43.153",
+                                        "executionStartTime": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime": "2020-12-13T09:26:43.153Z",
+                                        "sourceStageOrder": 0,
+                                        "targetStageOrder": 1
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Example of deploying specific Power BI items with custom options": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "deployRequest": {
+                                "sourceStageOrder": 0,
+                                "datamarts": [
+                                    {
+                                        "sourceId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b",
+                                         "options": {
+                                            "allowOverwriteArtifact": true,
+                                            "allowCreateArtifact": true
+                                        }
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "sourceId": "2d225191-65f8-4ec3-b77d-06100602b1f7",
+                                        "options": {
+                                            "allowOverwriteArtifact": true
+                                        }
+                                    }
+                                ]
                             }
                         },
                         "responses": {
@@ -14675,7 +14737,7 @@
                 "parameters": [
                     {
                         "name": "groupId",
-                        "in": "path",
+                        "in": "path", 
                         "required": true,
                         "description": "The workspace ID",
                         "type": "string",
@@ -26641,6 +26703,13 @@
                     "items": {
                         "$ref": "#/definitions/PipelineStageDataflow"
                     }
+                },
+                "datamarts": {
+                    "type": "array",
+                    "description": "The datamarts collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStageDatamart"
+                    }
                 }
             }
         },
@@ -26678,6 +26747,14 @@
         },
         "PipelineStageDataflow": {
             "description": "The metadata for a deployment pipeline dataflow",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineStageArtifactBase"
+                }
+            ]
+        },
+         "PipelineStageDatamart": {
+            "description": "The metadata for a deployment pipeline datamart",
             "allOf": [
                 {
                     "$ref": "#/definitions/PipelineStageArtifactBase"
@@ -26847,7 +26924,8 @@
                         "DatasetDeployment",
                         "ReportDeployment",
                         "DashboardDeployment",
-                        "DataflowDeployment"
+                        "DataflowDeployment",
+                        "DatamartDeployment"
                     ],
                     "x-ms-enum": {
                         "name": "DeploymentStepType",
@@ -26868,6 +26946,10 @@
                             {
                                 "value": "DataflowDeployment",
                                 "description": "A step for deploying a single dataflow"
+                            },
+                            {
+                                "value": "DatamartDeployment",
+                                "description": "A step for deploying a single datamart"
                             }
                         ]
                     }
@@ -27013,6 +27095,13 @@
                 "dataflows": {
                     "type": "array",
                     "description": "A list of dataflows to be deployed",
+                    "items": {
+                        "$ref": "#/definitions/DeployArtifactRequest"
+                    }
+                },
+                "datamarts": {
+                    "type": "array",
+                    "description": "A list of datamarts to be deployed",
                     "items": {
                         "$ref": "#/definitions/DeployArtifactRequest"
                     }

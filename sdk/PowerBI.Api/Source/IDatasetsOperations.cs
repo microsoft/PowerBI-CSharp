@@ -221,7 +221,8 @@ namespace Microsoft.PowerBI.Api
         /// back max 50,000 rows (1 million divided by 20).
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
-        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled.
+        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
+        /// or with SSO enabled.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='datasetId'>
@@ -2607,7 +2608,8 @@ namespace Microsoft.PowerBI.Api
         /// back max 50,000 rows (1 million divided by 20).
         /// - Service Principals aren't supported for datasets with RLS per
         /// [RLS
-        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled.
+        /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
+        /// or with SSO enabled.
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>

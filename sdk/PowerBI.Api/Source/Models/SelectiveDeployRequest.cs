@@ -46,13 +46,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="dashboards">A list of dashboards to be
         /// deployed</param>
         /// <param name="dataflows">A list of dataflows to be deployed</param>
-        public SelectiveDeployRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), IList<DeployArtifactRequest> datasets = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> reports = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dashboards = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dataflows = default(IList<DeployArtifactRequest>))
+        /// <param name="datamarts">A list of datamarts to be deployed</param>
+        public SelectiveDeployRequest(int sourceStageOrder, bool? isBackwardDeployment = default(bool?), PipelineNewWorkspaceRequest newWorkspace = default(PipelineNewWorkspaceRequest), PipelineUpdateAppSettings updateAppSettings = default(PipelineUpdateAppSettings), DeploymentOptions options = default(DeploymentOptions), IList<DeployArtifactRequest> datasets = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> reports = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dashboards = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> dataflows = default(IList<DeployArtifactRequest>), IList<DeployArtifactRequest> datamarts = default(IList<DeployArtifactRequest>))
             : base(sourceStageOrder, isBackwardDeployment, newWorkspace, updateAppSettings, options)
         {
             Datasets = datasets;
             Reports = reports;
             Dashboards = dashboards;
             Dataflows = dataflows;
+            Datamarts = datamarts;
             CustomInit();
         }
 
@@ -84,6 +86,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "dataflows")]
         public IList<DeployArtifactRequest> Dataflows { get; set; }
+
+        /// <summary>
+        /// Gets or sets a list of datamarts to be deployed
+        /// </summary>
+        [JsonProperty(PropertyName = "datamarts")]
+        public IList<DeployArtifactRequest> Datamarts { get; set; }
 
         /// <summary>
         /// Validate the object.
@@ -131,6 +139,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element3 != null)
                     {
                         element3.Validate();
+                    }
+                }
+            }
+            if (Datamarts != null)
+            {
+                foreach (var element4 in Datamarts)
+                {
+                    if (element4 != null)
+                    {
+                        element4.Validate();
                     }
                 }
             }
