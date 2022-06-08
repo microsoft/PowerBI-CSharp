@@ -17029,6 +17029,50 @@
                             }
                         }
                     },
+                    "Example of generating an embed token for a Power BI report with a dataset which is connected with DirectQuery to another Power BI dataset. All related dataset IDs must be specified in the request with 'xmlaPermissions' set to 'ReadOnly'. IdentityBlobs for all SSO-enabled data sources must be provided in the 'datasourceIdentities' array": {
+                        "parameters": {
+                            "requestParameters": {
+                                "datasets": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd",
+                                        "xmlaPermissions": "ReadOnly"
+                                    },
+                                    {
+                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                        "xmlaPermissions": "ReadOnly"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "id": "f904e89a-7ebe-4aa0-8647-e409063b4850"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "Best-Sql-Server",
+                                                    "database": "Database3"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "ab4d49ae-c054-4c29-af52-93b5c80619ff",
+                                    "expiration": "2022-06-10T12:41:11Z"
+                                }
+                            }
+                        }
+                    },
                     "Example of generating an embed token for a paginated report which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
                         "parameters": {
                             "requestParameters": {
