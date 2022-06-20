@@ -26,7 +26,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// Initializes a new instance of the Refresh class.
         /// </summary>
         /// <param name="refreshType">The type of refresh request. Possible
-        /// values include: 'Scheduled', 'OnDemand', 'ViaApi'</param>
+        /// values include: 'Scheduled', 'OnDemand', 'ViaApi',
+        /// 'ViaXmlaEndpoint', 'ViaEnhancedApi', 'OnDemandTraining'</param>
         /// <param name="startTime">The start date and time of the
         /// refresh</param>
         /// <param name="endTime">The end date and time of the refresh (may be
@@ -60,7 +61,8 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the type of refresh request. Possible values include:
-        /// 'Scheduled', 'OnDemand', 'ViaApi'
+        /// 'Scheduled', 'OnDemand', 'ViaApi', 'ViaXmlaEndpoint',
+        /// 'ViaEnhancedApi', 'OnDemandTraining'
         /// </summary>
         [JsonProperty(PropertyName = "refreshType")]
         public RefreshType? RefreshType { get; set; }

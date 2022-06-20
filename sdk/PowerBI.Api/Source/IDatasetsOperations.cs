@@ -434,13 +434,9 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryWithHttpMessagesAsync(string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Triggers a refresh for the specified dataset from **My workspace**.
-        /// An [asynchronous
-        /// refresh](/power-bi/connect-data/asynchronous-refresh) would be
-        /// triggered only if any request payload except `notifyOption` is set.
-        /// Asynchronous refresh has response headers which could be used to
-        /// [get refresh execution
-        /// details](/rest/api/power-bi/datasets/get-refresh-execution-details)
-        /// or [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).
+        /// An [enhanced refresh](/power-bi/connect-data/asynchronous-refresh)
+        /// is triggered only if a request payload other than `notifyOption` is
+        /// set.
         /// </summary>
         /// <remarks>
         ///
@@ -450,12 +446,15 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day
-        /// (including refreshes executed using a scheduled refresh) can be
-        /// initiated. In the request body, only `notifyOption` can be modified
-        /// for Shared capacities. Therefore, [asynchronous refresh
-        /// operations](/power-bi/connect-data/asynchronous-refresh) cannot be
-        /// triggered.
+        /// - For Shared capacities, a maximum of eight requests per day,
+        /// including refreshes executed by using scheduled refresh, can be
+        /// initiated.
+        /// - For Shared capacities, only `notifyOption` can be specified in
+        /// the request body.
+        /// - Enhanced refresh is not supported for shared capacities.
+        /// - For enhanced refresh, `notifyOption` is not required and must be
+        /// excluded from the request body. However, one or more parameters
+        /// other than `notifyOption` are required.
         /// - For Premium capacities, the maximum requests per day is only
         /// limited by the available resources in the capacity. If available
         /// resources are overloaded, refreshes are throttled until the load is
@@ -481,7 +480,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationHeaderResponse<DatasetsRefreshDatasetHeaders>> RefreshDatasetWithHttpMessagesAsync(string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns execution details of an [asynchronous refresh
+        /// Returns execution details of an [enhanced refresh
         /// operation](/power-bi/connect-data/asynchronous-refresh) for the
         /// specified dataset from **My workspace**.
         /// </summary>
@@ -512,7 +511,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsWithHttpMessagesAsync(System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Cancels the specified [asynchronous refresh
+        /// Cancels the specified [enhanced refresh
         /// operation](/power-bi/connect-data/asynchronous-refresh) for the
         /// specified dataset from **My workspace**.
         /// </summary>
@@ -1792,15 +1791,9 @@ namespace Microsoft.PowerBI.Api
         Task<HttpOperationResponse<Refreshes>> GetRefreshHistoryInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, int? top = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Triggers a refresh for the specified dataset from the specified
-        /// workspace. An [asynchronous
-        /// refresh](/power-bi/connect-data/asynchronous-refresh) would be
-        /// triggered only if any request payload except `notifyOption` is set.
-        /// Asynchronous refresh has a response header, `Location`, which
-        /// includes the `refreshId` and could be used to [get refresh
-        /// execution details in
-        /// group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group)
-        /// or [cancel refresh in
-        /// group](/rest/api/power-bi/datasets/cancel-refresh-in-group).
+        /// workspace. An [enhanced
+        /// refresh](/power-bi/connect-data/asynchronous-refresh) is triggered
+        /// only if a request payload other than `notifyOption` is set.
         /// </summary>
         /// <remarks>
         ///
@@ -1816,12 +1809,15 @@ namespace Microsoft.PowerBI.Api
         ///
         /// ## Limitations
         ///
-        /// - For Shared capacities, a maximum of eight requests per day
-        /// (including refreshes executed using a scheduled refresh) can be
-        /// initiated. In the request body, only `notifyOption` can be modified
-        /// for Shared capacities. Therefore, [asynchronous refresh
-        /// operations](/power-bi/connect-data/asynchronous-refresh) cannot be
-        /// triggered.
+        /// - For Shared capacities, a maximum of eight requests per day,
+        /// including refreshes executed by using scheduled refresh, can be
+        /// initiated.
+        /// - For Shared capacities, only `notifyOption` can be specified in
+        /// the request body.
+        /// - Enhanced refresh is not supported for shared capacities.
+        /// - For enhanced refresh, `notifyOption` is not required and must be
+        /// excluded from the request body. However, one or more parameters
+        /// other than `notifyOption` are required.
         /// - For Premium capacities, the maximum requests per day is only
         /// limited by the available resources in the capacity. If available
         /// resources are overloaded, refreshes are throttled until the load is
@@ -1850,7 +1846,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationHeaderResponse<DatasetsRefreshDatasetInGroupHeaders>> RefreshDatasetInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, DatasetRefreshRequest datasetRefreshRequest = default(DatasetRefreshRequest), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns execution details of an [asynchronous refresh
+        /// Returns execution details of an [enhanced refresh
         /// operation](/power-bi/connect-data/asynchronous-refresh) for the
         /// specified dataset from the specified workspace.
         /// </summary>
@@ -1884,7 +1880,7 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<DatasetRefreshDetail>> GetRefreshExecutionDetailsInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, System.Guid refreshId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Cancels the specified [asynchronous refresh
+        /// Cancels the specified [enhanced refresh
         /// operation](/power-bi/connect-data/asynchronous-refresh) for the
         /// specified dataset from the specified workspace.
         /// </summary>

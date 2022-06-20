@@ -766,8 +766,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from **My workspace**. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has response headers which could be used to [get refresh execution details](/rest/api/power-bi/datasets/get-refresh-execution-details) or [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day (including refreshes executed using a scheduled refresh) can be initiated. In the request body, only `notifyOption` can be modified for Shared capacities. Therefore, [asynchronous refresh operations](/power-bi/connect-data/asynchronous-refresh) cannot be triggered.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "summary": "Triggers a refresh for the specified dataset from **My workspace**. An [enhanced refresh](/power-bi/connect-data/asynchronous-refresh) is triggered only if a request payload other than `notifyOption` is set.",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, including refreshes executed by using scheduled refresh, can be initiated.\n- For Shared capacities, only `notifyOption` can be specified in the request body.\n- Enhanced refresh is not supported for shared capacities.\n- For enhanced refresh, `notifyOption` is not required and must be excluded from the request body. However, one or more parameters other than `notifyOption` are required.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDataset",
                 "consumes": [
                     "application/json"
@@ -834,7 +834,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "summary": "Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetails",
                 "consumes": [],
@@ -1037,7 +1037,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "summary": "Cancels the specified [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefresh",
                 "consumes": [],
@@ -4650,8 +4650,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has a response header, `Location`, which includes the `refreshId` and could be used to [get refresh execution details in group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group) or [cancel refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group).",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day (including refreshes executed using a scheduled refresh) can be initiated. In the request body, only `notifyOption` can be modified for Shared capacities. Therefore, [asynchronous refresh operations](/power-bi/connect-data/asynchronous-refresh) cannot be triggered.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [enhanced refresh](/power-bi/connect-data/asynchronous-refresh) is triggered only if a request payload other than `notifyOption` is set.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, including refreshes executed by using scheduled refresh, can be initiated.\n- For Shared capacities, only `notifyOption` can be specified in the request body.\n- Enhanced refresh is not supported for shared capacities.\n- For enhanced refresh, `notifyOption` is not required and must be excluded from the request body. However, one or more parameters other than `notifyOption` are required.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -4727,7 +4727,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "summary": "Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetailsInGroup",
                 "consumes": [],
@@ -4941,7 +4941,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "summary": "Cancels the specified [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
                 "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefreshInGroup",
                 "consumes": [],
@@ -23311,7 +23311,10 @@
                     "enum": [
                         "Scheduled",
                         "OnDemand",
-                        "ViaApi"
+                        "ViaApi",
+                        "ViaXmlaEndpoint",
+                        "ViaEnhancedApi",
+                        "OnDemandTraining"
                     ],
                     "x-ms-enum": {
                         "name": "RefreshType",
@@ -23328,6 +23331,18 @@
                             {
                                 "value": "ViaApi",
                                 "description": "The refresh was triggered by an API call"
+                            },
+                            {
+                                "value": "ViaXmlaEndpoint",
+                                "description": "The refresh was triggered through Power BI public XMLA endpoint"
+                            },
+                            {
+                                "value": "ViaEnhancedApi",
+                                "description": "The refresh was triggered by an enhanced refresh REST API call"
+                            },
+                            {
+                                "value": "OnDemandTraining",
+                                "description": "The refresh was triggered interactively through the Power BI portal with automatic aggregations training"
                             }
                         ]
                     }
@@ -23396,7 +23411,7 @@
             "properties": {
                 "notifyOption": {
                     "type": "string",
-                    "description": "Mail notification options",
+                    "description": "Mail notification options. This is not applicable to enhanced refresh.",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure",
