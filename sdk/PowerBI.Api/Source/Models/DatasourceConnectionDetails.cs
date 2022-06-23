@@ -10,7 +10,10 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    /// The Power BI data source connection details
+    /// The Power BI data source connection details. See examples in [Get
+    /// Datasources](/rest/api/power-bi/datasets/get-datasources#examples) or
+    /// [Get Datasources In
+    /// Group](/rest/api/power-bi/datasets/get-datasources-in-group#examples).
     /// </summary>
     public partial class DatasourceConnectionDetails
     {
@@ -30,11 +33,25 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="server">The connection server</param>
         /// <param name="database">The connection database</param>
         /// <param name="url">The connection URL</param>
-        public DatasourceConnectionDetails(string server = default(string), string database = default(string), string url = default(string))
+        /// <param name="path">The connection path</param>
+        /// <param name="kind">The connection kind</param>
+        /// <param name="account">The connection account</param>
+        /// <param name="domain">The connection domain</param>
+        /// <param name="emailAddress">The connection email address</param>
+        /// <param name="loginServer">The connection login server</param>
+        /// <param name="classInfo">The connection class information</param>
+        public DatasourceConnectionDetails(string server = default(string), string database = default(string), string url = default(string), string path = default(string), string kind = default(string), string account = default(string), string domain = default(string), string emailAddress = default(string), string loginServer = default(string), string classInfo = default(string))
         {
             Server = server;
             Database = database;
             Url = url;
+            Path = path;
+            Kind = kind;
+            Account = account;
+            Domain = domain;
+            EmailAddress = emailAddress;
+            LoginServer = loginServer;
+            ClassInfo = classInfo;
             CustomInit();
         }
 
@@ -60,6 +77,48 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "url")]
         public string Url { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection path
+        /// </summary>
+        [JsonProperty(PropertyName = "path")]
+        public string Path { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection kind
+        /// </summary>
+        [JsonProperty(PropertyName = "kind")]
+        public string Kind { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection account
+        /// </summary>
+        [JsonProperty(PropertyName = "account")]
+        public string Account { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection domain
+        /// </summary>
+        [JsonProperty(PropertyName = "domain")]
+        public string Domain { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection email address
+        /// </summary>
+        [JsonProperty(PropertyName = "emailAddress")]
+        public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection login server
+        /// </summary>
+        [JsonProperty(PropertyName = "loginServer")]
+        public string LoginServer { get; set; }
+
+        /// <summary>
+        /// Gets or sets the connection class information
+        /// </summary>
+        [JsonProperty(PropertyName = "classInfo")]
+        public string ClassInfo { get; set; }
 
     }
 }

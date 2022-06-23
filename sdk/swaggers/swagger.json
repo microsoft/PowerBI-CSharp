@@ -1732,6 +1732,85 @@
                                 ]
                             }
                         }
+                    },
+                    "Extension datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Extension",
+                                            "datasourceId": "70540d95-4c8e-41ae-88c6-27a103b12841",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "kind": "AzureDataExplorer",
+                                                "path": "https://myserver.kusto.windows.net"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Microsoft Exchange datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Exchange",
+                                            "datasourceId": "4d126fc8-1568-46aa-ba16-ccf19b18f012",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "emailAddress": "john@contoso.com"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Salesforce datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Salesforce",
+                                            "datasourceId": "e8a6e0f5-b244-402a-ba5a-4d578609ede3",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "classInfo": "report-detail",
+                                                "loginServer": "https://login.salesforce.com/"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Azure Blobs datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AzureBlobs",
+                                            "datasourceId": "e0315274-90b6-4fc0-abf2-2d60d448cb04",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "account": "myAccount",
+                                                "domain": "blob.core.windows.net"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 },
                 "deprecated": false
@@ -5558,32 +5637,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "DirectQuery model example": {
-                        "parameters": {
-                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
-                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
-                        },
-                        "responses": {
-                            "200": {
-                                "body": {
-                                    "value": [
-                                        {
-                                            "name": "301",
-                                            "connectionString": "data source=MyServer.database.windows.net;initial catalog=MyDatabase;persist security info=True;encrypt=True;trustservercertificate=False",
-                                            "datasourceType": "Sql",
-                                            "datasourceId": "16a54ccd-620d-4af3-9197-0b8c779a9a6d",
-                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
-                                            "connectionDetails": {
-                                                "server": "MyServer.database.windows.net",
-                                                "database": "MyDatabase"
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "Cached model example": {
+                    "Analysis Services example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -5594,19 +5648,233 @@
                                     "value": [
                                         {
                                             "datasourceType": "AnalysisServices",
-                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f55",
-                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                                             "connectionDetails": {
                                                 "server": "My-As-Server",
                                                 "database": "My-As-Database"
-                                            }
-                                        },
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SQL example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
                                         {
-                                            "datasourceType": "Web",
-                                            "datasourceId": "96e4bb31-7b77-4b6d-8483-d76855639a23",
+                                            "datasourceType": "Sql",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Excel example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "File",
+                                            "connectionDetails": {
+                                                "path": "c:\\users\\username\\documents\\orders1.xlsx"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "OData example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "OData",
+                                            "connectionDetails": {
+                                                "url": "http://services.odata.org/MyOdata/MyOdata.svc"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SharePoint example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "SharePointList",
+                                            "connectionDetails": {
+                                                "url": "https://microsoft.sharepoint.com/hello/myproj/"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SAP HANA example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "datasourceType": "SAPHana",
+                                        "connectionDetails": {
+                                            "server": "My-SapHana-Server",
+                                            "database": "My-SapHana-Database"
+                                        },
+                                        "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Oracle example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "datasourceType": "Oracle",
+                                        "connectionDetails": {
+                                            "server": "My-Oracle-Server",
+                                            "database": "My-Oracle-Database"
+                                        },
+                                        "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Extension datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Extension",
+                                            "datasourceId": "70540d95-4c8e-41ae-88c6-27a103b12841",
                                             "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
                                             "connectionDetails": {
-                                                "url": "http://myWebSource.com"
+                                                "kind": "AzureDataExplorer",
+                                                "path": "https://myserver.kusto.windows.net"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Microsoft Exchange datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Exchange",
+                                            "datasourceId": "4d126fc8-1568-46aa-ba16-ccf19b18f012",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "emailAddress": "john@contoso.com"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Salesforce datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Salesforce",
+                                            "datasourceId": "e8a6e0f5-b244-402a-ba5a-4d578609ede3",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "classInfo": "report-detail",
+                                                "loginServer": "https://login.salesforce.com/"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Azure Blobs datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AzureBlobs",
+                                            "datasourceId": "e0315274-90b6-4fc0-abf2-2d60d448cb04",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "account": "myAccount",
+                                                "domain": "blob.core.windows.net"
                                             }
                                         }
                                     ]
@@ -21685,7 +21953,7 @@
             }
         },
         "DatasourceConnectionDetails": {
-            "description": "The Power BI data source connection details",
+            "description": "The Power BI data source connection details. See examples in [Get Datasources](/rest/api/power-bi/datasets/get-datasources#examples) or [Get Datasources In Group](/rest/api/power-bi/datasets/get-datasources-in-group#examples).",
             "properties": {
                 "server": {
                     "type": "string",
@@ -21698,6 +21966,34 @@
                 "url": {
                     "type": "string",
                     "description": "The connection URL"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The connection path"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The connection kind"
+                },
+                "account": {
+                    "type": "string",
+                    "description": "The connection account"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The connection domain"
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "The connection email address"
+                },
+                "loginServer": {
+                    "type": "string",
+                    "description": "The connection login server"
+                },
+                "classInfo": {
+                    "type": "string",
+                    "description": "The connection class information"
                 }
             }
         },
