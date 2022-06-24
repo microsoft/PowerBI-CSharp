@@ -18829,7 +18829,7 @@
                     },
                     "Get a specific profile by displayName using filter": {
                         "parameters": {
-                            "$filter": "$filter=displayName%20eq%20'My%20new%20profile'"
+                            "$filter": "displayName%20eq%20'My%20new%20profile'"
                         },
                         "responses": {
                             "200": {
