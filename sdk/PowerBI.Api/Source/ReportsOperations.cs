@@ -1681,7 +1681,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Check the limitations in [Export Power BI report to
-        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations).
+        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations)
+        /// and [Export paginated report to
+        /// file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
@@ -3906,7 +3908,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Check the limitations in [Export Power BI report to
-        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations).
+        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations)
+        /// and [Export paginated report to
+        /// file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>
