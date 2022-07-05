@@ -9928,7 +9928,7 @@
                     "Gateways"
                 ],
                 "summary": "Creates a new data source on the specified gateway.",
-                "description": "\nTo encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/automation/configure-credentials).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"

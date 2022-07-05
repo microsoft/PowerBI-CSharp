@@ -126,8 +126,14 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// To encrypt credentials, see [Configure credentials
-        /// programmatically](/power-bi/developer/automation/configure-credentials).
+        /// &gt; [!NOTE]
+        /// &gt; To encrypt credentials, see [Configure credentials
+        /// programmatically](/power-bi/developer/embedded/configure-credentials)
+        /// for Power BI and review the EncryptCredentials [.NET
+        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
+        /// and
+        /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+        /// examples.
         ///
         /// ## Permissions
         ///
