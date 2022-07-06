@@ -13758,6 +13758,13 @@
                         "description": "Whether to exclude personal workspaces",
                         "required": false,
                         "type": "boolean"
+                    },
+                    {
+                        "name": "excludeInActiveWorkspaces",
+                        "in": "query",
+                        "description": "Whether to exclude inactive workspaces",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -13776,7 +13783,8 @@
                     "Example": {
                         "parameters": {
                             "modifiedSince": "2020-10-02T05:51:30.0000000Z",
-                            "excludePersonalWorkspaces": true
+                            "excludePersonalWorkspaces": true,
+                            "excludeInActiveWorkspaces": true
                         },
                         "responses": {
                             "200": {

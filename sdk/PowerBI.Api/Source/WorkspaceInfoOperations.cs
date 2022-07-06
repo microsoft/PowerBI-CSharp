@@ -609,6 +609,9 @@ namespace Microsoft.PowerBI.Api
         /// <param name='excludePersonalWorkspaces'>
         /// Whether to exclude personal workspaces
         /// </param>
+        /// <param name='excludeInActiveWorkspaces'>
+        /// Whether to exclude inactive workspaces
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -624,7 +627,7 @@ namespace Microsoft.PowerBI.Api
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ModifiedWorkspace>>> GetModifiedWorkspacesWithHttpMessagesAsync(System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<ModifiedWorkspace>>> GetModifiedWorkspacesWithHttpMessagesAsync(System.DateTime? modifiedSince = default(System.DateTime?), bool? excludePersonalWorkspaces = default(bool?), bool? excludeInActiveWorkspaces = default(bool?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -635,6 +638,7 @@ namespace Microsoft.PowerBI.Api
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("modifiedSince", modifiedSince);
                 tracingParameters.Add("excludePersonalWorkspaces", excludePersonalWorkspaces);
+                tracingParameters.Add("excludeInActiveWorkspaces", excludeInActiveWorkspaces);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetModifiedWorkspaces", tracingParameters);
             }
@@ -649,6 +653,10 @@ namespace Microsoft.PowerBI.Api
             if (excludePersonalWorkspaces != null)
             {
                 _queryParameters.Add(string.Format("excludePersonalWorkspaces={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(excludePersonalWorkspaces, Client.SerializationSettings).Trim('"'))));
+            }
+            if (excludeInActiveWorkspaces != null)
+            {
+                _queryParameters.Add(string.Format("excludeInActiveWorkspaces={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(excludeInActiveWorkspaces, Client.SerializationSettings).Trim('"'))));
             }
             if (_queryParameters.Count > 0)
             {
