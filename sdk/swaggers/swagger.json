@@ -19060,10 +19060,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards": {
             "get": {
                 "summary": "Returns a list of scorecards from a workspace.",
-                "operationId": "Scorecards_Get",
+                "operationId": "Scorecards_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19146,10 +19146,10 @@
             },
             "post": {
                 "summary": "Creates a new scorecard.",
-                "operationId": "Scorecards_Post",
+                "operationId": "Scorecards_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19230,10 +19230,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})": {
             "get": {
                 "summary": "Returns a scorecard with ID.",
-                "operationId": "Scorecards_GetByID",
+                "operationId": "Scorecards_(Preview)_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19313,10 +19313,10 @@
             },
             "patch": {
                 "summary": "Updates a scorecard by its ID",
-                "operationId": "Scorecards_PatchByID",
+                "operationId": "Scorecards_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19431,10 +19431,10 @@
             },
             "delete": {
                 "summary": "Deletes a scorecard by its ID.",
-                "operationId": "Scorecards_DeleteByID",
+                "operationId": "Scorecards_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19465,10 +19465,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals": {
             "get": {
                 "summary": "Returns a list of goals from a scorecard.",
-                "operationId": "Goals_Get",
+                "operationId": "Goals_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19529,10 +19529,10 @@
             },
             "post": {
                 "summary": "Adds a new goal to a scorecard.",
-                "operationId": "Goals_Post",
+                "operationId": "Goals_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19591,10 +19591,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})": {
             "get": {
                 "summary": "Returns a goal by ID from a scorecard.",
-                "operationId": "Goals_GetByID",
+                "operationId": "Goals_(Preview)_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19649,10 +19649,10 @@
             },
             "patch": {
                 "summary": "Updates a goal by ID.",
-                "operationId": "Goals_PatchByID",
+                "operationId": "Goals_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19713,10 +19713,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal from a scorecard by goal ID.",
-                "operationId": "Goals_DeleteByID",
+                "operationId": "Goals_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19751,10 +19751,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/statusRules": {
             "get": {
                 "summary": "Returns status rules of a goal.",
-                "operationId": "GoalsStatusRules_Get",
+                "operationId": "GoalsStatusRules_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalsStatusRules"
+                    "GoalsStatusRules_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19824,10 +19824,10 @@
             },
             "post": {
                 "summary": "Creates or updates status rules of a goal.",
-                "operationId": "GoalsStatusRules_Post",
+                "operationId": "GoalsStatusRules_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalsStatusRules"
+                    "GoalsStatusRules_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19965,10 +19965,10 @@
             },
             "delete": {
                 "summary": "Removes status rule definitions from a goal.",
-                "operationId": "GoalsStatusRules_Delete",
+                "operationId": "GoalsStatusRules_(Preview)_Delete",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalsStatusRules"
+                    "GoalsStatusRules_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20003,10 +20003,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues": {
             "get": {
                 "summary": "Reads goal value check-ins.",
-                "operationId": "GoalValues_Get",
+                "operationId": "GoalValues_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20076,10 +20076,10 @@
             },
             "post": {
                 "summary": "Creates a new goal value check-in.",
-                "operationId": "GoalValues_Post",
+                "operationId": "GoalValues_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20142,10 +20142,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})": {
             "get": {
                 "summary": "Reads a goal value check-in by a UTC date timestamp.",
-                "operationId": "GoalValues_GetByID",
+                "operationId": "GoalValues_(Preview)_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20219,10 +20219,10 @@
             },
             "patch": {
                 "summary": "Updates a goal value check-in by a UTC date timestamp.",
-                "operationId": "GoalValues_PatchByID",
+                "operationId": "GoalValues_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20286,10 +20286,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in by a UTC day timestamp.",
-                "operationId": "GoalValues_DeleteByID",
+                "operationId": "GoalValues_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20328,10 +20328,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes": {
             "post": {
                 "summary": "Adds a new note to a goal value check-in.",
-                "operationId": "GoalNotes_Post",
+                "operationId": "Goal Notes_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalNotes"
+                    "Goal Notes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20396,10 +20396,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes({noteId})": {
             "patch": {
                 "summary": "Updates a goal value check-in note by ID.",
-                "operationId": "GoalNotes_PatchByID",
+                "operationId": "Goal Notes_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalNotes"
+                    "Goal Notes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20465,10 +20465,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in note by ID.",
-                "operationId": "GoalNotes_DeleteByID",
+                "operationId": "Goal Notes_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalNotes"
+                    "Goal Notes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20511,10 +20511,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards/GetScorecardByReportId(reportId={reportId})": {
             "get": {
                 "summary": "Reads a scorecard associated with an internal report ID.",
-                "operationId": "Scorecards_GetScorecardByReportId",
+                "operationId": "Scorecards_(Preview)_GetScorecardByReportId",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20759,10 +20759,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/MoveGoals()": {
             "post": {
                 "summary": "Moves goals within the scorecard. Changes their ranks and parents.",
-                "operationId": "Scorecards_MoveGoals",
+                "operationId": "Scorecards_(Preview)_MoveGoals",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20831,10 +20831,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/GetRefreshHistory()": {
             "get": {
                 "summary": "Reads refresh history of a connected goal.",
-                "operationId": "Goals_GetRefreshHistory",
+                "operationId": "Goals_(Preview)_GetRefreshHistory",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20924,10 +20924,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/DeleteGoalCurrentValueConnection()": {
             "post": {
                 "summary": "Disconnects the current value of a goal.",
-                "operationId": "Goals_DeleteGoalCurrentValueConnection",
+                "operationId": "Goals_(Preview)_DeleteGoalCurrentValueConnection",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20977,10 +20977,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/DeleteGoalTargetValueConnection()": {
             "post": {
                 "summary": "Disconnects the target value of a goal.",
-                "operationId": "Goals_DeleteGoalTargetValueConnection",
+                "operationId": "Goals_(Preview)_DeleteGoalTargetValueConnection",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -21030,10 +21030,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/RefreshGoalCurrentValue()": {
             "post": {
                 "summary": "Schedules a refresh of the connected value of a goal.",
-                "operationId": "Goals_RefreshGoalCurrentValue",
+                "operationId": "Goals_(Preview)_RefreshGoalCurrentValue",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -21068,10 +21068,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/RefreshGoalTargetValue()": {
             "post": {
                 "summary": "Schedules a refresh of the target value of a goal.",
-                "operationId": "Goals_RefreshGoalTargetValue",
+                "operationId": "Goals_(Preview)_RefreshGoalTargetValue",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
