@@ -13,11 +13,7 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Linq;
 
     /// <summary>
-    ///
-    /// ## Required scope
-    ///
-    /// Dataset.ReadWrite.All
-    /// &lt;br&gt;&lt;br&gt;
+    /// Power BI dataset data sources update request
     /// </summary>
     public partial class UpdateDatasourcesRequest
     {

@@ -492,9 +492,10 @@ namespace Microsoft.PowerBI.Api
         /// &gt; To encrypt credentials, see [Configure credentials
         /// programmatically](/power-bi/developer/embedded/configure-credentials) for
         /// Power BI and review the EncryptCredentials [.NET
-        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
-        /// and
+        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials),
         /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+        /// and
+        /// [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials)
         /// examples.
         ///
         /// ## Permissions
@@ -960,9 +961,10 @@ namespace Microsoft.PowerBI.Api
         /// &gt; To encrypt credentials, see [Configure credentials
         /// programmatically](/power-bi/developer/embedded/configure-credentials) for
         /// Power BI and review the EncryptCredentials [.NET
-        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
-        /// and
+        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials),
         /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+        /// and
+        /// [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials)
         /// examples.
         ///
         /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when changing
@@ -974,7 +976,7 @@ namespace Microsoft.PowerBI.Api
         /// - For **Extension** data sources, don't set `useCallerAADIdentity` to
         /// `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth
         /// 2.0 token in the payload as shown in the [OAuth 2.0 credentials
-        /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
+        /// example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).
         ///
         /// ## Permissions
         ///
