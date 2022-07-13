@@ -219,6 +219,9 @@ namespace Microsoft.PowerBI.Api
         /// is hit first). For example if you query for 5 columns, you can get
         /// back max 100,000 rows. If you query for 20 columns, you can get
         /// back max 50,000 rows (1 million divided by 20).
+        /// - Maximum of 15MB of data per query. Once 15MB is exceeded, the
+        /// current row will be completed but no additional rows will be
+        /// written.
         /// - Maximum of 120 requests per user per minute. Target dataset does
         /// not impact this rate limit.
         /// - Service Principals aren't supported for datasets with RLS per
@@ -2604,6 +2607,9 @@ namespace Microsoft.PowerBI.Api
         /// is hit first). For example if you query for 5 columns, you can get
         /// back max 100,000 rows. If you query for 20 columns, you can get
         /// back max 50,000 rows (1 million divided by 20).
+        /// - Maximum of 15MB of data per query. Once 15MB is exceeded, the
+        /// current row will be completed but no additional rows will be
+        /// written.
         /// - Maximum of 120 requests per user per minute. Target dataset does
         /// not impact this rate limit.
         /// - Service Principals aren't supported for datasets with RLS per
