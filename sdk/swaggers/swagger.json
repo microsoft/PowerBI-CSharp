@@ -13698,6 +13698,51 @@
                                                     ]
                                                 }
                                             ],
+                                            "datamarts": [
+                                                {
+                                                    "id": "9df8d63c-db5b-44c3-a8e3-9f8c8ec1eec2",
+                                                    "name": "MyDatamart",
+                                                    "description": "SQL datamart",
+                                                    "type": "Sql",
+                                                    "configuredBy": "john@contoso.com",
+                                                    "configuredById": "5c9f8c24-2a94-4fd2-a105-9a8b096cdsew",
+                                                    "modifiedBy": "john@contoso.com",
+                                                    "modifiedDateTime": "2020-06-16T08:27:47.783Z",
+                                                    "sensitivityLabel": {
+                                                        "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
+                                                    },
+                                                    "endorsementDetails": {
+                                                        "endorsement": "Certified",
+                                                        "certifiedBy": "john@contoso.com"
+                                                    },
+                                                    "UpstreamDataflows": [
+                                                        {
+                                                            "targetDataflowId": "5c9f8c24-2a94-34fd-a105-9a8b096c4555",
+                                                            "groupId": "5c9f8c24-4dsc-4fd2-a105-9a8b096c4fgt"
+                                                        }
+                                                    ],
+                                                    "datasourceUsages": [
+                                                        {
+                                                            "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                        }
+                                                    ],
+                                                    "Users": [
+                                                        {
+                                                            "displayName": "John Nick",
+                                                            "emailAddress": "john@contoso.com",
+                                                            "identifier": "john@contoso.com",
+                                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                            "principalType": "User",
+                                                            "userType": "User",
+                                                            "profile": {
+                                                                "id": "45416453",
+                                                                "displayName": "John's profile"
+                                                            },
+                                                            "datamartUserAccessRight": "Read"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
                                             "users": [
                                                 {
                                                     "displayName": "John Nick",
@@ -21297,6 +21342,13 @@
                         "$ref": "#/definitions/WorkspaceInfoDataflow"
                     }
                 },
+                "datamarts": {
+                    "type": "array",
+                    "description": "The datamarts associated with this workspace. The list of datamart properties returned varies for different API calls, so you might not see all datamart properties in an API response.",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfoDatamart"
+                    }
+                },
                 "users": {
                     "type": "array",
                     "description": "The users with access to the workspace. The list is returned only when explicitly requested, and is only retrieved for workspaces in the new workspace experience. To retrieve a list of users for a classic workspace, use the Azure Active Directory Graph API.",
@@ -22802,6 +22854,118 @@
                 }
             }
         },
+        "DatamartBaseProperties": {
+            "required": [
+                "id"
+            ],
+            "description": "Power BI datamart common properties. The API returns a subset of the following list of datamart properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The datamart ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The datamart name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The datamart description"
+                },
+                "type": {
+                    "$ref": "#/definitions/DatamartType"
+                },
+                "status": {
+                    "$ref": "#/definitions/DatamartStatus"
+                },
+                "state": {
+                    "$ref": "#/definitions/DatamartState"
+                },
+                "suspendedBatchId": {
+                    "type": "string",
+                    "description": "datamart suspended batch id"
+                }
+            }
+        },
+        "DatamartAuthoringProperties": {
+            "properties": {
+                "modifiedBy": {
+                    "type": "string",
+                    "description": "The last user that modified the datamart"
+                },
+                "modifiedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time that the datamart was last modified"
+                },
+                "configuredBy": {
+                    "type": "string",
+                    "description": "The name of the datamart owner"
+                }
+            }
+        },
+        "DatamartAuthoringPropertiesById": {
+            "properties": {
+                "modifiedById": {
+                    "type": "string",
+                    "description": "The ID of the last user that modified the datamart"
+                },
+                "configuredById": {
+                    "type": "string",
+                    "description": "The ID of the datamart owner"
+                }
+            }
+        },
+        "DatamartUpstreamProperties": {
+            "properties": {
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Datamart dependant dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
+        "DatamartDatasourceUsagesProperties": {
+            "properties": {
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "The data source usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                }
+            }
+        },
+        "DatamartEndorsmentProperties": {
+            "properties": {
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The datamart endorsement details"
+                }
+            }
+        },
+        "DatamartSensitivityLabelProperties": {
+            "properties": {
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The datamart sensitivity label"
+                }
+            }
+        },
+        "DatamartUserProperties": {
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "description": "The user access details for a Power BI datamart.",
+                    "items": {
+                        "$ref": "#/definitions/DatamartUser"
+                    }
+                }
+            }
+        },
         "SubscriptionProperties": {
             "properties": {
                 "subscriptions": {
@@ -22882,6 +23046,35 @@
                 },
                 {
                     "$ref": "#/definitions/RelatedDatasetProperties"
+                }
+            ]
+        },
+        "WorkspaceInfoDatamart": {
+            "description": "A Power BI datamart returned by Workspace Info APIs. The API returns a subset of the following list of datamart properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DatamartBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartEndorsmentProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartSensitivityLabelProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartAuthoringProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartAuthoringPropertiesById"
+                },
+                {
+                    "$ref": "#/definitions/DatamartUpstreamProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartDatasourceUsagesProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartUserProperties"
                 }
             ]
         },
@@ -24502,6 +24695,237 @@
                 }
             ]
         },
+        "DatamartUser": {
+            "required": [
+                "datamartUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for a report",
+            "properties": {
+                "datamartUserAccessRight": {
+                    "type": "string",
+                    "description": "The access right that the user has for the datamart (permission level)",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "Write",
+                        "Reshare",
+                        "Explore",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "ReadWriteReshare",
+                        "ReadExplore",
+                        "ReadReshareExplore",
+                        "ReadWriteExplore",
+                        "ReadWriteReshareExplore"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatamartUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "No permission to content in datamart"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in datamart"
+                            },
+                            {
+                                "value": "Write",
+                                "description": "Grants write access to content in datamart"
+                            },
+                            {
+                                "value": "Reshare",
+                                "description": "Grants reshare access to content in datamart"
+                            },
+                            {
+                                "value": "Explore",
+                                "description": "Grants explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants read and write access to content in datamart"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants read and reshare access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWriteReshare",
+                                "description": "Grants read and write and reshare access to content in datamart"
+                            },
+                            {
+                                "value": "ReadExplore",
+                                "description": "Grants read and explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadReshareExplore",
+                                "description": "Grants read and reshare and explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWriteExplore",
+                                "description": "Grants read and write and explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWriteReshareExplore",
+                                "description": "Grants read and write and reshare and explore access to content in datamart"
+                            }
+                        ]
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
+        },
+        "DatamartState": {
+            "description": "The datamart current state",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The datamart current state",
+                    "enum": [
+                        "Invalid",
+                        "Initialized",
+                        "Active",
+                        "Migrating",
+                        "Evicted",
+                        "Deleted"
+                    ],
+                    "x-ms-enum": {
+                        "name": "state",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Invalid",
+                                "description": "The datamart has invalid state"
+                            },
+                            {
+                                "value": "Initialized",
+                                "description": "The datamart was initialized"
+                            },
+                            {
+                                "value": "Active",
+                                "description": "The datamart is active"
+                            },
+                            {
+                                "value": "Migrating",
+                                "description": "The datamart is migrating"
+                            },
+                            {
+                                "value": "Evicted",
+                                "description": "The datamart was evicted"
+                            },
+                            {
+                                "value": "Deleted",
+                                "description": "The datamart was deleted"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DatamartType": {
+            "description": "The datamart type",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The datamart type",
+                    "enum": [
+                        "Unset",
+                        "Ignore",
+                        "Sql",
+                        "Lakehouse",
+                        "Dataverse",
+                        "Datawarehouse"
+                    ],
+                    "x-ms-enum": {
+                        "name": "type",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Unset",
+                                "description": "The datamart type was unset"
+                            },
+                            {
+                                "value": "Ignore",
+                                "description": "The datamart has no type"
+                            },
+                            {
+                                "value": "Sql",
+                                "description": "The datamart is of Sql type"
+                            },
+                            {
+                                "value": "Lakehouse",
+                                "description": "The datamart is of Lakehouse type"
+                            },
+                            {
+                                "value": "Dataverse",
+                                "description": "The datamart is of Dataverse type"
+                            },
+                            {
+                                "value": "Datawarehouse",
+                                "description": "The datamart is of Datawarehouse type"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DatamartStatus": {
+            "description": "The datamart status",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "The datamart status",
+                    "enum": [
+                        "Invalid",
+                        "Available",
+                        "SuspendedInCriticalPhase",
+                        "InProgress",
+                        "Error",
+                        "OutOfRegion",
+                        "NoCapacity"
+                    ],
+                    "x-ms-enum": {
+                        "name": "datamartStatus",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Invalid",
+                                "description": "The datamart has invalid status"
+                            },
+                            {
+                                "value": "Available",
+                                "description": "The datamart is available"
+                            },
+                            {
+                                "value": "SuspendedInCriticalPhase",
+                                "description": "The datamart is suspended in critical phase"
+                            },
+                            {
+                                "value": "InProgress",
+                                "description": "The datamart is in progress"
+                            },
+                            {
+                                "value": "Error",
+                                "description": "The datamart has error status"
+                            },
+                            {
+                                "value": "OutOfRegion",
+                                "description": "The datamart is out of region"
+                            },
+                            {
+                                "value": "NoCapacity",
+                                "description": "The datamart has no capacity"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
         "DashboardUser": {
             "required": [
                 "dashboardUserAccessRight"
@@ -25203,7 +25627,7 @@
             "description": "Effective identity for connecting DirectQuery data sources with single sign-on (SSO) enabled.",
             "properties": {
                 "identityBlob": {
-                    "type":  "string",
+                    "type": "string",
                     "description": "A blob for specifying the identity."
                 },
                 "datasources": {
@@ -27116,7 +27540,7 @@
                 }
             ]
         },
-         "PipelineStageDatamart": {
+        "PipelineStageDatamart": {
             "description": "The metadata for a deployment pipeline datamart",
             "allOf": [
                 {
@@ -27650,7 +28074,7 @@
                     "description": "The serialization settings for the result set",
                     "$ref": "#/definitions/DatasetExecuteQueriesSerializationSettings"
                 },
-				"impersonatedUserName": {
+                "impersonatedUserName": {
                     "type": "string",
                     "description": "The UPN of a user to be impersonated. If the model is not RLS enabled, this will be ignored."
                 }
@@ -27683,7 +28107,7 @@
         "DatasetExecuteQueriesResponse": {
             "type": "object",
             "properties": {
-				"informationProtectionLabel": {
+                "informationProtectionLabel": {
                     "description": "The details of the information protection label, if any, associated with the dataset.",
                     "$ref": "#/definitions/DatasetExecuteQueriesInformationProtectionLabel"
                 },
@@ -27694,17 +28118,17 @@
                         "$ref": "#/definitions/DatasetExecuteQueriesQueryResult"
                     }
                 },
-				"error" : {
+                "error": {
                     "description": "The details of an error, if present.",
                     "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "The response to a dataset execute queries request"
         },
-		"DatasetExecuteQueriesInformationProtectionLabel": {
+        "DatasetExecuteQueriesInformationProtectionLabel": {
             "type": "object",
             "properties": {
-				"id":{
+                "id": {
                     "type": "string",
                     "description": "The identifier (guid) of the information protection label"
                 },
@@ -27725,7 +28149,7 @@
                         "$ref": "#/definitions/DatasetExecuteQueriesTableResult"
                     }
                 },
-				"error" : {
+                "error": {
                     "description": "The details of an error, if present.",
                     "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
@@ -27742,7 +28166,7 @@
                         "$ref": "#/definitions/DatasetExecuteQueriesRowResult"
                     }
                 },
-				"error" : {
+                "error": {
                     "description": "The details of an error, if present.",
                     "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
@@ -27757,10 +28181,10 @@
             },
             "description": "A set of key-value pairs representing the column name and a row value. The column name is the key of the pair."
         },
-		"DatasetExecuteQueriesError": {
+        "DatasetExecuteQueriesError": {
             "type": "object",
             "properties": {
-				"code": {
+                "code": {
                     "type": "string",
                     "description": "The code associated with the error"
                 },
