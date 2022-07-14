@@ -21,7 +21,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// This API also returns shared reports and reports from shared apps.
+            /// This API also returns shared reports and reports from shared apps. Reports
+            /// that reside in shared workspaces can be accessed using the [Get Reports In
+            /// Group API](/rest/api/power-bi/reports/get-reports-in-group).
             ///
             /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
             /// the API response for paginated reports isn't displayed.
@@ -44,7 +46,9 @@ namespace Microsoft.PowerBI.Api
             /// </summary>
             /// <remarks>
             ///
-            /// This API also returns shared reports and reports from shared apps.
+            /// This API also returns shared reports and reports from shared apps. Reports
+            /// that reside in shared workspaces can be accessed using the [Get Reports In
+            /// Group API](/rest/api/power-bi/reports/get-reports-in-group).
             ///
             /// Since paginated reports (RDL) don't have a dataset, the dataset ID value in
             /// the API response for paginated reports isn't displayed.
