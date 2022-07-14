@@ -20373,10 +20373,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes": {
             "post": {
                 "summary": "Adds a new note to a goal value check-in.",
-                "operationId": "Goal Notes_(Preview)_Post",
+                "operationId": "GoalNotes_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goal Notes_(Preview)"
+                    "GoalNotes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20441,10 +20441,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes({noteId})": {
             "patch": {
                 "summary": "Updates a goal value check-in note by ID.",
-                "operationId": "Goal Notes_(Preview)_PatchByID",
+                "operationId": "GoalNotes_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goal Notes_(Preview)"
+                    "GoalNotes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20510,10 +20510,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in note by ID.",
-                "operationId": "Goal Notes_(Preview)_DeleteByID",
+                "operationId": "GoalNotes_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goal Notes_(Preview)"
+                    "GoalNotes_(Preview)"
                 ],
                 "parameters": [
                     {
