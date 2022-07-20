@@ -328,7 +328,10 @@ namespace Microsoft.PowerBI.Api
             /// impact this rate limit.
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-            /// or with SSO enabled.
+            /// or with SSO enabled. To use Service Principals, make sure the admin tenant
+            /// setting [_Allow service principals to user Power BI
+            /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+            /// under _Developer settings_ is enabled.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -402,7 +405,10 @@ namespace Microsoft.PowerBI.Api
             /// impact this rate limit.
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-            /// or with SSO enabled.
+            /// or with SSO enabled. To use Service Principals, make sure the admin tenant
+            /// setting [_Allow service principals to user Power BI
+            /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+            /// under _Developer settings_ is enabled.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4598,7 +4604,10 @@ namespace Microsoft.PowerBI.Api
             /// impact this rate limit.
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-            /// or with SSO enabled.
+            /// or with SSO enabled. To use Service Principals, make sure the admin tenant
+            /// setting [_Allow service principals to user Power BI
+            /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+            /// under _Developer settings_ is enabled.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4674,7 +4683,10 @@ namespace Microsoft.PowerBI.Api
             /// impact this rate limit.
             /// - Service Principals aren't supported for datasets with RLS per [RLS
             /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
-            /// or with SSO enabled.
+            /// or with SSO enabled. To use Service Principals, make sure the admin tenant
+            /// setting [_Allow service principals to user Power BI
+            /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
+            /// under _Developer settings_ is enabled.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
