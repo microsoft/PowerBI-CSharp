@@ -210,10 +210,13 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new data source on the specified gateway.
+            /// Creates a new data source on the specified gateway. This API only works for
+            /// creating an on-prem data source. Cloud data sources aren't supported.
             /// </summary>
             /// <remarks>
-            ///
+            /// &lt;br&gt;On prem data source credentials must be encrypted. The
+            /// `encryptedConnection` parameter must be set to `Encrypted` and the
+            /// credentials should be encrypted using the gateway public key.
             /// &gt; [!NOTE]
             /// &gt; To encrypt credentials, see [Configure credentials
             /// programmatically](/power-bi/developer/embedded/configure-credentials) for
@@ -255,10 +258,13 @@ namespace Microsoft.PowerBI.Api
             }
 
             /// <summary>
-            /// Creates a new data source on the specified gateway.
+            /// Creates a new data source on the specified gateway. This API only works for
+            /// creating an on-prem data source. Cloud data sources aren't supported.
             /// </summary>
             /// <remarks>
-            ///
+            /// &lt;br&gt;On prem data source credentials must be encrypted. The
+            /// `encryptedConnection` parameter must be set to `Encrypted` and the
+            /// credentials should be encrypted using the gateway public key.
             /// &gt; [!NOTE]
             /// &gt; To encrypt credentials, see [Configure credentials
             /// programmatically](/power-bi/developer/embedded/configure-credentials) for
