@@ -66,8 +66,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// API with the `getArtifactUsers` parameter.</param>
         /// <param name="addRowsAPIEnabled">Whether the dataset allows adding
         /// new rows</param>
-        /// <param name="isRefreshable">Whether the dataset can be
-        /// refreshed</param>
+        /// <param name="isRefreshable">Whether the dataset is refreshable or
+        /// not. A Power BI refreshable dataset is a dataset that has been
+        /// refreshed at least once, or for which a valid refresh schedule
+        /// exists.</param>
         /// <param name="targetStorageMode">The dataset storage mode</param>
         public AdminDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), string createReportEmbedURL = default(string), string qnaEmbedURL = default(string), string webUrl = default(string), bool? isEffectiveIdentityRequired = default(bool?), bool? isEffectiveIdentityRolesRequired = default(bool?), bool? isOnPremGatewayRequired = default(bool?), Encryption encryption = default(Encryption), IList<DatasetUser> users = default(IList<DatasetUser>), bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), string targetStorageMode = default(string))
         {
@@ -207,7 +209,9 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? AddRowsAPIEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the dataset can be refreshed
+        /// Gets or sets whether the dataset is refreshable or not. A Power BI
+        /// refreshable dataset is a dataset that has been refreshed at least
+        /// once, or for which a valid refresh schedule exists.
         /// </summary>
         [JsonProperty(PropertyName = "IsRefreshable")]
         public bool? IsRefreshable { get; set; }

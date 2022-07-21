@@ -21534,7 +21534,7 @@
                 },
                 "IsRefreshable": {
                     "type": "boolean",
-                    "description": "Whether the dataset can be refreshed"
+                    "description": "Whether the dataset is refreshable or not. A Power BI refreshable dataset is a dataset that has been refreshed at least once, or for which a valid refresh schedule exists."
                 }
             }
         },
