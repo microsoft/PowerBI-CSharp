@@ -28,7 +28,8 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="index">The step index</param>
         /// <param name="type">The type of deployment step. Possible values
         /// include: 'DatasetDeployment', 'ReportDeployment',
-        /// 'DashboardDeployment', 'DataflowDeployment'</param>
+        /// 'DashboardDeployment', 'DataflowDeployment',
+        /// 'DatamartDeployment'</param>
         /// <param name="status">The status of the pipeline operation. Possible
         /// values include: 'NotStarted', 'Executing', 'Succeeded',
         /// 'Failed'</param>
@@ -60,7 +61,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Gets or sets the type of deployment step. Possible values include:
         /// 'DatasetDeployment', 'ReportDeployment', 'DashboardDeployment',
-        /// 'DataflowDeployment'
+        /// 'DataflowDeployment', 'DatamartDeployment'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
         public DeploymentStepType Type { get; set; }

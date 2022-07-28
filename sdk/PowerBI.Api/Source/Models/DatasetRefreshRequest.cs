@@ -27,9 +27,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// Initializes a new instance of the DatasetRefreshRequest class.
         /// </summary>
-        /// <param name="notifyOption">Mail notification options. Possible
-        /// values include: 'NoNotification', 'MailOnFailure',
-        /// 'MailOnCompletion'</param>
+        /// <param name="notifyOption">Mail notification options. This is not
+        /// applicable to enhanced refresh. Possible values include:
+        /// 'NoNotification', 'MailOnFailure', 'MailOnCompletion'</param>
         /// <param name="type">The type of processing to perform. Possible
         /// values include: 'Full', 'ClearValues', 'Calculate', 'DataOnly',
         /// 'Automatic', 'Defragment'</param>
@@ -65,8 +65,9 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets mail notification options. Possible values include:
-        /// 'NoNotification', 'MailOnFailure', 'MailOnCompletion'
+        /// Gets or sets mail notification options. This is not applicable to
+        /// enhanced refresh. Possible values include: 'NoNotification',
+        /// 'MailOnFailure', 'MailOnCompletion'
         /// </summary>
         [JsonProperty(PropertyName = "notifyOption")]
         public NotifyOption NotifyOption { get; set; }

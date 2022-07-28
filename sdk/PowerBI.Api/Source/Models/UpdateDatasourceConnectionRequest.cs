@@ -10,6 +10,9 @@ namespace Microsoft.PowerBI.Api.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// Power BI dataset data source connection update request
+    /// </summary>
     public partial class UpdateDatasourceConnectionRequest
     {
         /// <summary>

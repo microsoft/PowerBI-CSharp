@@ -53,12 +53,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// workspace. The list of dataflow properties returned varies for
         /// different API calls, so you might not see all dataflow properties
         /// in an API response.</param>
+        /// <param name="datamarts">The datamarts associated with this
+        /// workspace. The list of datamart properties returned varies for
+        /// different API calls, so you might not see all datamart properties
+        /// in an API response.</param>
         /// <param name="users">The users with access to the workspace. The
         /// list is returned only when explicitly requested, and is only
         /// retrieved for workspaces in the new workspace experience. To
         /// retrieve a list of users for a classic workspace, use the Azure
         /// Active Directory Graph API.</param>
-        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<WorkspaceInfoReport> reports = default(IList<WorkspaceInfoReport>), IList<WorkspaceInfoDashboard> dashboards = default(IList<WorkspaceInfoDashboard>), IList<WorkspaceInfoDataset> datasets = default(IList<WorkspaceInfoDataset>), IList<WorkspaceInfoDataflow> dataflows = default(IList<WorkspaceInfoDataflow>), IList<GroupUser> users = default(IList<GroupUser>))
+        public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<WorkspaceInfoReport> reports = default(IList<WorkspaceInfoReport>), IList<WorkspaceInfoDashboard> dashboards = default(IList<WorkspaceInfoDashboard>), IList<WorkspaceInfoDataset> datasets = default(IList<WorkspaceInfoDataset>), IList<WorkspaceInfoDataflow> dataflows = default(IList<WorkspaceInfoDataflow>), IList<WorkspaceInfoDatamart> datamarts = default(IList<WorkspaceInfoDatamart>), IList<GroupUser> users = default(IList<GroupUser>))
         {
             Id = id;
             Name = name;
@@ -72,6 +76,7 @@ namespace Microsoft.PowerBI.Api.Models
             Dashboards = dashboards;
             Datasets = datasets;
             Dataflows = dataflows;
+            Datamarts = datamarts;
             Users = users;
             CustomInit();
         }
@@ -164,6 +169,14 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<WorkspaceInfoDataflow> Dataflows { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamarts associated with this workspace. The list
+        /// of datamart properties returned varies for different API calls, so
+        /// you might not see all datamart properties in an API response.
+        /// </summary>
+        [JsonProperty(PropertyName = "datamarts")]
+        public IList<WorkspaceInfoDatamart> Datamarts { get; set; }
+
+        /// <summary>
         /// Gets or sets the users with access to the workspace. The list is
         /// returned only when explicitly requested, and is only retrieved for
         /// workspaces in the new workspace experience. To retrieve a list of
@@ -221,13 +234,23 @@ namespace Microsoft.PowerBI.Api.Models
                     }
                 }
             }
-            if (Users != null)
+            if (Datamarts != null)
             {
-                foreach (var element4 in Users)
+                foreach (var element4 in Datamarts)
                 {
                     if (element4 != null)
                     {
                         element4.Validate();
+                    }
+                }
+            }
+            if (Users != null)
+            {
+                foreach (var element5 in Users)
+                {
+                    if (element5 != null)
+                    {
+                        element5.Validate();
                     }
                 }
             }

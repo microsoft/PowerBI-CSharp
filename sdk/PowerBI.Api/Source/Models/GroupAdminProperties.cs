@@ -47,7 +47,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// group</param>
         /// <param name="pipelineId">The deployment pipeline ID that the
         /// workspace is assigned to.</param>
-        public GroupAdminProperties(string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?))
+        /// <param name="hasWorkspaceLevelSettings">Whether the workspace has
+        /// custom settings</param>
+        public GroupAdminProperties(string description = default(string), string type = default(string), string state = default(string), IList<GroupUser> users = default(IList<GroupUser>), IList<AdminReport> reports = default(IList<AdminReport>), IList<AdminDashboard> dashboards = default(IList<AdminDashboard>), IList<AdminDataset> datasets = default(IList<AdminDataset>), IList<AdminDataflow> dataflows = default(IList<AdminDataflow>), IList<Workbook> workbooks = default(IList<Workbook>), System.Guid? pipelineId = default(System.Guid?), bool? hasWorkspaceLevelSettings = default(bool?))
         {
             Description = description;
             Type = type;
@@ -59,6 +61,7 @@ namespace Microsoft.PowerBI.Api.Models
             Dataflows = dataflows;
             Workbooks = workbooks;
             PipelineId = pipelineId;
+            HasWorkspaceLevelSettings = hasWorkspaceLevelSettings;
             CustomInit();
         }
 
@@ -135,6 +138,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "pipelineId")]
         public System.Guid? PipelineId { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the workspace has custom settings
+        /// </summary>
+        [JsonProperty(PropertyName = "hasWorkspaceLevelSettings")]
+        public bool? HasWorkspaceLevelSettings { get; set; }
 
     }
 }

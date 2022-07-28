@@ -329,7 +329,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations). \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to user Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -766,8 +766,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from **My workspace**. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has response headers which could be used to [get refresh execution details](/rest/api/power-bi/datasets/get-refresh-execution-details) or [cancel refresh](/rest/api/power-bi/datasets/cancel-refresh).",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day (including refreshes executed using a scheduled refresh) can be initiated. In the request body, only `notifyOption` can be modified for Shared capacities. Therefore, [asynchronous refresh operations](/power-bi/connect-data/asynchronous-refresh) cannot be triggered.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "summary": "Triggers a refresh for the specified dataset from **My workspace**. An [enhanced refresh](/power-bi/connect-data/asynchronous-refresh) is triggered only if a request payload other than `notifyOption` is set.",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, including refreshes executed by using scheduled refresh, can be initiated.\n- For Shared capacities, only `notifyOption` can be specified in the request body.\n- Enhanced refresh is not supported for shared capacities.\n- For enhanced refresh, `notifyOption` is not required and must be excluded from the request body. However, one or more parameters other than `notifyOption` are required.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDataset",
                 "consumes": [
                     "application/json"
@@ -834,7 +834,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "summary": "Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetails",
                 "consumes": [],
@@ -1037,7 +1037,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
+                "summary": "Cancels the specified [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from **My workspace**.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefresh",
                 "consumes": [],
@@ -1730,6 +1730,85 @@
                                         "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
                                     }
                                 ]
+                            }
+                        }
+                    },
+                    "Extension datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Extension",
+                                            "datasourceId": "70540d95-4c8e-41ae-88c6-27a103b12841",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "kind": "AzureDataExplorer",
+                                                "path": "https://myserver.kusto.windows.net"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Microsoft Exchange datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Exchange",
+                                            "datasourceId": "4d126fc8-1568-46aa-ba16-ccf19b18f012",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "emailAddress": "john@contoso.com"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Salesforce datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Salesforce",
+                                            "datasourceId": "e8a6e0f5-b244-402a-ba5a-4d578609ede3",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "classInfo": "report-detail",
+                                                "loginServer": "https://login.salesforce.com/"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Azure Blobs datasource example": {
+                        "parameters": {},
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AzureBlobs",
+                                            "datasourceId": "e0315274-90b6-4fc0-abf2-2d60d448cb04",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "account": "myAccount",
+                                                "domain": "blob.core.windows.net"
+                                            }
+                                        }
+                                    ]
+                                }
                             }
                         }
                     }
@@ -2541,7 +2620,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in **My workspace**.",
-                "description": "\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - RDL files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - RDL files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location](/rest/api/power-bi/imports/create-temporary-upload-location). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n- Importing a file that has a **protected** sensitivity label isn't supported for service principals.\n<br><br>",
                 "operationId": "Imports_PostImport",
                 "consumes": [
                     "application/json",
@@ -2825,7 +2904,7 @@
                     "Reports"
                 ],
                 "summary": "Returns a list of reports from **My workspace**.",
-                "description": "\nThis API also returns shared reports and reports from shared apps.\n\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
+                "description": "\nThis API also returns shared reports and reports from shared apps. Reports that reside in shared workspaces can be accessed using the [Get Reports In Group API](/rest/api/power-bi/reports/get-reports-in-group).\n\nSince paginated reports (RDL) don't have a dataset, the dataset ID value in the API response for paginated reports isn't displayed.\n\n## Required Scope\n\nReport.ReadWrite.All or Report.Read.All\n<br><br>",
                 "operationId": "Reports_GetReports",
                 "consumes": [],
                 "produces": [
@@ -3372,7 +3451,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from **My workspace** to the requested [file format](/rest/api/power-bi/reports/export-to-file#fileformat).",
-                "description": "\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations).\n<br><br>",
+                "description": "\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations) and [Export paginated report to file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).\n<br><br>",
                 "operationId": "Reports_ExportToFile",
                 "consumes": [
                     "application/json"
@@ -3506,7 +3585,7 @@
                     "Dashboards"
                 ],
                 "summary": "Returns a list of dashboards from **My workspace**.",
-                "description": "\nThis API also returns shared dashboards and dashboards from shared apps.\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
+                "description": "\nThis API also returns shared dashboards and dashboards from shared apps. Dashboards that reside in shared workspaces can be accessed using the [Get Dashboards In Group API](/rest/api/power-bi/dashboards/get-dashboards-in-group).\n\n## Required Scope\n\nDashboard.ReadWrite.All or Dashboard.Read.All\n<br><br>",
                 "operationId": "Dashboards_GetDashboards",
                 "consumes": [],
                 "produces": [
@@ -4650,8 +4729,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [asynchronous refresh](/power-bi/connect-data/asynchronous-refresh) would be triggered only if any request payload except `notifyOption` is set. Asynchronous refresh has a response header, `Location`, which includes the `refreshId` and could be used to [get refresh execution details in group](/rest/api/power-bi/datasets/get-refresh-execution-details-in-group) or [cancel refresh in group](/rest/api/power-bi/datasets/cancel-refresh-in-group).",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day (including refreshes executed using a scheduled refresh) can be initiated. In the request body, only `notifyOption` can be modified for Shared capacities. Therefore, [asynchronous refresh operations](/power-bi/connect-data/asynchronous-refresh) cannot be triggered.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
+                "summary": "Triggers a refresh for the specified dataset from the specified workspace. An [enhanced refresh](/power-bi/connect-data/asynchronous-refresh) is triggered only if a request payload other than `notifyOption` is set.",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- For Shared capacities, a maximum of eight requests per day, including refreshes executed by using scheduled refresh, can be initiated.\n- For Shared capacities, only `notifyOption` can be specified in the request body.\n- Enhanced refresh is not supported for shared capacities.\n- For enhanced refresh, `notifyOption` is not required and must be excluded from the request body. However, one or more parameters other than `notifyOption` are required.\n- For Premium capacities, the maximum requests per day is only limited by the available resources in the capacity. If available resources are overloaded, refreshes are throttled until the load is reduced. The refresh will fail if throttling exceeds 1 hour.\n<br><br>",
                 "operationId": "Datasets_RefreshDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -4727,7 +4806,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Returns execution details of an [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "summary": "Returns execution details of an [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n<br><br>",
                 "operationId": "Datasets_GetRefreshExecutionDetailsInGroup",
                 "consumes": [],
@@ -4941,7 +5020,7 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Cancels the specified [asynchronous refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
+                "summary": "Cancels the specified [enhanced refresh operation](/power-bi/connect-data/asynchronous-refresh) for the specified dataset from the specified workspace.",
                 "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "operationId": "Datasets_CancelRefreshInGroup",
                 "consumes": [],
@@ -5558,32 +5637,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "DirectQuery model example": {
-                        "parameters": {
-                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
-                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
-                        },
-                        "responses": {
-                            "200": {
-                                "body": {
-                                    "value": [
-                                        {
-                                            "name": "301",
-                                            "connectionString": "data source=MyServer.database.windows.net;initial catalog=MyDatabase;persist security info=True;encrypt=True;trustservercertificate=False",
-                                            "datasourceType": "Sql",
-                                            "datasourceId": "16a54ccd-620d-4af3-9197-0b8c779a9a6d",
-                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
-                                            "connectionDetails": {
-                                                "server": "MyServer.database.windows.net",
-                                                "database": "MyDatabase"
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    "Cached model example": {
+                    "Analysis Services example": {
                         "parameters": {
                             "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
@@ -5594,19 +5648,233 @@
                                     "value": [
                                         {
                                             "datasourceType": "AnalysisServices",
-                                            "datasourceId": "f8c56590-43cb-43bf-8daa-233ba2520f55",
-                                            "gatewayId": "1f69e798-5852-4fdd-ab01-33bb14b6e934",
                                             "connectionDetails": {
                                                 "server": "My-As-Server",
                                                 "database": "My-As-Database"
-                                            }
-                                        },
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SQL example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
                                         {
-                                            "datasourceType": "Web",
-                                            "datasourceId": "96e4bb31-7b77-4b6d-8483-d76855639a23",
+                                            "datasourceType": "Sql",
+                                            "connectionDetails": {
+                                                "server": "My-As-Server",
+                                                "database": "My-As-Database"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Excel example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "File",
+                                            "connectionDetails": {
+                                                "path": "c:\\users\\username\\documents\\orders1.xlsx"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "OData example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "OData",
+                                            "connectionDetails": {
+                                                "url": "http://services.odata.org/MyOdata/MyOdata.svc"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SharePoint example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "SharePointList",
+                                            "connectionDetails": {
+                                                "url": "https://microsoft.sharepoint.com/hello/myproj/"
+                                            },
+                                            "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                            "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "SAP HANA example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "datasourceType": "SAPHana",
+                                        "connectionDetails": {
+                                            "server": "My-SapHana-Server",
+                                            "database": "My-SapHana-Database"
+                                        },
+                                        "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Oracle example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "datasourceType": "Oracle",
+                                        "connectionDetails": {
+                                            "server": "My-Oracle-Server",
+                                            "database": "My-Oracle-Database"
+                                        },
+                                        "datasourceId": "33cc5222-3fb9-44f7-b19d-ffbff18aaaf5",
+                                        "gatewayId": "0a2dafe6-0e93-4120-8d2c-fae123c111b1"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Extension datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Extension",
+                                            "datasourceId": "70540d95-4c8e-41ae-88c6-27a103b12841",
                                             "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
                                             "connectionDetails": {
-                                                "url": "http://myWebSource.com"
+                                                "kind": "AzureDataExplorer",
+                                                "path": "https://myserver.kusto.windows.net"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Microsoft Exchange datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Exchange",
+                                            "datasourceId": "4d126fc8-1568-46aa-ba16-ccf19b18f012",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "emailAddress": "john@contoso.com"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Salesforce datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "Salesforce",
+                                            "datasourceId": "e8a6e0f5-b244-402a-ba5a-4d578609ede3",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "classInfo": "report-detail",
+                                                "loginServer": "https://login.salesforce.com/"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Azure Blobs datasource example": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "datasourceType": "AzureBlobs",
+                                            "datasourceId": "e0315274-90b6-4fc0-abf2-2d60d448cb04",
+                                            "gatewayId": "7f1c4e55-544b-403f-b132-da0d3a024674",
+                                            "connectionDetails": {
+                                                "account": "myAccount",
+                                                "domain": "blob.core.windows.net"
                                             }
                                         }
                                     ]
@@ -6016,7 +6284,7 @@
                     "Datasets"
                 ],
                 "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations). \n<br><br>",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to user Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueriesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6182,7 +6450,7 @@
                     "Imports"
                 ],
                 "summary": "Creates new content in the specified workspace.",
-                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> Supported content:\n>\n> - Power BI .pbix files\n> - JSON files (.json)\n> - Excel files (.xlsx)\n> - SQL Server Report Definition Language files (.rdl)\n\n- To import a file, specify the content type **multipart/form-data** in the request headers and encode the file as [form data](https://www.w3.org/TR/html401/interact/forms.html) in the request body.\n- To import an .rdl file, include the file extension in the name specified by `datasetDisplayName`, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n- To import an .xlsx file from OneDrive for Business, include the content type **application/json** in the request headers. Include [ImportInfo](/rest/api/power-bi/imports/post-import-in-group#importinfo) with `filePath` set to the .xlsx file path in the request body.\n- To import large Power BI .pbix files that are between 1 GB and 10 GB in size, see [Create Temporary Upload Location In Group](/rest/api/power-bi/imports/create-temporary-upload-location-in-group). This is only supported for Premium capacity workspaces.\n- To create a dataflow from a model.json file, set `datasetDisplayName` to *model.json*, as described in [URI parameters](/rest/api/power-bi/imports/post-import-in-group#uri-parameters).\n\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Dataflows with service principal aren't supported.\n- Importing a Power BI .pbix file from OneDrive isn't supported.\n- Importing a file that has a **protected** sensitivity label isn't supported for service principals.\n<br><br>",
                 "operationId": "Imports_PostImportInGroup",
                 "consumes": [
                     "application/json",
@@ -7139,7 +7407,7 @@
                     "Reports"
                 ],
                 "summary": "Exports the specified report from the specified workspace to the requested [file format](/rest/api/power-bi/reports/export-to-file-in-group#fileformat).",
-                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations).\n<br><br>",
+                "description": "\n## Permissions\n\nThis API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nAll of the following:\n\n- Report.ReadWrite.All or Report.Read.All\n- Dataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nCheck the limitations in [Export Power BI report to file](/power-bi/developer/embedded/export-to#considerations-and-limitations) and [Export paginated report to file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).\n<br><br>",
                 "operationId": "Reports_ExportToFileInGroup",
                 "consumes": [
                     "application/json"
@@ -9659,8 +9927,8 @@
                 "tags": [
                     "Gateways"
                 ],
-                "summary": "Creates a new data source on the specified gateway.",
-                "description": "\nTo encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/automation/configure-credentials).\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
+                "summary": "Creates a new data source on the specified gateway. This API only works for creating an on-prem data source. Cloud data sources aren't supported.",
+                "description": "<br>On prem data source credentials must be encrypted. The `encryptedConnection` parameter must be set to `Encrypted` and the credentials should be encrypted using the gateway public key.\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) and [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) examples.\n\n## Permissions\n\nThe user must have gateway admin permissions.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- Virtual network (VNet) gateways aren't supported.\n- OAuth2 as a credential type isn't supported.\n<br><br>",
                 "operationId": "Gateways_CreateDatasource",
                 "consumes": [
                     "application/json"
@@ -9852,7 +10120,7 @@
                     "Gateways"
                 ],
                 "summary": "Updates the credentials of the specified data source from the specified gateway.",
-                "description": "\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials) and [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) examples.\n\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).\n\n## Permissions\n\n- The user must have gateway admin permissions.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
+                "description": "\n> [!NOTE]\n> To encrypt credentials, see [Configure credentials programmatically](/power-bi/developer/embedded/configure-credentials) for Power BI and review the EncryptCredentials [.NET Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials), [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials) and [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials) examples.\n\n- Set the parameter `useEndUserOAuth2Credentials` to `False` when changing from single sign-on to other credential types, such as `Basic` or `OAuth2`. See the [Basic credentials example](/rest/api/power-bi/gateways/update-datasource#basic-credentials-example).\n- For the OAuth 2.0 credential type, make sure the generated OAuth 2.0 token audience was set correctly according to the data source type.\n- For **Extension** data sources, don't set `useCallerAADIdentity` to `true`. To set OAuth 2.0 credentials for other data sources, send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0 credentials example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).\n\n## Permissions\n\n- The user must have gateway admin permissions.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nVirtual network (VNet) gateways aren't supported.\n<br><br>",
                 "operationId": "Gateways_UpdateDatasource",
                 "consumes": [],
                 "produces": [],
@@ -12565,6 +12833,14 @@
                                             "lastDeploymentTime": "2021-06-06T11:55:59.057Z"
                                         }
                                     ],
+                                    "datamarts": [
+                                        {
+                                            "artifactId": "a7654a17-c5d1-4539-b9ec-022075545e50",
+                                            "artifactDisplayName": "Sales Datamart",
+                                            "sourceArtifactId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b",
+                                            "lastDeploymentTime": "2021-06-06T11:55:59.057Z"
+                                        }
+                                    ],
                                     "datasets": [
                                         {
                                             "artifactId": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee",
@@ -12719,6 +12995,14 @@
                                             },
                                             {
                                                 "index": 1,
+                                                "type": "DatamartDeployment",
+                                                "status": "Succeeded",
+                                                "sourceAndTarget": {
+                                                    "source": "645cd81f-1b21-4006-82b6-54cc7ec0352e"
+                                                }
+                                            },
+                                            {
+                                                "index": 2,
                                                 "type": "DatasetDeployment",
                                                 "status": "Succeeded",
                                                 "sourceAndTarget": {
@@ -12727,7 +13011,7 @@
                                                 }
                                             },
                                             {
-                                                "index": 2,
+                                                "index": 3,
                                                 "type": "ReportDeployment",
                                                 "status": "Succeeded",
                                                 "sourceAndTarget": {
@@ -12736,7 +13020,7 @@
                                                 }
                                             },
                                             {
-                                                "index": 3,
+                                                "index": 4,
                                                 "type": "DashboardDeployment",
                                                 "status": "Succeeded",
                                                 "sourceAndTarget": {
@@ -12879,6 +13163,11 @@
                                         "sourceId": "29efcfb0-0063-44af-a4ed-6c0bee3417d3"
                                     }
                                 ],
+                                "datamarts": [
+                                    {
+                                        "sourceId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b"
+                                    }
+                                ],
                                 "datasets": [
                                     {
                                         "sourceId": "1a201f2a-d1d8-45c0-8c61-1676338517de"
@@ -12901,6 +13190,47 @@
                                     "allowOverwriteArtifact": true,
                                     "allowCreateArtifact": true
                                 }
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "value": [
+                                    {
+                                        "id": "1065e6a3-a020-4c0c-ada7-92b5fe99eec5",
+                                        "type": "Deploy",
+                                        "status": "NotStarted",
+                                        "lastUpdatedTime": "2020-12-13T09:26:43.153",
+                                        "executionStartTime": "2020-12-13T09:25:43.153Z",
+                                        "executionEndTime": "2020-12-13T09:26:43.153Z",
+                                        "sourceStageOrder": 0,
+                                        "targetStageOrder": 1
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "Example of deploying specific Power BI items with custom options": {
+                        "parameters": {
+                            "pipelineId": "a5ded933-57b7-41f4-b072-ed4c1f9d5824",
+                            "deployRequest": {
+                                "sourceStageOrder": 0,
+                                "datamarts": [
+                                    {
+                                        "sourceId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b",
+                                         "options": {
+                                            "allowOverwriteArtifact": true,
+                                            "allowCreateArtifact": true
+                                        }
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "sourceId": "2d225191-65f8-4ec3-b77d-06100602b1f7",
+                                        "options": {
+                                            "allowOverwriteArtifact": true
+                                        }
+                                    }
+                                ]
                             }
                         },
                         "responses": {
@@ -13368,6 +13698,51 @@
                                                     ]
                                                 }
                                             ],
+                                            "datamarts": [
+                                                {
+                                                    "id": "9df8d63c-db5b-44c3-a8e3-9f8c8ec1eec2",
+                                                    "name": "MyDatamart",
+                                                    "description": "SQL datamart",
+                                                    "type": "Sql",
+                                                    "configuredBy": "john@contoso.com",
+                                                    "configuredById": "5c9f8c24-2a94-4fd2-a105-9a8b096cdsew",
+                                                    "modifiedBy": "john@contoso.com",
+                                                    "modifiedDateTime": "2020-06-16T08:27:47.783Z",
+                                                    "sensitivityLabel": {
+                                                        "labelId": "5c9f8c24-2a94-4fd2-a105-9a8b096c5af1"
+                                                    },
+                                                    "endorsementDetails": {
+                                                        "endorsement": "Certified",
+                                                        "certifiedBy": "john@contoso.com"
+                                                    },
+                                                    "UpstreamDataflows": [
+                                                        {
+                                                            "targetDataflowId": "5c9f8c24-2a94-34fd-a105-9a8b096c4555",
+                                                            "groupId": "5c9f8c24-4dsc-4fd2-a105-9a8b096c4fgt"
+                                                        }
+                                                    ],
+                                                    "datasourceUsages": [
+                                                        {
+                                                            "datasourceInstanceId": "c79ad907-df19-43fe-a0f7-d9f365d67070"
+                                                        }
+                                                    ],
+                                                    "Users": [
+                                                        {
+                                                            "displayName": "John Nick",
+                                                            "emailAddress": "john@contoso.com",
+                                                            "identifier": "john@contoso.com",
+                                                            "graphId": "3fadb6e4-130c-4a8f-aeac-416e38b66756",
+                                                            "principalType": "User",
+                                                            "userType": "User",
+                                                            "profile": {
+                                                                "id": "45416453",
+                                                                "displayName": "John's profile"
+                                                            },
+                                                            "datamartUserAccessRight": "Read"
+                                                        }
+                                                    ]
+                                                }
+                                            ],
                                             "users": [
                                                 {
                                                     "displayName": "John Nick",
@@ -13428,6 +13803,13 @@
                         "description": "Whether to exclude personal workspaces",
                         "required": false,
                         "type": "boolean"
+                    },
+                    {
+                        "name": "excludeInActiveWorkspaces",
+                        "in": "query",
+                        "description": "Whether to exclude inactive workspaces",
+                        "required": false,
+                        "type": "boolean"
                     }
                 ],
                 "responses": {
@@ -13446,7 +13828,8 @@
                     "Example": {
                         "parameters": {
                             "modifiedSince": "2020-10-02T05:51:30.0000000Z",
-                            "excludePersonalWorkspaces": true
+                            "excludePersonalWorkspaces": true,
+                            "excludeInActiveWorkspaces": true
                         },
                         "responses": {
                             "200": {
@@ -13800,6 +14183,7 @@
                                             "description": "Sample group",
                                             "type": "Workspace",
                                             "state": "Active",
+                                            "hasWorkspaceLevelSettings": false,
                                             "users": [
                                                 {
                                                     "emailAddress": "john@contoso.com",
@@ -13840,6 +14224,7 @@
                                             "description": "Sample orphan group",
                                             "type": "Workspace",
                                             "state": "Active",
+                                            "hasWorkspaceLevelSettings": false,
                                             "users": []
                                         }
                                     ]
@@ -13866,6 +14251,7 @@
                                             "type": "Workspace",
                                             "state": "Active",
                                             "name": "WSv2Test12",
+                                            "hasWorkspaceLevelSettings": true,
                                             "reports": []
                                         },
                                         {
@@ -13877,6 +14263,7 @@
                                             "type": "Workspace",
                                             "state": "Removing",
                                             "name": "a",
+                                            "hasWorkspaceLevelSettings": false,
                                             "reports": [
                                                 {
                                                     "id": "5DBA60B0-D9A7-42AE-B12C-6D9D51E7739A",
@@ -13916,6 +14303,7 @@
                                             "type": "Workspace",
                                             "state": "Removing",
                                             "name": "a",
+                                            "hasWorkspaceLevelSettings": false,
                                             "dashboards": [
                                                 {
                                                     "id": "4668133c-ae3f-42fb-ad7c-214a8623280c",
@@ -13953,6 +14341,7 @@
                                             "type": "Workspace",
                                             "state": "Removing",
                                             "name": "a",
+                                            "hasWorkspaceLevelSettings": false,
                                             "datasets": [
                                                 {
                                                     "id": "8ce96c50-85a0-4db3-85c6-7ccc3ed46523",
@@ -14026,6 +14415,7 @@
                                             "description": "Sample group",
                                             "type": "Workspace",
                                             "state": "Active",
+                                            "hasWorkspaceLevelSettings": true,
                                             "datasets": [
                                                 {
                                                     "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
@@ -14075,6 +14465,7 @@
                                             "description": "shorter description",
                                             "type": "Workspace",
                                             "state": "Removing",
+                                            "hasWorkspaceLevelSettings": false,
                                             "name": "a",
                                             "workbooks": [
                                                 {
@@ -14667,7 +15058,7 @@
                 "parameters": [
                     {
                         "name": "groupId",
-                        "in": "path",
+                        "in": "path", 
                         "required": true,
                         "description": "The workspace ID",
                         "type": "string",
@@ -16959,6 +17350,50 @@
                             }
                         }
                     },
+                    "Example of generating an embed token for a Power BI report with a dataset which is connected with DirectQuery to another Power BI dataset. All related dataset IDs must be specified in the request with 'xmlaPermissions' set to 'ReadOnly'. IdentityBlobs for all SSO-enabled data sources must be provided in the 'datasourceIdentities' array": {
+                        "parameters": {
+                            "requestParameters": {
+                                "datasets": [
+                                    {
+                                        "id": "b2e49b01-2356-4456-bfb9-3f4c2bc4ddbd",
+                                        "xmlaPermissions": "ReadOnly"
+                                    },
+                                    {
+                                        "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                                        "xmlaPermissions": "ReadOnly"
+                                    }
+                                ],
+                                "reports": [
+                                    {
+                                        "id": "f904e89a-7ebe-4aa0-8647-e409063b4850"
+                                    }
+                                ],
+                                "datasourceIdentities": [
+                                    {
+                                        "datasources": [
+                                            {
+                                                "datasourceType": "Sql",
+                                                "connectionDetails": {
+                                                    "server": "Best-Sql-Server",
+                                                    "database": "Database3"
+                                                }
+                                            }
+                                        ],
+                                        "identityBlob": "eyJ0eX....AAA="
+                                    }
+                                ]
+                            }
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "token": "H4sI....AAA=",
+                                    "tokenId": "ab4d49ae-c054-4c29-af52-93b5c80619ff",
+                                    "expiration": "2022-06-10T12:41:11Z"
+                                }
+                            }
+                        }
+                    },
                     "Example of generating an embed token for a paginated report which has a Power BI dataset as a datasource. The ID of the dataset must be specified in the request. The report and dataset can each have its own identity": {
                         "parameters": {
                             "requestParameters": {
@@ -18447,7 +18882,7 @@
                     },
                     "Get a specific profile by displayName using filter": {
                         "parameters": {
-                            "$filter": "$filter=displayName%20eq%20'My%20new%20profile'"
+                            "$filter": "displayName%20eq%20'My%20new%20profile'"
                         },
                         "responses": {
                             "200": {
@@ -18670,10 +19105,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards": {
             "get": {
                 "summary": "Returns a list of scorecards from a workspace.",
-                "operationId": "Scorecards_Get",
+                "operationId": "Scorecards_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -18756,10 +19191,10 @@
             },
             "post": {
                 "summary": "Creates a new scorecard.",
-                "operationId": "Scorecards_Post",
+                "operationId": "Scorecards_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -18840,10 +19275,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})": {
             "get": {
                 "summary": "Returns a scorecard with ID.",
-                "operationId": "Scorecards_GetByID",
+                "operationId": "Scorecards_(Preview)_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -18923,10 +19358,10 @@
             },
             "patch": {
                 "summary": "Updates a scorecard by its ID",
-                "operationId": "Scorecards_PatchByID",
+                "operationId": "Scorecards_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19041,10 +19476,10 @@
             },
             "delete": {
                 "summary": "Deletes a scorecard by its ID.",
-                "operationId": "Scorecards_DeleteByID",
+                "operationId": "Scorecards_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19075,10 +19510,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals": {
             "get": {
                 "summary": "Returns a list of goals from a scorecard.",
-                "operationId": "Goals_Get",
+                "operationId": "Goals_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19139,10 +19574,10 @@
             },
             "post": {
                 "summary": "Adds a new goal to a scorecard.",
-                "operationId": "Goals_Post",
+                "operationId": "Goals_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19201,10 +19636,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})": {
             "get": {
                 "summary": "Returns a goal by ID from a scorecard.",
-                "operationId": "Goals_GetByID",
+                "operationId": "Goals_(Preview)_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19259,10 +19694,10 @@
             },
             "patch": {
                 "summary": "Updates a goal by ID.",
-                "operationId": "Goals_PatchByID",
+                "operationId": "Goals_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19323,10 +19758,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal from a scorecard by goal ID.",
-                "operationId": "Goals_DeleteByID",
+                "operationId": "Goals_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19361,10 +19796,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/statusRules": {
             "get": {
                 "summary": "Returns status rules of a goal.",
-                "operationId": "GoalsStatusRules_Get",
+                "operationId": "GoalsStatusRules_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalsStatusRules"
+                    "GoalsStatusRules_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19434,10 +19869,10 @@
             },
             "post": {
                 "summary": "Creates or updates status rules of a goal.",
-                "operationId": "GoalsStatusRules_Post",
+                "operationId": "GoalsStatusRules_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalsStatusRules"
+                    "GoalsStatusRules_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19575,10 +20010,10 @@
             },
             "delete": {
                 "summary": "Removes status rule definitions from a goal.",
-                "operationId": "GoalsStatusRules_Delete",
+                "operationId": "GoalsStatusRules_(Preview)_Delete",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalsStatusRules"
+                    "GoalsStatusRules_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19613,10 +20048,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues": {
             "get": {
                 "summary": "Reads goal value check-ins.",
-                "operationId": "GoalValues_Get",
+                "operationId": "GoalValues_(Preview)_Get",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19686,10 +20121,10 @@
             },
             "post": {
                 "summary": "Creates a new goal value check-in.",
-                "operationId": "GoalValues_Post",
+                "operationId": "GoalValues_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19752,10 +20187,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})": {
             "get": {
                 "summary": "Reads a goal value check-in by a UTC date timestamp.",
-                "operationId": "GoalValues_GetByID",
+                "operationId": "GoalValues_(Preview)_GetByID",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19829,10 +20264,10 @@
             },
             "patch": {
                 "summary": "Updates a goal value check-in by a UTC date timestamp.",
-                "operationId": "GoalValues_PatchByID",
+                "operationId": "GoalValues_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19896,10 +20331,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in by a UTC day timestamp.",
-                "operationId": "GoalValues_DeleteByID",
+                "operationId": "GoalValues_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalValues"
+                    "GoalValues_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -19938,10 +20373,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes": {
             "post": {
                 "summary": "Adds a new note to a goal value check-in.",
-                "operationId": "GoalNotes_Post",
+                "operationId": "GoalNotes_(Preview)_Post",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalNotes"
+                    "GoalNotes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20006,10 +20441,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/goalValues({timestamp})/notes({noteId})": {
             "patch": {
                 "summary": "Updates a goal value check-in note by ID.",
-                "operationId": "GoalNotes_PatchByID",
+                "operationId": "GoalNotes_(Preview)_PatchByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalNotes"
+                    "GoalNotes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20075,10 +20510,10 @@
             },
             "delete": {
                 "summary": "Deletes a goal value check-in note by ID.",
-                "operationId": "GoalNotes_DeleteByID",
+                "operationId": "GoalNotes_(Preview)_DeleteByID",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "GoalNotes"
+                    "GoalNotes_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20121,10 +20556,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards/GetScorecardByReportId(reportId={reportId})": {
             "get": {
                 "summary": "Reads a scorecard associated with an internal report ID.",
-                "operationId": "Scorecards_GetScorecardByReportId",
+                "operationId": "Scorecards_(Preview)_GetScorecardByReportId",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20369,10 +20804,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/MoveGoals()": {
             "post": {
                 "summary": "Moves goals within the scorecard. Changes their ranks and parents.",
-                "operationId": "Scorecards_MoveGoals",
+                "operationId": "Scorecards_(Preview)_MoveGoals",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Scorecards"
+                    "Scorecards_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20441,10 +20876,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/GetRefreshHistory()": {
             "get": {
                 "summary": "Reads refresh history of a connected goal.",
-                "operationId": "Goals_GetRefreshHistory",
+                "operationId": "Goals_(Preview)_GetRefreshHistory",
                 "description": "\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20534,10 +20969,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/DeleteGoalCurrentValueConnection()": {
             "post": {
                 "summary": "Disconnects the current value of a goal.",
-                "operationId": "Goals_DeleteGoalCurrentValueConnection",
+                "operationId": "Goals_(Preview)_DeleteGoalCurrentValueConnection",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20587,10 +21022,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/DeleteGoalTargetValueConnection()": {
             "post": {
                 "summary": "Disconnects the target value of a goal.",
-                "operationId": "Goals_DeleteGoalTargetValueConnection",
+                "operationId": "Goals_(Preview)_DeleteGoalTargetValueConnection",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20640,10 +21075,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/RefreshGoalCurrentValue()": {
             "post": {
                 "summary": "Schedules a refresh of the connected value of a goal.",
-                "operationId": "Goals_RefreshGoalCurrentValue",
+                "operationId": "Goals_(Preview)_RefreshGoalCurrentValue",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20678,10 +21113,10 @@
         "/v1.0/myorg/groups/{groupId}/scorecards({scorecardId})/goals({goalId})/RefreshGoalTargetValue()": {
             "post": {
                 "summary": "Schedules a refresh of the target value of a goal.",
-                "operationId": "Goals_RefreshGoalTargetValue",
+                "operationId": "Goals_(Preview)_RefreshGoalTargetValue",
                 "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n<br><br>",
                 "tags": [
-                    "Goals"
+                    "Goals_(Preview)"
                 ],
                 "parameters": [
                     {
@@ -20907,6 +21342,13 @@
                         "$ref": "#/definitions/WorkspaceInfoDataflow"
                     }
                 },
+                "datamarts": {
+                    "type": "array",
+                    "description": "The datamarts associated with this workspace. The list of datamart properties returned varies for different API calls, so you might not see all datamart properties in an API response.",
+                    "items": {
+                        "$ref": "#/definitions/WorkspaceInfoDatamart"
+                    }
+                },
                 "users": {
                     "type": "array",
                     "description": "The users with access to the workspace. The list is returned only when explicitly requested, and is only retrieved for workspaces in the new workspace experience. To retrieve a list of users for a classic workspace, use the Azure Active Directory Graph API.",
@@ -21092,7 +21534,7 @@
                 },
                 "IsRefreshable": {
                     "type": "boolean",
-                    "description": "Whether the dataset can be refreshed"
+                    "description": "Whether the dataset is refreshable or not. A Power BI refreshable dataset is a dataset that has been refreshed at least once, or for which a valid refresh schedule exists."
                 }
             }
         },
@@ -21571,7 +22013,7 @@
             }
         },
         "DatasourceConnectionDetails": {
-            "description": "The Power BI data source connection details",
+            "description": "The Power BI data source connection details. See examples in [Get Datasources](/rest/api/power-bi/datasets/get-datasources#examples) or [Get Datasources In Group](/rest/api/power-bi/datasets/get-datasources-in-group#examples).",
             "properties": {
                 "server": {
                     "type": "string",
@@ -21584,6 +22026,34 @@
                 "url": {
                     "type": "string",
                     "description": "The connection URL"
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The connection path"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "The connection kind"
+                },
+                "account": {
+                    "type": "string",
+                    "description": "The connection account"
+                },
+                "domain": {
+                    "type": "string",
+                    "description": "The connection domain"
+                },
+                "emailAddress": {
+                    "type": "string",
+                    "description": "The connection email address"
+                },
+                "loginServer": {
+                    "type": "string",
+                    "description": "The connection login server"
+                },
+                "classInfo": {
+                    "type": "string",
+                    "description": "The connection class information"
                 }
             }
         },
@@ -21591,7 +22061,7 @@
             "required": [
                 "updateDetails"
             ],
-            "description": "\n## Required scope\n\nDataset.ReadWrite.All\n<br><br>",
+            "description": "Power BI dataset data sources update request",
             "properties": {
                 "updateDetails": {
                     "type": "array",
@@ -21606,7 +22076,7 @@
             "required": [
                 "connectionDetails"
             ],
-            "description": "",
+            "description": "Power BI dataset data source connection update request",
             "properties": {
                 "connectionDetails": {
                     "$ref": "#/definitions/DatasourceConnectionDetails",
@@ -22384,6 +22854,118 @@
                 }
             }
         },
+        "DatamartBaseProperties": {
+            "required": [
+                "id"
+            ],
+            "description": "Power BI datamart common properties. The API returns a subset of the following list of datamart properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The datamart ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The datamart name"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The datamart description"
+                },
+                "type": {
+                    "$ref": "#/definitions/DatamartType"
+                },
+                "status": {
+                    "$ref": "#/definitions/DatamartStatus"
+                },
+                "state": {
+                    "$ref": "#/definitions/DatamartState"
+                },
+                "suspendedBatchId": {
+                    "type": "string",
+                    "description": "datamart suspended batch id"
+                }
+            }
+        },
+        "DatamartAuthoringProperties": {
+            "properties": {
+                "modifiedBy": {
+                    "type": "string",
+                    "description": "The last user that modified the datamart"
+                },
+                "modifiedDateTime": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time that the datamart was last modified"
+                },
+                "configuredBy": {
+                    "type": "string",
+                    "description": "The name of the datamart owner"
+                }
+            }
+        },
+        "DatamartAuthoringPropertiesById": {
+            "properties": {
+                "modifiedById": {
+                    "type": "string",
+                    "description": "The ID of the last user that modified the datamart"
+                },
+                "configuredById": {
+                    "type": "string",
+                    "description": "The ID of the datamart owner"
+                }
+            }
+        },
+        "DatamartUpstreamProperties": {
+            "properties": {
+                "upstreamDataflows": {
+                    "type": "array",
+                    "description": "Datamart dependant dataflows",
+                    "items": {
+                        "$ref": "#/definitions/DependentDataflow"
+                    }
+                }
+            }
+        },
+        "DatamartDatasourceUsagesProperties": {
+            "properties": {
+                "datasourceUsages": {
+                    "type": "array",
+                    "description": "The data source usages",
+                    "items": {
+                        "$ref": "#/definitions/DatasourceUsage"
+                    }
+                }
+            }
+        },
+        "DatamartEndorsmentProperties": {
+            "properties": {
+                "endorsementDetails": {
+                    "$ref": "#/definitions/EndorsementDetails",
+                    "description": "The datamart endorsement details"
+                }
+            }
+        },
+        "DatamartSensitivityLabelProperties": {
+            "properties": {
+                "sensitivityLabel": {
+                    "$ref": "#/definitions/SensitivityLabel",
+                    "description": "The datamart sensitivity label"
+                }
+            }
+        },
+        "DatamartUserProperties": {
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "description": "The user access details for a Power BI datamart.",
+                    "items": {
+                        "$ref": "#/definitions/DatamartUser"
+                    }
+                }
+            }
+        },
         "SubscriptionProperties": {
             "properties": {
                 "subscriptions": {
@@ -22464,6 +23046,35 @@
                 },
                 {
                     "$ref": "#/definitions/RelatedDatasetProperties"
+                }
+            ]
+        },
+        "WorkspaceInfoDatamart": {
+            "description": "A Power BI datamart returned by Workspace Info APIs. The API returns a subset of the following list of datamart properties. The subset depends on the API called, caller permissions, and the availability of data in the Power BI database.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/DatamartBaseProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartEndorsmentProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartSensitivityLabelProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartAuthoringProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartAuthoringPropertiesById"
+                },
+                {
+                    "$ref": "#/definitions/DatamartUpstreamProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartDatasourceUsagesProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatamartUserProperties"
                 }
             ]
         },
@@ -22816,6 +23427,10 @@
                     "type": "string",
                     "format": "uuid",
                     "description": "The deployment pipeline ID that the workspace is assigned to."
+                },
+                "hasWorkspaceLevelSettings": {
+                    "type": "boolean",
+                    "description": "Whether the workspace has custom settings"
                 }
             }
         },
@@ -23193,7 +23808,10 @@
                     "enum": [
                         "Scheduled",
                         "OnDemand",
-                        "ViaApi"
+                        "ViaApi",
+                        "ViaXmlaEndpoint",
+                        "ViaEnhancedApi",
+                        "OnDemandTraining"
                     ],
                     "x-ms-enum": {
                         "name": "RefreshType",
@@ -23210,6 +23828,18 @@
                             {
                                 "value": "ViaApi",
                                 "description": "The refresh was triggered by an API call"
+                            },
+                            {
+                                "value": "ViaXmlaEndpoint",
+                                "description": "The refresh was triggered through Power BI public XMLA endpoint"
+                            },
+                            {
+                                "value": "ViaEnhancedApi",
+                                "description": "The refresh was triggered by an enhanced refresh REST API call"
+                            },
+                            {
+                                "value": "OnDemandTraining",
+                                "description": "The refresh was triggered interactively through the Power BI portal with automatic aggregations training"
                             }
                         ]
                     }
@@ -23278,7 +23908,7 @@
             "properties": {
                 "notifyOption": {
                     "type": "string",
-                    "description": "Mail notification options",
+                    "description": "Mail notification options. This is not applicable to enhanced refresh.",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure",
@@ -24065,6 +24695,237 @@
                 }
             ]
         },
+        "DatamartUser": {
+            "required": [
+                "datamartUserAccessRight"
+            ],
+            "description": "A Power BI user access right entry for a report",
+            "properties": {
+                "datamartUserAccessRight": {
+                    "type": "string",
+                    "description": "The access right that the user has for the datamart (permission level)",
+                    "enum": [
+                        "None",
+                        "Read",
+                        "Write",
+                        "Reshare",
+                        "Explore",
+                        "ReadWrite",
+                        "ReadReshare",
+                        "ReadWriteReshare",
+                        "ReadExplore",
+                        "ReadReshareExplore",
+                        "ReadWriteExplore",
+                        "ReadWriteReshareExplore"
+                    ],
+                    "x-ms-enum": {
+                        "name": "DatamartUserAccessRight",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "None",
+                                "description": "No permission to content in datamart"
+                            },
+                            {
+                                "value": "Read",
+                                "description": "Grants Read access to content in datamart"
+                            },
+                            {
+                                "value": "Write",
+                                "description": "Grants write access to content in datamart"
+                            },
+                            {
+                                "value": "Reshare",
+                                "description": "Grants reshare access to content in datamart"
+                            },
+                            {
+                                "value": "Explore",
+                                "description": "Grants explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWrite",
+                                "description": "Grants read and write access to content in datamart"
+                            },
+                            {
+                                "value": "ReadReshare",
+                                "description": "Grants read and reshare access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWriteReshare",
+                                "description": "Grants read and write and reshare access to content in datamart"
+                            },
+                            {
+                                "value": "ReadExplore",
+                                "description": "Grants read and explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadReshareExplore",
+                                "description": "Grants read and reshare and explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWriteExplore",
+                                "description": "Grants read and write and explore access to content in datamart"
+                            },
+                            {
+                                "value": "ReadWriteReshareExplore",
+                                "description": "Grants read and write and reshare and explore access to content in datamart"
+                            }
+                        ]
+                    }
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/User"
+                }
+            ]
+        },
+        "DatamartState": {
+            "description": "The datamart current state",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The datamart current state",
+                    "enum": [
+                        "Invalid",
+                        "Initialized",
+                        "Active",
+                        "Migrating",
+                        "Evicted",
+                        "Deleted"
+                    ],
+                    "x-ms-enum": {
+                        "name": "state",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Invalid",
+                                "description": "The datamart has invalid state"
+                            },
+                            {
+                                "value": "Initialized",
+                                "description": "The datamart was initialized"
+                            },
+                            {
+                                "value": "Active",
+                                "description": "The datamart is active"
+                            },
+                            {
+                                "value": "Migrating",
+                                "description": "The datamart is migrating"
+                            },
+                            {
+                                "value": "Evicted",
+                                "description": "The datamart was evicted"
+                            },
+                            {
+                                "value": "Deleted",
+                                "description": "The datamart was deleted"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DatamartType": {
+            "description": "The datamart type",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "description": "The datamart type",
+                    "enum": [
+                        "Unset",
+                        "Ignore",
+                        "Sql",
+                        "Lakehouse",
+                        "Dataverse",
+                        "Datawarehouse"
+                    ],
+                    "x-ms-enum": {
+                        "name": "type",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Unset",
+                                "description": "The datamart type was unset"
+                            },
+                            {
+                                "value": "Ignore",
+                                "description": "The datamart has no type"
+                            },
+                            {
+                                "value": "Sql",
+                                "description": "The datamart is of Sql type"
+                            },
+                            {
+                                "value": "Lakehouse",
+                                "description": "The datamart is of Lakehouse type"
+                            },
+                            {
+                                "value": "Dataverse",
+                                "description": "The datamart is of Dataverse type"
+                            },
+                            {
+                                "value": "Datawarehouse",
+                                "description": "The datamart is of Datawarehouse type"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "DatamartStatus": {
+            "description": "The datamart status",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "description": "The datamart status",
+                    "enum": [
+                        "Invalid",
+                        "Available",
+                        "SuspendedInCriticalPhase",
+                        "InProgress",
+                        "Error",
+                        "OutOfRegion",
+                        "NoCapacity"
+                    ],
+                    "x-ms-enum": {
+                        "name": "datamartStatus",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Invalid",
+                                "description": "The datamart has invalid status"
+                            },
+                            {
+                                "value": "Available",
+                                "description": "The datamart is available"
+                            },
+                            {
+                                "value": "SuspendedInCriticalPhase",
+                                "description": "The datamart is suspended in critical phase"
+                            },
+                            {
+                                "value": "InProgress",
+                                "description": "The datamart is in progress"
+                            },
+                            {
+                                "value": "Error",
+                                "description": "The datamart has error status"
+                            },
+                            {
+                                "value": "OutOfRegion",
+                                "description": "The datamart is out of region"
+                            },
+                            {
+                                "value": "NoCapacity",
+                                "description": "The datamart has no capacity"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
         "DashboardUser": {
             "required": [
                 "dashboardUserAccessRight"
@@ -24766,7 +25627,7 @@
             "description": "Effective identity for connecting DirectQuery data sources with single sign-on (SSO) enabled.",
             "properties": {
                 "identityBlob": {
-                    "type":  "string",
+                    "type": "string",
                     "description": "A blob for specifying the identity."
                 },
                 "datasources": {
@@ -26629,6 +27490,13 @@
                     "items": {
                         "$ref": "#/definitions/PipelineStageDataflow"
                     }
+                },
+                "datamarts": {
+                    "type": "array",
+                    "description": "The datamarts collection",
+                    "items": {
+                        "$ref": "#/definitions/PipelineStageDatamart"
+                    }
                 }
             }
         },
@@ -26666,6 +27534,14 @@
         },
         "PipelineStageDataflow": {
             "description": "The metadata for a deployment pipeline dataflow",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/PipelineStageArtifactBase"
+                }
+            ]
+        },
+        "PipelineStageDatamart": {
+            "description": "The metadata for a deployment pipeline datamart",
             "allOf": [
                 {
                     "$ref": "#/definitions/PipelineStageArtifactBase"
@@ -26835,7 +27711,8 @@
                         "DatasetDeployment",
                         "ReportDeployment",
                         "DashboardDeployment",
-                        "DataflowDeployment"
+                        "DataflowDeployment",
+                        "DatamartDeployment"
                     ],
                     "x-ms-enum": {
                         "name": "DeploymentStepType",
@@ -26856,6 +27733,10 @@
                             {
                                 "value": "DataflowDeployment",
                                 "description": "A step for deploying a single dataflow"
+                            },
+                            {
+                                "value": "DatamartDeployment",
+                                "description": "A step for deploying a single datamart"
                             }
                         ]
                     }
@@ -27001,6 +27882,13 @@
                 "dataflows": {
                     "type": "array",
                     "description": "A list of dataflows to be deployed",
+                    "items": {
+                        "$ref": "#/definitions/DeployArtifactRequest"
+                    }
+                },
+                "datamarts": {
+                    "type": "array",
+                    "description": "A list of datamarts to be deployed",
                     "items": {
                         "$ref": "#/definitions/DeployArtifactRequest"
                     }
@@ -27186,7 +28074,7 @@
                     "description": "The serialization settings for the result set",
                     "$ref": "#/definitions/DatasetExecuteQueriesSerializationSettings"
                 },
-				"impersonatedUserName": {
+                "impersonatedUserName": {
                     "type": "string",
                     "description": "The UPN of a user to be impersonated. If the model is not RLS enabled, this will be ignored."
                 }
@@ -27219,7 +28107,7 @@
         "DatasetExecuteQueriesResponse": {
             "type": "object",
             "properties": {
-				"informationProtectionLabel": {
+                "informationProtectionLabel": {
                     "description": "The details of the information protection label, if any, associated with the dataset.",
                     "$ref": "#/definitions/DatasetExecuteQueriesInformationProtectionLabel"
                 },
@@ -27230,17 +28118,17 @@
                         "$ref": "#/definitions/DatasetExecuteQueriesQueryResult"
                     }
                 },
-				"error" : {
+                "error": {
                     "description": "The details of an error, if present.",
                     "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
             },
             "description": "The response to a dataset execute queries request"
         },
-		"DatasetExecuteQueriesInformationProtectionLabel": {
+        "DatasetExecuteQueriesInformationProtectionLabel": {
             "type": "object",
             "properties": {
-				"id":{
+                "id": {
                     "type": "string",
                     "description": "The identifier (guid) of the information protection label"
                 },
@@ -27261,7 +28149,7 @@
                         "$ref": "#/definitions/DatasetExecuteQueriesTableResult"
                     }
                 },
-				"error" : {
+                "error": {
                     "description": "The details of an error, if present.",
                     "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
@@ -27278,7 +28166,7 @@
                         "$ref": "#/definitions/DatasetExecuteQueriesRowResult"
                     }
                 },
-				"error" : {
+                "error": {
                     "description": "The details of an error, if present.",
                     "$ref": "#/definitions/DatasetExecuteQueriesError"
                 }
@@ -27293,10 +28181,10 @@
             },
             "description": "A set of key-value pairs representing the column name and a row value. The column name is the key of the pair."
         },
-		"DatasetExecuteQueriesError": {
+        "DatasetExecuteQueriesError": {
             "type": "object",
             "properties": {
-				"code": {
+                "code": {
                     "type": "string",
                     "description": "The code associated with the error"
                 },
