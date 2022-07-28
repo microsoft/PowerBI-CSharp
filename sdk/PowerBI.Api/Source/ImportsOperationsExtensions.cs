@@ -96,6 +96,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Dataflows with service principal aren't supported.
             /// - Importing a Power BI .pbix file from OneDrive isn't supported.
+            /// - Importing a file that has a **protected** sensitivity label isn't
+            /// supported for service principals.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -170,6 +172,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Dataflows with service principal aren't supported.
             /// - Importing a Power BI .pbix file from OneDrive isn't supported.
+            /// - Importing a file that has a **protected** sensitivity label isn't
+            /// supported for service principals.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -445,6 +449,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Dataflows with service principal aren't supported.
             /// - Importing a Power BI .pbix file from OneDrive isn't supported.
+            /// - Importing a file that has a **protected** sensitivity label isn't
+            /// supported for service principals.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -532,6 +538,8 @@ namespace Microsoft.PowerBI.Api
             ///
             /// - Dataflows with service principal aren't supported.
             /// - Importing a Power BI .pbix file from OneDrive isn't supported.
+            /// - Importing a file that has a **protected** sensitivity label isn't
+            /// supported for service principals.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>

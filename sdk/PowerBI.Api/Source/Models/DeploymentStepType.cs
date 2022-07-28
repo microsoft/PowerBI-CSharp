@@ -43,6 +43,11 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         public static readonly DeploymentStepType DataflowDeployment = "DataflowDeployment";
 
+        /// <summary>
+        /// A step for deploying a single datamart
+        /// </summary>
+        public static readonly DeploymentStepType DatamartDeployment = "DatamartDeployment";
+
 
         /// <summary>
         /// Underlying value of enum DeploymentStepType

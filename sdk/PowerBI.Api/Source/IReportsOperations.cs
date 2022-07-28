@@ -25,6 +25,9 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// This API also returns shared reports and reports from shared apps.
+        /// Reports that reside in shared workspaces can be accessed using the
+        /// [Get Reports In Group
+        /// API](/rest/api/power-bi/reports/get-reports-in-group).
         ///
         /// Since paginated reports (RDL) don't have a dataset, the dataset ID
         /// value in the API response for paginated reports isn't displayed.
@@ -420,7 +423,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Check the limitations in [Export Power BI report to
-        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations).
+        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations)
+        /// and [Export paginated report to
+        /// file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='reportId'>
@@ -1007,7 +1012,9 @@ namespace Microsoft.PowerBI.Api
         /// ## Limitations
         ///
         /// Check the limitations in [Export Power BI report to
-        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations).
+        /// file](/power-bi/developer/embedded/export-to#considerations-and-limitations)
+        /// and [Export paginated report to
+        /// file](/power-bi/developer/embedded/export-paginated-report#considerations-and-limitations).
         /// &lt;br&gt;&lt;br&gt;
         /// </remarks>
         /// <param name='groupId'>

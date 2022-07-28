@@ -122,12 +122,23 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse<GatewayDatasources>> GetDatasourcesWithHttpMessagesAsync(System.Guid gatewayId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new data source on the specified gateway.
+        /// Creates a new data source on the specified gateway. This API only
+        /// works for creating an on-prem data source. Cloud data sources
+        /// aren't supported.
         /// </summary>
         /// <remarks>
-        ///
-        /// To encrypt credentials, see [Configure credentials
-        /// programmatically](/power-bi/developer/automation/configure-credentials).
+        /// &lt;br&gt;On prem data source credentials must be encrypted. The
+        /// `encryptedConnection` parameter must be set to `Encrypted` and the
+        /// credentials should be encrypted using the gateway public key.
+        /// &gt; [!NOTE]
+        /// &gt; To encrypt credentials, see [Configure credentials
+        /// programmatically](/power-bi/developer/embedded/configure-credentials)
+        /// for Power BI and review the EncryptCredentials [.NET
+        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials),
+        /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+        /// and
+        /// [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials)
+        /// examples.
         ///
         /// ## Permissions
         ///
@@ -252,9 +263,10 @@ namespace Microsoft.PowerBI.Api
         /// &gt; To encrypt credentials, see [Configure credentials
         /// programmatically](/power-bi/developer/embedded/configure-credentials)
         /// for Power BI and review the EncryptCredentials [.NET
-        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials)
-        /// and
+        /// Core](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Core/EncryptCredentials),
         /// [Java](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Java/EncryptCredentials)
+        /// and
+        /// [Python](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/Python/Encrypt%20credentials)
         /// examples.
         ///
         /// - Set the parameter `useEndUserOAuth2Credentials` to `False` when
@@ -268,7 +280,7 @@ namespace Microsoft.PowerBI.Api
         /// to `true`. To set OAuth 2.0 credentials for other data sources,
         /// send the OAuth 2.0 token in the payload as shown in the [OAuth 2.0
         /// credentials
-        /// example](/rest/api/power-bi/gateways/update-datasource#oauth2-credentials-example).
+        /// example](/rest/api/power-bi/gateways/update-datasource#oauth-2.0-credentials-example).
         ///
         /// ## Permissions
         ///

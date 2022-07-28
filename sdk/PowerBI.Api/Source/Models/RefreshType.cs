@@ -38,6 +38,22 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         public static readonly RefreshType ViaApi = "ViaApi";
 
+        /// <summary>
+        /// The refresh was triggered through Power BI public XMLA endpoint
+        /// </summary>
+        public static readonly RefreshType ViaXmlaEndpoint = "ViaXmlaEndpoint";
+
+        /// <summary>
+        /// The refresh was triggered by an enhanced refresh REST API call
+        /// </summary>
+        public static readonly RefreshType ViaEnhancedApi = "ViaEnhancedApi";
+
+        /// <summary>
+        /// The refresh was triggered interactively through the Power BI portal
+        /// with automatic aggregations training
+        /// </summary>
+        public static readonly RefreshType OnDemandTraining = "OnDemandTraining";
+
 
         /// <summary>
         /// Underlying value of enum RefreshType

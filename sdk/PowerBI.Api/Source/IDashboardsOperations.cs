@@ -24,7 +24,9 @@ namespace Microsoft.PowerBI.Api
         /// <remarks>
         ///
         /// This API also returns shared dashboards and dashboards from shared
-        /// apps.
+        /// apps. Dashboards that reside in shared workspaces can be accessed
+        /// using the [Get Dashboards In Group
+        /// API](/rest/api/power-bi/dashboards/get-dashboards-in-group).
         ///
         /// ## Required Scope
         ///

@@ -28,8 +28,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="addRowsAPIEnabled">Whether the dataset allows adding
         /// new rows</param>
-        /// <param name="isRefreshable">Whether the dataset can be
-        /// refreshed</param>
+        /// <param name="isRefreshable">Whether the dataset is refreshable or
+        /// not. A Power BI refreshable dataset is a dataset that has been
+        /// refreshed at least once, or for which a valid refresh schedule
+        /// exists.</param>
         public DatasetMiscProperties(bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?))
         {
             AddRowsAPIEnabled = addRowsAPIEnabled;
@@ -49,7 +51,9 @@ namespace Microsoft.PowerBI.Api.Models
         public bool? AddRowsAPIEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the dataset can be refreshed
+        /// Gets or sets whether the dataset is refreshable or not. A Power BI
+        /// refreshable dataset is a dataset that has been refreshed at least
+        /// once, or for which a valid refresh schedule exists.
         /// </summary>
         [JsonProperty(PropertyName = "IsRefreshable")]
         public bool? IsRefreshable { get; set; }
