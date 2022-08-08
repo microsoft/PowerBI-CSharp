@@ -714,7 +714,7 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
-            /// the default is all available entries.
+            /// the default is the last available 500 entries.
             /// </param>
             public static Refreshes GetRefreshHistory(this IDatasetsOperations operations, string datasetId, int? top = default(int?))
             {
@@ -744,7 +744,7 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
-            /// the default is all available entries.
+            /// the default is the last available 500 entries.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -3120,7 +3120,7 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
-            /// the default is all available entries.
+            /// the default is the last available 500 entries.
             /// </param>
             public static Refreshes GetRefreshHistoryInGroup(this IDatasetsOperations operations, System.Guid groupId, string datasetId, int? top = default(int?))
             {
@@ -3159,7 +3159,7 @@ namespace Microsoft.PowerBI.Api
             /// </param>
             /// <param name='top'>
             /// The requested number of entries in the refresh history. If not provided,
-            /// the default is all available entries.
+            /// the default is the last available 500 entries.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

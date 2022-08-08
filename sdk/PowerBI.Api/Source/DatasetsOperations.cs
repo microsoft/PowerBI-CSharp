@@ -1661,7 +1661,7 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not provided,
-        /// the default is all available entries.
+        /// the default is the last available 500 entries.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -6799,7 +6799,7 @@ namespace Microsoft.PowerBI.Api
         /// </param>
         /// <param name='top'>
         /// The requested number of entries in the refresh history. If not provided,
-        /// the default is all available entries.
+        /// the default is the last available 500 entries.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
