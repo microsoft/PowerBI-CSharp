@@ -25417,6 +25417,10 @@
                     "$ref": "#/definitions/ExportReportSettings",
                     "description": "The settings to be applied for the export to file job"
                 },
+                "datasetToBind": {
+                    "type": "string",
+                    "description": "The dataset ID to export the report with. Only needed if exporting with a dataset other than the report's default dataset."
+                },
                 "defaultBookmark": {
                     "$ref": "#/definitions/PageBookmark",
                     "description": "A default bookmark to apply on all pages that don't have a specific bookmark"
