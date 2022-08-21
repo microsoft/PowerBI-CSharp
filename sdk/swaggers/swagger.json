@@ -10595,7 +10595,7 @@
                     },
                     "Get a list of workspaces using a filter example": {
                         "parameters": {
-                            "$filter": "$filter=contains(name,'marketing')%20or%20name%20eq%20'contoso'"
+                            "$filter": "contains(name,'marketing')%20or%20name%20eq%20'contoso'"
                         },
                         "responses": {
                             "200": {
