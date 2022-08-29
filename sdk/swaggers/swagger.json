@@ -13989,7 +13989,8 @@
                                             "isRefreshable": true,
                                             "isEffectiveIdentityRequired": false,
                                             "isEffectiveIdentityRolesRequired": false,
-                                            "isOnPremGatewayRequired": false
+                                            "isOnPremGatewayRequired": false,
+                                            "isInPlaceSharingEnabled": false
                                         }
                                     ]
                                 }
@@ -14354,7 +14355,8 @@
                                                     "isOnPremGatewayRequired": false,
                                                     "targetStorageMode": "Abf",
                                                     "createdDate": "2019-04-30T21:35:15.867-07:00",
-                                                    "ContentProviderType": "PbixInImportMode"
+                                                    "ContentProviderType": "PbixInImportMode",
+                                                    "isInPlaceSharingEnabled": false
                                                 },
                                                 {
                                                     "id": "7d6a4f72-1906-4e08-a469-bd6bc1ab7b69",
@@ -14367,7 +14369,8 @@
                                                     "isOnPremGatewayRequired": false,
                                                     "targetStorageMode": "Abf",
                                                     "createdDate": "2019-04-30T21:35:15.867-07:00",
-                                                    "ContentProviderType": "PbixInImportMode"
+                                                    "ContentProviderType": "PbixInImportMode",
+                                                    "isInPlaceSharingEnabled": false
                                                 }
                                             ]
                                         }
@@ -14426,6 +14429,7 @@
                                                     "isEffectiveIdentityRequired": false,
                                                     "isEffectiveIdentityRolesRequired": false,
                                                     "isOnPremGatewayRequired": false,
+                                                    "isInPlaceSharingEnabled": false,
                                                     "encryption": {
                                                         "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                                                         "encryptionStatus": "InSyncWithWorkspace"
@@ -15120,7 +15124,8 @@
                                             "isRefreshable": true,
                                             "isEffectiveIdentityRequired": false,
                                             "isEffectiveIdentityRolesRequired": false,
-                                            "isOnPremGatewayRequired": false
+                                            "isOnPremGatewayRequired": false,
+                                            "isInPlaceSharingEnabled": false
                                         }
                                     ]
                                 }
@@ -15145,6 +15150,7 @@
                                             "isEffectiveIdentityRequired": false,
                                             "isEffectiveIdentityRolesRequired": false,
                                             "isOnPremGatewayRequired": false,
+                                            "isInPlaceSharingEnabled": false,
                                             "encryption": {
                                                 "id": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                                                 "encryptionStatus": "InSyncWithWorkspace"
@@ -21535,6 +21541,10 @@
                 "IsRefreshable": {
                     "type": "boolean",
                     "description": "Whether the dataset is refreshable or not. A Power BI refreshable dataset is a dataset that has been refreshed at least once, or for which a valid refresh schedule exists."
+                },
+                "IsInPlaceSharingEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the dataset can be shared with external users to be consumed in their own tenant"
                 }
             }
         },
