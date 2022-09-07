@@ -62,7 +62,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset on **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**. For a complete list of limitations, see [Push datasets limitations](/power-bi/developer/embedded/push-datasets-limitations).\n<br><br>",
                 "operationId": "Datasets_PostDataset",
                 "consumes": [
                     "application/json"
@@ -328,8 +328,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to user Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. \n<br><br>",
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in **My workspace** or another workspace.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to user Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueries",
                 "consumes": [],
                 "produces": [
@@ -416,7 +416,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Returns a list of tables within the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\nThis API call only supports **push datasets**. For a complete list of limitations, see [Push datasets limitations](/power-bi/developer/embedded/push-datasets-limitations).\n<br><br>",
                 "operationId": "Datasets_GetTables",
                 "consumes": [],
                 "produces": [
@@ -619,7 +619,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Deletes all rows from the specified table within the specified dataset from **My workspace**.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**. For a complete list of limitations, see [Push datasets limitations](/power-bi/developer/embedded/push-datasets-limitations).\n<br><br>",
                 "operationId": "Datasets_DeleteRows",
                 "consumes": [],
                 "produces": [],
@@ -2123,7 +2123,7 @@
                     "Datasets"
                 ],
                 "summary": "Grants the specified user's permissions to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API call can't be used to grant dataset Write permission on the dataset\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API call can't be used to grant dataset Write permission on the dataset\n<br><br>",
                 "operationId": "Datasets_PostDatasetUserInGroup",
                 "consumes": [
                     "application/json"
@@ -2197,7 +2197,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the existing dataset permissions of the specified user to the specified permissions.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API call can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API can't be used to add or remove *write* permission.\n- This API can't be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API call can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n## Limitations\n\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API can't be used to add or remove *write* permission.\n- This API can't be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n<br><br>",
                 "operationId": "Datasets_PutDatasetUserInGroup",
                 "consumes": [
                     "application/json"
@@ -2272,7 +2272,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\nCaller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsersInGroup",
                 "consumes": [],
                 "produces": [
@@ -2343,7 +2343,7 @@
                     "Datasets"
                 ],
                 "summary": "Grants the specified user's permissions to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API call can't be used to grant dataset Write permission on the dataset\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Limitations\n\n- Adding permissions to service principals (app principalType) isn't supported\n- Caller must have ReadReshare permissions on the dataset.\n- This API call can't be used to grant dataset Write permission on the dataset\n<br><br>",
                 "operationId": "Datasets_PostDatasetUser",
                 "consumes": [
                     "application/json"
@@ -2407,7 +2407,7 @@
                     "Datasets"
                 ],
                 "summary": "Updates the existing dataset permissions of the specified user to the specified permissions.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API call can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API can't be used to add or remove *write* permission.\n- This API can't be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\nThis API call can be used to remove all the dataset permissions of the specified user by using `datasetUserAccessRight: None`\n\n## Required Scope\n\nDataset.ReadWrite.All\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Limitations\n\n- Updating permissions to service principals (app principalType) isn't supported\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n- This API can't be used to add or remove *write* permission.\n- This API can't be used to remove folder-level inherited permissions. For folder admins and members, the ReadWriteReshareExplore permission on the folder's datasets is inherited. For folder contributors, the ReadWriteExplore permission on the folder's datasets is inherited. For folder viewers, the Read permission on the folder's datasets is inherited.\n<br><br>",
                 "operationId": "Datasets_PutDatasetUser",
                 "consumes": [
                     "application/json"
@@ -2472,7 +2472,7 @@
                     "Datasets"
                 ],
                 "summary": "Returns a list of principals that have access to the specified dataset.",
-                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a V2 workspace, or **My workspace** are supported.\n- Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
+                "description": "\nWhen user permissions to a dataset have been recently updated, the new permissions might not be immediately available through API calls. To refresh user permissions, use the [Refresh User Permissions](/rest/api/power-bi/users/refresh-user-permissions) API call.\n\n## Permissions\n\nThe permissions for this API call are listed in [Datasets permissions](/power-bi/developer/embedded/datasets-permissions).\n\n## Required Scope\n\nDataset.Read.All or Dataset.ReadWrite.All\n## Limitations\n\n Caller must have ReadWriteReshare permissions on the dataset. That is, folder admins, members and contributors with Reshare permissions, or dataset owners.\n<br><br>",
                 "operationId": "Datasets_GetDatasetUsers",
                 "consumes": [],
                 "produces": [
@@ -3034,7 +3034,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from **My workspace**.",
-                "description": "\n- If the dataset for a cloned report resides in two different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following, unless a requirement doesn't apply:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n## Required Scope\n\nContent.Create\n<br><br>",
+                "description": "\n- If the dataset for a cloned report resides in two different workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following, unless a requirement doesn't apply:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n## Required Scope\n\nContent.Create\n<br><br>",
                 "operationId": "Reports_CloneReport",
                 "consumes": [
                     "application/json"
@@ -3172,7 +3172,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from **My workspace** to the specified dataset.",
-                "description": "\n- If the specified dataset resides in a different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace from the report, then a shared dataset will be created in **My workspace**.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset.\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
+                "description": "\n- If the specified dataset resides in a different workspace than the report, then a shared dataset will be created in **My workspace**.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\nThe user must have all of the following:\n\n- **Write** permission on the specified report.\n- **Build** permission on the target dataset.\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_RebindReport",
                 "consumes": [
                     "application/json"
@@ -4000,7 +4000,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Creates a new dataset in the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**. For a complete list of limitations, see [Push datasets limitations](/power-bi/developer/embedded/push-datasets-limitations).\n<br><br>",
                 "operationId": "Datasets_PostDatasetInGroup",
                 "consumes": [
                     "application/json"
@@ -4338,7 +4338,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Returns a list of tables within the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\n## Limitations\n\nThis API call only supports **push datasets**. For a complete list of limitations, see [Push datasets limitations](/power-bi/developer/embedded/push-datasets-limitations).\n<br><br>",
                 "operationId": "Datasets_GetTablesInGroup",
                 "consumes": [],
                 "produces": [
@@ -4563,7 +4563,7 @@
                     "PushDatasets"
                 ],
                 "summary": "Deletes all rows from the specified table within the specified dataset from the specified workspace.",
-                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**.\n<br><br>",
+                "description": "\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\nThis API call only supports **push datasets**. For a complete list of limitations, see [Push datasets limitations](/power-bi/developer/embedded/push-datasets-limitations).\n<br><br>",
                 "operationId": "Datasets_DeleteRowsInGroup",
                 "consumes": [],
                 "produces": [],
@@ -6283,8 +6283,8 @@
                 "tags": [
                     "Datasets"
                 ],
-                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset. The dataset must reside in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace.",
-                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Only datasets in a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace, are supported.\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to user Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. \n<br><br>",
+                "summary": "Executes Data Analysis Expressions (DAX) queries against the provided dataset.",
+                "description": "\nDAX query errors will result in:\n\n- A response error, such as `DAX query failure`.\n- A failure HTTP status code (400).\n\nA query that requests more than one table, or more than the allowed number of table rows, will result in:\n\n- Limited data being returned.\n- A response error, such as `More than one result table in a query` or `More than {allowed number} rows in a query result`.\n- A successful HTTP status code (200).\n\nColumns that are fully qualified in the query will be returned with a fully qualified name, for example, `MyTable[MyColumn]`. Columns that are renamed or created in the query will be returned within square bracket, for example, `[MyNewColumn]`.\n\n## Permissions\n\nThe user must have [Manage dataset access permissions](/power-bi/connect-data/service-datasets-manage-access-permissions).\n\n## Required Scope\n\nDataset.ReadWrite.All or Dataset.Read.All\n\n## Limitations\n\n- Datasets that are hosted in Azure Analysis Services or that have a live connection to an on-premises Azure Analysis Services model aren't supported.\n- The tenant setting **Dataset Execute Queries REST API**, found under **Integration settings**, must be enabled.\n- One query per API call.\n- One table request per query.\n- Maximum of 100,000 rows or 1,000,000 values per query (whichever is hit first). For example if you query for 5 columns, you can get back max 100,000 rows. If you query for 20 columns, you can get back max 50,000 rows (1 million divided by 20).\n- Maximum of 15MB of data per query. Once 15MB is exceeded, the current row will be completed but no additional rows will be written.\n- Maximum of 120 requests per user per minute. Target dataset does not impact this rate limit.\n- Service Principals aren't supported for datasets with RLS per [RLS limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations) or with SSO enabled. To use Service Principals, make sure the admin tenant setting [_Allow service principals to user Power BI APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis) under _Developer settings_ is enabled. \n<br><br>",
                 "operationId": "Datasets_ExecuteQueriesInGroup",
                 "consumes": [],
                 "produces": [
@@ -6924,7 +6924,7 @@
                     "Reports"
                 ],
                 "summary": "Clones the specified report from the specified workspace.",
-                "description": "\n- If the dataset for a cloned report resides in two different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following, unless a requirement doesn't apply:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nContent.Create\n<br><br>",
+                "description": "\n- If the dataset for a cloned report resides in two different workspaces or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- When cloned, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following, unless a requirement doesn't apply:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset, required if the `targetModelId` parameter is used.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nContent.Create\n<br><br>",
                 "operationId": "Reports_CloneReportInGroup",
                 "consumes": [
                     "application/json"
@@ -7087,7 +7087,7 @@
                     "Reports"
                 ],
                 "summary": "Rebinds the specified report from the specified workspace to the specified dataset.",
-                "description": "\n- If the specified dataset resides in a different [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace from the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
+                "description": "\n- If the specified dataset resides in a different workspace than the report or in **My workspace**, then a shared dataset will be created in the report's workspace.\n- On rebind, reports with a [live connection](/power-bi/desktop-report-lifecycle-datasets) will lose that connection and instead have a direct binding to the target dataset.\n\n## Permissions\n\n- The user must have all of the following:\n\n  - **Write** permission on the specified report.\n  - **Build** permission on the target dataset.\n\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nReport.ReadWrite.All\n<br><br>",
                 "operationId": "Reports_RebindReportInGroup",
                 "consumes": [
                     "application/json"
@@ -10647,7 +10647,7 @@
                         "name": "workspaceV2",
                         "in": "query",
                         "required": false,
-                        "description": "(Preview feature) Whether to create a [new workspace experience](/power-bi/collaborate-share/service-new-workspaces) workspace, that is to say a **V2** workspace. The only supported value is `true`.",
+                        "description": "(Preview feature) Whether to create a workspace. The only supported value is `true`.",
                         "type": "boolean"
                     }
                 ],
@@ -10679,10 +10679,10 @@
                             }
                         }
                     },
-                    "Create a workspace in the new workspace experience example": {
+                    "Create a workspace example": {
                         "parameters": {
                             "requestParameters": {
-                                "name": "sample workspace V2"
+                                "name": "sample workspace"
                             },
                             "workspaceV2": true
                         },
@@ -10692,7 +10692,7 @@
                                     {
                                         "id": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                                         "isOnDedicatedCapacity": false,
-                                        "name": "sample workspace V2"
+                                        "name": "sample workspace"
                                     }
                                 ]
                             }
@@ -14167,7 +14167,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get workspaces with their 'users' expanded example. Only applicable for workspaces in the new workspace experience.": {
+                    "Get workspaces with their 'users' expanded example.": {
                         "parameters": {
                             "$expand": "users",
                             "$top": 100
@@ -14207,7 +14207,7 @@
                             }
                         }
                     },
-                    "Get orphaned workspaces example. Only applicable for workspaces in the new workspace experience.": {
+                    "Get orphaned workspaces example.": {
                         "parameters": {
                             "$expand": "users",
                             "$top": 100,
@@ -14379,7 +14379,7 @@
                             }
                         }
                     },
-                    "Get deleted workspaces example. Only applicable for workspaces in the new workspace experience.": {
+                    "Get deleted workspaces example.": {
                         "parameters": {
                             "$top": 100,
                             "$filter": "state eq 'Deleted'"
@@ -14402,7 +14402,7 @@
                             }
                         }
                     },
-                    "Get workspaces with their 'datasets' expanded example. Only applicable for workspaces in the new workspace experience.": {
+                    "Get workspaces with their 'datasets' expanded example.": {
                         "parameters": {
                             "$expand": "datasets"
                         },
@@ -14525,7 +14525,7 @@
                     }
                 },
                 "x-ms-examples": {
-                    "Get workspaces with their 'users' expanded example. Only applicable for workspaces in the new workspace experience.": {
+                    "Get workspaces with their 'users' expanded example.": {
                         "parameters": {
                             "$expand": "users"
                         },
@@ -14555,7 +14555,7 @@
                     "Admin"
                 ],
                 "summary": "Updates the properties of the specified workspace.",
-                "description": "\nThis API call call only updates workspaces in the new workspace experience. Only the name and description can be updated. The name must be unique inside an organization.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nOnly the name and description can be updated. The name must be unique inside an organization.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_UpdateGroupAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -14673,7 +14673,7 @@
                     "Admin"
                 ],
                 "summary": "Grants user permissions to the specified workspace.",
-                "description": "\nThis API call only supports updating workspaces in the new workspace experience and adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call only supports adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_AddUserAsAdmin",
                 "consumes": [
                     "application/json"
@@ -14726,7 +14726,7 @@
                     "Admin"
                 ],
                 "summary": "Removes user permissions from the specified workspace.",
-                "description": "\nThis API call only supports updating workspaces in the new workspace experience and adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nThis API call only supports adding a user principle.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_DeleteUserAsAdmin",
                 "consumes": [],
                 "produces": [],
@@ -14780,7 +14780,7 @@
                     "Admin"
                 ],
                 "summary": "Restores a deleted workspace.",
-                "description": "\nThis API call only supports restoring workspaces in the new workspace experience.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
+                "description": "\nUse this API call to restore workspaces.\n\n## Permissions\n\nThe user must have administrator rights (such as Office 365 Global Administrator or Power BI Service Administrator).\n\n## Required Scope\n\nTenant.ReadWrite.All\n\n## Limitations\n\nMaximum 200 requests per hour.\n<br><br>",
                 "operationId": "Groups_RestoreDeletedGroupAsAdmin",
                 "consumes": [
                     "application/json"
@@ -21357,7 +21357,7 @@
                 },
                 "users": {
                     "type": "array",
-                    "description": "The users with access to the workspace. The list is returned only when explicitly requested, and is only retrieved for workspaces in the new workspace experience. To retrieve a list of users for a classic workspace, use the Azure Active Directory Graph API.",
+                    "description": "The users with access to the workspace. The list is returned only when explicitly requested. To retrieve a list of users for a classic workspace, use the Azure Active Directory Graph API.",
                     "items": {
                         "$ref": "#/definitions/GroupUser"
                     }
