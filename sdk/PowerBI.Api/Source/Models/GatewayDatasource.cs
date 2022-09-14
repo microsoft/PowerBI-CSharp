@@ -31,7 +31,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// gateway in the cluster and is similar to the gateway cluster
         /// ID.</param>
         /// <param name="credentialType">The type of data source
-        /// [credential](/en-us/power-bi/developer/automation/configure-credentials).
+        /// [credential](/power-bi/developer/embedded/configure-credentials).
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'</param>
         /// <param name="datasourceName">The name of the data source</param>
@@ -134,7 +134,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the type of data source
-        /// [credential](/en-us/power-bi/developer/automation/configure-credentials).
+        /// [credential](/power-bi/developer/embedded/configure-credentials).
         /// Possible values include: 'Basic', 'Windows', 'Anonymous', 'OAuth2',
         /// 'Key'
         /// </summary>

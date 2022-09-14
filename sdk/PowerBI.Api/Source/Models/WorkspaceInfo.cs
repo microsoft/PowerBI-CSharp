@@ -58,10 +58,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// different API calls, so you might not see all datamart properties
         /// in an API response.</param>
         /// <param name="users">The users with access to the workspace. The
-        /// list is returned only when explicitly requested, and is only
-        /// retrieved for workspaces in the new workspace experience. To
-        /// retrieve a list of users for a classic workspace, use the Azure
-        /// Active Directory Graph API.</param>
+        /// list is returned only when explicitly requested. To retrieve a list
+        /// of users for a classic workspace, use the Azure Active Directory
+        /// Graph API.</param>
         public WorkspaceInfo(System.Guid id, string name = default(string), string description = default(string), string type = default(string), string state = default(string), string dataRetrievalState = default(string), bool? isOnDedicatedCapacity = default(bool?), string capacityId = default(string), IList<WorkspaceInfoReport> reports = default(IList<WorkspaceInfoReport>), IList<WorkspaceInfoDashboard> dashboards = default(IList<WorkspaceInfoDashboard>), IList<WorkspaceInfoDataset> datasets = default(IList<WorkspaceInfoDataset>), IList<WorkspaceInfoDataflow> dataflows = default(IList<WorkspaceInfoDataflow>), IList<WorkspaceInfoDatamart> datamarts = default(IList<WorkspaceInfoDatamart>), IList<GroupUser> users = default(IList<GroupUser>))
         {
             Id = id;
@@ -178,8 +177,7 @@ namespace Microsoft.PowerBI.Api.Models
 
         /// <summary>
         /// Gets or sets the users with access to the workspace. The list is
-        /// returned only when explicitly requested, and is only retrieved for
-        /// workspaces in the new workspace experience. To retrieve a list of
+        /// returned only when explicitly requested. To retrieve a list of
         /// users for a classic workspace, use the Azure Active Directory Graph
         /// API.
         /// </summary>
