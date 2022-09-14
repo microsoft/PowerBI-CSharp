@@ -32,10 +32,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// not. A Power BI refreshable dataset is a dataset that has been
         /// refreshed at least once, or for which a valid refresh schedule
         /// exists.</param>
-        public DatasetMiscProperties(bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?))
+        /// <param name="isInPlaceSharingEnabled">Whether the dataset can be
+        /// shared with external users to be consumed in their own
+        /// tenant</param>
+        public DatasetMiscProperties(bool? addRowsAPIEnabled = default(bool?), bool? isRefreshable = default(bool?), bool? isInPlaceSharingEnabled = default(bool?))
         {
             AddRowsAPIEnabled = addRowsAPIEnabled;
             IsRefreshable = isRefreshable;
+            IsInPlaceSharingEnabled = isInPlaceSharingEnabled;
             CustomInit();
         }
 
@@ -57,6 +61,13 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "IsRefreshable")]
         public bool? IsRefreshable { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the dataset can be shared with external users
+        /// to be consumed in their own tenant
+        /// </summary>
+        [JsonProperty(PropertyName = "IsInPlaceSharingEnabled")]
+        public bool? IsInPlaceSharingEnabled { get; set; }
 
     }
 }

@@ -31,6 +31,9 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="settings">The settings to be applied for the export to
         /// file job</param>
+        /// <param name="datasetToBind">The dataset ID to export the report
+        /// with. Only needed if exporting with a dataset other than the
+        /// report's default dataset.</param>
         /// <param name="defaultBookmark">A default bookmark to apply on all
         /// pages that don't have a specific bookmark</param>
         /// <param name="reportLevelFilters">A list of report level filters to
@@ -40,9 +43,10 @@ namespace Microsoft.PowerBI.Api.Models
         /// visuals.</param>
         /// <param name="identities">A list of identities to use for row-level
         /// security rules</param>
-        public PowerBIReportExportConfiguration(ExportReportSettings settings = default(ExportReportSettings), PageBookmark defaultBookmark = default(PageBookmark), IList<ExportFilter> reportLevelFilters = default(IList<ExportFilter>), IList<ExportReportPage> pages = default(IList<ExportReportPage>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
+        public PowerBIReportExportConfiguration(ExportReportSettings settings = default(ExportReportSettings), string datasetToBind = default(string), PageBookmark defaultBookmark = default(PageBookmark), IList<ExportFilter> reportLevelFilters = default(IList<ExportFilter>), IList<ExportReportPage> pages = default(IList<ExportReportPage>), IList<EffectiveIdentity> identities = default(IList<EffectiveIdentity>))
         {
             Settings = settings;
+            DatasetToBind = datasetToBind;
             DefaultBookmark = defaultBookmark;
             ReportLevelFilters = reportLevelFilters;
             Pages = pages;
@@ -60,6 +64,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "settings")]
         public ExportReportSettings Settings { get; set; }
+
+        /// <summary>
+        /// Gets or sets the dataset ID to export the report with. Only needed
+        /// if exporting with a dataset other than the report's default
+        /// dataset.
+        /// </summary>
+        [JsonProperty(PropertyName = "datasetToBind")]
+        public string DatasetToBind { get; set; }
 
         /// <summary>
         /// Gets or sets a default bookmark to apply on all pages that don't

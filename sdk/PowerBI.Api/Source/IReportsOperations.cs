@@ -104,9 +104,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// - If the dataset for a cloned report resides in two different [new
-        /// workspace
-        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// - If the dataset for a cloned report resides in two different
         /// workspaces or in **My workspace**, then a shared dataset will be
         /// created in the report's workspace.
         /// - When cloned, reports with a [live
@@ -237,10 +235,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// - If the specified dataset resides in a different [new workspace
-        /// experience](/power-bi/collaborate-share/service-new-workspaces)
-        /// workspace from the report, then a shared dataset will be created in
-        /// **My workspace**.
+        /// - If the specified dataset resides in a different workspace than
+        /// the report, then a shared dataset will be created in **My
+        /// workspace**.
         /// - On rebind, reports with a [live
         /// connection](/power-bi/desktop-report-lifecycle-datasets) will lose
         /// that connection and instead have a direct binding to the target
@@ -625,9 +622,7 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// - If the dataset for a cloned report resides in two different [new
-        /// workspace
-        /// experience](/power-bi/collaborate-share/service-new-workspaces)
+        /// - If the dataset for a cloned report resides in two different
         /// workspaces or in **My workspace**, then a shared dataset will be
         /// created in the report's workspace.
         /// - When cloned, reports with a [live
@@ -781,10 +776,9 @@ namespace Microsoft.PowerBI.Api
         /// </summary>
         /// <remarks>
         ///
-        /// - If the specified dataset resides in a different [new workspace
-        /// experience](/power-bi/collaborate-share/service-new-workspaces)
-        /// workspace from the report or in **My workspace**, then a shared
-        /// dataset will be created in the report's workspace.
+        /// - If the specified dataset resides in a different workspace than
+        /// the report or in **My workspace**, then a shared dataset will be
+        /// created in the report's workspace.
         /// - On rebind, reports with a [live
         /// connection](/power-bi/desktop-report-lifecycle-datasets) will lose
         /// that connection and instead have a direct binding to the target
