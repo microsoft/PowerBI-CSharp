@@ -10183,9 +10183,9 @@
                             "updateDatasourceRequest": {
                                 "credentialDetails": {
                                     "credentialType": "Windows",
-                                    "credentials": "{\"credentialData\":[{\"name\":\"username\", \"value\":\"contoso\\john\"},{\"name\":\"password\", \"value\":\"*****\"}]}",
+                                    "credentials": "AB....EF==",
                                     "encryptedConnection": "Encrypted",
-                                    "encryptionAlgorithm": "None",
+                                    "encryptionAlgorithm": "RSA-OAEP",
                                     "privacyLevel": "None"
                                 }
                             }
