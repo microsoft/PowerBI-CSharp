@@ -13990,7 +13990,8 @@
                                             "isEffectiveIdentityRequired": false,
                                             "isEffectiveIdentityRolesRequired": false,
                                             "isOnPremGatewayRequired": false,
-                                            "isInPlaceSharingEnabled": false
+                                            "isInPlaceSharingEnabled": false,
+                                            "workspaceId": "5c968528-70b6-4588-809f-ce811ffa5c23"
                                         }
                                     ]
                                 }
@@ -15416,7 +15417,8 @@
                                             "id": "5b218778-e7a5-4d73-8187-f10824047715",
                                             "name": "SalesMarketing",
                                             "webUrl": "https://app.powerbi.com//reports/5b218778-e7a5-4d73-8187-f10824047715",
-                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715"
+                                            "embedUrl": "https://app.powerbi.com/reportEmbed?reportId=5b218778-e7a5-4d73-8187-f10824047715",
+                                            "workspaceId": "278e22a3-2aee-4057-886d-c3225423bc10"
                                         }
                                     ]
                                 }
@@ -15614,7 +15616,8 @@
                                             "id": "69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
                                             "displayName": "SalesMarketing",
                                             "embedUrl": "https://app.powerbi.com/dashboardEmbed?dashboardId=69ffaa6c-b36d-4d01-96f5-1ed67c64d4af",
-                                            "isReadOnly": false
+                                            "isReadOnly": false,
+                                            "workspaceId": "abfbdc89-2659-43c1-9142-93e8378eac96"
                                         }
                                     ]
                                 }
@@ -17007,7 +17010,7 @@
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/Dataflows"
+                            "$ref": "#/definitions/AdminDataflows"
                         }
                     }
                 },
@@ -17023,7 +17026,8 @@
                                             "name": "AdventureWorks",
                                             "description": "Our Adventure Works",
                                             "modelUrl": "https://MyDataflowStorageAccount.dfs.core.windows.net/powerbi/contoso/AdventureWorks/model.json",
-                                            "configuredBy": "john@contoso.com"
+                                            "configuredBy": "john@contoso.com",
+                                            "workspaceId": "6369a442-4bc4-425c-916d-460c42be746b"
                                         }
                                     ]
                                 }
@@ -21608,6 +21612,15 @@
                 }
             }
         },
+        "DatasetWorkspaceIdProperty": {
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The dataset workspace ID. This property will be returned only in GetDatasetsAsAdmin."
+                }
+            }
+        },
         "UpdateDatasetRequest": {
             "description": "Update dataset request",
             "allOf": [
@@ -21670,6 +21683,9 @@
                 },
                 {
                     "$ref": "#/definitions/DatasetStorageMode"
+                },
+                {
+                    "$ref": "#/definitions/DatasetWorkspaceIdProperty"
                 }
             ]
         },
@@ -22864,6 +22880,15 @@
                 }
             }
         },
+        "ReportWorkspaceIdProperty": {
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The report workspace ID. This property will be returned only in GetReportsAsAdmin."
+                }
+            }
+        },
         "DatamartBaseProperties": {
             "required": [
                 "id"
@@ -23030,6 +23055,9 @@
                 },
                 {
                     "$ref": "#/definitions/SubscriptionProperties"
+                },
+                {
+                    "$ref": "#/definitions/ReportWorkspaceIdProperty"
                 }
             ]
         },
@@ -23185,6 +23213,15 @@
                 }
             }
         },
+        "DashboardWorkspaceIdProperty": {
+            "properties": {
+                "workspaceId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The dashboard workspace ID. This property will be returned only in GetDashboardsAsAdmin."
+                }
+            }
+        },
         "Dashboard": {
             "required": [
                 "id"
@@ -23216,6 +23253,9 @@
                 },
                 {
                     "$ref": "#/definitions/DashboardNavigationProperties"
+                },
+                {
+                    "$ref": "#/definitions/DashboardWorkspaceIdProperty"
                 },
                 {
                     "$ref": "#/definitions/AdminDashboardTilesProperties"
@@ -26410,7 +26450,7 @@
                 "workspaceId": {
                     "type": "string",
                     "format": "uuid",
-                    "description": "The dataflow workspace ID"
+                    "description": "The dataflow workspace ID."
                 }
             }
         },
@@ -26461,6 +26501,22 @@
                     "description": "The dataflow metadata list",
                     "items": {
                         "$ref": "#/definitions/Dataflow"
+                    }
+                }
+            }
+        },
+        "AdminDataflows": {
+            "description": "OData response wrapper for a Power BI Admin dataflow collection",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The report collection",
+                    "items": {
+                        "$ref": "#/definitions/AdminDataflow"
                     }
                 }
             }

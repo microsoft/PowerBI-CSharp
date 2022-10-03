@@ -9,23 +9,22 @@ namespace Microsoft.PowerBI.Api.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class DataflowWorkspaceIdProperty
+    public partial class ReportWorkspaceIdProperty
     {
         /// <summary>
-        /// Initializes a new instance of the DataflowWorkspaceIdProperty
-        /// class.
+        /// Initializes a new instance of the ReportWorkspaceIdProperty class.
         /// </summary>
-        public DataflowWorkspaceIdProperty()
+        public ReportWorkspaceIdProperty()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the DataflowWorkspaceIdProperty
-        /// class.
+        /// Initializes a new instance of the ReportWorkspaceIdProperty class.
         /// </summary>
-        /// <param name="workspaceId">The dataflow workspace ID.</param>
-        public DataflowWorkspaceIdProperty(System.Guid? workspaceId = default(System.Guid?))
+        /// <param name="workspaceId">The report workspace ID. This property
+        /// will be returned only in GetReportsAsAdmin.</param>
+        public ReportWorkspaceIdProperty(System.Guid? workspaceId = default(System.Guid?))
         {
             WorkspaceId = workspaceId;
             CustomInit();
@@ -37,7 +36,8 @@ namespace Microsoft.PowerBI.Api.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the dataflow workspace ID.
+        /// Gets or sets the report workspace ID. This property will be
+        /// returned only in GetReportsAsAdmin.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }

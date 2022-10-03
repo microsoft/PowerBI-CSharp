@@ -844,7 +844,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='skip'>
             /// Skips the first n results
             /// </param>
-            public static Dataflows GetDataflowsAsAdmin(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
+            public static AdminDataflows GetDataflowsAsAdmin(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?))
             {
                 return operations.GetDataflowsAsAdminAsync(filter, top, skip).GetAwaiter().GetResult();
             }
@@ -881,7 +881,7 @@ namespace Microsoft.PowerBI.Api
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Dataflows> GetDataflowsAsAdminAsync(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AdminDataflows> GetDataflowsAsAdminAsync(this IDataflowsOperations operations, string filter = default(string), int? top = default(int?), int? skip = default(int?), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetDataflowsAsAdminWithHttpMessagesAsync(filter, top, skip, null, cancellationToken).ConfigureAwait(false))
                 {

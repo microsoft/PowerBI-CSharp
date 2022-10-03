@@ -48,7 +48,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// API call, or the
         /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
         /// API call with the `getArtifactUser` parameter.</param>
-        /// <param name="workspaceId">The dataflow workspace ID</param>
+        /// <param name="workspaceId">The dataflow workspace ID.</param>
         public AdminDataflow(System.Guid objectId, string name = default(string), string description = default(string), string modelUrl = default(string), string configuredBy = default(string), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), IList<DataflowUser> users = default(IList<DataflowUser>), System.Guid? workspaceId = default(System.Guid?))
         {
             ObjectId = objectId;
@@ -124,7 +124,7 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DataflowUser> Users { get; set; }
 
         /// <summary>
-        /// Gets or sets the dataflow workspace ID
+        /// Gets or sets the dataflow workspace ID.
         /// </summary>
         [JsonProperty(PropertyName = "workspaceId")]
         public System.Guid? WorkspaceId { get; set; }
