@@ -1563,6 +1563,57 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/datasets/{datasetId}/updateInPlaceSharing": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the value for external sharing setting for the specified dataset",
+                "description": "\n\n## Permissions\n\nThe user must be the dataset owner.\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- API does not support live connect datasets \n- API does not support datasets in classic, my, or admin insights workspaces. \n- Tenant admin setting switch 'Allow specific users to turn on external data sharing' needs to be enabled.\n<br><br>",
+                "operationId": "Datasets_UpdateInPlaceSharing",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "datasetId",
+                        "description": "The dataset ID",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updateInPlaceSharingRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateInPlaceSharingRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example of updating external sharing dataset property": {
+                        "parameters": {
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateInPlaceSharingRequest": {
+                                "isInPlaceSharingEnabled": true
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/datasets/{datasetId}/datasources": {
             "get": {
                 "tags": [
@@ -5590,6 +5641,66 @@
                                         "newValue": "5678"
                                     }
                                 ]
+                            }
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/groups/{groupId}/datasets/{datasetId}/updateInPlaceSharing": {
+            "post": {
+                "tags": [
+                    "Datasets"
+                ],
+                "summary": "Updates the value for external sharing setting for the specified dataset from the specified workspace.",
+                "description": "\n\n## Permissions\n\nThe user must be the dataset owner.\n- This API call can be called by a service principal profile. For more information see: [Service principal profiles in Power BI Embedded](/power-bi/developer/embedded/embed-multi-tenancy).\n\n## Required Scope\n\nDataset.ReadWrite.All\n\n## Limitations\n\n- This API does not support live connect datasets \n- This API does not support datasets in classic, my, or admin insights workspaces. \n- Tenant admin setting switch 'Allow specific users to turn on external data sharing' needs to be enabled.\n<br><br>",
+                "operationId": "Datasets_UpdateInPlaceSharingInGroup",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "groupId",
+                        "in": "path",
+                        "required": true,
+                        "description": "The workspace ID",
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "datasetId",
+                        "in": "path",
+                        "description": "The dataset ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    {
+                        "name": "updateInPlaceSharingRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/UpdateInPlaceSharingRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Example of updating external sharing dataset property": {
+                        "parameters": {
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
+                            "updateInPlaceSharingRequest": {
+                                "isInPlaceSharingEnabled": true
                             }
                         },
                         "responses": {
@@ -24370,6 +24481,18 @@
             },
             "required": [
                 "updateDetails"
+            ]
+        },
+        "UpdateInPlaceSharingRequest": {
+            "description": "Update in place sharing request for a Power BI dataset",
+            "properties": {
+                "isInPlaceSharingEnabled": {
+                    "type": "boolean",
+                    "description": "Whether the dataset can be shared with external users to be consumed in their own tenant"
+                }
+            },
+            "required": [
+                "isInPlaceSharingEnabled"
             ]
         },
         "MashupParameters": {

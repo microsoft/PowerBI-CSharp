@@ -1873,6 +1873,49 @@ namespace Microsoft.PowerBI.Api
         }
 
         /// <summary>
+        /// Updates the value for external sharing setting for the specified dataset
+        /// from the specified workspace.
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='updateInPlaceSharingRequest'>
+        /// </param>
+        public static void UpdateInPlaceSharing(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, UpdateInPlaceSharingRequest updateInPlaceSharingRequest)
+        {
+            operations.UpdateInPlaceSharingInGroupAsync(groupId, datasetId, updateInPlaceSharingRequest).GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Updates the value for external sharing setting for the specified dataset
+        /// from the specified workspace.
+        /// </summary>
+        /// <param name='operations'>
+        /// The operations group for this extension method.
+        /// </param>
+        /// <param name='groupId'>
+        /// The workspace ID
+        /// </param>
+        /// <param name='datasetId'>
+        /// The dataset ID
+        /// </param>
+        /// <param name='updateInPlaceSharingRequest'>
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        public static async Task UpdateInPlaceSharingAsync(this IDatasetsOperations operations, System.Guid groupId, System.Guid datasetId, UpdateInPlaceSharingRequest updateInPlaceSharingRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            (await operations.UpdateInPlaceSharingInGroupWithHttpMessagesAsync(groupId, datasetId, updateInPlaceSharingRequest, null, cancellationToken).ConfigureAwait(false)).Dispose();
+        }
+
+        /// <summary>
         /// Gets a list of gateways to bind
         /// </summary>
         /// <param name='operations'>
