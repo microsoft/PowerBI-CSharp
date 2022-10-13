@@ -27,13 +27,24 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         /// <param name="source">The ID of the Power BI item that's deployed
         /// from the source stage</param>
+        /// <param name="sourceDisplayName">The display name of the Power BI
+        /// item that's deployed from the source stage</param>
         /// <param name="target">The ID of the Power BI item that will be
         /// overwritten in the target stage. Only applies when overwriting a
         /// Power BI item.</param>
-        public DeploymentSourceAndTarget(System.Guid source, System.Guid? target = default(System.Guid?))
+        /// <param name="targetDisplayName">The name of the Power BI item that
+        /// will be overwritten in the target stage. Only applies when
+        /// overwriting a Power BI item.</param>
+        /// <param name="type">The type of the Power BI item that will be
+        /// overwritten in the target stage. Only applies when overwriting a
+        /// Power BI item.</param>
+        public DeploymentSourceAndTarget(System.Guid source, string sourceDisplayName = default(string), System.Guid? target = default(System.Guid?), string targetDisplayName = default(string), string type = default(string))
         {
             Source = source;
+            SourceDisplayName = sourceDisplayName;
             Target = target;
+            TargetDisplayName = targetDisplayName;
+            Type = type;
             CustomInit();
         }
 
@@ -50,11 +61,32 @@ namespace Microsoft.PowerBI.Api.Models
         public System.Guid Source { get; set; }
 
         /// <summary>
+        /// Gets or sets the display name of the Power BI item that's deployed
+        /// from the source stage
+        /// </summary>
+        [JsonProperty(PropertyName = "sourceDisplayName")]
+        public string SourceDisplayName { get; set; }
+
+        /// <summary>
         /// Gets or sets the ID of the Power BI item that will be overwritten
         /// in the target stage. Only applies when overwriting a Power BI item.
         /// </summary>
         [JsonProperty(PropertyName = "target")]
         public System.Guid? Target { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the Power BI item that will be overwritten
+        /// in the target stage. Only applies when overwriting a Power BI item.
+        /// </summary>
+        [JsonProperty(PropertyName = "targetDisplayName")]
+        public string TargetDisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of the Power BI item that will be overwritten
+        /// in the target stage. Only applies when overwriting a Power BI item.
+        /// </summary>
+        [JsonProperty(PropertyName = "type")]
+        public string Type { get; set; }
 
         /// <summary>
         /// Validate the object.

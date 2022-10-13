@@ -12918,7 +12918,20 @@
                                         "executionStartTime": "2020-12-13T09:25:43.153Z",
                                         "executionEndTime": "2020-12-13T09:26:43.153Z",
                                         "sourceStageOrder": 0,
-                                        "targetStageOrder": 1
+                                        "targetStageOrder": 1,
+                                        "note": {
+                                            "content": "Sample note",
+                                            "isTruncated": false
+                                        },
+                                        "preDeploymentDiffInformation": {
+                                            "newArtifactsCount": 0,
+                                            "differentArtifactsCount": 0,
+                                            "noDifferenceArtifactsCount": 1
+                                        },
+                                        "performedBy": {
+                                            "userPrincipalName": "john@contoso.com",
+                                            "principalType": "User"
+                                        }
                                     }
                                 ]
                             }
@@ -12989,45 +13002,75 @@
                                                 "index": 0,
                                                 "type": "DataflowDeployment",
                                                 "status": "Succeeded",
+                                                "preDeploymentDiffState": "New",
                                                 "sourceAndTarget": {
-                                                    "source": "29efcfb0-0063-44af-a4ed-6c0bee3417d3"
+                                                    "source": "29efcfb0-0063-44af-a4ed-6c0bee3417d3",
+                                                    "sourceDisplayName": "Source dataflow",
+                                                    "type": "dataflow"
                                                 }
                                             },
                                             {
                                                 "index": 1,
                                                 "type": "DatamartDeployment",
                                                 "status": "Succeeded",
+                                                "preDeploymentDiffState": "New",
                                                 "sourceAndTarget": {
-                                                    "source": "645cd81f-1b21-4006-82b6-54cc7ec0352e"
+                                                    "source": "645cd81f-1b21-4006-82b6-54cc7ec0352e",
+                                                    "sourceDisplayName": "Source datamart",
+                                                    "type": "datamart"
                                                 }
                                             },
                                             {
                                                 "index": 2,
                                                 "type": "DatasetDeployment",
                                                 "status": "Succeeded",
+                                                "preDeploymentDiffState": "NoDifference",
                                                 "sourceAndTarget": {
                                                     "source": "1a201f2a-d1d8-45c0-8c61-1676338517de",
-                                                    "target": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee"
+                                                    "sourceDisplayName": "Source dataset",
+                                                    "target": "dd3b6aa1-4d40-405c-a19b-48314a27e8ee",
+                                                    "targetDisplayName": "Target dataset",
+                                                    "type": "dataset"
                                                 }
                                             },
                                             {
                                                 "index": 3,
                                                 "type": "ReportDeployment",
                                                 "status": "Succeeded",
+                                                "preDeploymentDiffState": "Different",
                                                 "sourceAndTarget": {
                                                     "source": "2d225191-65f8-4ec3-b77d-06100602b1f7",
-                                                    "target": "9d5c1f0f-f85c-48f4-8a8e-4c77547116b3"
+                                                    "sourceDisplayName": "Source report",
+                                                    "target": "9d5c1f0f-f85c-48f4-8a8e-4c77547116b3",
+                                                    "targetDisplayName": "Target report",
+                                                    "type": "report"
                                                 }
                                             },
                                             {
                                                 "index": 4,
                                                 "type": "DashboardDeployment",
                                                 "status": "Succeeded",
+                                                "preDeploymentDiffState": "New",
                                                 "sourceAndTarget": {
-                                                    "source": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82"
+                                                    "source": "9046e4cc-8aea-4a7a-a3b5-1a78b1447d82",
+                                                    "sourceDisplayName": "Source dashboard",
+                                                    "type": "dashboard"
                                                 }
                                             }
                                         ]
+                                    },
+                                    "note": {
+                                        "content": "Sample note",
+                                        "isTruncated": false
+                                    },
+                                    "preDeploymentDiffInformation": {
+                                        "newArtifactsCount": 3,
+                                        "differentArtifactsCount": 1,
+                                        "noDifferenceArtifactsCount": 1
+                                    },
+                                    "performedBy": {
+                                        "userPrincipalName": "john@contoso.com",
+                                        "principalType": "User"
                                     }
                                 }
                             }
@@ -13087,7 +13130,8 @@
                                 "options": {
                                     "allowOverwriteArtifact": true,
                                     "allowCreateArtifact": true
-                                }
+                                },
+                                "note": "Deploying business ready items"
                             }
                         },
                         "responses": {
@@ -13189,7 +13233,8 @@
                                 "options": {
                                     "allowOverwriteArtifact": true,
                                     "allowCreateArtifact": true
-                                }
+                                },
+                                "note": "Deploying business ready items"
                             }
                         },
                         "responses": {
@@ -13217,7 +13262,7 @@
                                 "datamarts": [
                                     {
                                         "sourceId": "6bfe235c-6d7b-41b7-98a6-2b8276b3e82b",
-                                         "options": {
+                                        "options": {
                                             "allowOverwriteArtifact": true,
                                             "allowCreateArtifact": true
                                         }
@@ -13230,7 +13275,8 @@
                                             "allowOverwriteArtifact": true
                                         }
                                     }
-                                ]
+                                ],
+                                "note": "Deploying business ready items"
                             }
                         },
                         "responses": {
@@ -27743,9 +27789,59 @@
                     "type": "integer",
                     "description": "The numeric identifier of a target pipeline deployment stage. Development (0), Test (1), Production (2)."
                 },
+                "performedBy": {
+                    "description": "User or service principal that performed the pipeline operation.",
+                    "$ref": "#/definitions/PipelineOperationUser"
+                },
+                "note": {
+                    "description": "A note representing a description of the operation.",
+                    "$ref": "#/definitions/PipelineOperationNote"
+                },
                 "executionPlan": {
                     "description": "The deployment execution plan. Only applicable to a single pipeline operation.",
                     "$ref": "#/definitions/DeploymentExecutionPlan"
+                },
+                "preDeploymentDiffInformation": {
+                    "description": "The amount of deployed items in the source stage, that are new, identical or different to items in the target stage, before deployment.",
+                    "$ref": "#/definitions/PreDeploymentDiffInformation"
+                }
+            }
+        },
+        "PipelineOperationUser": {
+            "description": "User or service principal that performed the pipeline operation.",
+            "required": [
+                "principalType"
+            ],
+            "properties": {
+                "userPrincipalName": {
+                    "type": "string",
+                    "description": "The UPN of the user who performed the deployment."
+                },
+                "principalObjectID": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The ID of the service principal that performed the deployment."
+                },
+                "principalType": {
+                    "description": "The type of user who performed the deployment.",
+                    "$ref": "#/definitions/PrincipalType"
+                }
+            }
+        },
+        "PipelineOperationNote": {
+            "description": "A note describing the deployment.",
+            "required": [
+                "content",
+                "isTruncated"
+            ],
+            "properties": {
+                "content": {
+                    "type": "string",
+                    "description": "Text describing the deployment."
+                },
+                "isTruncated": {
+                    "type": "boolean",
+                    "description": "Indicates if the note is incomplete. True, only part of the note is returned. False, the note is complete."
                 }
             }
         },
@@ -27843,6 +27939,10 @@
                         ]
                     }
                 },
+                "preDeploymentDiffState": {
+                    "description": "Is an item new, different or identical to items in the target stage before deployment.",
+                    "$ref": "#/definitions/DeploymentExecutionStepPreDeploymentDiffState"
+                },
                 "sourceAndTarget": {
                     "description": "The source and target items of the step",
                     "$ref": "#/definitions/DeploymentSourceAndTarget"
@@ -27851,6 +27951,34 @@
                     "description": "The error details. Only applicable if the pipeline operation failed.",
                     "$ref": "#/definitions/DeploymentError"
                 }
+            }
+        },
+        "DeploymentExecutionStepPreDeploymentDiffState": {
+            "type": "string",
+            "description": "Is an item new, different or identical to items in the target stage before deployment.",
+            "enum": [
+                "New",
+                "Different",
+                "NoDifference"
+            ],
+            "x-ms-enum": {
+                "name": "DeploymentExecutionStepPreDeploymentDiffState",
+                "modelAsExtensible": true,
+                "values": [
+                    {
+                        "value": "New",
+                        "description": "A new deployed item that doesn't exist in the target stage."
+                    },
+                    {
+                        "value": "Different",
+                        "description": "Before deployment, the item in the source stage wasn't identical to the one in the target stage."
+                    },
+                    {
+                        "value": "NoDifference",
+                        "description": "Before deployment, the item in the source stage was identical to the one in the target stage."
+                    }
+
+                ]
             }
         },
         "DeploymentSourceAndTarget": {
@@ -27864,10 +27992,22 @@
                     "format": "uuid",
                     "description": "The ID of the Power BI item that's deployed from the source stage"
                 },
+                "sourceDisplayName": {
+                    "type": "string",
+                    "description": "The display name of the Power BI item that's deployed from the source stage"
+                },
                 "target": {
                     "type": "string",
                     "format": "uuid",
                     "description": "The ID of the Power BI item that will be overwritten in the target stage. Only applies when overwriting a Power BI item."
+                },
+                "targetDisplayName": {
+                    "type": "string",
+                    "description": "The name of the Power BI item that will be overwritten in the target stage. Only applies when overwriting a Power BI item."
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of the Power BI item that will be overwritten in the target stage. Only applies when overwriting a Power BI item."
                 }
             }
         },
@@ -27881,6 +28021,28 @@
                 "errorDetails": {
                     "type": "string",
                     "description": "Additional error details"
+                }
+            }
+        },
+        "PreDeploymentDiffInformation": {
+            "required": [
+                "newArtifactsCount",
+                "differentArtifactsCount",
+                "noDifferenceArtifactsCount"
+            ],
+            "description": "The amount of new, different and identical deployed items before deployment.",
+            "properties": {
+                "newArtifactsCount": {
+                    "type": "integer",
+                    "description": "The number of new items deployed to the target stage."
+                },
+                "differentArtifactsCount": {
+                    "type": "integer",
+                    "description": "The number of deployed items with differences between source and target stages, before deployment."
+                },
+                "noDifferenceArtifactsCount": {
+                    "type": "integer",
+                    "description": "The number of identical deployed items in the source and target stages, before deployment."
                 }
             }
         },
@@ -27909,6 +28071,10 @@
                 "options": {
                     "description": "Options that control the behavior of the entire deployment",
                     "$ref": "#/definitions/DeploymentOptions"
+                },
+                "note": {
+                    "type": "string",
+                    "description": "A note describing the deployment."
                 }
             }
         },
