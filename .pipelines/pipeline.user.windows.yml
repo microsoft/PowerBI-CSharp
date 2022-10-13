@@ -11,6 +11,14 @@ signing_options:
   codesign_validation_glob_pattern: 'regex|.+(?:exe|dll)$;-|*.nd.dll;-|.gdn\**'
   codesign_validation_break_build: true
 
+package_sources:
+  nuget:
+    config_files:
+      - include:
+        - "./sdk/.nuget/NuGet.Config"
+        - "./sdk/PowerBI.Api/NuGet.Config"
+        - "./sdk/PowerBI.Api.Tests/NuGet.Config" 
+
 restore:
   commands:
     - !!defaultcommand

@@ -16,7 +16,7 @@ call .\init-dev-cmd.cmd
 echo =====================================================
 echo "Restoring Nuget packages for PowerBI.CSharp.Sdk.sln"
 echo =====================================================
-nuget restore -NonInteractive "%~dp0..\sdk\PowerBI.CSharp.Sdk.sln" -ConfigFile "%~dp0..\sdk\.nuget\NuGet.Config"
+nuget restore -NonInteractive "%~dp0..\sdk\PowerBI.CSharp.Sdk.sln"
 
 set EX=%ERRORLEVEL%
 if "%EX%" neq "0" (
