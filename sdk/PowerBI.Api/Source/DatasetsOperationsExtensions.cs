@@ -1507,6 +1507,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update
             /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             ///
             /// ## Required Scope
             ///
@@ -1570,6 +1573,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update
             /// Parameters](/rest/api/power-bi/datasets/update-parameters) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             ///
             /// ## Required Scope
             ///
@@ -4062,6 +4068,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
@@ -4131,6 +4140,9 @@ namespace Microsoft.PowerBI.Api
             /// first data source will be updated. To overcome this limitation, define the
             /// data source as a parameter and use the [Update Parameters In
             /// Group](/rest/api/power-bi/datasets/update-parameters-in-group) API call.
+            /// - Datasets with incremental refresh policy are not fully supported, calling
+            /// this API may not work as expected and result of partial datasources update,
+            /// to overcome this you can try run a dataset refresh before calling this API.
             /// &lt;br&gt;&lt;br&gt;
             /// </remarks>
             /// <param name='operations'>
