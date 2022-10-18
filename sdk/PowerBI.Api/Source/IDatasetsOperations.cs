@@ -805,48 +805,6 @@ namespace Microsoft.PowerBI.Api
         /// </exception>
         Task<HttpOperationResponse> UpdateParametersWithHttpMessagesAsync(string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the value for external sharing setting for the specified
-        /// dataset
-        /// </summary>
-        /// <remarks>
-        ///
-        ///
-        /// ## Permissions
-        ///
-        /// The user must be the dataset owner.
-        ///
-        /// ## Required Scope
-        ///
-        /// Dataset.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// - API does not support live connect datasets
-        /// - API does not support datasets in classic, my, or admin insights
-        /// workspaces.
-        /// - Tenant admin setting switch 'Allow specific users to turn on
-        /// external data sharing' needs to be enabled.
-        /// &lt;br&gt;&lt;br&gt;
-        /// </remarks>
-        /// <param name='datasetId'>
-        /// The dataset ID
-        /// </param>
-        /// <param name='updateInPlaceSharingRequest'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> UpdateInPlaceSharingWithHttpMessagesAsync(System.Guid datasetId, UpdateInPlaceSharingRequest updateInPlaceSharingRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
         /// Returns a list of data sources for the specified dataset from **My
         /// workspace**.
         /// </summary>
@@ -2258,54 +2216,6 @@ namespace Microsoft.PowerBI.Api
         /// Thrown when a required parameter is null
         /// </exception>
         Task<HttpOperationResponse> UpdateParametersInGroupWithHttpMessagesAsync(System.Guid groupId, string datasetId, UpdateMashupParametersRequest updateMashupParametersRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Updates the value for external sharing setting for the specified
-        /// dataset from the specified workspace.
-        /// </summary>
-        /// <remarks>
-        ///
-        ///
-        /// ## Permissions
-        ///
-        /// The user must be the dataset owner.
-        /// - This API call can be called by a service principal profile. For
-        /// more information see: [Service principal profiles in Power BI
-        /// Embedded](/power-bi/developer/embedded/embed-multi-tenancy).
-        ///
-        /// ## Required Scope
-        ///
-        /// Dataset.ReadWrite.All
-        ///
-        /// ## Limitations
-        ///
-        /// - This API does not support live connect datasets
-        /// - This API does not support datasets in classic, my, or admin
-        /// insights workspaces.
-        /// - Tenant admin setting switch 'Allow specific users to turn on
-        /// external data sharing' needs to be enabled.
-        /// &lt;br&gt;&lt;br&gt;
-        /// </remarks>
-        /// <param name='groupId'>
-        /// The workspace ID
-        /// </param>
-        /// <param name='datasetId'>
-        /// The dataset ID
-        /// </param>
-        /// <param name='updateInPlaceSharingRequest'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="Microsoft.Rest.HttpOperationException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> UpdateInPlaceSharingInGroupWithHttpMessagesAsync(System.Guid groupId, System.Guid datasetId, UpdateInPlaceSharingRequest updateInPlaceSharingRequest, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns a list of data sources for the specified dataset from the
         /// specified workspace.
