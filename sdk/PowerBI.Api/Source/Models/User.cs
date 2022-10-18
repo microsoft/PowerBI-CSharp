@@ -33,12 +33,14 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="displayName">Display name of the principal</param>
         /// <param name="graphId">Identifier of the principal in Microsoft
         /// Graph. Only available for admin APIs.</param>
-        public User(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
+        /// <param name="userType">Type of the user.</param>
+        public User(string identifier, PrincipalType principalType, string emailAddress = default(string), string displayName = default(string), string graphId = default(string), string userType = default(string), ServicePrincipalProfile profile = default(ServicePrincipalProfile))
         {
             EmailAddress = emailAddress;
             DisplayName = displayName;
             Identifier = identifier;
             GraphId = graphId;
+            UserType = userType;
             PrincipalType = principalType;
             Profile = profile;
             CustomInit();
@@ -73,6 +75,12 @@ namespace Microsoft.PowerBI.Api.Models
         /// </summary>
         [JsonProperty(PropertyName = "graphId")]
         public string GraphId { get; set; }
+
+        /// <summary>
+        /// Gets or sets type of the user.
+        /// </summary>
+        [JsonProperty(PropertyName = "userType")]
+        public string UserType { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'None', 'User', 'Group',

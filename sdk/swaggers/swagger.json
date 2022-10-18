@@ -375,7 +375,7 @@
                                 "serializerSettings": {
                                     "includeNulls": true
                                 },
-								"impersonatedUserName": "someuser@mycompany.com"
+                                "impersonatedUserName": "someuser@mycompany.com"
                             }
                         },
                         "responses": {
@@ -6291,7 +6291,7 @@
                     "application/json"
                 ],
                 "parameters": [
-					{
+                    {
                         "name": "groupId",
                         "in": "path",
                         "required": true,
@@ -6328,7 +6328,7 @@
                 "x-ms-examples": {
                     "Execute queries example": {
                         "parameters": {
-							"groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
+                            "groupId": "f089354e-8366-4e18-aea3-4cb4a3a50b48",
                             "datasetId": "cfafbeb1-8037-4d0c-896e-a46fb27ff229",
                             "requestMessage": {
                                 "queries": [
@@ -6339,7 +6339,7 @@
                                 "serializerSettings": {
                                     "includeNulls": true
                                 },
-								"impersonatedUserName": "someuser@mycompany.com"
+                                "impersonatedUserName": "someuser@mycompany.com"
                             }
                         },
                         "responses": {
@@ -15109,7 +15109,7 @@
                 "parameters": [
                     {
                         "name": "groupId",
-                        "in": "path", 
+                        "in": "path",
                         "required": true,
                         "description": "The workspace ID",
                         "type": "string",
@@ -21758,6 +21758,9 @@
                 },
                 {
                     "$ref": "#/definitions/UpstreamDatasetsProperties"
+                },
+                {
+                    "$ref": "#/definitions/DatasetUserProperties"
                 }
             ]
         },
@@ -22955,13 +22958,135 @@
                     "description": "The datamart description"
                 },
                 "type": {
-                    "$ref": "#/definitions/DatamartType"
+                    "type": "string",
+                    "description": "The datamart type",
+                    "enum": [
+                        "Unset",
+                        "Ignore",
+                        "Sql",
+                        "Lakehouse",
+                        "Dataverse",
+                        "Datawarehouse"
+                    ],
+                    "x-ms-enum": {
+                        "name": "datamartType",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Unset",
+                                "description": "The datamart type was unset"
+                            },
+                            {
+                                "value": "Ignore",
+                                "description": "The datamart has no type"
+                            },
+                            {
+                                "value": "Sql",
+                                "description": "The datamart is of Sql type"
+                            },
+                            {
+                                "value": "Lakehouse",
+                                "description": "The datamart is of Lakehouse type"
+                            },
+                            {
+                                "value": "Dataverse",
+                                "description": "The datamart is of Dataverse type"
+                            },
+                            {
+                                "value": "Datawarehouse",
+                                "description": "The datamart is of Datawarehouse type"
+                            }
+                        ]
+                    }
                 },
                 "status": {
-                    "$ref": "#/definitions/DatamartStatus"
+                    "type": "string",
+                    "description": "The datamart status",
+                    "enum": [
+                        "Invalid",
+                        "Available",
+                        "SuspendedInCriticalPhase",
+                        "InProgress",
+                        "Error",
+                        "OutOfRegion",
+                        "NoCapacity"
+                    ],
+                    "x-ms-enum": {
+                        "name": "datamartStatus",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Invalid",
+                                "description": "The datamart has invalid status"
+                            },
+                            {
+                                "value": "Available",
+                                "description": "The datamart is available"
+                            },
+                            {
+                                "value": "SuspendedInCriticalPhase",
+                                "description": "The datamart is suspended in critical phase"
+                            },
+                            {
+                                "value": "InProgress",
+                                "description": "The datamart is in progress"
+                            },
+                            {
+                                "value": "Error",
+                                "description": "The datamart has error status"
+                            },
+                            {
+                                "value": "OutOfRegion",
+                                "description": "The datamart is out of region"
+                            },
+                            {
+                                "value": "NoCapacity",
+                                "description": "The datamart has no capacity"
+                            }
+                        ]
+                    }
                 },
                 "state": {
-                    "$ref": "#/definitions/DatamartState"
+                    "type": "string",
+                    "description": "The datamart current state",
+                    "enum": [
+                        "Invalid",
+                        "Initialized",
+                        "Active",
+                        "Migrating",
+                        "Evicted",
+                        "Deleted"
+                    ],
+                    "x-ms-enum": {
+                        "name": "datamartState",
+                        "modelAsExtensible": true,
+                        "values": [
+                            {
+                                "value": "Invalid",
+                                "description": "The datamart has invalid state"
+                            },
+                            {
+                                "value": "Initialized",
+                                "description": "The datamart was initialized"
+                            },
+                            {
+                                "value": "Active",
+                                "description": "The datamart is active"
+                            },
+                            {
+                                "value": "Migrating",
+                                "description": "The datamart is migrating"
+                            },
+                            {
+                                "value": "Evicted",
+                                "description": "The datamart was evicted"
+                            },
+                            {
+                                "value": "Deleted",
+                                "description": "The datamart was deleted"
+                            }
+                        ]
+                    }
                 },
                 "suspendedBatchId": {
                     "type": "string",
@@ -24410,6 +24535,10 @@
                     "type": "string",
                     "description": "Identifier of the principal in Microsoft Graph. Only available for admin APIs."
                 },
+                "userType": {
+                    "type": "string",
+                    "description": "Type of the user."
+                },
                 "principalType": {
                     "$ref": "#/definitions/PrincipalType"
                 },
@@ -24875,152 +25004,6 @@
                     "$ref": "#/definitions/User"
                 }
             ]
-        },
-        "DatamartState": {
-            "description": "The datamart current state",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "description": "The datamart current state",
-                    "enum": [
-                        "Invalid",
-                        "Initialized",
-                        "Active",
-                        "Migrating",
-                        "Evicted",
-                        "Deleted"
-                    ],
-                    "x-ms-enum": {
-                        "name": "state",
-                        "modelAsExtensible": true,
-                        "values": [
-                            {
-                                "value": "Invalid",
-                                "description": "The datamart has invalid state"
-                            },
-                            {
-                                "value": "Initialized",
-                                "description": "The datamart was initialized"
-                            },
-                            {
-                                "value": "Active",
-                                "description": "The datamart is active"
-                            },
-                            {
-                                "value": "Migrating",
-                                "description": "The datamart is migrating"
-                            },
-                            {
-                                "value": "Evicted",
-                                "description": "The datamart was evicted"
-                            },
-                            {
-                                "value": "Deleted",
-                                "description": "The datamart was deleted"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        "DatamartType": {
-            "description": "The datamart type",
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "description": "The datamart type",
-                    "enum": [
-                        "Unset",
-                        "Ignore",
-                        "Sql",
-                        "Lakehouse",
-                        "Dataverse",
-                        "Datawarehouse"
-                    ],
-                    "x-ms-enum": {
-                        "name": "type",
-                        "modelAsExtensible": true,
-                        "values": [
-                            {
-                                "value": "Unset",
-                                "description": "The datamart type was unset"
-                            },
-                            {
-                                "value": "Ignore",
-                                "description": "The datamart has no type"
-                            },
-                            {
-                                "value": "Sql",
-                                "description": "The datamart is of Sql type"
-                            },
-                            {
-                                "value": "Lakehouse",
-                                "description": "The datamart is of Lakehouse type"
-                            },
-                            {
-                                "value": "Dataverse",
-                                "description": "The datamart is of Dataverse type"
-                            },
-                            {
-                                "value": "Datawarehouse",
-                                "description": "The datamart is of Datawarehouse type"
-                            }
-                        ]
-                    }
-                }
-            }
-        },
-        "DatamartStatus": {
-            "description": "The datamart status",
-            "properties": {
-                "status": {
-                    "type": "string",
-                    "description": "The datamart status",
-                    "enum": [
-                        "Invalid",
-                        "Available",
-                        "SuspendedInCriticalPhase",
-                        "InProgress",
-                        "Error",
-                        "OutOfRegion",
-                        "NoCapacity"
-                    ],
-                    "x-ms-enum": {
-                        "name": "datamartStatus",
-                        "modelAsExtensible": true,
-                        "values": [
-                            {
-                                "value": "Invalid",
-                                "description": "The datamart has invalid status"
-                            },
-                            {
-                                "value": "Available",
-                                "description": "The datamart is available"
-                            },
-                            {
-                                "value": "SuspendedInCriticalPhase",
-                                "description": "The datamart is suspended in critical phase"
-                            },
-                            {
-                                "value": "InProgress",
-                                "description": "The datamart is in progress"
-                            },
-                            {
-                                "value": "Error",
-                                "description": "The datamart has error status"
-                            },
-                            {
-                                "value": "OutOfRegion",
-                                "description": "The datamart is out of region"
-                            },
-                            {
-                                "value": "NoCapacity",
-                                "description": "The datamart has no capacity"
-                            }
-                        ]
-                    }
-                }
-            }
         },
         "DashboardUser": {
             "required": [

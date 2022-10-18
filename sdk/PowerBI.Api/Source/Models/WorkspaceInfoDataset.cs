@@ -50,7 +50,16 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="targetStorageMode">The dataset storage mode</param>
         /// <param name="datasourceUsages">The data source usages</param>
         /// <param name="upstreamDatasets">The upstream datasets</param>
-        public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>))
+        /// <param name="users">(Empty value) The dataset user access details.
+        /// This property will be removed from the payload response in an
+        /// upcoming release. You can retrieve user information on a Power BI
+        /// item (such as a report or a dashboard) by using the [Get Dataset
+        /// Users as
+        /// Admin](/rest/api/power-bi/admin/datasets-get-dataset-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.</param>
+        public WorkspaceInfoDataset(string id, string name = default(string), string configuredBy = default(string), System.DateTime? createdDate = default(System.DateTime?), string contentProviderType = default(string), string description = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<Table> tables = default(IList<Table>), string schemaRetrievalError = default(string), bool? schemaMayNotBeUpToDate = default(bool?), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string targetStorageMode = default(string), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DependentDataset> upstreamDatasets = default(IList<DependentDataset>), IList<DatasetUser> users = default(IList<DatasetUser>))
         {
             Id = id;
             Name = name;
@@ -67,6 +76,7 @@ namespace Microsoft.PowerBI.Api.Models
             TargetStorageMode = targetStorageMode;
             DatasourceUsages = datasourceUsages;
             UpstreamDatasets = upstreamDatasets;
+            Users = users;
             CustomInit();
         }
 
@@ -166,6 +176,19 @@ namespace Microsoft.PowerBI.Api.Models
         public IList<DependentDataset> UpstreamDatasets { get; set; }
 
         /// <summary>
+        /// Gets or sets (Empty value) The dataset user access details. This
+        /// property will be removed from the payload response in an upcoming
+        /// release. You can retrieve user information on a Power BI item (such
+        /// as a report or a dashboard) by using the [Get Dataset Users as
+        /// Admin](/rest/api/power-bi/admin/datasets-get-dataset-users-as-admin)
+        /// API, or the
+        /// [PostWorkspaceInfo](/rest/api/power-bi/admin/workspace-info-post-workspace-info)
+        /// API with the `getArtifactUsers` parameter.
+        /// </summary>
+        [JsonProperty(PropertyName = "users")]
+        public IList<DatasetUser> Users { get; set; }
+
+        /// <summary>
         /// Validate the object.
         /// </summary>
         /// <exception cref="ValidationException">
@@ -198,6 +221,16 @@ namespace Microsoft.PowerBI.Api.Models
                     if (element1 != null)
                     {
                         element1.Validate();
+                    }
+                }
+            }
+            if (Users != null)
+            {
+                foreach (var element2 in Users)
+                {
+                    if (element2 != null)
+                    {
+                        element2.Validate();
                     }
                 }
             }

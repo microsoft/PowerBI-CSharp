@@ -11,21 +11,22 @@ namespace Microsoft.PowerBI.Api.Models
     using System.Reflection;
 
     /// <summary>
-    /// Defines values for Type.
+    /// Defines values for DatamartType.
     /// </summary>
-    public sealed class TypeConverter : JsonConverter
+    public sealed class DatamartTypeConverter : JsonConverter
     {
 
         /// <summary>
-        /// Returns if objectType can be converted to Type by the converter.
+        /// Returns if objectType can be converted to DatamartType by the
+        /// converter.
         /// </summary>
         public override bool CanConvert(System.Type objectType)
         {
-            return typeof(Type).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
+            return typeof(DatamartType).GetTypeInfo().IsAssignableFrom(objectType.GetTypeInfo());
         }
 
         /// <summary>
-        /// Overrides ReadJson and converts token to Type.
+        /// Overrides ReadJson and converts token to DatamartType.
         /// </summary>
         public override object ReadJson(JsonReader reader, System.Type objectType, object existingValue, JsonSerializer serializer)
         {
@@ -33,11 +34,11 @@ namespace Microsoft.PowerBI.Api.Models
             {
                 return null;
             }
-            return (Type)serializer.Deserialize<string>(reader);
+            return (DatamartType)serializer.Deserialize<string>(reader);
         }
 
         /// <summary>
-        /// Overriding WriteJson for Type for serialization.
+        /// Overriding WriteJson for DatamartType for serialization.
         /// </summary>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

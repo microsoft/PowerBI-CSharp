@@ -7,45 +7,121 @@
 namespace Microsoft.PowerBI.Api.Models
 {
     using Newtonsoft.Json;
-    using System.Linq;
 
     /// <summary>
-    /// The datamart current state
+    /// Defines values for DatamartState.
     /// </summary>
-    public partial class DatamartState
+    /// <summary>
+    /// Determine base value for a given allowed value if exists, else return
+    /// the value itself
+    /// </summary>
+    [JsonConverter(typeof(DatamartStateConverter))]
+    public struct DatamartState : System.IEquatable<DatamartState>
     {
-        /// <summary>
-        /// Initializes a new instance of the DatamartState class.
-        /// </summary>
-        public DatamartState()
+        private DatamartState(string underlyingValue)
         {
-            CustomInit();
+            UnderlyingValue=underlyingValue;
         }
 
         /// <summary>
-        /// Initializes a new instance of the DatamartState class.
+        /// The datamart has invalid state
         /// </summary>
-        /// <param name="type">The datamart current state. Possible values
-        /// include: 'Invalid', 'Initialized', 'Active', 'Migrating',
-        /// 'Evicted', 'Deleted'</param>
-        public DatamartState(State? type = default(State?))
+        public static readonly DatamartState Invalid = "Invalid";
+
+        /// <summary>
+        /// The datamart was initialized
+        /// </summary>
+        public static readonly DatamartState Initialized = "Initialized";
+
+        /// <summary>
+        /// The datamart is active
+        /// </summary>
+        public static readonly DatamartState Active = "Active";
+
+        /// <summary>
+        /// The datamart is migrating
+        /// </summary>
+        public static readonly DatamartState Migrating = "Migrating";
+
+        /// <summary>
+        /// The datamart was evicted
+        /// </summary>
+        public static readonly DatamartState Evicted = "Evicted";
+
+        /// <summary>
+        /// The datamart was deleted
+        /// </summary>
+        public static readonly DatamartState Deleted = "Deleted";
+
+
+        /// <summary>
+        /// Underlying value of enum DatamartState
+        /// </summary>
+        private readonly string UnderlyingValue;
+
+        /// <summary>
+        /// Returns string representation for DatamartState
+        /// </summary>
+        public override string ToString()
         {
-            Type = type;
-            CustomInit();
+            return UnderlyingValue.ToString();
         }
 
         /// <summary>
-        /// An initialization method that performs custom operations like setting defaults
+        /// Compares enums of type DatamartState
         /// </summary>
-        partial void CustomInit();
+        public bool Equals(DatamartState e)
+        {
+            return UnderlyingValue.Equals(e.UnderlyingValue);
+        }
 
         /// <summary>
-        /// Gets or sets the datamart current state. Possible values include:
-        /// 'Invalid', 'Initialized', 'Active', 'Migrating', 'Evicted',
-        /// 'Deleted'
+        /// Implicit operator to convert string to DatamartState
         /// </summary>
-        [JsonProperty(PropertyName = "type")]
-        public State? Type { get; set; }
+        public static implicit operator DatamartState(string value)
+        {
+            return new DatamartState(value);
+        }
+
+        /// <summary>
+        /// Implicit operator to convert DatamartState to string
+        /// </summary>
+        public static implicit operator string(DatamartState e)
+        {
+            return e.UnderlyingValue;
+        }
+
+        /// <summary>
+        /// Overriding == operator for enum DatamartState
+        /// </summary>
+        public static bool operator == (DatamartState e1, DatamartState e2)
+        {
+            return e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overriding != operator for enum DatamartState
+        /// </summary>
+        public static bool operator != (DatamartState e1, DatamartState e2)
+        {
+            return !e2.Equals(e1);
+        }
+
+        /// <summary>
+        /// Overrides Equals operator for DatamartState
+        /// </summary>
+        public override bool Equals(object obj)
+        {
+            return obj is DatamartState && Equals((DatamartState)obj);
+        }
+
+        /// <summary>
+        /// Returns for hashCode DatamartState
+        /// </summary>
+        public override int GetHashCode()
+        {
+            return UnderlyingValue.GetHashCode();
+        }
 
     }
 }

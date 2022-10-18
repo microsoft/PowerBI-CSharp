@@ -33,6 +33,15 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="id">The datamart ID</param>
         /// <param name="name">The datamart name</param>
         /// <param name="description">The datamart description</param>
+        /// <param name="type">The datamart type. Possible values include:
+        /// 'Unset', 'Ignore', 'Sql', 'Lakehouse', 'Dataverse',
+        /// 'Datawarehouse'</param>
+        /// <param name="status">The datamart status. Possible values include:
+        /// 'Invalid', 'Available', 'SuspendedInCriticalPhase', 'InProgress',
+        /// 'Error', 'OutOfRegion', 'NoCapacity'</param>
+        /// <param name="state">The datamart current state. Possible values
+        /// include: 'Invalid', 'Initialized', 'Active', 'Migrating',
+        /// 'Evicted', 'Deleted'</param>
         /// <param name="suspendedBatchId">datamart suspended batch id</param>
         /// <param name="endorsementDetails">The datamart endorsement
         /// details</param>
@@ -51,7 +60,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasourceUsages">The data source usages</param>
         /// <param name="users">The user access details for a Power BI
         /// datamart.</param>
-        public WorkspaceInfoDatamart(System.Guid id, string name = default(string), string description = default(string), DatamartType type = default(DatamartType), DatamartStatus1 status = default(DatamartStatus1), DatamartState state = default(DatamartState), string suspendedBatchId = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), string configuredBy = default(string), string modifiedById = default(string), string configuredById = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatamartUser> users = default(IList<DatamartUser>))
+        public WorkspaceInfoDatamart(System.Guid id, string name = default(string), string description = default(string), DatamartType? type = default(DatamartType?), DatamartStatus? status = default(DatamartStatus?), DatamartState? state = default(DatamartState?), string suspendedBatchId = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), string configuredBy = default(string), string modifiedById = default(string), string configuredById = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatamartUser> users = default(IList<DatamartUser>))
         {
             Id = id;
             Name = name;
@@ -97,19 +106,27 @@ namespace Microsoft.PowerBI.Api.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamart type. Possible values include: 'Unset',
+        /// 'Ignore', 'Sql', 'Lakehouse', 'Dataverse', 'Datawarehouse'
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public DatamartType Type { get; set; }
+        public DatamartType? Type { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamart status. Possible values include:
+        /// 'Invalid', 'Available', 'SuspendedInCriticalPhase', 'InProgress',
+        /// 'Error', 'OutOfRegion', 'NoCapacity'
         /// </summary>
         [JsonProperty(PropertyName = "status")]
-        public DatamartStatus1 Status { get; set; }
+        public DatamartStatus? Status { get; set; }
 
         /// <summary>
+        /// Gets or sets the datamart current state. Possible values include:
+        /// 'Invalid', 'Initialized', 'Active', 'Migrating', 'Evicted',
+        /// 'Deleted'
         /// </summary>
         [JsonProperty(PropertyName = "state")]
-        public DatamartState State { get; set; }
+        public DatamartState? State { get; set; }
 
         /// <summary>
         /// Gets or sets datamart suspended batch id
