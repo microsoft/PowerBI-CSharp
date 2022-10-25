@@ -51,7 +51,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <param name="datasourceUsages">The data source usages</param>
         /// <param name="users">The user access details for a Power BI
         /// datamart.</param>
-        public WorkspaceInfoDatamart(System.Guid id, string name = default(string), string description = default(string), DatamartType type = default(DatamartType), DatamartStatus1 status = default(DatamartStatus1), DatamartState state = default(DatamartState), string suspendedBatchId = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), string configuredBy = default(string), string modifiedById = default(string), string configuredById = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatamartUser> users = default(IList<DatamartUser>))
+        public WorkspaceInfoDatamart(System.Guid id, string name = default(string), string description = default(string), string type = default(string), DatamartStatus1 status = default(DatamartStatus1), DatamartState state = default(DatamartState), string suspendedBatchId = default(string), EndorsementDetails endorsementDetails = default(EndorsementDetails), SensitivityLabel sensitivityLabel = default(SensitivityLabel), string modifiedBy = default(string), System.DateTime? modifiedDateTime = default(System.DateTime?), string configuredBy = default(string), string modifiedById = default(string), string configuredById = default(string), IList<DependentDataflow> upstreamDataflows = default(IList<DependentDataflow>), IList<DatasourceUsage> datasourceUsages = default(IList<DatasourceUsage>), IList<DatamartUser> users = default(IList<DatamartUser>))
         {
             Id = id;
             Name = name;
@@ -99,7 +99,7 @@ namespace Microsoft.PowerBI.Api.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "type")]
-        public DatamartType Type { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// </summary>
