@@ -24129,7 +24129,7 @@
             "properties": {
                 "notifyOption": {
                     "type": "string",
-                    "description": "Mail notification options. This is not applicable to enhanced refresh.",
+                    "description": "Mail notification options. This parameter is not applicable to enhanced refreshes or API operations with a service principal.",
                     "enum": [
                         "NoNotification",
                         "MailOnFailure",
