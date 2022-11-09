@@ -18738,6 +18738,137 @@
                 "deprecated": false
             }
         },
+        "/v1.0/myorg/admin/profiles": {
+            "get": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Returns a list of service principal profiles for the organization.",
+                "description": "\n## Permissions\n\nThe user must have administrator rights or authenticate using a service principal.\n\n## Required Scope\n\nTenant.Read.All or Tenant.ReadWrite.All\n<br><br>",
+                "operationId": "Profiles_GetProfilesAsAdmin",
+                "consumes": [],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "$filter",
+                        "in": "query",
+                        "description": "Filters the results based on a boolean condition, using 'id', 'displayName', or 'servicePrincipalId'. Supports only 'eq' operator.",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "$top",
+                        "in": "query",
+                        "description": "Returns only the first n results. This parameter must be in the range of 1-5000.",
+                        "required": false,
+                        "minimum": 1,
+                        "maximum": 5000,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    {
+                        "name": "$skip",
+                        "in": "query",
+                        "description": "Skips the first n results. Use with top to fetch results beyond the first 5000.",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/AdminServicePrincipalProfiles"
+                        }
+                    }
+                },
+                "x-ms-examples": {
+                    "Get a specific service principal profile by id using filter": {
+                        "parameters": {
+                            "$filter": "id%20eq%20'3b211778-e7a5-4d73-8187-f10824047724'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "3b211778-e7a5-4d73-8187-f10824047724",
+                                            "displayName": "My new profile",
+                                            "servicePrincipalId": "12345678-e7a5-4d73-8187-f10824041234"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "Get service principal profiles by their parent servicePrincipalId using filter": {
+                        "parameters": {
+                            "$filter": "servicePrincipalId%20eq%20'12345678-e7a5-4d73-8187-f10824041234'"
+                        },
+                        "responses": {
+                            "200": {
+                                "body": {
+                                    "value": [
+                                        {
+                                            "id": "3b211778-e7a5-4d73-8187-f10824047724",
+                                            "displayName": "My new profile",
+                                            "servicePrincipalId": "12345678-e7a5-4d73-8187-f10824041234"
+                                        },
+                                        {
+                                            "id": "43211778-e7a5-4d73-8187-f10824044321",
+                                            "displayName": "My new profile2",
+                                            "servicePrincipalId": "12345678-e7a5-4d73-8187-f10824041234"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/v1.0/myorg/admin/profiles/{profileId}": {
+            "delete": {
+                "tags": [
+                    "Admin"
+                ],
+                "summary": "Deletes the specified service principal profile.",
+                "description": "\n## Permissions\n\nThe user must have administrator rights.\n\n## Required Scope\n\nTenant.ReadWrite.All\n<br><br>",
+                "operationId": "Profiles_DeleteProfileAsAdmin",
+                "consumes": [],
+                "produces": [],
+                "parameters": [
+                    {
+                        "name": "profileId",
+                        "in": "path",
+                        "description": "The service principal profile ID",
+                        "required": true,
+                        "type": "string",
+                        "format": "uuid"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "x-ms-examples": {
+                    "Delete a service principal profile": {
+                        "parameters": {
+                            "profileId": "b3ded933-57b7-21f4-b072-ed4c1f9d5824"
+                        },
+                        "responses": {
+                            "200": {}
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
         "/v1.0/myorg/CreateTemplateAppInstallTicket": {
             "post": {
                 "tags": [
@@ -24632,6 +24763,22 @@
                 }
             }
         },
+        "AdminServicePrincipalProfiles": {
+            "description": "Odata response wrapper for a Power BI service principal profile collection.",
+            "properties": {
+                "odata.context": {
+                    "type": "string",
+                    "description": "OData context"
+                },
+                "value": {
+                    "type": "array",
+                    "description": "The service principal profile collection",
+                    "items": {
+                        "$ref": "#/definitions/AdminServicePrincipalProfile"
+                    }
+                }
+            }
+        },
         "ServicePrincipalProfile": {
             "required": [
                 "id"
@@ -24646,6 +24793,24 @@
                 "displayName": {
                     "type": "string",
                     "description": "The service principal profile name"
+                }
+            }
+        },
+        "AdminServicePrincipalProfile": {
+            "required": [
+                "id"
+            ],
+            "description": "A Power BI service principal profile. Only relevant for [Power BI Embedded multi-tenancy solution](/power-bi/developer/embedded/embed-multi-tenancy).",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/ServicePrincipalProfile"
+                }
+            ],
+            "properties": {
+                "servicePrincipalId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "The service principal ID"
                 }
             }
         },

@@ -158,14 +158,14 @@ namespace Microsoft.PowerBI.Api
         public virtual IInformationProtection InformationProtection { get; private set; }
 
         /// <summary>
-        /// Gets the ITemplateApps.
-        /// </summary>
-        public virtual ITemplateApps TemplateApps { get; private set; }
-
-        /// <summary>
         /// Gets the IProfiles.
         /// </summary>
         public virtual IProfiles Profiles { get; private set; }
+
+        /// <summary>
+        /// Gets the ITemplateApps.
+        /// </summary>
+        public virtual ITemplateApps TemplateApps { get; private set; }
 
         /// <summary>
         /// Gets the IScorecardsOperations.
@@ -412,8 +412,8 @@ namespace Microsoft.PowerBI.Api
             Admin = new Admin(this);
             EmbedToken = new EmbedTokenOperations(this);
             InformationProtection = new InformationProtection(this);
-            TemplateApps = new TemplateApps(this);
             Profiles = new Profiles(this);
+            TemplateApps = new TemplateApps(this);
             Scorecards = new ScorecardsOperations(this);
             Goals = new GoalsOperations(this);
             GoalsStatusRules = new GoalsStatusRules(this);
