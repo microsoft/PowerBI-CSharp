@@ -846,7 +846,7 @@ namespace Microsoft.PowerBI.Api
         /// - Service Principals aren't supported for datasets with RLS per [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
         /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-        /// setting [_Allow service principals to user Power BI
+        /// setting [_Allow service principals to use Power BI
         /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
         /// under _Developer settings_ is enabled.
         /// - Only DAX queries are supported at this time. MDX and DMV queries are not
@@ -9643,7 +9643,7 @@ namespace Microsoft.PowerBI.Api
         /// - Service Principals aren't supported for datasets with RLS per [RLS
         /// limitations](/power-bi/admin/service-admin-rls#considerations-and-limitations)
         /// or with SSO enabled. To use Service Principals, make sure the admin tenant
-        /// setting [_Allow service principals to user Power BI
+        /// setting [_Allow service principals to use Power BI
         /// APIs_](/power-bi/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
         /// under _Developer settings_ is enabled.
         /// - Only DAX queries are supported at this time. MDX and DMV queries are not
